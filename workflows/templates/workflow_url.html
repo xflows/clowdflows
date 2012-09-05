@@ -1,0 +1,2 @@
+{% if workflow.public %}<a href="{{workflow.get_info_url}}">Click here to see the workflow information!</a>{% endif %}
+{% if not workflow.public %}This workflow is private.{% endif %}

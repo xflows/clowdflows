@@ -1,0 +1,22 @@
+<div id="widgetvisualization-{{widget.pk}}" width="800" height="600" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} results">
+
+<div id="widget-data-table-{{widget.pk}}" style=" margin: 0 auto">
+<table class="datasetTable">
+    <tr>
+	{% for attr in view_dict.attributes %}
+        <th class="tablecellcenter"> {{attr}} </th>
+	{% empty %}
+	<th>No input data!</th>
+    {% endfor %}      
+    </tr>
+    {% for ex in view_dict.examples %}
+    <tr class="tablerow{{widget.pk}}">
+		{% for x in ex %}
+        <td class="tablecellright"> {{x}} </td>
+		{% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+</div>

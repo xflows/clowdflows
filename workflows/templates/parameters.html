@@ -1,0 +1,34 @@
+{% load url from future %}
+<div id="widgetpreferences-{{widget.pk}}" rel="{{widget.pk}}" class="widgetdialog" title="{{widget.name}} parameters">
+<fieldset>
+{% for p in parameters %}
+        {% if p.parameter_type == "checkbox" %}
+        <input id="pref-{{p.pk}}" name="pref-{{p.pk}}" type="checkbox" value="true" {% ifequal p.value 'true' %}checked {% endifequal%} style="width:15px;display:inline;float:left;" />
+    {% endif %}<label for="pref-{{p.pk}}" {% if p.parameter_type == "checkbox" %} style="float:left;"{% endif %}>{{p.name}}</label>
+    {% if p.parameter_type == "checkbox" %}<div class="clear"><!----></div>{% endif %}
+    {% if p.parameter_type == "text" %}
+        <input id="pref-{{p.pk}}" name="pref-{{p.pk}}" type="text" value="{{p.value}}" onchange="" class="text ui-widget-content ui-corner-all" />
+    {% endif %}
+    {% if p.parameter_type == "select" %}
+        <select id="pref-{{p.pk}}" name="pref-{{p.pk}}" style="background:#fefefe;width:99%;" class="text ui-widget-content ui-corner-all" onchange="">
+        {% for o in p.options.all %}
+            <option value="{{ o.value }}" {% if o.value == p.value %} selected {% endif %}>{{ o.name }}</option>
+        {% endfor %}                                
+        </select>
+    {% endif %}                             
+    {% if p.parameter_type == "textarea" %}                                    
+        <textarea id="pref-{{p.pk}}" name="pref-{{p.pk}}" onchange="" class="text ui-widget-content ui-corner-all">{{ p.value }}</textarea>
+    {% endif %}
+    {% if p.parameter_type == "file" %}
+        <form id="upload_form{{ p.pk }}" method="POST" action="{% url 'file upload' %}" enctype="multipart/form-data"  target="upload_target{{ p.pk }}">
+        {% csrf_token %}
+            <input type="hidden" name="input_id" value="{{p.pk}}" />
+            <input id="id_file{{ p.pk }}" class="filename" type="file" name="file"><br/>
+            <iframe id="upload_target{{ p.pk }}" name="upload_target{{ p.pk }}" src="" style="width:0px;height:0px;border:0px solid #fff;"></iframe>
+            
+        </form>
+        <div id="parameter_comment{{p.pk}}">{{ p.value }}</div>
+    {% endif %}
+{% endfor %}
+</fieldset>
+</div>

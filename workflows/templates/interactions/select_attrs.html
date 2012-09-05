@@ -1,0 +1,145 @@
+<div id="widgetinteract-{{widget.pk}}" width="650" height="720" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} wants your input!">
+
+<script type="text/javascript">
+
+	function movAttr (sel, dest, msg) {
+		var selObj = document.getElementById(sel);
+		var destObj = document.getElementById(dest);
+		if (selObj.options.length == 0) {
+			msgDisplay(msg);
+			return true;
+		} else {
+			msgDisplay('');
+		};
+		var selected = new Array();
+		var count = 0;
+		for (var i = selObj.options.length - 1; i >= 0; i--) {
+			if (selObj.options[i].selected) {
+				if (dest == "ca_list" && (destObj.options.length != 0 || count >= 1) ) {
+					msgDisplay("Class Attribute already assigned!")
+					break;
+				};
+				selObj.options[i].selected = false;
+				selected[count] = selObj.options[i];
+				delete selObj.options[i];
+				count++;
+			};
+		};
+		for (var i = selected.length - 1; i >= 0; i--) {
+			destObj.options[destObj.options.length] = selected[i];
+		};
+	}
+
+	function msgDisplay (msg) {
+		document.getElementById("msg").innerHTML = msg;
+	}
+
+	function prepareForm () {
+		var selObj_ma = document.getElementById('ma_list');
+		var hideObj_ma = document.getElementById('ma_values');
+		var selObj_attrs = document.getElementById('attrs_list');
+		var hideObj_attrs = document.getElementById('attrs_values');
+		hideObj_ma.value = '';
+		hideObj_attrs.value = '';
+		for (var i = selObj_ma.options.length - 1; i >= 0; i--) {
+			if (hideObj_ma.value == '') {
+				hideObj_ma.value = selObj_ma.options[i].value;
+			} else {
+				hideObj_ma.value = hideObj_ma.value + ',' + selObj_ma.options[i].value;
+			};
+		};
+		
+		for (var i = selObj_attrs.options.length - 1; i >= 0; i--) {
+			if (hideObj_attrs.value == '') {
+				hideObj_attrs.value = selObj_attrs.options[i].value;
+			} else {
+				hideObj_attrs.value = hideObj_attrs.value + ',' + selObj_attrs.options[i].value;
+			};
+		};
+	}
+
+	function prepareForm2{{widget.id}} () {
+		var selObj_ma = document.getElementById('ma_list');
+		var selObj_attrs = document.getElementById('attrs_list');
+		for (var i = selObj_ma.options.length - 1; i >= 0; i--) {
+			selObj_ma.options[i].selected = true;
+		};
+		for (var i = selObj_attrs.options.length - 1; i >= 0; i--) {
+			selObj_attrs.options[i].selected = true;
+		};
+	}
+
+</script>
+<p>Arrange the attributes. The attributes on the right side are the ones that are included in the dataset.<br><br></p>
+<p id="msg" style="color:red;font-weight:bold" ></p>
+<form id="interactionform-{{widget.pk}}" name="interactionform-{{widget.pk}}" onsubmit="prepareForm2{{widget.id}}();" >
+<table>
+	<tr>
+
+	</tr>
+	<tr>
+		<center>
+
+		    <table>
+		        <tr>
+		            <td rowspan="3" >
+		                <h2>Attributes (not in the dataset)</h2>
+		                <select name="att" id="attr_list" style="width: 250px" size="29" multiple="multiple" >
+		                </select>
+		            </td>
+		            <td style = "vertical-align:middle; text-align:center" >
+		                <button type="button" onclick="movAttr('ca_list', 'attr_list', 'No Class Attributes available!');" > <-- </button>
+		            </br>
+		                <button type="button" onclick="movAttr('attr_list', 'ca_list', 'No more unsorted Attributes available!');" > --> </button>
+		            </td>
+		            <td>
+		                <h2>Class Attribute</h2>
+		                <SELECT name="ca" id="ca_list" style="width: 250px" SIZE="1" >
+		                    <OPTION value="{{input_dict.ca}}" SELECTED> {{input_dict.ca}}
+		                </SELECT>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td style = "vertical-align:middle; text-align:center">
+		                <button type="button" onclick="movAttr('ma_list', 'attr_list', 'No more Meta Attributes available!');" > <-- </button>
+		            </br>
+		                <button type="button" onclick="movAttr('attr_list', 'ma_list', 'No more unsorted Attributes available!');" > --> </button>
+		            </td>
+		            <td>
+		                <h2>Meta Attributes</h2>
+		                <select name="ma" id="ma_list" style="width: 250px" size="10" multiple="multiple" >
+		                    {% for attr in input_dict.ma %}
+		                    <option value="{{attr}}">
+		                        {{attr}}
+		                    </option>
+		                    {% endfor %}
+		                </select>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td style = "vertical-align:middle; text-align:center" >
+		                <button type="button" onclick="movAttr('attrs_list', 'attr_list', 'No more Attributes available!');" > <-- </button>
+		            </br>
+		                <button type="button" onclick="movAttr('attr_list', 'attrs_list', 'No more unsorted Attributes available!');" > --> </button>
+		            </td>
+		            <td>
+		                <h2>Attributes (in the dataset)</h2>
+		                <select name="attrs" id="attrs_list" style="width: 250px" size="15" multiple="multiple" >
+		                    {% for k, v in input_dict.sorted_attrs %}
+		                    <option value="{{k}}">
+		                        {{k}}
+		                    </option>
+		                    {% endfor %}
+		                </select>
+		            </td>
+		        </tr>
+		    </table>
+
+            <input class="runfunction" type="hidden" name="runfunction" value="prepareForm2{{widget.id}}();">
+		    <input type="hidden" name="widget_id" value="{{widget.pk}}">
+		
+		</center>
+	</tr>
+</table>
+</form>
+</div>

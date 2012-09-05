@@ -1,0 +1,166 @@
+html, body {
+	width:100%;
+	height:100%;
+	font: 12px "Trebuchet MS", sans-serif;
+            -moz-user-select: none; 
+        -khtml-user-select: none; 
+        -webkit-user-select: none; 
+        -o-user-select: none; 
+}
+
+label, input {
+	display:block;
+}
+
+input {
+	margin-bottom:10px;
+	width:100%;
+}
+
+#toolbar {
+	padding:10px;
+	border-bottom:1px solid black;
+}
+
+#widgets {
+	width:300px;
+	height:90%;
+	border-bottom:1px solid black;
+	float:left;
+	padding:10px;
+	overflow:auto;
+}
+/*
+#widgets ul {
+}
+
+#widgets a {
+	cursor:pointer;
+}
+
+#widgets ul li a.wid {
+	cursor:pointer;
+	padding-left:15px;
+}
+
+#widgets a.category {
+	display:block;
+}
+*/
+
+#content {
+	margin-left:320px;
+	height:90%;
+	padding:10px;
+	border-left:1px solid black;
+	border-bottom:1px solid black;
+	background:#eeeeee;
+}
+
+.canvas {
+	height:100%;
+	background:#ffffff !important;
+	border-left:1px solid #aaaaaa !important;
+	border-right:1px solid #aaaaaa !important;
+	border-bottom:1px solid #aaaaaa !important;
+	position:relative;
+	overflow:auto;
+	cursor:default !important;
+}
+
+.canvas div.widget {
+	position:absolute;
+	margin:10px;
+	height:50px;
+	min-width:129px;
+}
+
+.canvas div.widget div.inputs, .canvas div.widget div.outputs, .canvas div.widget div.widgetcenter {
+	float:left;
+	text-align:center;
+}
+
+.canvas div.widget div.inputs, .canvas div.widget div.outputs {
+	width:40px;
+}
+
+
+.canvas div.widget div.inputs div, .canvas div.widget div.outputs div {
+	min-width:30px; margin-top:10px; text-align:center;
+}
+
+.canvas div.widgetcenter {
+	padding:5px 20px;
+    min-height:34px;
+}
+
+.canvas div.widgetcenter img {
+}
+
+ul#icons {margin: 0; padding: 0;}
+ul#icons li {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none;}
+ul#icons span.ui-icon {float: left; margin: 0 4px;}
+
+.connection {
+	background:#aaaaaa;
+
+}
+
+.selectedline {
+	background:#666666 !important;
+}
+
+.hoveredline {
+	background:#666666 !important;
+}
+
+.datasetTable {
+	background:#ffffff;border:1px solid black; padding:5px;
+}
+
+.input {
+	position:relative;
+}
+
+.output {
+	position:relative;
+}
+
+textarea.text {
+	width:100%;
+	height:300px;
+}
+
+.widget_title {
+	font-size:16px;
+}
+
+
+th{
+	padding: 5px 10px; font-weight: bold;
+
+}
+
+.widgetresultsdialog, .widgetinteractiondialog  {
+    width:470px !important;
+    height:300px !important;
+    overflow:auto !important;
+
+}
+
+td{
+	padding: 5px 10px; 
+}
+.ttip{
+	padding: 0px 5px; 
+}
+
+.tablecellcenter{
+	padding: 5px 10px; text-align: center;
+}
+
+.tablecellright{
+	padding: 5px 10px; text-align: right;
+}
+
+

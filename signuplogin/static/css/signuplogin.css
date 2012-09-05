@@ -1,0 +1,78 @@
+#signup_login {
+    width:800px;
+    padding:20px 20px 10px 20px;
+    overflow:auto;
+}
+
+#signup_login #whoa {
+    font-size:24px;
+    color:#00c;
+    text-align:center;
+    font-weight:700;
+    margin:0px 0px 20px 0px;
+}
+
+#signup_login .mini-title, #avatar_win .mini-title {
+    display:block;
+    font-size:24px;
+    line-height:24px;
+    margin-bottom:12px;
+    font-weight:700;
+}
+
+#signup_login #signup {
+    width:379px;
+    padding-right:20px;
+    float:left;
+    border-right:1px solid #aaa;
+}
+
+#signup_login #login {
+    width:380px;
+    padding-left:20px;
+    float:left;
+}
+
+#signup_login form {
+    font-size:12px;
+    font-weight:700;
+}
+
+#signup_login form label {
+    display:block;
+    line-height:12px;
+    margin-top:10px;
+}
+
+#signup_login form input[type="submit"] {
+    margin-top:20px;
+    padding:10px;
+}
+
+#signup_login form input[type="text"] {
+    width:200px;
+    padding:2px;
+}
+
+#signup_login form input[type="text"]:focus {
+    background-color:#ffd;
+}
+
+#signup_login form input[type="password"] {
+    width:200px;
+    padding:2px;
+}
+
+#signup_login form input[type="password"]:focus {
+    background-color:#ffd;
+}
+
+#close_this {
+    text-align:center;
+    padding-bottom:10px;
+    font-size:12px;
+}
+
+.invisible {
+    display: none;
+}

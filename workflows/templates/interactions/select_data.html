@@ -1,0 +1,318 @@
+<div id="widgetinteract-{{widget.pk}}" width="850" height="550" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} wants your input!">
+
+<style type="text/css">
+button.shown {display: inline;}
+
+.hidden {display: none;}
+.shown {display: block;}
+
+select {width: 250px;}
+</style>
+
+<script type="text/javascript">
+
+	function attrChange (attr) {
+		//clear operators list
+		var op_list = document.getElementById('operator');
+		for (var i = op_list.options.length - 1; i >= 0; i--) {
+			op_list.remove(i);
+		};
+
+		//clear values list
+		var vl_list = document.getElementById('values');
+		for (var i = vl_list.length - 1; i >= 0; i--) {
+			vl_list.remove(i);
+		};
+
+		var operators = [];
+
+		if (attr['type'] == 'Discrete') {
+			//for discrete attributes
+
+			operators = ['in', 'equals'];
+
+			//if the attribute is a feature
+			if (attr['feature']) {
+				operators.unshift('is defined');
+			};
+
+			//prepare form elements
+			document.getElementById('val1').className="hidden";
+			document.getElementById('val2').className="hidden";
+			document.getElementById('values').className="shown";
+			document.getElementById('case').className="hidden";
+
+			//fill in operators
+			for (var i = operators.length - 1; i >= 0; i--) {
+				var opt = document.createElement('option');
+				opt.text = operators[i];
+				opt.value = operators[i];
+				if (operators[i] == 'equals') {
+					opt.onclick = "document.getElementById('values').multiple = false;";
+				} else {
+					opt.onclick = "document.getElementById('values').multiple = true;";
+				};
+				op_list.options[op_list.options.length] = opt;
+			};
+
+			//fill in values
+			for (var i = attr['values'].length - 1; i >= 0; i--) {
+				var opt = document.createElement('option');
+				opt.value = attr['values'][i];
+				opt.text = attr['values'][i];
+				vl_list.options[vl_list.options.length] = opt;
+			};
+		} else if(attr['type'] == 'Continuous') {
+			// for continuous attributes
+
+			operators = ['outside', 'between', '<=', '<', '>=', '>', '='];
+
+			//if the attribute is a feature
+			if (attr['feature']) {
+				operators.unshift('is defined');
+			};
+
+			//prepare form elements
+			document.getElementById('val1').className="shown";
+			document.getElementById('values').className="hidden";
+			document.getElementById('case').className="hidden";
+
+			//fill in operators
+			for (var i = operators.length - 1; i >= 0; i--) {
+				var opt = document.createElement('option');
+				opt.text = operators[i];
+				opt.value = operators[i];
+				if (operators[i] == 'outside' || operators[i] == 'between') {
+					opt.onclick = "document.getElementById('val2').className='shown';";
+				} else {
+					opt.onclick = "document.getElementById('val2').className='hidden';";
+				};
+				op_list.options[op_list.options.length] = opt;
+			};
+		} else {
+			// for string attributes
+
+			operators = ['ends with', 'begins with', 'not contains', 'contains', 'outside', 'between', '<=', '<', '>=', '>', '='];
+
+			//if the attribute is a feature
+			if (attr['feature']) {
+				operators.unshift('is defined');
+			};
+
+			//prepare form elements
+			document.getElementById('val1').className="shown";
+			document.getElementById('values').className="hidden";
+			document.getElementById('case').className="shown";
+
+			//fill in operators
+			for (var i = operators.length - 1; i >= 0; i--) {
+				var opt = document.createElement('option');
+				opt.text = operators[i];
+				opt.value = 's' + operators[i];
+				if (operators[i] == 'outside' || operators[i] == 'between') {
+					opt.onclick = "document.getElementById('val2').className='shown';";
+				} else {
+					opt.onclick = "document.getElementById('val2').className='hidden';";
+				};
+				op_list.options[op_list.options.length] = opt;
+			};
+		};
+	}
+
+	var JSON_txt = '{"conditions":[]}';
+
+	var obj = JSON.parse(JSON_txt);
+
+	var index = 0;
+    
+    addclicked{{widget.id}} = false;
+
+	function addCond (op) {
+        if (op=='and') {
+            addclicked{{widget.id}}=true;
+        }
+		var attr_list = document.getElementById('attr_list');
+		var att_name = attr_list.value;
+		var op_name = document.getElementById('operator').value;
+
+		if (obj['conditions'].length > 0) {
+			//'is defined' is not supposed to be used in disjunction here
+			var last_conds = obj['conditions'][obj['conditions'].length-1];
+			var last_cond = last_conds['condition'][last_conds['condition'].length-1];
+			if (op=="or" && 
+				(last_cond['operator'].indexOf('defined') != -1 ||
+					op_name.indexOf('defined') != -1)
+				){
+				alert("Invalid action: operator 'is defined' is not allowed in a disjunction statement!");
+				return true;
+			};	
+		};
+
+		var vl_list = document.getElementById('values');
+		var values = new Array ();
+
+		//add AND or OR if 'filters' is not empty
+		if (op != 'or') {
+			obj.conditions.push({"no":index, "condition":[], 'negate':0})
+		} else{
+			index--;
+		};
+
+		//copy values in values array
+		for (var i = vl_list.options.length - 1; i >= 0; i--) {
+			if (vl_list.options[i].selected) {
+				values[values.length] = vl_list.options[i].value;
+			};
+		};
+
+		var caseSens = document.getElementById('caseSens').checked;
+		var negate = document.getElementById('neg').checked;
+
+		//save selected condition
+		if (op_name == 'in' || op_name == 'equals') 
+		{
+			//if attribute is discrete
+			obj['conditions'][index].condition.push({
+				'attr':att_name, 
+				'operator':op_name, 
+				'values':values,
+				'negate':negate
+			});
+		} else if (op_name == 'between' || op_name == 'outside' || op_name == 'sbetween' || op_name == 'soutside')
+		{
+			//if attribute is non-discrete and selected operator == between or outside
+			obj['conditions'][index].condition.push({
+				'attr':att_name, 
+				'operator':op_name, 
+				'values':[document.getElementById('val1').value, document.getElementById('val2').value], 
+				'case':caseSens,
+				'negate':negate
+			});
+		} else {
+			//if attribute is non-discrete and selected operator is NOT between or outside
+			obj['conditions'][index].condition.push({
+				'attr':att_name, 
+				'operator':op_name, 
+				'values':[document.getElementById('val1').value],
+				'case':caseSens,
+				'negate':negate
+			});
+		};
+
+		index ++;
+		write_conds();
+	}
+
+	function undo () {
+        if (obj['conditions'].length>0) {
+            //delete the last statement
+            obj['conditions'].splice(--index ,1);
+            write_conds();
+            if ((obj['conditions'].length==0)) {
+                addclicked{{widget.id}}=false;
+            }
+        }
+	}
+
+	function negate () {
+        if (obj['conditions'].length>0) {
+            //negate the last statement
+            obj['conditions'][index-1]['negate'] = 1;
+            write_conds();
+        }
+	}
+
+	function write_conds () {
+		//write all the set conditions in the textbox
+
+		var filters = document.getElementById('filters');
+
+		filters.value = "";
+
+		for (var i = 0; i <= obj['conditions'].length - 1; i++) {
+			if (obj['conditions'][i].negate == 1){
+				filters.value += "NOT ";
+			};
+			if (obj['conditions'][i].condition.length > 1) {
+				for (var j = 0; j <= obj['conditions'][i].condition.length - 1; j++) {
+					if (j > 0) {
+						filters.value += " OR ";
+					};
+					filters.value += 
+					obj['conditions'][i].condition[j]['attr']+" "+
+					obj['conditions'][i].condition[j]['operator'];
+					if (obj['conditions'][i].condition[j]['operator'] != 'is defined') {
+						filters.value += " " + obj['conditions'][i].condition[j]['values'];
+					};
+				};
+				filters.value += "\n";
+			} else {
+				try{
+					filters.value += 
+					obj['conditions'][i].condition[0]['attr']+" "+
+					obj['conditions'][i].condition[0]['operator'];
+					if (obj['conditions'][i].condition[0]['operator'] != 'is defined') {
+						filters.value += " " + obj['conditions'][i].condition[0]['values'];
+					};
+					filters.value += "\n";
+				}
+				catch(err){
+
+				}
+			};
+		};
+
+		document.getElementById('conditions').value = JSON.stringify(obj);
+	}
+
+</script>
+
+<center>
+<form id="interactionform-{{widget.pk}}" name="interactionform-{{widget.pk}}" >
+	<table style="width:830px; height:180px">
+		<tr>
+			<td rowspan="2" style="width:252px">
+				<p>Attributes:</p>
+			    <SELECT name="attribute" id="attr_list" SIZE="7" >
+			        {% for k, v in input_dict.sorted_attrs %}
+			        <option value="{{k}}" onclick="attrChange({{v}});" >
+			            {{k}}
+			        </option>
+			        {% endfor %}
+			    </SELECT>
+			</td>
+			<td rowspan="2" style="width:252px">
+				<p>Operators:</p>
+			    <SELECT name="operator" id="operator" SIZE="7" />
+			</td>
+			<td rowspan="1" style="width:252px">
+				<p>Values:</p>
+				<SELECT name="values" id="values" class="hidden" SIZE="5" />
+			</td>
+	    </tr>
+	    <tr>
+	    	<td style="width:252px">
+				<input class="hidden" id="val1" type="text" value="value 1"/>
+				<input class="hidden" id="val2" type="text" value="value 2"/>
+				<div id="case" class="hidden">
+					<input type="checkbox" id="caseSens" value="case" style="display:inline; width:10%"/> 
+					<p style="display:inline">Case sensitive</p>
+				</div>
+				<div id="negate" class="hidden">
+					<input type="checkbox" id="neg" value="case" style="display:inline; width:10%"/> 
+					<p style="display:inline">Negate</p>
+				</div>
+			</td>
+	    </tr>
+	</table>
+    <input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+    <textarea style="width: 98%; height:200px" id="filters" name="filters" disabled="disabled"/>
+    <input id="conditions" name="conditions" type="hidden"/>
+</form>
+	 <button id="btn_add" onclick="addCond('and');" class="shown">Add</button>
+	 <button id="btn_or" onclick="if (addclicked{{widget.id}}) { addCond('or'); } else { addCond('and'); }" class="shown">Or</button>
+	 <button onclick="undo();" class="shown">Delete last</button>
+	 <button onclick="negate();" class="shown">Negate last</button>
+</center>
+
+</div>

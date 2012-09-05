@@ -129,6 +129,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'south',
+    'workflows',
+    'website',
+    'signuplogin',
+    'django_extensions',
+    'django.contrib.humanize',    
 )
 
 # A sample logging configuration. The only tangible logging
@@ -160,7 +166,6 @@ LOGGING = {
     }
 }
 
-TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS
 
 try:
     LOCAL_SETTINGS
@@ -169,3 +174,18 @@ except NameError:
         from local_settings import *
     except ImportError:
         pass
+        
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS
+
+TEMPLATES_FOLDER = os.path.join(PROJECT_DIR, 'templates')
+
+PROJECT_FOLDER = PROJECT_DIR
+
+TEMPLATE_DIRS = (TEMPLATES_FOLDER,)
+
+AUTH_PROFILE_MODULE = 'workflows.UserProfile'
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+
+STATIC_DOC_ROOT = os.path.join(os.getcwd(), 'media')        

@@ -1,0 +1,52 @@
+{% load url from future %}
+<div id="signup_login">
+    <div id="signup">
+        <span class="mini-title">Create an account</span>
+        Don't have an account yet? Create one! It takes like two seconds.
+        <form method="POST" id="register_form">
+            {% csrf_token %}
+
+            <input type="hidden" name="register" value="1">
+
+            <label for="rusername">Username</label>
+            <input type="text" name="rusername"></input><span id="taken_error" class="invisible">Username is already taken</span>
+
+            <label for="email">Email</label>
+            <input type="text" name="email"></input><span id="mailtaken_error" class="invisible">User with this email already exists. <a href="{% url 'django.contrib.auth.views.password_reset' %}">Forgot your password?</a></span>
+
+            <label for="password">Password</label>
+            <input type="password" name="rpassword"></input><span id="mismatch_error" class="invisible">Passwords don't match</span>
+            <label for="repeat_password">Repeat password</label>
+            <input type="password" name="repeat_password"></input>
+            <br/>
+            <div id="missing_error" class="invisible">All fields are mandatory</div>
+            <div id="unknown_error" class="invisible">An unknown error occured</div>
+
+            <input type="submit" value="Sign up" style=""></input>
+        </form>
+    </div>
+    <div id="login">
+        <span class="mini-title">Log in</span>
+        Already a member? Well then, go ahead and log in, partner!
+        <form method="POST" id="login_form">
+            {% csrf_token %}
+            <input type="hidden" name="login" value="1">
+
+            <label for="username">Username</label>
+            <input type="text" name="username"></input>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password"></input><br/>
+            <label for="remember"> <input id="remember" type="checkbox" name="remember" value="1"> Remember me</label>
+            <br/>
+            <div id="wrong_pass" style="display: none;">Wrong username / password combination</div>
+
+            <input type="submit" value="Log in" style=""></input>
+        </form>
+        <br>
+        <a href="{% url 'django.contrib.auth.views.password_reset' %}">Forgot your password?</a>
+    </div>
+</div>
+<div id="close_this">
+    <a href="javascript:$.fancybox.close()">Close this window</a>
+</div>

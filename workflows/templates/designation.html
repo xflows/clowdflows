@@ -1,0 +1,16 @@
+{% load url from future %}
+{% for widget in category.widgets.all %}
+<div id="widgetdesignation-{{widget.pk}}" rel="{{widget.pk}}" class="widgetdesignationdialog" title="{{widget.name}} input designation">
+<fieldset>
+{% for i in widget.inputs.all %}
+    {% if not i.parameter %}
+    <div>
+    <label for="inputdesignation-{{i.pk}}">{{i.name}}</label>
+    <input style="width:30px;display:inline;" type="radio" name="inputdesignation-{{i.pk}}" value="input" checked> Input <input type="radio" name="inputdesignation-{{i.pk}}" style="width:30px;display:inline;" value="parameter"> Parameter
+    <div class="clear"><!----></div>
+    </div>
+    {% endif %}
+{% endfor %}
+</fieldset>
+</div>
+{% endfor %}

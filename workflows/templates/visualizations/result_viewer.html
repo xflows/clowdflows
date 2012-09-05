@@ -1,0 +1,13 @@
+<div id="widgetresults-{{widget.pk}}" rel="{{widget.pk}}" class="widgetresultsdialog" title="{{widget.name}} results">
+<div style="width:400px;white-space:pre-wrap;font-family:monospace;">Inputs:
+-------
+{% for key, value in input_dict.items %}    {{ key }} = {{ value }}
+{% endfor %}
+
+Outputs:
+-------
+{% for key, value in output_dict.items %}   {{ key }} = {{ value }}
+{% endfor %}
+
+</div>
+</div>

@@ -1,0 +1,1025 @@
+# helperji, context stvari
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import Http404, HttpResponse
+from django.contrib import messages
+from django.core import serializers
+from django.utils import simplejson
+from workflows.urls import *
+from workflows.helpers import *
+import workflows.interaction_views
+import workflows.visualization_views
+import sys
+
+# modeli
+from workflows.models import *
+from django.contrib.auth.models import User
+
+from workflows.utils import *
+
+# auth fore
+from django.contrib.auth.decorators import login_required
+
+#settings
+from mothra.settings import DEBUG, FILES_FOLDER
+
+
+
+#ostalo
+import os
+
+@login_required
+def get_category(request):
+    if request.is_ajax() or DEBUG:
+        c = get_object_or_404(Category, pk=request.POST['category_id'])
+        if (c.user==request.user):
+            return render(request, 'category.html', {'category':c})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
+def index(request):
+    if request.user.userprofile.active_workflow is None:
+        return redirect('new workflow')
+    categories = Category.objects.all()
+    user_categories = request.user.categories.all()
+    user_widgets = request.user.widgets.filter(category=None)
+    return render(request, 'index.html', {'categories':categories,'user':request.user,'user_categories':user_categories,'user_widgets':user_widgets})
+
+@login_required
+def new_workflow(request):
+    w = Workflow()
+    w.user = request.user
+    w.save()
+    request.user.userprofile.active_workflow = w
+    request.user.userprofile.save()
+    return redirect('the index')
+    
+@login_required
+def open_workflow(request,workflow_id):
+    w = get_object_or_404(Workflow, pk=workflow_id)
+    if w.user == request.user:
+        request.user.userprofile.active_workflow = w
+        request.user.userprofile.save()
+    else:
+        return HttpResponse(status=400) 
+    return redirect('the index')    
+    
+@login_required
+def widget_progress(request):
+    w = get_object_or_404(Widget, pk=request.GET['widget_id'])
+    if w.running:
+        return HttpResponse(w.progress)
+    else:
+        if w.progress==100:
+            return HttpResponse("100")
+        return HttpResponse("-1")
+    
+@login_required
+def add_widget(request):
+    if request.is_ajax() or DEBUG:
+        if request.POST.has_key("abstractwidget_id"):
+            aw = get_object_or_404(AbstractWidget, pk=request.POST['abstractwidget_id'])
+            workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
+            if (workflow.user==request.user):
+                w = Widget()
+                w.workflow = workflow
+                w.x = int(request.POST['scrollLeft'])+50
+                y = int(request.POST['scrollTop'])+50
+                while workflow.widgets.filter(y=y,x=w.x).count()>0:
+                    y = y + 100
+                w.y = y
+                w.name = aw.name
+                w.abstract_widget = aw
+                w.type = 'regular'
+                w.save()
+                for i in aw.inputs.all():
+                    j = Input()
+                    j.name = i.name
+                    j.short_name = i.short_name
+                    j.description = i.description
+                    j.variable = i.variable
+                    j.widget = w
+                    j.required = i.required
+                    j.parameter = i.parameter
+                    j.value = None
+                    if not i.multi:
+                        j.value = i.default
+                    j.parameter_type = i.parameter_type
+                    if i.multi:
+                        j.multi_id = i.id
+                    j.save()
+                    for k in i.options.all():
+                        o = Option()
+                        o.name = k.name
+                        o.value = k.value
+                        o.input = j
+                        o.save()
+                for i in aw.outputs.all():
+                    j = Output()
+                    j.name = i.name
+                    j.short_name = i.short_name
+                    j.description = i.description
+                    j.variable = i.variable
+                    j.widget = w
+                    j.save()
+                return render(request, 'widgets.html', {'widgets':[w,]})
+            else:
+                return HttpResponse(status=400)
+        else:
+            aw = get_object_or_404(Widget, pk=request.POST['copywidget_id'])
+            if aw.type == 'regular':
+                workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
+                if (workflow.user==request.user):
+                    w = Widget()
+                    w.workflow = workflow
+                    w.x = int(request.POST['scrollLeft'])+50
+                    y = int(request.POST['scrollTop'])+50
+                    while workflow.widgets.filter(y=y,x=w.x).count()>0:
+                        y = y + 100
+                    w.y = y
+                    w.name = aw.name
+                    w.abstract_widget = aw.abstract_widget
+                    w.type = aw.type
+                    w.save()
+                    for i in aw.inputs.all():
+                        j = Input()
+                        j.name = i.name
+                        j.short_name = i.short_name
+                        j.description = i.description
+                        j.variable = i.variable
+                        j.widget = w
+                        j.required = i.required
+                        j.parameter = i.parameter
+                        j.parameter_type = i.parameter_type                        
+                        j.value = i.value
+                        j.multi_id = i.multi_id
+                        j.save()
+                        for k in i.options.all():
+                            o = Option()
+                            o.name = k.name
+                            o.value = k.value
+                            o.input = j
+                            o.save()
+                    for i in aw.outputs.all():
+                        j = Output()
+                        j.name = i.name
+                        j.short_name = i.short_name
+                        j.description = i.description
+                        j.variable = i.variable
+                        j.widget = w
+                        j.save()
+                    return render(request, 'widgets.html', {'widgets':[w,]})        
+            elif aw.type=='subprocess':
+                workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
+                if (workflow.user==request.user):
+                    widget_conversion = {}
+                    input_conversion = {}
+                    output_conversion = {}              
+                    w = Widget()
+                    w.workflow = workflow
+                    w.x = int(request.POST['scrollLeft'])+50
+                    y = int(request.POST['scrollTop'])+50
+                    while workflow.widgets.filter(y=y,x=w.x).count()>0:
+                        y = y + 100
+                    w.y = y
+                    w.name = aw.name
+                    w.abstract_widget = aw.abstract_widget
+                    w.type = aw.type
+                    w.save()
+                    widget_conversion[aw.pk]=w.pk
+                    for i in aw.inputs.all():
+                        j = Input()
+                        j.name = i.name
+                        j.short_name = i.short_name
+                        j.description = i.description
+                        j.variable = i.variable
+                        j.widget = w
+                        j.required = i.required
+                        j.parameter = i.parameter
+                        j.parameter_type = i.parameter_type                        
+                        j.value = i.value
+                        j.multi_id = i.multi_id
+                        j.save()
+                        input_conversion[i.pk]=j.pk
+                        for k in i.options.all():
+                            o = Option()
+                            o.name = k.name
+                            o.value = k.value
+                            o.input = j
+                            o.save()
+                    for i in aw.outputs.all():
+                        j = Output()
+                        j.name = i.name
+                        j.short_name = i.short_name
+                        j.description = i.description
+                        j.variable = i.variable
+                        j.widget = w
+                        j.save()
+                        output_conversion[i.pk]=j.pk
+                        workflows.models.copy_workflow(aw.workflow_link, request.user, widget_conversion,input_conversion,output_conversion,w)
+                    return render(request, 'widgets.html', {'widgets':[w,]})                
+            else:
+                return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+    
+@login_required
+def save_position(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            w.x = request.POST['x']
+            w.y = request.POST['y']
+            w.save()
+            return HttpResponse("Ok!")
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def add_connection(request):
+    if request.is_ajax() or DEBUG:
+        deleted = -1
+        added = -1
+        refresh = -1
+        refreshworkflow = -1
+        success = False
+        mimetype = 'application/javascript'
+        message = ""
+        previousExists=False
+        i = get_object_or_404(Input, pk=request.POST['input_id'])
+        o = get_object_or_404(Output, pk=request.POST['output_id'])
+        if (i.widget.workflow==o.widget.workflow and i.widget.workflow.user == request.user):
+            if Connection.objects.filter(input=i).exists():
+                previousExists=True
+                new_c = Connection.objects.get(input=i)
+                oldOutput = new_c.output
+                deleted=new_c.id
+            else:
+                new_c = Connection()
+            new_c.input = i
+            new_c.output = o
+            new_c.workflow = i.widget.workflow
+            new_c.save()
+            if not checkForCycles(i.widget,i.widget):
+                if previousExists:
+                    new_c.output=oldOutput
+                    new_c.save()
+                else:
+                    new_c.delete()
+                success = False
+                message = "Adding this connection would result in a cycle in the workflow."
+                data = simplejson.dumps({'message':message,'success':success,'deleted':deleted,'added':added,'input_id':request.POST['input_id'],'output_id':request.POST['output_id']})
+                return HttpResponse(data,mimetype)
+            added = new_c.id
+            new_c.input.widget.unfinish()
+            if deleted==-1:
+                if new_c.input.multi_id != 0:
+                    i = new_c.input
+                    j = Input()
+                    j.name = i.name
+                    j.short_name = i.short_name
+                    j.description = i.description
+                    j.variable = i.variable
+                    j.widget = i.widget
+                    j.required = i.required
+                    j.parameter = i.parameter
+                    j.value = None
+                    j.parameter_type = i.parameter_type
+                    j.multi_id = i.multi_id
+                    j.save()
+                    refresh = i.widget.id
+                    refreshworkflow = i.widget.workflow.id
+            success = True
+            message = "Connection added."
+            data = simplejson.dumps({'message':message,'success':success,'deleted':deleted,'added':added,'input_id':request.POST['input_id'],'output_id':request.POST['output_id'],'refresh':refresh,'refreshworkflow':refreshworkflow})
+            return HttpResponse(data,mimetype)
+        else:
+            message = "Cannot connect widgets from different workflows."
+            data = simplejson.dumps({'message':message,'success':success,'deleted':deleted,'added':added,'input_id':request.POST['input_id'],'output_id':request.POST['output_id'],'refresh':refresh},)
+            return HttpResponse(data,mimetype)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def delete_connection(request):
+    if request.is_ajax() or DEBUG:
+        c = get_object_or_404(Connection, pk=request.POST['connection_id'])
+        if (c.input.widget.workflow.user!=request.user):
+            return HttpResponse(status=400)
+        c.input.widget.unfinish()
+        mimetype = 'application/javascript'
+        refresh = -1
+        refreshworkflow = -1
+        already_deleted=False
+        if c.input.multi_id != 0:
+            #pogledamo kok jih je s tem idjem, ce je vec k en, tega pobrisemo
+            if c.input.widget.inputs.filter(multi_id=c.input.multi_id).count()>1:
+                refresh = c.input.widget.id
+                refreshworkflow = c.input.widget.workflow.id
+                c.input.delete()
+                already_deleted=True
+        if not already_deleted:
+            c.delete()
+        data = simplejson.dumps({'refresh':refresh,'refreshworkflow':refreshworkflow})
+        return HttpResponse(data,mimetype)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
+def delete_widget(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        w.unfinish()
+        mimetype = 'application/javascript'        
+        refresh = []
+        delete_tab = -1
+        if (w.workflow.user!=request.user):
+            return HttpResponse(status=400)
+        connections = Connection.objects.filter(output__widget=w).filter(input__multi_id__gt=0)
+        for c in connections:
+            if c.input.widget.inputs.filter(multi_id=c.input.multi_id).count()>1:
+                refresh.append((c.input.widget.id,c.input.widget.workflow.id))
+                c.input.delete()
+        if w.type=='subprocess':
+            delete_tab = w.workflow_link.id
+        w.delete()
+        data = simplejson.dumps({'refresh':list(set(refresh)),'delete_tab':delete_tab})
+        return HttpResponse(data,mimetype)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
+def add_subprocess(request):
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
+        if (workflow.user==request.user):
+            new_w = Workflow()
+            new_w.name = "Untitled widget"
+            new_w.user = request.user
+            w = Widget()
+            w.workflow = workflow
+            w.workflow_link = new_w
+            w.x = int(request.POST['scrollLeft'])+50
+            y = int(request.POST['scrollTop'])+50
+            while workflow.widgets.filter(y=y,x=w.x).count()>0:
+                y = y + 100              
+            w.y=y
+            w.name = "Untitled widget"
+            w.type = 'subprocess'
+            w.save()
+            new_w.widget = w
+            new_w.save()
+            return render(request, 'widgets.html', {'widgets':[w,]})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
+def get_subprocess(request):
+    if request.is_ajax() or DEBUG:
+        widget = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        data = simplejson.dumps({'workflow_link':widget.workflow_link.pk,'workflow_name':widget.workflow_link.name})
+        mimetype = 'application/javascript'
+        return HttpResponse(data,mimetype)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
+def add_for(request):
+    success = False
+    mimetype = 'application/javascript'
+    message = ""
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
+        if (workflow.user==request.user):
+            if workflow.widget==None:
+                message = 'The for widgets can only be put in a subprocess.'
+                data = simplejson.dumps({'message':message,'success':success})
+                return HttpResponse(data,mimetype)
+            elif workflow.widgets.filter(type='for_input').count()>0:
+                message = 'This subprocess already has a for loop. Try deleting it and adding it again.'
+                data = simplejson.dumps({'message':message,'success':success})
+                return HttpResponse(data,mimetype)               
+            else:
+                for_input = Widget()
+                for_input.workflow = workflow
+                for_input.x=int(request.POST['scrollLeft'])+50
+                y=int(request.POST['scrollTop'])+50
+                while workflow.widgets.filter(y=y,x=for_input.x).count()>0:
+                    y = y + 100
+                for_input.y=y
+                for_input.name = 'For input'
+                for_input.type = 'for_input'
+                for_input.save()
+                output = Output()
+                output.name = 'For input'
+                output.short_name = 'for'
+                output.variable = 'For'
+                output.widget = for_input
+                output.save()
+                input = Input()
+                input.widget = workflow.widget
+                input.name = 'For input'
+                input.short_name = 'for'
+                input.variable = 'For'
+                input.inner_output = output
+                input.save()
+                output.outer_input = input
+                output.save()
+                
+                widget = Widget()
+                widget.workflow = workflow
+                widget.x=int(request.POST['scrollLeft'])+200
+                widget.y=int(request.POST['scrollTop'])+50
+                widget.name = 'For output'
+                widget.type = 'for_output'
+                widget.save()
+                input = Input()
+                input.name = 'For output'
+                input.short_name = 'for'
+                input.variable = 'For'
+                input.widget = widget
+                input.save()
+                output = Output()
+                output.widget = workflow.widget
+                output.name = 'For output'
+                output.short_name = 'for'
+                output.variable = 'For'
+                output.inner_input = input
+                output.save()
+                input.outer_output = output
+                input.save()
+                return render(request, 'widgets.html', {'widgets':[for_input,widget]})                
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)               
+                
+        
+@login_required
+def add_input(request):
+    success = False
+    mimetype = 'application/javascript'
+    message = ""
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
+        if (workflow.user==request.user):
+            if workflow.widget==None:
+                message = 'The input widget can only be put in a subprocess.'
+                data = simplejson.dumps({'message':message,'success':success})
+                return HttpResponse(data,mimetype)
+            else:
+                widget = Widget()
+                widget.workflow = workflow
+                widget.x=int(request.POST['scrollLeft'])+50
+                y = int(request.POST['scrollTop'])+50
+                while workflow.widgets.filter(y=y,x=widget.x).count()>0:
+                    y = y + 100                
+                widget.y=y
+                widget.name = 'Input'
+                widget.type = 'input'
+                widget.save()
+                output = Output()
+                output.name = 'Input'
+                output.short_name = 'inp'
+                output.variable = 'Input'
+                output.widget = widget
+                output.save()
+                input = Input()
+                input.widget = workflow.widget
+                input.name = 'Input'
+                input.short_name = 'inp'
+                input.variable = 'Input'
+                input.inner_output = output
+                input.save()
+                output.outer_input = input
+                output.save()
+                return render(request, 'widgets.html', {'widgets':[widget,]})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def add_output(request):
+    success = False
+    mimetype = 'application/javascript'
+    message = ""
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
+        if (workflow.user==request.user):
+            if workflow.widget==None:
+                message = 'The output widget can only be put in a subprocess.'
+                data = simplejson.dumps({'message':message,'success':success})
+                return HttpResponse(data,mimetype)
+            else:
+                widget = Widget()
+                widget.workflow = workflow
+                widget.x=int(request.POST['scrollLeft'])+50
+                y = int(request.POST['scrollTop'])+50
+                while workflow.widgets.filter(y=y,x=widget.x).count()>0:
+                    y = y + 100
+                widget.y=y
+                widget.name = 'Output'
+                widget.type = 'output'
+                widget.save()
+                input = Input()
+                input.name = 'Output'
+                input.short_name = 'out'
+                input.variable = 'Output'
+                input.widget = widget
+                input.save()
+                output = Output()
+                output.widget = workflow.widget
+                output.name = 'Output'
+                output.short_name = 'out'
+                output.variable = 'Output'
+                output.inner_input = input
+                output.save()
+                input.outer_output = output
+                input.save()
+                return render(request, 'widgets.html', {'widgets':[widget,]})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)        
+        
+@login_required
+def synchronize_widgets(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Workflow,pk=request.POST['workflow_id'])
+        if (w.user==request.user):
+            return render(request, 'widgets.html', {'widgets':w.widgets.all()})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def synchronize_connections(request):
+    if request.is_ajax() or DEBUG:
+        mimetype = 'application/javascript'
+        w = get_object_or_404(Workflow,pk=request.POST['workflow_id'])
+        if (w.user==request.user):
+            c = Connection.objects.filter(input__widget__workflow=w)
+            data = serializers.serialize('json', c)
+            return HttpResponse(data,mimetype)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)        
+        
+@login_required
+def get_widget(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            return render(request, 'widgets.html', {'widgets':[w,]})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def get_parameters(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            return render(request, 'parameters.html', {'widget':w,'parameters':w.inputs.filter(parameter=True)})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def save_parameter(request):
+    if request.is_ajax() or DEBUG:
+        input = get_object_or_404(Input, pk=request.POST['input_id'])
+        if (input.widget.workflow.user==request.user):
+            input.value = request.POST['value']
+            input.save()
+            input.widget.unfinish()
+            return HttpResponse(status=200)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def save_designation(request):
+    if request.is_ajax() or DEBUG:
+        for key in request.POST:
+            input = get_object_or_404(AbstractInput, pk=key)
+            if request.POST[key] == "input":
+                input.parameter=False
+                input.save()
+            elif request.POST[key] == "parameter":
+                input.parameter=True
+                if input.parameter_type!="checkbox":
+                    input.parameter_type="text"
+                input.save()
+        return HttpResponse(status=200)
+    else:
+        return HttpResponse(status=400) 
+        
+@login_required
+def get_parameters(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            return render(request, 'parameters.html', {'widget':w,'parameters':w.inputs.filter(parameter=True)})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)        
+        
+@login_required
+def get_rename_dialog(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            return render(request, 'rename.html', {'widget':w})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)             
+
+@login_required
+def rename_widget(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            w.rename(request.POST['new_name'])
+            mimetype = 'application/javascript'
+            workflow_link = True
+            workflow_link_id = 0
+            rename_inputs = []
+            rename_outputs = []
+            if w.type=='input':
+                rename_inputs.append(w.outputs.all()[0].outer_input.id)
+                rename_outputs.append(w.outputs.all()[0].id)
+            if w.type=='output':
+                rename_outputs.append(w.inputs.all()[0].outer_output.id)
+                rename_inputs.append(w.inputs.all()[0])
+            try:
+                workflow_link_id = w.workflow_link.id
+            except Workflow.DoesNotExist:
+                workflow_link = False
+            data = simplejson.dumps({'workflow_link':workflow_link,'workflow_link_id':workflow_link_id,'rename_inputs':rename_inputs,'rename_outputs':rename_outputs})
+            return HttpResponse(data,mimetype)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def rename_workflow(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Workflow, pk=request.POST['workflow_id'])
+        if (w.user==request.user):
+            w.rename(request.POST['new_name'])
+            w.description = request.POST['description']
+            if request.POST['public']=="true":
+                w.public=True
+            else:
+                w.public=False
+            w.save()
+            mimetype = 'application/javascript'
+            data = simplejson.dumps({'workflow_id':w.id})
+            return HttpResponse(data,mimetype)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)        
+        
+@login_required
+def run_widget(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            try:
+                if w.type == 'for_input' or w.type == 'for_output':
+                    raise Exception("You can't run for loops like this. Please run the containing widget.")
+                output_dict = w.run(False)
+                mimetype = 'application/javascript'
+                if not w.abstract_widget is None:
+                    if w.abstract_widget.interactive:
+                        w.interaction_waiting = True
+                        w.save()
+                        data = simplejson.dumps({'status':'interactive','message':'Widget '+w.name+' needs your attention.','widget_id':w.id})
+                    elif w.abstract_widget.visualization_view!='':
+                        data = simplejson.dumps({'status':'visualize','message':'Visualizing widget '+w.name+'.','widget_id':w.id})
+                    else:
+                        data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
+                else:
+                    data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
+            except:
+                mimetype = 'application/javascript'
+                w.error = True
+                w.running = False
+                w.finished = False
+                w.save()
+                #raise
+                for o in w.outputs.all():
+                    o.value=None
+                    o.save()
+                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+            return HttpResponse(data,mimetype)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def visualize_widget(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            output_dict = {}
+            for o in w.outputs.all():
+                output_dict[o.variable]=o.value
+            input_dict = {}
+            for i in w.inputs.all():
+                if not i.parameter:
+                    if i.connections.count() > 0:
+                        i.value = i.connections.all()[0].output.value
+                        i.save()
+                    else:
+                        i.value = None
+                        i.save()
+                if i.multi_id == 0:
+                    input_dict[i.variable]=i.value
+                else:
+                    if not i.variable in input_dict:
+                        input_dict[i.variable]=[]
+                    if not i.value == None:
+                        input_dict[i.variable].append(i.value)
+            view_to_call = getattr(workflows.visualization_views,w.abstract_widget.visualization_view)
+            return view_to_call(request, input_dict, output_dict, w)            
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)   
+        
+@login_required
+def widget_results(request):
+    def cap(s):
+        """
+        Caps the display size of long strings.
+        """
+        if type(s) in [unicode, str] and len(s) > 300: 
+            return s[:300] + '\n...\''
+        return s
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            import pprint
+            input_dict = {}
+            output_dict = {}
+            for i in w.inputs.all():
+                if not i.parameter:
+                    if i.connections.count() > 0:
+                        i.value = i.connections.all()[0].output.value
+                        i.save()
+                    else:
+                        i.value = None
+                        i.save()
+                if i.multi_id == 0:
+                    input_dict[i.variable] = cap(pprint.pformat(i.value))
+                else:
+                    if not i.variable in input_dict:
+                        input_dict[i.variable]=[]
+                    if not i.value == None:
+                        input_dict[i.variable].append(cap(pprint.pformat(i.value)))
+            for o in w.outputs.all():
+                output_dict[o.variable] = cap(pprint.pformat(o.value))
+            return render(request, 'visualizations/result_viewer.html', {'widget':w,'input_dict':input_dict,'output_dict':output_dict})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def documentation(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            return render(request, 'visualizations/documentation.html', {'widget':w})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def get_designate_dialogs(request):
+    if request.is_ajax() or DEBUG:
+        c = get_object_or_404(Category, pk=request.POST['category_id'])
+        if (c.user==request.user):
+            return render(request, 'designation.html', {'category':c})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
+def get_unfinished(request):
+    #iscemo vse unfinished katerih predhodniki so finished
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['workflow_id'])
+        if (workflow.user==request.user):
+            unfinished_list = workflow.get_ready_to_run()
+            mimetype = 'application/javascript'
+            data = simplejson.dumps({'ready_to_run':unfinished_list})
+            return HttpResponse(data,mimetype)           
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)  
+        
+
+@login_required
+def unfinish_visualizations(request):
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['workflow_id'])
+        unfinished_list = []
+        for w in workflow.widgets.all():
+            if w.is_visualization():
+                w.unfinish()
+                w.save()
+                unfinished_list.append(w.pk)
+        mimetype = 'application/javascript'
+        data = simplejson.dumps({'unfinished':unfinished_list})
+        return HttpResponse(data,mimetype)
+    else:
+        return HttpResponse(status=400)          
+        
+@login_required        
+def upload_handler(request):
+    input = get_object_or_404(Input, pk=request.POST['input_id'])
+    if (input.widget.workflow.user==request.user):
+        destination = FILES_FOLDER+str(input.widget.workflow.id)+'/'+request.FILES['file'].name
+        ensure_dir(destination)
+        destination_file = open(destination, 'wb')
+        for chunk in request.FILES['file'].chunks():
+            destination_file.write(chunk)
+        destination_file.close()
+        input.value = destination
+        input.save()
+        input.widget.unfinish()
+        error = None
+        return render(request,'upload_handler.html', {"error":error,"input_id":input.id})
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def widget_interaction(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            input_dict = {}
+            output_dict = {}
+            for i in w.inputs.all():
+                if not i.parameter:
+                    if i.connections.count() > 0:
+                        i.value = i.connections.all()[0].output.value
+                        i.save()
+                    else:
+                        i.value = None
+                        i.save()
+                if i.multi_id == 0:
+                    input_dict[i.variable]=i.value
+                else:
+                    if not i.variable in input_dict:
+                        input_dict[i.variable]=[]
+                    if not i.value == None:
+                        input_dict[i.variable].append(i.value)
+            for o in w.outputs.all():
+                output_dict[o.variable]=o.value
+            view_to_call = getattr(workflows.interaction_views,w.abstract_widget.interaction_view)
+            return view_to_call(request, input_dict, output_dict, w)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+        
+@login_required
+def finish_interaction(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            try:
+                output_dict = w.run_post(dict(request.POST))
+                w.interaction_waiting = False
+                w.save()
+                mimetype = 'application/javascript'
+                data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.','widget_id':w.id})
+            except:
+                mimetype = 'application/javascript'
+                w.error = True
+                w.running = False
+                w.finished = False
+                w.interaction_waiting = False
+                w.save()
+                raise
+                for o in w.outputs.all():
+                    o.value=None
+                    o.save()
+                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>','widget_id':w.id})
+            return HttpResponse(data,mimetype)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+
+        
+@login_required
+def import_webservice(request):
+    from services.webservice import WebService
+    ws = WebService(request.POST['wsdl'])
+    new_c = Category()
+    current_name = ws.name
+    i=0
+    while request.user.categories.filter(name=current_name).count()>0:
+        i = i + 1
+        current_name = ws.name+' ('+str(i)+')'
+    new_c.name=current_name
+    new_c.user=request.user
+    new_c.workflow=request.user.userprofile.active_workflow
+    new_c.save()
+    for m in ws.methods:
+        new_a = AbstractWidget()
+        new_a.name=m['name']
+        new_a.action='call_webservice'
+        new_a.wsdl=ws.wsdl_url
+        new_a.wsdl_method=m['name']
+        new_a.description=m['documentation']
+        new_a.user=request.user
+        new_a.category=new_c
+        new_a.save()
+        new_i = AbstractInput()
+        new_i.parameter=True
+        new_i.widget = new_a
+        new_i.name = "Timeout"
+        new_i.short_name = "to"
+        new_i.variable = "timeout"
+        new_i.default = '60'
+        new_i.parameter_type='text'
+        new_i.save()
+        new_i = AbstractInput()
+        new_i.parameter=True
+        new_i.widget = new_a
+        new_i.name = "Send empty strings to webservices"
+        new_i.short_name = "ses"
+        new_i.variable = "sendemptystrings"
+        new_i.default = ''
+        new_i.parameter_type='checkbox'
+        new_i.save()
+        for i in m['inputs']:
+            new_i = AbstractInput()
+            new_i.name = i['name']
+            new_i.variable = i['name']
+            new_i.short_name = i['name'][:3]
+            new_i.description = ''
+            new_i.required = False
+            new_i.parameter= False
+            if i['type']==bool:
+                new_i.parameter_type='checkbox'
+            new_i.default = ''
+            new_i.widget = new_a
+            new_i.save()
+        for o in m['outputs']:
+            new_o = AbstractOutput()
+            new_o.name = o['name']
+            new_o.variable = o['name']
+            new_o.short_name = o['name'][:3]
+            new_o.description = ''
+            new_o.widget = new_a
+            new_o.save()
+    mimetype = 'application/javascript'
+    data = simplejson.dumps({'category_id':new_c.id})
+    return HttpResponse(data,mimetype)
+
+@login_required    
+def copy_workflow(request,workflow_id):
+    w = get_object_or_404(Workflow, pk=workflow_id)
+    if w.user == request.user or w.public:
+        new_w = workflows.models.copy_workflow(w,request.user)
+        request.user.userprofile.active_workflow = new_w
+        request.user.userprofile.save()
+    else:
+        return HttpResponse(status=400) 
+    return redirect('the index')
+
+@login_required    
+def workflow_url(request):
+    if request.is_ajax() or DEBUG:
+        if request.user.userprofile.active_workflow is None:
+            return HttpResponse(status=200)
+        return render(request,'workflow_url.html', {"workflow":request.user.userprofile.active_workflow})
+    else:
+        return HttpResponse(status=200)

@@ -1,0 +1,18 @@
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization" width="650px">
+<div style="width:600px;white-space:pre-wrap;font-family:monospace;">
+<pre style="width:600px !important;white-space:pre-wrap">
+<table class="datasetTable">
+    <tr>
+        <th class="tablecellcenter">Sentence ID</th>
+        <th class="tablecellcenter">Value</th>      
+    </tr>
+    {% for sent in sentences %}
+    <tr class="tablerow">
+        <td class="tablecellcenter">{{sent.id}}</td>
+        <td class="tablecellleft">{{sent.txt}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</pre>
+</div>
+</div>

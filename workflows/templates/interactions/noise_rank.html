@@ -1,0 +1,118 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}"  class="widgetinteractdialog" title="{{widget.name}} wants your input!">
+Select the data instances that you want to examine in more detail.
+<input type="button" class="ui-button selectall" value="Select all" style="width:90px;">
+<input type="button" class="ui-button selectnone" value="Select none" style="width:90px;">
+<form id="interactionform-{{widget.pk}}" name="interactionform-{{widget.pk}}" style="width:100%;">
+<table class="datasetTable" style=" height:100%">
+    <thead>
+	<tr class="ui-widget-header" style="font-color:black;">
+        <th class="td1"> Selected </th>
+        <th class="td2"> Rank </th>
+        <th class="td3"> Class </th>
+        <th class="td4"> ID </th>
+        <th class="maxfirst"> Detected by: </th>
+    </tr>
+	</thead>
+	<tbody>
+	<tr><td colspan="5" style="padding: 0px 0px;">
+	<div class="scrollrows" style="overflow-y:auto; overflow-x:hidden;">
+	<table>
+    {% for item in allnoise %}
+    <tr class="tablerow{{widget.pk}}" style="{% cycle 'background:#fafafa;' '' %}height:45px;cursor:pointer;-moz-user-select: none;-khtml-user-select: none;-webkit-user-select: none;-o-user-select: none; ">
+        <td class="tablecellcenter checkbox td1" style="vertical-align:middle;"> <input type="checkbox" name="selected" value="{{item.id}}" style="display:inline;width:auto;"> </td>
+        <td class="tablecellcenter td2" style="vertical-align:middle;"> {{ forloop.counter }}. </td>
+        <td class="td3" style="vertical-align:middle;"> {{ item.class }} </td>
+        <td class="tablecellright td4" style="vertical-align:middle;"> {{ item.id }} </td>
+        <td style="padding-right:0px;">
+			<div class="unbreakable" style="display:table;">
+			{%for name in item.by %}
+			<div style="width:100px; font-family:monospace; float: left; margin-right:10px; overflow:hidden;-moz-box-shadow: 5px 2px 2px #888;webkit-box-shadow: 5px 2px 2px #888;box-shadow: 5px 2px 2px #888;padding:5px;height:28px;display: table-cell; vertical-align: middle;" class="ui-widget ui-widget-content ui-corner-all hoverable"><div style="display:table-cell;height:28px;vertical-align:middle;width:100px;text-align:center;">{{name}}</div></div>
+			{% endfor %}
+			</div>
+			
+		</td>
+    </tr>
+    {% endfor %}
+	</table>
+	</div>
+	</td></tr>
+	</tbody>
+</table>
+<input type="hidden" name="widget_id" value="{{widget.pk}}">
+</form>
+<style type="text/css">
+tr.rowselected {
+	background:#FFe45c !important;
+}
+thead { background:#FFBF00;}
+.td1{min-width:50px !important;}
+.td2{min-width:40px !important;}
+.td3{min-width:80px !important;}
+.td4{min-width:40px !important;}
+</style>
+<script>
+$(document).ready(function(){
+    var setw = 380 + {{allnoise.0.by|length}}*120
+	var width = setw > $(window).width()*0.9 ? $(window).width()*0.9 : setw;
+	var height = 0.8 * $(window).height();
+	//alert("w: "+width+' windoww: '+$(window).width()+' h: '+height+" windowh: "+$(window).height());
+	
+	$("div#widgetinteract-"+{{widget.pk}}).attr("width", width);
+	$("div#widgetinteract-"+{{widget.pk}}).attr("height", height);
+	//$("div#widgetinteract-"+{{widget.pk}}).css("height", height);
+	$("div#widgetinteract-"+{{widget.pk}}+" div.scrollrows").css('height', height-203);
+	
+	
+	$("div#widgetinteract-"+{{widget.pk}}).bind( "dialogresize", function(event, ui) {
+		var h = $(this).height()
+		$(this).find(".scrollrows").css('height',h-100);
+	});
+	
+})
+$("tr.tablerow{{widget.pk}} td").not($(".checkbox")).click(function() {
+
+	
+
+	if ($(this).parent().find("input").is(":checked")) {
+    $(this).parent().find("input").prop("checked", false);
+	$(this).parent().removeClass("rowselected");
+	} else {
+	$(this).parent().find("input").prop("checked", true);
+	$(this).parent().addClass("rowselected");
+	}
+
+})
+
+
+$(".unbreakable:first").each(function() {
+
+	var width = $(this).children("div").size()*122+15;
+	$(this).css('width',width);
+	$(".maxfirst").css('width',width);
+	
+
+});
+
+$("tr.tablerow{{widget.pk}} input").click(function() {
+
+	$(this).parent().parent().toggleClass("rowselected");
+
+});
+
+$("input.selectall").click(function(){
+	
+	$("tr.tablerow{{widget.pk}}").addClass("rowselected");
+	$("input[type=checkbox]").prop("checked", true);
+})
+
+$("input.selectnone").click(function(){
+	
+	$("tr.tablerow{{widget.pk}}").removeClass("rowselected");
+	$("input[type=checkbox]").prop("checked", false);
+})
+
+$("hoverable").hover(function() {
+	
+} )
+</script>
+</div>

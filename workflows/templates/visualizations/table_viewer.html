@@ -1,0 +1,41 @@
+<div id="widgetvisualization-{{widget.pk}}" width="700" height="400" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} results">
+
+<center>
+
+<table class="datasetTable">
+	<!-- header -->
+	{% for att in output_dict.attrs %}
+		<th>{{att}}</th>
+	{% endfor %}
+    {% if output_dict.class_var %}
+	<th>{{output_dict.class_var}}</th>
+    {% endif %}
+	{% for att in output_dict.metas %}
+		<th>{{att}}</th>
+	{% endfor %}
+
+	<!-- att type -->
+	<tr class="tablerow{{widget.pk}}">
+		{% for att in output_dict.attrs %}
+			<td></td>
+		{% endfor %}
+            {% if output_dict.class_var %}
+			<td class='tablecellcenter'>class</td>
+            {% endif %}
+		{% for att in output_dict.metas %}
+			<td class='tablecellcenter'>meta</td>
+		{% endfor %}
+	</tr>
+
+    <!-- instances -->
+    {% for inst in output_dict.data %}
+        <tr class="tablerow{{widget.pk}}">
+        	{% for v in inst %}
+        		<td>{{v}}</td>
+        	{% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+</center>
+</div>

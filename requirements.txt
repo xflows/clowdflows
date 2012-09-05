@@ -2,7 +2,9 @@ Django==1.4.1
 PIL==1.1.7
 PySimpleSOAP==1.05a
 South==0.7.6
+Werkzeug==0.8.3
 django-extensions==0.9
 django-orderable-inlines==0.0.6
 django-picklefield==0.2.1
+httplib2==0.7.5
 wsgiref==0.1.2

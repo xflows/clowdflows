@@ -1,0 +1,43 @@
+{% extends 'website/base.html' %}
+{% block 'container' %}
+
+    {% for w in workflows %}
+    <section>
+      <div class="page-header">
+        <h1>{{w.name}} <small>by {{w.user}}</small></h1>
+      </div>
+      <div class="row">
+        <div class="span3 columns">
+          <h3>Try it out</h3>
+          <p>By clicking the button below you will create a copy of this workflow and will be able to edit it, run it or just look at it without harming the original.</p>
+          <a href="{{w.get_copy_url}}" class="btn launch {% if not user.is_authenticated %}must_login{% endif %}">Launch workflow!{% if w.user == user %} (Create a copy){% endif %}</a><br><br>
+          {% if w.user == user %}<a href="{{w.get_absolute_url}}" class="btn launch {% if not user.is_authenticated %}must_login{% endif %}" onClick="$('.launch').hide();$('.ajax-loader').show()">Edit this version</a>{% endif %}
+        </div>
+        <div class="span9 columns">
+          <h2>Description</h2>
+          <p>{{w.description}}</p>
+          <div class="well" style="background-color: #888; border: none; background:url('{{STATIC_URL}}website-css/grid-18px-masked.png');height:250px;">
+           <div style="width:370px;height:270px;margin:auto;position:relative;">
+           {% for widget in w.normalized_widgets %}
+           <img src="{{STATIC_URL}}website-images/widget-{% cycle '2' '1' '3' '4' '5' %}.png" style="max-width:30px;max-height:30px;position:absolute;left:{{ widget.norm_x }}px;top:{{ widget.norm_y }}px;">
+           {% endfor %}
+           <svg width="370px" height="270px">
+            {% for conn in w.unique_connections %}
+            <line x1="{{ conn.x1 }}" y1="{{ conn.y1 }}" x2="{{ conn.x2 }}" y2="{{ conn.y2 }}" style="stroke: black;"/>
+            {% endfor %}
+           </svg>
+           </div>
+          </div>
+
+          <h2>Try it live</h2>
+          <p>By clicking on the button below you will launch the workflow and be able to run it or edit it.</p>
+       
+          <a href="{{w.get_copy_url}}" class="btn btn-primary btn-large launch {% if not user.is_authenticated %}must_login{% endif %}" onClick="$('.launch').hide();$('.ajax-loader').show()">Launch workflow!{% if w.user == user %} (Clicking this will create a new copy){% endif %}</a>
+          {% if w.user == user %}<a href="{{w.get_absolute_url}}" class="btn btn-large launch {% if not user.is_authenticated %}must_login{% endif %}" onClick="$('.launch').hide();$('.ajax-loader').show()">This is your workflow. Click here to edit it!</a>{% endif %}
+
+          <hr>
+
+         
+    </section>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,102 @@
+<div id="widgetvisualization-{{widget.pk}}" width="300" height="710" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} results">
+{% load humanize %}
+<div id="widget-data-table-info-{{widget.pk}}" style=" margin: 0 auto">
+<table>
+	<tr><th>Data Table Size</th></tr>
+	<tr>
+		<td>
+			<table class="datasetTable">
+				<tr>
+					<th> Instances (rows): </th>
+					<td class="tablecellright"> {{info_dict.instances|intcomma}} </td>
+				</tr>
+				<tr>
+					<th> Attributes (columns): </th>
+					<td class="tablecellright"> {{info_dict.attrs|intcomma}} </td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr><th>Attributes</th></tr>
+	<tr>
+		<td>
+			<table class="datasetTable">
+				<tr>
+					<th> Discrete attributes: </th>
+					<td class="tablecellright"> {{info_dict.discrete|intcomma}} </td>
+				</tr>
+				<tr>
+					<th> Continuous attributes: </th>
+					<td class="tablecellright"> {{info_dict.continuous|intcomma}} </td>
+				</tr>
+				<!--<tr> TODO?
+					<th> String attributes: </th>
+					<td class="tablecellright"> {{info_dict.attrs}} </td>
+				</tr>-->
+				<tr>
+					<th> Meta Attributes: </th>
+					<td class="tablecellright"> {{info_dict.has_metas}} </td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr><th>Missing Values</th></tr>
+	<tr>
+		<td>
+			<table class="datasetTable">
+				{% if info_dict.has_miss_values == 'yes' %}
+				<tr>
+					<td> In {{info_dict.miss_val_insts|intcomma}} instance{{info_dict.miss_val_insts|pluralize}} ({{info_dict.mvir|floatformat:"1"}}%). </td>
+				</tr>
+				<tr>
+					<td> In {{info_dict.miss_val_attrs|intcomma}} attribute{{info_dict.miss_val_attrs|pluralize}} ({{info_dict.mvar|floatformat:"1"}}%). </td>
+				</tr>
+				{% else %}
+				<tr><td>No missing values.</td></tr>
+				{% endif %}
+			</table>
+		</td>
+	</tr>
+	<tr><th>Class</th></tr>
+	<tr>
+		<td>
+			<table class="datasetTable">
+				<tr>
+					<th> Type: </th>
+					<td class="tablecellright"> {{info_dict.class_type}} </td>
+				</tr>
+				<tr>
+					<th> Values: </th>
+					<td class="tablecellright"> {{info_dict.num_classes}} </td>
+				</tr>
+				<tr>
+					<th> Has missing classes: </th>
+					<td class="tablecellright"> {{info_dict.has_miss_classes}} </td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr><th>Class Distribution</th></tr>
+	<tr>
+		<td>
+			<table class="datasetTable">	
+				<tr>
+					<th> Class </th>
+					<th> Instances </th>
+					<th> Ratio </th>
+				</tr>
+				{% for item in info_dict.class_distr %}
+				<tr>
+					<td> {{item.class}} </td>
+					<td class="tablecellright"> {{item.instances|intcomma}} </td>
+					<td class="tablecellright"> {{item.ratio|floatformat:"1"}}% </td>		
+				</tr>
+				{% endfor %}
+			</table>
+		</td>
+	</tr>
+				
+</table>
+
+</div>
+</div>

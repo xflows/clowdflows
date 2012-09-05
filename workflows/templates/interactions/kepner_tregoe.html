@@ -1,0 +1,34 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction">
+<div style="width:420px;">
+Use the sliders to adjust the weights.<br><br>
+<form>
+{% for att in attributes %}
+{{att}}
+<br>
+<br>
+<input type="text" style="width:30px; margin-left:20px; float:right;" name="weight{{widget.pk}}{{att}}" id="weight{{widget.pk}}{{att}}" value="0">
+<div style="width:300px;" id="slider{{widget.pk}}{{att}}"></div>
+<script>
+    $("#slider{{widget.pk}}{{att}}").slider({
+    
+    value:0,
+    min:0,
+    max:100,
+    slide: function( event, ui ) {
+        $( "#weight{{widget.pk}}{{att}}").val( $("#slider{{widget.pk}}{{att}}").slider("value") );
+    },
+    stop: function ( event, ui ) {
+        $( "#weight{{widget.pk}}{{att}}").val( $("#slider{{widget.pk}}{{att}}").slider("value") );
+    }
+    
+    });
+</script>
+<br>
+
+
+{% endfor %}
+
+<input type="hidden" name="widget_id" value="{{widget.pk}}">
+</form>
+</div>
+</div>
