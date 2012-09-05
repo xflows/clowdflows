@@ -123,23 +123,6 @@ FIXTURE_DIRS = (
     os.path.join(PROJECT_DIR, 'fixtures'),
 )
 
-INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.admin',
-    'south',
-    'workflows',
-    'website',
-    'signuplogin',
-    'django_extensions',
-    'django.contrib.humanize',
-    'orderable_inlines',
-)
-
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -177,6 +160,42 @@ except NameError:
         from local_settings import *
     except ImportError:
         pass
+        
+if USE_CONCURRENCY:
+    INSTALLED_APPS = (
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.sites',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'django.contrib.admin',
+        'south',
+        'workflows',
+        'website',
+        'signuplogin',
+        'django_extensions',
+        'django.contrib.humanize',
+        'orderable_inlines',
+        'djcelery',
+    )     
+else:
+    INSTALLED_APPS = (
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.sites',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        'django.contrib.admin',
+        'south',
+        'workflows',
+        'website',
+        'signuplogin',
+        'django_extensions',
+        'django.contrib.humanize',
+        'orderable_inlines',
+    )        
         
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS
 

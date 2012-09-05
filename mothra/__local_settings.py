@@ -15,6 +15,8 @@ DATABASES = {
     }
 }
 
+USE_CONCURRENCY = False
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '*f$)twxl*rdk*o@^j%^0f0r#z7=kkyw=-2v*rjdnon_j==1uw@'
 

@@ -10,8 +10,9 @@ from picklefield.fields import PickledObjectField
 from workflows.thumbs import ThumbnailField
 
 from mothra.settings import DEBUG
+from mothra.settings import USE_CONCURRENCY
 
-if not DEBUG:
+if USE_CONCURRENCY:
     from workflows.tasks import runWidgetAsync, runForLoopIteration
 
 class Connection(models.Model):
@@ -107,7 +108,7 @@ class Workflow(models.Model):
             proper_output.save()
             fi.finished=True
             fi.save()
-            if DEBUG or 1==1:
+            if not USE_CONCURRENCY or 1==1:
                 unfinished_list = self.get_runnable_widgets()
                 try:
                     while len(unfinished_list)>0:
@@ -157,7 +158,7 @@ class Workflow(models.Model):
             current_iteration = current_iteration+1
 
     def run(self):
-        if DEBUG or not self.widget:
+        if not USE_CONCURRENCY or not self.widget:
             unfinished_list = self.get_runnable_widgets()
             try:
                 total = self.widgets.count()
