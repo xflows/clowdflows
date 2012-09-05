@@ -44,6 +44,8 @@ USE_TZ = True
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(PUBLIC_DIR, 'media')
 
+FILES_FOLDER = os.path.join(PUBLIC_DIR, 'files/')
+
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
@@ -134,7 +136,8 @@ INSTALLED_APPS = (
     'website',
     'signuplogin',
     'django_extensions',
-    'django.contrib.humanize',    
+    'django.contrib.humanize',
+    'orderable_inlines',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -188,4 +191,4 @@ AUTH_PROFILE_MODULE = 'workflows.UserProfile'
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 
-STATIC_DOC_ROOT = os.path.join(os.getcwd(), 'media')        
+STATIC_DOC_ROOT = os.path.join(os.getcwd(), 'mothra/public/media')

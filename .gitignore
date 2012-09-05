@@ -17,6 +17,7 @@ atlassian-ide-plugin.xml
 /mothra/local_settings.py
 /mothra/public/static
 /mothra/public/media
+/mothra/public/files
 
 # SQLite
 /mothra/mothra.db
