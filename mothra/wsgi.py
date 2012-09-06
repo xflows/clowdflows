@@ -14,6 +14,12 @@ framework.
 
 """
 import os
+import sys
+import site
+
+project_path = '/srv/django-projects/mothra'
+if project_path not in sys.path:
+        sys.path.append(project_path)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mothra.settings")
 
