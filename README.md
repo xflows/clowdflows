@@ -46,6 +46,11 @@ vi mothra/local_settings.py
 python manage.py syncdb
 ```
 
+### Migrate database ###
+```bash
+python manage.py migrate
+```
+
 ## Running ##
 ```bash
 python manage.py runserver
