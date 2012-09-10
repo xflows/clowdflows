@@ -56,4 +56,9 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+## Running with debugger ##
+```bash
+python manage.py runserver_plus
+```
+
 Open browser to http://127.0.0.1:8000
