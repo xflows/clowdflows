@@ -26,7 +26,7 @@ source bin/activate
 Obtain the url to your git repository.
 
 ```bash
-git clone <URL_TO_GIT_RESPOSITORY> mothra
+git clone git@workflow.ijs.si:mothra.git
 ```
 
 ### Install requirements ###

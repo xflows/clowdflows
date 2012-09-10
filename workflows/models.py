@@ -37,13 +37,6 @@ class Category(models.Model):
         else:
             return unicode(unicode(self.parent)+" :: "+self.name)
 
-class Data(models.Model):
-    key = models.CharField(max_length=200)
-    value = models.TextField()
-    
-    def __unicode__(self):
-        return unicode(self.value)
-
 class Workflow(models.Model):
     name = models.CharField(max_length=200,default='Untitled workflow')
     user = models.ForeignKey(User,related_name="workflows")
