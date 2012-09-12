@@ -40,7 +40,10 @@ def get_category(request):
 
 @login_required
 def index(request):
-    if request.user.userprofile.active_workflow is None:
+    try:
+        if request.user.userprofile.active_workflow is None:
+            return redirect('new workflow')
+    except:
         return redirect('new workflow')
     categories = Category.objects.all()
     user_categories = request.user.categories.all()
