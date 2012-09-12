@@ -27,3 +27,8 @@ if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CACHES = {}
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
