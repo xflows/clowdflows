@@ -805,16 +805,23 @@ def merge_sentences(input_dict):
     """
     method = input_dict['method']
     merged_sen, id_to_sent = set(), {}
+    ids_list = []
     for sentsXML in input_dict['sentences']:
         sents = nlp.parse_def_sentences(sentsXML)
         ids = set(map(lambda x: x['id'], sents))
+        ids_list.append(ids)
         # Save the map from id to sentence
         for sent in sents:
             id_to_sent[sent['id']] = sent
+        if len(merged_sen) == 0:
+            merged_sen = ids
         if method == 'union':
             merged_sen = merged_sen | ids
         elif method == 'intersection':
             merged_sen = merged_sen & ids
+        elif method == 'intersection_two':
+            for ids_alt in ids_list:
+                merged_sen = merged_sen | (ids_alt & ids)
     return {'merged_sentences' : nlp.sentences_to_xml([id_to_sent[sid] for sid in merged_sen])}
 
 def load_corpus(input_dict):
