@@ -836,7 +836,7 @@ function updateWidgetListeners() {
                 $.post(url['get-subprocess'], { 'widget_id':$(thisWidget).attr('rel') }, function(data) {
                 $(thisWidget).data("workflow_link",data.workflow_link);
                 
-                $("#tabs").append('<div rel="'+data.workflow_link+'" class="canvas'+data.workflow_link+' canvas" id="canvas'+data.workflow_link+'"><div class="canvasholder"></div></div>');
+                $("#tabs").append('<div rel="'+data.workflow_link+'" class="canvas'+data.workflow_link+' canvas" id="canvas'+data.workflow_link+'"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"></svg></div>');
                 $("#tabs").tabs("add","#canvas"+data.workflow_link,data.workflow_name);
                 $("#tabs").tabs("select","#canvas"+$(thisWidget).data('workflow_link'));
                 activeCanvasId = $(thisWidget).data('workflow_link');
@@ -880,22 +880,21 @@ function updateWidgetListeners() {
             for (c in connections) {
             
                 if (connections[c].inputWidget==$(this).attr('rel')) {
-                    $(".connection"+c).remove();
+                  //  $(".connection"+c).remove();
                     drawConnection(c);
                 }
                 
                 if (connections[c].outputWidget==$(this).attr('rel')) {
                 
-                    $(".connection"+c).remove();
+                  //  $(".connection"+c).remove();
                     drawConnection(c);
                 }
                 
             }
             
-            $("svg").css('height',$("svg").parent()[0].scrollHeight+'px');
-            $("svg").css('width',$("svg").parent()[0].scrollWidth+'px');
+
             
-            //resizeSvg();
+            resizeSvg();
             
             /*var y = parseInt($(this).css('top'));
             var x = parseInt($(this).css('left'));*/
@@ -912,20 +911,6 @@ function updateWidgetListeners() {
                 if (($(this).css('top')).charAt(0)=='-') {
                     $(this).css('top','0px');
                 }
-                // if the dragged widget has been dragged to the left side of the canvas or over the top of the canvas it is put back onto the canvas so that it is not lost to the user					
-                /*
-                for (c in connections) {
-            
-                if (connections[c].inputWidget==$(this).attr('rel')&&(connections[c].deleted==0)) {
-                    $(".connection"+c).remove();
-                    drawConnection(c);
-                }
-                
-                if (connections[c].outputWidget==$(this).attr('rel')&&(connections[c].deleted==0)) {
-                    $(".connection"+c).remove();
-                    drawConnection(c);
-                }
-                */
                 
                 var y = parseInt($(this).css('top'));
                 var x = parseInt($(this).css('left'));
@@ -944,17 +929,6 @@ function updateWidgetListeners() {
         $(".widgetcenter").removeClass("ui-state-highlight");
         $(this).find(".widgetcenter").addClass("ui-state-highlight");
         selectedConnection=-1;
-        
-        //$(".connection").removeClass("selectedline");
-        
-        /*$(".drawingcanvases").each(function() {
-        connectionid = $(this).attr('rel');	
-        currentLeft = $(this).css('left');
-        currentTop=$(this).css('top');		
-        drawConnection(connectionid);		
-        $(this).css('top',currentTop);
-        $(this).css('left',currentLeft);			
-        });*/
         
         //clicking on a widget selects it and deselects any connection
         
@@ -1073,8 +1047,8 @@ $(function(){
 		activeCanvas = $("#canvas"+activeCanvasId);
 		resizeCanvas();
 		resizeWidgets();
-		//jg = new jsGraphics("canvas"+activeCanvasId);
-		setTimeout("redrawLines()",500);
+		setTimeout("redrawLines()",100);
+        setTimeout("resizeSvg();",100);
 	},
 	tabTemplate: '<li><a href="#{href}"><span rel="#{href}">#{label}</span></a></li>'
 	});
@@ -1440,8 +1414,7 @@ $(function(){
     
     setTimeout("refreshProgressBars()",5000);
     
-    $("svg").css('height',$("svg").parent()[0].scrollHeight+'px');
-    $("svg").css('width',$("svg").parent()[0].scrollWidth+'px');    
+    resizeSvg();
     
 });
 
@@ -1516,6 +1489,12 @@ function refreshWidget(widget_id,workflow_id) {
 }
 
 function drawConnection(connectionid,bgcolor,color) {
+    
+    var conn = connections[connectionid];
+    if ($("#input"+conn.input).parent().parent().parent().attr('rel')!=activeCanvas.attr('rel')) {
+        return;
+    }
+
 
 	if (bgcolor==undefined) {
 		//bgcolor='#0000ff';
@@ -1534,7 +1513,7 @@ function drawConnection(connectionid,bgcolor,color) {
 	var canvasPos = activeCanvas.offset();
     
     if (canvasPos != null) {
-	connection = connections[connectionid];
+	var connection = connections[connectionid];
 	
 	input = $("#input"+connection.input);
 	output = $("#output"+connection.output);
@@ -1582,21 +1561,7 @@ function drawConnection(connectionid,bgcolor,color) {
       var d2 = [-1*coeffMulDirection,
                 -1*coeffMulDirection];		
 	  }
-	  
-	/*  if (outputX>inputX&&Math.abs(outputY-inputY)<50&&(outputY-inputY)<0) {
-	  coeffMulDirection=150;
-      var d1 = [1*coeffMulDirection,
-                1*coeffMulDirection];	  
-      var d2 = [-1*coeffMulDirection,
-                1*coeffMulDirection];		
-	  }	*/  
-   
-      var oldPoints=[];
-      oldPoints[0] = p1;
-      oldPoints[1] = [p1[0]+d1[0],p1[1]+d1[1]];   
-      oldPoints[2] = [p2[0]+d2[0],p2[1]+d2[1]];
-      oldPoints[3] = p2;
-      
+	       
       var bezierPoints=[];
       bezierPoints[0] = p1;
       bezierPoints[1] = [p1[0]+d1[0],p1[1]+d1[1]];
@@ -1627,57 +1592,6 @@ function drawConnection(connectionid,bgcolor,color) {
       max[1] = max[1]+margin[1];
       var lw = Math.abs(max[0]-min[0]);
       var lh = Math.abs(max[1]-min[1]);
-   
-      /*this.SetCanvasRegion(min[0],min[1],lw,lh);*/
-	  /*
-	  if ($('#drawingcanvas'+connectionid).length == 0) {
-		//$("div#canvas"+activeCanvasId+" div.canvasholder").append("<canvas rel='"+connectionid+"' class='drawingcanvases' id='drawingcanvas"+connectionid+"' width='"+lw+"' height='"+lh+"' style='position:absolute;top:"+min[1]+";left:"+min[0]+";width:"+lw+";height:"+lh+";z-index:0;'></canvas>");
-		var somecanvas = document.createElement('canvas'); $(somecanvas).attr('id',"drawingcanvas"+connectionid).attr('width',lw).attr('height',lh).css('top',min[1]).css('left',min[0]).css('position','absolute').addClass("drawingcanvases").attr('rel',connectionid).appendTo($("div#canvas"+activeCanvasId+" div.canvasholder")); if($.browser.msie) somecanvas = G_vmlCanvasManager.initElement(somecanvas);
-		
-	  }
-	  
-	  $("#drawingcanvas"+connectionid).css({'left':min[0],'top':min[1],'width':lw,'height':lh});
-	  $("#drawingcanvas"+connectionid).attr('width',lw);
-	  $("#drawingcanvas"+connectionid).attr('height',lh);
-   
-      var drawingcanvas = document.getElementById('drawingcanvas'+connectionid);   
-      var ctxt = drawingcanvas.getContext('2d');
-	  
-	  ctxt.clearRect(0,0,lw,lh);
-
-   */
-
-    /*  for(i = 0 ; i<bezierPoints.length ; i++){
-      
-        oldPoints[i][0] = bezierPoints[i][0];
-        oldPoints[i][1] = bezierPoints[i][1];
-      
-         bezierPoints[i][0] = bezierPoints[i][0]-min[0];
-         bezierPoints[i][1] = bezierPoints[i][1]-min[1];
-         
-         
-         
-      }*/
-   
-      // Draw the border
-    /*  ctxt.lineCap = 'round';
-      ctxt.strokeStyle = bgcolor;
-      ctxt.lineWidth = 3+1*2;
-      ctxt.beginPath();
-      ctxt.moveTo(bezierPoints[0][0],bezierPoints[0][1]);
-      ctxt.bezierCurveTo(bezierPoints[1][0],bezierPoints[1][1],bezierPoints[2][0],bezierPoints[2][1],bezierPoints[3][0],bezierPoints[3][1]);
-      ctxt.stroke();
-   
-      // Draw the inner bezier curve
-      ctxt.lineCap = 'round';
-      ctxt.strokeStyle = color;
-      ctxt.lineWidth = 3;
-      ctxt.beginPath();
-      ctxt.moveTo(bezierPoints[0][0],bezierPoints[0][1]);
-      ctxt.bezierCurveTo(bezierPoints[1][0],bezierPoints[1][1],bezierPoints[2][0],bezierPoints[2][1],bezierPoints[3][0],bezierPoints[3][1]);
-      ctxt.stroke();
-	  	*/
-	// stop drawing on the canvas
     
     svg = activeCanvas.find('svg');
     
@@ -1708,20 +1622,9 @@ function drawConnection(connectionid,bgcolor,color) {
 /* this function is necesary because the library for drawing has bugs when drawing on a surface whose scrollPosition is not on the top left.
 The scroll position is set to 0,0 before drawing and restored to the original position afterwards. */
 function redrawLines() {
-	$(".connection").remove();
-	
-	savedScrollTop = activeCanvas.scrollTop();
-	savedScrollLeft = activeCanvas.scrollLeft();
-	
-	activeCanvas.attr({ scrollTop: 0, scrollLeft: 0 });
-    activeCanvas.scrollTop(0);
-    activeCanvas.scrollLeft(0);
 	for (c in connections) {
         drawConnection(c);
 	}
-	activeCanvas.attr({ scrollTop: savedScrollTop, scrollLeft: savedScrollLeft });
-    activeCanvas.scrollTop(savedScrollTop);
-    activeCanvas.scrollLeft(savedScrollLeft);
 	resizeWidgets();
 }
 
@@ -1734,26 +1637,16 @@ function updateConnectionListeners() {
 	$(".drawingcanvases").mouseenter(function() {
 		connectionid = $(this).attr('rel');
         $(this).attr('stroke','#ff0000');
-		/*currentTop=$(this).css('top');
-		currentLeft=$(this).css('left');
-		//drawConnection(connectionid,'#ff0000','#ffaaaa');
-		$(this).css('top',currentTop);
-		$(this).css('left',currentLeft);*/
 	});
 	
 	$(".drawingcanvases").unbind('mouseleave');
 	$(".drawingcanvases").mouseleave(function() {
 		connectionid = $(this).attr('rel');	
-		/*currentTop=$(this).css('top');*/
         if (selectedConnection!=($(this).attr('rel'))) {
         $(this).attr('stroke','#d1d1d1');
         } else {
             $(this).attr('stroke','#ffaaaa');
-        }
-		/*currentLeft=$(this).css('left');	
-		drawConnection(connectionid);		
-		$(this).css('top',currentTop);
-		$(this).css('left',currentLeft);*/		
+        }	
 	});
 	
 	$(".drawingcanvases").unbind('click');
@@ -1761,11 +1654,6 @@ function updateConnectionListeners() {
 		connectionid = $(this).attr('rel');
 		selectedConnection=connectionid;
         $(this).attr('stroke','#ffaaaa');
-		/*currentLeft=$(this).css('left');
-		currentTop=$(this).css('top');		
-		drawConnection(connectionid);		
-		$(this).css('top',currentTop);
-		$(this).css('left',currentLeft);*/
 		$(".widgetcenter").removeClass("ui-state-highlight");
 		selectedWidget=-1;
 		
@@ -1796,3 +1684,9 @@ function stopUpload(result,input_id)
 
 }
 
+function resizeSvg() {
+    $("svg").each(function() {
+        $(this).css('height',$(this).parent()[0].scrollHeight+'px');
+        $(this).css('width',$(this).parent()[0].scrollWidth+'px');
+    });
+}
