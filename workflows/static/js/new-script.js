@@ -892,6 +892,9 @@ function updateWidgetListeners() {
                 
             }
             
+            $("svg").css('height',$("svg").parent()[0].scrollHeight+'px');
+            $("svg").css('width',$("svg").parent()[0].scrollWidth+'px');
+            
             //resizeSvg();
             
             /*var y = parseInt($(this).css('top'));
@@ -1436,6 +1439,9 @@ $(function(){
     synchronize(activeCanvasId);
     
     setTimeout("refreshProgressBars()",5000);
+    
+    $("svg").css('height',$("svg").parent()[0].scrollHeight+'px');
+    $("svg").css('width',$("svg").parent()[0].scrollWidth+'px');    
     
 });
 
