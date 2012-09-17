@@ -3,9 +3,9 @@ import nlp
 
 def odt_to_tab(request,input_dict,output_dict,widget):
     import Orange
-    from settings import MEDIA_ROOT
+    from mothra.settings import MEDIA_ROOT
     from workflows.helpers import ensure_dir
-    destination = MEDIA_ROOT+str(request.user.id)+'/'+str(widget.id)+'.tab'
+    destination = MEDIA_ROOT+'/'+str(request.user.id)+'/'+str(widget.id)+'.tab'
     ensure_dir(destination)
     input_dict['data'].save(destination)
     filename = str(request.user.id)+'/'+str(widget.id)+'.tab'
@@ -14,9 +14,9 @@ def odt_to_tab(request,input_dict,output_dict,widget):
     
 def odt_to_csv(request,input_dict,output_dict,widget):
     import Orange
-    from settings import MEDIA_ROOT
+    from mothra.settings import MEDIA_ROOT
     from workflows.helpers import ensure_dir
-    destination = MEDIA_ROOT+str(request.user.id)+'/'+str(widget.id)+'.csv'
+    destination = MEDIA_ROOT+'/'+str(request.user.id)+'/'+str(widget.id)+'.csv'
     ensure_dir(destination)
     input_dict['data'].save(destination)
     filename = str(request.user.id)+'/'+str(widget.id)+'.csv'
@@ -25,9 +25,9 @@ def odt_to_csv(request,input_dict,output_dict,widget):
     
 def odt_to_arff(request,input_dict,output_dict,widget):
     import Orange
-    from settings import MEDIA_ROOT
+    from mothra.settings import MEDIA_ROOT
     from workflows.helpers import ensure_dir
-    destination = MEDIA_ROOT+str(request.user.id)+'/'+str(widget.id)+'.arff'
+    destination = MEDIA_ROOT+'/'+str(request.user.id)+'/'+str(widget.id)+'.arff'
     ensure_dir(destination)
     input_dict['data'].save(destination)
     filename = str(request.user.id)+'/'+str(widget.id)+'.arff'
@@ -35,9 +35,9 @@ def odt_to_arff(request,input_dict,output_dict,widget):
     return render(request, 'visualizations/string_to_file.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
 
 def string_to_file(request,input_dict,output_dict,widget):
-    from settings import MEDIA_ROOT
+    from mothra.settings import MEDIA_ROOT
     from workflows.helpers import ensure_dir
-    destination = MEDIA_ROOT+str(request.user.id)+'/'+str(widget.id)+'.txt'
+    destination = MEDIA_ROOT+'/'+str(request.user.id)+'/'+str(widget.id)+'.txt'
     ensure_dir(destination)
     f = open(destination,'w')
     f.write(str(input_dict['string']))
