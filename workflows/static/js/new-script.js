@@ -1416,6 +1416,8 @@ $(function(){
     
     resizeSvg();
     
+    setTimeout("resizeSvg()",1000);
+    
 });
 
 function refreshProgressBars() {
@@ -1686,7 +1688,7 @@ function stopUpload(result,input_id)
 
 function resizeSvg() {
     $("svg").each(function() {
-        $(this).css('height',$(this).parent()[0].scrollHeight+'px');
-        $(this).css('width',$(this).parent()[0].scrollWidth+'px');
+        $(this).css('height',$(this).parent()[0].scrollHeight-40+'px');
+        $(this).css('width',$(this).parent()[0].scrollWidth-40+'px');
     });
 }
