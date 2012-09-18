@@ -1599,12 +1599,27 @@ function drawConnection(connectionid,bgcolor,color) {
     
     svg = svg[0];
     
-     
+    
     $("#drawingcanvas"+connectionid).remove();
+    
+    $("#drawingoutline"+connectionid).remove();
+    
+    
+    var c1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    c1.setAttribute("id","drawingoutline"+connectionid);
+    c1.setAttribute("stroke-width", "5");
+    c1.setAttribute("stroke", bgcolor);
+    c1.setAttribute("stroke-linejoin","round");
+    c1.setAttribute("fill", "none");
+    c1.setAttribute("rel", connectionid);
+    c1.setAttribute("class", "drawingoutline"+connectionid);    
+    c1.setAttribute("d", "M"+bezierPoints[0][0]+","+bezierPoints[0][1]+" C"+bezierPoints[1][0]+","+bezierPoints[1][1]+" "+bezierPoints[2][0]+","+bezierPoints[2][1]+" "+bezierPoints[3][0]+","+bezierPoints[3][1]);
+    svg.appendChild(c1);    
+    
      
     var c1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
     c1.setAttribute("id","drawingcanvas"+connectionid);
-    c1.setAttribute("stroke-width", "5");
+    c1.setAttribute("stroke-width", "3");
     c1.setAttribute("stroke", color);
     c1.setAttribute("stroke-linejoin","round");
     c1.setAttribute("fill", "none");
@@ -1638,7 +1653,8 @@ function updateConnectionListeners() {
 	$(".drawingcanvases").unbind('mouseenter');
 	$(".drawingcanvases").mouseenter(function() {
 		connectionid = $(this).attr('rel');
-        $(this).attr('stroke','#ff0000');
+        $(this).attr('stroke','#ffaaaa');
+        $(".drawingoutline"+$(this).attr('rel')).attr('stroke','#ff0000');
 	});
 	
 	$(".drawingcanvases").unbind('mouseleave');
@@ -1646,8 +1662,10 @@ function updateConnectionListeners() {
 		connectionid = $(this).attr('rel');	
         if (selectedConnection!=($(this).attr('rel'))) {
         $(this).attr('stroke','#d1d1d1');
+        $(".drawingoutline"+$(this).attr('rel')).attr('stroke','#a3a3a3');
         } else {
             $(this).attr('stroke','#ffaaaa');
+            $(".drawingoutline"+$(this).attr('rel')).attr('stroke','#ff0000');
         }	
 	});
 	
