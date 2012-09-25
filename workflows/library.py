@@ -784,7 +784,7 @@ def term_candidates(input_dict):
 # FILE LOADING
 
 def uci_to_odt(input_dict):
-    from user_settings import FILES_FOLDER
+    from mothra.settings import FILES_FOLDER
     import orange
     output_dict = {}
     output_dict['data'] = orange.ExampleTable(FILES_FOLDER+"uci-datasets/"+input_dict['filename'])
