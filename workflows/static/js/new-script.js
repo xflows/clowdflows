@@ -358,6 +358,13 @@ function unfinish(widgetId) {
     }
 }
 
+function unfinishOne(widgetId) {
+    $(".statusimage"+widgetId).hide();
+    $(".widget"+widgetId+"progressbar").css('width','0px');
+    $(".widget"+widgetId+"progress").hide();
+    executed[widgetId]=false;
+}
+
 function unfinishDescendants(widgetId) {
     for (c in connections) {
         if (connections[c].outputWidget==widgetId) {
@@ -397,9 +404,61 @@ function runWidget(widgetId) {
                    $(".statusimage"+data.widget_id).hide();
                    $(".done"+data.widget_id).show();
        }
+       executed[widgetId] = true;
 
     },'json');
+}
 
+function waitPredecessorAndRunWidget(widgetId) {
+    allRun = true;
+    for (c in connections) {
+        if (connections[c].inputWidget==widgetId) {
+            if(!executed[connections[c].outputWidget]) {
+                allRun = false;
+            }
+        }
+    }
+    if (allRun)
+        runWidget(widgetId);
+    else
+        setTimeout(function(){waitPredecessorAndRunWidget(widgetId);},100);
+}
+
+function runTree(widgetId) {
+    $.post(url['get-executed-status'], { 'workflow_id':activeCanvasId }, function(data) {
+        executed = data.executedStatus;
+        runTreeRec(widgetId);
+    },'json');
+}
+
+function runTreeRec(widgetId) {
+    if(executed[widgetId]) return;
+
+    for (c in connections) {
+        if (connections[c].inputWidget==widgetId) {
+            runTreeRec(connections[c].outputWidget);
+        }
+    }
+    waitPredecessorAndRunWidget(widgetId);
+}
+
+function resetWidget(widgetId) {
+    $.post(url['reset-widget'], { 'widget_id':widgetId }, function(data) {
+        unfinishOne(widgetId)
+        for (c in connections) {
+            if (connections[c].outputWidget==widgetId) {
+                resetWidget(connections[c].inputWidget);
+            }
+        }
+    },'json');
+}
+
+function resetWorkflow() {
+    $.post(url['reset-workflow'], { 'workflow_id':activeCanvasId }, function(data) {
+        for (i in data.resetWidget) {
+            unfinishOne(data.resetWidget[i]);
+        }
+    },'json');
 }
 
 function updateProgressBar(widgetId) {
@@ -544,14 +603,52 @@ function updateWidgetListeners() {
                     unfinish(widgetId);
                 }
                 $(this).dialog("close");
+                $(this).remove();
             }
             ,
             "Close": function() {
                 $(this).dialog("close"); 
+                $(this).remove();
             }
         }
     });
     
+    $("#dialogs div.widgetconfdialog").dialog({
+        autoOpen: false,
+        modal: false,
+        resizable: true,
+        buttons: {
+            "Apply": function() {
+                changed = false;
+                $(this).find("input").each(function() {
+                        var paramId = $(this).attr('id').replace("pref-","")
+                        var paramVal = $(this).is(":checked");
+                        if ($.parseJSON($(this).val().toLowerCase()) != paramVal) {
+                            $.post(url['save-parameter-conf'], { 'input_id':paramId, 'parameter':paramVal });
+                            changed = true;
+                            $(".statusimage"+widgetId).hide();
+                            $(this).val(paramVal);
+                        }
+                });
+                var widgetId = $(this).attr('id').replace("widgetconfiguration-","");
+                if (changed) {
+                    unfinish(widgetId);
+                    refreshWidget(widgetId,activeCanvasId);
+                    var widgetPrefDiv = $(this).attr('id').replace("widgetconfiguration","widgetpreferences");
+                    $('#'+widgetPrefDiv).remove();
+                    $(this).remove();
+                }
+                $(this).dialog("close");
+            }
+            ,
+            "Close": function() {
+                $(this).dialog("close");
+                $(this).remove();
+            }
+        }
+    });
+
+
     $("#dialogs div.widgetrenamedialog").dialog({
     autoOpen: false,
     modal: false,
@@ -793,6 +890,34 @@ function updateWidgetListeners() {
 					if (action=='properties') {
                         $("#widget"+thisWidgetId).dblclick();
 					}
+
+                    if (action=='runtree') {
+                        runTree(thisWidgetId);
+
+                    }
+
+                    if (action=='resetwidget') {
+                        resetWidget(thisWidgetId);
+                    }
+
+                    if (action=='resetworkflow') {
+                        resetWorkflow();
+                    }
+
+                    if (action=='configuration') {
+                        var dialog = $("#widgetconfiguration-"+thisWidgetId);
+                        if (dialog.size()==0) {
+                            $.post(url['get-configuration'], {'widget_id':thisWidgetId}, function(data) {
+                                $("#dialogs").append(data);
+                                updateWidgetListeners();
+                                fileListeners();
+                                dialog = $("#widgetconfiguration-"+thisWidgetId);
+                                dialog.dialog('open');
+                                },'html');
+                        } else {
+                            dialog.dialog('open');
+                        }
+                    }
 					
 					if (action=='results') {
 						showResults(thisWidgetId);
@@ -1418,6 +1543,30 @@ $(function(){
     
     setTimeout("resizeSvg()",1000);
     
+    //MatjazJ: Make links for admin editing widgets and categories directly from treeview
+    //doesnt matter if user manually tammpers this setting as he will not have permission to enter admin mode due to the provided django security
+    if(typeof userIsStaff === 'undefined') userIsStaff=false;
+    if(userIsStaff){
+        $(".wid, .folder").each(function () {
+
+            var thisWidgetType = $(this).attr('relType');
+            var thisWidgetId = $(this).attr('rel');
+
+
+            if ($(this).data('contextMenu') != true) {
+                $(this).contextMenu({
+                        menu:'widMenu'
+                    },
+                    function (action, el, pos) {
+
+                        if (action == 'edit') {
+                            window.open('/admin/workflows/'+thisWidgetType+'/'+thisWidgetId, '', '');
+                        }
+                    });
+                $(this).data('contextMenu', true);
+            }
+        });
+    }
 });
 
 function refreshProgressBars() {

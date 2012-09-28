@@ -49,4 +49,14 @@ urlpatterns = patterns('',
     
     url(r'^(?P<workflow_id>[0-9]+)/$', 'workflows.views.open_workflow', name='open workflow'),
     
+    url(r'^get-configuration/', 'workflows.views.get_configuration', name='get configuration'),
+    url(r'^save-parameter-conf/', 'workflows.views.save_parameter_conf', name='save parameter conf'),
+    url(r'^reset-widget/', 'workflows.views.reset_widget', name='reset widget'),
+    url(r'^get-executed-status/', 'workflows.views.get_executed_status', name='get executed status'),
+    url(r'^reset-workflow/', 'workflows.views.reset_workflow', name='reset workflow'),
+
+    url(r'^get-adc-index/widget(?P<widget_id>[0-9]+)/nx/Index.html$', 'workflows.views.get_adc_index', name='get adc index'),
+    url(r'^get-adc-index/widget(?P<widget_id>[0-9]+)/(?P<narrow_doc>n?)x/Index.html$', 'workflows.views.get_adc_index', name='get adc index'),
+    url(r'^get-adc-index/widget(?P<widget_id>[0-9]+)/(?P<narrow_doc>n?)x/Index(?P<document_id_from>[0-9]+)-(?P<document_id_to>[0-9]+).html$', 'workflows.views.get_adc_index', name='get adc index'),
+    url(r'^get-adc-index/widget(?P<widget_id>[0-9]+)/(?P<narrow_doc>n?)x/Document(?P<document_id>[0-9]+).html', 'workflows.views.get_adc_page', name='get adc page'),
 )

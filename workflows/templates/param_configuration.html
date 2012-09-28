@@ -1,0 +1,12 @@
+{% load url from future %}
+<div id="widgetconfiguration-{{widget.pk}}" rel="{{widget.pk}}" class="widgetconfdialog" title="{{widget.name}} parameter configuration">
+Checked parameters will be settable as parameters on widget properties dialog. Others will be used as a widgets standard inputs.
+<br/><br/>
+    <fieldset>
+{% for p in parameters %}
+    <input id="pref-{{p.pk}}" name="pref-{{p.pk}}" type="checkbox" value="{{p.parameter}}" {% if p.parameter %}checked{% endif %} style="width:15px;display:inline;float:left;" />
+    <label for="pref-{{p.pk}}" style="float:left;">{{p.name}}</label>
+    <div class="clear"><!----></div>
+{% endfor %}
+</fieldset>
+</div>

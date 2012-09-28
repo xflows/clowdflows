@@ -6,7 +6,7 @@
         <input id="pref-{{p.pk}}" name="pref-{{p.pk}}" type="checkbox" value="true" {% ifequal p.value 'true' %}checked {% endifequal%} style="width:15px;display:inline;float:left;" />
     {% endif %}<label for="pref-{{p.pk}}" {% if p.parameter_type == "checkbox" %} style="float:left;"{% endif %}>{{p.name}}</label>
     {% if p.parameter_type == "checkbox" %}<div class="clear"><!----></div>{% endif %}
-    {% if p.parameter_type == "text" %}
+    {% if p.parameter_type == "text" or p.parameter_type == None %}
         <input id="pref-{{p.pk}}" name="pref-{{p.pk}}" type="text" value="{{p.value}}" onchange="" class="text ui-widget-content ui-corner-all" />
     {% endif %}
     {% if p.parameter_type == "select" %}

@@ -600,6 +600,18 @@ def get_parameters(request):
         return HttpResponse(status=400)
         
 @login_required
+def get_configuration(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            params = w.inputs.all();
+            return render(request, 'param_configuration.html', {'widget':w,'parameters':params})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
 def save_parameter(request):
     if request.is_ajax() or DEBUG:
         input = get_object_or_404(Input, pk=request.POST['input_id'])
@@ -613,6 +625,20 @@ def save_parameter(request):
     else:
         return HttpResponse(status=400)
         
+@login_required
+def save_parameter_conf(request):
+    if request.is_ajax() or DEBUG:
+        input = get_object_or_404(Input, pk=request.POST['input_id'])
+        if (input.widget.workflow.user==request.user):
+            input.parameter = (request.POST['parameter']=='true')
+            input.save()
+            input.widget.unfinish()
+            return HttpResponse(status=200)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+
 @login_required
 def save_designation(request):
     if request.is_ajax() or DEBUG:
@@ -738,6 +764,109 @@ def run_widget(request):
     else:
         return HttpResponse(status=400)
         
+@login_required
+def run_tree(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            try:
+                if w.type == 'for_input' or w.type == 'for_output':
+                    raise Exception("You can't run for loops like this. Please run the containing widget.")
+                output_dict = w.run(False)
+                mimetype = 'application/javascript'
+                if not w.abstract_widget is None:
+                    if w.abstract_widget.interactive:
+                        w.interaction_waiting = True
+                        w.save()
+                        data = simplejson.dumps({'status':'interactive','message':'Widget '+w.name+' needs your attention.','widget_id':w.id})
+                    elif w.abstract_widget.visualization_view!='':
+                        data = simplejson.dumps({'status':'visualize','message':'Visualizing widget '+w.name+'.','widget_id':w.id})
+                    else:
+                        data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
+                else:
+                    data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
+            except Exception, e:
+                mimetype = 'application/javascript'
+                w.error = True
+                w.running = False
+                w.finished = False
+                w.save()
+                raise
+                for o in w.outputs.all():
+                    o.value=None
+                    o.save()
+                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+            return HttpResponse(data,mimetype)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+
+
+@login_required
+def reset_widget(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            try:
+                w.reset(False)
+                data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' reset successfully.'})
+                mimetype = 'application/javascript'
+            except Exception, e:
+                mimetype = 'application/javascript'
+                w.error = True
+                w.running = False
+                w.finished = False
+                w.save()
+                raise
+                for o in w.outputs.all():
+                    o.value=None
+                    o.save()
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to reset widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+            return HttpResponse(data,mimetype)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+
+#very ugly -- should be done somwhere else
+def vacuum_db():
+    from django.db import connection
+    cursor = connection.cursor()
+    cursor.execute("VACUUM")
+    connection.close()
+
+@login_required
+def reset_workflow(request):
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['workflow_id'])
+        resetWidget = []
+        for w in workflow.widgets.all():
+            w.reset(False)
+            resetWidget.append(w.pk)
+        mimetype = 'application/javascript'
+        data = simplejson.dumps({'resetWidget':resetWidget})
+        vacuum_db()
+        return HttpResponse(data,mimetype)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
+def get_executed_status(request):
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['workflow_id'])
+        executedStatus = {}
+        for w in workflow.widgets.all():
+            if w.error or w.running or not w.finished:
+                executedStatus[w.pk] = False
+            else:
+                executedStatus[w.pk] = True
+        mimetype = 'application/javascript'
+        data = simplejson.dumps({'executedStatus':executedStatus})
+        return HttpResponse(data,mimetype)
+    else:
+        return HttpResponse(status=400)
+
 @login_required
 def visualize_widget(request):
     if request.is_ajax() or DEBUG:
@@ -1026,3 +1155,31 @@ def workflow_url(request):
         return render(request,'workflow_url.html', {"workflow":request.user.userprofile.active_workflow})
     else:
         return HttpResponse(status=200)
+
+#------------------------------------------------------------------------------
+# LATINO INTERFACE
+#------------------------------------------------------------------------------
+import latino
+import logging
+
+@login_required
+def get_adc_index(request, widget_id, narrow_doc = 'n', document_id_from=0, document_id_to=-1):
+    logging.info('__get_adc_index__')
+    w = get_object_or_404(Widget, pk=widget_id)
+    if w.workflow.user == request.user:
+        firstInput = w.inputs.all()[0]
+        adc = firstInput.value
+        return latino.makeAdcIndexPage(adc, document_id_from, document_id_to, narrow_doc=='n')
+    else:
+        return HttpResponse(status=400)
+
+@login_required
+def get_adc_page(request, widget_id, document_id, narrow_doc = 'n'):
+    logging.info('__get_adc_page__')
+    w = get_object_or_404(Widget, pk=widget_id)
+    if w.workflow.user == request.user:
+        firstInput = w.inputs.all()[0]
+        adc = firstInput.value
+        return latino.makeAdcDocPage(adc, document_id, narrow_doc)
+    else:
+        return HttpResponse(status=400)
