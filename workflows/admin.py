@@ -5,30 +5,25 @@ from django.db import models
 
 from orderable_inlines import OrderableTabularInline
 
-class InputInline(OrderableTabularInline):
+class OrderableTabularInlineStyled(OrderableTabularInline):
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':10})},
         models.TextField: {'widget': Textarea(attrs={'rows':1, 'cols':20})},
-    }
+        }
     orderable_field = 'order'
+
+class InputInline(OrderableTabularInlineStyled):
     model = AbstractInput
 
-class OutputInline(OrderableTabularInline):
-    formfield_overrides = {
-        models.CharField: {'widget': TextInput(attrs={'size':10})},
-        models.TextField: {'widget': Textarea(attrs={'rows':1, 'cols':20})},
-    }
-    orderable_field = 'order'
+class CategoryInline(OrderableTabularInlineStyled):
+    model = Category
+
+class OutputInline(OrderableTabularInlineStyled):
     model = AbstractOutput
 
-class AbstractWidgetInline(OrderableTabularInline):
-    formfield_overrides = {
-        models.CharField: {'widget': TextInput(attrs={'size':10})},
-        models.TextField: {'widget': Textarea(attrs={'rows':1, 'cols':20})},
-    }
-    orderable_field = 'order'
+class AbstractWidgetInline(OrderableTabularInlineStyled):
     model = AbstractWidget
-    
+
 class WidgetAdmin(admin.ModelAdmin):
     inlines = [
         InputInline,
@@ -47,8 +42,10 @@ class WorkflowAdmin(admin.ModelAdmin):
     
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name','user')
-    inlines = [AbstractWidgetInline]
-    
+    inlines = [
+        AbstractWidgetInline,
+        CategoryInline
+    ]
 
 #admin.site.register(UserProfile)
 admin.site.register(Category,CategoryAdmin)
