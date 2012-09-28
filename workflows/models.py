@@ -26,11 +26,13 @@ class Category(models.Model):
     user = models.ForeignKey(User,null=True,blank=True,related_name="categories")
     
     workflow = models.ForeignKey('Workflow',null=True,blank=True,related_name="categories")
-    
+
+    order = models.PositiveIntegerField(default=1)
+
     class Meta:
         verbose_name_plural = "categories"
-        ordering = ['name']
-    
+        ordering = ('order','name',)
+
     def __unicode__(self):
         if self.parent is None:
             return unicode(self.name)
@@ -247,7 +249,7 @@ class AbstractWidget(models.Model):
         
     class Meta:
         ordering = ('order','name',)
-    
+
     def __unicode__(self):
         return unicode(self.name)
 
