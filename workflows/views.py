@@ -648,6 +648,7 @@ def save_configuration(request):
             outputs = request.POST.getlist('outputs')
             changed = False
             reordered = False
+            deletedConnections = []
             for (id, input) in enumerate(inputs):
                 inp = get_object_or_404(Input, pk=input)
                 id += 1
@@ -669,6 +670,7 @@ def save_configuration(request):
                 if (not inp.parameter):
                     #need to be careful if connections are set up to this input and need to be removed
                     for c in Connection.objects.filter(input=inp):
+                        deletedConnections.append(c.id)
                         c.delete()
                     inp.parameter = True
                     changed = True
@@ -689,7 +691,7 @@ def save_configuration(request):
             if (changed):
                 widget.unfinish()
 
-            data = simplejson.dumps({'changed':changed,'reordered':reordered})
+            data = simplejson.dumps({'changed':changed,'reordered':reordered, 'deletedConnections':deletedConnections})
             mimetype = 'application/javascript'
             return HttpResponse(data, mimetype)
         else:

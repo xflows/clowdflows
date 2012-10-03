@@ -590,6 +590,12 @@ function updateWidgetListeners() {
                         if (data.changed || data.reordered) {
                             unfinish(widgetId);
                             refreshWidget(widgetId, activeCanvasId);
+                            for (var i=0; i< data.deletedConnections.length; i++) {
+                                var conId = data.deletedConnections[i];
+                                $("#drawingcanvas"+conId).remove();
+                                $("#drawingoutline"+conId).remove();
+                                delete connections[conId];
+                            }
                             $('#widgetpreferences-'+widgetId).remove();
                             $('#widgetconfiguration-'+widgetId).remove();
                             reportStatus("Successfully saved widget configuration.");
@@ -1037,8 +1043,9 @@ function openConfiguration(thisWidgetId) {
             updateWidgetListeners();
             fileListeners();
             dialog = $("#widgetconfiguration-"+thisWidgetId);
-            $( "#inputs, #params" ).sortable({connectWith:".inputsParams"}).disableSelection();
-            $( "#outputs" ).sortable().disableSelection();
+            $("#params").sortable({connectWith:".inputsParams", placeholder:"ui-state-highlight"}).disableSelection();
+            $("#inputs").sortable({connectWith:".inputsParams", placeholder:"ui-state-highlight"}).disableSelection();
+            $("#outputs").sortable({placeholder:"ui-state-highlight"}).disableSelection();
             dialog.dialog('open');
         },'html');
     } else {
