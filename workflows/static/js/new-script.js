@@ -208,6 +208,7 @@ function deleteSelected() {
         for (conId in connections) {
             if (connections[conId].inputWidget==newSelected||connections[conId].outputWidget==newSelected) {
                 $("#drawingcanvas"+conId).remove();
+                $("#drawingoutline"+conId).remove();
                 delete connections[conId];
             }
         }
@@ -240,6 +241,7 @@ function deleteSelected() {
             selectedConnection=-1;
             unfinish(connections[newSelected].inputWidget);
             $("#drawingcanvas"+newSelected).remove();
+            $("#drawingoutline"+newSelected).remove();
             delete connections[newSelected];
             if (data.refresh!=-1) {
             // refresh widget
