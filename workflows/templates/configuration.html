@@ -1,0 +1,61 @@
+{% load url from future %}
+<div id="widgetconfiguration-{{widget.pk}}" rel="{{widget.pk}}" class="widgetconfdialog" title="{{widget.name}} input / output configuration" style="width:1000px;">
+    Drag and drop to change the order of the widget's inputs.
+    You can also pick an input and move it to the parameters or vice-versa.
+    Reorganize widgets inputs and parameters to best suit your workflow needs.
+    <br/><br/>
+
+    <div>
+        <div style="width:49%; float: left;">
+            <div style="text-align: center; width:100%;">Inputs</div>
+            <div style="border: solid 1px #a9a9a9; background-color: white ; padding: 2px; padding-top:3px; margin-top:2px">
+                <ul id="inputs" class="inputsParams sortable" style="min-height:2em;">
+                    {% for p in inputs %}
+                        <li id="input-{{p.pk}}" class="wid-input ui-state-default">
+                            <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                            ({{p.short_name}}) {{p.name}}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div style="width:2%; float: left;">
+            <span class="ui-icon ui-icon-arrowthick-2-e-w">&nbsp</span>
+        </div>
+        <div style="width:49%; float: left;">
+            <div style="text-align: center; width:100%;">Parameters</div>
+            <div style="border: solid 1px #a9a9a9; background-color: white ; padding: 2px; padding-top:3px; margin-top:2px">
+                <ul id="params" class="inputsParams sortable" style="min-height:2em;">
+                    {% for p in parameters %}
+                        <li id="input-{{p.pk}}" class="wid-param ui-state-default">
+                            <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                            ({{p.short_name}}) {{p.name}}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clear"><!----></div>
+    <div style="font-size: 3px;"><hr style="border:0px; height:1px; margin-top: 10px;margin-bottom: 10px; color:lightgray;background-color:lightgray;"/></div>
+    Drag and drop to change the order of the widget's outputs. Mainly used for resolving entangled connections on a workflow.
+    <br/><br/>
+    <div>
+        <div>
+            <div style="width:15%; float: left;">&nbsp</div>
+            <div style="width:70%; float: left;">
+                <div style="text-align: center; width:100%;">Outputs</div>
+                <div style="border: solid 1px #a9a9a9; background-color: white ; padding: 2px; padding-top:3px; margin-top:2px">
+                    <ul id="outputs" class="sortable" style="min-height:2em;">
+                        {% for p in outputs %}
+                            <li id="output-{{p.pk}}" class="wid-output ui-state-default">
+                                <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                                ({{p.short_name}}) {{p.name}}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

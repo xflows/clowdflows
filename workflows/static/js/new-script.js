@@ -544,10 +544,69 @@ function updateWidgetListeners() {
                     unfinish(widgetId);
                 }
                 $(this).dialog("close");
+                $(this).remove();
             }
             ,
             "Close": function() {
                 $(this).dialog("close"); 
+                $(this).remove();
+            }
+        }
+    });
+    
+    $("#dialogs div.widgetconfdialog").dialog({
+        autoOpen: false,
+        modal: false,
+        resizable: true,
+        width: 600,
+        buttons: {
+            "Apply": function() {
+                var inputs = new Array();
+                $(this).find("#inputs").children().each(function() {
+                    var id = $(this).attr('id').replace("input-","");
+                    inputs.push(parseInt(id));
+                });
+                var params = new Array();
+                $(this).find("#params").children().each(function() {
+                    var id = $(this).attr('id').replace("input-","");
+                    params.push(parseInt(id));
+                });
+                var outputs = new Array();
+                $(this).find("#outputs").children().each(function() {
+                    var id = $(this).attr('id').replace("output-","");
+                    outputs.push(parseInt(id));
+                });
+                var widgetId = $(this).attr('id').replace("widgetconfiguration-","");
+
+                $.ajax({
+                    url: url['save-configuration'],
+                    type: "POST",
+                    data: { 'widgetId':widgetId, 'inputs':inputs, 'params':params, 'outputs':outputs },
+                    dataType: "json",
+                    traditional: true,
+                    success: function(data) {
+                        if (data.changed || data.reordered) {
+                            unfinish(widgetId);
+                            refreshWidget(widgetId, activeCanvasId);
+                            $('#widgetpreferences-'+widgetId).remove();
+                            $('#widgetconfiguration-'+widgetId).remove();
+                            reportStatus("Successfully saved widget configuration.");
+                        }
+                        else {
+                            $('#widgetconfiguration-'+widgetId).remove();
+                        }
+                    },
+                    error: function(e,f) {
+                        $('#widgetpreferences-'+widgetId).remove();
+                        $('#widgetconfiguration-'+widgetId).remove();
+                        reportError("Error saving widget configuration!");
+                    }
+                });
+            }
+            ,
+            "Close": function() {
+                $(this).dialog("close");
+                $(this).remove();
             }
         }
     });
@@ -966,6 +1025,23 @@ function updateWidgetListeners() {
             displayInteraction(widgetId);
         });
     
+}
+
+function openConfiguration(thisWidgetId) {
+    var dialog = $("#widgetconfiguration-"+thisWidgetId);
+    if (dialog.size()==0) {
+        $.post(url['get-configuration'], {'widget_id':thisWidgetId}, function(data) {
+            $("#dialogs").append(data);
+            updateWidgetListeners();
+            fileListeners();
+            dialog = $("#widgetconfiguration-"+thisWidgetId);
+            $( "#inputs, #params" ).sortable({connectWith:".inputsParams"}).disableSelection();
+            $( "#outputs" ).sortable().disableSelection();
+            dialog.dialog('open');
+        },'html');
+    } else {
+        dialog.dialog('open');
+    }
 }
 
 function addConnection(output,input) {
