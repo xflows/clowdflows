@@ -97,6 +97,8 @@ def add_widget(request):
                 w.abstract_widget = aw
                 w.type = 'regular'
                 w.save()
+                inputOrder = 0
+                paramOrder = 0
                 for i in aw.inputs.all():
                     j = Input()
                     j.name = i.name
@@ -107,6 +109,12 @@ def add_widget(request):
                     j.required = i.required
                     j.parameter = i.parameter
                     j.value = None
+                    if (i.parameter):
+                        paramOrder += 1
+                        j.order = paramOrder
+                    else:
+                        inputOrder += 1
+                        j.order = inputOrder
                     if not i.multi:
                         j.value = i.default
                     j.parameter_type = i.parameter_type
@@ -119,6 +127,7 @@ def add_widget(request):
                         o.value = k.value
                         o.input = j
                         o.save()
+                outputOrder = 0
                 for i in aw.outputs.all():
                     j = Output()
                     j.name = i.name
@@ -126,6 +135,8 @@ def add_widget(request):
                     j.description = i.description
                     j.variable = i.variable
                     j.widget = w
+                    outputOrder += 1
+                    j.order = outputOrder
                     j.save()
                 return render(request, 'widgets.html', {'widgets':[w,]})
             else:
@@ -600,18 +611,6 @@ def get_parameters(request):
         return HttpResponse(status=400)
         
 @login_required
-def get_configuration(request):
-    if request.is_ajax() or DEBUG:
-        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
-        if (w.workflow.user==request.user):
-            params = w.inputs.all();
-            return render(request, 'param_configuration.html', {'widget':w,'parameters':params})
-        else:
-            return HttpResponse(status=400)
-    else:
-        return HttpResponse(status=400)
-
-@login_required
 def save_parameter(request):
     if request.is_ajax() or DEBUG:
         input = get_object_or_404(Input, pk=request.POST['input_id'])
@@ -624,16 +623,77 @@ def save_parameter(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
+
+@login_required
+def get_configuration(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            inputs = w.inputs.filter(parameter=False);
+            parameters = w.inputs.filter(parameter=True);
+            outputs = w.outputs.all();
+            return render(request, 'configuration.html', {'widget':w,'inputs': inputs, 'parameters':parameters, 'outputs':outputs})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
         
 @login_required
-def save_parameter_conf(request):
+def save_configuration(request):
     if request.is_ajax() or DEBUG:
-        input = get_object_or_404(Input, pk=request.POST['input_id'])
-        if (input.widget.workflow.user==request.user):
-            input.parameter = (request.POST['parameter']=='true')
-            input.save()
-            input.widget.unfinish()
-            return HttpResponse(status=200)
+        widget = get_object_or_404(Widget, pk=request.POST['widgetId'])
+        if (widget.workflow.user==request.user):
+            inputs =  request.POST.getlist('inputs')
+            params =  request.POST.getlist('params')
+            outputs = request.POST.getlist('outputs')
+            changed = False
+            reordered = False
+            deletedConnections = []
+            for (id, input) in enumerate(inputs):
+                inp = get_object_or_404(Input, pk=input)
+                id += 1
+                if (inp.widget.workflow.user!=request.user):
+                    return HttpResponse(status=400)
+                if (inp.parameter):
+                    inp.parameter = False
+                    changed = True
+                    inp.save()
+                if (inp.order != id):
+                    inp.order = id
+                    reordered = True
+                    inp.save()
+            for (id, input) in enumerate(params):
+                inp = get_object_or_404(Input, pk=input)
+                id += 1
+                if (inp.widget.workflow.user!=request.user):
+                    return HttpResponse(status=400)
+                if (not inp.parameter):
+                    #need to be careful if connections are set up to this input and need to be removed
+                    for c in Connection.objects.filter(input=inp):
+                        deletedConnections.append(c.id)
+                        c.delete()
+                    inp.parameter = True
+                    changed = True
+                    inp.save()
+                if (inp.order != id):
+                    inp.order = id
+                    reordered = True
+                    inp.save()
+            for (id, output) in enumerate(outputs):
+                out = get_object_or_404(Output, pk = output)
+                id += 1
+                if (out.widget.workflow.user!=request.user):
+                    return HttpResponse(status=400)
+                if (out.order != id):
+                    out.order = id
+                    reordered = True
+                    out.save()
+            if (changed):
+                widget.unfinish()
+
+            data = simplejson.dumps({'changed':changed,'reordered':reordered, 'deletedConnections':deletedConnections})
+            mimetype = 'application/javascript'
+            return HttpResponse(data, mimetype)
         else:
             return HttpResponse(status=400)
     else:

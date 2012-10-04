@@ -592,6 +592,10 @@ class Input(models.Model):
         ('select', 'Select box'),
     )
     parameter_type = models.CharField(max_length=50,choices=PARAMETER_CHOICES,blank=True,null=True)
+    order = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        ordering = ('order',)
     
     def __unicode__(self):
         return unicode(self.name)             
@@ -613,6 +617,10 @@ class Output(models.Model):
     value = PickledObjectField(null=True)
     inner_input = models.ForeignKey(Input,related_name="outer_output_rel",blank=True,null=True) #za subprocess
     outer_input = models.ForeignKey(Input,related_name="inner_output_rel",blank=True,null=True) #za subprocess
+    order = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        ordering = ('order',)
     
     def __unicode__(self):
         return unicode(self.name)
