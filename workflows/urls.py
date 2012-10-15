@@ -51,4 +51,5 @@ urlpatterns = patterns('',
     
     url(r'^(?P<workflow_id>[0-9]+)/$', 'workflows.views.open_workflow', name='open workflow'),
     
+    url(r'^sensitivity_analysis/', 'workflows.visualization_views.sensitivity_analysis_viewer', name='sensitivity analysis'),
 )

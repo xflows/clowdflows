@@ -439,7 +439,9 @@ class Widget(models.Model):
                 self.finished=False
                 self.save()
                 raise
+            print outputs
             for o in self.outputs.all():
+                print o
                 if not self.abstract_widget is None:
                     o.value = outputs[o.variable]
                     o.save()

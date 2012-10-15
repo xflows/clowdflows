@@ -3,10 +3,10 @@
 Use the sliders to adjust the weights.<br><br>
 <form>
 {% for att in attributes %}
-{{att}}
-<br>
-<br>
-<input type="text" style="width:30px; margin-left:20px; float:right;" name="weight{{widget.pk}}{{att}}" id="weight{{widget.pk}}{{att}}" value="0">
+<label style="font-weight:bold;">{{att}}</label>
+<div style="padding-left:20px;">
+<input id="smallerIsBetter{{widget.pk}}{{att}}" name="smallerIsBetter{{widget.pk}}{{att}}" type="checkbox" value="true" style="width:15px;display:inline;" /> <label for="largerIsBetter{{widget.pk}}{{att}}" style="display:inline;">smaller attr. values are better</label>
+<input type="text" style="width:30px; margin-left:20px; float:right;" name="weight{{widget.pk}}{{att}}" id="weight{{widget.pk}}{{att}}" value="0"/>
 <div style="width:300px;" id="slider{{widget.pk}}{{att}}"></div>
 <script>
     $("#slider{{widget.pk}}{{att}}").slider({
@@ -23,12 +23,12 @@ Use the sliders to adjust the weights.<br><br>
     
     });
 </script>
+</div>
 <br>
-
-
+<br>
 {% endfor %}
 
-<input type="hidden" name="widget_id" value="{{widget.pk}}">
+<input type="hidden" name="widget_id" value="{{widget.pk}}"/>
 </form>
 </div>
 </div>

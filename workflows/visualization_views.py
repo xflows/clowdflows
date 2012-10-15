@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.http import Http404, HttpResponse
 import nlp
+import json
 
 def odt_to_tab(request,input_dict,output_dict,widget):
     import Orange
@@ -73,13 +75,17 @@ def table_viewer(request,input_dict,output_dict,widget):
 
     for a in data.domain.attributes:
         attrs.append(a.name)
-
+    
+    pretty_float = lambda x, a: '%.3f' % x if a.var_type == Orange.feature.Type.Continuous else x
     for inst in xrange(len(data)):
         inst_new = []
         for a in data.domain.variables:
-            inst_new.append(data[inst][a.name].value)
+            value = data[inst][a.name].value
+            inst_new.append(pretty_float(value, a))
         for m in data.domain.get_metas():
-            inst_new.append(data[inst][m].value)
+            value = data[inst][m].value
+            a = data.domain.get_meta(m)
+            inst_new.append(pretty_float(value, a))
         data_new.append(inst_new)
 
     output_dict = {'attrs':attrs, 'metas':metas, 'data':data_new, 'class_var':class_var}
@@ -205,7 +211,7 @@ def term_candidate_viewer(request, input_dict, output_dict, widget):
     """
     Parses the input and displays the term candidates.
     
-    @author: Anze Vavpetic, 2012
+    @author: Anze Vavpeltic, 2012
     """
     terms = []
     for line in input_dict['candidates'].split('\n'):
@@ -219,3 +225,36 @@ def term_candidate_viewer(request, input_dict, output_dict, widget):
                       })
     terms = sorted(terms, key = lambda x: x['score'], reverse=True)
     return render(request, 'visualizations/terms.html', {'widget' : widget, 'terms' : terms})
+
+def sensitivity_analysis_viewer(request, input_dict, output_dict, widget):
+    '''
+    Computes the sensitivity analysis graph.
+        
+    @author: Anze Vavpeltic, 2012
+    '''
+    model = input_dict['model']
+    attributes = [att.name for att in input_dict['model'].data.domain.features]
+    data_points = {}
+    domain = range(0, 101, 10)
+    # Compute for each attribute
+    for target_att in attributes:
+        y, ex_data = [], {}
+        # For collecting scores for each example across different weights
+        for ex in model.data:          
+            ex_data[ex['label'].value] = []
+        # Compute the scores for each weight
+        for w in domain:
+            model.weights[target_att] = w
+            ds = model()
+            for ex in ds:
+                ex_data[ex['label'].value].append([w, ex['score'].value])
+        for ex in model.data:          
+            y.append({'name' : ex['label'].value, 'data' : ex_data[ex['label'].value]})
+        data_points[target_att] = y        
+       
+    return render(request, 'visualizations/sensitivity_analysis.html', 
+                  {'widget' : widget,
+                   'attributes': attributes, 
+                   'data_points' : json.dumps(data_points), 
+                   'output_dict': {}
+                   })
