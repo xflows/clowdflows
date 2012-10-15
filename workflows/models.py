@@ -208,7 +208,6 @@ class Workflow(models.Model):
         self.name = new_name
         self.save()       
  
- 
     @models.permalink
     def get_absolute_url(self):
         return ('open workflow', [str(self.id)])        
