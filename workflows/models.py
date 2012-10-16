@@ -429,7 +429,7 @@ class Widget(models.Model):
                 else:
                     if self.workflow_link.is_for_loop():
                         self.workflow_link.run_for_loop()
-                        print self.outputs.all()[0].value
+                        #print self.outputs.all()[0].value
                     else:
                         self.workflow_link.run()
             except:
