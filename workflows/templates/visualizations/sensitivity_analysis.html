@@ -45,9 +45,14 @@ $(function () {
                 text: 'Changing weight for attribute: ' + target_att,
                 x: -20
             },
+            xAxis: {
+            	title: { 
+            		text: 'Weight of {{target_att}}'
+            	}
+            },
             yAxis: {
                 title: {
-                    text: 'score'
+                    text: 'Score'
                 },
                 plotLines: [{
                     value: 0,

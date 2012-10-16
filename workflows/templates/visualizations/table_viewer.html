@@ -1,41 +1,102 @@
-<div id="widgetvisualization-{{widget.pk}}" width="700" height="400" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} results">
-
+<div id="widgetvisualization-{{widget.pk}}" width="700" height="500" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} results">
+<style type="text/css">
+/*
+	Data table fine-tuning.
+*/
+table.display { 
+	width: 100%; 
+}
+tr.odd { 
+	background-color: rgb(221, 255, 221); 
+}
+tr.even { 
+	background-color: rgb(238, 255, 238); 
+} 
+.dataTable .ui-icon {
+	display: inline;
+	float: right;
+}
+.dataTables_wrapper .ui-button {
+	padding: 2px 6px 2px 6px;
+	margin-right: 0px;
+}
+.dataTables_filter {
+    //width: 50%;
+    float: right;
+    text-align: right;
+}
+.dataTables_filter label, .dataTables_filter input {
+	display: inline;
+	white-space: nowrap;
+	width: auto;
+}
+.dataTables_length { 
+	//width: 40%; 
+	float: left;
+	text-align: left;
+}
+div.dataTables_length {
+	float: left;
+}
+div.dataTables_filter {
+	float: right;
+}
+div.dataTables_info {
+	padding: 9px 6px 10px 6px;
+	float: left;
+}
+div.dataTables_paginate {
+	float: right;
+}
+div.dataTables_length,
+div.dataTables_filter,
+div.dataTables_paginate {
+	padding: 6px 6px 0px 6px;
+}
+html[xmlns] .dataTables_wrapper {
+	display: block;
+}
+* html .dataTables_wrapper {
+	height: 1%;
+}
+</style>
 <center>
-
-<table class="datasetTable">
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="datasetTable{{widget.pk}}">
 	<!-- header -->
-	{% for att in output_dict.attrs %}
-		<th>{{att}}</th>
-	{% endfor %}
-    {% if output_dict.class_var %}
-	<th>{{output_dict.class_var}}</th>
-    {% endif %}
-	{% for att in output_dict.metas %}
-		<th>{{att}}</th>
-	{% endfor %}
-
-	<!-- att type -->
-	<tr class="tablerow{{widget.pk}}">
+	<thead>
+		<tr>
 		{% for att in output_dict.attrs %}
-			<td></td>
+			<th>{{att}}</th>
 		{% endfor %}
-            {% if output_dict.class_var %}
-			<td class='tablecellcenter'>class</td>
-            {% endif %}
+	    {% if output_dict.class_var %}
+			<th>{{output_dict.class_var}} [class]</th>
+	    {% endif %}
 		{% for att in output_dict.metas %}
-			<td class='tablecellcenter'>meta</td>
+			<th>{{att}} [meta]</th>
 		{% endfor %}
-	</tr>
-
+		</tr>
+	</thead>
+	<tbody>
     <!-- instances -->
     {% for inst in output_dict.data %}
-        <tr class="tablerow{{widget.pk}}">
+        <tr>
         	{% for v in inst %}
         		<td>{{v}}</td>
         	{% endfor %}
         </tr>
     {% endfor %}
+    </tbody>
 </table>
-
 </center>
+<script type="text/javascript">
+$(function () {
+	$(document).ready(function() {
+		$('#datasetTable{{widget.pk}}').dataTable( {
+			"bSortCellsTop" : true,
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
+	} );
+});
+</script>
 </div>
