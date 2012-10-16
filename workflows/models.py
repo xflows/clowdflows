@@ -208,7 +208,6 @@ class Workflow(models.Model):
         self.name = new_name
         self.save()       
  
- 
     @models.permalink
     def get_absolute_url(self):
         return ('open workflow', [str(self.id)])        
@@ -430,7 +429,7 @@ class Widget(models.Model):
                 else:
                     if self.workflow_link.is_for_loop():
                         self.workflow_link.run_for_loop()
-                        print self.outputs.all()[0].value
+                        #print self.outputs.all()[0].value
                     else:
                         self.workflow_link.run()
             except:
