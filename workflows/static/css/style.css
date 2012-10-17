@@ -167,3 +167,63 @@ td{
 .sortable li { margin: 0 2px 2px 2px; padding: 0.4em; padding-left: 1.5em; line-height: 1.2em; cursor: move;}
 .sortable .ui-state-highlight { height: 1.2em; }
 .sortable li span { position: absolute; margin-left: -1.3em; }
+
+/*
+	Data table fine-tuning.
+*/
+table.display { 
+	width: 100%; 
+}
+tr.odd { 
+	background-color: rgb(221, 255, 221); 
+}
+tr.even { 
+	background-color: rgb(238, 255, 238); 
+} 
+.dataTable .ui-icon {
+	display: inline;
+	float: right;
+}
+.dataTables_wrapper .ui-button {
+	padding: 2px 6px 2px 6px;
+	margin-right: 0px;
+}
+.dataTables_filter {
+    //width: 50%;
+    float: right;
+    text-align: right;
+}
+.dataTables_filter label, .dataTables_filter input {
+	display: inline;
+	white-space: nowrap;
+	width: auto;
+}
+.dataTables_length { 
+	//width: 40%; 
+	float: left;
+	text-align: left;
+}
+div.dataTables_length {
+	float: left;
+}
+div.dataTables_filter {
+	float: right;
+}
+div.dataTables_info {
+	padding: 9px 6px 10px 6px;
+	float: left;
+}
+div.dataTables_paginate {
+	float: right;
+}
+div.dataTables_length,
+div.dataTables_filter,
+div.dataTables_paginate {
+	padding: 6px 6px 0px 6px;
+}
+html[xmlns] .dataTables_wrapper {
+	display: block;
+}
+* html .dataTables_wrapper {
+	height: 1%;
+}

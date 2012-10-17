@@ -857,12 +857,12 @@ class KepnerTregoe:
         if weights == None:
             weights = self.weights
         # Normalize the weights.
-        s = sum([weights[att] for att in weights.keys()])
+        #s = sum([weights[att] for att in weights.keys()])
         # Normalize.
-        norm_weights = {}
-        if s > 0:
-            for att in weights.keys():
-                norm_weights[att] = float(weights[att])/s
+        #norm_weights = {}
+        #if s > 0:
+        #    for att in weights.keys():
+        #        norm_weights[att] = float(weights[att])/s
         # New normalized table
         norm_data = Orange.data.Table(self.data)
         newid = min(norm_data.domain.get_metas().keys()) - 1
@@ -880,7 +880,7 @@ class KepnerTregoe:
         # Use the inverse of an attr. value if smaller values should be treated as 'better'.
         inverse = lambda x, att: 1-x if att in self.smaller_is_better else x
         for ex in norm_data:
-            score = sum([inverse(ex[att], att.name) * norm_weights.get(att.name, 1) for att in norm_data.domain.features if att.var_type == Type.Continuous])
+            score = sum([inverse(ex[att], att.name) * weights.get(att.name, 1) for att in norm_data.domain.features if att.var_type == Type.Continuous])
             ex['score'] = score
         return norm_data
 
