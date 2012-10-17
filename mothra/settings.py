@@ -193,6 +193,7 @@ else:
         'django_extensions',
         'django.contrib.humanize',
         'orderable_inlines',
+        'streams',
     )        
         
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS
