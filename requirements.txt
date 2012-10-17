@@ -8,3 +8,4 @@ django-orderable-inlines==0.0.6
 django-picklefield==0.2.1
 httplib2==0.7.5
 wsgiref==0.1.2
+feedparser==5.1.2

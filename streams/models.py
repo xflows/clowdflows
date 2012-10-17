@@ -1,7 +1,9 @@
 from django.db import models
-from workflows.models import Workflow
+from workflows.models import Workflow, Widget
 from django.contrib.auth.models import User
 import workflows.library
+
+from picklefield.fields import PickledObjectField
 
 # Create your models here.
 
@@ -10,6 +12,7 @@ class Stream(models.Model):
     workflow = models.ForeignKey(Workflow, related_name="streams")
     last_executed = models.DateTimeField(auto_now_add=True)
     period = models.IntegerField(default=60)
+    active = models.BooleanField(default=False)
     
     def execute(self,workflow=None,outputs={}):
         if workflow is None:
@@ -130,3 +133,10 @@ class Stream(models.Model):
     
     def __unicode__(self):
         return unicode(self.workflow)+' stream'
+        
+class StreamWidgetData(models.Model):
+    stream = models.ForeignKey(Stream, related_name="widget_data")
+    widget = models.ForeignKey(Widget, related_name="stream_data")
+    value = PickledObjectField(null=True)
+    
+    
