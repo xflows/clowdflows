@@ -4,7 +4,7 @@ Select the attribute to perform sensitivity analysis on.<br><br>
 <form>
 <div id="radio" style="margin-bottom: 10px; text-align: center;">
 {% for att in attributes %}
-	<input type="radio" class="target_att" name="target{{widget.pk}}" id="target{{widget.pk}}{{att}}" value="{{att}}" {% if forloop.first %}checked="checked"{% endif %}> <label for="target{{widget.pk}}{{att}}">{{att}}</label>
+	<input type="radio" class="target_att" name="target{{widget.pk}}" id="target{{widget.pk}}{{att}}" value="{{att}}" {% if forloop.first %}checked="checked"{% endif %}> <label for="target{{widget.pk}}{{att}}">{{att}}</label></input>
 {% endfor %}
 </div>
 <input type="hidden" name="widget_id" value="{{widget.pk}}"/>
@@ -75,7 +75,10 @@ $(function () {
                 y: 100,
                 borderWidth: 0
             },
-            series: data_points[target_att]
+            series: data_points[target_att],
+			credits: {
+	            enabled: false
+	        },
         });
 	}
 });
