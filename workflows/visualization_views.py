@@ -258,3 +258,23 @@ def sensitivity_analysis_viewer(request, input_dict, output_dict, widget):
                    'data_points' : json.dumps(data_points), 
                    'output_dict': {}
                    })
+
+def ds_charts_viewer(request, input_dict, output_dict, widget):
+    model = input_dict['model']
+    norm_data = model()
+    weight_shares = [ [att, weight] for att, weight in model.weights.items() ]
+    attributes = sorted(model.weights.keys())
+    alternatives = [ex['label'].value for ex in norm_data]
+    weights_bar = [{ 'data' : [model.weights[att] for att in attributes] }]
+    values_column = [{ 'data' : [ex['score'].value for ex in norm_data] }]
+    alt_data = [{ 'name' : ex['label'].value, 'data' : [ex[att].value for att in attributes] } for ex in norm_data ]
+    return render(request, 'visualizations/ds_charts.html', 
+                  {'widget' : widget, 
+                   'model_name' : model.name, 
+                   'attributes' : json.dumps(attributes),
+                   'alternatives' : json.dumps(alternatives),
+                   'weight_shares' : json.dumps(weight_shares),
+                   'weights_bar' : json.dumps(weights_bar),
+                   'values_column' : json.dumps(values_column),
+                   'alt_data' : json.dumps(alt_data)
+                   })
