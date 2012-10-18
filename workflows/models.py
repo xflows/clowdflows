@@ -425,6 +425,8 @@ class Widget(models.Model):
                         input_dict['wsdl_method']=self.abstract_widget.wsdl_method
                     if self.abstract_widget.has_progress_bar:
                         outputs = function_to_call(input_dict,self)
+                    elif self.abstract_widget.is_streaming:
+                        outputs = function_to_call(input_dict,self,None)
                     else:
                         outputs = function_to_call(input_dict)
                 else:

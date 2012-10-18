@@ -42,12 +42,14 @@ class Stream(models.Model):
             #print for_input
             finished = []
             unfinished_list = []
+            halted = []
             loop = True
             while loop:
                 for w in unfinished_list:
                     # prepare all the inputs for this widget
                     input_dict = {}
-                    output_dict = {}                
+                    output_dict = {}    
+                    finish = True
                     
                     for i in w.inputs.all():
                         #gremo pogledat ce obstaja povezava in ce obstaja gremo value prebrat iz outputa
@@ -70,10 +72,16 @@ class Stream(models.Model):
                         if w.abstract_widget.wsdl != '':
                             input_dict['wsdl']=w.abstract_widget.wsdl
                             input_dict['wsdl_method']=w.abstract_widget.wsdl_method
-                        if w.abstract_widget.has_progress_bar:
-                            output_dict = function_to_call(input_dict,w)
-                        else:
-                            output_dict = function_to_call(input_dict)
+                        try:
+                            if w.abstract_widget.has_progress_bar:
+                                output_dict = function_to_call(input_dict,w)
+                            elif w.abstract_widget.is_streaming:
+                                output_dict = function_to_call(input_dict,w,self)
+                            else:
+                                output_dict = function_to_call(input_dict)
+                        except:
+                            halted.append(w)
+                            finish=False
 
                     
                     if w.type == 'subprocess':
@@ -105,16 +113,17 @@ class Stream(models.Model):
                                     value = None
                             output_dict[o.variable]=value
                     
-                    if w.type == 'output':
-                        for i in w.inputs.all():
-                            outputs[i.outer_output.pk]=(i.outer_output.variable,input_dict[i.variable])
+                    if finish:
+                        if w.type == 'output':
+                            for i in w.inputs.all():
+                                outputs[i.outer_output.pk]=(i.outer_output.variable,input_dict[i.variable])
+                                
                             
+                        if w.type != 'subprocess':
+                            for o in w.outputs.all():
+                                outputs[o.pk]=(o.variable,output_dict[o.variable])
                         
-                    if w.type != 'subprocess':
-                        for o in w.outputs.all():
-                            outputs[o.pk]=(o.variable,output_dict[o.variable])
-                    
-                    finished.append(w.pk)
+                        finished.append(w.pk)
                 unfinished_list = []
                 for w in widgets:
                     if not w.pk in finished:
@@ -125,7 +134,8 @@ class Stream(models.Model):
                                 ready_to_run = False
                                 break
                         if ready_to_run:
-                            unfinished_list.append(w)
+                            if w not in halted:
+                                unfinished_list.append(w)
                 if len(unfinished_list)==0:
                     loop = False
         return outputs
