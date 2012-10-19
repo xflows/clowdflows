@@ -1,34 +1,89 @@
-<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction">
-<div style="width:420px;">
-Use the sliders to adjust the weights.<br><br>
-<form>
-{% for att in attributes %}
-<label style="font-weight:bold;">{{att}}</label>
-<div style="padding-left:20px;">
-<input id="smallerIsBetter{{widget.pk}}{{att}}" name="smallerIsBetter{{widget.pk}}{{att}}" type="checkbox" value="true" style="width:15px;display:inline;" /> <label for="largerIsBetter{{widget.pk}}{{att}}" style="display:inline;">smaller attr. values are better</label>
-<input type="text" style="width:30px; margin-left:20px; float:right;" name="weight{{widget.pk}}{{att}}" id="weight{{widget.pk}}{{att}}" value="0"/>
-<div style="width:300px;" id="slider{{widget.pk}}{{att}}"></div>
-<script>
-    $("#slider{{widget.pk}}{{att}}").slider({
-    
-    value:0,
-    min:0,
-    max:100,
-    slide: function( event, ui ) {
-        $( "#weight{{widget.pk}}{{att}}").val( $("#slider{{widget.pk}}{{att}}").slider("value") );
-    },
-    stop: function ( event, ui ) {
-        $( "#weight{{widget.pk}}{{att}}").val( $("#slider{{widget.pk}}{{att}}").slider("value") );
-    }
-    
-    });
-</script>
-</div>
-<br>
-<br>
-{% endfor %}
-
-<input type="hidden" name="widget_id" value="{{widget.pk}}"/>
-</form>
-</div>
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction" width="700" height="600">
+	<div>
+		Use the sliders to adjust the weights.<br><br>
+		<form>
+			<table cellpadding="0" cellspacing="0" border="0" class="display" id="weightSel{{widget.pk}}">
+				<thead>
+					<tr>
+						<th>Attribute</th>
+						<th>Smaller attribute values are better</th>
+						<th>Weight</th>
+						<th>Weight (numeric)</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for att in attributes %}
+					<tr>
+						<td>
+							{{att}}
+						</td>
+						<td>
+							<input id="smallerIsBetter{{widget.pk}}{{att}}" name="smallerIsBetter{{widget.pk}}{{att}}" type="checkbox" value="true" style="display:inline;" />
+						</td>
+						<td>
+							<div style="width:200px;" id="slider{{widget.pk}}{{att}}"></div>
+							<script type="text/javascript">
+								// Slider code.
+								$("#slider{{widget.pk}}{{att}}").slider({
+								    value:0,
+								    min:0,
+								    max:100,
+								    slide: function( event, ui ) {
+								        $( "#weight{{widget.pk}}{{att}}").val( $("#slider{{widget.pk}}{{att}}").slider("value") );
+								    },
+								    stop: function ( event, ui ) {
+								        $( "#weight{{widget.pk}}{{att}}").val( $("#slider{{widget.pk}}{{att}}").slider("value") );
+								    }
+							    });
+							    
+							    // Change the slider position when manually editing the weight. 
+								$("#weight{{widget.pk}}{{att}}").change(function() {
+									$("#slider{{widget.pk}}{{att}}").slider("value", $("#weight{{widget.pk}}{{att}}").val());
+								});
+							 </script>
+						</td>
+						<td>
+							<input type="number" style="width:30px; display:inline;" name="weight{{widget.pk}}{{att}}" id="weight{{widget.pk}}{{att}}" value="0"/>
+						</td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+			<input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+		</form>
+		<br/>
+		<button id="normalizeButton{{widget.pk}}">Normalize weights!</button>
+		<button id="resetButton{{widget.pk}}">Reset!</button>
+		<script type="text/javascript">
+			// Data table code.
+		    $('#weightSel{{widget.pk}}').dataTable( {
+				"bJQueryUI": true,
+				"bPaginate" : false,
+				"bSort" : false,
+				"bFilter" : false
+			});
+			// Normalization code.
+			$("#normalizeButton{{widget.pk}}").button().click(function() {
+				var weight_elements = $('[id^="weight{{widget.pk}}"]');
+				var weight_sum = 0;
+				weight_elements.each(function(index) {
+					weight_sum += parseFloat($(this).val());
+				});
+				if (weight_sum > 0) {
+					weight_elements.each(function(index) {
+						//round(100 * parseFloat($(this).val()) / weight_sum)
+						$(this).val(Math.round(100 * parseFloat($(this).val()) / weight_sum));
+						$(this).change();
+					});
+				}
+	     	});
+		  	// Reset button code.
+		  	$("#resetButton{{widget.pk}}").button().click(function() {
+		  		$('[id^="weight{{widget.pk}}"]').each(function() {
+		  			$(this).val(0);
+		  			$(this).change();
+		  		});
+		  	});
+		</script>
+	</div>
 </div>

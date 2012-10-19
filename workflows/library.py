@@ -851,19 +851,13 @@ class KepnerTregoe:
         self.data = data
         self.weights = weights
         self.smaller_is_better = smaller_is_better if smaller_is_better else set()
+        self.name = 'Kepner-Tregoe'
     def __call__(self, weights=None):
         import Orange
         from Orange.feature import Type
         if weights == None:
             weights = self.weights
-        # Normalize the weights.
-        s = sum([weights[att] for att in weights.keys()])
-        # Normalize.
-        norm_weights = {}
-        if s > 0:
-            for att in weights.keys():
-                norm_weights[att] = float(weights[att])/s
-        # New normalized table
+        # New augmented table
         norm_data = Orange.data.Table(self.data)
         newid = min(norm_data.domain.get_metas().keys()) - 1
         score_attr = Orange.feature.Continuous('score')
@@ -880,7 +874,7 @@ class KepnerTregoe:
         # Use the inverse of an attr. value if smaller values should be treated as 'better'.
         inverse = lambda x, att: 1-x if att in self.smaller_is_better else x
         for ex in norm_data:
-            score = sum([inverse(ex[att], att.name) * norm_weights.get(att.name, 1) for att in norm_data.domain.features if att.var_type == Type.Continuous])
+            score = sum([inverse(ex[att], att.name) * weights.get(att.name, 1) for att in norm_data.domain.features if att.var_type == Type.Continuous])
             ex['score'] = score
         return norm_data
 
@@ -903,6 +897,9 @@ def kepner_tregoe_finished(postdata, input_dict, output_dict):
     return output_dict
 
 def sensitivity_analysis(input_dict):
+    return input_dict
+
+def ds_charts(input_dict):
     return input_dict
 
 def string_to_file(input_dict):

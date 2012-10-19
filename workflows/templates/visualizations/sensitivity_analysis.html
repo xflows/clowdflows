@@ -1,18 +1,19 @@
-<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization" width="600px" height="700px">
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization" width="600px" height="600px">
 <div style="width:580px;">
 Select the attribute to perform sensitivity analysis on.<br><br>
 <form>
-<fieldset>
+<div id="radio" style="margin-bottom: 10px; text-align: center;">
 {% for att in attributes %}
-	<input type="radio" class="target_att" name="target{{widget.pk}}" id="target{{widget.pk}}{{att}}" value="{{att}}" {% if forloop.first %}checked="checked"{% endif %} style="display:inline;"> <label for="target{{widget.pk}}{{att}}" style="font-weight:bold; display:inline;">{{att}}</label>
-<br>
-<br>
+	<input type="radio" class="target_att" name="target{{widget.pk}}" id="target{{widget.pk}}{{att}}" value="{{att}}" {% if forloop.first %}checked="checked"{% endif %}> <label for="target{{widget.pk}}{{att}}">{{att}}</label></input>
 {% endfor %}
-</fieldset>
+</div>
 <input type="hidden" name="widget_id" value="{{widget.pk}}"/>
 </form>
 <script type="text/javascript">
 $(function () {
+
+	// Pretty radio buttons.
+	$("#radio").buttonset();
 
 	// Load data points.
 	var data_points = {{ data_points|safe }};
@@ -35,7 +36,7 @@ $(function () {
                 renderTo: 'container',
                 type: 'line',
                 marginRight: 130,
-                marginBottom: 25
+                marginBottom: 40
             },
             title: {
                 text: 'Sensitivity analysis',
@@ -47,7 +48,7 @@ $(function () {
             },
             xAxis: {
             	title: { 
-            		text: 'Weight of {{target_att}}'
+            		text: 'Weight of \'' + target_att + '\''
             	}
             },
             yAxis: {
@@ -63,7 +64,7 @@ $(function () {
             tooltip: {
                 formatter: function() {
                         return '<b>'+ this.series.name +'</b><br/>'+
-                        this.x +': '+ this.y +'°C';
+                        this.x +': '+ this.y.toFixed(3);
                 }
             },
             legend: {
@@ -74,11 +75,14 @@ $(function () {
                 y: 100,
                 borderWidth: 0
             },
-            series: data_points[target_att]
+            series: data_points[target_att],
+			credits: {
+	            enabled: false
+	        },
         });
 	}
 });
 </script>
-<div id="container" style="min-width: 580px; height: 450px; margin: 0 auto"></div>
+<div id="container" style="min-width: 580px; min-height: 480px margin: 0 auto"></div>
 </div>
 </div>
