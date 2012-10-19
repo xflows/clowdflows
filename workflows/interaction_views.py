@@ -82,3 +82,8 @@ def build_subgroups(request, input_dict, output_dict, widget):
 def kepner_tregoe(request, input_dict, output_dict, widget):
     attributes = [att.name for att in input_dict['data'].domain.features]
     return render(request, 'interactions/kepner_tregoe.html', {'widget':widget, 'attributes':attributes})
+
+def alter_table(request, input_dict, output_dict, widget):
+    from visualization_views import orng_table_to_dict
+    data = input_dict['data']
+    return render(request, 'interactions/alter_table.html', {'widget' : widget,'input_dict' : input_dict,'output_dict' : orng_table_to_dict(data)})

@@ -1,6 +1,7 @@
 from workflows.security import safeOpen
 import nlp
 import cPickle
+import json
 
 def test_interaction(input_dict):
     return input_dict
@@ -845,7 +846,7 @@ def kepner_tregoe(input_dict):
 
 class KepnerTregoe:
     '''
-    Kepner Tregoe model.
+    Kepner-Tregoe model.
     '''
     def __init__(self, data, weights, smaller_is_better=None):
         self.data = data
@@ -904,3 +905,26 @@ def ds_charts(input_dict):
 
 def string_to_file(input_dict):
     return {}
+
+def alter_table(input_dict):
+    return {'altered_data' : None}
+
+def alter_table_finished(postdata, input_dict, output_dict):
+    import Orange
+    from Orange.feature import Type
+    from visualization_views import orng_table_to_dict
+    widget_id = postdata['widget_id'][0]
+    # Parse the changes
+    altered_cells = json.loads(postdata['alteredCells'+widget_id][0])
+    new_table = Orange.data.Table(input_dict['data'])
+    for cell, new_value in altered_cells.items():
+        tokens = cell.split('_')
+        inst_idx, att = int(tokens[1]), str(tokens[2])
+        if new_table[inst_idx][att].var_type == Type.Continuous:
+            new_table[inst_idx][att] = float(new_value)
+        else: # Discrete or string 
+            # TODO: 
+            # This crashes if new_value is not among the legal values for the discrete attribute
+            # - add a dropdown list of legal values when editing the table! 
+            new_table[inst_idx][att] = str(new_value)
+    return {'altered_data' : new_table}

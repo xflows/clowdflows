@@ -55,42 +55,34 @@ def object_viewer(request,input_dict,output_dict,widget):
     import pprint
     output_dict = {'object_string':pprint.pformat(input_dict['object'])}
     return render(request, 'visualizations/object_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
-    
-def table_viewer(request,input_dict,output_dict,widget):
+
+def orng_table_to_dict(data):
     import Orange
-
-    data = input_dict['data']
-
-    attrs = []
-    metas = []
-    data_new = []
-
+    attrs, metas, data_new = [], [], []
     try:
         class_var = data.domain.class_var.name
     except:
         class_var = ''
-
     for m in data.domain.get_metas():
         metas.append(data.domain.get_meta(m).name)
-
     for a in data.domain.attributes:
         attrs.append(a.name)
-    
     pretty_float = lambda x, a: '%.3f' % x if a.var_type == Orange.feature.Type.Continuous else x
     for inst in xrange(len(data)):
         inst_new = []
         for a in data.domain.variables:
             value = data[inst][a.name].value
-            inst_new.append(pretty_float(value, a))
+            inst_new.append((a.name, pretty_float(value, a)))
         for m in data.domain.get_metas():
             value = data[inst][m].value
             a = data.domain.get_meta(m)
-            inst_new.append(pretty_float(value, a))
+            inst_new.append((a.name, pretty_float(value, a)))
         data_new.append(inst_new)
+    return {'attrs':attrs, 'metas':metas, 'data':data_new, 'class_var':class_var}
 
-    output_dict = {'attrs':attrs, 'metas':metas, 'data':data_new, 'class_var':class_var}
-
-    return render(request, 'visualizations/table_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
+def table_viewer(request,input_dict,output_dict,widget):
+    data = input_dict['data']
+    return render(request, 'visualizations/table_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':orng_table_to_dict(data)})
     
 def pr_space_view(request,input_dict,output_dict,widget):
     return render(request, 'visualizations/pr_space.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
@@ -260,6 +252,11 @@ def sensitivity_analysis_viewer(request, input_dict, output_dict, widget):
                    })
 
 def ds_charts_viewer(request, input_dict, output_dict, widget):
+    '''
+    Decision support visualization.
+        
+    @author: Anze Vavpeltic, 2012
+    '''
     model = input_dict['model']
     norm_data = model()
     weight_shares = [ [att, weight] for att, weight in model.weights.items() ]
