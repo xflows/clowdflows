@@ -208,7 +208,6 @@ class Workflow(models.Model):
         self.name = new_name
         self.save()       
  
- 
     @models.permalink
     def get_absolute_url(self):
         return ('open workflow', [str(self.id)])        
@@ -244,6 +243,7 @@ class AbstractWidget(models.Model):
     treeview_image = ThumbnailField(blank=True,null=True,upload_to="treeview",size=(16,16))
     
     has_progress_bar = models.BooleanField(default=False)
+    is_streaming = models.BooleanField(default=False)
     
     order = models.PositiveIntegerField(default=1)
         
@@ -430,7 +430,7 @@ class Widget(models.Model):
                 else:
                     if self.workflow_link.is_for_loop():
                         self.workflow_link.run_for_loop()
-                        print self.outputs.all()[0].value
+                        #print self.outputs.all()[0].value
                     else:
                         self.workflow_link.run()
             except:
@@ -439,7 +439,9 @@ class Widget(models.Model):
                 self.finished=False
                 self.save()
                 raise
+            print outputs
             for o in self.outputs.all():
+                print o
                 if not self.abstract_widget is None:
                     o.value = outputs[o.variable]
                     o.save()

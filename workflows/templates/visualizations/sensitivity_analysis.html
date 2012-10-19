@@ -1,0 +1,84 @@
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization" width="600px" height="700px">
+<div style="width:580px;">
+Select the attribute to perform sensitivity analysis on.<br><br>
+<form>
+<fieldset>
+{% for att in attributes %}
+	<input type="radio" class="target_att" name="target{{widget.pk}}" id="target{{widget.pk}}{{att}}" value="{{att}}" {% if forloop.first %}checked="checked"{% endif %} style="display:inline;"> <label for="target{{widget.pk}}{{att}}" style="font-weight:bold; display:inline;">{{att}}</label>
+<br>
+<br>
+{% endfor %}
+</fieldset>
+<input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+</form>
+<script type="text/javascript">
+$(function () {
+
+	// Load data points.
+	var data_points = {{ data_points|safe }};
+	var chart;
+
+	$(document).ready(function(){ 
+		plot("{{attributes.0}}");
+	});
+
+	// Handles radio button selection events.
+	$("form input[class=target_att]").change(function () {
+		var target_att = $("form input[class=target_att]:checked").val();
+		plot(target_att);
+	});
+
+	// Plots for the selected attribute.
+	function plot(target_att) {
+		chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'line',
+                marginRight: 130,
+                marginBottom: 25
+            },
+            title: {
+                text: 'Sensitivity analysis',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'Changing weight for attribute: ' + target_att,
+                x: -20
+            },
+            xAxis: {
+            	title: { 
+            		text: 'Weight of {{target_att}}'
+            	}
+            },
+            yAxis: {
+                title: {
+                    text: 'Score'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        this.x +': '+ this.y +'°C';
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -10,
+                y: 100,
+                borderWidth: 0
+            },
+            series: data_points[target_att]
+        });
+	}
+});
+</script>
+<div id="container" style="min-width: 580px; height: 450px; margin: 0 auto"></div>
+</div>
+</div>
