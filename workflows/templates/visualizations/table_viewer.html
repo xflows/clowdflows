@@ -19,7 +19,7 @@
     <!-- instances -->
     {% for inst in output_dict.data %}
         <tr>
-        	{% for v in inst %}
+        	{% for _, v in inst %}
         		<td>{{v}}</td>
         	{% endfor %}
         </tr>
