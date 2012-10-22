@@ -928,6 +928,6 @@ def alter_table_finished(postdata, input_dict, output_dict):
             # - add a dropdown list of legal values when editing the table!
             try:
                 new_table[inst_idx][att] = str(new_value)
-            except: 
+            except: # Catch orange exception and give a proper error message.
                 raise Exception("Illegal value '%s' for discrete attribute '%s', legal values are: %s." % (new_value, att, new_table.domain[att].values))
     return {'altered_data' : new_table}
