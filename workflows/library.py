@@ -924,7 +924,10 @@ def alter_table_finished(postdata, input_dict, output_dict):
             new_table[inst_idx][att] = float(new_value)
         else: # Discrete or string 
             # TODO: 
-            # This crashes if new_value is not among the legal values for the discrete attribute
-            # - add a dropdown list of legal values when editing the table! 
-            new_table[inst_idx][att] = str(new_value)
+            # This raises an exception if new_value is not among the legal values for the discrete attribute
+            # - add a dropdown list of legal values when editing the table!
+            try:
+                new_table[inst_idx][att] = str(new_value)
+            except: 
+                raise Exception("Illegal value '%s' for discrete attribute '%s', legal values are: %s." % (new_value, att, new_table.domain[att].values))
     return {'altered_data' : new_table}
