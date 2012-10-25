@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404, HttpResponse
 import nlp
-import json
+from decision_support.visualization import *
 
 def odt_to_tab(request,input_dict,output_dict,widget):
     import Orange
@@ -55,42 +55,34 @@ def object_viewer(request,input_dict,output_dict,widget):
     import pprint
     output_dict = {'object_string':pprint.pformat(input_dict['object'])}
     return render(request, 'visualizations/object_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
-    
-def table_viewer(request,input_dict,output_dict,widget):
+
+def orng_table_to_dict(data):
     import Orange
-
-    data = input_dict['data']
-
-    attrs = []
-    metas = []
-    data_new = []
-
+    attrs, metas, data_new = [], [], []
     try:
         class_var = data.domain.class_var.name
     except:
         class_var = ''
-
     for m in data.domain.get_metas():
         metas.append(data.domain.get_meta(m).name)
-
     for a in data.domain.attributes:
         attrs.append(a.name)
-    
     pretty_float = lambda x, a: '%.3f' % x if a.var_type == Orange.feature.Type.Continuous else x
     for inst in xrange(len(data)):
         inst_new = []
         for a in data.domain.variables:
             value = data[inst][a.name].value
-            inst_new.append(pretty_float(value, a))
+            inst_new.append((a.name, pretty_float(value, a)))
         for m in data.domain.get_metas():
             value = data[inst][m].value
             a = data.domain.get_meta(m)
-            inst_new.append(pretty_float(value, a))
+            inst_new.append((a.name, pretty_float(value, a)))
         data_new.append(inst_new)
+    return {'attrs':attrs, 'metas':metas, 'data':data_new, 'class_var':class_var}
 
-    output_dict = {'attrs':attrs, 'metas':metas, 'data':data_new, 'class_var':class_var}
-
-    return render(request, 'visualizations/table_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
+def table_viewer(request,input_dict,output_dict,widget):
+    data = input_dict['data']
+    return render(request, 'visualizations/table_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':orng_table_to_dict(data)})
     
 def pr_space_view(request,input_dict,output_dict,widget):
     return render(request, 'visualizations/pr_space.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
@@ -225,59 +217,6 @@ def term_candidate_viewer(request, input_dict, output_dict, widget):
                       })
     terms = sorted(terms, key = lambda x: x['score'], reverse=True)
     return render(request, 'visualizations/terms.html', {'widget' : widget, 'terms' : terms})
-
-def sensitivity_analysis_viewer(request, input_dict, output_dict, widget):
-    '''
-    Computes the sensitivity analysis graph.
-        
-    @author: Anze Vavpeltic, 2012
-    '''
-    model = input_dict['model']
-    attributes = [att.name for att in input_dict['model'].data.domain.features]
-    data_points = {}
-    domain = range(0, 101, 10)
-    # Compute for each attribute
-    for target_att in attributes:
-        y, ex_data = [], {}
-        # For collecting scores for each example across different weights
-        for ex in model.data:          
-            ex_data[ex['label'].value] = []
-        # Compute the scores for each weight
-        for w in domain:
-            model.weights[target_att] = w
-            ds = model()
-            for ex in ds:
-                ex_data[ex['label'].value].append([w, ex['score'].value])
-        for ex in model.data:          
-            y.append({'name' : ex['label'].value, 'data' : ex_data[ex['label'].value]})
-        data_points[target_att] = y        
-       
-    return render(request, 'visualizations/sensitivity_analysis.html', 
-                  {'widget' : widget,
-                   'attributes': attributes, 
-                   'data_points' : json.dumps(data_points), 
-                   'output_dict': {}
-                   })
-
-def ds_charts_viewer(request, input_dict, output_dict, widget):
-    model = input_dict['model']
-    norm_data = model()
-    weight_shares = [ [att, weight] for att, weight in model.weights.items() ]
-    attributes = sorted(model.weights.keys())
-    alternatives = [ex['label'].value for ex in norm_data]
-    weights_bar = [{ 'data' : [model.weights[att] for att in attributes] }]
-    values_column = [{ 'data' : [ex['score'].value for ex in norm_data] }]
-    alt_data = [{ 'name' : ex['label'].value, 'data' : [ex[att].value for att in attributes] } for ex in norm_data ]
-    return render(request, 'visualizations/ds_charts.html', 
-                  {'widget' : widget, 
-                   'model_name' : model.name, 
-                   'attributes' : json.dumps(attributes),
-                   'alternatives' : json.dumps(alternatives),
-                   'weight_shares' : json.dumps(weight_shares),
-                   'weights_bar' : json.dumps(weights_bar),
-                   'values_column' : json.dumps(values_column),
-                   'alt_data' : json.dumps(alt_data)
-                   })
 
 #------------------------------------------------------------------------------
 # LATINO INTERFACE

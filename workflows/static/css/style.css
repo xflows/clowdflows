@@ -227,3 +227,9 @@ html[xmlns] .dataTables_wrapper {
 * html .dataTables_wrapper {
 	height: 1%;
 }
+.ui-widget input {
+	margin-bottom: 0px;
+}
+.dataTables_filter input {
+	margin-bottom: 5px;
+}
