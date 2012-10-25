@@ -35,6 +35,7 @@
 $(function () {
 	$(document).ready(function() {
 		var alteredCells = {};
+		$('#alteredCells{{widget.pk}}').val(JSON.stringify(alteredCells));
 		var oTable = $('#datasetTable{{widget.pk}}').dataTable( {
 			"bSortCellsTop" : true,
 			"bJQueryUI": true,
