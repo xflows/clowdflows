@@ -3,6 +3,7 @@ import nlp
 import cPickle
 import json
 from decision_support.library import *
+from subgroup_discovery.library import *
 
 def test_interaction(input_dict):
     return input_dict

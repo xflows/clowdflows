@@ -1,0 +1,22 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} wants your input!">
+<form id="interactionform-{{widget.pk}}" name="interactionform-{{widget.pk}}">
+	<select id="algorithm{{widget.pk}}">
+	{% for alg, params in algorithms.items %}
+		<option value="{{alg}}">alg</option>
+	{% endfor %}
+	</select>
+	<label for="min_sup{{widget.pk}}">Minimum support [%]</label><input type="number" id="min_sup{{widget.pk}}" name="min_sup{{widget.pk}}"/>
+	<label for="g{{widget.pk}}">Generalization parameter</label><input type="number" id="g{{widget.pk}}" name="g{{widget.pk}}"/>
+	<label for="beam{{widget.pk}}">Beam width</label><input type="number" id="beam{{widget.pk}}" name="beam{{widget.pk}}"/>
+	<label for="min_conf{{widget.pk}}">Minimum confidence [%]</label><input type="number" id="min_conf{{widget.pk}}" name="min_conf{{widget.pk}}"/>
+	<label for="k{{widget.pk}}">Number of times covered before removed</label><input type="number" id="k{{widget.pk}}" name="k{{widget.pk}}"/>
+	<label for="num_of_sg{{widget.pk}}">Maximum number of subgroups (0=no limitation)</label><input type="number" id="num_of_sg{{widget.pk}}" name="num_of_sg{{widget.pk}}"/>
+	<input type="hidden" name="widget_id" value="{{widget.pk}}">
+</form>
+<script type="textt/javascript">
+	$('#algorithm{{widget.pk}}').change(function () {
+		var selection = $(this).val();
+		console.log(selection);
+	});
+</script>
+</div>
