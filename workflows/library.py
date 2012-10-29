@@ -936,5 +936,6 @@ def rss_reader(input_dict,widget,stream):
                 swd.save()
                 output_dict['url'] = item['link']
                 break
-        raise Exception("Halting stream.")
+        else:
+            raise Exception("Halting stream.")
     return output_dict
