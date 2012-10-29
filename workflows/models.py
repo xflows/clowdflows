@@ -29,6 +29,8 @@ class Category(models.Model):
 
     order = models.PositiveIntegerField(default=1)
 
+    uid = models.CharField(max_length=250,blank=True,default='')
+
     class Meta:
         verbose_name_plural = "categories"
         ordering = ('order','name',)
@@ -246,6 +248,8 @@ class AbstractWidget(models.Model):
     is_streaming = models.BooleanField(default=False)
     
     order = models.PositiveIntegerField(default=1)
+
+    uid = models.CharField(max_length=250,blank=True,default='')
         
     class Meta:
         ordering = ('order','name',)
@@ -273,6 +277,8 @@ class AbstractInput(models.Model):
     parameter_type = models.CharField(max_length=50,choices=PARAMETER_CHOICES,blank=True,null=True)
     
     order = models.PositiveIntegerField(default=1)
+
+    uid = models.CharField(max_length=250,blank=True,default='')
     
     def __unicode__(self):
         return unicode(self.name)
@@ -284,6 +290,9 @@ class AbstractOption(models.Model):
     abstract_input = models.ForeignKey(AbstractInput,related_name="options")
     name = models.CharField(max_length=200)
     value = models.TextField(blank=True)
+
+    uid = models.CharField(max_length=250,blank=True,default='')
+
     def __unicode__(self):
         return unicode(self.name)
         
@@ -298,6 +307,8 @@ class AbstractOutput(models.Model):
     widget = models.ForeignKey(AbstractWidget,related_name="outputs")
     
     order = models.PositiveIntegerField(default=1)
+
+    uid = models.CharField(max_length=250,blank=True,default='')
         
     class Meta:
         ordering = ('order',)    
