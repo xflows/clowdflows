@@ -10,20 +10,19 @@ import time
 # see: http://pythonnet.sourceforge.net/
 #------------------------------------------------------------------------------
 
-sys.path.append('.\\workflows\\latino')
+sys.path.append('.\\workflows\\latino\\bin')
 
 try:
     from LatinoCloudFlows import *
     import System
     import Latino
 except Exception:
-    logging.warning("LatinoClowdFlows could not be imported! Either there are no Latino dll available or a "\
-                  "wrong interpreter is used. See 'http://pythonnet.sourceforge.net' for interpreter details. "\
-                  "Other functionality (besides latino) will work as .")
+    pass
+#    logging.warning("LatinoClowdFlows could not be imported! Either there are no Latino dll available or a "\
+#                  "wrong interpreter is used. See 'http://pythonnet.sourceforge.net' for interpreter details. "\
+#                  "Other functionality (besides latino) will work as .")
 
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
-
-
 
 #------------------------------supposed------------------------------------------------
 # Generic interfaces for pickling .net objects
