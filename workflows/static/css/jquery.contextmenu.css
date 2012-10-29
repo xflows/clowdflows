@@ -63,7 +63,6 @@
 .contextMenu LI.runwidget A { background-image: url(images/control_play.png); }
 .contextMenu LI.widgetproperties A { background-image: url(images/control_play.png); }
 .contextMenu LI.runtree A { background-image: url(images/control_play_all.png); }
-.contextMenu LI.configuration A { background-image: url(images/page_config_edit.png); }
 .contextMenu LI.resetwidget A { background-image: url(images/reset_widget.png); }
 .contextMenu LI.resetworkflow A { background-image: url(images/reset_workflow.png); }
 .contextMenu LI.rename A { background-image: url(images/rename.png); }

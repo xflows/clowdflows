@@ -366,7 +366,6 @@ function unfinishOne(widgetId) {
     $(".widget"+widgetId+"progress").hide();
     executed[widgetId]=false;
 }
-
 function unfinishDescendants(widgetId) {
     for (c in connections) {
         if (connections[c].outputWidget==widgetId) {
@@ -934,21 +933,6 @@ function updateWidgetListeners() {
                         resetWorkflow();
                     }
 
-                    if (action=='configuration') {
-                        var dialog = $("#widgetconfiguration-"+thisWidgetId);
-                        if (dialog.size()==0) {
-                            $.post(url['get-configuration'], {'widget_id':thisWidgetId}, function(data) {
-                                $("#dialogs").append(data);
-                                updateWidgetListeners();
-                                fileListeners();
-                                dialog = $("#widgetconfiguration-"+thisWidgetId);
-                                dialog.dialog('open');
-                                },'html');
-                        } else {
-                            dialog.dialog('open');
-                        }
-                    }
-					
 					if (action=='results') {
 						showResults(thisWidgetId);
 					}

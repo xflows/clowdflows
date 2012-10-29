@@ -889,13 +889,6 @@ def reset_widget(request):
     else:
         return HttpResponse(status=400)
 
-#very ugly -- should be done somwhere else
-def vacuum_db():
-    from django.db import connection
-    cursor = connection.cursor()
-    cursor.execute("VACUUM")
-    connection.close()
-
 @login_required
 def reset_workflow(request):
     if request.is_ajax() or DEBUG:
@@ -906,7 +899,6 @@ def reset_workflow(request):
             resetWidget.append(w.pk)
         mimetype = 'application/javascript'
         data = simplejson.dumps({'resetWidget':resetWidget})
-        vacuum_db()
         return HttpResponse(data,mimetype)
     else:
         return HttpResponse(status=400)
