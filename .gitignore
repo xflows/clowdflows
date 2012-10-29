@@ -12,6 +12,7 @@
 .project
 .settings
 atlassian-ide-plugin.xml
+*.sublime-*
 
 # Project
 /mothra/local_settings.py
