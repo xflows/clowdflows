@@ -439,9 +439,7 @@ class Widget(models.Model):
                 self.finished=False
                 self.save()
                 raise
-            print outputs
             for o in self.outputs.all():
-                print o
                 if not self.abstract_widget is None:
                     o.value = outputs[o.variable]
                     o.save()
@@ -509,6 +507,19 @@ class Widget(models.Model):
             self.save()
         return None
         
+    def reset(self,offline):
+        for i in self.inputs.all():
+            if not i.parameter:
+                i.value = None
+                i.save()
+        for i in self.outputs.all():
+            i.value = None
+            i.save()
+        self.finished = False
+        self.error = False
+        self.running = False
+        self.save()
+
     def run_post(self,request):
         if not self.ready_to_run():
             raise Exception("The prerequisites for running this widget have not been met.")

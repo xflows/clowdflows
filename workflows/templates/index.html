@@ -30,6 +30,7 @@
 <script src="{{ STATIC_URL }}js/jquery.treeview.edit.js" type="text/javascript"></script>
 <script src="{{ STATIC_URL }}js/jquery.jstree.js" type="text/javascript"></script>
 <script src="{{ STATIC_URL }}js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/jquery.jeditable.mini.js" type="text/javascript"></script>
 <!-- <script type="text/javascript" src="{{ STATIC_URL }}js/graphics.js"></script>-->
 <script type="text/javascript" src="{{ STATIC_URL }}js/fileuploader.js"></script>
 <script src="{{ STATIC_URL }}js/jquery.contextmenu.js" type="text/javascript"></script>
@@ -56,6 +57,8 @@ url['synchronize-connections'] = "{% url 'synchronize connections' %}";
 url['get-widget'] = "{% url 'get widget' %}";
 url['get-parameters'] = "{% url 'get parameters' %}";
 url['save-parameter'] = "{% url 'save parameter' %}";
+url['get-configuration'] = "{% url 'get configuration' %}";
+url['save-configuration'] = "{% url 'save configuration' %}";
 url['get-rename'] = "{% url 'rename widget dialog' %}";
 url['rename-widget'] = "{% url 'rename widget' %}";
 url['rename-workflow'] = "{% url 'rename workflow' %}";
@@ -74,12 +77,14 @@ url['get-designate-dialogs'] = "{% url 'get designate dialogs' %}";
 url['save-designation'] = "{% url 'save designation' %}";
 url['workflow-url'] = "{% url 'workflow url' %}";
 url['unfinish-vizualizations'] = "{% url 'unfinish visualizations' %}";
-url['get-configuration'] = "{% url 'get configuration' %}";
-url['save-configuration'] = "{% url 'save configuration' %}";
+url['reset-widget'] = "{% url 'reset widget' %}";
+url['reset-workflow'] = "{% url 'reset workflow' %}";
+url['get-executed-status'] = "{% url 'get executed status' %}";
 
 static_url = "{{STATIC_URL}}";
 
-activeCanvasId = {{ user.userprofile.active_workflow.id }}
+activeCanvasId = {{ user.userprofile.active_workflow.id }};
+userIsStaff = '{{ user.is_staff }}'=='True';
 
 </script>
 <script type="text/javascript">
@@ -123,16 +128,23 @@ activeCanvasId = {{ user.userprofile.active_workflow.id }}
 			{% for category in categories %}
             {% if not category.parent %}
             {% if not category.user %}
-                <li class="closed"><span class="folder">{{ category.name }}</span><ul>
+                <li class="closed"><span class="folder" rel="{{ category.id }}" relType="category">{{ category.name }}</span><ul>
                     {% for c in category.children.all %}
-                    <li class="closed"><span class="folder">{{ c.name }}</span><ul>
-                    {% for widget in c.widgets.all %}
-                    <li><a class="widget wid" rel="{{ widget.id }}"><span class="image" style="background-image:url('{% if widget.treeview_image %}{{MEDIA_URL}}{{widget.treeview_image}}{% else %}{% if widget.wsdl %}{{STATIC_URL}}widget-icons/ws_1.png{% else %}{{STATIC_URL}}widget-icons/question-mark.png{% endif %}{% endif %}');">{{ widget.name }}</span></a></li>
-                    {% endfor %}                   
+                    <li class="closed"><span class="folder" rel="{{ c.id }}" relType="category">{{ c.name }}</span><ul>
+                        {% for d in c.children.all %}
+                            <li class="closed"><span class="folder" rel="{{ d.id }}" relType="category">{{ d.name }}</span><ul>
+                                {% for widget in d.widgets.all %}
+                                    <li><a class="widget wid" rel="{{ widget.id }}" relType="abstractwidget"><span class="image" style="background-size:16px;background-image:url('{% if widget.treeview_image %}{{MEDIA_URL}}{{widget.treeview_image}}{% else %}{% if widget.wsdl %}{{STATIC_URL}}widget-icons/ws_1.png{% else %}{{STATIC_URL}}widget-icons/question-mark.png{% endif %}{% endif %}');">{{ widget.name }}</span></a></li>
+                                {% endfor %}
+                            </ul></li>
+                        {% endfor %}
+                        {% for widget in c.widgets.all %}
+                        <li><a class="widget wid" rel="{{ widget.id }}" relType="abstractwidget"><span class="image" style="background-size:16px;background-image:url('{% if widget.treeview_image %}{{MEDIA_URL}}{{widget.treeview_image}}{% else %}{% if widget.wsdl %}{{STATIC_URL}}widget-icons/ws_1.png{% else %}{{STATIC_URL}}widget-icons/question-mark.png{% endif %}{% endif %}');">{{ widget.name }}</span></a></li>
+                        {% endfor %}
                     </ul></li>
                     {% endfor %}
                     {% for widget in category.widgets.all %}
-                    <li><a class="widget wid" rel="{{ widget.id }}"><span class="image" style="background-image:url('{% if widget.treeview_image %}{{MEDIA_URL}}{{widget.treeview_image}}{% else %}{% if widget.wsdl %}{{STATIC_URL}}widget-icons/ws_1.png{% else %}{{STATIC_URL}}widget-icons/question-mark.png{% endif %}{% endif %}');">{{ widget.name }}</span></a></li>
+                    <li><a class="widget wid" rel="{{ widget.id }}" relType="abstractwidget"><span class="image" style="background-size:16px;background-image:url('{% if widget.treeview_image %}{{MEDIA_URL}}{{widget.treeview_image}}{% else %}{% if widget.wsdl %}{{STATIC_URL}}widget-icons/ws_1.png{% else %}{{STATIC_URL}}widget-icons/question-mark.png{% endif %}{% endif %}');">{{ widget.name }}</span></a></li>
                     {% endfor %}
                 </ul></li>
             {% endif %}
@@ -235,13 +247,24 @@ Preconditions for running this widget have not yet been met. Do you want to run 
 
 
     <ul id="widgetMenu" class="contextMenu">
-        <li class="runwidget"><a href="#run">Run</a></li>
+        <li class="runtree"><a href="#runtree">Run</a></li>
+        <li class="runwidget"><a href="#run">Run only this</a></li>
+        <li style="font-size: 3px;"><hr style="border:0px; height:1px; color:lightgray;background-color:lightgray;"/></li>
         <li class="edit"><a href="#properties">Properties</a></li>
-        <li class="delete"><a href="#delete">Delete</a></li>
+        <li style="font-size: 3px;"><hr style="border:0px; height:1px; color:lightgray;background-color:lightgray;"/></li>
         <li class="view"><a href="#results">Results</a></li>
+        <li class="resetwidget"><a href="#resetwidget">Reset Widget</a></li>
+        <li class="resetworkflow"><a href="#resetworkflow">Reset Workflow</a></li>
+        <li style="font-size: 3px;"><hr style="border:0px; height:1px; color:lightgray;background-color:lightgray;"/></li>
         <li class="rename"><a href="#rename">Rename</a></li>
         <li class="copy"><a href="#copy">Copy Widget</a></li>
+        <li class="delete"><a href="#delete">Delete</a></li>
+        <li style="font-size: 3px;"><hr style="border:0px; height:1px; color:lightgray;background-color:lightgray;"/></li>
         <li class="help"><a href="#help">Help</a></li>
+    </ul>
+
+    <ul id="widMenu" class="contextMenu">
+        <li class="edit"><a href="#edit">Edit Definition</a></li>
     </ul>
 
     <div style="position:absolute;top:50%;left:50%;display:none;z-index:1003;" class="ajax-loader">
