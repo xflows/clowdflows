@@ -428,7 +428,20 @@ function waitPredecessorAndRunWidget(widgetId) {
 function runTree(widgetId) {
     $.post(url['get-executed-status'], { 'workflow_id':activeCanvasId }, function(data) {
         executed = data.executedStatus;
-        runTreeRec(widgetId);
+        if(executed[widgetId])
+        //first reset widget and then run tree
+            $.post(url['reset-widget'], { 'widget_id':widgetId }, function(data) {
+                unfinishOne(widgetId)
+                for (c in connections) {
+                    if (connections[c].outputWidget==widgetId) {
+                        resetWidget(connections[c].inputWidget);
+                    }
+                }
+                runTreeRec(widgetId);
+            },'json');
+        else
+        //dont need to reset widget, just run tree
+            runTreeRec(widgetId);
     },'json');
 }
 
