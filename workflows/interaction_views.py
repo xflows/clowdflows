@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from decision_support.interaction import *
+from latino.interaction_views import *
 
 def test_interaction(request,input_dict,output_dict,widget):
     return render(request, 'interactions/test_interaction.html',{'widget':widget})

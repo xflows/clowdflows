@@ -22,10 +22,10 @@ from django.contrib.auth.decorators import login_required
 #settings
 from mothra.settings import DEBUG, FILES_FOLDER
 
-
-
 #ostalo
 import os
+
+from latino.views import *
 
 @login_required
 def get_category(request):

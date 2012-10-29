@@ -689,7 +689,8 @@ function updateWidgetListeners() {
             }
         }
     });
-    
+
+
     $("#dialogs div.widgetrenamedialog").dialog({
     autoOpen: false,
     modal: false,

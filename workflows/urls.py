@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import patterns, include, url
+from latino.urls import urlpatterns_latino
 
 urlpatterns = patterns('',
 
@@ -57,4 +58,5 @@ urlpatterns = patterns('',
     url(r'^get-executed-status/', 'workflows.views.get_executed_status', name='get executed status'),
     url(r'^reset-workflow/', 'workflows.views.reset_workflow', name='reset workflow'),
 
+    url(r'^latino/', include(urlpatterns_latino)),
 )

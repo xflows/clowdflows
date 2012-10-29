@@ -3,6 +3,7 @@ import nlp
 import cPickle
 import json
 from decision_support.library import *
+from latino.library import *
 
 def test_interaction(input_dict):
     return input_dict
@@ -868,4 +869,3 @@ def alter_table_finished(postdata, input_dict, output_dict):
             except: # Catch orange exception and give a proper error message.
                 raise Exception("Illegal value '%s' for discrete attribute '%s', legal values are: %s." % (new_value, att, new_table.domain[att].values))
     return {'altered_data' : new_table}
-

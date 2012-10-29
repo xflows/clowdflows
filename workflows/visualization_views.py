@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import Http404, HttpResponse
 import nlp
 from decision_support.visualization import *
+from latino.visualization_views import *
 
 def odt_to_tab(request,input_dict,output_dict,widget):
     import Orange
@@ -217,4 +218,3 @@ def term_candidate_viewer(request, input_dict, output_dict, widget):
                       })
     terms = sorted(terms, key = lambda x: x['score'], reverse=True)
     return render(request, 'visualizations/terms.html', {'widget' : widget, 'terms' : terms})
-
