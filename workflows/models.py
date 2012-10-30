@@ -250,6 +250,8 @@ class AbstractWidget(models.Model):
     order = models.PositiveIntegerField(default=1)
 
     uid = models.CharField(max_length=250,blank=True,default='')
+
+    package = models.CharField(max_length=150,blank=True,default='')
         
     class Meta:
         ordering = ('order','name',)
