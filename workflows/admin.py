@@ -33,7 +33,7 @@ class WidgetAdmin(admin.ModelAdmin):
         InputInline,
         OutputInline,
     ]
-    list_display = ('name','category','user')
+    list_display = ('name','category','package','user')
     
 class OptionInline(admin.StackedInline):
     model = AbstractOption
