@@ -530,7 +530,7 @@ def CrossValidationPredefSplits(csf, ds, sets):
 # ADC visualisation
 def adcView(request, input_dict, output_dict, widget):
     import django.shortcuts
-    view = django.shortcuts.render(request, 'visualizations_latino/adc.html', {'widget': widget,
+    view = django.shortcuts.render(request, 'visualizations/adc.html', {'widget': widget,
                                                                                'input_dict': input_dict,
                                                                                'output_dict': output_dict})
     return view
@@ -547,6 +547,7 @@ def ShowTable(request, input_dict, output_dict, widget):
     import django.shortcuts
     tbl= input_dict['tbl']
     output_dict = {'attrs':list(tbl.items()[0][0]), 'metas':[], 'data':tbl.values()[0], 'title':'Vocabulary Table'}
+    templ = django.template.loader.get_template('visualizations/table_viewer.html')
     view = django.shortcuts.render(request, 'visualizations/table_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
     return view
 

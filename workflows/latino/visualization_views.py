@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 #latino
+import os
 import latino
 import logging
 

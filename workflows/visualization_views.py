@@ -218,3 +218,4 @@ def term_candidate_viewer(request, input_dict, output_dict, widget):
                       })
     terms = sorted(terms, key = lambda x: x['score'], reverse=True)
     return render(request, 'visualizations/terms.html', {'widget' : widget, 'terms' : terms})
+
