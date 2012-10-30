@@ -243,6 +243,8 @@ class AbstractWidget(models.Model):
     
     image = ThumbnailField(blank=True,null=True,upload_to="images",size=(34,34))
     treeview_image = ThumbnailField(blank=True,null=True,upload_to="treeview",size=(16,16))
+
+    static_image = models.CharField(max_length=250,blank=True,default='')
     
     has_progress_bar = models.BooleanField(default=False)
     is_streaming = models.BooleanField(default=False)
