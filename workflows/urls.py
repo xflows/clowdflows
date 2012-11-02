@@ -58,5 +58,7 @@ urlpatterns = patterns('',
     url(r'^get-executed-status/', 'workflows.views.get_executed_status', name='get executed status'),
     url(r'^reset-workflow/', 'workflows.views.reset_workflow', name='reset workflow'),
 
+    url(r'^export-package/(?P<packages>.+)/$', 'workflows.views.export_package', name='export_package'),
+
     url(r'^latino/', include(urlpatterns_latino)),
 )

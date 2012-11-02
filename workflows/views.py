@@ -6,6 +6,7 @@ from django.core import serializers
 from django.utils import simplejson
 from workflows.urls import *
 from workflows.helpers import *
+from workflows.management.commands.export_package import Command
 import workflows.interaction_views
 import workflows.visualization_views
 import sys
@@ -1209,3 +1210,35 @@ def workflow_url(request):
         return render(request,'workflow_url.html', {"workflow":request.user.userprofile.active_workflow})
     else:
         return HttpResponse(status=200)
+
+@login_required
+def export_package(request, packages):
+    try:
+        if not request.user.is_staff:
+            return HttpResponse(status=405)
+    except:
+        return HttpResponse(status=400)
+    newuid = request.GET.get('newuid', 'False')=='True'
+    all = request.GET.get('all', 'False')=='True'
+    packagesArray = packages.split('-')
+
+    class OutWriter:
+        msgs = ""
+        def write(self, msg):
+            self.msgs += msg
+
+    ov = OutWriter()
+
+    result = Command().export_package_string(ov.write, packagesArray, newuid, all)
+    content = '----------------------------------------\n' + \
+              'Export procedure message:' +\
+              "\n----------------------------------------\n" +\
+              ov.msgs + \
+              "\n----------------------------------------\n" + \
+              "Exported data:" +\
+              "\n----------------------------------------\n" +\
+              result + \
+              "\n----------------------------------------"
+
+    response = HttpResponse(mimetype='text/plain',content=content)
+    return response
