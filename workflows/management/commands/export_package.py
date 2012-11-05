@@ -32,7 +32,7 @@ class Command(BaseCommand):
         result = self.export_package_string(self.stdout.write, args[1:], options['newuid'], options['all'])
 
         try:
-            f.write(result)
+            f.write(result.encode('utf-8'))
         except:
             raise CommandError('There was a problem with writing to the given output file')
 
