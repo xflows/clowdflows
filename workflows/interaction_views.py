@@ -1,6 +1,11 @@
+import sys
 from django.shortcuts import render
 from decision_support.interaction import *
-from latino.interaction_views import *
+
+from workflows import packageLibImporter
+def setattr_local(name, value, package):
+    setattr(sys.modules[__name__], name, value)
+packageLibImporter.importAllPackagesLib("interaction_views",setattr_local)
 
 def test_interaction(request,input_dict,output_dict,widget):
     return render(request, 'interactions/test_interaction.html',{'widget':widget})
