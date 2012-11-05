@@ -11,7 +11,7 @@
     {% endfor %}
     <input type="hidden" name="widget_id" value="{{widget.pk}}">
     <label for="class{{widget.pk}}">Class</label>
-    <select id="class{{widget.pk}}">
+    <select id="class{{widget.pk}}" name="class{{widget.pk}}">
     {% for class in classValues %}
         <option value="{{class}}">{{class}}</option>
     {% endfor %}

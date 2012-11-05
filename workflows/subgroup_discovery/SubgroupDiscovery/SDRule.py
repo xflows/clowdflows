@@ -26,8 +26,10 @@ class SDRule :
                 distribution[int(d.getclass())]+=1
             distribution = map (lambda d: d/len(self.examples), distribution)
             self.classDistribution = orange.Distribution(distribution)  # set distribution
-            self.TP = filter(lambda e: e.getclass()==self.targetClass, self.examples)   # True positives
-            self.FP = filter(lambda e: e.getclass()!=self.targetClass, self.examples)   # flase positives
+            self.TP = self.examples.filter({self.examples.domain.classVar : self.targetClass})
+            self.FP = self.examples.filter({self.examples.domain.classVar : self.targetClass}, negate=1)
+            # self.TP = filter(lambda e: e.getclass()==self.targetClass, self.examples)   # True positives
+            # self.FP = filter(lambda e: e.getclass()!=self.targetClass, self.examples)   # flase positives
             TPlen = len(self.TP) * 1.0
             self.quality = TPlen / (len(self.FP) + self.g)   # set rule quality: generalization quocient
             self.support = 1.0* len(self.examples)/len(self.data)        # set rule support

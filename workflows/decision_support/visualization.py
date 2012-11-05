@@ -10,7 +10,7 @@ def sensitivity_analysis_viewer(request, input_dict, output_dict, widget):
     '''
     Computes the sensitivity analysis graph.
         
-    @author: Anze Vavpeltic, 2012
+    @author: Anze Vavpetic, 2012
     '''
     model = input_dict['model']
     attributes = [att.name for att in input_dict['model'].data.domain.features]
@@ -43,7 +43,7 @@ def ds_charts_viewer(request, input_dict, output_dict, widget):
     '''
     Decision support visualization.
         
-    @author: Anze Vavpeltic, 2012
+    @author: Anze Vavpetic, 2012
     '''
     model = input_dict['model']
     norm_data = model()

@@ -12,6 +12,7 @@ from Beam_SD import *
 from Apriori_SD import *
 from OWSubgroupROCVizualizerGraph import *
 from PyQt4 import QtGui
+from calcHull import *
 #from qttable import *
 
 white = QColor(255,255,255)
@@ -85,11 +86,11 @@ class OWSubgroupROCVizualizer(OWWidget):
                 indx = ids.index(id)
                 subgroups.isSelected = self.subgroups[indx][1].isSelected
                 self.subgroups[indx] = (id, subgroups)
-                self.calcRates(subgroups)   ######## calc rates
+                calcRates(subgroups)   ######## calc rates
             else:       # add new subgroups
                 subgroups.isSelected = True
                 self.subgroups.append((id, subgroups))
-                self.calcRates(subgroups)   ######## calc rates
+                calcRates(subgroups)   ######## calc rates
         self.edtRules.appendPlainText("%d subgroups sets on input." % len(self.subgroups))
         self.updateclb()
 
@@ -138,95 +139,12 @@ class OWSubgroupROCVizualizer(OWWidget):
                                        symbol = QwtSymbol.Ellipse, xData =s[1].FPR, yData = s[1].TPR)
         self.graphROC.replot()
 
-
-# #############################################
-# calculations for the vizualization
-# #############################################
-
-
-    def calcRates(self, subgroups):
-        subgroups.TPR = []
-        subgroups.FPR = []
-        P = len(subgroups.targetClassRule.TP) * 1.0  # number of all positive examples as a float
-        N = len(subgroups.targetClassRule.FP) * 1.0  # number of all negative examples as a float
-        for rule in subgroups.rules:
-            subgroups.TPR.append( len(rule.TP) / P )  # true positive rate for this rule
-            subgroups.FPR.append( len(rule.FP) / N )  # false positive example for this rule
-
-      #  subgroups.TPR = [0.44,	0.34,	0.33,	0.49,	0.43,	0.49,	0.66,	0.60,	0.61,	0.78,	0.75,	0.77,	0.84,	0.82,	0.82]
-      #  subgroups.FPR = [0.01,	0.00,	0.00,	0.02,	0.00,	0.02,	0.10,	0.07,	0.07,	0.21,	0.16,	0.19,	0.31,	0.29,	0.27]
-
-        len(subgroups.TPR)
-
-        # calculate convex hull ,important: stick this 5 linet together
-        subgroups.hullTPR = [0]
-        subgroups.hullFPR = [0]
-        self.calcHull(subgroups, subgroups.TPR[:], subgroups.FPR[:] , A=(0,0), B=(1,1))
-        subgroups.hullTPR.append(1)
-        subgroups.hullFPR.append(1)
-
-    def calcRatesSubset(self, subgroups):
-        subgroups.TPR = []
-        subgroups.FPR = []
-        P = len(subgroups.targetClassRule.TP) * 1.0  # number of all positive examples as a float
-        N = len(subgroups.targetClassRule.FP) * 1.0  # number of all negative examples as a float
-        for rule in subgroups.rules:
-            TPr = len(rule.TP) / P
-            FPr = len(rule.FP) / N
-            subgroups.TPR.append( TPr )  # true positive rate for this rule
-            subgroups.FPR.append( FPr )  # false positive example for this rule
-            #self.graphROC.tooltipData(FPr, TPr, rule)
-
-
-    def calcHull(self, subgroups, Y, X, A, B):
-        #inicialization
-        C = (-1,-1)    # best new point point
-        y = -1         # best distance
-        index = -1
-        # calculate best new point
-        if (B[0]-A[0])==0:
-            self.edtRules.appendPlainText("vertical line!!!")
-        else:
-            k = (B[1]-A[1]) / (B[0]-A[0])  # coefficient of the line between A and B
-            for i in range(len(Y)):        # check every point
-                yn = Y[i] -( k * ( X[i] - A[0] ) + A[1])   # vertical distance between point i and line AB
-                if yn>0 and yn > y:        # if new distance is the greatest so far
-                    C = (X[i], Y[i])       # the new point is the best so far
-                    y = yn
-                    index = i
-
-        # if new point on the hull was found
-        if C != (-1,-1):
-            # recursivey call this function on the LEFT side of the point
-            del X[index]
-            del Y[index]
-            Xl =[]
-            Yl =[]
-            Xu =[]
-            Yu =[]
-            for i in range(len(X)):
-                if X[i]>=A[0] and X[i]<=C[0] and Y[i]>A[1]:
-                    Xl.append(X[i])
-                    Yl.append(Y[i])
-                elif X[i]>=C[0] and X[i]<=B[0] and Y[i]>C[1]:
-                    Xu.append(X[i])
-                    Yu.append(Y[i])
-
-            self.calcHull(subgroups, Yl, Xl, A,C)  # recursive call
-            # save the new point
-            subgroups.hullTPR.append(C[1])
-            subgroups.hullFPR.append(C[0])
-            # recursivey call this function on the RIGHT side of the point
-            self.calcHull(subgroups, Yu, Xu, C,B)  # recursive call
-
-
-
 ####################_______________________##### O L D
     def vizualizeSubset(self, subset):
         if subset:
             self.subset = subset
             #draw dots on the canvas
-            self.calcRatesSubset(subset)
+            calcRatesSubset(subset)
             self.graphROC.addCurve("dots", self.scolor, self.scolor, 6, style = QwtPlotCurve.NoCurve,\
                                    symbol = QwtSymbol.Ellipse, xData =self.subset.FPR, yData = self.subset.TPR)
             self.graphROC.replot()

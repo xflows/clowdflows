@@ -277,10 +277,10 @@ class SD_Classifier(orange.Classifier):
 #___________________________________________________________________________________
 if __name__=="__main__":
 
-    filename = "..\\..\\doc\\datasets\\lenses.tab"
-    if 'linux' in sys.platform:
-        filename= "/usr/doc/orange/datasets/lenses.tab"
-    data = orange.ExampleTable(filename)
+    # filename = "..\\..\\doc\\datasets\\lenses.tab"
+    # if 'linux' in sys.platform:
+    #     filename= "/usr/doc/orange/datasets/lenses.tab"
+    data = orange.ExampleTable('lenses')
 
 
     learner2 = SD_learner(algorithm = "Apriori-SD", minSupport = 0.1, minConfidence= 0.6)
@@ -300,6 +300,15 @@ if __name__=="__main__":
         print d.getclass(), classifier2(d, orange.GetValue), classifier3(d, orange.GetValue), classifier4(d, orange.GetValue)
 
 
+    import cPickle
+    one= classifier2.rulesClass[0].rules.rules[0]
+    
+    for obj in dir(one):
+        try:
+            cPickle.dump(getattr(one, obj), open('foo.pkl','w'))
+            print obj, 'ok'
+        except Exception, e:
+            print obj, str(e)
 
 
     print "\n\n---> PMML model <---"
