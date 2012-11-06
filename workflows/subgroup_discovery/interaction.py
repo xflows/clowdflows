@@ -21,3 +21,23 @@ def build_subgroups(request, input_dict, output_dict, widget):
         'settings' : json.dumps(SubgroupDiscovery.algorithms), 
         'className' : className, 
         'classValues' : classValues})
+
+def subgroup_bar_visualization(request, input_dict, output_dict, widget):
+    '''
+    Subgroup bar visualization.
+        
+    @author: Anze Vavpetic, 2012
+    '''
+    sd_rules = input_dict['rules']
+    rules = sd_rules.rules
+    P, N = float(len(sd_rules.targetClassRule.TP)), float(len(sd_rules.targetClassRule.FP))
+    fpr = [-len(rule.FP)/N for rule in rules]
+    tpr = [len(rule.TP)/P for rule in rules]
+    subgroups = [rule.ruleToString() for rule in rules]
+    return render(request, 'visualizations/subgroup_bar_visualization.html', {
+        'widget' : widget,
+        'model_name' : sd_rules.algorithmName,
+        'fpr' : json.dumps(fpr),
+        'tpr' : json.dumps(tpr),
+        'subgroups' : json.dumps(subgroups)
+        })

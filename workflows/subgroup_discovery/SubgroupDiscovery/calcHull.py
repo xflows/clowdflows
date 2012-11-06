@@ -10,8 +10,6 @@ def calcRates(subgroups):
       #  subgroups.TPR = [0.44, 0.34,   0.33,   0.49,   0.43,   0.49,   0.66,   0.60,   0.61,   0.78,   0.75,   0.77,   0.84,   0.82,   0.82]
       #  subgroups.FPR = [0.01, 0.00,   0.00,   0.02,   0.00,   0.02,   0.10,   0.07,   0.07,   0.21,   0.16,   0.19,   0.31,   0.29,   0.27]
 
-        len(subgroups.TPR)
-
         # calculate convex hull ,important: stick this 5 linet together
         subgroups.hullTPR = [0]
         subgroups.hullFPR = [0]

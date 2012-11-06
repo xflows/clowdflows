@@ -52,5 +52,9 @@ def build_subgroups_finished(postdata, input_dict, output_dict):
 def subgroup_bar_visualization(input_dict):
     return {'rules' : None}
 
+def subgroup_bar_finished(postdata, input_dict, output_dict):
+    # Todo
+    return None
+
 def subgroup_roc_visualization(input_dict):
     return {'rules' : []}

@@ -35,6 +35,15 @@
                         min: 0.0,
                         max: 1.0
                     },
+                    tooltip: {
+                        // TODO! display subgroup description for each point as well as TP/FP 
+                        formatter: function() {
+                            // Display the subgroup description if there is one
+                            var description = (this.point.name != null ? this.point.name : '');
+                            return ''+
+                                this.series.name + ': ' + description + '\nFP = ' + Math.abs(this.x.toFixed(3)) +' TP = '+ Math.abs(this.y.toFixed(3));
+                        }
+                    },
                     series: {{roc_data|safe}},
                     credits: {
                         enabled: false
