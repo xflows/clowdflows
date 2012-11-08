@@ -233,3 +233,7 @@ html[xmlns] .dataTables_wrapper {
 .dataTables_filter input {
 	margin-bottom: 5px;
 }
+.selected_subgroup {
+	font-weight: bold;
+	font-size: 30pt;
+}

@@ -22,22 +22,18 @@ def build_subgroups(request, input_dict, output_dict, widget):
         'className' : className, 
         'classValues' : classValues})
 
-def subgroup_bar_visualization(request, input_dict, output_dict, widget):
+def select_subgroups(request, input_dict, output_dict, widget):
     '''
-    Subgroup bar visualization.
+    Subgroup selection.
         
     @author: Anze Vavpetic, 2012
     '''
     sd_rules = input_dict['rules']
     rules = sd_rules.rules
     P, N = float(len(sd_rules.targetClassRule.TP)), float(len(sd_rules.targetClassRule.FP))
-    fpr = [-len(rule.FP)/N for rule in rules]
-    tpr = [len(rule.TP)/P for rule in rules]
-    subgroups = [rule.ruleToString() for rule in rules]
-    return render(request, 'visualizations/subgroup_bar_visualization.html', {
+    subgroups = [(rule.id, rule.ruleToString(), len(rule.FP), len(rule.TP)) for rule in rules]
+    return render(request, 'interactions/select_subgroups.html', {
         'widget' : widget,
         'model_name' : sd_rules.algorithmName,
-        'fpr' : json.dumps(fpr),
-        'tpr' : json.dumps(tpr),
-        'subgroups' : json.dumps(subgroups)
+        'subgroups' : subgroups
         })
