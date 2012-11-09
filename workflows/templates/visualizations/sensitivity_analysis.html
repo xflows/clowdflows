@@ -33,7 +33,7 @@ $(function () {
 	function plot(target_att) {
 		chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'container',
+                renderTo: 'container{{widget.pk}}',
                 type: 'line',
                 marginRight: 130,
                 marginBottom: 40
@@ -83,6 +83,6 @@ $(function () {
 	}
 });
 </script>
-<div id="container" style="min-width: 580px; min-height: 480px margin: 0 auto"></div>
+<div id="container{{widget.pk}}" style="min-width: 580px; min-height: 480px margin: 0 auto"></div>
 </div>
 </div>
