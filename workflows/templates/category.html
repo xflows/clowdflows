@@ -1,5 +1,5 @@
-<li><span class="folder">{{ category.name }}</span><ul>
+				<li><span class="folder">{{ category.name }}</span><ul>
                     {% for widget in category.widgets.all %}
-                    <li><a class="widget wid" rel="{{ widget.id }}"><span class="image" style="background-image:url('{% if widget.treeview_image %}{{MEDIA_URL}}{{widget.treeview_image}}{% else %}{% if widget.wsdl %}{{STATIC_URL}}widget-icons/ws_1.png{% else %}{{STATIC_URL}}widget-icons/question-mark.png{% endif %}{% endif %}');">{{ widget.name }}</span></a></li>
+                    	{% include "treeview_widget.html" with widget=widget %}
                     {% endfor %}
                 </ul></li>

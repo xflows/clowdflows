@@ -6,6 +6,7 @@ from django.core import serializers
 from django.utils import simplejson
 from workflows.urls import *
 from workflows.helpers import *
+from workflows.management.commands.export_package import Command
 import workflows.interaction_views
 import workflows.visualization_views
 import sys
@@ -26,6 +27,8 @@ from mothra.settings import DEBUG, FILES_FOLDER
 
 #ostalo
 import os
+
+from latino.views import *
 
 @login_required
 def get_category(request):
@@ -825,6 +828,101 @@ def run_widget(request):
         return HttpResponse(status=400)
         
 @login_required
+def run_tree(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            try:
+                if w.type == 'for_input' or w.type == 'for_output':
+                    raise Exception("You can't run for loops like this. Please run the containing widget.")
+                output_dict = w.run(False)
+                mimetype = 'application/javascript'
+                if not w.abstract_widget is None:
+                    if w.abstract_widget.interactive:
+                        w.interaction_waiting = True
+                        w.save()
+                        data = simplejson.dumps({'status':'interactive','message':'Widget '+w.name+' needs your attention.','widget_id':w.id})
+                    elif w.abstract_widget.visualization_view!='':
+                        data = simplejson.dumps({'status':'visualize','message':'Visualizing widget '+w.name+'.','widget_id':w.id})
+                    else:
+                        data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
+                else:
+                    data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
+            except Exception, e:
+                mimetype = 'application/javascript'
+                w.error = True
+                w.running = False
+                w.finished = False
+                w.save()
+                raise
+                for o in w.outputs.all():
+                    o.value=None
+                    o.save()
+                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+            return HttpResponse(data,mimetype)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+
+
+@login_required
+def reset_widget(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Widget, pk=request.POST['widget_id'])
+        if (w.workflow.user==request.user):
+            try:
+                w.reset(False)
+                data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' reset successfully.'})
+                mimetype = 'application/javascript'
+            except Exception, e:
+                mimetype = 'application/javascript'
+                w.error = True
+                w.running = False
+                w.finished = False
+                w.save()
+                raise
+                for o in w.outputs.all():
+                    o.value=None
+                    o.save()
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to reset widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+            return HttpResponse(data,mimetype)
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
+def reset_workflow(request):
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['workflow_id'])
+        resetWidget = []
+        for w in workflow.widgets.all():
+            w.reset(False)
+            resetWidget.append(w.pk)
+        mimetype = 'application/javascript'
+        data = simplejson.dumps({'resetWidget':resetWidget})
+        return HttpResponse(data,mimetype)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
+def get_executed_status(request):
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['workflow_id'])
+        executedStatus = {}
+        for w in workflow.widgets.all():
+            if w.error or w.running or not w.finished:
+                executedStatus[w.pk] = False
+            else:
+                executedStatus[w.pk] = True
+        mimetype = 'application/javascript'
+        data = simplejson.dumps({'executedStatus':executedStatus})
+        return HttpResponse(data,mimetype)
+    else:
+        return HttpResponse(status=400)
+
+@login_required
 def visualize_widget(request):
     if request.is_ajax() or DEBUG:
         w = get_object_or_404(Widget, pk=request.POST['widget_id'])
@@ -1112,3 +1210,35 @@ def workflow_url(request):
         return render(request,'workflow_url.html', {"workflow":request.user.userprofile.active_workflow})
     else:
         return HttpResponse(status=200)
+
+@login_required
+def export_package(request, packages):
+    try:
+        if not request.user.is_staff:
+            return HttpResponse(status=405)
+    except:
+        return HttpResponse(status=400)
+    newuid = request.GET.get('newuid', 'False')=='True'
+    all = request.GET.get('all', 'False')=='True'
+    packagesArray = packages.split('-')
+
+    class OutWriter:
+        msgs = ""
+        def write(self, msg):
+            self.msgs += msg
+
+    ov = OutWriter()
+
+    result = Command().export_package_string(ov.write, packagesArray, newuid, all)
+    content = '----------------------------------------\n' + \
+              'Export procedure message:' +\
+              "\n----------------------------------------\n" +\
+              ov.msgs + \
+              "\n----------------------------------------\n" + \
+              "Exported data:" +\
+              "\n----------------------------------------\n" +\
+              result + \
+              "\n----------------------------------------"
+
+    response = HttpResponse(mimetype='text/plain',content=content)
+    return response

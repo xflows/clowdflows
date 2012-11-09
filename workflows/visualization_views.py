@@ -1,8 +1,14 @@
+import sys
 from django.shortcuts import render
 from django.http import Http404, HttpResponse
 import nlp
 from decision_support.visualization import *
 from subgroup_discovery.visualization import *
+
+from workflows import packageLibImporter
+def setattr_local(name, value, package):
+    setattr(sys.modules[__name__], name, value)
+packageLibImporter.importAllPackagesLib("visualization_views",setattr_local)
 
 def odt_to_tab(request,input_dict,output_dict,widget):
     import Orange

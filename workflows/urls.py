@@ -1,7 +1,18 @@
 from django.conf.urls.defaults import patterns, include, url
 
-urlpatterns = patterns('',
+packageUrls = {}
+from workflows import packageLibImporter
+def set_package_url(name, value, package):
+    if name == 'urlpatterns':
+        packageUrls[package] = value
+packageLibImporter.importAllPackagesLib("urls",set_package_url)
 
+urlpatterns = patterns('',)
+
+for pck in  packageUrls:
+    urlpatterns += patterns('',url(r'^'+pck+'/', include(packageUrls[pck])),)
+
+urlpatterns += patterns('',
     url(r'^$', 'workflows.views.index', name='the index'),
     url(r'^new-workflow/$', 'workflows.views.new_workflow', name='new workflow'),
     url(r'^add-widget/$', 'workflows.views.add_widget', name='add widget'),
@@ -52,4 +63,10 @@ urlpatterns = patterns('',
     url(r'^(?P<workflow_id>[0-9]+)/$', 'workflows.views.open_workflow', name='open workflow'),
     
     url(r'^sensitivity_analysis/', 'workflows.visualization_views.sensitivity_analysis_viewer', name='sensitivity analysis'),
+    
+    url(r'^reset-widget/', 'workflows.views.reset_widget', name='reset widget'),
+    url(r'^get-executed-status/', 'workflows.views.get_executed_status', name='get executed status'),
+    url(r'^reset-workflow/', 'workflows.views.reset_workflow', name='reset workflow'),
+
+    url(r'^export-package/(?P<packages>.+)/$', 'workflows.views.export_package', name='export_package'),
 )
