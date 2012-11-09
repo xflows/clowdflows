@@ -1,5 +1,7 @@
 '''
 Decision support library functions.
+
+@author: Anze Vavpetic <anze.vavpetic@ijs.si>
 '''
 
 def kepner_tregoe(input_dict):
