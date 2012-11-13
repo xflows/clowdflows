@@ -37,3 +37,17 @@ def select_subgroups(request, input_dict, output_dict, widget):
         'model_name' : sd_rules.algorithmName,
         'subgroups' : subgroups
         })
+
+def table_from_sets(request, input_dict, output_dict, widget):
+    '''
+    Makes a table with the given sets of examples as the classes.
+
+    @author: Anze Vavpetic, 2012
+    '''
+    tables = input_dict['data']
+    return render(request, 'interactions/table_from_sets.html', {
+        'widget' : widget,
+        'class_name' : 'class name',
+        'class_values' : ['class%d' % i for i in range(len(tables))],
+        'replace' : True
+        })

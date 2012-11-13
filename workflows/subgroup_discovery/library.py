@@ -78,10 +78,48 @@ def select_subgroups_finished(postdata, input_dict, output_dict):
 def query_with_subgroups(input_dict):
     data = input_dict['data']
     sd_rules = input_dict['rules']
+    full_set = set([ex for ex in data])
     subset = set()
     for rule in sd_rules.rules:
         subset = subset.union(rule.filter(data))
     subset_table = Orange.data.Table(data.domain)
+    remaining_table = Orange.data.Table(data.domain)
     for ex in subset:
         subset_table.append(ex)
-    return {'data' : subset_table}
+    for ex in full_set.difference(subset):
+        remaining_table.append(ex)
+    return {'data' : subset_table, 'remaining_data' : remaining_table}
+
+def table_from_sets(input_dict):
+    return {'merged_data' : None}
+
+def table_from_sets_finished(postdata, input_dict, output_dict):
+    tables = input_dict['data']
+    widget_id = postdata['widget_id'][0]
+    class_name = str(postdata['class_name'+widget_id][0])
+    class_values = [str(postdata['class'+str(i)+widget_id][0]) for i in range(len(tables))]
+    replace = postdata.get('replace'+widget_id, [False])[0]
+    class_var = Orange.feature.Discrete(class_name, values = class_values)
+    class_table = Orange.data.Table(Orange.data.Domain([class_var]))
+    # Check if the domains are the same
+    domain = tables[0].domain
+    for table in tables:
+        if table.domain.variables != domain.variables:
+            print table.domain, domain
+            raise Exception('The domains of tables do not match!')
+    for i, table in enumerate(tables):
+        for ex in table:
+            class_table.append(Orange.data.Instance(class_table.domain, [class_values[i]]))
+    # All examples
+    examples = Orange.data.Table(tables[0])
+    for table in tables[1:]:
+        examples.extend(table)
+    old_table = examples
+    if replace:
+        if not examples.domain.classVar:
+            raise Exception('No class variable present.')
+        else:
+            old_domain = list(examples.domain)
+            old_domain.remove(examples.domain.classVar)
+            old_table = Orange.data.Table(Orange.data.Domain(old_domain, examples.domain), examples)
+    return {'merged_data' : Orange.data.Table([old_table, class_table])}
