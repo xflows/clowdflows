@@ -9,13 +9,13 @@
     {% for param, info in parameters_info.items %}
         <label for="{{param}}{{widget.pk}}">{{info.1}}</label><input type="number" id="{{param}}{{widget.pk}}" name="{{param}}{{widget.pk}}" value="{{info.0}}"/>
     {% endfor %}
-    <input type="hidden" name="widget_id" value="{{widget.pk}}">
     <label for="class{{widget.pk}}">Class</label>
     <select id="class{{widget.pk}}" name="class{{widget.pk}}">
     {% for class in classValues %}
         <option value="{{class}}">{{class}}</option>
     {% endfor %}
     </select>
+    <input type="hidden" name="widget_id" value="{{widget.pk}}">
 </form>
 <script type="text/javascript">
     var all_parameters = {{all_parameters|safe}};
