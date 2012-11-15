@@ -1,9 +1,12 @@
 import time
 import logging
 
-from import_dotnet import LatinoCF
-from import_dotnet import Latino
-from import_dotnet import System
+try:
+    from import_dotnet import LatinoCF
+    from import_dotnet import Latino
+    from import_dotnet import System
+except:
+    pass
 
 
 #------------------------------supposed----------------------------------------

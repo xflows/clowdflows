@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------------------------------
 
 from serialization_utils import *
-from import_dotnet import LatinoCF
+from import_dotnet import *
 
 
 def latino_flatten_object_to_string_array(inputDict):
