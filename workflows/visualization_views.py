@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import Http404, HttpResponse
 import nlp
 from decision_support.visualization import *
+from subgroup_discovery.visualization import *
 
 from workflows import packageLibImporter
 def setattr_local(name, value, package):

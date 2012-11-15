@@ -23,7 +23,7 @@
 		<script type="text/javascript">
 		$(function () {
 		
-			// Pretty radio buttons.
+			// Pretty tab buttons.
 			$("#weight_charts_tabs").tabs({
 				collapsible: true
 			});
@@ -36,14 +36,7 @@
 			$(document).ready(function(){ 
 				plot();
 			});
-		
-			// Handles radio button selection events.
-			$("form input[class=target_att]").change(function () {
-				var target_att = $("form input[class=target_att]:checked").val();
-				plot(target_att);
-			});
 
-		
 			// Plots for the selected attribute.
 			function plot() {
 				

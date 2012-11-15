@@ -1,0 +1,56 @@
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization" width="700px" height="670px">
+    <div style="width:620px; margin: 0 auto;">
+        <form>
+        <div id="roc_curve{{widget.pk}}" style="margin-bottom: 10px;">
+        </div>
+        <input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+        </form>
+        <script type="text/javascript">
+        $(function () {
+            $(document).ready(function(){ 
+                plot();
+            });
+        
+            // Plots for the selected attribute.
+            function plot() {
+                // Weights barchart
+                new Highcharts.Chart({
+                    chart: {
+                        renderTo: 'roc_curve{{widget.pk}}',
+                    },
+                    title: {
+                        text: 'Subgroup ROC visualization'
+                    },
+                    xAxis: [{
+                        title: {
+                            text: 'FP rate (1-specificity)'
+                        },
+                        min: -0.01,
+                        max: 1.0
+                    }],
+                    yAxis: {
+                        title: {
+                            text: 'TP rate (sensitivity)'
+                        },
+                        min: 0.0,
+                        max: 1.0
+                    },
+                    tooltip: {
+                        // TODO! display subgroup description for each point as well as TP/FP 
+                        formatter: function() {
+                            // Display the subgroup description if there is one
+                            var description = (this.point.name != null ? this.point.name : '');
+                            return ''+
+                                this.series.name + ': ' + description + '\nFP = ' + Math.abs(this.x.toFixed(3)) +' TP = '+ Math.abs(this.y.toFixed(3));
+                        }
+                    },
+                    series: {{roc_data|safe}},
+                    credits: {
+                        enabled: false
+                    }
+                });
+            }
+        });
+        </script>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import cPickle
 import json
 import sys
 from decision_support.library import *
+from subgroup_discovery.library import *
 
 from workflows import packageLibImporter
 def setattr_local(name, value, package):

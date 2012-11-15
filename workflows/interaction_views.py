@@ -1,6 +1,7 @@
 import sys
 from django.shortcuts import render
 from decision_support.interaction import *
+from subgroup_discovery.interaction import *
 
 from workflows import packageLibImporter
 def setattr_local(name, value, package):
@@ -71,20 +72,6 @@ def select_data(request, input_dict, output_dict, widget):
     sorted_attrs = sorted(attrs.items())
     input_dict = {'data': data, 'attrs':attrs, 'sorted_attrs':sorted_attrs}
     return render(request, 'interactions/select_data.html',{'widget':widget, 'input_dict':input_dict})
-
-def build_subgroups(request, input_dict, output_dict, widget):
-    import Orange
-
-    data = Orange.data.Table(input_dict['data'])
-
-    class_values = []
-
-    for v in data.domain.class_var.values:
-        class_values.append(v)
-
-    target = {'name':data.domain.class_var.name, 'values':class_values}
-
-    return render(request, 'interactions/build_subgroups.html', {'widget':widget, 'data':data, 'target':target})
     
 def alter_table(request, input_dict, output_dict, widget):
     from visualization_views import orng_table_to_dict
