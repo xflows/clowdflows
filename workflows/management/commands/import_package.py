@@ -94,9 +94,9 @@ class Command(BaseCommand):
 
         #prepare statistics
         statDict = dict([('old:'+str(t),len(t.objects.all())) for t in [AbstractWidget, AbstractInput, AbstractOutput, AbstractOption, Category]])
-        for objFile in objsFile:
+        for modelType in [AbstractWidget, AbstractInput, AbstractOutput, AbstractOption, Category]:
             for operation in ['mod','add','del']:
-                statDict[operation+':'+str(type(objFile.object))]=0
+                statDict[operation+':'+str(modelType)]=0
 
         #sort so that AbstractWidgets come in front (are processsed first in the following block)
         #objsFileNew = []

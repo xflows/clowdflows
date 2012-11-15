@@ -10,6 +10,8 @@ from workflows import packageLibImporter
 def setattr_local(name, value, package):
     setattr(sys.modules[__name__], name, value)
 packageLibImporter.importAllPackagesLib("library",setattr_local)
+from latino.library import *
+
 
 def test_interaction(input_dict):
     return input_dict
