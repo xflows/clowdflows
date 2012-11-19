@@ -1,9 +1,6 @@
 import sys
 from django.shortcuts import render
 from django.http import Http404, HttpResponse
-import nlp
-from decision_support.visualization import *
-from subgroup_discovery.visualization import *
 
 from workflows import packageLibImporter
 def setattr_local(name, value, package):
@@ -194,34 +191,3 @@ def sdmsegs_viewer(request,input_dict,output_dict,widget):
         }
     output_dict = {'json_output':output}
     return render(request, 'visualizations/sdmsegs_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
-
-
-def definition_sentences_viewer(request, input_dict, output_dict, widget):
-    """
-    Parses the input XML and displays the definition sentences given as input.
-    
-    @author: Anze Vavpetic, 2012
-    """
-    sentences = nlp.parse_def_sentences(input_dict['candidates']) 
-    return render(request, 'visualizations/def_sentences.html',{'widget' : widget, 'sentences' : sentences})
-
-
-def term_candidate_viewer(request, input_dict, output_dict, widget):
-    """
-    Parses the input and displays the term candidates.
-    
-    @author: Anze Vavpeltic, 2012
-    """
-    terms = []
-    for line in input_dict['candidates'].split('\n'):
-        try:
-            score, cand, lemma = line.split('\t')
-        except:
-            continue
-        terms.append({'score' : score, 
-                      'cand' : cand.replace('[', '').replace(']',''),
-                      #'lemma' : lemma.replace('<<', '').replace('>>','')
-                      })
-    terms = sorted(terms, key = lambda x: x['score'], reverse=True)
-    return render(request, 'visualizations/terms.html', {'widget' : widget, 'terms' : terms})
-
