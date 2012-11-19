@@ -190,6 +190,7 @@ else:
         'south',
         'workflows',
         'workflows.latino',
+        'workflows.base',
         'website',
         'signuplogin',
         'django_extensions',

@@ -1,7 +1,14 @@
 from django.core.management.base import BaseCommand, CommandError
 from workflows.models import Category, AbstractWidget, AbstractInput, AbstractOutput, AbstractOption
 from django.core import serializers
-from collections import Counter
+
+#dirty python2.6 fix
+try:
+    from collections import Counter
+except:
+    def Counter(list):
+        return set(list)
+
 from optparse import make_option
 
 
