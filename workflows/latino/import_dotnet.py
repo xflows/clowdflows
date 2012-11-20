@@ -10,13 +10,11 @@ from settings import *
 sys.path.append(package_bin)
 
 try:
-    from LatinoCloudFlows import *
     import System
     import Latino
+    from LatinoCloudFlows import *
 except Exception:
-    logging.warning("LatinoClowdFlows could not be imported! Either there are no Latino dll available or a "\
-                    "wrong interpreter is used. See 'http://pythonnet.sourceforge.net' for interpreter details. "\
-                    "Other functionality (besides latino) will work as .")
+    logging.warning("DotNet assemblies could not be loaded! Probable reasons: missing dlls or wrong interpreter (see http://pythonnet.sourceforge.net). "
+                    "Other functionality of ClowdFlows (besides .Net assemblies) should be OK!")
     pass
 
-logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)

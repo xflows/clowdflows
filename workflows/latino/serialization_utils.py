@@ -1,9 +1,7 @@
+from import_dotnet import *
 import time
 import logging
-
-from import_dotnet import LatinoCF
-from import_dotnet import Latino
-from import_dotnet import System
+logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
 
 
 #------------------------------supposed----------------------------------------
