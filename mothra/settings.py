@@ -198,6 +198,7 @@ else:
         'workflows.bioinformatics',
         'workflows.subgroup_discovery',
         'workflows.nlp',
+        'workflows.base',
         'website',
         'signuplogin',
         'django_extensions',
