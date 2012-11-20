@@ -20,7 +20,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         if (len(args)<1):
-            raise CommandError('Arguments "file_name" and "package_name" are required!')
+            raise CommandError('Arguments "file_name" is required!')
 
         try:
             string = open(args[0], 'r').read()
