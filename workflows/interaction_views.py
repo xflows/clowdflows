@@ -1,7 +1,5 @@
 import sys
 from django.shortcuts import render
-from decision_support.interaction import *
-from subgroup_discovery.interaction import *
 
 from workflows import packageLibImporter
 def setattr_local(name, value, package):
