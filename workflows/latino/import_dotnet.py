@@ -1,13 +1,14 @@
 import logging
+import os
 import sys
-from settings import *
+from settings import package_root
 
 #------------------------------------------------------------------------------
 # prepare environment for loading latino (Python.net interpreter should be used)
 # see: http://pythonnet.sourceforge.net/
 #------------------------------------------------------------------------------
 
-sys.path.append(package_bin)
+sys.path.append(os.path.join(package_root, 'bin'))
 
 try:
     import System
