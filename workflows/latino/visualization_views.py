@@ -34,5 +34,5 @@ def advanced_object_viewer(request,input_dict,output_dict,widget):
 
 def show_table(request,input_dict,output_dict,widget):
     tbl= input_dict['tbl']
-    output_dict = {'attrs':list(tbl.items()[0][0]), 'metas':[], 'data':tbl.values()[0], 'title':'Vocabulary Table'}
+    output_dict = {'attrs':list(tbl.items()[0][0]), 'metas':[], 'data':(((None, v) for v in inst) for inst in tbl.values()[0]), 'title':'Vocabulary Table'}
     return render(request, 'visualizations/table_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
