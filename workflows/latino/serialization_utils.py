@@ -1,12 +1,7 @@
+from import_dotnet import *
 import time
 import logging
-
-try:
-    from import_dotnet import LatinoCF
-    from import_dotnet import Latino
-    from import_dotnet import System
-except:
-    pass
+logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
 
 
 #------------------------------supposed----------------------------------------
@@ -281,7 +276,10 @@ def ToPyObj(data):
                 l.append(ToPyObj(val))
             return tuple(l)
     if hasattr(data, "GetType"):
-        for interface in data.GetType().GetInterfaces():
+        type = data.GetType()
+        if type.IsArray:
+            return [ToPyObj(x) for x in data]
+        for interface in type.GetInterfaces():
             if interface.Name == u'ISerializable':
                 return LSO(data)
     return data

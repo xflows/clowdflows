@@ -30,110 +30,111 @@ class Command(BaseCommand):
         except:
             raise CommandError('There was a problem with creating/overwriting given output file')
 
-        result = self.export_package_string(self.stdout.write, args[1:], options['newuid'], options['all'], int(options['verbosity']))
+        result = export_package_string(self.stdout.write, args[1:], options['newuid'], options['all'], int(options['verbosity']))
 
         try:
             f.write(result.encode('utf-8'))
         except:
             raise CommandError('There was a problem with writing to the given output file')
 
+        verbosity = int(options['verbosity'])
+        if verbosity>0 and verbosity<3:
+            self.stdout.write('Tip: use higher "verbosity" option numbers to se more detailed output of what is being exported.\n')
         self.stdout.write('Export procedure successfully finished. Results written to the file.\n')
 
-    def print_stataistics(self, objs, verbosity, write):
-        if verbosity > 0:
-            write('Selection contains:\n')
-            write('    % 4i AbstractWidget(s)\n' % len([obj for obj in objs if isinstance(obj, AbstractWidget)]))
-            write('    % 4i AbstractInput(s)\n' % len([obj for obj in objs if isinstance(obj, AbstractInput)]))
-            write('    % 4i AbstractOutput(s)\n' % len([obj for obj in objs if isinstance(obj, AbstractOutput)]))
-            write('    % 4i AbstractOption(s)\n' % len([obj for obj in objs if isinstance(obj, AbstractOption)]))
-            write('    % 4i Category(s)\n' % len([obj for obj in objs if isinstance(obj, Category)]))
+def export_package_string(writeFunc, packages, newuid, all, verbosity):
+    assert isinstance(packages, tuple)
+    assert isinstance(newuid, bool)
+    assert isinstance(all, bool)
 
-            if (verbosity == 1):
-                write('Exported categories:\n')
-            if (verbosity == 2):
-                write('Exported categories and widgets:\n')
-            if (verbosity == 2):
-                write('Exported categories, widgets, inputs, outputs and options:\n')
-            indent = 0
-            indentAddon = 0
-            for obj in objs:
-                s = ''
-                if isinstance(obj, Category):
-                    indent = str(obj).count('::')
-                    s = '% 3i. Category ===== %s =====' % (obj.order, obj)
-                if isinstance(obj, AbstractWidget):
-                    s = '    % 3i. AbstractWidget: %s [%s]' % (obj.order, obj.name, obj.action)
-                if isinstance(obj, AbstractInput):
-                    s = '        % 3i. AbstractInput: (%s) %s' % (obj.order, obj.short_name, obj.name)
-                if isinstance(obj, AbstractOutput):
-                    s = '        % 3i. AbstractOutput: (%s) %s' % (obj.order, obj.short_name, obj.name)
-                if isinstance(obj, AbstractOption):
-                    s = '                AbstractOption: %s | %s' % (obj.name, obj.value)
+    objs = []
+    for topCat in Category.objects.filter(parent = None):
+        objs.extend(get_package_objs_in_category(topCat, packages, all))
 
-                if isinstance(obj, Category) or (isinstance(obj, AbstractWidget) and verbosity > 1) or verbosity > 2:
-                    write('    ' * indent + s + '\n')
+    if len(objs) == 0:
+        writeFunc('Selected package(s) were not found!\n')
+        return "[\\n]"
 
-            self.stdout.write(
-                'Tip: use higher "verbosity" option numbers to se more detailed output of what is being exported.\n')
+    #be careful uid is only changed on these instances and is not written to the database
+    if newuid:
+        for a in objs:
+            a.uid = str(uuid.uuid4())
 
-    def export_package_string(self, write, packages, newuid, all, verbosity):
-        assert isinstance(packages, tuple)
-        assert isinstance(newuid, bool)
-        assert isinstance(all, bool)
+    print_stataistics(objs, verbosity, writeFunc)
 
-        objs = []
-        for topCat in Category.objects.filter(parent = None):
-            objs.extend(self.get_package_objs_in_category(topCat, packages, all))
+    result = serializers.serialize("json", objs, indent=2, ensure_ascii=False)
 
-        if len(objs) == 0:
-            write('Selected package(s) were not found!\n')
-            return "[\\n]"
+    return result
 
-        #be careful uid is only changed on these instances and is not written to the database
-        if newuid:
-            for a in objs:
-                a.uid = str(uuid.uuid4())
+def get_package_objs_in_category(cat, packages, all):
+    assert isinstance(cat, Category)
+    assert isinstance(packages, tuple)
+    assert isinstance(all, bool)
 
-        self.print_stataistics(objs, verbosity, write)
+    objs = []
 
-        result = serializers.serialize("json", objs, indent=2, ensure_ascii=False)
+    objs.extend(get_package_wids_in_category(cat, packages, all))
 
-        return result
+    for catChild in cat.children.all():
+        objs.extend(get_package_objs_in_category(catChild, packages, all))
 
-    def get_package_objs_in_category(self, cat, packages, all):
-        assert isinstance(cat, Category)
-        assert isinstance(packages, tuple)
-        assert isinstance(all, bool)
+    if len(objs)>0:
+        objs.insert(0,cat)
 
-        objs = []
+    return objs
 
-        objs.extend(self.get_package_wids_in_category(cat, packages, all))
+def get_package_wids_in_category(cat, packages, all):
+    assert isinstance(cat, Category)
+    assert isinstance(packages, tuple)
+    assert isinstance(all, bool)
 
-        for catChild in cat.children.all():
-            objs.extend(self.get_package_objs_in_category(catChild, packages, all))
+    objs = []
 
-        if len(objs)>0:
-            objs.insert(0,cat)
+    if all:
+        wids = cat.widgets.all()
+    else:
+        wids = cat.widgets.filter(package__in=packages)
 
-        return objs
+    for wid in wids:
+        objs.append(wid)
+        for inp in wid.inputs.all():
+            objs.append(inp)
+            objs.extend(inp.options.all())
+        objs.extend(wid.outputs.all())
 
-    def get_package_wids_in_category(self, cat, packages, all):
-        assert isinstance(cat, Category)
-        assert isinstance(packages, tuple)
-        assert isinstance(all, bool)
+    return objs
 
-        objs = []
+def print_stataistics(objs, verbosity, writeFunc):
+    if verbosity > 0:
+        writeFunc('Selection contains:\n')
+        writeFunc('    % 4i AbstractWidget(s)\n' % len([obj for obj in objs if isinstance(obj, AbstractWidget)]))
+        writeFunc('    % 4i AbstractInput(s)\n' % len([obj for obj in objs if isinstance(obj, AbstractInput)]))
+        writeFunc('    % 4i AbstractOutput(s)\n' % len([obj for obj in objs if isinstance(obj, AbstractOutput)]))
+        writeFunc('    % 4i AbstractOption(s)\n' % len([obj for obj in objs if isinstance(obj, AbstractOption)]))
+        writeFunc('    % 4i Category(s)\n' % len([obj for obj in objs if isinstance(obj, Category)]))
 
-        if all:
-            wids = cat.widgets.all()
-        else:
-            wids = cat.widgets.filter(package__in=packages)
+        if (verbosity == 1):
+            writeFunc('Exported categories:\n')
+        if (verbosity == 2):
+            writeFunc('Exported categories and widgets:\n')
+        if (verbosity == 3):
+            writeFunc('Exported categories, widgets, inputs, outputs and options:\n')
+        indent = 0
 
-        for wid in wids:
-            objs.append(wid)
-            for inp in wid.inputs.all():
-                objs.append(inp)
-                objs.extend(inp.options.all())
-            objs.extend(wid.outputs.all())
+        for obj in objs:
+            s = ''
+            if isinstance(obj, Category):
+                indent = str(obj).count('::')
+                s = '% 3i. Category ===== %s =====' % (obj.order, obj)
+            if isinstance(obj, AbstractWidget):
+                s = '    % 3i. AbstractWidget: %s [%s]' % (obj.order, obj.name, obj.action)
+            if isinstance(obj, AbstractInput):
+                s = '        % 3i. AbstractInput: (%s) %s' % (obj.order, obj.short_name, obj.name)
+            if isinstance(obj, AbstractOutput):
+                s = '        % 3i. AbstractOutput: (%s) %s' % (obj.order, obj.short_name, obj.name)
+            if isinstance(obj, AbstractOption):
+                s = '                AbstractOption: %s | %s' % (obj.name, obj.value)
 
-        return objs
+            if isinstance(obj, Category) or (isinstance(obj, AbstractWidget) and verbosity > 1) or verbosity > 2:
+                writeFunc('    ' * indent + s + '\n')
+

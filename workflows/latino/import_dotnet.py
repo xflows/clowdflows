@@ -1,22 +1,21 @@
 import logging
+import os
 import sys
-from settings import *
+from settings import PACKAGE_ROOT
 
 #------------------------------------------------------------------------------
 # prepare environment for loading latino (Python.net interpreter should be used)
 # see: http://pythonnet.sourceforge.net/
 #------------------------------------------------------------------------------
 
-sys.path.append(package_bin)
+sys.path.append(os.path.join(PACKAGE_ROOT, 'bin'))
 
 try:
-    from LatinoCloudFlows import *
     import System
     import Latino
+    from LatinoClowdFlows import *
 except Exception:
-    logging.warning("LatinoClowdFlows could not be imported! Either there are no Latino dll available or a "\
-                    "wrong interpreter is used. See 'http://pythonnet.sourceforge.net' for interpreter details. "\
-                    "Other functionality (besides latino) will work as .")
+    logging.warning("DotNet assemblies could not be loaded! Probable reasons: missing dlls or wrong interpreter (see http://pythonnet.sourceforge.net). "
+                    "Other functionality of ClowdFlows (besides .Net assemblies) should be OK!")
     pass
 
-logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)

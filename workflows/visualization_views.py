@@ -2,10 +2,10 @@ import sys
 from django.shortcuts import render
 from django.http import Http404, HttpResponse
 
-from workflows import packageLibImporter
+from workflows import module_importer
 def setattr_local(name, value, package):
     setattr(sys.modules[__name__], name, value)
-packageLibImporter.importAllPackagesLib("visualization_views",setattr_local)
+module_importer.import_all_packages_libs("visualization_views",setattr_local)
 
 def odt_to_tab(request,input_dict,output_dict,widget):
     import Orange
