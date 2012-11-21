@@ -4,6 +4,7 @@ import os
 
 PROJECT_DIR = os.path.dirname(__file__)
 PUBLIC_DIR = os.path.join(PROJECT_DIR, 'public')
+BACKUP_DIR = os.path.join(PROJECT_DIR, 'backup')
 
 DEBUG = False
 TEMPLATE_DEBUG = True
