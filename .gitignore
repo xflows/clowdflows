@@ -19,6 +19,7 @@ atlassian-ide-plugin.xml
 /mothra/public/static
 /mothra/public/media
 /mothra/public/files
+/mothra/backup
 
 # SQLite
 /mothra/mothra.db

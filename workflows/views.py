@@ -1221,7 +1221,8 @@ def export_package(request, packages):
     all = (request.GET.get('all', 'False').lower()=='true' or request.GET.get('a', 'False').lower()=='true')
     try:
         verbosity = int(request.GET.get('v', '1'))
-        verbosity = int(request.GET.get('verbosity', '1'))
+        if verbosity == 1:
+            verbosity = int(request.GET.get('verbosity', '1'))
     except:
         verbosity = 1
     packagesArray = tuple(packages.split('-'))
