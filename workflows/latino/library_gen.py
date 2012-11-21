@@ -5,6 +5,25 @@
 from serialization_utils import *
 from import_dotnet import *
 
+def sentiment_analysis_con_cat(inputDict):
+    _str1 = ToString(inputDict['str1'])
+    _str2 = ToString(inputDict['str2'])
+    execResult = SentimentAnalysisCF.ConCat(_str1, _str2)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['out'] = execResultPy
+    return outputDict
+
+def sentiment_analysis_ena_cudna_funk(inputDict):
+    _str1 = ToString(inputDict['str1'])
+    _str2 = ToString(inputDict['str2'])
+    _str3 = ToString(inputDict['str3'])
+    _str4 = ToString(inputDict['str4'])
+    execResult = SentimentAnalysisCF.EnaCudnaFunk(_str1, _str2, _str3, _str4)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['out'] = execResultPy
+    return outputDict
 
 def latino_flatten_object_to_string_array(inputDict):
     _data = ToNetObj(inputDict['data'])
@@ -271,7 +290,7 @@ def latino_construct_snowball_stemmer(inputDict):
     return outputDict
 
 def latino_construct_stop_words_tagger(inputDict):
-    _stopWords = ToString(inputDict['stopWords'])
+    _stopWords = ToNetObj(inputDict['stopWords'])
     _ignoreCase = ToBool(inputDict['ignoreCase'])
     execResult = LatinoCF.ConstructStopWordsTagger(_stopWords, _ignoreCase)
     execResultPy = ToPyObj(execResult)
@@ -342,7 +361,7 @@ def latino_tag_string_stopwords(inputDict):
     outputDict['string'] = execResultPy
     return outputDict
 
-def latino_construct_bow_space(inputDict):
+def latino_construct_bow_space_1(inputDict):
     _documents = ToNetObj(inputDict['documents'])
     _tokenizer = ToNetObj(inputDict['tokenizer'])
     _stemmer = ToNetObj(inputDict['stemmer'])
@@ -359,7 +378,7 @@ def latino_construct_bow_space(inputDict):
     outputDict['ds'] = execResultPy['ds']
     return outputDict
 
-def latino_construct_bow_space(inputDict):
+def latino_construct_bow_space_2(inputDict):
     _adc = ToNetObj(inputDict['adc'])
     _tokenId = ToString(inputDict['tokenId'])
     _stemId = ToString(inputDict['stemId'])
@@ -474,7 +493,7 @@ def latino_sparse_matrix_to_table(inputDict):
 def latino_construct_kmeans_clusterer(inputDict):
     _k = ToInt(inputDict['k'])
     _centroidType = ToEnum(Latino.Model.CentroidType, inputDict['centroidType'], Latino.Model.CentroidType.NrmL2)
-    _similarityModel = ToEnum(LatinoCloudFlows.SimilarityModel, inputDict['similarityModel'], LatinoCloudFlows.SimilarityModel.Cosine)
+    _similarityModel = ToEnum(LatinoClowdFlows.SimilarityModel, inputDict['similarityModel'], LatinoClowdFlows.SimilarityModel.Cosine)
     _randomSeed = ToInt(inputDict['randomSeed'])
     _eps = ToFloat(inputDict['eps'])
     _trials = ToInt(inputDict['trials'])
@@ -522,7 +541,7 @@ def latino_clustering_results_info(inputDict):
     return outputDict
 
 def latino_construct_centroid_classifier(inputDict):
-    _similarityModel = ToEnum(LatinoCloudFlows.SimilarityModel, inputDict['similarityModel'], LatinoCloudFlows.SimilarityModel.Cosine)
+    _similarityModel = ToEnum(LatinoClowdFlows.SimilarityModel, inputDict['similarityModel'], LatinoClowdFlows.SimilarityModel.Cosine)
     _normalizeCentorids = ToBool(inputDict['normalizeCentorids'])
     execResult = LatinoCF.ConstructCentroidClassifier(_similarityModel, _normalizeCentorids)
     execResultPy = ToPyObj(execResult)
@@ -597,7 +616,7 @@ def latino_construct_maximum_entropy_classifier_fast(inputDict):
     return outputDict
 
 def latino_construct_knn_classifier(inputDict):
-    _similarityModel = ToEnum(LatinoCloudFlows.SimilarityModel, inputDict['similarityModel'], LatinoCloudFlows.SimilarityModel.Cosine)
+    _similarityModel = ToEnum(LatinoClowdFlows.SimilarityModel, inputDict['similarityModel'], LatinoClowdFlows.SimilarityModel.Cosine)
     _k = ToInt(inputDict['k'])
     _softVoting = ToBool(inputDict['softVoting'])
     execResult = LatinoCF.ConstructKnnClassifier(_similarityModel, _k, _softVoting)
