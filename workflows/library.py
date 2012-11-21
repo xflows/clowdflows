@@ -6,10 +6,10 @@ import sys
 from decision_support.library import *
 from subgroup_discovery.library import *
 
-from workflows import packageLibImporter
+from workflows import module_importer
 def setattr_local(name, value, package):
     setattr(sys.modules[__name__], name, value)
-packageLibImporter.importAllPackagesLib("library",setattr_local)
+module_importer.import_all_packages_libs("library",setattr_local)
 
 def test_interaction(input_dict):
     return input_dict
