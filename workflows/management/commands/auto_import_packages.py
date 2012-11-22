@@ -60,7 +60,7 @@ def auto_import_all_packages(writeFunc, nobackup):
     packageSetts = module_importer.import_all_packages_libs_as_dict("settings")
     for pckSett in packageSetts:
         writeFunc('--------------------------------------------------------------------------------\n')
-        writeFunc('Working on package "%s":\n'%pckSett)
+        writeFunc('Auto importing package "%s":\n'%pckSett)
 
         sett = packageSetts[pckSett]
         if sett is None:
