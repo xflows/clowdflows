@@ -190,6 +190,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.bioinformatics',
     'workflows.subgroup_discovery',
     'workflows.nlp',
+    'workflows.nl_toolkit',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 
