@@ -1,0 +1,169 @@
+[
+  {
+    "pk": 51,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Decision Support"
+    }
+  },
+  {
+    "pk": 291,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 51,
+      "treeview_image": "",
+      "name": "Decision support visualization",
+      "is_streaming": false,
+      "uid": "",
+      "interaction_view": "",
+      "image": "",
+      "package": "decision_support",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "ds_charts_viewer",
+      "action": "ds_charts",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 979,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 291,
+      "name": "DS Model",
+      "short_name": "mdl",
+      "uid": "",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "model",
+      "parameter": false,
+      "order": 1,
+      "description": "Decision Support model"
+    }
+  },
+  {
+    "pk": 228,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 51,
+      "treeview_image": "",
+      "name": "Kepner-Tregoe",
+      "is_streaming": false,
+      "uid": "",
+      "interaction_view": "kepner_tregoe",
+      "image": "",
+      "package": "decision_support",
+      "static_image": "",
+      "post_interact_action": "kepner_tregoe_finished",
+      "user": null,
+      "visualization_view": "",
+      "action": "kepner_tregoe",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 660,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 228,
+      "name": "Orange data table",
+      "short_name": "odt",
+      "uid": "",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": "Orange data table"
+    }
+  },
+  {
+    "pk": 239,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 228,
+      "name": "Orange data table",
+      "short_name": "odt",
+      "variable": "data",
+      "uid": "",
+      "order": 1,
+      "description": "Orange data table"
+    }
+  },
+  {
+    "pk": 346,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 228,
+      "name": "K-T model",
+      "short_name": "mdl",
+      "variable": "model",
+      "uid": "",
+      "order": 2,
+      "description": "K-T model"
+    }
+  },
+  {
+    "pk": 290,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 51,
+      "treeview_image": "",
+      "name": "Sensitivity analysis",
+      "is_streaming": false,
+      "uid": "",
+      "interaction_view": "",
+      "image": "",
+      "package": "decision_support",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "sensitivity_analysis_viewer",
+      "action": "sensitivity_analysis",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 978,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 290,
+      "name": "DS model",
+      "short_name": "mdl",
+      "uid": "",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "model",
+      "parameter": false,
+      "order": 1,
+      "description": "model"
+    }
+  }
+]
