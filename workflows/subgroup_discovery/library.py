@@ -4,9 +4,13 @@ Subgroup discovery library functions.
 @author: Anze Vavpetic <anze.vavpetic@ijs.si>
 '''
 import json
-from SubgroupDiscovery.SD_learner_classifier import SD_learner
-from SubgroupDiscovery.SDRule import SDRules
-import Orange
+import logging
+try:
+    from SubgroupDiscovery.SD_learner_classifier import SD_learner
+    from SubgroupDiscovery.SDRule import SDRules
+    import Orange
+except:
+    print logging.warning('Could not import subgroup discovery orange package.')
 
 class SubgroupDiscovery:
     # Available algorithms and their parameters

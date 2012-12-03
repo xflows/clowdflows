@@ -6,7 +6,6 @@ from django.core import serializers
 from django.utils import simplejson
 from workflows.urls import *
 from workflows.helpers import *
-from workflows.management.commands.export_package import Command
 import workflows.interaction_views
 import workflows.visualization_views
 import sys
@@ -23,12 +22,13 @@ from django.contrib.auth.decorators import login_required
 #settings
 from mothra.settings import DEBUG, FILES_FOLDER
 
-
-
 #ostalo
 import os
 
-from latino.views import *
+from workflows import module_importer
+def setattr_local(name, value, package):
+    setattr(sys.modules[__name__], name, value)
+module_importer.import_all_packages_libs("views",setattr_local)
 
 @login_required
 def get_category(request):
@@ -1218,9 +1218,15 @@ def export_package(request, packages):
             return HttpResponse(status=405)
     except:
         return HttpResponse(status=400)
-    newuid = request.GET.get('newuid', 'False')=='True'
-    all = request.GET.get('all', 'False')=='True'
-    packagesArray = packages.split('-')
+    newuid = (request.GET.get('newuid', 'False').lower()=='true' or request.GET.get('n', 'False').lower()=='true')
+    all = (request.GET.get('all', 'False').lower()=='true' or request.GET.get('a', 'False').lower()=='true')
+    try:
+        verbosity = int(request.GET.get('v', '1'))
+        if verbosity == 1:
+            verbosity = int(request.GET.get('verbosity', '1'))
+    except:
+        verbosity = 1
+    packagesArray = tuple(packages.split('-'))
 
     class OutWriter:
         msgs = ""
@@ -1229,7 +1235,8 @@ def export_package(request, packages):
 
     ov = OutWriter()
 
-    result = Command().export_package_string(ov.write, packagesArray, newuid, all)
+    from workflows.management.commands.export_package import export_package_string
+    result = export_package_string(ov.write, packagesArray, newuid, all, verbosity)
     content = '----------------------------------------\n' + \
               'Export procedure message:' +\
               "\n----------------------------------------\n" +\

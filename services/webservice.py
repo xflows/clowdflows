@@ -50,13 +50,19 @@ class WebService:
                     method['name']=op['name']
                     method['inputs']=[]
                     method['outputs']=[]
-                    input_dict = op['input'].values()[0]
+                    try:
+                        input_dict = op['input'].values()[0]
+                    except:
+                        input_dict = []
                     for i in input_dict:
                         input = {}
                         input['name']=i
                         input['type']=input_dict[i]
                         method['inputs'].append(input)
-                    output_dict = op['output'].values()[0]
+                    try:
+                        output_dict = op['output'].values()[0]
+                    except:
+                        output_dict = [[]]
                     if type(output_dict)==type([]):
                         output_dict = output_dict[0]
                     for o in output_dict:

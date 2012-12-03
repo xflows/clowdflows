@@ -1,19 +1,23 @@
 from django.shortcuts import render
-
-#latino
-import os
-import latino
-import logging
+from serialization_utils import *
+import django.template.loader
 
 def show_adc(request,input_dict,output_dict,widget):
-    logging.info('__show_adc__VIEW__')
-    return latino.adcView(request,input_dict,output_dict,widget)
+    view = django.shortcuts.render(request, 'visualizations/adc.html', {'widget': widget,
+                                                                        'input_dict': input_dict,
+                                                                        'output_dict': output_dict})
+    return view
+
+def show_clusters(request,input_dict,output_dict,widget):
+    return {}
+
+def show_classifications(request,input_dict,output_dict,widget):
+    return {}
 
 def advanced_object_viewer(request,input_dict,output_dict,widget):
-    logging.info('__advanced_object_viewer__VIEW__')
     import objectPprint as opp
-    obj = input_dict['object']
-    maxStringLen = latino.ToInt(input_dict['maxStringLen'])
+    obj = input_dict['obj']
+    maxStringLen = ToInt(input_dict['maxStringLen'])
     objstr = ""
     if input_dict.has_key('attribute') and input_dict['attribute']!="":
         try:
@@ -29,5 +33,6 @@ def advanced_object_viewer(request,input_dict,output_dict,widget):
     return render(request, 'visualizations/advanced_object_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
 
 def show_table(request,input_dict,output_dict,widget):
-    logging.info('__show_table__VIEW__')
-    return latino.ShowTable(request,input_dict,output_dict,widget)
+    tbl= input_dict['tbl']
+    output_dict = {'attrs':list(tbl.items()[0][0]), 'metas':[], 'data':(((None, v) for v in inst) for inst in tbl.values()[0]), 'title':'Vocabulary Table'}
+    return render(request, 'visualizations/table_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})

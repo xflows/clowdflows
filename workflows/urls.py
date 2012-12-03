@@ -1,11 +1,11 @@
 from django.conf.urls.defaults import patterns, include, url
 
 packageUrls = {}
-from workflows import packageLibImporter
+from workflows import module_importer
 def set_package_url(name, value, package):
     if name == 'urlpatterns':
         packageUrls[package] = value
-packageLibImporter.importAllPackagesLib("urls",set_package_url)
+module_importer.import_all_packages_libs("urls",set_package_url)
 
 urlpatterns = patterns('',)
 
