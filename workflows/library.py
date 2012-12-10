@@ -1,6 +1,12 @@
 from workflows.security import safeOpen
-import nlp
 import cPickle
+import json
+import sys
+
+from workflows import module_importer
+def setattr_local(name, value, package):
+    setattr(sys.modules[__name__], name, value)
+module_importer.import_all_packages_libs("library",setattr_local)
 
 def test_interaction(input_dict):
     return input_dict
@@ -796,118 +802,11 @@ def odt_to_arff(input_dict):
     f = toARFFstring(input_dict['odt'])
     output_dict['arff'] = f.getvalue()
     return output_dict  
-             
-# NLP tools
-
-def merge_sentences(input_dict):
-    """
-    Merges the input sentences in XML according to the specified method.
-    """
-    method = input_dict['method']
-    merged_sen, id_to_sent = set(), {}
-    ids_list = []
-    for sentsXML in input_dict['sentences']:
-        sents = nlp.parse_def_sentences(sentsXML)
-        ids = set(map(lambda x: x['id'], sents))
-        ids_list.append(ids)
-        # Save the map from id to sentence
-        for sent in sents:
-            id_to_sent[sent['id']] = sent
-        if len(merged_sen) == 0:
-            merged_sen = ids
-        if method == 'union':
-            merged_sen = merged_sen | ids
-        elif method == 'intersection':
-            merged_sen = merged_sen & ids
-        elif method == 'intersection_two':
-            for ids_alt in ids_list:
-                merged_sen = merged_sen | (ids_alt & ids)
-    return {'merged_sentences' : nlp.sentences_to_xml([id_to_sent[sid] for sid in merged_sen])}
-
-def load_corpus(input_dict):
-    '''
-    Parses an input file and encodes it in base 64.
-    '''
-    import os.path
-    import base64
-    f = safeOpen(input_dict['file'])
-    fname = os.path.basename(input_dict['file'])
-    data = base64.b64encode(f.read())
-    from services.webservice import WebService
-    ws = WebService('http://bodysnatcher.ijs.si:8092/totale?wsdl', 600)
-    response = ws.client.parseFile(fileName=fname, inFile=data)
-    return {'corpus' : response['parsedFile']}
-
-def kepner_tregoe(input_dict):
-    output_dict = input_dict
-    output_dict['model'] = None
-    return output_dict
-
-class KepnerTregoe:
-    '''
-    Kepner Tregoe model.
-    '''
-    def __init__(self, data, weights, smaller_is_better=None):
-        self.data = data
-        self.weights = weights
-        self.smaller_is_better = smaller_is_better if smaller_is_better else set()
-    def __call__(self, weights=None):
-        import Orange
-        from Orange.feature import Type
-        if weights == None:
-            weights = self.weights
-        # Normalize the weights.
-        s = sum([weights[att] for att in weights.keys()])
-        # Normalize.
-        norm_weights = {}
-        if s > 0:
-            for att in weights.keys():
-                norm_weights[att] = float(weights[att])/s
-        # New normalized table
-        norm_data = Orange.data.Table(self.data)
-        newid = min(norm_data.domain.get_metas().keys()) - 1
-        score_attr = Orange.feature.Continuous('score')
-        norm_data.domain.add_meta(newid, score_attr)
-        norm_data.add_meta_attribute(score_attr)
-        # Normalize the attributes column-wise
-        for att in norm_data.domain:
-            if att.var_type == Type.Continuous:
-                col = [ex[att] for ex in norm_data]
-                col_norm = float(sum(col))
-            for ex in norm_data:
-                if att.var_type == Type.Continuous:
-                    ex[att] = ex[att] / col_norm 
-        # Use the inverse of an attr. value if smaller values should be treated as 'better'.
-        inverse = lambda x, att: 1-x if att in self.smaller_is_better else x
-        for ex in norm_data:
-            score = sum([inverse(ex[att], att.name) * norm_weights.get(att.name, 1) for att in norm_data.domain.features if att.var_type == Type.Continuous])
-            ex['score'] = score
-        return norm_data
-
-def kepner_tregoe_finished(postdata, input_dict, output_dict):
-    # Fetch the data and the weights from the form.
-    data = input_dict['data']
-    attributes = [att.name for att in data.domain.features]
-    weights = {}
-    widget_id = postdata['widget_id'][0]
-    smaller_is_better = set()
-    for att in attributes:
-        weights[att]=int(postdata['weight'+str(widget_id)+str(att)][0])
-        if postdata.has_key('smallerIsBetter'+str(widget_id)+str(att)):
-            smaller_is_better.add(att)
-    # Instantiate a KepnerTregoe model.
-    kt = KepnerTregoe(data, weights, smaller_is_better=smaller_is_better)
-    output_dict = {}
-    output_dict['data'] = kt()
-    output_dict['model'] = kt
-    return output_dict
-
-def sensitivity_analysis(input_dict):
-    return input_dict
 
 def string_to_file(input_dict):
     return {}
 
+<<<<<<< HEAD
     
 def rss_reader(input_dict,widget,stream):
     import feedparser
@@ -939,3 +838,30 @@ def rss_reader(input_dict,widget,stream):
         else:
             raise Exception("Halting stream.")
     return output_dict
+=======
+def alter_table(input_dict):
+    return {'altered_data' : None}
+
+def alter_table_finished(postdata, input_dict, output_dict):
+    import Orange
+    from Orange.feature import Type
+    from visualization_views import orng_table_to_dict
+    widget_id = postdata['widget_id'][0]
+    # Parse the changes
+    altered_cells = json.loads(postdata['alteredCells'+widget_id][0])
+    new_table = Orange.data.Table(input_dict['data'])
+    for cell, new_value in altered_cells.items():
+        tokens = cell.split('_')
+        inst_idx, att = int(tokens[1]), str(tokens[2])
+        if new_table[inst_idx][att].var_type == Type.Continuous:
+            new_table[inst_idx][att] = float(new_value)
+        else: # Discrete or string 
+            # TODO: 
+            # This raises an exception if new_value is not among the legal values for the discrete attribute
+            # - add a dropdown list of legal values when editing the table!
+            try:
+                new_table[inst_idx][att] = str(new_value)
+            except: # Catch orange exception and give a proper error message.
+                raise Exception("Illegal value '%s' for discrete attribute '%s', legal values are: %s." % (new_value, att, new_table.domain[att].values))
+    return {'altered_data' : new_table}
+>>>>>>> dev

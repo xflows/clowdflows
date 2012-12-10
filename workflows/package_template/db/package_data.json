@@ -1,0 +1,261 @@
+[
+  {
+    "pk": 20, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "uid_to_replace",
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Package Template"
+    }
+  }, 
+  {
+    "pk": 98, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 20, 
+      "treeview_image": "", 
+      "name": "Create Integer List", 
+      "is_streaming": false, 
+      "uid": "uid_to_replace",
+      "interaction_view": "", 
+      "image": "", 
+      "package": "package_template", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "action": "pcktmp_create_integers", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 248, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 98, 
+      "name": "Integer List String", 
+      "short_name": "str", 
+      "uid": "uid_to_replace",
+      "default": "3\r\n2\r\n1\r\n4", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "intStr", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Comma or new-line separated list of integers"
+    }
+  }, 
+  {
+    "pk": 253, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 98, 
+      "name": "Sort list", 
+      "short_name": "bol", 
+      "uid": "uid_to_replace",
+      "default": "true", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sort", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Should the list be sorted"
+    }
+  }, 
+  {
+    "pk": 104, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 98, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "variable": "intList", 
+      "uid": "uid_to_replace",
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 101, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 20, 
+      "treeview_image": "", 
+      "name": "Filter Integers", 
+      "is_streaming": false, 
+      "uid": "uid_to_replace",
+      "interaction_view": "pcktmp_filter_integers", 
+      "image": "", 
+      "package": "package_template", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "pcktmp_post_filter_integers", 
+      "user": null, 
+      "visualization_view": "", 
+      "action": "pcktmp_pre_filter_integers", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "has_progress_bar": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 250, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 101, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "uid": "uid_to_replace",
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "intList", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 106, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 101, 
+      "name": "Filtered Integer List", 
+      "short_name": "lst", 
+      "variable": "intList", 
+      "uid": "uid_to_replace",
+      "order": 1, 
+      "description": "Filtered list of integers"
+    }
+  }, 
+  {
+    "pk": 99, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 20, 
+      "treeview_image": "", 
+      "name": "Sum Integers", 
+      "is_streaming": false, 
+      "uid": "uid_to_replace",
+      "interaction_view": "", 
+      "image": "", 
+      "package": "package_template", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "action": "pcktmp_sum_integers", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 249, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 99, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "uid": "uid_to_replace",
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "intList", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 105, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 99, 
+      "name": "Sum", 
+      "short_name": "int", 
+      "variable": "sum", 
+      "uid": "uid_to_replace",
+      "order": 1, 
+      "description": "Sum of integer list"
+    }
+  }, 
+  {
+    "pk": 100, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 20, 
+      "treeview_image": "", 
+      "name": "Display Summation", 
+      "is_streaming": false, 
+      "uid": "uid_to_replace",
+      "interaction_view": "", 
+      "image": "", 
+      "package": "package_template", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "pcktmp_display_summation", 
+      "action": "pcktmp_pre_display_summation", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 251, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 100, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "uid": "uid_to_replace",
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "intList", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 252, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 100, 
+      "name": "Sum", 
+      "short_name": "int", 
+      "uid": "uid_to_replace",
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "sum", 
+      "parameter": false, 
+      "order": 2, 
+      "description": "Sum (possibly correct) of integer list"
+    }
+  }
+]

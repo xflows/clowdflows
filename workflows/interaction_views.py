@@ -1,4 +1,10 @@
+import sys
 from django.shortcuts import render
+
+from workflows import module_importer
+def setattr_local(name, value, package):
+    setattr(sys.modules[__name__], name, value)
+module_importer.import_all_packages_libs("interaction_views",setattr_local)
 
 def test_interaction(request,input_dict,output_dict,widget):
     return render(request, 'interactions/test_interaction.html',{'widget':widget})
@@ -64,21 +70,8 @@ def select_data(request, input_dict, output_dict, widget):
     sorted_attrs = sorted(attrs.items())
     input_dict = {'data': data, 'attrs':attrs, 'sorted_attrs':sorted_attrs}
     return render(request, 'interactions/select_data.html',{'widget':widget, 'input_dict':input_dict})
-
-def build_subgroups(request, input_dict, output_dict, widget):
-    import Orange
-
-    data = Orange.data.Table(input_dict['data'])
-
-    class_values = []
-
-    for v in data.domain.class_var.values:
-        class_values.append(v)
-
-    target = {'name':data.domain.class_var.name, 'values':class_values}
-
-    return render(request, 'interactions/build_subgroups.html', {'widget':widget, 'data':data, 'target':target})
     
-def kepner_tregoe(request, input_dict, output_dict, widget):
-    attributes = [att.name for att in input_dict['data'].domain.features]
-    return render(request, 'interactions/kepner_tregoe.html', {'widget':widget, 'attributes':attributes})
+def alter_table(request, input_dict, output_dict, widget):
+    from visualization_views import orng_table_to_dict
+    data = input_dict['data']
+    return render(request, 'interactions/alter_table.html', {'widget' : widget,'input_dict' : input_dict,'output_dict' : orng_table_to_dict(data)})

@@ -12,12 +12,14 @@
 .project
 .settings
 atlassian-ide-plugin.xml
+*.sublime-*
 
 # Project
 /mothra/local_settings.py
 /mothra/public/static
 /mothra/public/media
 /mothra/public/files
+/mothra/backup
 
 # SQLite
 /mothra/mothra.db

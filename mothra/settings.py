@@ -4,6 +4,7 @@ import os
 
 PROJECT_DIR = os.path.dirname(__file__)
 PUBLIC_DIR = os.path.join(PROJECT_DIR, 'public')
+BACKUP_DIR = os.path.join(PROJECT_DIR, 'backup')
 
 DEBUG = False
 TEMPLATE_DEBUG = True
@@ -158,44 +159,46 @@ except NameError:
         from local_settings import *
     except ImportError:
         pass
-        
-if USE_CONCURRENCY:
-    INSTALLED_APPS = (
-        'django.contrib.auth',
-        'django.contrib.contenttypes',
-        'django.contrib.sessions',
-        'django.contrib.sites',
-        'django.contrib.messages',
-        'django.contrib.staticfiles',
-        'django.contrib.admin',
-        'south',
-        'workflows',
-        'website',
-        'signuplogin',
-        'django_extensions',
-        'django.contrib.humanize',
-        'orderable_inlines',
+
+INSTALLED_APPS_DEFAULT = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'django.contrib.admin',
+    'south',
+    'website',
+    'signuplogin',
+    'django_extensions',
+    'django.contrib.humanize',
+    'orderable_inlines',
+    'workflows',
+    )
+
+INSTALLED_APPS_CONCUR = (
         'djcelery',
-    )     
-else:
-    INSTALLED_APPS = (
-        'django.contrib.auth',
-        'django.contrib.contenttypes',
-        'django.contrib.sessions',
-        'django.contrib.sites',
-        'django.contrib.messages',
-        'django.contrib.staticfiles',
-        'django.contrib.admin',
-        'south',
-        'workflows',
-        'website',
-        'signuplogin',
-        'django_extensions',
-        'django.contrib.humanize',
-        'orderable_inlines',
+    ) if USE_CONCURRENCY else (
         'streams',
-    )        
-        
+    )
+
+INSTALLED_APPS_WORKFLOWS_SUB = (
+    'workflows.base',
+    'workflows.latino',
+    'workflows.decision_support',
+    'workflows.bioinformatics',
+    'workflows.subgroup_discovery',
+    'workflows.nlp',
+    'workflows.nl_toolkit',
+    #WORKFLOWS_SUBAPP_PLACEHOLDER
+    )
+
+INSTALLED_APPS = \
+    INSTALLED_APPS_DEFAULT +\
+    INSTALLED_APPS_CONCUR +\
+    INSTALLED_APPS_WORKFLOWS_SUB
+
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS
 
 TEMPLATES_FOLDER = os.path.join(PROJECT_DIR, 'templates')

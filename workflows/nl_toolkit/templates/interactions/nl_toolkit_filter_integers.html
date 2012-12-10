@@ -1,0 +1,8 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} wants your input!">
+<form id="interactionform-{{widget.pk}}" name="interactionform-{{widget.pk}}">
+{% for i in intList %}
+<input type="checkbox" name="intListOut" value="{{i}}" style="display:inline;width:auto;">{{i}}<br>
+{% endfor %}
+<input type="hidden" name="widget_id" value="{{widget.pk}}">
+</form>
+</div>

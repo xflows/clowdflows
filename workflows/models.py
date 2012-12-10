@@ -29,6 +29,8 @@ class Category(models.Model):
 
     order = models.PositiveIntegerField(default=1)
 
+    uid = models.CharField(max_length=250,blank=True,default='')
+
     class Meta:
         verbose_name_plural = "categories"
         ordering = ('order','name',)
@@ -241,11 +243,17 @@ class AbstractWidget(models.Model):
     
     image = ThumbnailField(blank=True,null=True,upload_to="images",size=(34,34))
     treeview_image = ThumbnailField(blank=True,null=True,upload_to="treeview",size=(16,16))
+
+    static_image = models.CharField(max_length=250,blank=True,default='')
     
     has_progress_bar = models.BooleanField(default=False)
     is_streaming = models.BooleanField(default=False)
     
     order = models.PositiveIntegerField(default=1)
+
+    uid = models.CharField(max_length=250,blank=True,default='')
+
+    package = models.CharField(max_length=150,blank=True,default='')
         
     class Meta:
         ordering = ('order','name',)
@@ -273,6 +281,8 @@ class AbstractInput(models.Model):
     parameter_type = models.CharField(max_length=50,choices=PARAMETER_CHOICES,blank=True,null=True)
     
     order = models.PositiveIntegerField(default=1)
+
+    uid = models.CharField(max_length=250,blank=True,default='')
     
     def __unicode__(self):
         return unicode(self.name)
@@ -284,6 +294,9 @@ class AbstractOption(models.Model):
     abstract_input = models.ForeignKey(AbstractInput,related_name="options")
     name = models.CharField(max_length=200)
     value = models.TextField(blank=True)
+
+    uid = models.CharField(max_length=250,blank=True,default='')
+
     def __unicode__(self):
         return unicode(self.name)
         
@@ -298,6 +311,8 @@ class AbstractOutput(models.Model):
     widget = models.ForeignKey(AbstractWidget,related_name="outputs")
     
     order = models.PositiveIntegerField(default=1)
+
+    uid = models.CharField(max_length=250,blank=True,default='')
         
     class Meta:
         ordering = ('order',)    
@@ -441,9 +456,7 @@ class Widget(models.Model):
                 self.finished=False
                 self.save()
                 raise
-            print outputs
             for o in self.outputs.all():
-                print o
                 if not self.abstract_widget is None:
                     o.value = outputs[o.variable]
                     o.save()
@@ -511,6 +524,19 @@ class Widget(models.Model):
             self.save()
         return None
         
+    def reset(self,offline):
+        for i in self.inputs.all():
+            if not i.parameter:
+                i.value = None
+                i.save()
+        for i in self.outputs.all():
+            i.value = None
+            i.save()
+        self.finished = False
+        self.error = False
+        self.running = False
+        self.save()
+
     def run_post(self,request):
         if not self.ready_to_run():
             raise Exception("The prerequisites for running this widget have not been met.")

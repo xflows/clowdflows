@@ -1,0 +1,58 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction" width="700" height="500">
+<center>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="datasetTable{{widget.pk}}">
+	<!-- header -->
+	<thead>
+		<tr>
+		{% for att in output_dict.attrs %}
+			<th>{{att}}</th>
+		{% endfor %}
+	    {% if output_dict.class_var %}
+			<th>{{output_dict.class_var}} [class]</th>
+	    {% endif %}
+		{% for att in output_dict.metas %}
+			<th>{{att}} [meta]</th>
+		{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+    <!-- instances -->
+    {% for inst in output_dict.data %}
+        <tr>
+        	{% for att, v in inst %}
+        		<td id="cell_{{forloop.parentloop.counter0}}_{{att}}">{{v}}</td>
+        	{% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<form>
+	<input type="hidden" name="alteredCells{{widget.pk}}" id="alteredCells{{widget.pk}}" value=""/>
+	<input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+</form>
+</center>
+<script type="text/javascript">
+$(function () {
+	$(document).ready(function() {
+		var alteredCells = {};
+		$('#alteredCells{{widget.pk}}').val(JSON.stringify(alteredCells));
+		var oTable = $('#datasetTable{{widget.pk}}').dataTable( {
+			"bSortCellsTop" : true,
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		});
+	    oTable.$('td').editable(function(value, settings) {
+	    	// Update the hidden input value
+	    	var id = $(this).attr("id");
+	    	// Update the value
+	    	alteredCells[id] = value;
+	    	$('#alteredCells{{widget.pk}}').val(JSON.stringify(alteredCells));
+	    	// On edit just return the new value (no need to make a server call).
+	    	return value;
+	    }, {
+	    	width: '100%'
+	    });
+	});
+});
+</script>
+</div>
