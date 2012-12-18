@@ -31,3 +31,9 @@ def ilp_post_filter_integers(postdata,input_dict,output_dict):
 
 def ilp_pre_display_summation(input_dict):
     return {}
+
+def ilp_pre_aleph(input_dict):
+    return input_dict
+
+def ilp_post_aleph(postdata, input_dict, output_dict):
+    return {'result' : result}
