@@ -104,7 +104,6 @@ class Aleph(object):
         
         return rules
 
-
     def __prepare(self, filestem, pos, neg, b):
         """
         Prepares the needed files.
@@ -161,3 +160,5 @@ class Aleph(object):
             cat(self.postGoal + ".")
             cat(self.postScript)
         script.close()
+
+aleph = Aleph()
