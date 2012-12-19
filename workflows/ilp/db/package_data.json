@@ -1,0 +1,384 @@
+[
+  {
+    "pk": 72,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "ed859be5-cc13-46b9-b249-c8f026732c1c",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "ILP"
+    }
+  },
+  {
+    "pk": 300,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 72,
+      "treeview_image": "",
+      "name": "Aleph",
+      "is_streaming": false,
+      "uid": "b8289304-389e-414a-98ab-273b16478cee",
+      "interaction_view": "",
+      "image": "",
+      "package": "ilp",
+      "static_image": "ilp.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "ilp_aleph",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 988,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "settings",
+      "short_name": "set",
+      "uid": "bfe16b08-89b1-4835-875c-6b0302fb1da3",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "settings",
+      "parameter": false,
+      "order": 1,
+      "description": "settings facts"
+    }
+  },
+  {
+    "pk": 989,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "mode",
+      "short_name": "mod",
+      "uid": "00b174f3-250d-4c47-9a60-b515e5260e0c",
+      "default": "induce",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "mode",
+      "parameter": true,
+      "order": 2,
+      "description": "induction mode"
+    }
+  },
+  {
+    "pk": 101,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "8e5631e5-6497-4720-9e26-5936619caf5c",
+      "abstract_input": 989,
+      "value": "induce",
+      "name": "induce"
+    }
+  },
+  {
+    "pk": 105,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "92f66b17-02fd-4bb6-b4cb-03bb54b403f6",
+      "abstract_input": 989,
+      "value": "induce_constraints",
+      "name": "induce_constraints"
+    }
+  },
+  {
+    "pk": 102,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "ce82b005-81e4-4997-80c3-05731651869a",
+      "abstract_input": 989,
+      "value": "induce_cover",
+      "name": "induce_cover"
+    }
+  },
+  {
+    "pk": 107,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "968d079a-871c-4cae-b15e-c8e7b61f3b8c",
+      "abstract_input": 989,
+      "value": "induce_features",
+      "name": "induce_features"
+    }
+  },
+  {
+    "pk": 103,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "0103c466-0e2e-47fe-b182-0a034beb7eed",
+      "abstract_input": 989,
+      "value": "induce_max",
+      "name": "induce_max"
+    }
+  },
+  {
+    "pk": 106,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "78cb938d-16b8-4c7c-b712-b59e27aa837d",
+      "abstract_input": 989,
+      "value": "induce_modes",
+      "name": "induce_modes"
+    }
+  },
+  {
+    "pk": 104,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "45f5cc84-b097-439a-9363-d2299c540913",
+      "abstract_input": 989,
+      "value": "induce_tree",
+      "name": "induce_tree"
+    }
+  },
+  {
+    "pk": 990,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "pos",
+      "short_name": "pos",
+      "uid": "03788382-f3b9-4580-8e85-b600874ef643",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "pos",
+      "parameter": false,
+      "order": 3,
+      "description": "positive examples"
+    }
+  },
+  {
+    "pk": 991,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "neg",
+      "short_name": "neg",
+      "uid": "01529349-3300-41c5-8585-3f7a90175120",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "neg",
+      "parameter": false,
+      "order": 4,
+      "description": "negative examples"
+    }
+  },
+  {
+    "pk": 992,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "b",
+      "short_name": "b",
+      "uid": "2ec81e9e-d911-46a1-a95d-2eaf349443a8",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "b",
+      "parameter": false,
+      "order": 5,
+      "description": "background knowledge"
+    }
+  },
+  {
+    "pk": 355,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 300,
+      "name": "theory",
+      "short_name": "the",
+      "variable": "theory",
+      "uid": "d1d8839b-a2f1-4b82-b759-7c6c7d7d57e5",
+      "order": 1,
+      "description": "theory"
+    }
+  },
+  {
+    "pk": 301,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 72,
+      "treeview_image": "",
+      "name": "RSD",
+      "is_streaming": false,
+      "uid": "dabcb4ed-ae86-4f3e-8d3e-bb0306ff11f8",
+      "interaction_view": "",
+      "image": "",
+      "package": "ilp",
+      "static_image": "ilp.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "ilp_rsd",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Relational subgroup discovery by Zelezny et al."
+    }
+  },
+  {
+    "pk": 993,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "settings",
+      "short_name": "set",
+      "uid": "a1660c9f-952d-4f29-9f23-9b0be5fe8cea",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "settings",
+      "parameter": false,
+      "order": 1,
+      "description": "settings"
+    }
+  },
+  {
+    "pk": 994,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "pos",
+      "short_name": "pos",
+      "uid": "676ef826-7dd9-415a-8a8a-d82146dcc95a",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "pos",
+      "parameter": false,
+      "order": 2,
+      "description": "positive examples"
+    }
+  },
+  {
+    "pk": 995,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "neg",
+      "short_name": "neg",
+      "uid": "0b46921d-50fe-46b1-a1e4-67c918160a7f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "neg",
+      "parameter": false,
+      "order": 3,
+      "description": "negative examples"
+    }
+  },
+  {
+    "pk": 996,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "examples",
+      "short_name": "ex",
+      "uid": "817a82dc-2264-4181-a31a-6a7ff2b6c882",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "examples",
+      "parameter": false,
+      "order": 4,
+      "description": "classified examples (pos+neg in one file)"
+    }
+  },
+  {
+    "pk": 997,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "b",
+      "short_name": "b",
+      "uid": "746dac3a-bcf9-4546-b0cb-ccfea866707a",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "b",
+      "parameter": false,
+      "order": 5,
+      "description": "background knowledge"
+    }
+  },
+  {
+    "pk": 998,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "subgroups",
+      "short_name": "sg",
+      "uid": "1c982c21-0b97-40d1-a35e-30ba16342b00",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "subgroups",
+      "parameter": true,
+      "order": 6,
+      "description": "find subgroups as well"
+    }
+  },
+  {
+    "pk": 356,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 301,
+      "name": "features",
+      "short_name": "frs",
+      "variable": "features",
+      "uid": "1097065e-83f9-4dfa-89b8-775d500caa89",
+      "order": 1,
+      "description": "features as prolog facts"
+    }
+  },
+  {
+    "pk": 357,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 301,
+      "name": "arff",
+      "short_name": "arf",
+      "variable": "arff",
+      "uid": "20b53049-5a43-46f8-9d1d-b49d8db2b1bc",
+      "order": 2,
+      "description": "arff file of the propositionalized data"
+    }
+  },
+  {
+    "pk": 358,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 301,
+      "name": "rules",
+      "short_name": "rul",
+      "variable": "rules",
+      "uid": "3f70b720-fd68-4770-936b-68512046a12e",
+      "order": 3,
+      "description": "rules as prolog facts"
+    }
+  }
+]
