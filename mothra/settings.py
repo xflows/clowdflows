@@ -200,6 +200,7 @@ else:
         'workflows.bioinformatics',
         'workflows.subgroup_discovery',
         'workflows.nlp',
+        'workflows.ilp',
         'workflows.base',
         'website',
         'signuplogin',
