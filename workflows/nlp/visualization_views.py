@@ -1,3 +1,9 @@
+'''
+NLP visualization views.
+
+@author: Anze Vavpetic <anze.vavpetic@ijs.si>
+'''
+from django.shortcuts import render
 import nlp
 
 def definition_sentences_viewer(request, input_dict, output_dict, widget):
