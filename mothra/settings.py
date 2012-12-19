@@ -176,6 +176,7 @@ if USE_CONCURRENCY:
         'workflows.bioinformatics',
         'workflows.subgroup_discovery',
         'workflows.nlp',
+        'workflows.ilp',
         'website',
         'signuplogin',
         'django_extensions',
