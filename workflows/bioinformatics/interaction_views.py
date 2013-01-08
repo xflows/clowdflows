@@ -5,6 +5,7 @@ Bioinformatics interaction viewes.
 '''
 from django.shortcuts import render
 
-def insilico_search(request, input_dict, output_dict, widget):
-    #TODOl
-    return render(request, 'interactions/insilico_search.html', {'widget':widget})
+def feature_selection(request, input_dict, output_dict, widget):
+    #TODO
+    return render(request, 'interactions/feature_selection.html', {'widget':widget})
+

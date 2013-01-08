@@ -1,0 +1,260 @@
+[
+  {
+    "pk": 33,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "15acb469-c510-44f0-8330-60bfe11a463c",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "NLP"
+    }
+  },
+  {
+    "pk": 225,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 33,
+      "treeview_image": "treeview/nlp_3.png",
+      "name": "Load corpus",
+      "is_streaming": false,
+      "uid": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971",
+      "interaction_view": "",
+      "image": "images/nlp_9.png",
+      "package": "nlp",
+      "static_image": "nlp.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "load_corpus",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 647,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 225,
+      "name": "File",
+      "short_name": "fil",
+      "uid": "096159a3-ddc8-4a57-b769-dddfb2590065",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "file",
+      "variable": "file",
+      "parameter": true,
+      "order": 1,
+      "description": "File"
+    }
+  },
+  {
+    "pk": 234,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 225,
+      "name": "Corpus",
+      "short_name": "cor",
+      "variable": "corpus",
+      "uid": "edcc6852-ba3b-4fd7-a46a-6988a7ff61ad",
+      "order": 1,
+      "description": "corpus"
+    }
+  },
+  {
+    "pk": 187,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 33,
+      "treeview_image": "treeview/nlp.png",
+      "name": "Merge Sentences",
+      "is_streaming": false,
+      "uid": "de403444-0ae6-470a-bd7e-f86ac289bf98",
+      "interaction_view": "",
+      "image": "images/nlp_6.png",
+      "package": "nlp",
+      "static_image": "nlp.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "merge_sentences",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 501,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 187,
+      "name": "Sentences",
+      "short_name": "sen",
+      "uid": "15389d3e-d0b9-488e-9db8-038ff1b6e06a",
+      "default": "",
+      "required": true,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "sentences",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 502,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 187,
+      "name": "Join Method",
+      "short_name": "met",
+      "uid": "27c8cd4a-1016-4a88-b463-4713874fc87f",
+      "default": "union",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "method",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 98,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "de9d5d39-53dc-4791-8d1d-2298c678f5b6",
+      "abstract_input": 502,
+      "value": "intersection",
+      "name": "Intersection"
+    }
+  },
+  {
+    "pk": 100,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "8a445f1f-44ad-481f-aa17-46e6222c82be",
+      "abstract_input": 502,
+      "value": "intersection_two",
+      "name": "Intersection by at least two"
+    }
+  },
+  {
+    "pk": 99,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "d0886005-a48a-415f-b767-e670211f6fe9",
+      "abstract_input": 502,
+      "value": "union",
+      "name": "Union"
+    }
+  },
+  {
+    "pk": 192,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 187,
+      "name": "Merged Sentences",
+      "short_name": "sen",
+      "variable": "merged_sentences",
+      "uid": "b07f6501-4ce3-4f09-a8ec-1e79eb1652de",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 186,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 33,
+      "treeview_image": "treeview/nlp_1.png",
+      "name": "Sentence Viewer",
+      "is_streaming": false,
+      "uid": "94485ea5-f1d6-46ae-abaf-fd78988692fd",
+      "interaction_view": "",
+      "image": "images/nlp_7.png",
+      "package": "nlp",
+      "static_image": "nlp.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "definition_sentences_viewer",
+      "action": "definition_sentences",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 500,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 186,
+      "name": "candidates",
+      "short_name": "can",
+      "uid": "2ad6546b-5fae-42fa-97ab-e75e91838c19",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "candidates",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 185,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 33,
+      "treeview_image": "treeview/nlp_2.png",
+      "name": "Term Candidates Viewer",
+      "is_streaming": false,
+      "uid": "af5ee96e-7307-46f9-8d8c-55cb7c36d111",
+      "interaction_view": "",
+      "image": "images/nlp_8.png",
+      "package": "nlp",
+      "static_image": "nlp.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "term_candidate_viewer",
+      "action": "term_candidates",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 499,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 185,
+      "name": "candidates",
+      "short_name": "can",
+      "uid": "32536744-964e-4206-b582-be92ab355e8e",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "candidates",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  }
+]
