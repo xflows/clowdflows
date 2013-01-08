@@ -102,7 +102,6 @@ def call_webservice(input_dict):
         except Exception as e: 
             print e
             ws_dict[i['name']]=''
-    print ws_dict
     results = function_to_call(**ws_dict)
     output_dict=results
     return output_dict
