@@ -192,6 +192,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.nlp',
     'workflows.nl_toolkit',
     'workflows.ilp',
+    'workflows.weka',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 
