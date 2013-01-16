@@ -1,0 +1,1545 @@
+[
+  {
+    "pk": 36,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Orange"
+    }
+  },
+  {
+    "pk": 37,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "d0e46009-46b3-43ed-bff0-5fc986ff6b34",
+      "parent": 36,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Classification"
+    }
+  },
+  {
+    "pk": 130,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-C45.png",
+      "name": "C4.5 Tree Learner",
+      "is_streaming": false,
+      "uid": "0e3f39fd-3807-49d5-aab5-4ae441cd9f75",
+      "interaction_view": "",
+      "image": "images/orange-C45.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "c45_tree",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 133,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 130,
+      "name": "C4.5 Tree Learner",
+      "short_name": "c45",
+      "variable": "c45out",
+      "uid": "be5a0f89-b7a8-4e1c-b6d9-48ccd5f4a151",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 124,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-ClassificationTree.png",
+      "name": "Classification Tree",
+      "is_streaming": false,
+      "uid": "29b5871f-1829-4af6-8463-c6515e2010c6",
+      "interaction_view": "",
+      "image": "images/orange-ClassificationTree.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "class_tree",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 127,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 124,
+      "name": "Classification Tree",
+      "short_name": "clt",
+      "variable": "treeout",
+      "uid": "65dc834a-a59c-4821-99c2-37d1142ac592",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 131,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-CN2-small.png",
+      "name": "CN2 Rule Learner",
+      "is_streaming": false,
+      "uid": "766ef980-6622-4168-b4c5-60c5001dba8b",
+      "interaction_view": "",
+      "image": "images/orange-CN2-small.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cn2",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 134,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 131,
+      "name": "CN2 Rule Learner",
+      "short_name": "cn2",
+      "variable": "cn2out",
+      "uid": "8fd12925-d2ac-4672-82d9-39da4174c2b4",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 125,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-kNN.png",
+      "name": "k-Nearest Neighbours",
+      "is_streaming": false,
+      "uid": "f669618e-108c-4636-8ce5-ec04b26f4642",
+      "interaction_view": "",
+      "image": "images/orange-kNN.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "knn",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 128,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 125,
+      "name": "kNN Clasisifier",
+      "short_name": "knn",
+      "variable": "knnout",
+      "uid": "423a0b89-5430-437c-a6d5-6725d834a469",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 127,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-LogisticRegression.png",
+      "name": "Logistic Regression",
+      "is_streaming": false,
+      "uid": "bb9cbb4e-516d-4856-9ad3-614a7a01cba1",
+      "interaction_view": "",
+      "image": "images/orange-LogisticRegression.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "logreg",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 130,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 127,
+      "name": "Logistic Regresion Classifier",
+      "short_name": "lrc",
+      "variable": "logregout",
+      "uid": "bd5fa320-9059-44f4-8186-f5dea9283520",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 129,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/lookup.png",
+      "name": "Lookup Learner",
+      "is_streaming": false,
+      "uid": "1781ee2a-f353-42b4-96d4-3379329c984e",
+      "interaction_view": "",
+      "image": "images/lookup.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lookup_learner",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 132,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 129,
+      "name": "Lookup Classifier",
+      "short_name": "luc",
+      "variable": "lookupout",
+      "uid": "9d104fe8-e95a-4553-a9a5-03a49421d148",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 128,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-Majority.png",
+      "name": "Majority Learner",
+      "is_streaming": false,
+      "uid": "f11eaa13-d94b-40e1-adfb-a811ae36bc2d",
+      "interaction_view": "",
+      "image": "images/orange-Majority.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "majority_learner",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 131,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 128,
+      "name": "Majority Classifier",
+      "short_name": "mjc",
+      "variable": "majorout",
+      "uid": "95de96fb-f220-4b30-a981-e669f3380e79",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 96,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-NaiveBayes.png",
+      "name": "Naive Bayes",
+      "is_streaming": false,
+      "uid": "bf4a4479-b2c3-47b3-b900-be8d39871ecd",
+      "interaction_view": "",
+      "image": "images/orange-NaiveBayes.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "bayes",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 101,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 96,
+      "name": "Bayes Classifier",
+      "short_name": "bys",
+      "variable": "bayesout",
+      "uid": "4557f31d-6877-44c7-96b1-3dc72f628e2e",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 98,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-RandomForest.png",
+      "name": "Random Forest",
+      "is_streaming": false,
+      "uid": "8ac403eb-cf44-41cb-b9a1-84dede03a1d4",
+      "interaction_view": "",
+      "image": "images/orange-RandomForest.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "random_forest",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 235,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 98,
+      "name": "Number of decision trees",
+      "short_name": "ndt",
+      "uid": "d8f62393-dda8-48a0-93c1-ac5bc3c5667f",
+      "default": "100",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "n",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 102,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 98,
+      "name": "Random Forest Classifier",
+      "short_name": "rfc",
+      "variable": "rfout",
+      "uid": "fe85cc7e-0e13-4f76-841f-ac809d28095f",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 126,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-Rule-Learner.png",
+      "name": "Rule Induction",
+      "is_streaming": false,
+      "uid": "0ce778a2-b40c-45f1-8383-9327b18fc661",
+      "interaction_view": "",
+      "image": "images/orange-Rule-Learner.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "rules",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 129,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 126,
+      "name": "Rule Learner",
+      "short_name": "rll",
+      "variable": "rulesout",
+      "uid": "20a9db03-d944-4ba4-9786-d2c8dd688e87",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 99,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-SVM_1.png",
+      "name": "Support Vector Machine",
+      "is_streaming": false,
+      "uid": "6b40b000-3e93-4fe4-bb95-f7ea4822eebf",
+      "interaction_view": "",
+      "image": "images/orange-SVM_1.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "svm",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 103,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 99,
+      "name": "Support Vector Machine Classifier",
+      "short_name": "svm",
+      "variable": "svmout",
+      "uid": "f2c9a031-e94f-4b3f-9302-656c46871e46",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 100,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 37,
+      "treeview_image": "treeview/orange-SVMEasy-new.png",
+      "name": "Support Vector Machine Easy",
+      "is_streaming": false,
+      "uid": "d54a6cee-76d0-4ec6-9aab-556e233be366",
+      "interaction_view": "",
+      "image": "images/orange-SVMEasy-new.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "svmeasy",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 104,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 100,
+      "name": "Support Vector Machine Easy Classifier",
+      "short_name": "sve",
+      "variable": "svmeasyout",
+      "uid": "5add6c11-7052-4b5a-975f-b5cf25aada99",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 38,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "583debcb-5041-46b3-b464-e21875896710",
+      "parent": 36,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Evaluation"
+    }
+  },
+  {
+    "pk": 209,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 38,
+      "treeview_image": "treeview/Orange-ApplyClassifier5.png",
+      "name": "Apply Classifier",
+      "is_streaming": false,
+      "uid": "00e860b0-d62d-4e1d-8f58-0a1755c0f0e1",
+      "interaction_view": "",
+      "image": "images/Orange-ApplyClassifier5.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "apply_classifier",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 613,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 209,
+      "name": "Classifier",
+      "short_name": "clf",
+      "uid": "fd103975-883d-4501-9fe3-9ebadb01ae4f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "classifier",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 614,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 209,
+      "name": "Dataset",
+      "short_name": "dat",
+      "uid": "7c16a50f-c548-4104-afd2-0f3be086fc9e",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 226,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 209,
+      "name": "Dataset",
+      "short_name": "dat",
+      "variable": "data",
+      "uid": "fd7a69ac-a8bf-4681-bf32-328fde34d742",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 208,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 38,
+      "treeview_image": "treeview/Orange-BuildClassifier.png",
+      "name": "Build Classifier",
+      "is_streaming": false,
+      "uid": "39809f9a-3742-4ca0-908a-1d8a041261af",
+      "interaction_view": "",
+      "image": "images/Orange-BuildClassifier.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "build_classifier",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 611,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208,
+      "name": "learner",
+      "short_name": "lrn",
+      "uid": "24b03594-14c8-4534-98de-b4bf703fef63",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "learner",
+      "parameter": false,
+      "order": 0,
+      "description": ""
+    }
+  },
+  {
+    "pk": 612,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208,
+      "name": "data",
+      "short_name": "dat",
+      "uid": "3de89884-15aa-40dd-a514-cb7e7d5298c5",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 0,
+      "description": ""
+    }
+  },
+  {
+    "pk": 225,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 208,
+      "name": "classifier",
+      "short_name": "clf",
+      "variable": "classifier",
+      "uid": "d772a4c4-eb0a-4b4c-8386-f1eabd60f371",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 39,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009",
+      "parent": 36,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Utilities"
+    }
+  },
+  {
+    "pk": 106,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "treeview/add_noise3.png",
+      "name": "Add Class Noise",
+      "is_streaming": false,
+      "uid": "4c603285-3aa7-4b55-8d57-cc8285e212c2",
+      "interaction_view": "",
+      "image": "images/add_noise3.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "add_class_noise",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Adds class noise to a specified percentage of data instances."
+    }
+  },
+  {
+    "pk": 263,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 106,
+      "name": "Random Seed",
+      "short_name": "rns",
+      "uid": "89c20239-c4e0-4368-9828-ab73155e2457",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "rnd_seed",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 243,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 106,
+      "name": "Dataset",
+      "short_name": "ds",
+      "uid": "aa5d2630-534f-4662-8da5-342b2e87995b",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 244,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 106,
+      "name": "Noise Level (%)",
+      "short_name": "nlv",
+      "uid": "9c5ec335-76a0-4208-81a0-76b4a0457d5d",
+      "default": "5",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "noise_level",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 111,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 106,
+      "name": "Noisy Dataset",
+      "short_name": "nds",
+      "variable": "noisy_data",
+      "uid": "3b5b1e3c-a589-47f5-bd88-e65ccfcfc988",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 112,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 106,
+      "name": "Noise Indices",
+      "short_name": "nid",
+      "variable": "noise_inds",
+      "uid": "4ce3dc8e-7947-4ab4-825b-2b5afe379e34",
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 294,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "",
+      "name": "Alter table",
+      "is_streaming": false,
+      "uid": "6f73d7a0-ed32-4ff8-9743-6a5d0867c693",
+      "interaction_view": "alter_table",
+      "image": "",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "alter_table_finished",
+      "user": null,
+      "visualization_view": "",
+      "action": "alter_table",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 980,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 294,
+      "name": "Table",
+      "short_name": "tab",
+      "uid": "1aff9f6a-6d0b-4cf2-ae5c-6de3301dc931",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 347,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 294,
+      "name": "Table",
+      "short_name": "tab",
+      "variable": "altered_data",
+      "uid": "27079127-e4e6-45bd-a2e2-11aade432583",
+      "order": 1,
+      "description": "Altered table"
+    }
+  },
+  {
+    "pk": 102,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "treeview/Load-ODT.png",
+      "name": "Load Dataset to Orange Data Table",
+      "is_streaming": false,
+      "uid": "776564a9-74ae-4651-8340-c52c055cecbc",
+      "interaction_view": "",
+      "image": "images/Load-ODT.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "load_dataset",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 238,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 102,
+      "name": "File",
+      "short_name": "fil",
+      "uid": "748e5dff-6c21-4feb-af71-aaf955f73893",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "file",
+      "variable": "file",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 106,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 102,
+      "name": "Dataset",
+      "short_name": "ds",
+      "variable": "dataset",
+      "uid": "91783e70-d1df-4467-939f-d0800108850c",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 224,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "",
+      "name": "Orange Data Table to ARFF file",
+      "is_streaming": false,
+      "uid": "c5a545bb-e0ac-4b73-aa76-4add863e3252",
+      "interaction_view": "",
+      "image": "",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "odt_to_arff",
+      "action": "string_to_file",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 646,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 224,
+      "name": "Data",
+      "short_name": "dat",
+      "uid": "1eb8eb33-61d6-4b77-93ef-abfe6fd2c15f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 211,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "treeview/ODT-to-ARFF-string.png",
+      "name": "Orange Data Table to ARFF String",
+      "is_streaming": false,
+      "uid": "e85e8eee-a6c1-464c-ab11-fecf4240fdd0",
+      "interaction_view": "",
+      "image": "images/ODT-to-ARFF-string.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "odt_to_arff",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Transforms an orange data table to an arff string."
+    }
+  },
+  {
+    "pk": 616,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 211,
+      "name": "Orange data table",
+      "short_name": "odt",
+      "uid": "052788be-6a3d-4c8f-be34-b957ff445c04",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "odt",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 228,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 211,
+      "name": "ARFF",
+      "short_name": "arf",
+      "variable": "arff",
+      "uid": "02062c11-09e0-4bfd-b712-ad1c655a5e02",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 223,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "",
+      "name": "Orange Data Table to CSV file",
+      "is_streaming": false,
+      "uid": "dae920fc-c301-4285-9707-9aa8dbb9b9f7",
+      "interaction_view": "",
+      "image": "",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "odt_to_csv",
+      "action": "string_to_file",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 645,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 223,
+      "name": "Data",
+      "short_name": "dat",
+      "uid": "a9f98093-9488-483a-bfd2-4e484b1c1ccb",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 222,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "",
+      "name": "Orange Data Table to TAB file",
+      "is_streaming": false,
+      "uid": "6f475ead-0c0e-4b77-bc1a-ccfa7614962c",
+      "interaction_view": "",
+      "image": "",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "odt_to_tab",
+      "action": "string_to_file",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 644,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 222,
+      "name": "Dataset",
+      "short_name": "dat",
+      "uid": "1b6f9c59-36f1-4deb-bec7-c9633f6c7fd8",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 210,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "treeview/Orange-SelectAttributes_60.png",
+      "name": "Select Attributes",
+      "is_streaming": false,
+      "uid": "7b3455ff-5b2a-4c51-aa09-38dab4dfc2dc",
+      "interaction_view": "select_attrs",
+      "image": "images/Orange-SelectAttributes_60.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "select_attrs_post",
+      "user": null,
+      "visualization_view": "",
+      "action": "select_attrs",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 615,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 210,
+      "name": "Data table",
+      "short_name": "tab",
+      "uid": "d0f1d1e2-b3e8-4f79-bb88-50c2f3812e79",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": "Data table in form of a .tab file."
+    }
+  },
+  {
+    "pk": 227,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 210,
+      "name": "Data table",
+      "short_name": "tab",
+      "variable": "data",
+      "uid": "59a32aa6-0c2d-41d4-a0f0-690eef9ee3c1",
+      "order": 1,
+      "description": "Modified data table, with designated Class Attribute."
+    }
+  },
+  {
+    "pk": 216,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "treeview/orange-SelectData.png",
+      "name": "Select Data",
+      "is_streaming": false,
+      "uid": "2039c5fe-48a1-426c-b418-f0a16fdf1b18",
+      "interaction_view": "select_data",
+      "image": "images/orange-SelectData.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "select_data_post",
+      "user": null,
+      "visualization_view": "",
+      "action": "select_data",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Select data according to the filter provided by user"
+    }
+  },
+  {
+    "pk": 638,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 216,
+      "name": "data",
+      "short_name": "dat",
+      "uid": "042b574e-c08a-43ad-87db-9030a8a74cb8",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": "Data to be filtered."
+    }
+  },
+  {
+    "pk": 233,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 216,
+      "name": "Matching Data",
+      "short_name": "dat",
+      "variable": "data",
+      "uid": "93e88b7e-048a-412d-b93f-552659e62ecb",
+      "order": 1,
+      "description": "Data matching the filter provided"
+    }
+  },
+  {
+    "pk": 221,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "",
+      "name": "Table viewer",
+      "is_streaming": false,
+      "uid": "5becb9ab-93a8-4811-aa37-66ca85a7c0f3",
+      "interaction_view": "",
+      "image": "",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "table_viewer",
+      "action": "table_viewer",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 643,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 221,
+      "name": "Table",
+      "short_name": "tab",
+      "uid": "8b1571c3-dc4d-401b-a634-560236572496",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 123,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "treeview/UCI-2-ODT.png",
+      "name": "UCI Dataset to Orange Data Table",
+      "is_streaming": false,
+      "uid": "4e8683ae-c571-413c-a592-2093de96e8d1",
+      "interaction_view": "",
+      "image": "images/UCI-2-ODT.png",
+      "package": "orange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "uci_to_odt",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 271,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 123,
+      "name": "Dataset",
+      "short_name": "ds",
+      "uid": "268452b1-6016-404d-bdb8-01f03df4890f",
+      "default": "iris.tab",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "filename",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 67,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "0808be1d-5602-4277-9571-96ecb1faf58b",
+      "abstract_input": 271,
+      "value": "adult_sample.tab",
+      "name": "Adult (sample)"
+    }
+  },
+  {
+    "pk": 68,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "46fca181-b956-47c6-8281-eb60b69052d8",
+      "abstract_input": 271,
+      "value": "balance-scale.tab",
+      "name": "Balance Scale"
+    }
+  },
+  {
+    "pk": 69,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "84129065-b876-4ce7-ac3a-09d5dd19989b",
+      "abstract_input": 271,
+      "value": "breast-cancer.tab",
+      "name": "Breast Cancer"
+    }
+  },
+  {
+    "pk": 70,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "dd097a8f-01c7-4ec6-b00e-22efe6aeeb61",
+      "abstract_input": 271,
+      "value": "breast-cancer-wisconsin.tab",
+      "name": "Breast Cancer Wisconsin"
+    }
+  },
+  {
+    "pk": 71,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "45898880-5a9e-4b8f-9a04-d04c77a0ab28",
+      "abstract_input": 271,
+      "value": "car.tab",
+      "name": "Car Evaluation"
+    }
+  },
+  {
+    "pk": 72,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "2b7b385d-b1c5-4242-86eb-ce77602f2c8b",
+      "abstract_input": 271,
+      "value": "voting.tab",
+      "name": "Congressional Voting Records"
+    }
+  },
+  {
+    "pk": 74,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e2e36bac-e538-4783-9821-81d57a5eba58",
+      "abstract_input": 271,
+      "value": "crx.tab",
+      "name": "Credit Approval"
+    }
+  },
+  {
+    "pk": 76,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "33892420-6b22-4262-93d8-45f8c0fb05f8",
+      "abstract_input": 271,
+      "value": "glass.tab",
+      "name": "Glass Identification"
+    }
+  },
+  {
+    "pk": 77,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "346d63f4-53ec-40d1-8080-e97e1f8b7663",
+      "abstract_input": 271,
+      "value": "heart_disease.tab",
+      "name": "Heart Disease"
+    }
+  },
+  {
+    "pk": 78,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "6edc1a09-369f-4465-8b0e-0c6f192f0d82",
+      "abstract_input": 271,
+      "value": "horse-colic.tab",
+      "name": "Horse Colic"
+    }
+  },
+  {
+    "pk": 79,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e14dbdbb-5849-4a56-b8be-8fc2d75d280d",
+      "abstract_input": 271,
+      "value": "ionosphere.tab",
+      "name": "Ionosphere"
+    }
+  },
+  {
+    "pk": 80,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "bfd3ffc2-f47c-487f-bfa1-4331a1c5aa3c",
+      "abstract_input": 271,
+      "value": "iris.tab",
+      "name": "Iris"
+    }
+  },
+  {
+    "pk": 81,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "695fadad-4433-4d51-88d9-c6ca9ccf0730",
+      "abstract_input": 271,
+      "value": "kr-vs-kp.tab",
+      "name": "King Rook vs. King Pawn"
+    }
+  },
+  {
+    "pk": 82,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "27f607c8-651a-4637-a4ab-4f7f12a0a37f",
+      "abstract_input": 271,
+      "value": "lenses.tab",
+      "name": "Lenses"
+    }
+  },
+  {
+    "pk": 83,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "66a974be-f910-4710-a18a-87a98136ae7d",
+      "abstract_input": 271,
+      "value": "bupa.tab",
+      "name": "Liver Disorder (BUPA)"
+    }
+  },
+  {
+    "pk": 84,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "338f8871-e237-4c35-a34c-03228248deac",
+      "abstract_input": 271,
+      "value": "lung-cancer.tab",
+      "name": "Lung Cancer"
+    }
+  },
+  {
+    "pk": 86,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "b0a9f5aa-1b16-4dba-981d-eb9145883700",
+      "abstract_input": 271,
+      "value": "promoters.tab",
+      "name": "Molecular Biology (Promoter Gene Sequences)"
+    }
+  },
+  {
+    "pk": 87,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "a316eaf4-053b-4b02-9c96-c5f80f06d02f",
+      "abstract_input": 271,
+      "value": "monks-1_test.tab",
+      "name": "Monks 1 Test"
+    }
+  },
+  {
+    "pk": 88,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "9ab37819-cdd4-4dba-8a38-21bf7d3076f0",
+      "abstract_input": 271,
+      "value": "monks-2_test.tab",
+      "name": "Monks 2 Test"
+    }
+  },
+  {
+    "pk": 89,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "0d832f9c-6fa6-4af9-bbb5-b6bfdabbbe5e",
+      "abstract_input": 271,
+      "value": "monks-3_test.tab",
+      "name": "Monks 3 Test"
+    }
+  },
+  {
+    "pk": 90,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "f498f469-904c-4e36-88d1-9748495e6cf3",
+      "abstract_input": 271,
+      "value": "mushroom.tab",
+      "name": "Mushroom"
+    }
+  },
+  {
+    "pk": 92,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "136a2c2e-a3b6-4abb-88f1-641ca837804b",
+      "abstract_input": 271,
+      "value": "post-operative.tab",
+      "name": "Post-Operative Patient"
+    }
+  },
+  {
+    "pk": 94,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "8ecb78b9-17d4-48d7-8bdf-09c09445a569",
+      "abstract_input": 271,
+      "value": "tic_tac_toe.tab",
+      "name": "Tic Tac Toe"
+    }
+  },
+  {
+    "pk": 95,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "d7033002-c7de-4295-84ff-c9a9b2e32cb6",
+      "abstract_input": 271,
+      "value": "wine.tab",
+      "name": "Wine"
+    }
+  },
+  {
+    "pk": 96,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "1b451375-329b-46f2-b471-9e4d7d0bc6ca",
+      "abstract_input": 271,
+      "value": "yeast.tab",
+      "name": "Yeast"
+    }
+  },
+  {
+    "pk": 97,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "d1464e56-53fc-47fd-b1b4-43d635159c45",
+      "abstract_input": 271,
+      "value": "zoo.tab",
+      "name": "Zoo"
+    }
+  },
+  {
+    "pk": 126,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 123,
+      "name": "Orange Data Table",
+      "short_name": "odt",
+      "variable": "data",
+      "uid": "2150098d-bcd0-480a-afac-78a833e76eb5",
+      "order": 1,
+      "description": ""
+    }
+  }
+]
