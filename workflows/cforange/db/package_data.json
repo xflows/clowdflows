@@ -584,6 +584,98 @@
     }
   },
   {
+    "pk": 73,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 12,
+      "treeview_image": "",
+      "name": "Cross Validation",
+      "is_streaming": false,
+      "uid": "6c168f2e-e47f-409a-97c1-58d50fbbec4d",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_cross_validation",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 138,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 73,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "16d1fe96-ce53-4a94-8c3e-90ac444b45f8",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 139,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 73,
+      "name": "Learners",
+      "short_name": "lrn",
+      "uid": "499f4007-55c3-431c-93ca-5f493a9e592c",
+      "default": "",
+      "required": false,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "learners",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 140,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 73,
+      "name": "Folds",
+      "short_name": "fld",
+      "uid": "2b7ef618-6f7a-4f0c-ad5f-50000aa5ec0b",
+      "default": "10",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "folds",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 75,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 73,
+      "name": "Results",
+      "short_name": "res",
+      "variable": "results",
+      "uid": "e966fc28-1217-4922-a0d7-d26cdc872872",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 56,
     "model": "workflows.abstractwidget",
     "fields": {

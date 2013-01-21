@@ -50,4 +50,14 @@ def cforange_filter_relieff(input_dict):
     new_dataset = orngFSS.filterRelieff(data,measure,margin)
     output_dict = {}
     output_dict['new_dataset'] = new_dataset
-    return output_dict    
+    return output_dict   
+
+def cforange_cross_validation(input_dict):
+    import orange, orngTest, orngStat
+    learners = input_dict['learners']
+    data = input_dict['dataset']
+    folds = int(input_dict['folds'])
+    results = orngTest.crossValidation(learners, data, folds=folds)
+    output_dict = {}
+    output_dict['results']=results
+    return output_dict
