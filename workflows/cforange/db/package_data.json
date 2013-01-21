@@ -1642,6 +1642,116 @@
     }
   },
   {
+    "pk": 72,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 14,
+      "treeview_image": "",
+      "name": "Filter ReliefF",
+      "is_streaming": false,
+      "uid": "7547eb6d-e83d-4033-b0cb-1e8319c2508f",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_filter_relieff",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Takes the data set data and a measure for score of attributes measure. Repeats the process of estimating attributes and removing the worst attribute if its measure is lower than margin. Stops when no attribute score is below this margin. The default for measure is relief(k=20, m=50), and margin defaults to 0.0"
+    }
+  },
+  {
+    "pk": 134,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 72,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "2dc5a9e7-06c8-494f-9f4b-80b3c5eb31ff",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 135,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 72,
+      "name": "k",
+      "short_name": "k",
+      "uid": "3ef628d4-03af-4d46-b90b-6c4475054d31",
+      "default": "20",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "k",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 136,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 72,
+      "name": "m",
+      "short_name": "m",
+      "uid": "9b3082b4-5903-41cb-a4c0-63d471f80f57",
+      "default": "50",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "m",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 137,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 72,
+      "name": "margin",
+      "short_name": "mrg",
+      "uid": "1cce36a4-167d-4a23-83ee-eae626a3b492",
+      "default": "0.0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "margin",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 74,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 72,
+      "name": "New Dataset",
+      "short_name": "odt",
+      "variable": "new_dataset",
+      "uid": "60efae56-9748-471d-b85d-9c9a3bc84f52",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 69,
     "model": "workflows.abstractwidget",
     "fields": {
