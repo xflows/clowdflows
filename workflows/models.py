@@ -258,6 +258,20 @@ class AbstractWidget(models.Model):
     class Meta:
         ordering = ('order','name',)
 
+    def set_uid(self,commit=False):
+        import uuid
+        self.uid = uuid.uuid4()
+        if commit:
+            self.save()
+        for i in self.inputs.all():
+            i.uid = uuid.uuid4()
+            if commit:
+                i.save()
+        for o in self.outputs.all():
+            o.uid = uuid.uuid4()
+            if commit:
+                o.save()
+
     def __unicode__(self):
         return unicode(self.name)
 
