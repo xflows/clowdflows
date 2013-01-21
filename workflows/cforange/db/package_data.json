@@ -1184,6 +1184,93 @@
     }
   },
   {
+    "pk": 68,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "",
+      "name": "Split dataset",
+      "is_streaming": false,
+      "uid": "af4010a8-836c-41c7-adf6-50118295cf8e",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_split_dataset",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Splits a dataset to a train and test dataset."
+    }
+  },
+  {
+    "pk": 123,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 68,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "fe354f76-d6ed-4907-9ab6-d8784b3c7620",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": "A dataset that will be split into two parts"
+    }
+  },
+  {
+    "pk": 124,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 68,
+      "name": "Split factor",
+      "short_name": "p",
+      "uid": "6a637f14-7ba4-4c33-90e0-6cc260587260",
+      "default": "0.5",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "p",
+      "parameter": true,
+      "order": 1,
+      "description": "A number between 0 and 1 that determines the sizes of the two datasets"
+    }
+  },
+  {
+    "pk": 69,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 68,
+      "name": "Train data",
+      "short_name": "tra",
+      "variable": "train_data",
+      "uid": "665e0af4-6e6e-4616-8e96-2d8866497a40",
+      "order": 1,
+      "description": "Train data"
+    }
+  },
+  {
+    "pk": 70,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 68,
+      "name": "Test data",
+      "short_name": "tes",
+      "variable": "test_data",
+      "uid": "514abf26-b0d5-4483-9273-6b930bf4eb68",
+      "order": 1,
+      "description": "Test data"
+    }
+  },
+  {
     "pk": 66,
     "model": "workflows.abstractwidget",
     "fields": {
