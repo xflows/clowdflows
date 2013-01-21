@@ -1,5 +1,3 @@
-import re
-
 def cforange_split_dataset(input_dict):
     import orange
     output_dict = {}
