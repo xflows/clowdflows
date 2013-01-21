@@ -505,7 +505,7 @@
       "parent": 10,
       "workflow": null,
       "user": null,
-      "order": 1,
+      "order": 2,
       "name": "Evaluation"
     }
   },
@@ -665,7 +665,7 @@
       "parent": 10,
       "workflow": null,
       "user": null,
-      "order": 1,
+      "order": 3,
       "name": "Utilities"
     }
   },
@@ -1625,6 +1625,294 @@
       "short_name": "odt",
       "variable": "data",
       "uid": "2150098d-bcd0-480a-afac-78a833e76eb5",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 14,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "81efce93-b6c5-4270-bde9-ec946a394b10",
+      "parent": 10,
+      "workflow": null,
+      "user": null,
+      "order": 4,
+      "name": "Feature Subset Selection"
+    }
+  },
+  {
+    "pk": 69,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 14,
+      "treeview_image": "",
+      "name": "Score estimation (Relief)",
+      "is_streaming": false,
+      "uid": "d7f0e9b0-aa2a-4cdb-b4a8-cfb3b0bafa43",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_score_estimation",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 125,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 69,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "964fbb76-a749-4775-a665-ff0242b7dc2c",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 126,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 69,
+      "name": "k",
+      "short_name": "k",
+      "uid": "d6f4067c-39c3-4ea5-80f8-77759db7b2dc",
+      "default": "20",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "k",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 127,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 69,
+      "name": "m",
+      "short_name": "m",
+      "uid": "cc9cff1e-75d7-474c-8408-dc39aec692af",
+      "default": "50",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "m",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 71,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 69,
+      "name": "Scores",
+      "short_name": "sco",
+      "variable": "results",
+      "uid": "45a4eb83-dc9d-4800-b9eb-ad145e3abf6c",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 71,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 14,
+      "treeview_image": "",
+      "name": "Select Attributes Above Threshold",
+      "is_streaming": false,
+      "uid": "660c49cb-21ca-4e06-97ca-893946340b7f",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_atts_above_thresh",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Constructs and returns a new data set that includes a class and attributes from the list returned by function attMeasure that have the score above or equal to a specified threshold. data is used to pass an original data set. Parameter threshold is optional and defaults to 0.0."
+    }
+  },
+  {
+    "pk": 131,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 71,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "ca1fcc61-3c66-4908-a381-0974fecda1a1",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 132,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 71,
+      "name": "Scores",
+      "short_name": "sco",
+      "uid": "2e60fc2e-3470-46d3-a64f-ab1e7c75487b",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "scores",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 133,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 71,
+      "name": "Threshold",
+      "short_name": "thr",
+      "uid": "2ee5a729-2e13-49c0-805b-120833d80909",
+      "default": "0.0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "thresh",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 73,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 71,
+      "name": "New Dataset",
+      "short_name": "odt",
+      "variable": "new_dataset",
+      "uid": "5fe21797-fc14-4bb3-b7fb-de879279a533",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 70,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 14,
+      "treeview_image": "",
+      "name": "Select best N attributes",
+      "is_streaming": false,
+      "uid": "68ce4c2e-baf7-4a2e-843b-3b5622c20448",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_best_natts",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Constructs and returns a new data set that includes a class and only N best attributes from a list scores. data is used to pass an original data set."
+    }
+  },
+  {
+    "pk": 128,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 70,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "b41c9bbf-7405-451d-8dda-794ce850d452",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 129,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 70,
+      "name": "Scores",
+      "short_name": "sco",
+      "uid": "a19e140e-4aab-4491-9536-992152a3d56f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "scores",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 130,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 70,
+      "name": "N",
+      "short_name": "n",
+      "uid": "af3d33a6-674f-42c6-a092-abfd65196617",
+      "default": "3",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "n",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 72,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 70,
+      "name": "New Dataset",
+      "short_name": "odt",
+      "variable": "new_dataset",
+      "uid": "27db7439-6424-4565-b8ce-711adfe7fcf2",
       "order": 1,
       "description": ""
     }
