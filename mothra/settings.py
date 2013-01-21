@@ -193,7 +193,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.nl_toolkit',
     'workflows.ilp',
     'workflows.weka',
-    'workflows.orange',
+    'workflows.cforange',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 
