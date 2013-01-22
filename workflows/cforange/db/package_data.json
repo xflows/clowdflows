@@ -12,6 +12,116 @@
     }
   },
   {
+    "pk": 96,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 10,
+      "treeview_image": "",
+      "name": "Prepare results for PR visualization",
+      "is_streaming": false,
+      "uid": "b16da039-f997-4d78-baa0-26d5ad8661eb",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_prepare_results",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 182,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 96,
+      "name": "List of learners",
+      "short_name": "lrn",
+      "uid": "8a484294-ded6-4ed9-8d4c-043fd8cb3eb7",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "learners",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 183,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 96,
+      "name": "List of precisions",
+      "short_name": "pre",
+      "uid": "91b5674a-88e7-4954-9117-46c1fbeb2d4c",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "precision",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 184,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 96,
+      "name": "List of recalls",
+      "short_name": "rec",
+      "uid": "b1f16202-0bf3-4002-b534-3523c615d26f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "recall",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 185,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 96,
+      "name": "List of F-measures",
+      "short_name": "f",
+      "uid": "706ba66d-3425-4093-815f-8c62cc034e5b",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "f",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 103,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 96,
+      "name": "Algorithm performance",
+      "short_name": "alp",
+      "variable": "alp",
+      "uid": "090071a2-fa72-4195-af38-31885d764207",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 11,
     "model": "workflows.category",
     "fields": {

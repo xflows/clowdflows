@@ -268,3 +268,18 @@ def cforange_R2(input_dict):
     output_dict = {}
     output_dict['R2']=errors
     return output_dict        
+
+def cforange_prepare_results(input_dict):
+    output_dict = {}
+    learners = input_dict['learners']
+    newlist = []
+    for i in range(0,len(learners)):
+        newdict = {}
+        newdict['name']=str(learners[i])
+        newdict['fbeta']=0.5
+        newdict['precision']=input_dict['precision'][i]
+        newdict['recall']=input_dict['recall'][i]
+        newdict['fscore']=input_dict['f'][i]
+        newlist.append(newdict)
+    output_dict['alp']=newlist
+    return output_dict
