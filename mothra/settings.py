@@ -194,6 +194,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.ilp',
     'workflows.weka',
     'workflows.cforange',
+    'workflows.perfeval',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 
