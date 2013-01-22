@@ -198,3 +198,73 @@ def cforange_auc(input_dict):
     output_dict = {}
     output_dict['AUC']=auc
     return output_dict  
+
+def cforange_MSE(input_dict):
+    import orngStat
+    results = input_dict['results']
+    errors = orngStat.MSE(results)
+    if len(errors)==1:
+        errors = errors[0]
+    output_dict = {}
+    output_dict['MSE']=errors
+    return output_dict
+
+def cforange_RMSE(input_dict):
+    import orngStat
+    results = input_dict['results']
+    errors = orngStat.RMSE(results)
+    if len(errors)==1:
+        errors = errors[0]
+    output_dict = {}
+    output_dict['RMSE']=errors
+    return output_dict    
+
+def cforange_MAE(input_dict):
+    import orngStat
+    results = input_dict['results']
+    errors = orngStat.MAE(results)
+    if len(errors)==1:
+        errors = errors[0]
+    output_dict = {}
+    output_dict['MAE']=errors
+    return output_dict
+
+def cforange_RSE(input_dict):
+    import orngStat
+    results = input_dict['results']
+    errors = orngStat.RSE(results)
+    if len(errors)==1:
+        errors = errors[0]
+    output_dict = {}
+    output_dict['RSE']=errors
+    return output_dict    
+
+def cforange_RRSE(input_dict):
+    import orngStat
+    results = input_dict['results']
+    errors = orngStat.RRSE(results)
+    if len(errors)==1:
+        errors = errors[0]
+    output_dict = {}
+    output_dict['RRSE']=errors
+    return output_dict    
+
+def cforange_RAE(input_dict):
+    import orngStat
+    results = input_dict['results']
+    errors = orngStat.RAE(results)
+    if len(errors)==1:
+        errors = errors[0]
+    output_dict = {}
+    output_dict['RAE']=errors
+    return output_dict    
+
+def cforange_R2(input_dict):
+    import orngStat
+    results = input_dict['results']
+    errors = orngStat.R2(results)
+    if len(errors)==1:
+        errors = errors[0]
+    output_dict = {}
+    output_dict['R2']=errors
+    return output_dict        
