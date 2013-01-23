@@ -1,33 +1,31 @@
-import re
-
-def weka_create_integers(input_dict):
-    intStr = input_dict['intStr']
-    intList = []
-    for i in re.findall(r'\w+', intStr):
-        try:
-            intList.append(int(i))
-        except:
-            pass
-    if input_dict['sort'].lower() == "true":
-        intList.sort()
-    return {'intList':intList}
-
-def weka_sum_integers(input_dict):
-    intList = input_dict['intList']
-    return {'sum':sum(intList)}
-
-def weka_pre_filter_integers(input_dict):
-    return input_dict
-
-def weka_post_filter_integers(postdata,input_dict,output_dict):
-    intListOut = postdata['intListOut']
-    intList = []
-    for i in intListOut:
-        try:
-            intList.append(int(i))
-        except:
-            pass
-    return {'intList': intList}
-
-def weka_pre_display_summation(input_dict):
-    return {}
+def weka_statistics(input_dict):
+    summary = input_dict['summary']
+    class_index = int(input_dict['classIndex'])
+    summary_lines = summary.split('\n')[3:]
+    summary_lines.pop()
+    if class_index>-1:
+        line = summary_lines[class_index]
+        splitline = line.split()
+        tp_rate = splitline[0]
+        fp_rate = splitline[1]
+        precision = splitline[2]
+        recall = splitline[3]
+        f = splitline[4]
+        auc = splitline[5]
+    else:
+        avg_line = summary_lines.pop()
+        splitline = avg_line.split()[2:]
+        tp_rate = splitline[0]
+        fp_rate = splitline[1]
+        precision = splitline[2]
+        recall = splitline[3]
+        f = splitline[4]
+        auc = splitline[5]        
+    output_dict = {}
+    output_dict['precision']=precision
+    output_dict['recall']=recall
+    output_dict['auc']=auc
+    output_dict['tp_rate']=tp_rate
+    output_dict['fp_rate']=fp_rate
+    output_dict['f']=f
+    return output_dict
