@@ -1,0 +1,27 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction" width="700" height="600">
+	<div>
+		<form>
+			<label>Target table:</label> 
+			<select name="target_table{{widget.pk}}">
+				{% for table in context.tables %}
+				<option value="{{table}}">{{table}}</option>
+				{% endfor %}
+			</select>
+			<label>Select tables to be used:</label> 
+			<select multiple name="tables{{widget.pk}}">
+				{% for table in context.tables %}
+				<option value="{{table}}">{{table}}</option>
+				{% endfor %}
+			</select multiple>
+			{% for table, cols in context.cols.items %}
+			<label>Select columns for {{table}}:</label>
+			<select multiple name="{{table}}_columns{{widget.pk}}">
+				{% for col in cols %}
+				<option value="{{col}}">{{col}}</option>
+				{% endfor %}
+			</select multiple>
+			{% endfor %}
+			<input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+		</form>
+	</div>
+</div>
