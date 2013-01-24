@@ -17,6 +17,7 @@ class DBConnection:
 
 class DBContext:
     def __init__(self, connection):
+        self.connection = connection
         cursor = connection.cursor()
         cursor.execute('SHOW tables')
         self.tables = [table for (table,) in cursor]
@@ -32,6 +33,7 @@ class DBContext:
         for (table, col, ref_table, ref_col) in cursor:
             self.connected[(table, ref_table)] = (col, ref_col)
         self.target_table = self.tables[0]
+        self.connection.close()
 
     def update(self, postdata):
         widget_id = postdata.get('widget_id')[0]
