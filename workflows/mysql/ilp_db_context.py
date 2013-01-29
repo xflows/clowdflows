@@ -5,6 +5,12 @@ Classes for handling DBContexts for ILP systems.
 '''
 
 class ILP_DBContext:
+    '''
+    Base class for converting between a given database context (selected tables, columns, etc)
+    to inputs acceptable by a specific ILP system.
+
+    If possible, all subclasses should use lazy selects by forwarding the DB connection.
+    '''
     def __init__(self, dbcontext, settings={}):
         self.db = dbcontext
         self.connection = dbcontext.connection.connect()
@@ -19,6 +25,9 @@ class ILP_DBContext:
         return [cols for cols in self.cursor]
 
 class RSD_DBContext(ILP_DBContext):
+    '''
+    Converts the database context to RSD inputs.
+    '''
     def all_examples(self):
         target = self.db.target_table
         examples = self.rows(target, [self.db.target_att, self.db.pkeys[target]])
@@ -81,6 +90,11 @@ class RSD_DBContext(ILP_DBContext):
         return [':- set(%s,%s).' % (key,val) for key, val in self.settings.items()]
 
 class Aleph_DBContext(ILP_DBContext):
+    '''
+    Converts the database context to Aleph inputs.
+
+    TODO.
+    '''
     def positive_examples(self):
         pass
     def negative_examples(self):
@@ -88,21 +102,23 @@ class Aleph_DBContext(ILP_DBContext):
     def background_knowledge(self):
         pass
 
-from context import DBConnection, DBContext
 
-context = DBContext(DBConnection('root','','localhost','test'))
-context.target_table = 'trains'
-context.target_att = 'direction'
+if __name__ == '__main__':
+    from context import DBConnection, DBContext
 
-rsd = RSD_DBContext(context)
-ex, bk = rsd.all_examples(), rsd.background_knowledge()
-print ex
-print bk
+    context = DBContext(DBConnection('root','','localhost','test'))
+    context.target_table = 'trains'
+    context.target_att = 'direction'
 
-f = open('trains_mysql.pl','w')
-f.write(ex)
-f.close()
+    rsd = RSD_DBContext(context)
+    ex, bk = rsd.all_examples(), rsd.background_knowledge()
+    print ex
+    print bk
 
-f = open('trains_mysql.b','w')
-f.write(bk)
-f.close()
+    f = open('trains_mysql.pl','w')
+    f.write(ex)
+    f.close()
+
+    f = open('trains_mysql.b','w')
+    f.write(bk)
+    f.close()

@@ -37,24 +37,6 @@
     }
   },
   {
-    "pk": 988,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 300,
-      "name": "settings",
-      "short_name": "set",
-      "uid": "bfe16b08-89b1-4835-875c-6b0302fb1da3",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "settings",
-      "parameter": false,
-      "order": 1,
-      "description": "settings facts"
-    }
-  },
-  {
     "pk": 989,
     "model": "workflows.abstractinput",
     "fields": {
@@ -68,7 +50,7 @@
       "parameter_type": "select",
       "variable": "mode",
       "parameter": true,
-      "order": 2,
+      "order": 1,
       "description": "induction mode"
     }
   },
@@ -156,7 +138,7 @@
       "parameter_type": null,
       "variable": "pos",
       "parameter": false,
-      "order": 3,
+      "order": 2,
       "description": "positive examples"
     }
   },
@@ -174,7 +156,7 @@
       "parameter_type": null,
       "variable": "neg",
       "parameter": false,
-      "order": 4,
+      "order": 3,
       "description": "negative examples"
     }
   },
@@ -192,8 +174,308 @@
       "parameter_type": null,
       "variable": "b",
       "parameter": false,
-      "order": 5,
+      "order": 4,
       "description": "background knowledge"
+    }
+  },
+  {
+    "pk": 988,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "settings",
+      "short_name": "set",
+      "uid": "bfe16b08-89b1-4835-875c-6b0302fb1da3",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "settings",
+      "parameter": false,
+      "order": 5,
+      "description": "settings facts"
+    }
+  },
+  {
+    "pk": 1045,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "minpos",
+      "short_name": "mps",
+      "uid": "cdeaa39a-7eeb-40eb-9443-8519cb841d2e",
+      "default": "1",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "minpos",
+      "parameter": true,
+      "order": 6,
+      "description": "Set a lower bound on the number of positive examples to be covered by an acceptable clause. If the best clause covers positive examples below this number, then it is not added to the current theory. This can be used to prevent Aleph from adding ground unit clauses to the theory (by setting the value to 2)."
+    }
+  },
+  {
+    "pk": 1046,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "noise",
+      "short_name": "noi",
+      "uid": "61292a9b-ff5b-4a7e-8baf-e6810cb50dcd",
+      "default": "0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "noise",
+      "parameter": true,
+      "order": 7,
+      "description": "Set an upper bound on the number of negative examples allowed to be covered by an acceptable clause."
+    }
+  },
+  {
+    "pk": 1038,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "clauselength",
+      "short_name": "cln",
+      "uid": "546d3a62-b499-4e61-a9b1-4f89f24ba01f",
+      "default": "4",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "clauselength",
+      "parameter": true,
+      "order": 8,
+      "description": " Sets upper bound on number of literals in an acceptable clause."
+    }
+  },
+  {
+    "pk": 1039,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "depth",
+      "short_name": "dpt",
+      "uid": "3541b804-e8f3-42c5-b022-c0b7a51f05e1",
+      "default": "10",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "depth",
+      "parameter": true,
+      "order": 9,
+      "description": "Sets an upper bound on the proof depth to which theorem-proving proceeds."
+    }
+  },
+  {
+    "pk": 1040,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "evalfn",
+      "short_name": "efn",
+      "uid": "27ed0924-8fa9-4cad-b033-c0a98db9f366",
+      "default": "coverage",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "evalfn",
+      "parameter": true,
+      "order": 10,
+      "description": "Sets the evaluation function for a search."
+    }
+  },
+  {
+    "pk": 112,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "accuracy",
+      "name": "accuracy"
+    }
+  },
+  {
+    "pk": 114,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "auto_m",
+      "name": "auto_m"
+    }
+  },
+  {
+    "pk": 109,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "compression",
+      "name": "compression"
+    }
+  },
+  {
+    "pk": 108,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "coverage",
+      "name": "coverage"
+    }
+  },
+  {
+    "pk": 116,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "entropy",
+      "name": "entropy"
+    }
+  },
+  {
+    "pk": 117,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "gini",
+      "name": "gini"
+    }
+  },
+  {
+    "pk": 113,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "laplace",
+      "name": "laplace"
+    }
+  },
+  {
+    "pk": 115,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "mestimate",
+      "name": "mestimate"
+    }
+  },
+  {
+    "pk": 111,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "pbayes",
+      "name": "pbayes"
+    }
+  },
+  {
+    "pk": 110,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "posonly",
+      "name": "posonly"
+    }
+  },
+  {
+    "pk": 118,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "sd",
+      "name": "sd"
+    }
+  },
+  {
+    "pk": 119,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1040,
+      "value": "wracc",
+      "name": "wracc"
+    }
+  },
+  {
+    "pk": 1041,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "i",
+      "short_name": "i",
+      "uid": "48905a20-0192-40c0-82de-2389e8fdc88e",
+      "default": "2",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "i",
+      "parameter": true,
+      "order": 11,
+      "description": "Set upper bound on layers of new variables."
+    }
+  },
+  {
+    "pk": 1042,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "language",
+      "short_name": "lan",
+      "uid": "9de49bde-7518-4116-8606-eccc134d1d8f",
+      "default": "inf",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "language",
+      "parameter": true,
+      "order": 12,
+      "description": "Specifies the number of occurences of a predicate symbol in any clause (inf or > 0)."
+    }
+  },
+  {
+    "pk": 1043,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "m",
+      "short_name": "m",
+      "uid": "b07b2b85-bc8f-4dfc-aaf8-800b94077312",
+      "default": "1",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "m",
+      "parameter": true,
+      "order": 13,
+      "description": "Sets a value for \"m-estimate\" calculations."
+    }
+  },
+  {
+    "pk": 1044,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 300,
+      "name": "max_features",
+      "short_name": "mxf",
+      "uid": "4a275a37-e6bc-4b22-816d-b45e2ac791e2",
+      "default": "inf",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "max_features",
+      "parameter": true,
+      "order": 14,
+      "description": "Sets an upper bound on the maximum number of boolean features constructed by searching for good clauses (inf or > 0)."
     }
   },
   {
@@ -235,60 +517,6 @@
     }
   },
   {
-    "pk": 993,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 301,
-      "name": "settings",
-      "short_name": "set",
-      "uid": "a1660c9f-952d-4f29-9f23-9b0be5fe8cea",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "settings",
-      "parameter": false,
-      "order": 1,
-      "description": "settings"
-    }
-  },
-  {
-    "pk": 994,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 301,
-      "name": "pos",
-      "short_name": "pos",
-      "uid": "676ef826-7dd9-415a-8a8a-d82146dcc95a",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "pos",
-      "parameter": false,
-      "order": 2,
-      "description": "positive examples"
-    }
-  },
-  {
-    "pk": 995,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 301,
-      "name": "neg",
-      "short_name": "neg",
-      "uid": "0b46921d-50fe-46b1-a1e4-67c918160a7f",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "neg",
-      "parameter": false,
-      "order": 3,
-      "description": "negative examples"
-    }
-  },
-  {
     "pk": 996,
     "model": "workflows.abstractinput",
     "fields": {
@@ -302,7 +530,7 @@
       "parameter_type": null,
       "variable": "examples",
       "parameter": false,
-      "order": 4,
+      "order": 1,
       "description": "classified examples (pos+neg in one file)"
     }
   },
@@ -320,8 +548,202 @@
       "parameter_type": null,
       "variable": "b",
       "parameter": false,
-      "order": 5,
+      "order": 2,
       "description": "background knowledge"
+    }
+  },
+  {
+    "pk": 1047,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "clauselength",
+      "short_name": "cln",
+      "uid": "d840e1d9-5bd1-4004-94ec-6acd5b3c9910",
+      "default": "8",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "clauselength",
+      "parameter": true,
+      "order": 2,
+      "description": "An integer specifying the maximum length of a feature\r\nbody."
+    }
+  },
+  {
+    "pk": 994,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "pos",
+      "short_name": "pos",
+      "uid": "676ef826-7dd9-415a-8a8a-d82146dcc95a",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "pos",
+      "parameter": false,
+      "order": 3,
+      "description": "positive examples"
+    }
+  },
+  {
+    "pk": 1048,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "depth",
+      "short_name": "dpt",
+      "uid": "bed46927-aa71-46a4-9022-8219cd2f59ca",
+      "default": "4",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "depth",
+      "parameter": true,
+      "order": 3,
+      "description": "An integer specifying the maximum depth of variables\r\nfound in a feature body."
+    }
+  },
+  {
+    "pk": 995,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "neg",
+      "short_name": "neg",
+      "uid": "0b46921d-50fe-46b1-a1e4-67c918160a7f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "neg",
+      "parameter": false,
+      "order": 4,
+      "description": "negative examples"
+    }
+  },
+  {
+    "pk": 1049,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "negation",
+      "short_name": "neg",
+      "uid": "bfff50a5-ed9b-4e3f-bfb0-e6d135a60f38",
+      "default": "none",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "negation",
+      "parameter": true,
+      "order": 4,
+      "description": "One of now, later, none.\r\nnow: To features generated by featurize.pl, process.pl\r\nwill also add their versions where the complete body is\r\nnegated. (Negations of individual literals can be done by\r\nsuitably defining background knowledge predicates.)\r\nlater: tells the program that an inducer capable of\r\nnegating features will be applied on the propositionalized\r\nrepresentation. This influences functions described below."
+    }
+  },
+  {
+    "pk": 121,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1049,
+      "value": "later",
+      "name": "later"
+    }
+  },
+  {
+    "pk": 120,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1049,
+      "value": "none",
+      "name": "none"
+    }
+  },
+  {
+    "pk": 122,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1049,
+      "value": "now",
+      "name": "now"
+    }
+  },
+  {
+    "pk": 993,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "settings",
+      "short_name": "set",
+      "uid": "a1660c9f-952d-4f29-9f23-9b0be5fe8cea",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "settings",
+      "parameter": false,
+      "order": 5,
+      "description": "settings"
+    }
+  },
+  {
+    "pk": 1050,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "min_coverage",
+      "short_name": "mcv",
+      "uid": "0864df0d-3e46-4af2-9ea3-2ccbfe33034a",
+      "default": "1",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "min_coverage",
+      "parameter": true,
+      "order": 5,
+      "description": "An integer mc. All features (including negated versions)\r\ncovering fewer than mc instances will be discarded.\r\nHowever, if negation is later (see above), a feature\r\nis discarded only if both (a) coverage thereof and (b) the\r\ncoverage of its negated version are smaller than mc."
+    }
+  },
+  {
+    "pk": 1051,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 301,
+      "name": "filtering",
+      "short_name": "flt",
+      "uid": "f510c2a1-454f-4ef8-b346-aba39a41ce24",
+      "default": "true",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "flt",
+      "parameter": true,
+      "order": 6,
+      "description": "One of true, false. If true, each feature will be discarded\r\nif (a) it covers the same set of instances as some previously\r\nconstructed feature, or (b) it covers all instances."
+    }
+  },
+  {
+    "pk": 124,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1051,
+      "value": "false",
+      "name": "false"
+    }
+  },
+  {
+    "pk": 123,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "",
+      "abstract_input": 1051,
+      "value": "true",
+      "name": "true"
     }
   },
   {
@@ -338,7 +760,7 @@
       "parameter_type": "checkbox",
       "variable": "subgroups",
       "parameter": true,
-      "order": 6,
+      "order": 11,
       "description": "find subgroups as well"
     }
   },

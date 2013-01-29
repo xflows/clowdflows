@@ -32,6 +32,14 @@ class RSD(object):
 
     SCRIPTS = [CONSTRUCT, SAVE, SUBGROUPS]
 
+    ESSENTIAL_PARAMS = {
+        'clauselength' : 8,
+        'depth' : 4,
+        'negation' : 'none',
+        'min_coverage' : 1,
+        'filtering' : 'true'
+    }
+
     def __init__(self, verbosity=logging.NOTSET):
         """
         Creates an RSD object.

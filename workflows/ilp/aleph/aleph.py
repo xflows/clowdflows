@@ -28,6 +28,17 @@ class Aleph(object):
     YAP = '/usr/local/bin/yap'
     RULES_SUFFIX = 'Rules'
     SCRIPT = 'run_aleph.pl'
+
+    ESSENTIAL_PARAMS = {
+        'depth' : 10,
+        'evalfn' : 'coverage',
+        'i' : 2,
+        'language' : 'inf',
+        'm' : 0.0,
+        'max_features' : 'inf',
+        'minpos' : 1,
+        'noise' : 0
+    }
     
     def __init__(self, verbosity=logging.NOTSET):
         """
