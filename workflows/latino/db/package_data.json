@@ -24,162 +24,6 @@
     }
   },
   {
-    "pk": 3,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "1eed1020-c423-4831-80ce-50f65ae276e1",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 1,
-      "name": "Data In/Out"
-    }
-  },
-  {
-    "pk": 4,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "48fb3ce2-11ef-4afc-ab1e-aec6f1d6d055",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 2,
-      "name": "Document Corpus"
-    }
-  },
-  {
-    "pk": 5,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "5a4286c8-d182-45a5-896b-cc3c6ed84f22",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 3,
-      "name": "Tokenization"
-    }
-  },
-  {
-    "pk": 6,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "64780432-b114-4589-a24c-2331aed23502",
-      "parent": 5,
-      "workflow": null,
-      "user": null,
-      "order": 1,
-      "name": "Advanced"
-    }
-  },
-  {
-    "pk": 7,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "05c26564-86b5-4a73-aae9-f4dc14bc75d7",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 4,
-      "name": "Tagging"
-    }
-  },
-  {
-    "pk": 8,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "94237b9c-8e88-460c-abc5-9c8108acb821",
-      "parent": 7,
-      "workflow": null,
-      "user": null,
-      "order": 1,
-      "name": "Advanced"
-    }
-  },
-  {
-    "pk": 9,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "b5964b0d-5acb-4dbf-a49d-4331a5a44f9c",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 5,
-      "name": "Bag of Words"
-    }
-  },
-  {
-    "pk": 10,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "0378e3a8-b71e-47b5-96b0-84dca2680f4d",
-      "parent": 9,
-      "workflow": null,
-      "user": null,
-      "order": 1,
-      "name": "Advanced"
-    }
-  },
-  {
-    "pk": 11,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "a8348101-116c-4e04-b2a7-af1c991c3927",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 6,
-      "name": "Dataset"
-    }
-  },
-  {
-    "pk": 12,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "c7a26cb0-65af-4c6e-887b-7c6a7a162327",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 7,
-      "name": "Similarity Matrix"
-    }
-  },
-  {
-    "pk": 13,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "74457dca-9fba-4d66-98dd-633df385a22b",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 8,
-      "name": "Clustering"
-    }
-  },
-  {
-    "pk": 14,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "c8fd491e-75ad-487d-b42f-b5ca07ec045a",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 9,
-      "name": "Classification"
-    }
-  },
-  {
-    "pk": 15,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "438cb7e7-d0e5-4bb9-9cad-10f6907ec568",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 10,
-      "name": "Helpers"
-    }
-  },
-  {
     "pk": 1,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -259,7 +103,7 @@
     "fields": {
       "category": 2,
       "treeview_image": null,
-      "name": "Kr1 NOVA Funkcija",
+      "name": "Krena NOVA Funkcija",
       "is_streaming": false,
       "uid": "temporary_uid:68e5b5ed-bcdb-e27e-61bb-efc9ba337d07",
       "interaction_view": "",
@@ -385,341 +229,14 @@
   },
   {
     "pk": 3,
-    "model": "workflows.abstractwidget",
+    "model": "workflows.category",
     "fields": {
-      "category": 15,
-      "treeview_image": null,
-      "name": "Flatten String Hierarchy",
-      "is_streaming": false,
-      "uid": "1d9f109e-8490-4c98-8957-4b0f698ce1bd",
-      "interaction_view": "",
-      "image": null,
-      "package": "latino",
-      "static_image": "flatten_string_hierarchy_image.png",
-      "post_interact_action": "",
+      "uid": "1eed1020-c423-4831-80ce-50f65ae276e1",
+      "parent": 1,
+      "workflow": null,
       "user": null,
-      "visualization_view": "",
-      "action": "latino_flatten_object_to_string_array",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 4,
-      "description": "Automatically generated widget from function FlattenObjectToStringArray in package latino. The original function signature: FlattenObjectToStringArray."
-    }
-  },
-  {
-    "pk": 7,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 3,
-      "name": "data",
-      "short_name": "obj",
-      "uid": "26dc986a-e8c4-ee4b-ac32-5ce895f3383a",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "data",
-      "parameter": false,
       "order": 1,
-      "description": "System.Object"
-    }
-  },
-  {
-    "pk": 3,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 3,
-      "name": "flatData",
-      "short_name": "obj",
-      "variable": "flatData",
-      "uid": "a16d6a3b-e656-9b50-10c8-8359a5174193",
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
-    "pk": 4,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 15,
-      "treeview_image": null,
-      "name": "Display Table",
-      "is_streaming": false,
-      "uid": "bb74ec59-dba8-461b-ae66-de35a5c3fdea",
-      "interaction_view": "",
-      "image": null,
-      "package": "latino",
-      "static_image": "table_view_image.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "show_table",
-      "action": "show_table",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 3,
-      "description": "Automatically generated widget from function ShowTable_PYTHON in package latino. The original function signature: ShowTable_PYTHON."
-    }
-  },
-  {
-    "pk": 8,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 4,
-      "name": "Table",
-      "short_name": "tbl",
-      "uid": "5800c1e5-44ec-5843-e9cf-fde725c7b521",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "tbl",
-      "parameter": false,
-      "order": 1,
-      "description": "System.Object"
-    }
-  },
-  {
-    "pk": 5,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 15,
-      "treeview_image": null,
-      "name": "Generate Integer Range",
-      "is_streaming": false,
-      "uid": "f7d78342-9aea-4e01-b46b-8d20631ee5bf",
-      "interaction_view": "",
-      "image": null,
-      "package": "latino",
-      "static_image": "range_create_integers_image.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "create_range",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 5,
-      "description": "Automatically generated widget from function GenerateIntegerRange_PYTHON in package latino. The original function signature: GenerateIntegerRange_PYTHON."
-    }
-  },
-  {
-    "pk": 9,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 5,
-      "name": "Start",
-      "short_name": "int",
-      "uid": "4c165f6b-7698-65d2-f8fb-2d2cf104ba47",
-      "default": "0",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "start",
-      "parameter": true,
-      "order": 1,
-      "description": "System.Int32"
-    }
-  },
-  {
-    "pk": 10,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 5,
-      "name": "Stop",
-      "short_name": "int",
-      "uid": "c707764e-6ee4-8318-565e-3c4aab14cc45",
-      "default": "10",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "stop",
-      "parameter": true,
-      "order": 2,
-      "description": "System.Int32"
-    }
-  },
-  {
-    "pk": 11,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 5,
-      "name": "Step",
-      "short_name": "int",
-      "uid": "64dbf120-d027-0a31-a88d-e78bd15fb0c1",
-      "default": "1",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "step",
-      "parameter": true,
-      "order": 3,
-      "description": "System.Int32"
-    }
-  },
-  {
-    "pk": 4,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 5,
-      "name": "Range",
-      "short_name": "ary",
-      "variable": "range",
-      "uid": "8eb96f55-f038-e517-5e11-8dbda6295b0f",
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
-    "pk": 6,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 15,
-      "treeview_image": null,
-      "name": "Python Snippet",
-      "is_streaming": false,
-      "uid": "b6164644-ff14-4f8f-bdee-ca55da77b57c",
-      "interaction_view": "",
-      "image": null,
-      "package": "latino",
-      "static_image": "python_snippet_image.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "python_snippet",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 6,
-      "description": "Runs python snippet. You can use variable which is provided on the input by the name \"in1\" .. \"inN\". Whatever you want to otput needs to be asigned to the variable \"out1\" before the code is terminated"
-    }
-  },
-  {
-    "pk": 12,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 6,
-      "name": "in",
-      "short_name": "in",
-      "uid": "16ca773f-1d2d-823f-6e9c-1be0dd267369",
-      "default": "",
-      "required": false,
-      "multi": true,
-      "parameter_type": null,
-      "variable": "in",
-      "parameter": false,
-      "order": 1,
-      "description": "input can be accesed as variable \"in1\" .. \"inN\" inside the code"
-    }
-  },
-  {
-    "pk": 13,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 6,
-      "name": "Python Snippet Code",
-      "short_name": "py",
-      "uid": "1991f19a-463b-d851-aab6-72facc87a2f1",
-      "default": "# This is the Python Code Snippet where you can modify the data however is needed.\n# Varaible \"in1\" .. \"inN\" contains whatever you connected to the input port\n# Whatever is assigned to the variable \"out1\" will be transfered to the output port.\n\nout1 = in1",
-      "required": true,
-      "multi": false,
-      "parameter_type": "textarea",
-      "variable": "pycode",
-      "parameter": true,
-      "order": 2,
-      "description": "Input can be accesed as variable \"in1\" .. \"inN\" inside the code and output can be accesed/assigned as variable \"out1\" inside the code."
-    }
-  },
-  {
-    "pk": 5,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 6,
-      "name": "out",
-      "short_name": "out",
-      "variable": "out",
-      "uid": "455b1583-c2d4-13c5-1036-435dfe160152",
-      "order": 1,
-      "description": "output can be accesed/assigned as variable \"out1\" inside the code"
-    }
-  },
-  {
-    "pk": 7,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 15,
-      "treeview_image": null,
-      "name": "Split Object",
-      "is_streaming": false,
-      "uid": "4ae60fcc-ae3a-4609-9ec1-a7724d5ac0c4",
-      "interaction_view": "",
-      "image": null,
-      "package": "latino",
-      "static_image": "object_split_image.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "split_object",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 7,
-      "description": "Automatically generated widget from function SplitObject_PYTHON in package latino. The original function signature: SplitObject_PYTHON."
-    }
-  },
-  {
-    "pk": 14,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 7,
-      "name": "object",
-      "short_name": "obj",
-      "uid": "298ce522-7061-993e-a940-069d9c9b739d",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "object",
-      "parameter": false,
-      "order": 1,
-      "description": "System.Object"
-    }
-  },
-  {
-    "pk": 15,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 7,
-      "name": "Object Modifier",
-      "short_name": "atr",
-      "uid": "bf822d07-096d-1aeb-e6da-3670d6aa9c53",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "attribute",
-      "parameter": true,
-      "order": 2,
-      "description": "if one wants to extract object's attributes, leading dot should be used."
-    }
-  },
-  {
-    "pk": 6,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 7,
-      "name": "object",
-      "short_name": "obj",
-      "variable": "object",
-      "uid": "6817c1ee-8e0f-8e63-f4d6-7c43522b7f10",
-      "order": 1,
-      "description": ""
+      "name": "Data In/Out"
     }
   },
   {
@@ -1108,6 +625,18 @@
       "uid": "bbcbbfc9-8a0f-bf3f-4b2d-7bf018ea4ff9",
       "order": 1,
       "description": ""
+    }
+  },
+  {
+    "pk": 4,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "48fb3ce2-11ef-4afc-ab1e-aec6f1d6d055",
+      "parent": 1,
+      "workflow": null,
+      "user": null,
+      "order": 2,
+      "name": "Document Corpus"
     }
   },
   {
@@ -1668,6 +1197,18 @@
       "parameter": false,
       "order": 1,
       "description": "LatinoClowdFlows.DocumentCorpus"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "5a4286c8-d182-45a5-896b-cc3c6ed84f22",
+      "parent": 1,
+      "workflow": null,
+      "user": null,
+      "order": 3,
+      "name": "Tokenization"
     }
   },
   {
@@ -2449,6 +1990,18 @@
     }
   },
   {
+    "pk": 6,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "64780432-b114-4589-a24c-2331aed23502",
+      "parent": 5,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Advanced"
+    }
+  },
+  {
     "pk": 26,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -2707,6 +2260,18 @@
     }
   },
   {
+    "pk": 7,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "05c26564-86b5-4a73-aae9-f4dc14bc75d7",
+      "parent": 1,
+      "workflow": null,
+      "user": null,
+      "order": 4,
+      "name": "Tagging"
+    }
+  },
+  {
     "pk": 29,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -2886,98 +2451,6 @@
       "short_name": "adc",
       "variable": "adc",
       "uid": "7a252b1a-25ae-33cd-a13b-baa7320bfad5",
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
-    "pk": 31,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 8,
-      "treeview_image": null,
-      "name": "POS Tagger Hub (Text)",
-      "is_streaming": false,
-      "uid": "33307dbf-08b5-4768-ba21-ebe1aa68c69b",
-      "interaction_view": "",
-      "image": null,
-      "package": "latino",
-      "static_image": "tag_pos_do_image.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "latino_pos_tag_string",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 2,
-      "description": "Automatically generated widget from function PosTagString in package latino. The original function signature: PosTagString."
-    }
-  },
-  {
-    "pk": 82,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 31,
-      "name": "Text",
-      "short_name": "str",
-      "uid": "ed41747a-dc93-d818-291c-62d791613083",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "text",
-      "parameter": false,
-      "order": 1,
-      "description": "System.Object"
-    }
-  },
-  {
-    "pk": 83,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 31,
-      "name": "POS Tagger",
-      "short_name": "pst",
-      "uid": "981e7201-35ab-7b25-ae8f-29e5b03cb407",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "posTagger",
-      "parameter": false,
-      "order": 2,
-      "description": "OpenNLP.Tools.PosTagger.EnglishMaximumEntropyPosTagger"
-    }
-  },
-  {
-    "pk": 84,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 31,
-      "name": "Output Feature Name",
-      "short_name": "str",
-      "uid": "02d347c6-12c9-9892-5d69-38548474b35a",
-      "default": "posTag",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "outputFeature",
-      "parameter": true,
-      "order": 3,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 32,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 31,
-      "name": "String",
-      "short_name": "str",
-      "variable": "string",
-      "uid": "b773304e-55a1-d06f-363c-e10850b7bd56",
       "order": 1,
       "description": ""
     }
@@ -3645,98 +3118,6 @@
     }
   },
   {
-    "pk": 36,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 8,
-      "treeview_image": null,
-      "name": "Condition Tagger",
-      "is_streaming": false,
-      "uid": "9de84740-c4dc-464f-9388-fd736598829c",
-      "interaction_view": "",
-      "image": null,
-      "package": "latino",
-      "static_image": "tag_condition_image.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "latino_construct_condition_tagger",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 1,
-      "description": "Automatically generated widget from function ConstructConditionTagger in package latino. The original function signature: ConstructConditionTagger."
-    }
-  },
-  {
-    "pk": 90,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 36,
-      "name": "Feature Condition",
-      "short_name": "str",
-      "uid": "93ce61ae-f7af-ee3a-26d0-1b0af81bcc03",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "featureCondition",
-      "parameter": true,
-      "order": 1,
-      "description": "Condition which tokens to include based on their features.\nFormat examples:\n-Feature1 (don't include tokens with Feature1 set ta any value)\n-Feature1=Value1 (don't include tokens with Feature1 set to the value Value1)\n-Feature1 +Feature2 (don't include tokens with Feature1 set unless it has also Feature2 set)\n-Feature1=Value1 +Feature2 (don't include tokens with Feature1 set to Value1 unless it has also Feature2 set to any value)..."
-    }
-  },
-  {
-    "pk": 91,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 36,
-      "name": "output Feature Value",
-      "short_name": "str",
-      "uid": "96c4c439-c645-d2b4-cd7d-8524f3c3b2bf",
-      "default": "true",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "outputFeatureValue",
-      "parameter": true,
-      "order": 2,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 92,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 36,
-      "name": "Put token/feature text as the output feature value",
-      "short_name": "bol",
-      "uid": "b2e17caf-f2d7-b587-b76e-83bdf12109ae",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": "checkbox",
-      "variable": "elementsTextToFeatureValue",
-      "parameter": true,
-      "order": 3,
-      "description": "If set to true than token or token's feature text is asigned as output feature value"
-    }
-  },
-  {
-    "pk": 37,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 36,
-      "name": "Tagger",
-      "short_name": "tgr",
-      "variable": "tagger",
-      "uid": "f1d9b4f2-62a1-add4-3f66-cb599081a33c",
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
     "pk": 37,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -3952,6 +3333,202 @@
       "short_name": "adc",
       "variable": "adc",
       "uid": "3a8fcb8a-bf7e-38d1-1f9c-dd0f8ad2fd35",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 8,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "94237b9c-8e88-460c-abc5-9c8108acb821",
+      "parent": 7,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Advanced"
+    }
+  },
+  {
+    "pk": 31,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 8,
+      "treeview_image": null,
+      "name": "POS Tagger Hub (Text)",
+      "is_streaming": false,
+      "uid": "33307dbf-08b5-4768-ba21-ebe1aa68c69b",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "tag_pos_do_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_pos_tag_string",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": "Automatically generated widget from function PosTagString in package latino. The original function signature: PosTagString."
+    }
+  },
+  {
+    "pk": 82,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 31,
+      "name": "Text",
+      "short_name": "str",
+      "uid": "ed41747a-dc93-d818-291c-62d791613083",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "text",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Object"
+    }
+  },
+  {
+    "pk": 83,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 31,
+      "name": "POS Tagger",
+      "short_name": "pst",
+      "uid": "981e7201-35ab-7b25-ae8f-29e5b03cb407",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "posTagger",
+      "parameter": false,
+      "order": 2,
+      "description": "OpenNLP.Tools.PosTagger.EnglishMaximumEntropyPosTagger"
+    }
+  },
+  {
+    "pk": 84,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 31,
+      "name": "Output Feature Name",
+      "short_name": "str",
+      "uid": "02d347c6-12c9-9892-5d69-38548474b35a",
+      "default": "posTag",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "outputFeature",
+      "parameter": true,
+      "order": 3,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 32,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 31,
+      "name": "String",
+      "short_name": "str",
+      "variable": "string",
+      "uid": "b773304e-55a1-d06f-363c-e10850b7bd56",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 36,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 8,
+      "treeview_image": null,
+      "name": "Condition Tagger",
+      "is_streaming": false,
+      "uid": "9de84740-c4dc-464f-9388-fd736598829c",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "tag_condition_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_construct_condition_tagger",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Automatically generated widget from function ConstructConditionTagger in package latino. The original function signature: ConstructConditionTagger."
+    }
+  },
+  {
+    "pk": 90,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 36,
+      "name": "Feature Condition",
+      "short_name": "str",
+      "uid": "93ce61ae-f7af-ee3a-26d0-1b0af81bcc03",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "featureCondition",
+      "parameter": true,
+      "order": 1,
+      "description": "Condition which tokens to include based on their features.\nFormat examples:\n-Feature1 (don't include tokens with Feature1 set ta any value)\n-Feature1=Value1 (don't include tokens with Feature1 set to the value Value1)\n-Feature1 +Feature2 (don't include tokens with Feature1 set unless it has also Feature2 set)\n-Feature1=Value1 +Feature2 (don't include tokens with Feature1 set to Value1 unless it has also Feature2 set to any value)..."
+    }
+  },
+  {
+    "pk": 91,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 36,
+      "name": "output Feature Value",
+      "short_name": "str",
+      "uid": "96c4c439-c645-d2b4-cd7d-8524f3c3b2bf",
+      "default": "true",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "outputFeatureValue",
+      "parameter": true,
+      "order": 2,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 92,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 36,
+      "name": "Put token/feature text as the output feature value",
+      "short_name": "bol",
+      "uid": "b2e17caf-f2d7-b587-b76e-83bdf12109ae",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "elementsTextToFeatureValue",
+      "parameter": true,
+      "order": 3,
+      "description": "If set to true than token or token's feature text is asigned as output feature value"
+    }
+  },
+  {
+    "pk": 37,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 36,
+      "name": "Tagger",
+      "short_name": "tgr",
+      "variable": "tagger",
+      "uid": "f1d9b4f2-62a1-add4-3f66-cb599081a33c",
       "order": 1,
       "description": ""
     }
@@ -4251,256 +3828,15 @@
     }
   },
   {
-    "pk": 42,
-    "model": "workflows.abstractwidget",
+    "pk": 9,
+    "model": "workflows.category",
     "fields": {
-      "category": 10,
-      "treeview_image": null,
-      "name": "BOW Space (Text)",
-      "is_streaming": false,
-      "uid": "471eb047-8d39-4eac-8cc1-6c768c42d897",
-      "interaction_view": "",
-      "image": null,
-      "package": "latino",
-      "static_image": "bow_space_image.png",
-      "post_interact_action": "",
+      "uid": "b5964b0d-5acb-4dbf-a49d-4331a5a44f9c",
+      "parent": 1,
+      "workflow": null,
       "user": null,
-      "visualization_view": "",
-      "action": "latino_construct_bow_space_1",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 1,
-      "description": "Automatically generated widget from function ConstructBowSpace in package latino. The original function signature: ConstructBowSpace."
-    }
-  },
-  {
-    "pk": 111,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Textual Documents (Array of strings)",
-      "short_name": "str",
-      "uid": "e6029afb-4598-b3fb-d0a1-2cfd5ea0178b",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": "textarea",
-      "variable": "documents",
-      "parameter": false,
-      "order": 1,
-      "description": "System.Object"
-    }
-  },
-  {
-    "pk": 112,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Tokenizer",
-      "short_name": "tkn",
-      "uid": "df8d5b1f-200e-86dd-76ea-cdc3a65e2b02",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "tokenizer",
-      "parameter": false,
-      "order": 2,
-      "description": "Latino.TextMining.ITokenizer"
-    }
-  },
-  {
-    "pk": 113,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Stemmer or Lemmatizer (Tagger)",
-      "short_name": "tgr",
-      "uid": "4cfdfa8f-e335-791d-72f0-f4f51666450d",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "stemmer",
-      "parameter": false,
-      "order": 3,
-      "description": "Latino.TextMining.IStemmer"
-    }
-  },
-  {
-    "pk": 114,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Stopwords (Array of Stopwords)",
-      "short_name": "str",
-      "uid": "b183ddfb-9854-a13d-58e5-4943bb461192",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": "textarea",
-      "variable": "stopwords",
-      "parameter": false,
-      "order": 4,
-      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
-    }
-  },
-  {
-    "pk": 115,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Maximum N-Gram Length",
-      "short_name": "int",
-      "uid": "9f7a8787-5d03-122a-97a3-540ef7e2ce9d",
-      "default": "2",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "maxNGramLen",
-      "parameter": true,
       "order": 5,
-      "description": "System.Int32"
-    }
-  },
-  {
-    "pk": 116,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Minimum Word Freqency",
-      "short_name": "dbl",
-      "uid": "10e4ef28-62b4-c59e-2f6c-7188bfac4a17",
-      "default": "5",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "minWordFreq",
-      "parameter": true,
-      "order": 6,
-      "description": "System.Int32"
-    }
-  },
-  {
-    "pk": 117,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Word Weighting Type",
-      "short_name": "wwt",
-      "uid": "76121091-e83a-ec17-bdf2-cd239e7c8b5d",
-      "default": "TfIdf",
-      "required": true,
-      "multi": false,
-      "parameter_type": "select",
-      "variable": "wordWeightType",
-      "parameter": true,
-      "order": 7,
-      "description": "Latino.TextMining.WordWeightType"
-    }
-  },
-  {
-    "pk": 53,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "25f63cf8-7cdf-fae2-f661-c69cfb7ec932",
-      "abstract_input": 117,
-      "value": "TermFreq",
-      "name": "Term Freq"
-    }
-  },
-  {
-    "pk": 54,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "699fb42d-3593-80ad-0116-b4401750e866",
-      "abstract_input": 117,
-      "value": "TfIdf",
-      "name": "Tf Idf"
-    }
-  },
-  {
-    "pk": 55,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "6e6fc78e-809b-3f9a-39ec-ae31d1db030f",
-      "abstract_input": 117,
-      "value": "LogDfTfIdf",
-      "name": "Log Df Tf Idf"
-    }
-  },
-  {
-    "pk": 56,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "718c39f4-26d5-b154-0b62-e1a5247f22ca",
-      "abstract_input": 117,
-      "value": "Dyakonov",
-      "name": "Dyakonov"
-    }
-  },
-  {
-    "pk": 118,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Cut Low Weights Percentage",
-      "short_name": "dbl",
-      "uid": "0160cac5-a82c-a2ea-d8ec-66e3a76b2a02",
-      "default": "0.2",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "cutLowWeightsPerc",
-      "parameter": true,
-      "order": 8,
-      "description": "System.Double"
-    }
-  },
-  {
-    "pk": 119,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Normalize Vectors",
-      "short_name": "bol",
-      "uid": "58e02ee9-6308-6ad8-49aa-dce004c8175f",
-      "default": "true",
-      "required": true,
-      "multi": false,
-      "parameter_type": "checkbox",
-      "variable": "normalizeVectors",
-      "parameter": true,
-      "order": 9,
-      "description": "System.Boolean"
-    }
-  },
-  {
-    "pk": 43,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 42,
-      "name": "Bag of Words Space",
-      "short_name": "bow",
-      "variable": "bow",
-      "uid": "6353aa61-77fd-189f-a260-14a8a4195839",
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
-    "pk": 44,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 42,
-      "name": "Dataset",
-      "short_name": "ds",
-      "variable": "ds",
-      "uid": "03e3ee38-d0a6-a503-1bf1-67dc3b950de4",
-      "order": 2,
-      "description": ""
+      "name": "Bag of Words"
     }
   },
   {
@@ -4941,6 +4277,271 @@
     }
   },
   {
+    "pk": 10,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "0378e3a8-b71e-47b5-96b0-84dca2680f4d",
+      "parent": 9,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Advanced"
+    }
+  },
+  {
+    "pk": 42,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 10,
+      "treeview_image": null,
+      "name": "BOW Space (Text)",
+      "is_streaming": false,
+      "uid": "471eb047-8d39-4eac-8cc1-6c768c42d897",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "bow_space_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_construct_bow_space_1",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Automatically generated widget from function ConstructBowSpace in package latino. The original function signature: ConstructBowSpace."
+    }
+  },
+  {
+    "pk": 111,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Textual Documents (Array of strings)",
+      "short_name": "str",
+      "uid": "e6029afb-4598-b3fb-d0a1-2cfd5ea0178b",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "documents",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Object"
+    }
+  },
+  {
+    "pk": 112,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Tokenizer",
+      "short_name": "tkn",
+      "uid": "df8d5b1f-200e-86dd-76ea-cdc3a65e2b02",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "tokenizer",
+      "parameter": false,
+      "order": 2,
+      "description": "Latino.TextMining.ITokenizer"
+    }
+  },
+  {
+    "pk": 113,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Stemmer or Lemmatizer (Tagger)",
+      "short_name": "tgr",
+      "uid": "4cfdfa8f-e335-791d-72f0-f4f51666450d",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "stemmer",
+      "parameter": false,
+      "order": 3,
+      "description": "Latino.TextMining.IStemmer"
+    }
+  },
+  {
+    "pk": 114,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Stopwords (Array of Stopwords)",
+      "short_name": "str",
+      "uid": "b183ddfb-9854-a13d-58e5-4943bb461192",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "stopwords",
+      "parameter": false,
+      "order": 4,
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 115,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Maximum N-Gram Length",
+      "short_name": "int",
+      "uid": "9f7a8787-5d03-122a-97a3-540ef7e2ce9d",
+      "default": "2",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "maxNGramLen",
+      "parameter": true,
+      "order": 5,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 116,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Minimum Word Freqency",
+      "short_name": "dbl",
+      "uid": "10e4ef28-62b4-c59e-2f6c-7188bfac4a17",
+      "default": "5",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "minWordFreq",
+      "parameter": true,
+      "order": 6,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 117,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Word Weighting Type",
+      "short_name": "wwt",
+      "uid": "76121091-e83a-ec17-bdf2-cd239e7c8b5d",
+      "default": "TfIdf",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "wordWeightType",
+      "parameter": true,
+      "order": 7,
+      "description": "Latino.TextMining.WordWeightType"
+    }
+  },
+  {
+    "pk": 53,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "25f63cf8-7cdf-fae2-f661-c69cfb7ec932",
+      "abstract_input": 117,
+      "value": "TermFreq",
+      "name": "Term Freq"
+    }
+  },
+  {
+    "pk": 54,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "699fb42d-3593-80ad-0116-b4401750e866",
+      "abstract_input": 117,
+      "value": "TfIdf",
+      "name": "Tf Idf"
+    }
+  },
+  {
+    "pk": 55,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "6e6fc78e-809b-3f9a-39ec-ae31d1db030f",
+      "abstract_input": 117,
+      "value": "LogDfTfIdf",
+      "name": "Log Df Tf Idf"
+    }
+  },
+  {
+    "pk": 56,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "718c39f4-26d5-b154-0b62-e1a5247f22ca",
+      "abstract_input": 117,
+      "value": "Dyakonov",
+      "name": "Dyakonov"
+    }
+  },
+  {
+    "pk": 118,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Cut Low Weights Percentage",
+      "short_name": "dbl",
+      "uid": "0160cac5-a82c-a2ea-d8ec-66e3a76b2a02",
+      "default": "0.2",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "cutLowWeightsPerc",
+      "parameter": true,
+      "order": 8,
+      "description": "System.Double"
+    }
+  },
+  {
+    "pk": 119,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Normalize Vectors",
+      "short_name": "bol",
+      "uid": "58e02ee9-6308-6ad8-49aa-dce004c8175f",
+      "default": "true",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "normalizeVectors",
+      "parameter": true,
+      "order": 9,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 43,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 42,
+      "name": "Bag of Words Space",
+      "short_name": "bow",
+      "variable": "bow",
+      "uid": "6353aa61-77fd-189f-a260-14a8a4195839",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 44,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 42,
+      "name": "Dataset",
+      "short_name": "ds",
+      "variable": "ds",
+      "uid": "03e3ee38-d0a6-a503-1bf1-67dc3b950de4",
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
     "pk": 46,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -5012,6 +4613,18 @@
       "uid": "78dc5be9-fc09-b07b-8800-3dbfe4e6674c",
       "order": 1,
       "description": ""
+    }
+  },
+  {
+    "pk": 11,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "a8348101-116c-4e04-b2a7-af1c991c3927",
+      "parent": 1,
+      "workflow": null,
+      "user": null,
+      "order": 6,
+      "name": "Dataset"
     }
   },
   {
@@ -5411,6 +5024,18 @@
     }
   },
   {
+    "pk": 12,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "c7a26cb0-65af-4c6e-887b-7c6a7a162327",
+      "parent": 1,
+      "workflow": null,
+      "user": null,
+      "order": 7,
+      "name": "Similarity Matrix"
+    }
+  },
+  {
     "pk": 52,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -5574,6 +5199,18 @@
       "uid": "53fe424c-f738-5ac4-69b5-7b2124fa82d6",
       "order": 1,
       "description": ""
+    }
+  },
+  {
+    "pk": 13,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "74457dca-9fba-4d66-98dd-633df385a22b",
+      "parent": 1,
+      "workflow": null,
+      "user": null,
+      "order": 8,
+      "name": "Clustering"
     }
   },
   {
@@ -6122,6 +5759,18 @@
       "parameter": false,
       "order": 1,
       "description": "System.Object"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "c8fd491e-75ad-487d-b42f-b5ca07ec045a",
+      "parent": 1,
+      "workflow": null,
+      "user": null,
+      "order": 9,
+      "name": "Classification"
     }
   },
   {
@@ -7699,6 +7348,357 @@
       "variable": "statistics",
       "uid": "4b9c7c60-639b-3ca5-682b-43b367f67cc3",
       "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 15,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "438cb7e7-d0e5-4bb9-9cad-10f6907ec568",
+      "parent": 1,
+      "workflow": null,
+      "user": null,
+      "order": 10,
+      "name": "Helpers"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 15,
+      "treeview_image": null,
+      "name": "Flatten String Hierarchy",
+      "is_streaming": false,
+      "uid": "1d9f109e-8490-4c98-8957-4b0f698ce1bd",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "flatten_string_hierarchy_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_flatten_object_to_string_array",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 4,
+      "description": "Automatically generated widget from function FlattenObjectToStringArray in package latino. The original function signature: FlattenObjectToStringArray."
+    }
+  },
+  {
+    "pk": 7,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 3,
+      "name": "data",
+      "short_name": "obj",
+      "uid": "26dc986a-e8c4-ee4b-ac32-5ce895f3383a",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Object"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 3,
+      "name": "flatData",
+      "short_name": "obj",
+      "variable": "flatData",
+      "uid": "a16d6a3b-e656-9b50-10c8-8359a5174193",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 4,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 15,
+      "treeview_image": null,
+      "name": "Display Table",
+      "is_streaming": false,
+      "uid": "bb74ec59-dba8-461b-ae66-de35a5c3fdea",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "table_view_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "show_table",
+      "action": "show_table",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 3,
+      "description": "Automatically generated widget from function ShowTable_PYTHON in package latino. The original function signature: ShowTable_PYTHON."
+    }
+  },
+  {
+    "pk": 8,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 4,
+      "name": "Table",
+      "short_name": "tbl",
+      "uid": "5800c1e5-44ec-5843-e9cf-fde725c7b521",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "tbl",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Object"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 15,
+      "treeview_image": null,
+      "name": "Generate Integer Range",
+      "is_streaming": false,
+      "uid": "f7d78342-9aea-4e01-b46b-8d20631ee5bf",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "range_create_integers_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "create_range",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 5,
+      "description": "Automatically generated widget from function GenerateIntegerRange_PYTHON in package latino. The original function signature: GenerateIntegerRange_PYTHON."
+    }
+  },
+  {
+    "pk": 9,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 5,
+      "name": "Start",
+      "short_name": "int",
+      "uid": "4c165f6b-7698-65d2-f8fb-2d2cf104ba47",
+      "default": "0",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "start",
+      "parameter": true,
+      "order": 1,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 5,
+      "name": "Stop",
+      "short_name": "int",
+      "uid": "c707764e-6ee4-8318-565e-3c4aab14cc45",
+      "default": "10",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "stop",
+      "parameter": true,
+      "order": 2,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 5,
+      "name": "Step",
+      "short_name": "int",
+      "uid": "64dbf120-d027-0a31-a88d-e78bd15fb0c1",
+      "default": "1",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "step",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 5,
+      "name": "Range",
+      "short_name": "ary",
+      "variable": "range",
+      "uid": "8eb96f55-f038-e517-5e11-8dbda6295b0f",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 6,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 15,
+      "treeview_image": null,
+      "name": "Python Snippet",
+      "is_streaming": false,
+      "uid": "b6164644-ff14-4f8f-bdee-ca55da77b57c",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "python_snippet_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "python_snippet",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 6,
+      "description": "Runs python snippet. You can use variable which is provided on the input by the name \"in1\" .. \"inN\". Whatever you want to otput needs to be asigned to the variable \"out1\" before the code is terminated"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 6,
+      "name": "in",
+      "short_name": "in",
+      "uid": "16ca773f-1d2d-823f-6e9c-1be0dd267369",
+      "default": "",
+      "required": false,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "in",
+      "parameter": false,
+      "order": 1,
+      "description": "input can be accesed as variable \"in1\" .. \"inN\" inside the code"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 6,
+      "name": "Python Snippet Code",
+      "short_name": "py",
+      "uid": "1991f19a-463b-d851-aab6-72facc87a2f1",
+      "default": "# This is the Python Code Snippet where you can modify the data however is needed.\n# Varaible \"in1\" .. \"inN\" contains whatever you connected to the input port\n# Whatever is assigned to the variable \"out1\" will be transfered to the output port.\n\nout1 = in1",
+      "required": true,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "pycode",
+      "parameter": true,
+      "order": 2,
+      "description": "Input can be accesed as variable \"in1\" .. \"inN\" inside the code and output can be accesed/assigned as variable \"out1\" inside the code."
+    }
+  },
+  {
+    "pk": 5,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 6,
+      "name": "out",
+      "short_name": "out",
+      "variable": "out",
+      "uid": "455b1583-c2d4-13c5-1036-435dfe160152",
+      "order": 1,
+      "description": "output can be accesed/assigned as variable \"out1\" inside the code"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 15,
+      "treeview_image": null,
+      "name": "Split Object",
+      "is_streaming": false,
+      "uid": "4ae60fcc-ae3a-4609-9ec1-a7724d5ac0c4",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "object_split_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "split_object",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 7,
+      "description": "Automatically generated widget from function SplitObject_PYTHON in package latino. The original function signature: SplitObject_PYTHON."
+    }
+  },
+  {
+    "pk": 14,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 7,
+      "name": "object",
+      "short_name": "obj",
+      "uid": "298ce522-7061-993e-a940-069d9c9b739d",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "object",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Object"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 7,
+      "name": "Object Modifier",
+      "short_name": "atr",
+      "uid": "bf822d07-096d-1aeb-e6da-3670d6aa9c53",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "attribute",
+      "parameter": true,
+      "order": 2,
+      "description": "if one wants to extract object's attributes, leading dot should be used."
+    }
+  },
+  {
+    "pk": 6,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 7,
+      "name": "object",
+      "short_name": "obj",
+      "variable": "object",
+      "uid": "6817c1ee-8e0f-8e63-f4d6-7c43522b7f10",
+      "order": 1,
       "description": ""
     }
   },

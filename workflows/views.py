@@ -22,12 +22,13 @@ from django.contrib.auth.decorators import login_required
 #settings
 from mothra.settings import DEBUG, FILES_FOLDER
 
-
-
 #ostalo
 import os
 
-from latino.views import *
+from workflows import module_importer
+def setattr_local(name, value, package):
+    setattr(sys.modules[__name__], name, value)
+module_importer.import_all_packages_libs("views",setattr_local)
 
 @login_required
 def get_category(request):

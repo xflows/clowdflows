@@ -1,0 +1,3626 @@
+[
+  {
+    "pk": 10,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Orange"
+    }
+  },
+  {
+    "pk": 96,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 10,
+      "treeview_image": "",
+      "name": "Prepare results for PR visualization",
+      "is_streaming": false,
+      "uid": "b16da039-f997-4d78-baa0-26d5ad8661eb",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_prepare_results",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 182,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 96,
+      "name": "List of learners",
+      "short_name": "lrn",
+      "uid": "8a484294-ded6-4ed9-8d4c-043fd8cb3eb7",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "learners",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 183,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 96,
+      "name": "List of precisions",
+      "short_name": "pre",
+      "uid": "91b5674a-88e7-4954-9117-46c1fbeb2d4c",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "precision",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 184,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 96,
+      "name": "List of recalls",
+      "short_name": "rec",
+      "uid": "b1f16202-0bf3-4002-b534-3523c615d26f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "recall",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 185,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 96,
+      "name": "List of F-measures",
+      "short_name": "f",
+      "uid": "706ba66d-3425-4093-815f-8c62cc034e5b",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "f",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 103,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 96,
+      "name": "Algorithm performance",
+      "short_name": "alp",
+      "variable": "alp",
+      "uid": "090071a2-fa72-4195-af38-31885d764207",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 11,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "d0e46009-46b3-43ed-bff0-5fc986ff6b34",
+      "parent": 10,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Classification and Regression"
+    }
+  },
+  {
+    "pk": 43,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-C45.png",
+      "name": "C4.5 Tree Learner",
+      "is_streaming": false,
+      "uid": "0e3f39fd-3807-49d5-aab5-4ae441cd9f75",
+      "interaction_view": "",
+      "image": "images/orange-C45.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "c45_tree",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 47,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 43,
+      "name": "C4.5 Tree Learner",
+      "short_name": "c45",
+      "variable": "c45out",
+      "uid": "be5a0f89-b7a8-4e1c-b6d9-48ccd5f4a151",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 45,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-CN2-small.png",
+      "name": "CN2 Rule Learner",
+      "is_streaming": false,
+      "uid": "766ef980-6622-4168-b4c5-60c5001dba8b",
+      "interaction_view": "",
+      "image": "images/orange-CN2-small.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cn2",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 49,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 45,
+      "name": "CN2 Rule Learner",
+      "short_name": "cn2",
+      "variable": "cn2out",
+      "uid": "8fd12925-d2ac-4672-82d9-39da4174c2b4",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 44,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-ClassificationTree.png",
+      "name": "Classification Tree",
+      "is_streaming": false,
+      "uid": "29b5871f-1829-4af6-8463-c6515e2010c6",
+      "interaction_view": "",
+      "image": "images/orange-ClassificationTree.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "class_tree",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 48,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 44,
+      "name": "Classification Tree",
+      "short_name": "clt",
+      "variable": "treeout",
+      "uid": "65dc834a-a59c-4821-99c2-37d1142ac592",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 47,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-LogisticRegression.png",
+      "name": "Logistic Regression",
+      "is_streaming": false,
+      "uid": "bb9cbb4e-516d-4856-9ad3-614a7a01cba1",
+      "interaction_view": "",
+      "image": "images/orange-LogisticRegression.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "logreg",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 4,
+      "description": ""
+    }
+  },
+  {
+    "pk": 51,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 47,
+      "name": "Logistic Regresion Classifier",
+      "short_name": "lrc",
+      "variable": "logregout",
+      "uid": "bd5fa320-9059-44f4-8186-f5dea9283520",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 48,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/lookup.png",
+      "name": "Lookup Learner",
+      "is_streaming": false,
+      "uid": "1781ee2a-f353-42b4-96d4-3379329c984e",
+      "interaction_view": "",
+      "image": "images/lookup.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lookup_learner",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 5,
+      "description": ""
+    }
+  },
+  {
+    "pk": 52,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 48,
+      "name": "Lookup Classifier",
+      "short_name": "luc",
+      "variable": "lookupout",
+      "uid": "9d104fe8-e95a-4553-a9a5-03a49421d148",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 49,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-Majority.png",
+      "name": "Majority Learner",
+      "is_streaming": false,
+      "uid": "f11eaa13-d94b-40e1-adfb-a811ae36bc2d",
+      "interaction_view": "",
+      "image": "images/orange-Majority.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "majority_learner",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 6,
+      "description": ""
+    }
+  },
+  {
+    "pk": 53,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 49,
+      "name": "Majority Classifier",
+      "short_name": "mjc",
+      "variable": "majorout",
+      "uid": "95de96fb-f220-4b30-a981-e669f3380e79",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 50,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-NaiveBayes.png",
+      "name": "Naive Bayes",
+      "is_streaming": false,
+      "uid": "bf4a4479-b2c3-47b3-b900-be8d39871ecd",
+      "interaction_view": "",
+      "image": "images/orange-NaiveBayes.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "bayes",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 7,
+      "description": ""
+    }
+  },
+  {
+    "pk": 54,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 50,
+      "name": "Bayes Classifier",
+      "short_name": "bys",
+      "variable": "bayesout",
+      "uid": "4557f31d-6877-44c7-96b1-3dc72f628e2e",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 51,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-RandomForest.png",
+      "name": "Random Forest",
+      "is_streaming": false,
+      "uid": "8ac403eb-cf44-41cb-b9a1-84dede03a1d4",
+      "interaction_view": "",
+      "image": "images/orange-RandomForest.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "random_forest",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 8,
+      "description": ""
+    }
+  },
+  {
+    "pk": 105,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 51,
+      "name": "Number of decision trees",
+      "short_name": "ndt",
+      "uid": "d8f62393-dda8-48a0-93c1-ac5bc3c5667f",
+      "default": "100",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "n",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 55,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 51,
+      "name": "Random Forest Classifier",
+      "short_name": "rfc",
+      "variable": "rfout",
+      "uid": "fe85cc7e-0e13-4f76-841f-ac809d28095f",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 52,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-Rule-Learner.png",
+      "name": "Rule Induction",
+      "is_streaming": false,
+      "uid": "0ce778a2-b40c-45f1-8383-9327b18fc661",
+      "interaction_view": "",
+      "image": "images/orange-Rule-Learner.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "rules",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 9,
+      "description": ""
+    }
+  },
+  {
+    "pk": 56,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 52,
+      "name": "Rule Learner",
+      "short_name": "rll",
+      "variable": "rulesout",
+      "uid": "20a9db03-d944-4ba4-9786-d2c8dd688e87",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 53,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-SVM_1.png",
+      "name": "Support Vector Machine",
+      "is_streaming": false,
+      "uid": "6b40b000-3e93-4fe4-bb95-f7ea4822eebf",
+      "interaction_view": "",
+      "image": "images/orange-SVM_1.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "svm",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 10,
+      "description": ""
+    }
+  },
+  {
+    "pk": 57,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 53,
+      "name": "Support Vector Machine Classifier",
+      "short_name": "svm",
+      "variable": "svmout",
+      "uid": "f2c9a031-e94f-4b3f-9302-656c46871e46",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 54,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-SVMEasy-new.png",
+      "name": "Support Vector Machine Easy",
+      "is_streaming": false,
+      "uid": "d54a6cee-76d0-4ec6-9aab-556e233be366",
+      "interaction_view": "",
+      "image": "images/orange-SVMEasy-new.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "svmeasy",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 11,
+      "description": ""
+    }
+  },
+  {
+    "pk": 58,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 54,
+      "name": "Support Vector Machine Easy Classifier",
+      "short_name": "sve",
+      "variable": "svmeasyout",
+      "uid": "5add6c11-7052-4b5a-975f-b5cf25aada99",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 46,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "treeview/orange-kNN.png",
+      "name": "k-Nearest Neighbours",
+      "is_streaming": false,
+      "uid": "f669618e-108c-4636-8ce5-ec04b26f4642",
+      "interaction_view": "",
+      "image": "images/orange-kNN.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "knn",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 12,
+      "description": ""
+    }
+  },
+  {
+    "pk": 50,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 46,
+      "name": "kNN Clasisifier",
+      "short_name": "knn",
+      "variable": "knnout",
+      "uid": "423a0b89-5430-437c-a6d5-6725d834a469",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 12,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "583debcb-5041-46b3-b464-e21875896710",
+      "parent": 10,
+      "workflow": null,
+      "user": null,
+      "order": 2,
+      "name": "Evaluation"
+    }
+  },
+  {
+    "pk": 55,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 12,
+      "treeview_image": "treeview/Orange-ApplyClassifier5.png",
+      "name": "Apply Classifier",
+      "is_streaming": false,
+      "uid": "00e860b0-d62d-4e1d-8f58-0a1755c0f0e1",
+      "interaction_view": "",
+      "image": "images/Orange-ApplyClassifier5.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "apply_classifier",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 106,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 55,
+      "name": "Classifier",
+      "short_name": "clf",
+      "uid": "fd103975-883d-4501-9fe3-9ebadb01ae4f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "classifier",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 107,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 55,
+      "name": "Dataset",
+      "short_name": "dat",
+      "uid": "7c16a50f-c548-4104-afd2-0f3be086fc9e",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 59,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 55,
+      "name": "Dataset",
+      "short_name": "dat",
+      "variable": "data",
+      "uid": "fd7a69ac-a8bf-4681-bf32-328fde34d742",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 56,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 12,
+      "treeview_image": "treeview/Orange-BuildClassifier.png",
+      "name": "Build Classifier",
+      "is_streaming": false,
+      "uid": "39809f9a-3742-4ca0-908a-1d8a041261af",
+      "interaction_view": "",
+      "image": "images/Orange-BuildClassifier.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "build_classifier",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 108,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 56,
+      "name": "learner",
+      "short_name": "lrn",
+      "uid": "24b03594-14c8-4534-98de-b4bf703fef63",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "learner",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 109,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 56,
+      "name": "data",
+      "short_name": "dat",
+      "uid": "3de89884-15aa-40dd-a514-cb7e7d5298c5",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 60,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 56,
+      "name": "classifier",
+      "short_name": "clf",
+      "variable": "classifier",
+      "uid": "d772a4c4-eb0a-4b4c-8386-f1eabd60f371",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 16,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "2c4c8f68-33db-411c-a8ce-176096349eba",
+      "parent": 12,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Classification Statistics"
+    }
+  },
+  {
+    "pk": 83,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 16,
+      "treeview_image": "",
+      "name": "Area under curve (ROC analysis)",
+      "is_streaming": false,
+      "uid": "cc2877f0-65d2-4bc2-9868-261546be1447",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_auc",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 163,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 83,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "51a10241-e26e-4fab-831b-4295ac82081a",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 164,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 83,
+      "name": "Method",
+      "short_name": "met",
+      "uid": "538f7e3a-8650-4c33-ad49-d00221d86145",
+      "default": "0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "method",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 37,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "cde2a234-f9be-461a-9298-d3f0698cea8b",
+      "abstract_input": 164,
+      "value": "1",
+      "name": "By Pairs"
+    }
+  },
+  {
+    "pk": 36,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "ad6a3d61-5be9-45f7-b9d6-9826dde0986c",
+      "abstract_input": 164,
+      "value": "0",
+      "name": "By Weighted Pairs"
+    }
+  },
+  {
+    "pk": 39,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "64e1c620-ce14-4c78-9aed-199bf803b6b7",
+      "abstract_input": 164,
+      "value": "3",
+      "name": "One Against All"
+    }
+  },
+  {
+    "pk": 38,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "8f39364a-2698-430e-912e-dd8c547ca0a7",
+      "abstract_input": 164,
+      "value": "2",
+      "name": "Weighted One Against All"
+    }
+  },
+  {
+    "pk": 93,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 83,
+      "name": "Area Under Curve",
+      "short_name": "auc",
+      "variable": "AUC",
+      "uid": "c761f9c4-0204-4734-a208-dd8ca3fbd2ba",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 77,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 16,
+      "treeview_image": "",
+      "name": "Brier Score",
+      "is_streaming": false,
+      "uid": "a8e19b70-c295-484c-acca-8ce12c489793",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_brier_score",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": "Computes the Brier's score, defined as the average (over test examples) of sumx(t(x)-p(x))^2, where x is a class, t(x) is 1 for the correct class and 0 for the others, and p(x) is the probability that the classifier assigned to the class x."
+    }
+  },
+  {
+    "pk": 148,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 77,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "dc37ebf6-0148-4aee-945a-857ea3e8e4fb",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 149,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 77,
+      "name": "Report Standard Error",
+      "short_name": "rse",
+      "uid": "49a8722a-74b9-4cd6-a9bf-aec25ff05120",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "reportSE",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 79,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 77,
+      "name": "Brier Score",
+      "short_name": "bs",
+      "variable": "bs",
+      "uid": "62634c2a-524e-4293-9a37-922a2902afae",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 75,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 16,
+      "treeview_image": "",
+      "name": "Classification Accuracy",
+      "is_streaming": false,
+      "uid": "c3554695-87ec-43a7-8bac-f6738f462a09",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_classification_accuracy",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 3,
+      "description": "Computes classification accuracy, i.e. percentage of matches between predicted and actual class. The function returns a list of classification accuracies of all classifiers tested. If reportSE is set to true, the list will contain tuples with accuracies and standard errors."
+    }
+  },
+  {
+    "pk": 144,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 75,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "844835a9-5473-4eba-ad40-162ec8712088",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 145,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 75,
+      "name": "Report Standard Error",
+      "short_name": "rse",
+      "uid": "322d1975-8cff-423c-b73a-e7f5a1488e2e",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "reportSE",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 77,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 75,
+      "name": "Classification Accuracy",
+      "short_name": "ca",
+      "variable": "ca",
+      "uid": "236ad57c-2e84-4df4-9043-0f0d34b45b9b",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 81,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 16,
+      "treeview_image": "",
+      "name": "Confusion Matrix",
+      "is_streaming": false,
+      "uid": "5cab835b-82f8-4146-a4d0-ff3b3f923395",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_confusion_matrix",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 4,
+      "description": ""
+    }
+  },
+  {
+    "pk": 158,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 81,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "cbce1aeb-69f9-44ab-9ba1-58e7f7c7edd2",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 160,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 81,
+      "name": "Cutoff",
+      "short_name": "ctf",
+      "uid": "c6fa462e-df86-424e-8803-3ded38ee6f73",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "cutoff",
+      "parameter": true,
+      "order": 1,
+      "description": "We can also add the keyword argument cutoff (e.g. confusionMatrices(results, cutoff=0.3); if we do, confusionMatrices will disregard the classifiers' class predictions and observe the predicted probabilities, and consider the prediction \"positive\" if the predicted probability of the positive class is higher than the cutoff."
+    }
+  },
+  {
+    "pk": 159,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 81,
+      "name": "Class Index",
+      "short_name": "cli",
+      "uid": "93b12c97-c01a-42a9-a934-b9c0a220f67a",
+      "default": "-1",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "classIndex",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 83,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 81,
+      "name": "Confusion Matrix",
+      "short_name": "cm",
+      "variable": "cm",
+      "uid": "80ffab5b-b464-44e3-b659-ee3cbc6318e3",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 82,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 16,
+      "treeview_image": "",
+      "name": "Confusion Matrix Computations",
+      "is_streaming": false,
+      "uid": "7ac99069-f563-4580-a0de-2aa79b47ff4b",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_confusion_matrix_computations",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 5,
+      "description": "With the confusion matrix defined in terms of positive and negative classes, you can also compute the sensitivity [TP/(TP+FN)], specificity [TN/(TN+FP)], positive predictive value [TP/(TP+FP)] and negative predictive value [TN/(TN+FN)]. In information retrieval, positive predictive value is called precision (the ratio of the number of relevant records retrieved to the total number of irrelevant and relevant records retrieved), and sensitivity is called recall (the ratio of the number of relevant records retrieved to the total number of relevant records in the database). The harmonic mean of precision and recall is called an F-measure, where, depending on the ratio of the weight between precision and recall is implemented as F1 [2*precision*recall/(precision+recall)] or, for a general case, Falpha [(1+alpha)*precision*recall / (alpha*precision + recall)]."
+    }
+  },
+  {
+    "pk": 161,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 82,
+      "name": "Confusion Matrix",
+      "short_name": "cm",
+      "uid": "5bbce817-42f9-4454-ade9-c6b73a8b4f56",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "cm",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 162,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 82,
+      "name": "alpha",
+      "short_name": "alp",
+      "uid": "26e4f697-0231-4cf8-8cbd-2cb325441ba7",
+      "default": "2.0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "alpha",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 84,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 82,
+      "name": "Sensitiviry",
+      "short_name": "sen",
+      "variable": "sens",
+      "uid": "4cb7033f-0e4e-425c-96a2-529c8ba17c69",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 85,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 82,
+      "name": "Specificity",
+      "short_name": "spe",
+      "variable": "spec",
+      "uid": "0704171d-35c0-4ae5-9be5-e62103c5a4a2",
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 86,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 82,
+      "name": "Positive Predictive Value",
+      "short_name": "ppv",
+      "variable": "PPV",
+      "uid": "75932ec5-48f7-4d32-bfbf-7054ed6140e5",
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 87,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 82,
+      "name": "Negative Predictive Value",
+      "short_name": "npv",
+      "variable": "NPV",
+      "uid": "db506973-2b95-4e59-9881-4e365b54c5d9",
+      "order": 4,
+      "description": ""
+    }
+  },
+  {
+    "pk": 88,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 82,
+      "name": "Precision",
+      "short_name": "pre",
+      "variable": "precision",
+      "uid": "2d390622-897a-411a-bbbf-b2ca33f84271",
+      "order": 5,
+      "description": ""
+    }
+  },
+  {
+    "pk": 89,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 82,
+      "name": "Recall",
+      "short_name": "rec",
+      "variable": "recall",
+      "uid": "e0b726bb-063d-4759-a1c0-eb8becc7c65b",
+      "order": 6,
+      "description": ""
+    }
+  },
+  {
+    "pk": 90,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 82,
+      "name": "F1",
+      "short_name": "f1",
+      "variable": "F1",
+      "uid": "4b24d1e9-7a47-4083-ba7c-00c1112ff320",
+      "order": 7,
+      "description": ""
+    }
+  },
+  {
+    "pk": 91,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 82,
+      "name": "Falpha",
+      "short_name": "fal",
+      "variable": "Falpha",
+      "uid": "8a068c50-6b65-42db-8f95-8c0cfedfeeb0",
+      "order": 8,
+      "description": ""
+    }
+  },
+  {
+    "pk": 92,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 82,
+      "name": "MCC",
+      "short_name": "mcc",
+      "variable": "MCC",
+      "uid": "83ac8895-17e3-467d-a107-58b112bf1655",
+      "order": 9,
+      "description": ""
+    }
+  },
+  {
+    "pk": 76,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 16,
+      "treeview_image": "",
+      "name": "Correct Class Average Probability",
+      "is_streaming": false,
+      "uid": "e21925ad-fdc3-487d-944e-5eb03caa2350",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_average_probability",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 6,
+      "description": "Computes the average probability assigned to the correct class."
+    }
+  },
+  {
+    "pk": 146,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 76,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "2b1e7d82-9c60-47be-8d27-d88d56de0c5d",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 147,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 76,
+      "name": "Report Standard Error",
+      "short_name": "rse",
+      "uid": "3dfeb6f5-fe7a-461a-b965-de7daa0b61eb",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "reportSE",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 78,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 76,
+      "name": "Average Probability",
+      "short_name": "ap",
+      "variable": "ap",
+      "uid": "39018d38-5c76-41db-a08b-3d1e02793e8f",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 78,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 16,
+      "treeview_image": "",
+      "name": "Information Score",
+      "is_streaming": false,
+      "uid": "5fed0e33-c267-4522-a4ff-faf745e80be6",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_information_score",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 7,
+      "description": "Computes the information score as defined by Kononenko and Bratko (1991). "
+    }
+  },
+  {
+    "pk": 150,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 78,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "d85b2f09-ae60-49b7-9b07-b73e4f2f37f9",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 151,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 78,
+      "name": "Report Standard Error",
+      "short_name": "rse",
+      "uid": "34afe990-c3e7-40ac-93c9-15283b3e12fc",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "reportSE",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 80,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 78,
+      "name": "Information Score",
+      "short_name": "is",
+      "variable": "is",
+      "uid": "ae1c8ffc-ef32-4ce4-94c3-3a59ba0ca301",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 17,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "d13c01e6-675f-4c48-a211-b24af72229b0",
+      "parent": 12,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Regression Statistics"
+    }
+  },
+  {
+    "pk": 84,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 17,
+      "treeview_image": "",
+      "name": "Mean Squared Error",
+      "is_streaming": false,
+      "uid": "c527ea0f-336b-4334-8288-bce4e742e043",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_MSE",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 165,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 84,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "1f40bcbb-e919-4078-8f11-fc2462bba84b",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 94,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 84,
+      "name": "Mean Squared Error",
+      "short_name": "mse",
+      "variable": "MSE",
+      "uid": "b5a01b55-2f97-4401-8183-6f774b7f18cc",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 86,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 17,
+      "treeview_image": "",
+      "name": "Mean absolute error",
+      "is_streaming": false,
+      "uid": "feffec1f-247b-4740-9ddc-df549c5fbaf6",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_MAE",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 167,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 86,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "b8b260d7-3497-42f5-93a0-09a411a03852",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 96,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 86,
+      "name": "Mean Absolute Error",
+      "short_name": "mse",
+      "variable": "MSE",
+      "uid": "bf09d357-d915-4ba6-b970-955bef6ee5c5",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 89,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 17,
+      "treeview_image": "",
+      "name": "R-squared",
+      "is_streaming": false,
+      "uid": "2299e615-4d72-4db7-9b32-3566b903c749",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_R2",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 170,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 89,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "e06248e9-dd6d-4746-8972-1cbf6e6f116f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 99,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 89,
+      "name": "R-Squared",
+      "short_name": "r2",
+      "variable": "R2",
+      "uid": "889fcdf7-7475-47f7-b1e0-0c199398f037",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 87,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 17,
+      "treeview_image": "",
+      "name": "Relative Squared Error",
+      "is_streaming": false,
+      "uid": "0d32c3a7-1f94-4414-92f0-bb81a9152636",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_RSE",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 168,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 87,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "64ff64b7-5878-4c9f-8a43-908d3d9b187a",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 97,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 87,
+      "name": "Relative Squared Error",
+      "short_name": "rse",
+      "variable": "RSE",
+      "uid": "66f3b71d-c53f-4653-9cb8-307b9eec70aa",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 88,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 17,
+      "treeview_image": "",
+      "name": "Root Relative Squared Error",
+      "is_streaming": false,
+      "uid": "c9ecd12e-eaff-41b6-b104-dff7fb60b124",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_RRSE",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 169,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 88,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "44ac11fb-201e-4d8f-b0b2-4d7668ea49a2",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 98,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 88,
+      "name": "Root Relative Squared Error",
+      "short_name": "rrs",
+      "variable": "RRSE",
+      "uid": "aa8347f5-5243-4336-9c0e-2d9649fc5de2",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 85,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 17,
+      "treeview_image": "",
+      "name": "Root mean-squared error",
+      "is_streaming": false,
+      "uid": "dc66f264-14a6-491b-9c39-36bded8f95d0",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_RMSE",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 166,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 85,
+      "name": "Results",
+      "short_name": "res",
+      "uid": "588d6e48-4365-43e7-8388-09da5fe660ea",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "results",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 95,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 85,
+      "name": "Root Mean Squared Error",
+      "short_name": "rms",
+      "variable": "RMSE",
+      "uid": "9ff06017-8f60-4456-916a-6261222631db",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 15,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "8b90267f-c82d-4b62-bee3-66184f4db931",
+      "parent": 12,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Testing"
+    }
+  },
+  {
+    "pk": 74,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 15,
+      "treeview_image": "",
+      "name": "Cross Validation",
+      "is_streaming": false,
+      "uid": "51906007-2471-4869-89f9-f3f805358d13",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_cross_validation",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 141,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 74,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "70f67094-39bb-4dad-b567-049002dabdac",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 142,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 74,
+      "name": "Learner",
+      "short_name": "lrn",
+      "uid": "a7f392fe-55f7-48df-9afb-1d0044562a2a",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "learner",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 143,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 74,
+      "name": "Folds",
+      "short_name": "fld",
+      "uid": "2e4561d0-99fd-44fd-99a5-7ac32457aa58",
+      "default": "10",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "folds",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 76,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 74,
+      "name": "Results",
+      "short_name": "res",
+      "variable": "results",
+      "uid": "59a55d53-ca8a-4a52-9cf5-e690116ef6ac",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 73,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 15,
+      "treeview_image": "",
+      "name": "Cross Validation (multiple learners)",
+      "is_streaming": false,
+      "uid": "6c168f2e-e47f-409a-97c1-58d50fbbec4d",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_multiple_cross_validation",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 138,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 73,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "16d1fe96-ce53-4a94-8c3e-90ac444b45f8",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 139,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 73,
+      "name": "Learners",
+      "short_name": "lrn",
+      "uid": "499f4007-55c3-431c-93ca-5f493a9e592c",
+      "default": "",
+      "required": false,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "learners",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 140,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 73,
+      "name": "Folds",
+      "short_name": "fld",
+      "uid": "2b7ef618-6f7a-4f0c-ad5f-50000aa5ec0b",
+      "default": "10",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "folds",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 75,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 73,
+      "name": "Results",
+      "short_name": "res",
+      "variable": "results",
+      "uid": "e966fc28-1217-4922-a0d7-d26cdc872872",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 80,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 15,
+      "treeview_image": "",
+      "name": "Leave One Out",
+      "is_streaming": false,
+      "uid": "0e9514ce-914a-4dd0-9952-9cd14877c427",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_leave_one_out",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Performs a leave-one-out experiment with the given list of learners and examples. This is equivalent to performing len(examples)-fold cross validation. Function accepts additional keyword arguments for preprocessing, storing classifiers and verbose output."
+    }
+  },
+  {
+    "pk": 156,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 80,
+      "name": "learners",
+      "short_name": "lrn",
+      "uid": "153d8297-ab47-4c51-a540-ed5cf907173f",
+      "default": "",
+      "required": false,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "learners",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 157,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 80,
+      "name": "dataset",
+      "short_name": "odt",
+      "uid": "51ffb874-f2b3-431c-a38b-16177631fd6f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 82,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 80,
+      "name": "Results",
+      "short_name": "res",
+      "variable": "results",
+      "uid": "8d618b48-62db-4f71-8440-5797234117af",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 79,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 15,
+      "treeview_image": "",
+      "name": "Proportion Test",
+      "is_streaming": false,
+      "uid": "c605a0f4-a3b0-4394-8410-9da8854416a2",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_proportion_test",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Splits the data with a number of examples in the learning and the rest in the testing set. The test is repeated for a given number of times (default 10). Division is stratified by default. Function also accepts keyword arguments for randomization and storing classifiers."
+    }
+  },
+  {
+    "pk": 152,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 79,
+      "name": "learners",
+      "short_name": "lrn",
+      "uid": "b77f51b3-6c21-4d6a-922a-bbbb4679155d",
+      "default": "",
+      "required": false,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "learners",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 153,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 79,
+      "name": "dataset",
+      "short_name": "odt",
+      "uid": "2b2037f4-b240-4b26-81e5-8ca01a215193",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 154,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 79,
+      "name": "Proportion",
+      "short_name": "prp",
+      "uid": "ff523b52-e08b-4da5-bb2c-7050731dcf16",
+      "default": "0.7",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "learnProp",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 155,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 79,
+      "name": "Number of repetitions",
+      "short_name": "rep",
+      "uid": "da5ab14e-9e1c-4395-b6ce-8ff0d53de4c9",
+      "default": "100",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "times",
+      "parameter": true,
+      "order": 4,
+      "description": ""
+    }
+  },
+  {
+    "pk": 81,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 79,
+      "name": "Results",
+      "short_name": "res",
+      "variable": "results",
+      "uid": "3e0d529d-53f2-4cbe-9df9-37903837eba5",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 13,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009",
+      "parent": 10,
+      "workflow": null,
+      "user": null,
+      "order": 3,
+      "name": "Utilities"
+    }
+  },
+  {
+    "pk": 99,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "",
+      "name": "ARFF string to Orange Data Table",
+      "is_streaming": false,
+      "uid": "d978d9ba-40dc-427e-b16f-066f13ada8e5",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "load_dataset_from_arff_string",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 189,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 99,
+      "name": "Arff string",
+      "short_name": "arf",
+      "uid": "",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "arff",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 111,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 99,
+      "name": "Orange Data Table",
+      "short_name": "odt",
+      "variable": "dataset",
+      "uid": "",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 57,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "treeview/add_noise3.png",
+      "name": "Add Class Noise",
+      "is_streaming": false,
+      "uid": "4c603285-3aa7-4b55-8d57-cc8285e212c2",
+      "interaction_view": "",
+      "image": "images/add_noise3.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "add_class_noise",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Adds class noise to a specified percentage of data instances."
+    }
+  },
+  {
+    "pk": 110,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 57,
+      "name": "Random Seed",
+      "short_name": "rns",
+      "uid": "89c20239-c4e0-4368-9828-ab73155e2457",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "rnd_seed",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 111,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 57,
+      "name": "Dataset",
+      "short_name": "ds",
+      "uid": "aa5d2630-534f-4662-8da5-342b2e87995b",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 112,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 57,
+      "name": "Noise Level (%)",
+      "short_name": "nlv",
+      "uid": "9c5ec335-76a0-4208-81a0-76b4a0457d5d",
+      "default": "5",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "noise_level",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 61,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 57,
+      "name": "Noisy Dataset",
+      "short_name": "nds",
+      "variable": "noisy_data",
+      "uid": "3b5b1e3c-a589-47f5-bd88-e65ccfcfc988",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 62,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 57,
+      "name": "Noise Indices",
+      "short_name": "nid",
+      "variable": "noise_inds",
+      "uid": "4ce3dc8e-7947-4ab4-825b-2b5afe379e34",
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 58,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "",
+      "name": "Alter table",
+      "is_streaming": false,
+      "uid": "6f73d7a0-ed32-4ff8-9743-6a5d0867c693",
+      "interaction_view": "alter_table",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "alter_table_finished",
+      "user": null,
+      "visualization_view": "",
+      "action": "alter_table",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 113,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 58,
+      "name": "Table",
+      "short_name": "tab",
+      "uid": "1aff9f6a-6d0b-4cf2-ae5c-6de3301dc931",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 63,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 58,
+      "name": "Table",
+      "short_name": "tab",
+      "variable": "altered_data",
+      "uid": "27079127-e4e6-45bd-a2e2-11aade432583",
+      "order": 1,
+      "description": "Altered table"
+    }
+  },
+  {
+    "pk": 59,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "treeview/Load-ODT.png",
+      "name": "Load Dataset to Orange Data Table",
+      "is_streaming": false,
+      "uid": "776564a9-74ae-4651-8340-c52c055cecbc",
+      "interaction_view": "",
+      "image": "images/Load-ODT.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "load_dataset",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 114,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 59,
+      "name": "File",
+      "short_name": "fil",
+      "uid": "748e5dff-6c21-4feb-af71-aaf955f73893",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "file",
+      "variable": "file",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 64,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 59,
+      "name": "Dataset",
+      "short_name": "ds",
+      "variable": "dataset",
+      "uid": "91783e70-d1df-4467-939f-d0800108850c",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 61,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "treeview/ODT-to-ARFF-string.png",
+      "name": "Orange Data Table to ARFF String",
+      "is_streaming": false,
+      "uid": "e85e8eee-a6c1-464c-ab11-fecf4240fdd0",
+      "interaction_view": "",
+      "image": "images/ODT-to-ARFF-string.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "odt_to_arff",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Transforms an orange data table to an arff string."
+    }
+  },
+  {
+    "pk": 116,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 61,
+      "name": "Orange data table",
+      "short_name": "odt",
+      "uid": "052788be-6a3d-4c8f-be34-b957ff445c04",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "odt",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 65,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 61,
+      "name": "ARFF",
+      "short_name": "arf",
+      "variable": "arff",
+      "uid": "02062c11-09e0-4bfd-b712-ad1c655a5e02",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 60,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "",
+      "name": "Orange Data Table to ARFF file",
+      "is_streaming": false,
+      "uid": "c5a545bb-e0ac-4b73-aa76-4add863e3252",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "odt_to_arff",
+      "action": "string_to_file",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 115,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 60,
+      "name": "Data",
+      "short_name": "dat",
+      "uid": "1eb8eb33-61d6-4b77-93ef-abfe6fd2c15f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 62,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "",
+      "name": "Orange Data Table to CSV file",
+      "is_streaming": false,
+      "uid": "dae920fc-c301-4285-9707-9aa8dbb9b9f7",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "odt_to_csv",
+      "action": "string_to_file",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 117,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 62,
+      "name": "Data",
+      "short_name": "dat",
+      "uid": "a9f98093-9488-483a-bfd2-4e484b1c1ccb",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 63,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "",
+      "name": "Orange Data Table to TAB file",
+      "is_streaming": false,
+      "uid": "6f475ead-0c0e-4b77-bc1a-ccfa7614962c",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "odt_to_tab",
+      "action": "string_to_file",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 118,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 63,
+      "name": "Dataset",
+      "short_name": "dat",
+      "uid": "1b6f9c59-36f1-4deb-bec7-c9633f6c7fd8",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 64,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "treeview/Orange-SelectAttributes_60.png",
+      "name": "Select Attributes",
+      "is_streaming": false,
+      "uid": "7b3455ff-5b2a-4c51-aa09-38dab4dfc2dc",
+      "interaction_view": "select_attrs",
+      "image": "images/Orange-SelectAttributes_60.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "select_attrs_post",
+      "user": null,
+      "visualization_view": "",
+      "action": "select_attrs",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 119,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 64,
+      "name": "Data table",
+      "short_name": "tab",
+      "uid": "d0f1d1e2-b3e8-4f79-bb88-50c2f3812e79",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": "Data table in form of a .tab file."
+    }
+  },
+  {
+    "pk": 66,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 64,
+      "name": "Data table",
+      "short_name": "tab",
+      "variable": "data",
+      "uid": "59a32aa6-0c2d-41d4-a0f0-690eef9ee3c1",
+      "order": 1,
+      "description": "Modified data table, with designated Class Attribute."
+    }
+  },
+  {
+    "pk": 65,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "treeview/orange-SelectData.png",
+      "name": "Select Data",
+      "is_streaming": false,
+      "uid": "2039c5fe-48a1-426c-b418-f0a16fdf1b18",
+      "interaction_view": "select_data",
+      "image": "images/orange-SelectData.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "select_data_post",
+      "user": null,
+      "visualization_view": "",
+      "action": "select_data",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Select data according to the filter provided by user"
+    }
+  },
+  {
+    "pk": 120,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 65,
+      "name": "data",
+      "short_name": "dat",
+      "uid": "042b574e-c08a-43ad-87db-9030a8a74cb8",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": "Data to be filtered."
+    }
+  },
+  {
+    "pk": 67,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 65,
+      "name": "Matching Data",
+      "short_name": "dat",
+      "variable": "data",
+      "uid": "93e88b7e-048a-412d-b93f-552659e62ecb",
+      "order": 1,
+      "description": "Data matching the filter provided"
+    }
+  },
+  {
+    "pk": 68,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "",
+      "name": "Split dataset",
+      "is_streaming": false,
+      "uid": "af4010a8-836c-41c7-adf6-50118295cf8e",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_split_dataset",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Splits a dataset to a train and test dataset."
+    }
+  },
+  {
+    "pk": 123,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 68,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "fe354f76-d6ed-4907-9ab6-d8784b3c7620",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": "A dataset that will be split into two parts"
+    }
+  },
+  {
+    "pk": 124,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 68,
+      "name": "Split factor",
+      "short_name": "p",
+      "uid": "6a637f14-7ba4-4c33-90e0-6cc260587260",
+      "default": "0.5",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "p",
+      "parameter": true,
+      "order": 1,
+      "description": "A number between 0 and 1 that determines the sizes of the two datasets"
+    }
+  },
+  {
+    "pk": 69,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 68,
+      "name": "Train data",
+      "short_name": "tra",
+      "variable": "train_data",
+      "uid": "665e0af4-6e6e-4616-8e96-2d8866497a40",
+      "order": 1,
+      "description": "Train data"
+    }
+  },
+  {
+    "pk": 70,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 68,
+      "name": "Test data",
+      "short_name": "tes",
+      "variable": "test_data",
+      "uid": "514abf26-b0d5-4483-9273-6b930bf4eb68",
+      "order": 1,
+      "description": "Test data"
+    }
+  },
+  {
+    "pk": 66,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "",
+      "name": "Table viewer",
+      "is_streaming": false,
+      "uid": "5becb9ab-93a8-4811-aa37-66ca85a7c0f3",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "table_viewer",
+      "action": "table_viewer",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 121,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 66,
+      "name": "Table",
+      "short_name": "tab",
+      "uid": "8b1571c3-dc4d-401b-a634-560236572496",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 67,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 13,
+      "treeview_image": "treeview/UCI-2-ODT.png",
+      "name": "UCI Dataset to Orange Data Table",
+      "is_streaming": false,
+      "uid": "4e8683ae-c571-413c-a592-2093de96e8d1",
+      "interaction_view": "",
+      "image": "images/UCI-2-ODT.png",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "uci_to_odt",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 122,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 67,
+      "name": "Dataset",
+      "short_name": "ds",
+      "uid": "268452b1-6016-404d-bdb8-01f03df4890f",
+      "default": "iris.tab",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "filename",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 10,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "0808be1d-5602-4277-9571-96ecb1faf58b",
+      "abstract_input": 122,
+      "value": "adult_sample.tab",
+      "name": "Adult (sample)"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "46fca181-b956-47c6-8281-eb60b69052d8",
+      "abstract_input": 122,
+      "value": "balance-scale.tab",
+      "name": "Balance Scale"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "84129065-b876-4ce7-ac3a-09d5dd19989b",
+      "abstract_input": 122,
+      "value": "breast-cancer.tab",
+      "name": "Breast Cancer"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "dd097a8f-01c7-4ec6-b00e-22efe6aeeb61",
+      "abstract_input": 122,
+      "value": "breast-cancer-wisconsin.tab",
+      "name": "Breast Cancer Wisconsin"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "45898880-5a9e-4b8f-9a04-d04c77a0ab28",
+      "abstract_input": 122,
+      "value": "car.tab",
+      "name": "Car Evaluation"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "2b7b385d-b1c5-4242-86eb-ce77602f2c8b",
+      "abstract_input": 122,
+      "value": "voting.tab",
+      "name": "Congressional Voting Records"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e2e36bac-e538-4783-9821-81d57a5eba58",
+      "abstract_input": 122,
+      "value": "crx.tab",
+      "name": "Credit Approval"
+    }
+  },
+  {
+    "pk": 17,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "33892420-6b22-4262-93d8-45f8c0fb05f8",
+      "abstract_input": 122,
+      "value": "glass.tab",
+      "name": "Glass Identification"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "346d63f4-53ec-40d1-8080-e97e1f8b7663",
+      "abstract_input": 122,
+      "value": "heart_disease.tab",
+      "name": "Heart Disease"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "6edc1a09-369f-4465-8b0e-0c6f192f0d82",
+      "abstract_input": 122,
+      "value": "horse-colic.tab",
+      "name": "Horse Colic"
+    }
+  },
+  {
+    "pk": 40,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "1e765b4f-0c6f-43d6-a4c8-630faa528030",
+      "abstract_input": 122,
+      "value": "housing.tab",
+      "name": "Housing"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e14dbdbb-5849-4a56-b8be-8fc2d75d280d",
+      "abstract_input": 122,
+      "value": "ionosphere.tab",
+      "name": "Ionosphere"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "bfd3ffc2-f47c-487f-bfa1-4331a1c5aa3c",
+      "abstract_input": 122,
+      "value": "iris.tab",
+      "name": "Iris"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "695fadad-4433-4d51-88d9-c6ca9ccf0730",
+      "abstract_input": 122,
+      "value": "kr-vs-kp.tab",
+      "name": "King Rook vs. King Pawn"
+    }
+  },
+  {
+    "pk": 23,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "27f607c8-651a-4637-a4ab-4f7f12a0a37f",
+      "abstract_input": 122,
+      "value": "lenses.tab",
+      "name": "Lenses"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "66a974be-f910-4710-a18a-87a98136ae7d",
+      "abstract_input": 122,
+      "value": "bupa.tab",
+      "name": "Liver Disorder (BUPA)"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "338f8871-e237-4c35-a34c-03228248deac",
+      "abstract_input": 122,
+      "value": "lung-cancer.tab",
+      "name": "Lung Cancer"
+    }
+  },
+  {
+    "pk": 26,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "b0a9f5aa-1b16-4dba-981d-eb9145883700",
+      "abstract_input": 122,
+      "value": "promoters.tab",
+      "name": "Molecular Biology (Promoter Gene Sequences)"
+    }
+  },
+  {
+    "pk": 27,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "a316eaf4-053b-4b02-9c96-c5f80f06d02f",
+      "abstract_input": 122,
+      "value": "monks-1_test.tab",
+      "name": "Monks 1 Test"
+    }
+  },
+  {
+    "pk": 28,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "9ab37819-cdd4-4dba-8a38-21bf7d3076f0",
+      "abstract_input": 122,
+      "value": "monks-2_test.tab",
+      "name": "Monks 2 Test"
+    }
+  },
+  {
+    "pk": 29,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "0d832f9c-6fa6-4af9-bbb5-b6bfdabbbe5e",
+      "abstract_input": 122,
+      "value": "monks-3_test.tab",
+      "name": "Monks 3 Test"
+    }
+  },
+  {
+    "pk": 30,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "f498f469-904c-4e36-88d1-9748495e6cf3",
+      "abstract_input": 122,
+      "value": "mushroom.tab",
+      "name": "Mushroom"
+    }
+  },
+  {
+    "pk": 31,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "136a2c2e-a3b6-4abb-88f1-641ca837804b",
+      "abstract_input": 122,
+      "value": "post-operative.tab",
+      "name": "Post-Operative Patient"
+    }
+  },
+  {
+    "pk": 32,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "8ecb78b9-17d4-48d7-8bdf-09c09445a569",
+      "abstract_input": 122,
+      "value": "tic_tac_toe.tab",
+      "name": "Tic Tac Toe"
+    }
+  },
+  {
+    "pk": 33,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "d7033002-c7de-4295-84ff-c9a9b2e32cb6",
+      "abstract_input": 122,
+      "value": "wine.tab",
+      "name": "Wine"
+    }
+  },
+  {
+    "pk": 34,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "1b451375-329b-46f2-b471-9e4d7d0bc6ca",
+      "abstract_input": 122,
+      "value": "yeast.tab",
+      "name": "Yeast"
+    }
+  },
+  {
+    "pk": 35,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "d1464e56-53fc-47fd-b1b4-43d635159c45",
+      "abstract_input": 122,
+      "value": "zoo.tab",
+      "name": "Zoo"
+    }
+  },
+  {
+    "pk": 68,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 67,
+      "name": "Orange Data Table",
+      "short_name": "odt",
+      "variable": "data",
+      "uid": "2150098d-bcd0-480a-afac-78a833e76eb5",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 14,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "81efce93-b6c5-4270-bde9-ec946a394b10",
+      "parent": 10,
+      "workflow": null,
+      "user": null,
+      "order": 4,
+      "name": "Feature Subset Selection"
+    }
+  },
+  {
+    "pk": 72,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 14,
+      "treeview_image": "",
+      "name": "Filter ReliefF",
+      "is_streaming": false,
+      "uid": "7547eb6d-e83d-4033-b0cb-1e8319c2508f",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_filter_relieff",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Takes the data set data and a measure for score of attributes measure. Repeats the process of estimating attributes and removing the worst attribute if its measure is lower than margin. Stops when no attribute score is below this margin. The default for measure is relief(k=20, m=50), and margin defaults to 0.0"
+    }
+  },
+  {
+    "pk": 134,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 72,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "2dc5a9e7-06c8-494f-9f4b-80b3c5eb31ff",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 135,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 72,
+      "name": "k",
+      "short_name": "k",
+      "uid": "3ef628d4-03af-4d46-b90b-6c4475054d31",
+      "default": "20",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "k",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 136,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 72,
+      "name": "m",
+      "short_name": "m",
+      "uid": "9b3082b4-5903-41cb-a4c0-63d471f80f57",
+      "default": "50",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "m",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 137,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 72,
+      "name": "margin",
+      "short_name": "mrg",
+      "uid": "1cce36a4-167d-4a23-83ee-eae626a3b492",
+      "default": "0.0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "margin",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 74,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 72,
+      "name": "New Dataset",
+      "short_name": "odt",
+      "variable": "new_dataset",
+      "uid": "60efae56-9748-471d-b85d-9c9a3bc84f52",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 69,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 14,
+      "treeview_image": "",
+      "name": "Score estimation (Relief)",
+      "is_streaming": false,
+      "uid": "d7f0e9b0-aa2a-4cdb-b4a8-cfb3b0bafa43",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_score_estimation",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 125,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 69,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "964fbb76-a749-4775-a665-ff0242b7dc2c",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 126,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 69,
+      "name": "k",
+      "short_name": "k",
+      "uid": "d6f4067c-39c3-4ea5-80f8-77759db7b2dc",
+      "default": "20",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "k",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 127,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 69,
+      "name": "m",
+      "short_name": "m",
+      "uid": "cc9cff1e-75d7-474c-8408-dc39aec692af",
+      "default": "50",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "m",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 71,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 69,
+      "name": "Scores",
+      "short_name": "sco",
+      "variable": "results",
+      "uid": "45a4eb83-dc9d-4800-b9eb-ad145e3abf6c",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 71,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 14,
+      "treeview_image": "",
+      "name": "Select Attributes Above Threshold",
+      "is_streaming": false,
+      "uid": "660c49cb-21ca-4e06-97ca-893946340b7f",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_atts_above_thresh",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Constructs and returns a new data set that includes a class and attributes from the list returned by function attMeasure that have the score above or equal to a specified threshold. data is used to pass an original data set. Parameter threshold is optional and defaults to 0.0."
+    }
+  },
+  {
+    "pk": 131,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 71,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "ca1fcc61-3c66-4908-a381-0974fecda1a1",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 132,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 71,
+      "name": "Scores",
+      "short_name": "sco",
+      "uid": "2e60fc2e-3470-46d3-a64f-ab1e7c75487b",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "scores",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 133,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 71,
+      "name": "Threshold",
+      "short_name": "thr",
+      "uid": "2ee5a729-2e13-49c0-805b-120833d80909",
+      "default": "0.0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "thresh",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 73,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 71,
+      "name": "New Dataset",
+      "short_name": "odt",
+      "variable": "new_dataset",
+      "uid": "5fe21797-fc14-4bb3-b7fb-de879279a533",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 70,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 14,
+      "treeview_image": "",
+      "name": "Select best N attributes",
+      "is_streaming": false,
+      "uid": "68ce4c2e-baf7-4a2e-843b-3b5622c20448",
+      "interaction_view": "",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_best_natts",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Constructs and returns a new data set that includes a class and only N best attributes from a list scores. data is used to pass an original data set."
+    }
+  },
+  {
+    "pk": 128,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 70,
+      "name": "Dataset",
+      "short_name": "odt",
+      "uid": "b41c9bbf-7405-451d-8dda-794ce850d452",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 129,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 70,
+      "name": "Scores",
+      "short_name": "sco",
+      "uid": "a19e140e-4aab-4491-9536-992152a3d56f",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "scores",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 130,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 70,
+      "name": "N",
+      "short_name": "n",
+      "uid": "af3d33a6-674f-42c6-a092-abfd65196617",
+      "default": "3",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "n",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 72,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 70,
+      "name": "New Dataset",
+      "short_name": "odt",
+      "variable": "new_dataset",
+      "uid": "27db7439-6424-4565-b8ce-711adfe7fcf2",
+      "order": 1,
+      "description": ""
+    }
+  }
+]

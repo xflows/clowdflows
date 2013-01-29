@@ -2,6 +2,7 @@ import nlp
 import os.path
 import base64
 from services.webservice import WebService
+from workflows.security import safeOpen
 
 def merge_sentences(input_dict):
     """

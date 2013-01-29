@@ -1,0 +1,392 @@
+[
+  {
+    "pk": 36,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "54d259aa-2937-4ba2-8e60-017425fc55cf",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Orange"
+    }
+  },
+  {
+    "pk": 71,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "b01ed61e-31e6-4f6f-87b1-f93285801d1b",
+      "parent": 36,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Subgroup discovery"
+    }
+  },
+  {
+    "pk": 294,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 71,
+      "treeview_image": "",
+      "name": "Build subgroups",
+      "is_streaming": false,
+      "uid": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12",
+      "interaction_view": "build_subgroups",
+      "image": "",
+      "package": "subgroup_discovery",
+      "static_image": "builder.png",
+      "post_interact_action": "build_subgroups_finished",
+      "user": null,
+      "visualization_view": "",
+      "action": "build_subgroups",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 981,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 294,
+      "name": "Data table",
+      "short_name": "dat",
+      "uid": "3f631385-f579-431d-9b00-887fdfcfe39c",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 348,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 294,
+      "name": "SD rules",
+      "short_name": "rul",
+      "variable": "rules",
+      "uid": "81a5d62c-9725-4ec1-a352-d18ef75e0a74",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 350,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 294,
+      "name": "SD classifier",
+      "short_name": "cls",
+      "variable": "classifier",
+      "uid": "3095ff52-cc73-4d70-92bf-1bdfa81a5631",
+      "order": 2,
+      "description": "classifier"
+    }
+  },
+  {
+    "pk": 298,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 71,
+      "treeview_image": "",
+      "name": "Query data with subgroups",
+      "is_streaming": false,
+      "uid": "920cd259-b727-4f88-b4a6-bea0c3ea60b1",
+      "interaction_view": "",
+      "image": "",
+      "package": "subgroup_discovery",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "query_with_subgroups",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 985,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 298,
+      "name": "Data table",
+      "short_name": "dat",
+      "uid": "df3a0ac5-ca5f-483a-91c1-d5a32a404de9",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": "data table"
+    }
+  },
+  {
+    "pk": 986,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 298,
+      "name": "SD Rules",
+      "short_name": "rul",
+      "uid": "ca5c3d62-8f8b-4cfd-9be2-200e5c5fd6fc",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "rules",
+      "parameter": false,
+      "order": 2,
+      "description": "rules"
+    }
+  },
+  {
+    "pk": 352,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 298,
+      "name": "Data table",
+      "short_name": "dat",
+      "variable": "data",
+      "uid": "240f52b7-74cf-4451-9ca9-27d647a0a7b9",
+      "order": 1,
+      "description": "queried data"
+    }
+  },
+  {
+    "pk": 354,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 298,
+      "name": "Data table",
+      "short_name": "rem",
+      "variable": "remaining_data",
+      "uid": "fb43b33f-8d79-4240-a8fb-2cb49fc28875",
+      "order": 2,
+      "description": "remaining data"
+    }
+  },
+  {
+    "pk": 297,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 71,
+      "treeview_image": "",
+      "name": "Select subgroups",
+      "is_streaming": false,
+      "uid": "6e02a8d4-fe84-4430-8a74-beb1e4c51964",
+      "interaction_view": "select_subgroups",
+      "image": "",
+      "package": "subgroup_discovery",
+      "static_image": "",
+      "post_interact_action": "select_subgroups_finished",
+      "user": null,
+      "visualization_view": "select_subgroups",
+      "action": "select_subgroups",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 984,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 297,
+      "name": "SD rules",
+      "short_name": "rul",
+      "uid": "a9f87b37-1b21-47d3-80fa-687d68f2a5c3",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "rules",
+      "parameter": false,
+      "order": 1,
+      "description": "rules"
+    }
+  },
+  {
+    "pk": 351,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 297,
+      "name": "SD rules",
+      "short_name": "rul",
+      "variable": "sel_rules",
+      "uid": "a95fdc85-da40-4fd3-a324-7940bd9132d9",
+      "order": 1,
+      "description": "selected rules"
+    }
+  },
+  {
+    "pk": 296,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 71,
+      "treeview_image": "",
+      "name": "Subgroup ROC visualization",
+      "is_streaming": false,
+      "uid": "b05c5df4-d3fb-44e6-b647-b4c5f78c05cf",
+      "interaction_view": "",
+      "image": "",
+      "package": "subgroup_discovery",
+      "static_image": "roc.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "subgroup_roc_visualization",
+      "action": "subgroup_roc_visualization",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 983,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 296,
+      "name": "SD rules",
+      "short_name": "rul",
+      "uid": "8ceb4772-878e-45c1-b43c-c3ab8605abd0",
+      "default": "",
+      "required": true,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "rules",
+      "parameter": false,
+      "order": 1,
+      "description": "rules"
+    }
+  },
+  {
+    "pk": 295,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 71,
+      "treeview_image": "",
+      "name": "Subgroup bar visualization",
+      "is_streaming": false,
+      "uid": "b3cb0462-6bae-4922-a67d-504e93fc0fc6",
+      "interaction_view": "",
+      "image": "",
+      "package": "subgroup_discovery",
+      "static_image": "bar.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "subgroup_bar_visualization",
+      "action": "subgroup_bar_visualization",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 982,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 295,
+      "name": "SD rules",
+      "short_name": "rul",
+      "uid": "1c212c77-bc15-437c-a69a-1a9e153a35d1",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "rules",
+      "parameter": false,
+      "order": 1,
+      "description": "rules"
+    }
+  },
+  {
+    "pk": 39,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "6ff015c3-71f5-4c20-8f4c-e63ea090c586",
+      "parent": 36,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Utilities"
+    }
+  },
+  {
+    "pk": 299,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 39,
+      "treeview_image": "",
+      "name": "Table from sets of examples",
+      "is_streaming": false,
+      "uid": "13af5c58-1384-417e-9cc6-11e1853c19eb",
+      "interaction_view": "table_from_sets",
+      "image": "",
+      "package": "subgroup_discovery",
+      "static_image": "",
+      "post_interact_action": "table_from_sets_finished",
+      "user": null,
+      "visualization_view": "",
+      "action": "table_from_sets",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 987,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 299,
+      "name": "Data table",
+      "short_name": "dat",
+      "uid": "183384b7-3c8a-41e4-becf-25c852689b0a",
+      "default": "",
+      "required": true,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "data",
+      "parameter": false,
+      "order": 1,
+      "description": "one set of examples"
+    }
+  },
+  {
+    "pk": 353,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 299,
+      "name": "Data table",
+      "short_name": "dat",
+      "variable": "merged_data",
+      "uid": "d95b0b32-fdc9-419b-9f7d-fde45587b4de",
+      "order": 1,
+      "description": "new data table"
+    }
+  }
+]

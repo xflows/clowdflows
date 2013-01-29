@@ -102,7 +102,6 @@ def call_webservice(input_dict):
         except Exception as e: 
             print e
             ws_dict[i['name']]=''
-    print ws_dict
     results = function_to_call(**ws_dict)
     output_dict=results
     return output_dict
@@ -563,6 +562,16 @@ def load_dataset(input_dict):
     import orange
     output_dict = {}
     output_dict['dataset'] = orange.ExampleTable(input_dict['file'])
+    return output_dict
+
+def load_dataset_from_arff_string(input_dict):
+    import orange
+    import tempfile
+    f = tempfile.NamedTemporaryFile(delete=False,suffix='.arff')
+    f.write(input_dict['arff'])
+    f.close()
+    output_dict = {}
+    output_dict['dataset'] = orange.ExampleTable(f.name)
     return output_dict
     
 # SATURATION NOISE FILTER
