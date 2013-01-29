@@ -563,6 +563,16 @@ def load_dataset(input_dict):
     output_dict = {}
     output_dict['dataset'] = orange.ExampleTable(input_dict['file'])
     return output_dict
+
+def load_dataset_from_arff_string(input_dict):
+    import orange
+    import tempfile
+    f = tempfile.NamedTemporaryFile(delete=False,suffix='.arff')
+    f.write(input_dict['arff'])
+    f.close()
+    output_dict = {}
+    output_dict['dataset'] = orange.ExampleTable(f.name)
+    return output_dict
     
 # SATURATION NOISE FILTER
 
