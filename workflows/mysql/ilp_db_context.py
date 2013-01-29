@@ -66,9 +66,9 @@ class RSD_DBContext(ILP_DBContext):
                 '\t%s(%s).' % (ref_table, ','.join(ref_table_args))]
 
     def attribute_clause(self, table, att):
-        var_table, var_att = table.capitalize(), att.capitalize()
-        return ['has_%s(%s, %s) :-' % (att, var_table, var_att),
-                '\t%s(%s).' % (table, ','.join([att.capitalize() for att in self.db.cols[table]]))]
+        var_table, var_att, pk = table.capitalize(), att.capitalize(), self.db.pkeys[table]
+        return ['%s_%s(%s, %s) :-' % (table, att, var_table, var_att),
+                '\t%s(%s).' % (table, ','.join([att.capitalize() if att!=pk else var_table for att in self.db.cols[table]]))]
 
     def db_connection(self):
         con = self.db.connection
@@ -91,8 +91,18 @@ class Aleph_DBContext(ILP_DBContext):
 from context import DBConnection, DBContext
 
 context = DBContext(DBConnection('root','','localhost','test'))
-context.target_att = 'shape'
+context.target_table = 'trains'
+context.target_att = 'direction'
 
 rsd = RSD_DBContext(context)
-print rsd.all_examples()
-print rsd.background_knowledge()
+ex, bk = rsd.all_examples(), rsd.background_knowledge()
+print ex
+print bk
+
+f = open('trains_mysql.pl','w')
+f.write(ex)
+f.close()
+
+f = open('trains_mysql.b','w')
+f.write(bk)
+f.close()
