@@ -191,3 +191,30 @@ def sdmsegs_viewer(request,input_dict,output_dict,widget):
         }
     output_dict = {'json_output':output}
     return render(request, 'visualizations/sdmsegs_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
+
+def tree_visualization(request, input_dict, output_dict, widget):
+    import Orange
+    import pydot
+
+    import tempfile
+    f = tempfile.NamedTemporaryFile(delete=False,suffix='.dot')
+
+    tree = input_dict['clt']
+    tree.dot(f, leaf_shape="oval", node_shape="box")
+
+    f.close()
+
+    dot_file = open(f.name,"r")
+    dot_data = dot_file.read()
+
+    tree_visualization_graph = pydot.graph_from_dot_data(dot_data)
+
+    tree_visualization_graph.set_name("TreeVisualization")
+
+    tree_visualization_graph.set_size("9")
+
+    tree_visualization_graph.set_ratio("fill")
+
+    tree_visualization = tree_visualization_graph.create_svg()
+
+    return render(request, 'visualizations/tree_visualization.html', {'widget':widget, 'input_dict':input_dict, 'svg':tree_visualization})

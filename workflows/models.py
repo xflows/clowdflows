@@ -267,7 +267,7 @@ class AbstractWidget(models.Model):
             i.uid = uuid.uuid4()
             if commit:
                 i.save()
-            for option in i:
+            for option in i.options.all():
                 option.uid = uuid.uuid4()
                 if commit:
                     option.save()
