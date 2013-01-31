@@ -2519,7 +2519,7 @@
       "widget": 99,
       "name": "Arff string",
       "short_name": "arf",
-      "uid": "",
+      "uid": "f05fee52-61fe-4f93-81a1-59fd9976fd3b",
       "default": "",
       "required": false,
       "multi": false,
@@ -2538,7 +2538,7 @@
       "name": "Orange Data Table",
       "short_name": "odt",
       "variable": "dataset",
-      "uid": "",
+      "uid": "cc43108f-9c7f-4da0-83f1-7fccacad9bc4",
       "order": 1,
       "description": ""
     }
