@@ -283,3 +283,101 @@ def cforange_prepare_results(input_dict):
         newlist.append(newdict)
     output_dict['alp']=newlist
     return output_dict
+
+def cforange_example_distance(input_dict):
+    import orange
+    import random
+    import orngClustering
+    import orngMisc
+    inputdata = input_dict['dataset']
+    metricsIndex = int(input_dict['distanceMetrics'])
+    metrics = [
+        ("Euclidean", orange.ExamplesDistanceConstructor_Euclidean),
+        ("Pearson Correlation", orngClustering.ExamplesDistanceConstructor_PearsonR),
+        ("Spearman Rank Correlation", orngClustering.ExamplesDistanceConstructor_SpearmanR),
+        ("Manhattan", orange.ExamplesDistanceConstructor_Manhattan),
+        ("Hamming", orange.ExamplesDistanceConstructor_Hamming),
+        ("Relief", orange.ExamplesDistanceConstructor_Relief),
+        ]
+
+    normalize = input_dict['normalization']
+    if normalize=='true':
+        normalize = True
+    else:
+        normalize = False
+
+    data = inputdata
+    constructor = metrics[metricsIndex][1]()
+    constructor.normalize = normalize
+    dist = constructor(data)
+    matrix = orange.SymMatrix(len(data))
+    matrix.setattr('items', data)
+    for i in range(len(data)):
+        for j in range(i+1):
+            matrix[i, j] = dist(data[i], data[j])
+    output_dict = {}
+    output_dict['dm']=matrix
+    return output_dict
+
+def cforange_attribute_distance(input_dict):
+    import orange
+    import orngInteract
+    inputdata = input_dict['dataset']
+    discretizedData = None
+    classInteractions = int(input_dict['classInteractions'])
+    atts = inputdata.domain.attributes
+    if len(atts) < 2:
+        return None
+    matrix = orange.SymMatrix(len(atts))
+    matrix.setattr('items', atts)
+    if classInteractions < 3:
+        if inputdata.domain.hasContinuousAttributes():
+            if discretizedData is None:
+                try:
+                    discretizedData = orange.Preprocessor_discretize(inputdata, method=orange.EquiNDiscretization(numberOfIntervals=4))
+                except orange.KernelException, ex:
+                    return None
+            data = discretizedData
+        else:
+            data = inputdata
+
+        # This is ugly (no shit)
+        if not data.domain.classVar:
+            if classInteractions == 0:
+                classedDomain = orange.Domain(data.domain.attributes, orange.EnumVariable("foo", values=["0", "1"]))
+                data = orange.ExampleTable(classedDomain, data)
+            else:
+                return None
+
+        im = orngInteract.InteractionMatrix(data, dependencies_too=1)
+        off = 1
+        if classInteractions == 0:
+            diss,labels = im.exportChi2Matrix()
+            off = 0
+        elif classInteractions == 1:
+            (diss,labels) = im.depExportDissimilarityMatrix(jaccard=1)  # 2-interactions
+        else:
+            (diss,labels) = im.exportDissimilarityMatrix(jaccard=1)  # 3-interactions
+
+        for i in range(len(atts)-off):
+            for j in range(i+1):
+                matrix[i+off, j] = diss[i][j]
+
+    else:
+        if classInteractions == 3:
+            for a1 in range(len(atts)):
+                for a2 in range(a1):
+                    matrix[a1, a2] = (1.0 - orange.PearsonCorrelation(a1, a2, inputdata, 0).r) / 2.0
+        else:
+            if len(inputdata) < 3:
+                return None
+            import numpy, statc
+            m = inputdata.toNumpyMA("A")[0]
+            averages = numpy.ma.average(m, axis=0)
+            filleds = [list(numpy.ma.filled(m[:,i], averages[i])) for i in range(len(atts))]
+            for a1, f1 in enumerate(filleds):
+                for a2 in range(a1):
+                    matrix[a1, a2] = (1.0 - statc.spearmanr(f1, filleds[a2])[0]) / 2.0
+    output_dict = {}
+    output_dict['dm']=matrix        
+    return output_dict
