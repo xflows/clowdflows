@@ -381,3 +381,9 @@ def cforange_attribute_distance(input_dict):
     output_dict = {}
     output_dict['dm']=matrix        
     return output_dict
+
+def cforange_hierarchical_clustering(input_dict):
+    return {'centroids' : None, 'selected_examples' : None, 'unselected_examples' : None}
+
+def cforange_hierarchical_clustering_finished(input_dict):
+    return {'centroids' : None, 'selected_examples' : None, 'unselected_examples' : None}

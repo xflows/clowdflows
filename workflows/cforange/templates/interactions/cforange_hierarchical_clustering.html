@@ -1,0 +1,186 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction" width="1280" height="800">
+    <div>
+        <div id="clustering_canvas{{widget.pk}}"></div>
+        <form> 
+            <input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+        </form>
+    </div>
+</div>
+<style type="text/css">
+path.arc {
+  cursor: move;
+  fill: #fff;
+}
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node {
+  font-size: 10px;
+  pointer-events: none;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+</style>
+<script type="text/javascript">
+var hierarchy = {{hierarchy|safe}};
+draw(1280, 800, hierarchy, "#clustering_canvas{{widget.pk}}");
+function draw(w, h, hierarchy, target) {
+    var rx = w/2,
+      ry = h/2,
+      m0,
+      rotate = 0,
+      delta = 30;
+
+    var root = [rx, ry];
+    var width = ry - delta;
+
+    var cluster = d3.layout.cluster()
+      .size([360, ry - delta])
+      .sort(null);
+
+    var diagonal = d3.svg.diagonal.radial()
+      .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+
+    var svg = d3.select(target).append("div")
+      .style("width", w + "px")
+      .style("height", w + "px")
+      .on("click", select_clusters);
+
+    var vis = svg.append("svg:svg")
+      .attr("width", w)
+      .attr("height", w)
+    .append("svg:g")
+      .attr("transform", "translate(" + rx + "," + ry + ")");
+
+    vis.append("svg:path")
+      .attr("class", "arc")
+      .attr("d", d3.svg.arc().innerRadius(ry - delta).outerRadius(ry).startAngle(0).endAngle(2 * Math.PI))
+      .on("mousedown", mousedown);
+
+    var nodes = cluster.nodes(hierarchy);
+    var max_height = 0;
+    for (node in nodes) {
+        if (nodes[node].height>max_height) {
+            max_height=nodes[node].height;
+        }
+    }
+
+    for (node in nodes) {
+        nodes[node].y = width-(nodes[node].height/max_height) * width;
+    }
+
+    var link = vis.selectAll("path.link")
+      .data(cluster.links(nodes))
+    .enter().append("svg:path")
+      .attr("class", "link")
+      .attr("d", diagonal);
+
+    var node = vis.selectAll("g.node")
+      .data(nodes)
+    .enter().append("svg:g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; });
+
+    node.append("svg:circle")
+      .attr("r", 3);
+
+    node.append("svg:text")
+      .attr("dx", function(d) { return d.x < 180 ? 8 : -8; })
+      .attr("dy", ".31em")
+      .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+      .attr("transform", function(d) { return d.x < 180 ? null : "rotate(180)"; })
+      .text(function(d) { return d.name; });
+
+    d3.select(window)
+      .on("mousemove", mousemove)
+      .on("mouseup", mouseup);
+
+    var threshold_arc = null;
+    var root_node = nodes[0];
+    function select_clusters() {
+        var click_pos = d3.mouse(this);
+        var r = Math.min(distance(click_pos, root), ry-delta);
+        if (threshold_arc) {
+            threshold_arc.remove();
+        }
+        threshold_arc = vis.append("svg:path")
+          .attr("class", "arc")
+          .attr("d", d3.svg.arc().innerRadius(r).outerRadius(r+1).startAngle(0).endAngle(2 * Math.PI));
+
+        node.selectAll("circle")
+            .style('fill', function(d) {
+                if (distance([d.x, d.y], [root_node.x, root_node.y]) > r) {
+                    return 'blue';
+                } else {
+                    return 'white';
+                }
+            });
+    }
+
+    function mouse(e) {
+      return [e.pageX - rx, e.pageY - ry];
+    }
+
+    function mousedown() {
+      m0 = mouse(d3.event);
+      d3.event.preventDefault();
+    }
+
+    function mousemove() {
+      if (m0) {
+        var m1 = mouse(d3.event),
+            dm = Math.atan2(cross(m0, m1), dot(m0, m1)) * 180 / Math.PI,
+            tx = "translate3d(0," + (ry - rx) + "px,0)rotate3d(0,0,0," + dm + "deg)translate3d(0," + (rx - ry) + "px,0)";
+        svg
+            .style("-moz-transform", tx)
+            .style("-ms-transform", tx)
+            .style("-webkit-transform", tx);
+      }
+    }
+
+    function mouseup() {
+      if (m0) {
+        var m1 = mouse(d3.event),
+            dm = Math.atan2(cross(m0, m1), dot(m0, m1)) * 180 / Math.PI,
+            tx = "rotate3d(0,0,0,0deg)";
+
+        rotate += dm;
+        if (rotate > 360) rotate -= 360;
+        else if (rotate < 0) rotate += 360;
+        m0 = null;
+
+        svg
+            .style("-moz-transform", tx)
+            .style("-ms-transform", tx)
+            .style("-webkit-transform", tx);
+
+        vis
+            .attr("transform", "translate(" + rx + "," + ry + ")rotate(" + rotate + ")")
+          .selectAll("g.node text")
+            .attr("dx", function(d) { return (d.x + rotate) % 360 < 180 ? 8 : -8; })
+            .attr("text-anchor", function(d) { return (d.x + rotate) % 360 < 180 ? "start" : "end"; })
+            .attr("transform", function(d) { return (d.x + rotate) % 360 < 180 ? null : "rotate(180)"; });
+      }
+    }
+
+    function cross(a, b) {
+      return a[0] * b[1] - a[1] * b[0];
+    }
+
+    function dot(a, b) {
+      return a[0] * b[0] + a[1] * b[1];
+    }
+
+    function distance(a, b) {
+        return Math.sqrt((a[0]-b[0])*(a[0]-b[0]) + (a[1]-b[1])*(a[1]-b[1]));
+    }
+}
+</script>
