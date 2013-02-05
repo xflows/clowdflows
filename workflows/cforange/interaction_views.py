@@ -29,4 +29,4 @@ def cforange_hierarchical_clustering(request,input_dict,output_dict,widget):
             'leaf' : True if not node.branches else False
         }
     hierarchy = json.dumps(build_hierarchy(root, root=True))
-    return render(request, 'interactions/cforange_hierarchical_clustering.html', {'widget' : widget, 'hierarchy' : hierarchy, 'attributes':attributes})
+    return render(request, 'interactions/cforange_hierarchical_clustering.html', {'widget' : widget, 'hierarchy' : hierarchy, 'attributes':attributes,'vizualization':input_dict['visualization']})

@@ -52,6 +52,8 @@ var hierarchy = {{hierarchy|safe}};
 draw(1000, 600, hierarchy, "#clustering_canvas{{widget.pk}}");
 function draw(w, h, hierarchy, target) {
 
+    var vizualization = '{{vizualization}}';
+
     var colors = ['red','blue','yellow','green','magenta','cyan','black'];
 
     var attributes = [];
@@ -67,29 +69,60 @@ function draw(w, h, hierarchy, target) {
 
     var root = [rx, ry];
     var width = ry - delta;
+    if (vizualization == "tree") {
+      width=w-100;
+      height=width*2;
+      ry=1000;
+    }
 
+    if (vizualization == "circle") {
     var cluster = d3.layout.cluster()
       .size([360, ry - delta])
       .sort(null);
+    } else {
+    var cluster = d3.layout.cluster()
+      .size([h-50, ry - delta])
+      .sort(null);      
+    }
+
+
+if (vizualization=="circle") {
 
     var diagonal = d3.svg.diagonal.radial()
       .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+
+    } else {
+
+ var diagonal = d3.svg.diagonal()
+    .projection(function(d) { return [d.y, d.x]; });     
+    }
 
     var svg = d3.select(target).append("div")
     //  .style("width", w + "px")
     //  .style("height", (h+50) + "px")
       .on("click", select_clusters);
 
+      if (vizualization=="circle") {
     var vis = svg.append("svg:svg")
       .attr("width", w)
       .attr("height", h+50)
     .append("svg:g")
       .attr("transform", "translate(" + rx + "," + ry + ")");
 
-    vis.append("svg:path")
-      .attr("class", "arc")
-      .attr("d", d3.svg.arc().innerRadius(ry - delta).outerRadius(ry).startAngle(0).endAngle(2 * Math.PI))
-      .on("mousedown", mousedown);
+    } else {
+     var vis = svg.append("svg:svg")
+      .attr("width", w)
+      .attr("height", h)
+    .append("svg:g")
+    .attr("transform", "translate(40,10)");   
+    }
+
+      if (vizualization=="circle") {
+      vis.append("svg:path")
+        .attr("class", "arc")
+        .attr("d", d3.svg.arc().innerRadius(ry - delta).outerRadius(ry).startAngle(0).endAngle(2 * Math.PI))
+        .on("mousedown", mousedown);
+    }
 
     var nodes = cluster.nodes(hierarchy);
     var max_height = 0;
@@ -109,6 +142,8 @@ function draw(w, h, hierarchy, target) {
       .attr("class", "link")
       .attr("d", diagonal);
 
+
+if (vizualization=="circle") {
     var node = vis.selectAll("g.node")
       .data(nodes)
     .enter().append("svg:g")
@@ -117,6 +152,17 @@ function draw(w, h, hierarchy, target) {
 
     node.append("svg:circle")
       .attr("r", 3);
+
+    } else {
+    var node = vis.selectAll("g.node")
+      .data(nodes)
+    .enter().append("svg:g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+
+    node.append("svg:circle")
+      .attr("r", 3);      
+    }
 
     for (a in attributes) {
       node.append("svg:text")
@@ -245,20 +291,41 @@ function draw(w, h, hierarchy, target) {
 
     function select_clusters() {
         var click_pos = d3.mouse(this);
-        var r = Math.min(distance(click_pos, root), ry-delta);
-        var r_dist = distance(click_pos,root)
-        if (r_dist > ry-delta) {
-          return false;
-        }
-        var r_height = max_height-((distance(click_pos,root)/(ry-delta))*max_height);
+        if (vizualization=="circle") {
+          var r = Math.min(distance(click_pos, root), ry-delta);
+          var r_dist = distance(click_pos,root)
+          if (r_dist > ry-delta) {
+            return false;
+          }
+          var r_height = max_height-((distance(click_pos,root)/(ry-delta))*max_height);
 
-        if (threshold_arc) {
-            threshold_arc.remove();
-        }
-        threshold_arc = vis.append("svg:path")
-          .attr("class", "selectedarc")
-          .attr("d", d3.svg.arc().innerRadius(r).outerRadius(r+1).startAngle(0).endAngle(2 * Math.PI));
+          if (threshold_arc) {
+              threshold_arc.remove();
+          }
+          threshold_arc = vis.append("svg:path")
+            .attr("class", "selectedarc")
+            .attr("d", d3.svg.arc().innerRadius(r).outerRadius(r+1).startAngle(0).endAngle(2 * Math.PI));
 
+        } else {
+          var x = click_pos[0];
+          x = x-40;
+          if (x<0) {
+            x=0;
+          }
+          var r_height = max_height-(x/width)*max_height;
+
+          if (threshold_arc) {
+              threshold_arc.remove();
+          }
+          threshold_arc = vis.append("svg:line")
+            .attr("class", "selectedarc")
+            .attr("x1",x)
+            .attr("y1","0")
+            .attr("x2",x)
+            .attr("y2","1000")
+            .attr("stroke-width","2")
+            .attr("stroke","red");
+        }
         cluster_index = 0;
         clusters = [];
         counters = [];
