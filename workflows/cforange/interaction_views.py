@@ -14,9 +14,17 @@ def cforange_hierarchical_clustering(request,input_dict,output_dict,widget):
                        ("Complete linkage", orange.HierarchicalClustering.Complete),
                       ]    
     root = orange.HierarchicalClustering(matrix, linkage=linkages[linkage][1])
-    attributes = [x.name for x in matrix.items.domain]
+    dm_examples = True
+    try:
+        attributes = [x.name for x in matrix.items.domain]
+    except:
+        attributes = ['attribute']
+        dm_examples = False
     def build_hierarchy(node, root=False):
-        values_dict = dict([(x,matrix.items[node.first][x].value) for x in attributes]) if not node.branches else {}
+        if dm_examples:
+            values_dict = dict([(x,matrix.items[node.first][x].value) for x in attributes]) if not node.branches else {}
+        else:
+            values_dict = dict([(x,matrix.items[node.first].name) for x in attributes]) if not node.branches else {}
         for attribute in values_dict.keys():
             if type(values_dict[attribute]) == float:
                 values_dict[attribute]="%.3f" % values_dict[attribute]
