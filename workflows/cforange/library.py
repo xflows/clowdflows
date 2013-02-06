@@ -169,7 +169,6 @@ def cforange_confusion_matrix(input_dict):
         cm = orngStat.confusionMatrices(results,classIndex=classIndex)
     if len(cm)==1:
         cm = cm[0]
-    print cm
     output_dict = {}
     output_dict['cm']=cm
     return output_dict
@@ -283,3 +282,159 @@ def cforange_prepare_results(input_dict):
         newlist.append(newdict)
     output_dict['alp']=newlist
     return output_dict
+
+def cforange_example_distance(input_dict):
+    import orange
+    import random
+    import orngClustering
+    import orngMisc
+    inputdata = input_dict['dataset']
+    metricsIndex = int(input_dict['distanceMetrics'])
+    metrics = [
+        ("Euclidean", orange.ExamplesDistanceConstructor_Euclidean),
+        ("Pearson Correlation", orngClustering.ExamplesDistanceConstructor_PearsonR),
+        ("Spearman Rank Correlation", orngClustering.ExamplesDistanceConstructor_SpearmanR),
+        ("Manhattan", orange.ExamplesDistanceConstructor_Manhattan),
+        ("Hamming", orange.ExamplesDistanceConstructor_Hamming),
+        ("Relief", orange.ExamplesDistanceConstructor_Relief),
+        ]
+
+    normalize = input_dict['normalization']
+    if normalize=='true':
+        normalize = True
+    else:
+        normalize = False
+
+    data = inputdata
+    constructor = metrics[metricsIndex][1]()
+    constructor.normalize = normalize
+    dist = constructor(data)
+    matrix = orange.SymMatrix(len(data))
+    matrix.setattr('items', data)
+    for i in range(len(data)):
+        for j in range(i+1):
+            matrix[i, j] = dist(data[i], data[j])
+    output_dict = {}
+    output_dict['dm']=matrix
+    return output_dict
+
+def cforange_attribute_distance(input_dict):
+    import orange
+    import orngInteract
+    inputdata = input_dict['dataset']
+    discretizedData = None
+    classInteractions = int(input_dict['classInteractions'])
+    atts = inputdata.domain.attributes
+    if len(atts) < 2:
+        return None
+    matrix = orange.SymMatrix(len(atts))
+    matrix.setattr('items', atts)
+    if classInteractions < 3:
+        if inputdata.domain.hasContinuousAttributes():
+            if discretizedData is None:
+                try:
+                    discretizedData = orange.Preprocessor_discretize(inputdata, method=orange.EquiNDiscretization(numberOfIntervals=4))
+                except orange.KernelException, ex:
+                    return None
+            data = discretizedData
+        else:
+            data = inputdata
+
+        # This is ugly (no shit)
+        if not data.domain.classVar:
+            if classInteractions == 0:
+                classedDomain = orange.Domain(data.domain.attributes, orange.EnumVariable("foo", values=["0", "1"]))
+                data = orange.ExampleTable(classedDomain, data)
+            else:
+                return None
+
+        im = orngInteract.InteractionMatrix(data, dependencies_too=1)
+        off = 1
+        if classInteractions == 0:
+            diss,labels = im.exportChi2Matrix()
+            off = 0
+        elif classInteractions == 1:
+            (diss,labels) = im.depExportDissimilarityMatrix(jaccard=1)  # 2-interactions
+        else:
+            (diss,labels) = im.exportDissimilarityMatrix(jaccard=1)  # 3-interactions
+
+        for i in range(len(atts)-off):
+            for j in range(i+1):
+                matrix[i+off, j] = diss[i][j]
+
+    else:
+        if classInteractions == 3:
+            for a1 in range(len(atts)):
+                for a2 in range(a1):
+                    matrix[a1, a2] = (1.0 - orange.PearsonCorrelation(a1, a2, inputdata, 0).r) / 2.0
+        else:
+            if len(inputdata) < 3:
+                return None
+            import numpy, statc
+            m = inputdata.toNumpyMA("A")[0]
+            averages = numpy.ma.average(m, axis=0)
+            filleds = [list(numpy.ma.filled(m[:,i], averages[i])) for i in range(len(atts))]
+            for a1, f1 in enumerate(filleds):
+                for a2 in range(a1):
+                    matrix[a1, a2] = (1.0 - statc.spearmanr(f1, filleds[a2])[0]) / 2.0
+    output_dict = {}
+    output_dict['dm']=matrix        
+    return output_dict
+
+def cforange_hierarchical_clustering(input_dict):
+    return {'centroids' : None, 'selected_examples' : None, 'unselected_examples' : None}
+
+class Clustering:
+    @staticmethod
+    def hierarchical_clustering(linkage, distance_matrix):
+        import orange
+        linkages = [("Single linkage", orange.HierarchicalClustering.Single),
+                    ("Average linkage", orange.HierarchicalClustering.Average),
+                    ("Ward's linkage", orange.HierarchicalClustering.Ward),
+                    ("Complete linkage", orange.HierarchicalClustering.Complete)]
+        return orange.HierarchicalClustering(distance_matrix, linkage=linkages[linkage][1])
+
+def cforange_hierarchical_clustering_finished(postdata, input_dict, output_dict):
+    import json
+    import orange
+    matrix = input_dict['dm']
+    linkage = int(input_dict['linkage'])
+    widget_pk = postdata['widget_id'][0]
+    try:
+        selected_nodes = json.loads(postdata.get('selected_nodes')[0])
+    except:
+        raise Exception('Please select a threshold for determining clusters.')
+    if isinstance(matrix.items, orange.ExampleTable):
+        root = Clustering.hierarchical_clustering(linkage, matrix)
+        cluster_ids = set([cluster for _,_,cluster in selected_nodes])
+        selected_clusters = set([cluster for _,selected,cluster in selected_nodes if selected])
+        clustVar = orange.EnumVariable(str('Cluster'), values=["Cluster %d" % i for i in cluster_ids] + ["Other"])
+        origDomain = matrix.items.domain
+        domain = orange.Domain(origDomain.attributes, origDomain.classVar)
+        domain.addmeta(orange.newmetaid(), clustVar)
+        domain.addmetas(origDomain.getmetas())
+        # Build table with selected clusters
+        selected_table, unselected_table = orange.ExampleTable(domain), orange.ExampleTable(domain)
+        for id, selected, cluster in selected_nodes:
+            new_ex = orange.Example(domain, matrix.items[id])
+            if selected:
+                new_ex[clustVar] = clustVar("Cluster %d" % cluster)
+                selected_table.append(new_ex)
+            else:
+                new_ex[clustVar] = clustVar("Other")
+                unselected_table.append(new_ex)
+        # Build table of centroids
+        centroids = orange.ExampleTable(selected_table.domain)
+        if len(selected_table) > 0:
+            for cluster in sorted(selected_clusters):
+                clusterEx = orange.ExampleTable([ex for ex in selected_table if ex[clustVar] == "Cluster %d" % cluster])
+                # Attribute statistics
+                contstat = orange.DomainBasicAttrStat(clusterEx)
+                discstat = orange.DomainDistributions(clusterEx, 0, 0, 1)
+                ex = [cs.avg if cs else (ds.modus() if ds else "?") for cs, ds in zip(contstat, discstat)]
+                example = orange.Example(centroids.domain, ex)
+                example[clustVar] = clustVar("Cluster %d" % cluster)
+                centroids.append(example)
+    else: # Attribute distance
+        centroids, selected_table, unselected_table = None, None, None
+    return {'centroids' : centroids, 'selected_examples' : selected_table, 'unselected_examples' : unselected_table}
