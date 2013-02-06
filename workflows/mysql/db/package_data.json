@@ -1,0 +1,387 @@
+[
+  {
+    "pk": 75,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "MySQL"
+    }
+  },
+  {
+    "pk": 309,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 75,
+      "treeview_image": "",
+      "name": "Database Context",
+      "is_streaming": false,
+      "uid": "",
+      "interaction_view": "mysql_db_context",
+      "image": "",
+      "package": "mysql",
+      "static_image": "",
+      "post_interact_action": "mysql_db_context_finished",
+      "user": null,
+      "visualization_view": "",
+      "action": "mysql_db_context",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 1036,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 309,
+      "name": "connection",
+      "short_name": "con",
+      "uid": "",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "connection",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 368,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 309,
+      "name": "context",
+      "short_name": "cxt",
+      "variable": "context",
+      "uid": "",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 311,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 75,
+      "treeview_image": "",
+      "name": "Database To Aleph",
+      "is_streaming": false,
+      "uid": "",
+      "interaction_view": "",
+      "image": "",
+      "package": "mysql",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "mysql_aleph_converter",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 1052,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 311,
+      "name": "context",
+      "short_name": "cxt",
+      "uid": "",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "context",
+      "parameter": false,
+      "order": 1,
+      "description": "Database context object"
+    }
+  },
+  {
+    "pk": 371,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 311,
+      "name": "pos_examples",
+      "short_name": "pex",
+      "variable": "pos_examples",
+      "uid": "",
+      "order": 1,
+      "description": "positive examples file"
+    }
+  },
+  {
+    "pk": 372,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 311,
+      "name": "neg_examples",
+      "short_name": "nex",
+      "variable": "neg_examples",
+      "uid": "",
+      "order": 1,
+      "description": "negative examples file"
+    }
+  },
+  {
+    "pk": 373,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 311,
+      "name": "bk",
+      "short_name": "bk",
+      "variable": "bk",
+      "uid": "",
+      "order": 1,
+      "description": "background knowledge"
+    }
+  },
+  {
+    "pk": 414,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 75,
+      "treeview_image": "",
+      "name": "Database To Orange Table",
+      "is_streaming": false,
+      "uid": "071449f7-6cb4-4535-9662-ba98ec147cc1",
+      "interaction_view": "mysql_orange_converter",
+      "image": "",
+      "package": "mysql",
+      "static_image": "",
+      "post_interact_action": "mysql_orange_converter_finished",
+      "user": null,
+      "visualization_view": "",
+      "action": "mysql_orange_converter",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 1241,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 414,
+      "name": "context",
+      "short_name": "cxt",
+      "uid": "97031d44-6399-4572-8313-401eb580299e",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "context",
+      "parameter": false,
+      "order": 1,
+      "description": "Database context object"
+    }
+  },
+  {
+    "pk": 489,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 414,
+      "name": "Data table",
+      "short_name": "odt",
+      "variable": "dataset",
+      "uid": "6ffeb986-7032-46d0-83db-974db95ebf38",
+      "order": 1,
+      "description": "Orange data table"
+    }
+  },
+  {
+    "pk": 310,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 75,
+      "treeview_image": "",
+      "name": "Database To RSD",
+      "is_streaming": false,
+      "uid": "",
+      "interaction_view": "",
+      "image": "",
+      "package": "mysql",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "mysql_rsd_converter",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 1037,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 310,
+      "name": "context",
+      "short_name": "cxt",
+      "uid": "",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "context",
+      "parameter": false,
+      "order": 1,
+      "description": "Database context object"
+    }
+  },
+  {
+    "pk": 369,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 310,
+      "name": "examples",
+      "short_name": "exm",
+      "variable": "examples",
+      "uid": "",
+      "order": 1,
+      "description": "examples"
+    }
+  },
+  {
+    "pk": 370,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 310,
+      "name": "bk",
+      "short_name": "bk",
+      "variable": "bk",
+      "uid": "",
+      "order": 2,
+      "description": "background knowledge"
+    }
+  },
+  {
+    "pk": 308,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 75,
+      "treeview_image": "",
+      "name": "MySQL Connect",
+      "is_streaming": false,
+      "uid": "",
+      "interaction_view": "",
+      "image": "",
+      "package": "mysql",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "mysql_connect",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 1032,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 308,
+      "name": "user",
+      "short_name": "usr",
+      "uid": "",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "user",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 1033,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 308,
+      "name": "password",
+      "short_name": "pwd",
+      "uid": "",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "password",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 1034,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 308,
+      "name": "host",
+      "short_name": "hst",
+      "uid": "",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "host",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 1035,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 308,
+      "name": "database",
+      "short_name": "db",
+      "uid": "",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "database",
+      "parameter": true,
+      "order": 4,
+      "description": ""
+    }
+  },
+  {
+    "pk": 367,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 308,
+      "name": "connection",
+      "short_name": "con",
+      "variable": "connection",
+      "uid": "",
+      "order": 1,
+      "description": ""
+    }
+  }
+]
