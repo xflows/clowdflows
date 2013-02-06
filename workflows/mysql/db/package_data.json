@@ -3,7 +3,7 @@
     "pk": 75,
     "model": "workflows.category",
     "fields": {
-      "uid": "",
+      "uid": "b66b71b1-99d6-4efc-b264-a914a3e42911",
       "parent": null,
       "workflow": null,
       "user": null,
@@ -19,7 +19,7 @@
       "treeview_image": "",
       "name": "Database Context",
       "is_streaming": false,
-      "uid": "",
+      "uid": "649015ac-ca53-43bc-a36a-c603b52f8775",
       "interaction_view": "mysql_db_context",
       "image": "",
       "package": "mysql",
@@ -43,7 +43,7 @@
       "widget": 309,
       "name": "connection",
       "short_name": "con",
-      "uid": "",
+      "uid": "6c23b4a2-a18e-498e-a22c-4de86932da3e",
       "default": "",
       "required": true,
       "multi": false,
@@ -62,7 +62,7 @@
       "name": "context",
       "short_name": "cxt",
       "variable": "context",
-      "uid": "",
+      "uid": "171aa481-0f93-4315-a476-ed3b0aa8c9e4",
       "order": 1,
       "description": ""
     }
@@ -75,7 +75,7 @@
       "treeview_image": "",
       "name": "Database To Aleph",
       "is_streaming": false,
-      "uid": "",
+      "uid": "3c5ac714-84ca-4c93-befb-ce0c16148193",
       "interaction_view": "",
       "image": "",
       "package": "mysql",
@@ -99,7 +99,7 @@
       "widget": 311,
       "name": "context",
       "short_name": "cxt",
-      "uid": "",
+      "uid": "474e9673-9c55-48c5-bae8-a7b986aa0287",
       "default": "",
       "required": true,
       "multi": false,
@@ -118,7 +118,7 @@
       "name": "pos_examples",
       "short_name": "pex",
       "variable": "pos_examples",
-      "uid": "",
+      "uid": "48184527-16a5-446c-9181-48a6558430c2",
       "order": 1,
       "description": "positive examples file"
     }
@@ -131,7 +131,7 @@
       "name": "neg_examples",
       "short_name": "nex",
       "variable": "neg_examples",
-      "uid": "",
+      "uid": "2c623064-95cd-48ac-8bff-617edf2b9468",
       "order": 1,
       "description": "negative examples file"
     }
@@ -144,7 +144,7 @@
       "name": "bk",
       "short_name": "bk",
       "variable": "bk",
-      "uid": "",
+      "uid": "5e61e44e-cc52-4471-9a41-3afa52f58ab1",
       "order": 1,
       "description": "background knowledge"
     }
@@ -157,7 +157,7 @@
       "treeview_image": "",
       "name": "Database To Orange Table",
       "is_streaming": false,
-      "uid": "071449f7-6cb4-4535-9662-ba98ec147cc1",
+      "uid": "baa32a60-5acb-42a1-ba83-23a6ab2160e7",
       "interaction_view": "mysql_orange_converter",
       "image": "",
       "package": "mysql",
@@ -181,7 +181,7 @@
       "widget": 414,
       "name": "context",
       "short_name": "cxt",
-      "uid": "97031d44-6399-4572-8313-401eb580299e",
+      "uid": "1f9b5ccf-65c3-4ccc-818e-afb3a6ffee20",
       "default": "",
       "required": true,
       "multi": false,
@@ -200,7 +200,7 @@
       "name": "Data table",
       "short_name": "odt",
       "variable": "dataset",
-      "uid": "6ffeb986-7032-46d0-83db-974db95ebf38",
+      "uid": "8dc434fd-3307-432f-b1d7-74638390a077",
       "order": 1,
       "description": "Orange data table"
     }
@@ -213,7 +213,7 @@
       "treeview_image": "",
       "name": "Database To RSD",
       "is_streaming": false,
-      "uid": "",
+      "uid": "e5b68e38-cb53-408a-a58f-26742d6ecb3c",
       "interaction_view": "",
       "image": "",
       "package": "mysql",
@@ -237,7 +237,7 @@
       "widget": 310,
       "name": "context",
       "short_name": "cxt",
-      "uid": "",
+      "uid": "4f1397a8-4e72-4b34-b31d-d09bf9a7e7d9",
       "default": "",
       "required": true,
       "multi": false,
@@ -256,7 +256,7 @@
       "name": "examples",
       "short_name": "exm",
       "variable": "examples",
-      "uid": "",
+      "uid": "f17690db-636b-4874-8406-f57778550c27",
       "order": 1,
       "description": "examples"
     }
@@ -269,7 +269,7 @@
       "name": "bk",
       "short_name": "bk",
       "variable": "bk",
-      "uid": "",
+      "uid": "89a386ef-3aa8-441f-99ff-4b64b1e3357f",
       "order": 2,
       "description": "background knowledge"
     }
@@ -282,7 +282,7 @@
       "treeview_image": "",
       "name": "MySQL Connect",
       "is_streaming": false,
-      "uid": "",
+      "uid": "41978deb-c245-4e1f-95a2-ceadcfe6898a",
       "interaction_view": "",
       "image": "",
       "package": "mysql",
@@ -306,7 +306,7 @@
       "widget": 308,
       "name": "user",
       "short_name": "usr",
-      "uid": "",
+      "uid": "0f36f10b-066f-4ad3-9fa8-39205440076a",
       "default": "",
       "required": true,
       "multi": false,
@@ -324,7 +324,7 @@
       "widget": 308,
       "name": "password",
       "short_name": "pwd",
-      "uid": "",
+      "uid": "8ead911a-3d1b-4e50-b56a-64873b85d3cf",
       "default": "",
       "required": false,
       "multi": false,
@@ -342,7 +342,7 @@
       "widget": 308,
       "name": "host",
       "short_name": "hst",
-      "uid": "",
+      "uid": "9812cc11-b21e-4444-8dfe-bc0c68fe79e8",
       "default": "",
       "required": true,
       "multi": false,
@@ -360,7 +360,7 @@
       "widget": 308,
       "name": "database",
       "short_name": "db",
-      "uid": "",
+      "uid": "d132adce-c3ec-411a-8ee7-906be4a99f61",
       "default": "",
       "required": true,
       "multi": false,
@@ -379,7 +379,7 @@
       "name": "connection",
       "short_name": "con",
       "variable": "connection",
-      "uid": "",
+      "uid": "4858c86c-c53e-4722-9747-635af56bd4dd",
       "order": 1,
       "description": ""
     }
