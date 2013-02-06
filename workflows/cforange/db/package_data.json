@@ -896,6 +896,184 @@
     }
   },
   {
+    "pk": 103,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 19,
+      "treeview_image": "",
+      "name": "Hierarchical clustering",
+      "is_streaming": false,
+      "uid": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27",
+      "interaction_view": "cforange_hierarchical_clustering",
+      "image": "",
+      "package": "cforange",
+      "static_image": "",
+      "post_interact_action": "cforange_hierarchical_clustering_finished",
+      "user": null,
+      "visualization_view": "",
+      "action": "cforange_hierarchical_clustering",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 210,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 103,
+      "name": "Distance Matrix",
+      "short_name": "dm",
+      "uid": "bc238f40-be7b-48c4-a526-f17d461a1e10",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dm",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 211,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 103,
+      "name": "Linkage",
+      "short_name": "lin",
+      "uid": "9804f098-f6b6-4858-9d83-df2a45e6174a",
+      "default": "0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "linkage",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 64,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e5a0e0cd-aefe-4d2f-b2dd-26c54aecda41",
+      "abstract_input": 211,
+      "value": "1",
+      "name": "Average linkage"
+    }
+  },
+  {
+    "pk": 66,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e7ab085c-59a2-469b-b4e0-aeef40685a1f",
+      "abstract_input": 211,
+      "value": "3",
+      "name": "Complete linkage"
+    }
+  },
+  {
+    "pk": 63,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e751309c-0f24-409e-b21e-94692c3fa5cf",
+      "abstract_input": 211,
+      "value": "0",
+      "name": "Single linkage"
+    }
+  },
+  {
+    "pk": 65,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "16d7b4ca-b14d-4a93-bda3-ca3478efd316",
+      "abstract_input": 211,
+      "value": "2",
+      "name": "Ward's linkage"
+    }
+  },
+  {
+    "pk": 212,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 103,
+      "name": "Visualization type",
+      "short_name": "viz",
+      "uid": "f0c1c618-f7c4-4b9c-8780-d03e1ab29834",
+      "default": "circle",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "visualization",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 67,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "ea7c03eb-b596-4b7f-82ea-840ca44daaad",
+      "abstract_input": 212,
+      "value": "circle",
+      "name": "Circle"
+    }
+  },
+  {
+    "pk": 68,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "4bd2311e-3051-451e-8c47-5bb526a885e6",
+      "abstract_input": 212,
+      "value": "tree",
+      "name": "Tree"
+    }
+  },
+  {
+    "pk": 114,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 103,
+      "name": "Centroids",
+      "short_name": "ctr",
+      "variable": "centroids",
+      "uid": "da9b8816-0ed4-4159-8a7e-ff915d5eb2d2",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 115,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 103,
+      "name": "Selected examples",
+      "short_name": "sel",
+      "variable": "selected_examples",
+      "uid": "2055c99d-b2cd-4270-94e7-688eb86ae00b",
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 116,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 103,
+      "name": "Unselected examples",
+      "short_name": "uns",
+      "variable": "unselected_examples",
+      "uid": "d23df6ab-e4ec-4c09-8d4b-9457f666efca",
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
     "pk": 12,
     "model": "workflows.category",
     "fields": {
