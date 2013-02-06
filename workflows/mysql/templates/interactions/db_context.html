@@ -62,8 +62,9 @@
 				}
 			});
 			$('select[name="target_att{{widget.pk}}"]').change(function () {
+				var selected_table = $('select[name="target_table{{widget.pk}}"]').first('option:selected').val();
 				var selected_att = $(this).first('option:selected').val();
-				var available_vals = col_vals[selected_att];
+				var available_vals = col_vals[selected_table][selected_att];
 				// Change the list of options as the target attribute
 				var val_select = $('select[name="target_att_val{{widget.pk}}"]');
 				val_select.empty();
