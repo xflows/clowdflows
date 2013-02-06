@@ -3,6 +3,9 @@ from django import forms
 import mysql.connector as sql
 
 class DBConnection:
+    '''
+    Database credentials.
+    '''
     def __init__(self, user, password, host, database):
         self.user = user
         self.password = password
@@ -14,6 +17,19 @@ class DBConnection:
 
 class DBContext:
     def __init__(self, connection):
+        '''
+        Initializes the fields:
+            tables:           list of selected tables
+            cols:             dict of columns for each table
+            all_cols:         dict of columns for each table (even unselected)
+            col_vals:         available values for each table/column 
+            connected:        dict of table pairs and the connected columns
+            fkeys:            foreign keys in a given table
+            pkeys:            private key for a given table
+            target_table:     selected table for learning
+            target_att:       selected column for learning
+            target_att_val:   selected target att value 
+        '''
         self.connection = connection
         con = connection.connect()
         cursor = con.cursor()
@@ -26,9 +42,10 @@ class DBContext:
         self.all_cols = dict(self.cols)
         self.col_vals = {}
         for table, cols in self.cols.items():
+            self.col_vals[table] = {}
             for col in cols:
                 cursor.execute("SELECT DISTINCT %s FROM %s" % (col, table))
-                self.col_vals[col] = [val for (val,) in cursor]
+                self.col_vals[table][col] = [val for (val,) in cursor]
         self.connected = {}
         cursor.execute(
            "SELECT table_name, column_name, referenced_table_name, referenced_column_name \
@@ -52,11 +69,16 @@ class DBContext:
         con.close()
 
     def update(self, postdata):
+        '''
+        Updates the default selections with user's selections.
+        '''
         widget_id = postdata.get('widget_id')[0]
         self.target_table = postdata.get('target_table%s' % widget_id)[0]
         self.target_att = postdata.get('target_att%s' % widget_id)[0]
         self.target_att_val = postdata.get('target_att_val%s' % widget_id)[0]
         self.tables = postdata.get('tables%s' % widget_id, [])
+        if self.target_table not in self.tables:
+            raise Exception('The selected target table "%s" is not among the selected tables.' % self.target_table)
         # Propagate the selected tables
         for table in self.cols.keys():
             if table not in self.tables:
@@ -67,6 +89,8 @@ class DBContext:
             del self.connected[pair]
         for table in self.tables:
             self.cols[table] = postdata.get('%s_columns%s' % (table, widget_id), [])
+            if table == self.target_table and self.target_att not in self.cols[table]:
+                raise Exception('The selected target attribute ("%s") is not among the columns selected for the target table ("%s").' % (self.target_att, self.target_table))
 
     def __repr__(self):
         return str((self.target_table, self.target_att, self.tables, self.cols, self.connected))
