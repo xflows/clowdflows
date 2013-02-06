@@ -75,3 +75,6 @@ def alter_table(request, input_dict, output_dict, widget):
     from visualization_views import orng_table_to_dict
     data = input_dict['data']
     return render(request, 'interactions/alter_table.html', {'widget' : widget,'input_dict' : input_dict,'output_dict' : orng_table_to_dict(data)})
+
+def example_distance(request, input_dict, output_dict, widget):
+    return render(request, 'interactions/example_distance.html',{'widget':widget, 'input_dict':input_dict})

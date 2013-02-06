@@ -192,29 +192,78 @@ def sdmsegs_viewer(request,input_dict,output_dict,widget):
     output_dict = {'json_output':output}
     return render(request, 'visualizations/sdmsegs_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
 
+def treeToJSON(node, path="", nodes={}):
+    #made by Bogdan Okresa Duric :)
+    
+    import Orange
+    import json
+
+    if not node:
+        return
+
+    if path=="": #get the dictionary prepared, insert root node
+        nodes.update ({ #root node properties
+            "name":node.branch_selector.class_var.name,
+            "ID":node.reference(),
+            "children":[]
+        })
+        path = "['children']" #prepare path for future use, it points into 'children' property of the root node
+
+    if node.branch_selector: #if the node has branches
+        for n in node.branches: #walk through all the branches one by one
+            try:
+                if n.branch_selector: #if the node (branch) has branches
+                    child = { #set node properties
+                        "name":n.branch_selector.class_var.name,
+                        "ID":n.reference(),
+                        "children":[] #stays open for future descendant nodes
+                        }
+
+                    eval ("nodes" + path + ".append(" + str(child) + ")") #write node properties
+                    # 'nodes' is the dictionary
+                    #path is the path to the current node, i.e. current parent node
+                    #child is dictionary with node properties
+
+                else: #if node is a leaf
+                    child = {
+                        "name":n.node_classifier.default_value.value,
+                        "ID":n.reference(),
+                        }
+                    eval ("nodes" + path + ".append(" + str(child) + ")")
+            except:
+                pass
+        for i in range(len(node.branches)): #go and work with the branches, one by one
+            treeToJSON(node.branches[i], path + "[" + str(i) + "]" + "['children']", nodes) #work with child node, adding it's "address"
+    else: #if the node has no branches, simply return
+        return
+
+    return json.JSONEncoder().encode(nodes) #output complete JSON description of the tree
+
 def tree_visualization(request, input_dict, output_dict, widget):
     import Orange
-    import pydot
+    import json
 
-    import tempfile
-    f = tempfile.NamedTemporaryFile(delete=False,suffix='.dot')
+    tc = input_dict['clt']
 
-    tree = input_dict['clt']
-    tree.dot(f, leaf_shape="oval", node_shape="box")
+    print "viz start"
 
-    f.close()
+    # jsonT = treeToJSON(tc.tree)
+    jsonJ = treeToJSON(tc.tree)
 
-    dot_file = open(f.name,"r")
-    dot_data = dot_file.read()
+    print "viz end"
 
-    tree_visualization_graph = pydot.graph_from_dot_data(dot_data)
+    # jsonJ = json.dumps(jsonT, separators=(',',':'))
+    # jsonJ = json.JSONEncoder().encode(jsonT)
 
-    tree_visualization_graph.set_name("TreeVisualization")
+    print jsonJ
 
-    tree_visualization_graph.set_size("9")
+    # import tempfile
+    # f = tempfile.NamedTemporaryFile(delete=False,suffix='.json')
 
-    tree_visualization_graph.set_ratio("fill")
+    # f.write(jsonJ)
 
-    tree_visualization = tree_visualization_graph.create_svg()
+    # f.close()
 
-    return render(request, 'visualizations/tree_visualization.html', {'widget':widget, 'input_dict':input_dict, 'svg':tree_visualization})
+    # print f.name
+    
+    return render(request, 'visualizations/tree_visualization.html', {'widget':widget, 'input_dict':input_dict, 'json':jsonJ})

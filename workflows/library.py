@@ -843,3 +843,10 @@ def alter_table_finished(postdata, input_dict, output_dict):
 
 def tree_visualization(input_dict):
     return{}
+
+def example_distance(input_dict):
+    return input_dict
+
+def example_distance_post(postdata, input_dict, output_dict):
+
+    return{}
