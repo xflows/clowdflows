@@ -210,12 +210,12 @@ def treeToJSON(node, path="", nodes={}):
         path = "['children']" #prepare path for future use, it points into 'children' property of the root node
 
     if node.branch_selector: #if the node has branches
-        for n in node.branches: #walk through all the branches one by one
+        for n in range(len(node.branches)): #walk through all the branches one by one
             try:
-                if n.branch_selector: #if the node (branch) has branches
+                if node.branches[n].branch_selector: #if the node (branch) has branches
                     child = { #set node properties
-                        "name":n.branch_selector.class_var.name,
-                        "ID":n.reference(),
+                        "name":node.branch_descriptions[n] + " - " + node.branches[n].branch_selector.class_var.name,
+                        "ID":node.branches[n].reference(),
                         "children":[] #stays open for future descendant nodes
                         }
 
@@ -226,8 +226,8 @@ def treeToJSON(node, path="", nodes={}):
 
                 else: #if node is a leaf
                     child = {
-                        "name":n.node_classifier.default_value.value,
-                        "ID":n.reference(),
+                        "name":node.branch_descriptions[n] + " - " + node.branches[n].node_classifier.default_value.value,
+                        "ID":node.branches[n].reference(),
                         }
                     eval ("nodes" + path + ".append(" + str(child) + ")")
             except:
@@ -245,25 +245,8 @@ def tree_visualization(request, input_dict, output_dict, widget):
 
     tc = input_dict['clt']
 
-    print "viz start"
-
-    # jsonT = treeToJSON(tc.tree)
     jsonJ = treeToJSON(tc.tree)
 
-    print "viz end"
-
-    # jsonJ = json.dumps(jsonT, separators=(',',':'))
-    # jsonJ = json.JSONEncoder().encode(jsonT)
-
     print jsonJ
-
-    # import tempfile
-    # f = tempfile.NamedTemporaryFile(delete=False,suffix='.json')
-
-    # f.write(jsonJ)
-
-    # f.close()
-
-    # print f.name
     
     return render(request, 'visualizations/tree_visualization.html', {'widget':widget, 'input_dict':input_dict, 'json':jsonJ})
