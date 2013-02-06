@@ -4,25 +4,45 @@ Classes for handling DBContexts for ILP systems.
 @author: Anze Vavpetic <anze.vavpetic@ijs.si>
 '''
 
-class ILP_DBContext:
+class Converter:
+    '''
+    Base class for converters.
+    '''
+    def __init__(self, dbcontext):
+        self.db = dbcontext
+        self.connection = dbcontext.connection.connect()
+        self.cursor = self.connection.cursor()
+
+    def __del__(self):  
+        self.connection.close()
+
+    def rows(self, table, cols):    
+        self.cursor.execute("SELECT %s FROM %s" % (','.join(cols), table))
+        return [cols for cols in self.cursor]
+
+    def fetch_types(self, table, cols):
+        '''
+        Returns a dictionary of field types for the given table and columns.
+        '''
+        from mysql.connector import FieldType
+        c = self.cursor
+        c.execute('SELECT %s FROM %s LIMIT 1' % (','.join(cols), table))
+        c.fetchall()
+        types = {}
+        for desc in self.cursor.description:
+            types[desc[0]] = FieldType.get_info(desc[1])
+        return types
+
+class ILP_Converter(Converter):
     '''
     Base class for converting between a given database context (selected tables, columns, etc)
     to inputs acceptable by a specific ILP system.
 
     If possible, all subclasses should use lazy selects by forwarding the DB connection.
     '''
-    def __init__(self, dbcontext, settings={}):
-        self.db = dbcontext
-        self.connection = dbcontext.connection.connect()
-        self.cursor = self.connection.cursor()
-        self.settings = settings
-
-    def __del__(self):
-        self.connection.close()
-
-    def rows(self, table, cols):
-        self.cursor.execute("SELECT %s FROM %s" % (','.join(cols), table))
-        return [cols for cols in self.cursor]
+    def __init__(self, *args, **kwargs):
+        self.settings = kwargs.pop('settings') if kwargs else {}
+        Converter.__init__(self, *args, **kwargs)
 
     def user_settings(self):
         return [':- set(%s,%s).' % (key,val) for key, val in self.settings.items()]
@@ -63,7 +83,7 @@ class ILP_DBContext:
         return ['%s_%s(%s, %s) :-' % (table, att, var_table, var_att),
                 '\t%s(%s).' % (table, ','.join([att.capitalize() if att!=pk else var_table for att in self.db.cols[table]]))]
 
-class RSD_DBContext(ILP_DBContext):
+class RSD_Converter(ILP_Converter):
     '''
     Converts the database context to RSD inputs.
     '''
@@ -89,12 +109,12 @@ class RSD_DBContext(ILP_DBContext):
                 getters.extend(self.attribute_clause(table, att))
         return '\n'.join(self.db_connection() + modeslist + getters + self.user_settings())
 
-class Aleph_DBContext(ILP_DBContext):
+class Aleph_Converter(ILP_Converter):
     '''
     Converts the database context to Aleph inputs.
     '''
     def __init__(self, *args, **kwargs):
-        ILP_DBContext.__init__(self, *args, **kwargs)
+        ILP_Converter.__init__(self, *args, **kwargs)
         self.__pos_examples, self.__neg_examples = None, None
 
     def __examples(self):
@@ -141,14 +161,12 @@ class Aleph_DBContext(ILP_DBContext):
         return '\n'.join(self.db_connection() + local_copies + self.user_settings() + modeslist + determinations + types + getters)
 
     def concept_type_def(self, table):
-        #return ['%s(%s).' % (table, id) for (id,) in self.rows(table, [self.db.pkeys[table]])]
         var_pk = self.db.pkeys[table].capitalize()
         variables = ','.join([var_pk if col.capitalize() == var_pk else '_' for col in self.db.cols[table]])
         return ['%s(%s) :-' % (table, var_pk), 
                 '\t%s(%s).' % (table, variables)]
 
     def constant_type_def(self, table, att):
-        # return ['%s(%s).' % (att, val) for val in self.db.col_vals[att]]
         var_att = att.capitalize()
         variables = ','.join([var_att if col == att else '_' for col in self.db.cols[table]])
         return ['%s(%s) :-' % (att, var_att), 
@@ -165,6 +183,69 @@ class Aleph_DBContext(ILP_DBContext):
         cols = ','.join([col.capitalize() for col in self.db.cols[table]])
         return ':- repeat, tmp_%s(%s), (%s(%s), !, fail ; assertz(%s(%s)), fail).' % (table, cols, table, cols, table, cols)
 
+
+class Orange_Converter(Converter):
+    '''
+    Converts the target table selected in the given context as an orange example table.
+    '''
+    continuous_types = ('FLOAT','DOUBLE','DECIMAL','NEWDECIMAL')
+    discrete_types = ('TINY','SHORT','LONG','LONGLONG','INT24','YEAR','VARCHAR','BIT','SET','VAR_STRING','STRING')
+    
+    def __init__(self, *args, **kwargs):
+        Converter.__init__(self, *args, **kwargs)
+        self.types = self.fetch_types(self.db.target_table, self.db.cols[self.db.target_table])
+
+    def target_table(self):
+        '''
+        Returns the target table as an orange example table.
+        '''
+        import orange
+        from mysql.connector import FieldType
+        table, cls_att = self.db.target_table, self.db.target_att
+        cols = self.db.cols[table]
+        attributes, metas, classVar = [], [], None
+        for col in cols:
+            att_type = self.orng_type(col)
+            att_vals = self.db.col_vals[table][col]
+            if att_type == 'd':
+                att_var = orange.EnumVariable(str(col), values=[str(val) for val in att_vals])
+            elif att_type == 'c':
+                att_var = orange.FloatVariable(str(col))
+            else:
+                att_var = orange.StringVariable(str(col))
+            if col == cls_att:
+                if att_type == 'string':
+                    raise Exception('Unsuitable data type for a target variable: %d' % att_type)
+                class_var = att_var
+                continue
+            elif att_type == 'string':
+                metas.append(att_var)
+            else:
+                attributes.append(att_var)
+        domain = orange.Domain(attributes + [class_var])
+        for meta in metas:
+            domain.addmeta(orange.newmetaid(), meta)
+        dataset = orange.ExampleTable(domain)
+        for row in self.rows(table, cols):
+            example = orange.Example(domain)
+            for col, val in zip(cols, row):
+                example[str(col)] = str(val)
+            dataset.append(example)
+        return dataset
+
+    def orng_type(self, col):
+        '''
+        Assigns a given mysql column an orange type.
+        '''
+        mysql_type = self.types[col]
+        n_vals = len(self.db.col_vals[self.db.target_table][col])
+        if mysql_type in Orange_Converter.continuous_types or (n_vals >= 50 and mysql_type in Orange_Converter.discrete_types):
+            return 'c'
+        elif mysql_type in Orange_Converter.discrete_types:
+            return 'd'
+        else:
+            return 'string'
+
 if __name__ == '__main__':
     from context import DBConnection, DBContext
 
@@ -173,10 +254,12 @@ if __name__ == '__main__':
     context.target_att = 'direction'
     context.target_att_val = 'east'
 
-    rsd = RSD_DBContext(context)
-    ex, bk = rsd.all_examples(), rsd.background_knowledge()
+    # rsd = RSD_Converter(context)
+    # ex, bk = rsd.all_examples(), rsd.background_knowledge()
 
-    aleph = Aleph_DBContext(context)
-    print aleph.positive_examples()
-    print aleph.negative_examples()
-    print aleph.background_knowledge()
+    # aleph = Aleph_Converter(context)
+    # print aleph.positive_examples()
+    # print aleph.negative_examples()
+    # print aleph.background_knowledge()
+    orange = Orange_Converter(context)
+    orange.target_table()
