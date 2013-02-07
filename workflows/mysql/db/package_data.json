@@ -1,6 +1,6 @@
 [
   {
-    "pk": 75,
+    "pk": 39,
     "model": "workflows.category",
     "fields": {
       "uid": "b66b71b1-99d6-4efc-b264-a914a3e42911",
@@ -12,10 +12,10 @@
     }
   },
   {
-    "pk": 309,
+    "pk": 190,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 75,
+      "category": 39,
       "treeview_image": "",
       "name": "Database Context",
       "is_streaming": false,
@@ -23,7 +23,7 @@
       "interaction_view": "mysql_db_context",
       "image": "",
       "package": "mysql",
-      "static_image": "",
+      "static_image": "mysql.png",
       "post_interact_action": "mysql_db_context_finished",
       "user": null,
       "visualization_view": "",
@@ -37,10 +37,10 @@
     }
   },
   {
-    "pk": 1036,
+    "pk": 443,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 309,
+      "widget": 190,
       "name": "connection",
       "short_name": "con",
       "uid": "6c23b4a2-a18e-498e-a22c-4de86932da3e",
@@ -55,10 +55,10 @@
     }
   },
   {
-    "pk": 368,
+    "pk": 216,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 309,
+      "widget": 190,
       "name": "context",
       "short_name": "cxt",
       "variable": "context",
@@ -68,10 +68,10 @@
     }
   },
   {
-    "pk": 311,
+    "pk": 191,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 75,
+      "category": 39,
       "treeview_image": "",
       "name": "Database To Aleph",
       "is_streaming": false,
@@ -79,7 +79,7 @@
       "interaction_view": "",
       "image": "",
       "package": "mysql",
-      "static_image": "",
+      "static_image": "mysql.png",
       "post_interact_action": "",
       "user": null,
       "visualization_view": "",
@@ -93,10 +93,28 @@
     }
   },
   {
-    "pk": 1052,
+    "pk": 451,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 311,
+      "widget": 191,
+      "name": "Target attribute value",
+      "short_name": "tgt",
+      "uid": "5b7354f1-35d8-41c8-a0ae-c3848855f29d",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "target_att_val",
+      "parameter": true,
+      "order": 1,
+      "description": "Target attribute value to be used as the positive class"
+    }
+  },
+  {
+    "pk": 444,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 191,
       "name": "context",
       "short_name": "cxt",
       "uid": "474e9673-9c55-48c5-bae8-a7b986aa0287",
@@ -106,54 +124,54 @@
       "parameter_type": null,
       "variable": "context",
       "parameter": false,
-      "order": 1,
+      "order": 2,
       "description": "Database context object"
     }
   },
   {
-    "pk": 371,
+    "pk": 217,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 311,
+      "widget": 191,
       "name": "pos_examples",
       "short_name": "pex",
       "variable": "pos_examples",
       "uid": "48184527-16a5-446c-9181-48a6558430c2",
-      "order": 1,
+      "order": 2,
       "description": "positive examples file"
     }
   },
   {
-    "pk": 372,
+    "pk": 218,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 311,
+      "widget": 191,
       "name": "neg_examples",
       "short_name": "nex",
       "variable": "neg_examples",
       "uid": "2c623064-95cd-48ac-8bff-617edf2b9468",
-      "order": 1,
+      "order": 3,
       "description": "negative examples file"
     }
   },
   {
-    "pk": 373,
+    "pk": 219,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 311,
+      "widget": 191,
       "name": "bk",
       "short_name": "bk",
       "variable": "bk",
       "uid": "5e61e44e-cc52-4471-9a41-3afa52f58ab1",
-      "order": 1,
+      "order": 4,
       "description": "background knowledge"
     }
   },
   {
-    "pk": 414,
+    "pk": 192,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 75,
+      "category": 39,
       "treeview_image": "",
       "name": "Database To Orange Table",
       "is_streaming": false,
@@ -161,7 +179,7 @@
       "interaction_view": "mysql_orange_converter",
       "image": "",
       "package": "mysql",
-      "static_image": "",
+      "static_image": "mysql.png",
       "post_interact_action": "mysql_orange_converter_finished",
       "user": null,
       "visualization_view": "",
@@ -175,10 +193,10 @@
     }
   },
   {
-    "pk": 1241,
+    "pk": 445,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 414,
+      "widget": 192,
       "name": "context",
       "short_name": "cxt",
       "uid": "1f9b5ccf-65c3-4ccc-818e-afb3a6ffee20",
@@ -193,10 +211,10 @@
     }
   },
   {
-    "pk": 489,
+    "pk": 220,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 414,
+      "widget": 192,
       "name": "Data table",
       "short_name": "odt",
       "variable": "dataset",
@@ -206,10 +224,10 @@
     }
   },
   {
-    "pk": 310,
+    "pk": 193,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 75,
+      "category": 39,
       "treeview_image": "",
       "name": "Database To RSD",
       "is_streaming": false,
@@ -217,7 +235,7 @@
       "interaction_view": "",
       "image": "",
       "package": "mysql",
-      "static_image": "",
+      "static_image": "mysql.png",
       "post_interact_action": "",
       "user": null,
       "visualization_view": "",
@@ -231,10 +249,10 @@
     }
   },
   {
-    "pk": 1037,
+    "pk": 446,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 310,
+      "widget": 193,
       "name": "context",
       "short_name": "cxt",
       "uid": "4f1397a8-4e72-4b34-b31d-d09bf9a7e7d9",
@@ -249,10 +267,10 @@
     }
   },
   {
-    "pk": 369,
+    "pk": 221,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 310,
+      "widget": 193,
       "name": "examples",
       "short_name": "exm",
       "variable": "examples",
@@ -262,10 +280,10 @@
     }
   },
   {
-    "pk": 370,
+    "pk": 222,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 310,
+      "widget": 193,
       "name": "bk",
       "short_name": "bk",
       "variable": "bk",
@@ -275,10 +293,10 @@
     }
   },
   {
-    "pk": 308,
+    "pk": 194,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 75,
+      "category": 39,
       "treeview_image": "",
       "name": "MySQL Connect",
       "is_streaming": false,
@@ -286,7 +304,7 @@
       "interaction_view": "",
       "image": "",
       "package": "mysql",
-      "static_image": "",
+      "static_image": "mysql.png",
       "post_interact_action": "",
       "user": null,
       "visualization_view": "",
@@ -300,10 +318,10 @@
     }
   },
   {
-    "pk": 1032,
+    "pk": 447,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 308,
+      "widget": 194,
       "name": "user",
       "short_name": "usr",
       "uid": "0f36f10b-066f-4ad3-9fa8-39205440076a",
@@ -318,17 +336,17 @@
     }
   },
   {
-    "pk": 1033,
+    "pk": 448,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 308,
+      "widget": 194,
       "name": "password",
       "short_name": "pwd",
       "uid": "8ead911a-3d1b-4e50-b56a-64873b85d3cf",
       "default": "",
       "required": false,
       "multi": false,
-      "parameter_type": "text",
+      "parameter_type": "password",
       "variable": "password",
       "parameter": true,
       "order": 2,
@@ -336,10 +354,10 @@
     }
   },
   {
-    "pk": 1034,
+    "pk": 449,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 308,
+      "widget": 194,
       "name": "host",
       "short_name": "hst",
       "uid": "9812cc11-b21e-4444-8dfe-bc0c68fe79e8",
@@ -354,10 +372,10 @@
     }
   },
   {
-    "pk": 1035,
+    "pk": 450,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 308,
+      "widget": 194,
       "name": "database",
       "short_name": "db",
       "uid": "d132adce-c3ec-411a-8ee7-906be4a99f61",
@@ -372,10 +390,10 @@
     }
   },
   {
-    "pk": 367,
+    "pk": 223,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 308,
+      "widget": 194,
       "name": "connection",
       "short_name": "con",
       "variable": "connection",

@@ -16,23 +16,6 @@ class Converter:
     def __del__(self):  
         self.connection.close()
 
-    def rows(self, table, cols):    
-        self.cursor.execute("SELECT %s FROM %s" % (','.join(cols), table))
-        return [cols for cols in self.cursor]
-
-    def fetch_types(self, table, cols):
-        '''
-        Returns a dictionary of field types for the given table and columns.
-        '''
-        from mysql.connector import FieldType
-        c = self.cursor
-        c.execute('SELECT %s FROM %s LIMIT 1' % (','.join(cols), table))
-        c.fetchall()
-        types = {}
-        for desc in self.cursor.description:
-            types[desc[0]] = FieldType.get_info(desc[1])
-        return types
-
 class ILP_Converter(Converter):
     '''
     Base class for converting between a given database context (selected tables, columns, etc)
@@ -89,8 +72,8 @@ class RSD_Converter(ILP_Converter):
     '''
     def all_examples(self):
         target = self.db.target_table
-        examples = self.rows(target, [self.db.target_att, self.db.pkeys[target]])
-        return '\n'.join(['%s(%s, %s).' % (target, cls, pk) for cls, pk in examples])
+        examples = self.db.rows(target, [self.db.target_att, self.db.pkeys[target]])
+        return '\n'.join(["%s('%s', %s)." % (target, cls, pk) for cls, pk in examples])
 
     def background_knowledge(self):
         modeslist, getters = [self.mode(self.db.target_table, [('+', self.db.target_table)], head=True)], []
@@ -114,13 +97,14 @@ class Aleph_Converter(ILP_Converter):
     Converts the database context to Aleph inputs.
     '''
     def __init__(self, *args, **kwargs):
+        self.target_att_val = kwargs.pop('target_att_val')
         ILP_Converter.__init__(self, *args, **kwargs)
         self.__pos_examples, self.__neg_examples = None, None
 
     def __examples(self):
         if not (self.__pos_examples and self.__neg_examples):
-            target, att, target_val = self.db.target_table, self.db.target_att, self.db.target_att_val
-            rows = self.rows(target, [att, self.db.pkeys[target]])
+            target, att, target_val = self.db.target_table, self.db.target_att, self.target_att_val
+            rows = self.db.rows(target, [att, self.db.pkeys[target]])
             pos_rows, neg_rows = [], []
             for row in rows:
                 if row[0] == target_val:
@@ -138,13 +122,13 @@ class Aleph_Converter(ILP_Converter):
         return self.__examples()[1]
 
     def background_knowledge(self):
-        modeslist, getters = [self.mode(self.db.target_att_val, [('+', self.db.target_table)], head=True)], []
+        modeslist, getters = [self.mode(self.target_att_val, [('+', self.db.target_table)], head=True)], []
         determinations, types = [], []
         for (table, ref_table) in self.db.connected.keys():
             if ref_table == self.db.target_table:
                 continue # Skip backward connections
             modeslist.append(self.mode('has_%s' % ref_table, [('+', table), ('-', ref_table)], recall='*'))
-            determinations.append(':- determination(%s/1, has_%s/2).' % (self.db.target_att_val, ref_table))
+            determinations.append(':- determination(%s/1, has_%s/2).' % (self.target_att_val, ref_table))
             types.extend(self.concept_type_def(table))
             types.extend(self.concept_type_def(ref_table))
             getters.extend(self.connecting_clause(table, ref_table))
@@ -154,7 +138,7 @@ class Aleph_Converter(ILP_Converter):
                    att in self.db.fkeys[table] or att == self.db.pkeys[table]:
                     continue
                 modeslist.append(self.mode('%s_%s' % (table, att), [('+', table), ('#', att)], recall='*'))
-                determinations.append(':- determination(%s/1, %s_%s/2).' % (self.db.target_att_val, table, att))
+                determinations.append(':- determination(%s/1, %s_%s/2).' % (self.target_att_val, table, att))
                 types.extend(self.constant_type_def(table, att))
                 getters.extend(self.attribute_clause(table, att))
         local_copies = [self.local_copy(table) for table in self.db.tables]
@@ -189,11 +173,12 @@ class Orange_Converter(Converter):
     Converts the target table selected in the given context as an orange example table.
     '''
     continuous_types = ('FLOAT','DOUBLE','DECIMAL','NEWDECIMAL')
-    discrete_types = ('TINY','SHORT','LONG','LONGLONG','INT24','YEAR','VARCHAR','BIT','SET','VAR_STRING','STRING')
+    integer_types = ('TINY','SHORT','LONG','LONGLONG','INT24')
+    ordinal_types = ('YEAR','VARCHAR','SET','VAR_STRING','STRING','BIT')
     
     def __init__(self, *args, **kwargs):
         Converter.__init__(self, *args, **kwargs)
-        self.types = self.fetch_types(self.db.target_table, self.db.cols[self.db.target_table])
+        self.types = self.db.fetch_types(self.db.target_table, self.db.cols[self.db.target_table])
 
     def target_table(self):
         '''
@@ -206,8 +191,8 @@ class Orange_Converter(Converter):
         attributes, metas, classVar = [], [], None
         for col in cols:
             att_type = self.orng_type(col)
-            att_vals = self.db.col_vals[table][col]
             if att_type == 'd':
+                att_vals = self.db.col_vals[table][col]
                 att_var = orange.EnumVariable(str(col), values=[str(val) for val in att_vals])
             elif att_type == 'c':
                 att_var = orange.FloatVariable(str(col))
@@ -226,7 +211,7 @@ class Orange_Converter(Converter):
         for meta in metas:
             domain.addmeta(orange.newmetaid(), meta)
         dataset = orange.ExampleTable(domain)
-        for row in self.rows(table, cols):
+        for row in self.db.rows(table, cols):
             example = orange.Example(domain)
             for col, val in zip(cols, row):
                 example[str(col)] = str(val)
@@ -239,9 +224,9 @@ class Orange_Converter(Converter):
         '''
         mysql_type = self.types[col]
         n_vals = len(self.db.col_vals[self.db.target_table][col])
-        if mysql_type in Orange_Converter.continuous_types or (n_vals >= 50 and mysql_type in Orange_Converter.discrete_types):
+        if mysql_type in Orange_Converter.continuous_types or (n_vals >= 50 and mysql_type in Orange_Converter.integer_types):
             return 'c'
-        elif mysql_type in Orange_Converter.discrete_types:
+        elif mysql_type in Orange_Converter.ordinal_types:
             return 'd'
         else:
             return 'string'
@@ -252,14 +237,13 @@ if __name__ == '__main__':
     context = DBContext(DBConnection('root','','localhost','test'))
     context.target_table = 'trains'
     context.target_att = 'direction'
-    context.target_att_val = 'east'
 
-    # rsd = RSD_Converter(context)
-    # ex, bk = rsd.all_examples(), rsd.background_knowledge()
+    rsd = RSD_Converter(context)
+    ex, bk = rsd.all_examples(), rsd.background_knowledge()
 
-    # aleph = Aleph_Converter(context)
-    # print aleph.positive_examples()
-    # print aleph.negative_examples()
-    # print aleph.background_knowledge()
+    aleph = Aleph_Converter(context, target_att_val='east')
+    print aleph.positive_examples()
+    print aleph.negative_examples()
+    print aleph.background_knowledge()
     orange = Orange_Converter(context)
     orange.target_table()
