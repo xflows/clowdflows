@@ -43,8 +43,6 @@
 		<script type="text/javascript">
 		    // Columns data.
 			var cols = {{cols|safe}};
-			//var col_vals = {{col_vals|safe}};
-			console.log(col_vals);
 			$('select[name="target_table{{widget.pk}}"]').change(function () {
 				var selected_table = $(this).first('option:selected').val();
 				var available_cols = cols[selected_table];
