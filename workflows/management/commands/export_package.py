@@ -14,6 +14,11 @@ class Command(BaseCommand):
             dest='newuid',
             default=False,
             help='UID field of all exported models will be overwritten with new random values.'),
+        make_option('-u', '--updateuid',
+            action="store_true",
+            dest='updateuid',
+            default=True,
+            help='Models without UIDs will be assigned new ones. Use this option when adding new parameters, widgets, etc, to an existing package.'),
         make_option('-a', '--all',
             action="store_true",
             dest='all',
@@ -25,12 +30,15 @@ class Command(BaseCommand):
         if (len(args) < 2):
             raise CommandError('Arguments "file_name" and "package_name" are required!')
 
+        if options['newuid'] and options['updateuid']:
+            raise CommandError('--newuid and --updateuid flags are mutually exclusive.')
+
         try:
             f = open(args[0], 'w')
         except:
             raise CommandError('There was a problem with creating/overwriting given output file')
 
-        result = export_package_string(self.stdout.write, args[1:], options['newuid'], options['all'], int(options['verbosity']))
+        result = export_package_string(self.stdout.write, args[1:], options['newuid'], options['updateuid'], options['all'], int(options['verbosity']))
 
         try:
             f.write(result.encode('utf-8'))
@@ -42,9 +50,10 @@ class Command(BaseCommand):
             self.stdout.write('Tip: use higher "verbosity" option numbers to se more detailed output of what is being exported.\n')
         self.stdout.write('Export procedure successfully finished. Results written to the file.\n')
 
-def export_package_string(writeFunc, packages, newuid, all, verbosity):
+def export_package_string(writeFunc, packages, newuid, updateuid, all, verbosity):
     assert isinstance(packages, tuple)
     assert isinstance(newuid, bool)
+    assert isinstance(updateuid, bool)
     assert isinstance(all, bool)
 
     objs = []
@@ -52,12 +61,11 @@ def export_package_string(writeFunc, packages, newuid, all, verbosity):
         objs.extend(get_package_objs_in_category(topCat, packages, all))
 
     if len(objs) == 0:
-        writeFunc('Selected package(s) were not found!\n')
-        return "[\\n]"
+        raise CommandError('Selected package(s) were not found!')
 
     #be careful uid is only changed on these instances and is not written to the database
-    if newuid:
-        for a in objs:
+    for a in objs:
+        if newuid or (not a.uid and updateuid):
             a.uid = str(uuid.uuid4())
 
     print_stataistics(objs, verbosity, writeFunc)
