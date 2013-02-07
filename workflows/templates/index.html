@@ -38,6 +38,7 @@
 <script src="{{STATIC_URL}}js/highcharts-2.2.5-tooltip-id.js"></script>
 <script src="{{STATIC_URL}}js/highcharts-exporting.js"></script>
 <script src="{{STATIC_URL}}js/d3/d3.v3.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/search.js"></script>
 <!-- <script src="{{STATIC_URL}}js/d3/d3.js"></script>
 <script src="{{STATIC_URL}}js/d3/d3.layout.js"></script> -->
 <script type="text/javascript">
@@ -125,33 +126,41 @@ userIsStaff = '{{ user.is_staff }}'=='True';
 		</div>
 	</div>
 	<div id="widgets"> 
+		<input type="text" name="searchBox" id="searchBox" onkeyup="search()" placeholder="Search"/>
 		<ul class="browser filetree">
 			<li class="closed"><span class="folder">Local services</span>
 			<ul id="corewidgets">
 			{% for category in categories %}
-            {% if not category.parent %}
-            {% if not category.user %}
-                <li class="closed"><span class="folder" rel="{{ category.id }}" relType="category">{{ category.name }}</span><ul>
-                    {% for c in category.children.all %}
-                    <li class="closed"><span class="folder" rel="{{ c.id }}" relType="category">{{ c.name }}</span><ul>
-                        {% for d in c.children.all %}
-                            <li class="closed"><span class="folder" rel="{{ d.id }}" relType="category">{{ d.name }}</span><ul>
-                                {% for widget in d.widgets.all %}
-                                	{% include "treeview_widget.html" with widget=widget %}
-                                {% endfor %}
-                            </ul></li>
-                        {% endfor %}
-                        {% for widget in c.widgets.all %}
-							{% include "treeview_widget.html" with widget=widget %}
-                        {% endfor %}
-                    </ul></li>
-                    {% endfor %}
-                    {% for widget in category.widgets.all %}
-						{% include "treeview_widget.html" with widget=widget %}
-                    {% endfor %}
-                </ul></li>
-            {% endif %}
-            {% endif %}
+	            {% if not category.parent %}
+		            {% if not category.user %}
+		                <li class="closed">
+		                	<span class="folder" rel="{{ category.id }}" relType="category">{{ category.name }}</span>
+		                	<ul>
+		                    	{% for c in category.children.all %}
+				                    <li class="closed"><span class="folder" rel="{{ c.id }}" relType="category">{{ c.name }}</span>
+				                    	<ul>
+					                        {% for d in c.children.all %}
+					                            <li class="closed"><span class="folder" rel="{{ d.id }}" relType="category">{{ d.name }}</span>
+					                            	<ul>
+					                                {% for widget in d.widgets.all %}
+					                                	{% include "treeview_widget.html" with widget=widget %}
+					                                {% endfor %}
+					                				</ul>
+					                			</li>
+			                        		{% endfor %}
+					                        {% for widget in c.widgets.all %}
+												{% include "treeview_widget.html" with widget=widget %}
+					                        {% endfor %}
+			                    		</ul>
+		                			</li>
+			                    {% endfor %}
+			                    {% for widget in category.widgets.all %}
+									{% include "treeview_widget.html" with widget=widget %}
+			                    {% endfor %}
+		                	</ul>
+		                </li>
+		            {% endif %}
+	            {% endif %}
             {% endfor %}
 			</ul>
 			</li>
