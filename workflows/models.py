@@ -291,6 +291,7 @@ class AbstractInput(models.Model):
     default = models.TextField(blank=True)
     PARAMETER_CHOICES = (
         ('text','Single line'),
+        ('password', 'Password'),
         ('textarea','Multi line text'),
         ('select', 'Select box'),
         ('checkbox', 'Checkbox'),
