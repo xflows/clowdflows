@@ -13,12 +13,6 @@
 				<option value="{{col}}" {% if forloop.first %}selected="selected"{% endif %}>{{col}}</option>
 				{% endfor %}
 			</select>
-			<label>Target attribute value:</label> 
-			<select name="target_att_val{{widget.pk}}">
-				{% for val in target_col_vals %}
-				<option value="{{val}}" {% if forloop.first %}selected="selected"{% endif %}>{{val}}</option>
-				{% endfor %}
-			</select>
 			<label>Select tables to be used:</label> 
 			<select multiple name="tables{{widget.pk}}">
 				{% for table in context.tables %}
@@ -49,7 +43,8 @@
 		<script type="text/javascript">
 		    // Columns data.
 			var cols = {{cols|safe}};
-			var col_vals = {{col_vals|safe}};
+			//var col_vals = {{col_vals|safe}};
+			console.log(col_vals);
 			$('select[name="target_table{{widget.pk}}"]').change(function () {
 				var selected_table = $(this).first('option:selected').val();
 				var available_cols = cols[selected_table];
@@ -59,18 +54,6 @@
 				for (idx in available_cols) {
 					var col = available_cols[idx];
 					att_select.append($('<option></option>').attr('value', col).text(col));
-				}
-			});
-			$('select[name="target_att{{widget.pk}}"]').change(function () {
-				var selected_table = $('select[name="target_table{{widget.pk}}"]').first('option:selected').val();
-				var selected_att = $(this).first('option:selected').val();
-				var available_vals = col_vals[selected_table][selected_att];
-				// Change the list of options as the target attribute
-				var val_select = $('select[name="target_att_val{{widget.pk}}"]');
-				val_select.empty();
-				for (idx in available_vals) {
-					var col = available_vals[idx];
-					val_select.append($('<option></option>').attr('value', col).text(col));
 				}
 			});
 		</script>
