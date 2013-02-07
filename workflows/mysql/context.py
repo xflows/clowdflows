@@ -24,7 +24,7 @@ class DBConnection:
         return sql.connect(user=self.user, password=self.password, host=self.host, database=self.database)
 
 class DBContext:
-    def __init__(self, connection):
+    def __init__(self, connection, find_connections=False):
         '''
         Initializes the fields:
             tables:           list of selected tables
@@ -36,7 +36,6 @@ class DBContext:
             pkeys:            private key for a given table
             target_table:     selected table for learning
             target_att:       selected column for learning
-            target_att_val:   selected target att value 
         '''
         self.connection = connection
         con = connection.connect()
@@ -54,18 +53,27 @@ class DBContext:
             for col in cols:
                 cursor.execute("SELECT DISTINCT `%s` FROM `%s` LIMIT 51" % (col, table))
                 self.col_vals[table][col] = [val for (val,) in cursor]
-        print self.col_vals
         self.connected = {}
         cursor.execute(
            "SELECT table_name, column_name, referenced_table_name, referenced_column_name \
             FROM information_schema.KEY_COLUMN_USAGE \
             WHERE referenced_table_name IS NOT NULL AND table_schema='%s'" % connection.database)
         self.fkeys = defaultdict(set)
+        self.pkeys = {}
+        if find_connections:
+            for table in self.tables:
+                for col in self.cols[table]:
+                    if col.endswith('_id'):
+                        ref_table = (col[:-4] + 'ies') if col[-4] == 'y' else (col[:-3] + 's')
+                        self.connected[(table, ref_table)] = (col, 'id')
+                        self.connected[(ref_table, table)] = ('id', col)
+                        self.fkeys[table].add(col)
+                if col == 'id':
+                    self.pkeys[table] = col
         for (table, col, ref_table, ref_col) in cursor:
             self.connected[(table, ref_table)] = (col, ref_col)
             self.connected[(ref_table, table)] = (ref_col, col)
             self.fkeys[table].add(col)
-        self.pkeys = {}
         cursor.execute(
             "SELECT table_name, column_name \
              FROM information_schema.KEY_COLUMN_USAGE \
@@ -126,5 +134,7 @@ class DBContext:
         return types
 
     def __repr__(self):
-        return str((self.target_table, self.target_att, self.tables, self.cols, self.connected))
+        #import pprint
+        #return pprint.pformat((self.target_table, self.target_att, self.tables, self.cols, self.connected, self.pkeys, self.fkeys))
+        return 'fkeys : ' + str(self.fkeys)
 
