@@ -3,6 +3,7 @@ Classes for handling DBContexts for ILP systems.
 
 @author: Anze Vavpetic <anze.vavpetic@ijs.si>
 '''
+import re
 
 class Converter:
     '''
@@ -100,6 +101,7 @@ class Aleph_Converter(ILP_Converter):
         self.target_att_val = kwargs.pop('target_att_val')
         ILP_Converter.__init__(self, *args, **kwargs)
         self.__pos_examples, self.__neg_examples = None, None
+        self.target_predicate = re.sub('\s+', '_', self.target_att_val).lower()
 
     def __examples(self):
         if not (self.__pos_examples and self.__neg_examples):
@@ -111,8 +113,8 @@ class Aleph_Converter(ILP_Converter):
                     pos_rows.append(row)
                 else:
                     neg_rows.append(row)
-            self.__pos_examples = '\n'.join(['%s(%s).' % (target_val, id) for _, id in pos_rows])
-            self.__neg_examples = '\n'.join(['%s(%s).' % (target_val, id) for _, id in neg_rows])
+            self.__pos_examples = '\n'.join(['%s(%s).' % (self.target_predicate, id) for _, id in pos_rows])
+            self.__neg_examples = '\n'.join(['%s(%s).' % (self.target_predicate, id) for _, id in neg_rows])
         return self.__pos_examples, self.__neg_examples
 
     def positive_examples(self):
@@ -122,13 +124,13 @@ class Aleph_Converter(ILP_Converter):
         return self.__examples()[1]
 
     def background_knowledge(self):
-        modeslist, getters = [self.mode(self.target_att_val, [('+', self.db.target_table)], head=True)], []
+        modeslist, getters = [self.mode(self.target_predicate, [('+', self.db.target_table)], head=True)], []
         determinations, types = [], []
         for (table, ref_table) in self.db.connected.keys():
             if ref_table == self.db.target_table:
                 continue # Skip backward connections
             modeslist.append(self.mode('has_%s' % ref_table, [('+', table), ('-', ref_table)], recall='*'))
-            determinations.append(':- determination(%s/1, has_%s/2).' % (self.target_att_val, ref_table))
+            determinations.append(':- determination(%s/1, has_%s/2).' % (self.target_predicate, ref_table))
             types.extend(self.concept_type_def(table))
             types.extend(self.concept_type_def(ref_table))
             getters.extend(self.connecting_clause(table, ref_table))
@@ -138,7 +140,7 @@ class Aleph_Converter(ILP_Converter):
                    att in self.db.fkeys[table] or att == self.db.pkeys[table]:
                     continue
                 modeslist.append(self.mode('%s_%s' % (table, att), [('+', table), ('#', att)], recall='*'))
-                determinations.append(':- determination(%s/1, %s_%s/2).' % (self.target_att_val, table, att))
+                determinations.append(':- determination(%s/1, %s_%s/2).' % (self.target_predicate, table, att))
                 types.extend(self.constant_type_def(table, att))
                 getters.extend(self.attribute_clause(table, att))
         local_copies = [self.local_copy(table) for table in self.db.tables]
