@@ -203,7 +203,8 @@ def treeToJSON(node, path="", nodes={}):
 
     if path=="": #get the dictionary prepared, insert root node
         nodes.update ({ #root node properties
-            "name":node.branch_selector.class_var.name,
+            "name": "root",
+            # "name":node.node_classifier.class_var.name,
             "ID":node.reference(),
             "children":[]
         })
@@ -214,7 +215,8 @@ def treeToJSON(node, path="", nodes={}):
             try:
                 if node.branches[n].branch_selector: #if the node (branch) has branches
                     child = { #set node properties
-                        "name":node.branch_descriptions[n] + " - " + node.branches[n].branch_selector.class_var.name,
+                        "name":node.branch_selector.class_var.name[:15] + " "
+                         + node.branch_descriptions[n][:10],
                         "ID":node.branches[n].reference(),
                         "children":[] #stays open for future descendant nodes
                         }
@@ -226,7 +228,13 @@ def treeToJSON(node, path="", nodes={}):
 
                 else: #if node is a leaf
                     child = {
-                        "name":node.branch_descriptions[n] + " - " + node.branches[n].node_classifier.default_value.value,
+                        "name":node.branch_selector.class_var.name + " "
+                         + node.branch_descriptions[n]
+                          + ": "
+                           + node.branches[n].node_classifier.default_value.value
+                            + " ("
+                             + str(node.branches[n].node_classifier.GetProbabilities*100)
+                              + "%)",
                         "ID":node.branches[n].reference(),
                         }
                     eval ("nodes" + path + ".append(" + str(child) + ")")
@@ -246,7 +254,5 @@ def tree_visualization(request, input_dict, output_dict, widget):
     tc = input_dict['clt']
 
     jsonJ = treeToJSON(tc.tree)
-
-    print jsonJ
     
     return render(request, 'visualizations/tree_visualization.html', {'widget':widget, 'input_dict':input_dict, 'json':jsonJ})

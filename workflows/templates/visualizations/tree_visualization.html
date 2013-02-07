@@ -17,7 +17,7 @@
 }
 </style>
 
-<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" width="900" height="600" class="widgetvisualizationdialog" title="{{widget.name}}">
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" width="900" height="750" class="widgetvisualizationdialog" title="{{widget.name}}">
 
 
 
@@ -28,9 +28,9 @@
 
 src="https://raw.github.com/mbostock/d3/master/d3.js"
 
-var m = [20, 80, 20, 120],
+var m = [20, 250, 20, 40],
     w = 870 - m[1] - m[3],
-    h = 500 - m[0] - m[2],
+    h = 660 - m[0] - m[2],
     i = 0,
     json;
 
@@ -64,11 +64,6 @@ function(json) {
 
   // Initialize the display to show a few nodes.
   json.children.forEach(toggleAll);
-  // toggle(json.children[1]);
-  //toggle(json.children[1].children[2]);
-  //toggle(json.children[9]);
-  //toggle(json.children[9].children[0]);
-
   update(json);
 
   // echo json;
@@ -80,7 +75,7 @@ function update(source) {
   var nodes = tree.nodes(json).reverse();
 
   // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 100; });
+  // nodes.forEach(function(d) { d.y = d.depth * 100; });
 
   // Update the nodes…
   var node = vis.selectAll("g.node")
@@ -97,9 +92,9 @@ function update(source) {
       .style("fill", function(d) { return d._children ? "#F7B64C" : "#F2D5A8"; });
 
   nodeEnter.append("svg:text")
-      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+      .attr("x", function(d) { return d.children || d._children ? 10 : 10; })
       .attr("dy", ".35em")
-      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+      .attr("text-anchor", "start")
       .text(function(d) { return d.name; })
       .style("fill-opacity", 1e-6);
 
@@ -177,9 +172,6 @@ function toggle(d) {
   }
 }
 
-    </script>
-
-
-{{json}}
+</script>
 
 </div>
