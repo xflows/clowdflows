@@ -9,6 +9,7 @@ from workflows.helpers import *
 import workflows.interaction_views
 import workflows.visualization_views
 import sys
+import traceback
 
 # modeli
 from workflows.models import *
@@ -810,12 +811,14 @@ def run_widget(request):
                         data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
                 else:
                     data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
-            except:
+            except Exception,e:
                 mimetype = 'application/javascript'
                 w.error = True
                 w.running = False
                 w.finished = False
                 w.save()
+
+                print traceback.format_exc(e)
 
                 #raise
                 for o in w.outputs.all():
@@ -855,6 +858,7 @@ def run_tree(request):
                 w.running = False
                 w.finished = False
                 w.save()
+                print traceback.format_exc(e)
                 raise
                 for o in w.outputs.all():
                     o.value=None
@@ -882,8 +886,6 @@ def reset_widget(request):
                 w.running = False
                 w.finished = False
                 w.save()
-                import traceback
-                print "asdfasdf"
                 print traceback.format_exc(e)
 
                 raise
@@ -1111,13 +1113,14 @@ def finish_interaction(request):
                 w.save()
                 mimetype = 'application/javascript'
                 data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.','widget_id':w.id})
-            except:
+            except Exception,e:
                 mimetype = 'application/javascript'
                 w.error = True
                 w.running = False
                 w.finished = False
                 w.interaction_waiting = False
                 w.save()
+                print traceback.format_exc(e)
                 raise
                 for o in w.outputs.all():
                     o.value=None

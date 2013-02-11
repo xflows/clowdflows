@@ -48,11 +48,7 @@ class DBContext:
             self.cols[table] = [col for (col,) in cursor]
         self.all_cols = dict(self.cols)
         self.col_vals = {}
-        for table, cols in self.cols.items():
-            self.col_vals[table] = {}
-            for col in cols:
-                cursor.execute("SELECT DISTINCT `%s` FROM `%s` LIMIT 51" % (col, table))
-                self.col_vals[table][col] = [val for (val,) in cursor]
+
         self.connected = {}
         cursor.execute(
            "SELECT table_name, column_name, referenced_table_name, referenced_column_name \
@@ -132,6 +128,20 @@ class DBContext:
             types[desc[0]] = sql.FieldType.get_info(desc[1])
         con.close()
         return types
+
+    def compute_col_vals(self):
+        import time
+        con = self.connection.connect()
+        cursor = con.cursor()
+        for table, cols in self.cols.items():
+            self.col_vals[table] = {}
+            now=time.time()
+            for col in cols:
+                cursor.execute("SELECT DISTINCT `%s` FROM `%s`" % (col, table))
+                print str(table),str(col),str(time.time()-now)
+                self.col_vals[table][col] = [val for (val,) in cursor]
+                now=time.time()
+        con.close()
 
     def __repr__(self):
         #import pprint
