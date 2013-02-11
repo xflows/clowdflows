@@ -816,11 +816,12 @@ def run_widget(request):
                 w.running = False
                 w.finished = False
                 w.save()
+
                 #raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
@@ -858,7 +859,7 @@ def run_tree(request):
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
@@ -881,10 +882,15 @@ def reset_widget(request):
                 w.running = False
                 w.finished = False
                 w.save()
+                import traceback
+                print "asdfasdf"
+                print traceback.format_exc(e)
+
                 raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
+
                 data = simplejson.dumps({'status':'error','message':'Error occurred when trying to reset widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
             return HttpResponse(data,mimetype)
         else:
@@ -1116,7 +1122,7 @@ def finish_interaction(request):
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>','widget_id':w.id})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>','widget_id':w.id})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
