@@ -181,12 +181,14 @@ class Orange_Converter(Converter):
     def __init__(self, *args, **kwargs):
         Converter.__init__(self, *args, **kwargs)
         self.types = self.db.fetch_types(self.db.target_table, self.db.cols[self.db.target_table])
+        self.db.compute_col_vals()
 
     def target_table(self):
         '''
         Returns the target table as an orange example table.
         '''
         import orange
+        import string
         from mysql.connector import FieldType
         table, cls_att = self.db.target_table, self.db.target_att
         cols = self.db.cols[table]
@@ -195,7 +197,7 @@ class Orange_Converter(Converter):
             att_type = self.orng_type(col)
             if att_type == 'd':
                 att_vals = self.db.col_vals[table][col]
-                att_var = orange.EnumVariable(str(col), values=[str(val) for val in att_vals])
+                att_var = orange.EnumVariable(str(col), values=[str(val).encode('ascii', 'ignore') for val in att_vals])
             elif att_type == 'c':
                 att_var = orange.FloatVariable(str(col))
             else:
@@ -213,10 +215,14 @@ class Orange_Converter(Converter):
         for meta in metas:
             domain.addmeta(orange.newmetaid(), meta)
         dataset = orange.ExampleTable(domain)
+
+        aa=[a for a in domain.attributes[1].values if a[0]=="G" and len(a)>2 and a[1]=="o"and a[2]=="n"]
+        #print domain['last_name'].values
+        print 'Gonzalez' in [a.name for a in domain['last_name'].values]
         for row in self.db.rows(table, cols):
             example = orange.Example(domain)
             for col, val in zip(cols, row):
-                example[str(col)] = str(val)
+                example[str(col)] = str(val).encode('ascii', 'ignore')
             dataset.append(example)
         return dataset
 
