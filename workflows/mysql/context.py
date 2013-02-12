@@ -1,4 +1,5 @@
 from collections import defaultdict
+import pprint
 from django import forms
 import mysql.connector as sql
 
@@ -78,7 +79,6 @@ class DBContext:
             self.pkeys[table] = pk
         self.target_table = self.tables[0]
         self.target_att = None
-        #self.target_att_val = None
         con.close()
 
     def update(self, postdata):
@@ -135,16 +135,19 @@ class DBContext:
         cursor = con.cursor()
         for table, cols in self.cols.items():
             self.col_vals[table] = {}
-            now=time.time()
             for col in cols:
-                cursor.execute("SELECT DISTINCT `%s` FROM `%s`" % (col, table))
-                print str(table),str(col),str(time.time()-now)
-                self.col_vals[table][col] = [val for (val,) in cursor]
-                now=time.time()
+                cursor.execute("SELECT DISTINCT BINARY `%s`, `%s` FROM `%s`" % (col, col, table))
+                self.col_vals[table][col] = [val for (_,val) in cursor]
         con.close()
 
     def __repr__(self):
-        #import pprint
-        #return pprint.pformat((self.target_table, self.target_att, self.tables, self.cols, self.connected, self.pkeys, self.fkeys))
-        return 'fkeys : ' + str(self.fkeys)
+        return pprint.pformat({
+            'target_table' : self.target_table, 
+            'target attribute' : self.target_att, 
+            'tables' : self.tables, 
+            'cols' : self.cols, 
+            'connected' : self.connected, 
+            'pkeys' : self.pkeys, 
+            'fkeys' : self.fkeys 
+        })
 
