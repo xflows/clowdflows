@@ -802,5 +802,482 @@
       "order": 3,
       "description": "rules as prolog facts"
     }
+  },
+  {
+    "pk": 205,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 14,
+      "treeview_image": "",
+      "name": "SDM-SEGS",
+      "is_streaming": false,
+      "uid": "62b2b153-f4f1-4126-b166-9d33b79140ae",
+      "interaction_view": "",
+      "image": "",
+      "package": "ilp",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": 1,
+      "visualization_view": "",
+      "action": "call_webservice",
+      "wsdl_method": "sdmsegs",
+      "wsdl": "http://vihar.ijs.si:8096/",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "\t\t\t\t\r\n    SDM-SEGS web service.\r\n    \r\n    Inputs:\r\n        - inputData: str, a .tab dataset or a (pythonish) list of pairs\r\n        - interactions: str, list of interacting examples,\r\n        - mapping : str, a mapping between examples and ontological terms,\r\n        - ont1-4 : str, ontologies in OWL (legacy=false), or in SEGS's format (legacy=true)\r\n        - generalTerms : str, terms that are too general (each in new line),\r\n        - legacy : bool, turns on SEGS mode,\r\n        - posClassVal : str, if the data is class-labeled, this is the target class,\r\n        - cutoff : int, if the data is ranked, this is the cutoff value for splitting it into two classes,\r\n        - wracc_k : int, number of times an example can be covered when selecting with WRAcc,\r\n        - minimalSetSize : int, minimum number of covered examples,\r\n        - maxNumTerms : int, maximum number of conjunctions in one rule,\r\n        - maxReported : int, number of returned rules,\r\n        - maximalPvalue : float, maximum p-value of a returned rule,\r\n        - weightFisher, weightGSEA, weightPAGE : float, weights for corresponding score functions; makes sense only if legacy = false,\r\n        - dataFormat : str, legal values are 'tab' or 'list'\r\n    Output:\r\n        - json dictionary encoding the discovered rules.\r\n        \r\n    Note: See http://kt.ijs.si/software/SEGS/ for legacy format specification.\r\n    \r\n    @author: Anze Vavpetic, 2011 <anze.vavpetic@ijs.si>\r\n    \r\n\t\t\t"
+    }
+  },
+  {
+    "pk": 532,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "Timeout",
+      "short_name": "to",
+      "uid": "b8824eee-dae1-4edb-8ad7-310f434a29d9",
+      "default": "60",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "timeout",
+      "parameter": true,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 533,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "Send empty strings to webservices",
+      "short_name": "ses",
+      "uid": "534792cf-c0bf-42ac-8c61-ad024c4cc879",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "sendemptystrings",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 534,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "ont3",
+      "short_name": "ont",
+      "uid": "e0523850-d582-46c0-a1b9-32ca03be9a03",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "ont3",
+      "parameter": false,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 535,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "ont2",
+      "short_name": "ont",
+      "uid": "a7cd7ac7-24d5-4104-b008-e4205ab110c6",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "ont2",
+      "parameter": false,
+      "order": 4,
+      "description": ""
+    }
+  },
+  {
+    "pk": 536,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "ont1",
+      "short_name": "ont",
+      "uid": "a9e8df9d-f417-45de-b7c8-c9c1d969e751",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "ont1",
+      "parameter": false,
+      "order": 5,
+      "description": ""
+    }
+  },
+  {
+    "pk": 537,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "generalTerms",
+      "short_name": "gen",
+      "uid": "c0b6e88d-8f49-47ee-8bff-c6edf8795196",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "generalTerms",
+      "parameter": false,
+      "order": 6,
+      "description": ""
+    }
+  },
+  {
+    "pk": 538,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "interactions",
+      "short_name": "int",
+      "uid": "c12add79-923d-4d90-8a89-d1d93ae187c5",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "interactions",
+      "parameter": false,
+      "order": 7,
+      "description": ""
+    }
+  },
+  {
+    "pk": 539,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "maxNumTerms",
+      "short_name": "max",
+      "uid": "bfc140d6-d06f-4717-9003-8121a0838c0a",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "maxNumTerms",
+      "parameter": true,
+      "order": 8,
+      "description": ""
+    }
+  },
+  {
+    "pk": 540,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "ont4",
+      "short_name": "ont",
+      "uid": "c72dbff7-ce7d-4708-bd3d-bb22e83ae2c1",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "ont4",
+      "parameter": false,
+      "order": 9,
+      "description": ""
+    }
+  },
+  {
+    "pk": 541,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "mapping",
+      "short_name": "map",
+      "uid": "c24bd33a-05f4-4c7f-8748-5e0a460cc99e",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "mapping",
+      "parameter": false,
+      "order": 10,
+      "description": ""
+    }
+  },
+  {
+    "pk": 542,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "weightGSEA",
+      "short_name": "wei",
+      "uid": "bf54ba64-b9c1-47c2-b80e-382f8dfe3618",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "weightGSEA",
+      "parameter": true,
+      "order": 11,
+      "description": ""
+    }
+  },
+  {
+    "pk": 543,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "wracc_k",
+      "short_name": "wra",
+      "uid": "31b12fe2-5daa-42bf-970c-9f958bf1d731",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "wracc_k",
+      "parameter": true,
+      "order": 12,
+      "description": ""
+    }
+  },
+  {
+    "pk": 544,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "maximalPvalue",
+      "short_name": "max",
+      "uid": "3cfaa5e1-3c9b-4582-9efb-477e074a8dd4",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "maximalPvalue",
+      "parameter": true,
+      "order": 13,
+      "description": ""
+    }
+  },
+  {
+    "pk": 545,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "legacy",
+      "short_name": "leg",
+      "uid": "1d4ffcaa-e813-408a-9908-b1c783abac06",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "legacy",
+      "parameter": true,
+      "order": 14,
+      "description": ""
+    }
+  },
+  {
+    "pk": 546,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "maxReported",
+      "short_name": "max",
+      "uid": "d735e824-a568-4f02-b826-5d4892adb4dc",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "maxReported",
+      "parameter": true,
+      "order": 15,
+      "description": ""
+    }
+  },
+  {
+    "pk": 547,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "dataFormat",
+      "short_name": "dat",
+      "uid": "595e4161-fa2e-4804-8c17-01039da61270",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "dataFormat",
+      "parameter": true,
+      "order": 16,
+      "description": ""
+    }
+  },
+  {
+    "pk": 548,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "minimalSetSize",
+      "short_name": "min",
+      "uid": "5f4bc4d3-a8ef-4fe5-befb-b704e120a65a",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "minimalSetSize",
+      "parameter": true,
+      "order": 17,
+      "description": ""
+    }
+  },
+  {
+    "pk": 549,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "weightFisher",
+      "short_name": "wei",
+      "uid": "399b1134-9b0e-48d3-a71f-0d6497365dbe",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "weightFisher",
+      "parameter": true,
+      "order": 18,
+      "description": ""
+    }
+  },
+  {
+    "pk": 550,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "posClassVal",
+      "short_name": "pos",
+      "uid": "8bc2c8d5-de47-4953-b69e-8216b7f36e7c",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "posClassVal",
+      "parameter": true,
+      "order": 19,
+      "description": ""
+    }
+  },
+  {
+    "pk": 551,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "cutoff",
+      "short_name": "cut",
+      "uid": "1e3bd06d-0ec9-4160-ac2a-cf94da4722e6",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "cutoff",
+      "parameter": true,
+      "order": 20,
+      "description": ""
+    }
+  },
+  {
+    "pk": 552,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "inputData",
+      "short_name": "inp",
+      "uid": "864cf70e-7615-4612-8c1c-051f150bd0a7",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "inputData",
+      "parameter": false,
+      "order": 21,
+      "description": ""
+    }
+  },
+  {
+    "pk": 553,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 205,
+      "name": "weightPAGE",
+      "short_name": "wei",
+      "uid": "689f8675-5110-4abb-bc4c-b27f9fd2769b",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "weightPAGE",
+      "parameter": true,
+      "order": 22,
+      "description": ""
+    }
+  },
+  {
+    "pk": 230,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 205,
+      "name": "results",
+      "short_name": "res",
+      "variable": "results",
+      "uid": "e366e00b-076a-4039-abfa-14e9541da625",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 204,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 14,
+      "treeview_image": "",
+      "name": "SDM-SEGS Rule Viewer",
+      "is_streaming": false,
+      "uid": "3dea450d-831b-493d-bfe4-a0f2a6c5dec4",
+      "interaction_view": "",
+      "image": "",
+      "package": "ilp",
+      "static_image": "ilp.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "ilp_sdmsegs_rule_viewer",
+      "action": "ilp_sdmsegs_rule_viewer",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 531,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 204,
+      "name": "SDM-SEGS rules",
+      "short_name": "rls",
+      "uid": "dfa4c113-9c41-4b73-bc62-d19463952e24",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "sdmsegs_rules",
+      "parameter": false,
+      "order": 1,
+      "description": "SDM-SEGS rules"
+    }
   }
 ]

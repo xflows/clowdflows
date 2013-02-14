@@ -11,7 +11,7 @@
         <th class="tablecellcenter">Positive examples</th>
         <th class="tablecellcenter">WRAcc</th>
     </tr>
-    {% for ex in output_dict.json_output.items %}
+    {% for ex in rules.items %}
     <tr class="tablerow{{widget.pk}}">
         <td class='tablecellright'> {{ex.0}} </td>
         <td class='tablecellleft'>

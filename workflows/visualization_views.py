@@ -172,26 +172,6 @@ def data_info_view(request,input_dict,output_dict,widget):
     
     return render(request, 'visualizations/data_table_info.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict, 'info_dict':info_dict})
 
-def sdmsegs_viewer(request,input_dict,output_dict,widget):
-    import json
-    d = json.loads(input_dict['json'])
-    output = {}
-    for k, v in d['A']['WRAcc'].items():
-        terms = []
-        for t in v['terms']:
-            try:
-                terms.append(d['ontDict'][t])
-            except Exception, e:
-                pass
-        output[int(k)] = {
-        'name': terms,
-        'topGenes': int(len(v['topGenes'])),
-        'allGenes': int(len(v['allGenes'])),
-        'wracc': round(v['scores']['wracc'], 3)
-        }
-    output_dict = {'json_output':output}
-    return render(request, 'visualizations/sdmsegs_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
-
 def treeToJSON(node, path="", nodes={}):
     #made by Bogdan Okresa Duric :)
     

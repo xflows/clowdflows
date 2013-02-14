@@ -787,9 +787,6 @@ def data_table(input_dict):
 def data_info(input_dict):
     return {}
 
-def sdmsegs(input_dict):
-    return{}
-
 def definition_sentences(input_dict):
     return {}
 
