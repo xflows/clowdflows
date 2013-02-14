@@ -17,19 +17,16 @@
 }
 </style>
 
-<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" width="900" height="750" class="widgetvisualizationdialog" title="{{widget.name}}">
-
-
-
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" width="1200" height="750" class="widgetvisualizationdialog" title="{{widget.name}}">
 
 <div id="chart"></div>
 
 <script type="text/javascript">
 
-src="https://raw.github.com/mbostock/d3/master/d3.js"
+src="https://raw.github.com/mbostock/d3/master/d3.js";
 
 var m = [20, 250, 20, 40],
-    w = 870 - m[1] - m[3],
+    w = 1170 - m[1] - m[3],
     h = 660 - m[0] - m[2],
     i = 0,
     json;
@@ -44,38 +41,20 @@ var vis = d3.select("#chart").append("svg:svg")
     .attr("width", w + m[1] + m[3])
     .attr("height", h + m[0] + m[2])
     .append("svg:g")
-    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
 json = JSON.parse('{{json}}'.replace(/&quot;/g, '"'));
 
-console.log (json)
+json.x0 = h/2;
+json.y0 = 0;
 
-function(json) {
-  // json = json;
-  json.x0 = h/2;
-  json.y0 = 0;
-}
-  function toggleAll(d) {
-    if (d.children) {
-      d.children.forEach(toggleAll);
-      toggle(d);
-    }
-  }
-
-  // Initialize the display to show a few nodes.
-  json.children.forEach(toggleAll);
-  update(json);
-
-  // echo json;
+update(json);
 
 function update(source) {
   var duration = d3.event && d3.event.altKey ? 5000 : 500;
 
   // Compute the new tree layout.
   var nodes = tree.nodes(json).reverse();
-
-  // Normalize for fixed-depth.
-  // nodes.forEach(function(d) { d.y = d.depth * 100; });
 
   // Update the nodes…
   var node = vis.selectAll("g.node")
