@@ -39,3 +39,6 @@ def ilp_rsd(input_dict):
     # Run rsd
     features, arff, rules = rsd.induce(b, examples=examples, pos=pos, neg=neg, cn2sd=subgroups)
     return {'features' : features, 'arff' : arff, 'rules' : rules}
+
+def ilp_sdmsegs_rule_viewer(input_dict):
+    return {}

@@ -29,7 +29,7 @@ def mysql_rsd_converter(input_dict):
     return {'examples' : rsd.all_examples(), 'bk' : rsd.background_knowledge()}
 
 def mysql_aleph_converter(input_dict):
-    aleph = Aleph_Converter(input_dict['context'])
+    aleph = Aleph_Converter(input_dict['context'], target_att_val=input_dict['target_att_val'])
     return {'pos_examples' : aleph.positive_examples(), 'neg_examples' : aleph.negative_examples(), 'bk' : aleph.background_knowledge()}
 
 def mysql_query_to_odt(input_dict):

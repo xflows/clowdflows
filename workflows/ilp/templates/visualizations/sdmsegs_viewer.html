@@ -1,0 +1,30 @@
+<div id="widgetvisualization-{{widget.pk}}" width="600" height="400" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} results">
+
+<div id="widget-data-table-{{widget.pk}}" style=" margin: 0 auto">
+
+<center>
+<table class="datasetTable">
+    <tr>
+        <th class="tablecellcenter">#</th>
+        <th class="tablecellcenter">Description</th>
+        <th class="tablecellcenter">Covered examples</th>
+        <th class="tablecellcenter">Positive examples</th>
+        <th class="tablecellcenter">WRAcc</th>
+    </tr>
+    {% for ex in rules.items %}
+    <tr class="tablerow{{widget.pk}}">
+        <td class='tablecellright'> {{ex.0}} </td>
+        <td class='tablecellleft'>
+            {% for e in ex.1.name %}
+            <p>{{e}}</p>
+            {% endfor %}
+        </td>
+        <td class='tablecellcenter'> {{ex.1.allGenes}} </td>
+        <td class='tablecellcenter'> {{ex.1.topGenes}} </td>
+        <td class='tablecellleft'> {{ex.1.wracc}} </td>
+    </tr>
+    {% endfor %}
+</table>
+</center>
+</div>
+</div>
