@@ -46,7 +46,7 @@ def auto_import_all_packages(writeFunc, nobackup):
         backupDir = os.path.join(BACKUP_DIR,"db_backup"+timeStamp)
 
         writeFunc('Exporting to backup...\n')
-        result = export_package.export_package_string(lambda text: writeFunc('    '+text), ('all',), False, True, 1)
+        result = export_package.export_package_string(lambda text: writeFunc('    '+text), ('all',), False, False, True, 1)
         try:
             f = open(backupDir, 'w')
             f.write(result.encode('utf-8'))

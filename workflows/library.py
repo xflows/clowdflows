@@ -787,9 +787,6 @@ def data_table(input_dict):
 def data_info(input_dict):
     return {}
 
-def sdmsegs(input_dict):
-    return{}
-
 def definition_sentences(input_dict):
     return {}
 
@@ -842,4 +839,11 @@ def alter_table_finished(postdata, input_dict, output_dict):
     return {'altered_data' : new_table}
 
 def tree_visualization(input_dict):
+    return{}
+
+def example_distance(input_dict):
+    return input_dict
+
+def example_distance_post(postdata, input_dict, output_dict):
+
     return{}

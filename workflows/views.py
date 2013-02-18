@@ -9,6 +9,7 @@ from workflows.helpers import *
 import workflows.interaction_views
 import workflows.visualization_views
 import sys
+import traceback
 
 # modeli
 from workflows.models import *
@@ -810,17 +811,20 @@ def run_widget(request):
                         data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
                 else:
                     data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
-            except:
+            except Exception,e:
                 mimetype = 'application/javascript'
                 w.error = True
                 w.running = False
                 w.finished = False
                 w.save()
+
+                print traceback.format_exc(e)
+
                 #raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
@@ -854,11 +858,12 @@ def run_tree(request):
                 w.running = False
                 w.finished = False
                 w.save()
+                print traceback.format_exc(e)
                 raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
@@ -881,10 +886,13 @@ def reset_widget(request):
                 w.running = False
                 w.finished = False
                 w.save()
+                print traceback.format_exc(e)
+
                 raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
+
                 data = simplejson.dumps({'status':'error','message':'Error occurred when trying to reset widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
             return HttpResponse(data,mimetype)
         else:
@@ -1105,18 +1113,19 @@ def finish_interaction(request):
                 w.save()
                 mimetype = 'application/javascript'
                 data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.','widget_id':w.id})
-            except:
+            except Exception,e:
                 mimetype = 'application/javascript'
                 w.error = True
                 w.running = False
                 w.finished = False
                 w.interaction_waiting = False
                 w.save()
+                print traceback.format_exc(e)
                 raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>','widget_id':w.id})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>','widget_id':w.id})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)

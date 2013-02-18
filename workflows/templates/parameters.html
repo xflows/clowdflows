@@ -9,6 +9,9 @@
     {% if p.parameter_type == "text" %}
         <input id="pref-{{p.pk}}" name="pref-{{p.pk}}" title="{{p.description}}" type="text" value="{{p.value}}" onchange="" class="text ui-widget-content ui-corner-all" />
     {% endif %}
+    {% if p.parameter_type == "password" %}
+        <input id="pref-{{p.pk}}" name="pref-{{p.pk}}" title="{{p.description}}" type="password" value="{{p.value}}" onchange="" class="text ui-widget-content ui-corner-all" />
+    {% endif %}
     {% if p.parameter_type == "select" %}
         <select id="pref-{{p.pk}}" name="pref-{{p.pk}}" title="{{p.description}}" style="background:#fefefe;width:99%;" class="text ui-widget-content ui-corner-all" onchange="">
         {% for o in p.options.all %}

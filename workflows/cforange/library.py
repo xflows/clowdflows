@@ -169,7 +169,6 @@ def cforange_confusion_matrix(input_dict):
         cm = orngStat.confusionMatrices(results,classIndex=classIndex)
     if len(cm)==1:
         cm = cm[0]
-    print cm
     output_dict = {}
     output_dict['cm']=cm
     return output_dict
@@ -428,7 +427,6 @@ def cforange_hierarchical_clustering_finished(postdata, input_dict, output_dict)
         centroids = orange.ExampleTable(selected_table.domain)
         if len(selected_table) > 0:
             for cluster in sorted(selected_clusters):
-                print [ex for ex in selected_table if ex[clustVar] == "Cluster %d" % cluster]
                 clusterEx = orange.ExampleTable([ex for ex in selected_table if ex[clustVar] == "Cluster %d" % cluster])
                 # Attribute statistics
                 contstat = orange.DomainBasicAttrStat(clusterEx)
