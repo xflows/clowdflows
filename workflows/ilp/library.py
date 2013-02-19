@@ -5,6 +5,8 @@ from random import choice
 from aleph import Aleph
 from rsd import RSD
 
+from services.webservice import WebService
+
 def ilp_aleph(input_dict):
     aleph = Aleph()
     settings = input_dict['settings']
@@ -42,3 +44,19 @@ def ilp_rsd(input_dict):
 
 def ilp_sdmsegs_rule_viewer(input_dict):
     return {}
+
+def ilp_sdmaleph(input_dict):
+    ws = WebService('http://vihar.ijs.si:8097', 3600)
+    response = ws.client.sdmaleph(
+        examples=input_dict.get('examples'),
+        mapping=input_dict.get('mapping'),
+        ontologies=[{'ontology' : ontology} for ontology in input_dict.get('ontology')],
+        relations=[{'relation' : relation} for relation in input_dict.get('relation')],
+        posClassVal=input_dict.get('posClassVal') if input_dict.get('posClassVal') != '' else None,
+        cutoff=input_dict.get('cutoff') if input_dict.get('cutoff') != '' else None,
+        minPos=input_dict.get('minPos') if input_dict.get('minPos') != '' else None,
+        noise=input_dict.get('noise') if input_dict.get('noise') != '' else None,
+        clauseLen=input_dict.get('clauseLen') if input_dict.get('clauseLen') != '' else None,
+        dataFormat=input_dict.get('dataFormat') if input_dict.get('dataFormat') != '' else None
+    )
+    return {'theory' : response['theory']}
