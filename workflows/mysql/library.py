@@ -20,7 +20,8 @@ def mysql_db_context(input_dict):
 
 def mysql_db_context_finished(postdata, input_dict, output_dict):
     con = input_dict['connection']
-    context = DBContext(con)
+    find_con = input_dict['find_connections'] == 'true'
+    context = DBContext(con, find_connections=find_con)
     context.update(postdata)
     return {'context' : context}
 
