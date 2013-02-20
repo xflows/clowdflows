@@ -46,7 +46,8 @@ def ilp_sdmsegs_rule_viewer(input_dict):
     return {}
 
 def ilp_sdmaleph(input_dict):
-    ws = WebService('http://workflow.ijs.si:8081', 3600)
+    #ws = WebService('http://workflow.ijs.si:8081', 3600)
+    ws = WebService('http://vihar.ijs.si:8097', 3600)
     response = ws.client.sdmaleph(
         examples=input_dict.get('examples'),
         mapping=input_dict.get('mapping'),
