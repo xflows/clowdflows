@@ -61,7 +61,7 @@
       "widget": 104, 
       "name": "Table connection from names", 
       "short_name": "tbc", 
-      "uid": "be3718eb-062e-48f2-af2a-8c31e66524fe", 
+      "uid": "d9666514-2db4-49ea-afa0-c929075919ab", 
       "default": "false", 
       "required": true, 
       "multi": false, 
@@ -235,10 +235,23 @@
       "widget": 106, 
       "name": "Data table", 
       "short_name": "odt", 
-      "variable": "dataset", 
-      "uid": "8dc434fd-3307-432f-b1d7-74638390a077", 
+      "variable": "target_table_dataset", 
+      "uid": "553f2b6d-36c3-4344-9a66-f17a3d630736", 
       "order": 1, 
       "description": "Orange data table"
+    }
+  }, 
+  {
+    "pk": 127, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 106, 
+      "name": "List of Data tables", 
+      "short_name": "lot", 
+      "variable": "other_table_datasets", 
+      "uid": "f69bd0bb-3041-4150-8d3a-e9767aa304da", 
+      "order": 1, 
+      "description": "List of Orange data tables"
     }
   }, 
   {
