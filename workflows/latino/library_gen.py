@@ -5,26 +5,6 @@
 from serialization_utils import *
 from import_dotnet import *
 
-def sentiment_analysis_con_cat(inputDict):
-    _str1 = ToString(inputDict['str1'])
-    _str2 = ToString(inputDict['str2'])
-    execResult = SentimentAnalysisCF.ConCat(_str1, _str2)
-    execResultPy = ToPyObj(execResult)
-    outputDict = {}
-    outputDict['out'] = execResultPy
-    return outputDict
-
-def sentiment_analysis_ena_cudna_funk(inputDict):
-    _str1 = ToString(inputDict['str1'])
-    _str2 = ToString(inputDict['str2'])
-    _str3 = ToString(inputDict['str3'])
-    _str4 = ToString(inputDict['str4'])
-    execResult = SentimentAnalysisCF.EnaCudnaFunk(_str1, _str2, _str3, _str4)
-    execResultPy = ToPyObj(execResult)
-    outputDict = {}
-    outputDict['out'] = execResultPy
-    return outputDict
-
 def latino_flatten_object_to_string_array(inputDict):
     _data = ToNetObj(inputDict['data'])
     execResult = LatinoCF.FlattenObjectToStringArray(_data)
@@ -36,7 +16,8 @@ def latino_flatten_object_to_string_array(inputDict):
 def latino_load_adc(inputDict):
     _file = ToString(inputDict['file'])
     _leadingLabels = ToBool(inputDict['leadingLabels'])
-    execResult = LatinoCF.LoadADC(_file, _leadingLabels)
+    _tabSeparatedTitle = ToBool(inputDict['tabSeparatedTitle'])
+    execResult = LatinoCF.LoadADC(_file, _leadingLabels, _tabSeparatedTitle)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
     outputDict['adc'] = execResultPy
@@ -45,7 +26,8 @@ def latino_load_adc(inputDict):
 def latino_load_adcfrom_string(inputDict):
     _plainString = ToString(inputDict['plainString'])
     _leadingLabels = ToBool(inputDict['leadingLabels'])
-    execResult = LatinoCF.LoadADCFromString(_plainString, _leadingLabels)
+    _tabSeparatedTitle = ToBool(inputDict['tabSeparatedTitle'])
+    execResult = LatinoCF.LoadADCFromString(_plainString, _leadingLabels, _tabSeparatedTitle)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
     outputDict['adc'] = execResultPy
@@ -208,10 +190,10 @@ def latino_tokenize_words(inputDict):
 
 def latino_tokenize_multiple(inputDict):
     _adc = ToNetObj(inputDict['adc'])
-    _tokenizer = ToNetObj(inputDict['tokenizer'])
-    _inputAnnotation = ToString(inputDict['inputAnnotation'])
-    _outputAnnotation = ToString(inputDict['outputAnnotation'])
-    execResult = LatinoCF.TokenizeMultiple(_adc, _tokenizer, _inputAnnotation, _outputAnnotation)
+    _tokenizers = ToNetObj(inputDict['tokenizers'])
+    _inputAnnotations = ToString(inputDict['inputAnnotations'])
+    _outputAnnotations = ToString(inputDict['outputAnnotations'])
+    execResult = LatinoCF.TokenizeMultiple(_adc, _tokenizers, _inputAnnotations, _outputAnnotations)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
     outputDict['adc'] = execResultPy
@@ -332,10 +314,10 @@ def latino_tag_adcstopwords(inputDict):
 
 def latino_tag_adcmultiple(inputDict):
     _adc = ToNetObj(inputDict['adc'])
-    _tagger = ToNetObj(inputDict['tagger'])
-    _elementAnnotation = ToString(inputDict['elementAnnotation'])
-    _outputFeature = ToString(inputDict['outputFeature'])
-    execResult = LatinoCF.TagADCMultiple(_adc, _tagger, _elementAnnotation, _outputFeature)
+    _taggers = ToNetObj(inputDict['taggers'])
+    _elementAnnotations = ToString(inputDict['elementAnnotations'])
+    _outputFeatures = ToString(inputDict['outputFeatures'])
+    execResult = LatinoCF.TagADCMultiple(_adc, _taggers, _elementAnnotations, _outputFeatures)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
     outputDict['adc'] = execResultPy
