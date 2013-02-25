@@ -1,6 +1,6 @@
 [
   {
-    "pk": 1,
+    "pk": 226420051,
     "model": "workflows.category",
     "fields": {
       "uid": "3f7d449c-9222-458b-9c4e-412b01bcbc6b",
@@ -12,227 +12,11 @@
     }
   },
   {
-    "pk": 2,
-    "model": "workflows.category",
-    "fields": {
-      "uid": "22c96990-2fd9-11e2-81c1-0800200c9a66",
-      "parent": 1,
-      "workflow": null,
-      "user": null,
-      "order": 0,
-      "name": "Sentiment Analysis"
-    }
-  },
-  {
-    "pk": 1,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 2,
-      "treeview_image": null,
-      "name": "String Concatenation",
-      "is_streaming": false,
-      "uid": "temporary_uid:784a3645-3e05-3203-d53d-e5fa48da915e",
-      "interaction_view": "",
-      "image": null,
-      "package": "sentiment_analysis",
-      "static_image": "",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "sentiment_analysis_con_cat",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 1,
-      "description": "Automatically generated widget from function ConCat in package sentiment_analysis. The original function signature: ConCat."
-    }
-  },
-  {
-    "pk": 1,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 1,
-      "name": "Str1",
-      "short_name": "str",
-      "uid": "temporary_uid:910e97d1-3f9a-a511-2eed-b1a8f188dc3b",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": "textarea",
-      "variable": "str1",
-      "parameter": false,
-      "order": 1,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 2,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 1,
-      "name": "Str2",
-      "short_name": "str",
-      "uid": "temporary_uid:11137eba-ac31-a8de-08c5-0a2d9d2ed384",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": "textarea",
-      "variable": "str2",
-      "parameter": false,
-      "order": 2,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 1,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 1,
-      "name": "String",
-      "short_name": "str",
-      "variable": "out",
-      "uid": "temporary_uid:524e1eac-1669-8081-77ab-455f4f0ff391",
-      "order": 1,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 2,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 2,
-      "treeview_image": null,
-      "name": "Krena NOVA Funkcija",
-      "is_streaming": false,
-      "uid": "temporary_uid:68e5b5ed-bcdb-e27e-61bb-efc9ba337d07",
-      "interaction_view": "",
-      "image": null,
-      "package": "sentiment_analysis",
-      "static_image": "",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "sentiment_analysis_ena_cudna_funk",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 1,
-      "description": "Automatically generated widget from function EnaCudnaFunk in package sentiment_analysis. The original function signature: EnaCudnaFunk."
-    }
-  },
-  {
-    "pk": 3,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 2,
-      "name": "Str1",
-      "short_name": "str",
-      "uid": "temporary_uid:891aafb2-2bf0-ed75-1eae-b01222e86c90",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": "textarea",
-      "variable": "str1",
-      "parameter": false,
-      "order": 1,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 4,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 2,
-      "name": "Str2",
-      "short_name": "str",
-      "uid": "temporary_uid:dec4f3ef-f5a1-dbd8-0ba9-445eabc5f767",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": "textarea",
-      "variable": "str2",
-      "parameter": false,
-      "order": 2,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 5,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 2,
-      "name": "Str3",
-      "short_name": "str",
-      "uid": "temporary_uid:34087750-7654-a658-cfc1-bdee54ceee08",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": "textarea",
-      "variable": "str3",
-      "parameter": false,
-      "order": 3,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 6,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 2,
-      "name": "Str4",
-      "short_name": "str",
-      "uid": "temporary_uid:9e5d3129-f515-81a5-818d-13b71cf7a253",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": "select",
-      "variable": "str4",
-      "parameter": true,
-      "order": 4,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 1,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "b34327d0-58a0-1d7d-ee11-e6a24dfdc0b0",
-      "abstract_input": 6,
-      "value": "To je prva opcija",
-      "name": "To je prva opcija"
-    }
-  },
-  {
-    "pk": 2,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "f7d93e04-9485-b121-4957-ff332b82cedd",
-      "abstract_input": 6,
-      "value": "To je druga opcija",
-      "name": "To je druga opcija"
-    }
-  },
-  {
-    "pk": 2,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 2,
-      "name": "String",
-      "short_name": "str",
-      "variable": "out",
-      "uid": "temporary_uid:9e9a29f3-1fc2-fcfd-6dd6-eb1bb2486b27",
-      "order": 1,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 3,
+    "pk": 1055308069,
     "model": "workflows.category",
     "fields": {
       "uid": "1eed1020-c423-4831-80ce-50f65ae276e1",
-      "parent": 1,
+      "parent": 226420051,
       "workflow": null,
       "user": null,
       "order": 1,
@@ -240,10 +24,10 @@
     }
   },
   {
-    "pk": 8,
+    "pk": 144090684,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 3,
+      "category": 1055308069,
       "treeview_image": null,
       "name": "Load Document Corpus From File",
       "is_streaming": false,
@@ -265,10 +49,10 @@
     }
   },
   {
-    "pk": 16,
+    "pk": 433673629,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 8,
+      "widget": 144090684,
       "name": "Raw Text File",
       "short_name": "fil",
       "uid": "d66b7ce4-8aa4-d26e-db69-762683ee0e3e",
@@ -283,10 +67,10 @@
     }
   },
   {
-    "pk": 17,
+    "pk": 371010112,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 8,
+      "widget": 144090684,
       "name": "First words in line with preceding exclamation (!) present labels",
       "short_name": "bol",
       "uid": "cb7ddfe9-08ad-6b8a-d1fa-76cd91888d5e",
@@ -301,10 +85,28 @@
     }
   },
   {
-    "pk": 7,
+    "pk": 731005498,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 144090684,
+      "name": "Text before the first tabulator [/t] represents the title of a document",
+      "short_name": "bol",
+      "uid": "bc7ca808-781e-4de4-09cb-2bf3ff1f8954",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "tabSeparatedTitle",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 232088563,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 8,
+      "widget": 144090684,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -314,10 +116,10 @@
     }
   },
   {
-    "pk": 9,
+    "pk": 6330651,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 3,
+      "category": 1055308069,
       "treeview_image": null,
       "name": "Load Document Corpus From String",
       "is_streaming": false,
@@ -339,10 +141,10 @@
     }
   },
   {
-    "pk": 18,
+    "pk": 458982188,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 9,
+      "widget": 6330651,
       "name": "String",
       "short_name": "str",
       "uid": "91e6fdd5-0969-dc3f-395e-3f2827a9c57c",
@@ -357,10 +159,10 @@
     }
   },
   {
-    "pk": 19,
+    "pk": 968592171,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 9,
+      "widget": 6330651,
       "name": "First words in line with preceding exclamation (!) present labels",
       "short_name": "bol",
       "uid": "18f37a99-5141-f7d2-108e-49ee6505c3da",
@@ -375,10 +177,28 @@
     }
   },
   {
-    "pk": 8,
+    "pk": 357221376,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 6330651,
+      "name": "Text before the first tabulator [/t] represents the title of a document",
+      "short_name": "bol",
+      "uid": "c696eb66-0d08-ea16-7d68-57d160e613f3",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "tabSeparatedTitle",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 193023658,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 9,
+      "widget": 6330651,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -388,10 +208,10 @@
     }
   },
   {
-    "pk": 10,
+    "pk": 458744331,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 3,
+      "category": 1055308069,
       "treeview_image": null,
       "name": "Convert Corpus to XML String",
       "is_streaming": false,
@@ -413,10 +233,10 @@
     }
   },
   {
-    "pk": 20,
+    "pk": 949202941,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 10,
+      "widget": 458744331,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "bb23f353-d88a-ae54-fd44-1249badd8f28",
@@ -431,10 +251,10 @@
     }
   },
   {
-    "pk": 9,
+    "pk": 1019930786,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 10,
+      "widget": 458744331,
       "name": "XML String",
       "short_name": "xml",
       "variable": "string",
@@ -444,10 +264,10 @@
     }
   },
   {
-    "pk": 11,
+    "pk": 365822694,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 3,
+      "category": 1055308069,
       "treeview_image": null,
       "name": "Convert XML String to Corpus",
       "is_streaming": false,
@@ -469,10 +289,10 @@
     }
   },
   {
-    "pk": 21,
+    "pk": 662855056,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 11,
+      "widget": 365822694,
       "name": "XML String",
       "short_name": "xml",
       "uid": "7a3acca8-7b22-8d31-2dab-8dd606665cc1",
@@ -487,10 +307,10 @@
     }
   },
   {
-    "pk": 10,
+    "pk": 336345019,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 11,
+      "widget": 365822694,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -500,10 +320,10 @@
     }
   },
   {
-    "pk": 12,
+    "pk": 93537130,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 3,
+      "category": 1055308069,
       "treeview_image": null,
       "name": "Get Plain Texts",
       "is_streaming": false,
@@ -525,10 +345,10 @@
     }
   },
   {
-    "pk": 22,
+    "pk": 543918837,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 12,
+      "widget": 93537130,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "3367601a-8a96-20f1-7bdb-b2610fa4eb18",
@@ -543,10 +363,10 @@
     }
   },
   {
-    "pk": 23,
+    "pk": 851708964,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 12,
+      "widget": 93537130,
       "name": "Token Annotation",
       "short_name": "str",
       "uid": "4d5f3e18-4eff-0fd7-5961-27e5aae71e74",
@@ -561,10 +381,10 @@
     }
   },
   {
-    "pk": 24,
+    "pk": 757673754,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 12,
+      "widget": 93537130,
       "name": "Feature Condition",
       "short_name": "str",
       "uid": "a7486c8d-0b1c-3a32-999f-15107c13c3f4",
@@ -579,10 +399,10 @@
     }
   },
   {
-    "pk": 25,
+    "pk": 15491129,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 12,
+      "widget": 93537130,
       "name": "Delimiter for token concatenation",
       "short_name": "str",
       "uid": "5ebae072-0a90-6b4c-a7dc-47bb6bd71d51",
@@ -597,10 +417,10 @@
     }
   },
   {
-    "pk": 26,
+    "pk": 389916140,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 12,
+      "widget": 93537130,
       "name": "Include Document Identifier",
       "short_name": "bol",
       "uid": "507de999-1802-700d-27e5-ea5f972bc8e7",
@@ -615,10 +435,10 @@
     }
   },
   {
-    "pk": 11,
+    "pk": 175512751,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 12,
+      "widget": 93537130,
       "name": "Texts",
       "short_name": "str",
       "variable": "strings",
@@ -628,11 +448,11 @@
     }
   },
   {
-    "pk": 4,
+    "pk": 840702242,
     "model": "workflows.category",
     "fields": {
       "uid": "48fb3ce2-11ef-4afc-ab1e-aec6f1d6d055",
-      "parent": 1,
+      "parent": 226420051,
       "workflow": null,
       "user": null,
       "order": 2,
@@ -640,10 +460,10 @@
     }
   },
   {
-    "pk": 13,
+    "pk": 291880114,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 4,
+      "category": 840702242,
       "treeview_image": null,
       "name": "Extract Feature",
       "is_streaming": false,
@@ -665,10 +485,10 @@
     }
   },
   {
-    "pk": 27,
+    "pk": 381714075,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 13,
+      "widget": 291880114,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "3f1837e3-2997-a696-2e4e-48d1166f314f",
@@ -683,10 +503,10 @@
     }
   },
   {
-    "pk": 28,
+    "pk": 826515491,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 13,
+      "widget": 291880114,
       "name": "Extracted Feature Name",
       "short_name": "str",
       "uid": "6a42ceda-c81e-6257-1b95-4aa8ae605bef",
@@ -701,10 +521,10 @@
     }
   },
   {
-    "pk": 12,
+    "pk": 344462539,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 13,
+      "widget": 291880114,
       "name": "List of Extracted Features",
       "short_name": "str",
       "variable": "strings",
@@ -714,10 +534,10 @@
     }
   },
   {
-    "pk": 14,
+    "pk": 212183577,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 4,
+      "category": 840702242,
       "treeview_image": null,
       "name": "Add Feature",
       "is_streaming": false,
@@ -739,10 +559,10 @@
     }
   },
   {
-    "pk": 29,
+    "pk": 885557864,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 14,
+      "widget": 212183577,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "a3c0bde8-766f-5e30-2b2e-1fdcbaa8d913",
@@ -757,10 +577,10 @@
     }
   },
   {
-    "pk": 30,
+    "pk": 211269005,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 14,
+      "widget": 212183577,
       "name": "Feature Values (Array of Labels)",
       "short_name": "str",
       "uid": "1219e584-0660-0d7b-4d31-288f5e99df89",
@@ -775,10 +595,10 @@
     }
   },
   {
-    "pk": 31,
+    "pk": 815236865,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 14,
+      "widget": 212183577,
       "name": "New Feature Name",
       "short_name": "str",
       "uid": "a69d8966-d9a4-8557-c845-12740520163d",
@@ -793,10 +613,10 @@
     }
   },
   {
-    "pk": 32,
+    "pk": 1041995102,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 14,
+      "widget": 212183577,
       "name": "New Feature Value Prefix",
       "short_name": "str",
       "uid": "d04dc113-88d8-2ee0-2982-90cb37d30aba",
@@ -811,10 +631,10 @@
     }
   },
   {
-    "pk": 13,
+    "pk": 388216694,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 14,
+      "widget": 212183577,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -824,10 +644,10 @@
     }
   },
   {
-    "pk": 15,
+    "pk": 822745258,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 4,
+      "category": 840702242,
       "treeview_image": null,
       "name": "Split",
       "is_streaming": false,
@@ -849,10 +669,10 @@
     }
   },
   {
-    "pk": 33,
+    "pk": 199334142,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 15,
+      "widget": 822745258,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "6aab324d-c86e-d859-f4bc-b3720f6e7941",
@@ -867,10 +687,10 @@
     }
   },
   {
-    "pk": 34,
+    "pk": 1038737780,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 15,
+      "widget": 822745258,
       "name": "Feature Condition",
       "short_name": "str",
       "uid": "e69daa5d-7665-7c5d-5493-5747210a5b9a",
@@ -885,10 +705,10 @@
     }
   },
   {
-    "pk": 14,
+    "pk": 124252436,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 15,
+      "widget": 822745258,
       "name": "Filtered Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adcFiltered",
@@ -898,10 +718,10 @@
     }
   },
   {
-    "pk": 15,
+    "pk": 689733345,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 15,
+      "widget": 822745258,
       "name": "The Rest of Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adcRest",
@@ -911,10 +731,10 @@
     }
   },
   {
-    "pk": 16,
+    "pk": 1002506927,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 4,
+      "category": 840702242,
       "treeview_image": null,
       "name": "Generate Set Feature",
       "is_streaming": false,
@@ -936,10 +756,10 @@
     }
   },
   {
-    "pk": 35,
+    "pk": 901405681,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 16,
+      "widget": 1002506927,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "c066e26b-af81-f1ac-251f-248483c79f8d",
@@ -954,10 +774,10 @@
     }
   },
   {
-    "pk": 36,
+    "pk": 32935866,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 16,
+      "widget": 1002506927,
       "name": "Feature Name",
       "short_name": "str",
       "uid": "276fe964-c5aa-1081-0be9-13aad301c661",
@@ -972,10 +792,10 @@
     }
   },
   {
-    "pk": 37,
+    "pk": 124149062,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 16,
+      "widget": 1002506927,
       "name": "Feature Value Prefix",
       "short_name": "str",
       "uid": "d67ecbbb-e185-d9bf-43dd-52e2906a7f1f",
@@ -990,10 +810,10 @@
     }
   },
   {
-    "pk": 38,
+    "pk": 605139638,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 16,
+      "widget": 1002506927,
       "name": "Num of Sets",
       "short_name": "int",
       "uid": "96533d85-f52d-69a7-c4d9-4ab99f38fcb0",
@@ -1008,10 +828,10 @@
     }
   },
   {
-    "pk": 39,
+    "pk": 753798889,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 16,
+      "widget": 1002506927,
       "name": "Assign Sets Randomly",
       "short_name": "bol",
       "uid": "28f1a06d-bb8b-fb4f-aa05-c8953a9a56ca",
@@ -1026,10 +846,10 @@
     }
   },
   {
-    "pk": 40,
+    "pk": 270631159,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 16,
+      "widget": 1002506927,
       "name": "Use Seed for Random",
       "short_name": "bol",
       "uid": "48804f65-9306-be3d-70d4-ad81252d0a38",
@@ -1044,10 +864,10 @@
     }
   },
   {
-    "pk": 41,
+    "pk": 502565148,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 16,
+      "widget": 1002506927,
       "name": "Random Seed",
       "short_name": "int",
       "uid": "36dc97df-1c37-9f7a-337d-a11eedcd894d",
@@ -1062,10 +882,10 @@
     }
   },
   {
-    "pk": 16,
+    "pk": 669456725,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 16,
+      "widget": 1002506927,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -1075,10 +895,10 @@
     }
   },
   {
-    "pk": 17,
+    "pk": 604610121,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 4,
+      "category": 840702242,
       "treeview_image": null,
       "name": "Statistics",
       "is_streaming": false,
@@ -1100,10 +920,10 @@
     }
   },
   {
-    "pk": 42,
+    "pk": 940472433,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 17,
+      "widget": 604610121,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "49ac398c-6c02-3a9e-9d41-06afbf34a384",
@@ -1118,10 +938,10 @@
     }
   },
   {
-    "pk": 17,
+    "pk": 115119257,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 17,
+      "widget": 604610121,
       "name": "Number of Documents",
       "short_name": "int",
       "variable": "docCount",
@@ -1131,10 +951,10 @@
     }
   },
   {
-    "pk": 18,
+    "pk": 475790047,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 17,
+      "widget": 604610121,
       "name": "Number of Features",
       "short_name": "int",
       "variable": "featureCount",
@@ -1144,10 +964,10 @@
     }
   },
   {
-    "pk": 19,
+    "pk": 462197084,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 17,
+      "widget": 604610121,
       "name": "Statistics",
       "short_name": "str",
       "variable": "description",
@@ -1157,10 +977,10 @@
     }
   },
   {
-    "pk": 18,
+    "pk": 91599602,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 4,
+      "category": 840702242,
       "treeview_image": null,
       "name": "Display Document Corpus",
       "is_streaming": false,
@@ -1182,10 +1002,10 @@
     }
   },
   {
-    "pk": 43,
+    "pk": 6256748,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 18,
+      "widget": 91599602,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "12db5057-2d6d-875c-2141-da0b10fecca0",
@@ -1200,11 +1020,11 @@
     }
   },
   {
-    "pk": 5,
+    "pk": 886836465,
     "model": "workflows.category",
     "fields": {
       "uid": "5a4286c8-d182-45a5-896b-cc3c6ed84f22",
-      "parent": 1,
+      "parent": 226420051,
       "workflow": null,
       "user": null,
       "order": 3,
@@ -1212,10 +1032,10 @@
     }
   },
   {
-    "pk": 19,
+    "pk": 336822318,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 5,
+      "category": 886836465,
       "treeview_image": null,
       "name": "Max Entropy Sentence Splitter",
       "is_streaming": false,
@@ -1237,10 +1057,10 @@
     }
   },
   {
-    "pk": 20,
+    "pk": 1026204425,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 19,
+      "widget": 336822318,
       "name": "Sentence Tokenizer",
       "short_name": "tkn",
       "variable": "tokenizer",
@@ -1250,10 +1070,10 @@
     }
   },
   {
-    "pk": 20,
+    "pk": 1000385298,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 5,
+      "category": 886836465,
       "treeview_image": null,
       "name": "Max Entorpy Tokenizer",
       "is_streaming": false,
@@ -1275,10 +1095,10 @@
     }
   },
   {
-    "pk": 44,
+    "pk": 1063930801,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 20,
+      "widget": 1000385298,
       "name": "Alpha Numeric Optimization",
       "short_name": "ano",
       "uid": "f49e114d-c12e-a3e6-1bde-b53999b0b759",
@@ -1293,10 +1113,10 @@
     }
   },
   {
-    "pk": 21,
+    "pk": 95865465,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 20,
+      "widget": 1000385298,
       "name": "Tokenizer",
       "short_name": "tkn",
       "variable": "tokenizer",
@@ -1306,10 +1126,10 @@
     }
   },
   {
-    "pk": 21,
+    "pk": 490999481,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 5,
+      "category": 886836465,
       "treeview_image": null,
       "name": "Unicode Tokenizer",
       "is_streaming": false,
@@ -1331,10 +1151,10 @@
     }
   },
   {
-    "pk": 45,
+    "pk": 427577640,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 21,
+      "widget": 490999481,
       "name": "Filter",
       "short_name": "flt",
       "uid": "a8b4b017-ffd3-da3f-9092-9f9dccc0377c",
@@ -1349,60 +1169,60 @@
     }
   },
   {
-    "pk": 3,
+    "pk": 854837999,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "974d33bf-987b-82f6-fcc4-cd95ca65e5db",
-      "abstract_input": 45,
+      "abstract_input": 427577640,
       "value": "AlphaLoose",
       "name": "AlphaLoose: accept tokens that contain at least one alphabetic character"
     }
   },
   {
-    "pk": 4,
+    "pk": 834686815,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "2b71a17a-2a16-4d35-288f-937ca3091dc9",
-      "abstract_input": 45,
+      "abstract_input": 427577640,
       "value": "AlphaStrict",
       "name": "AlphaStrict: accept tokens that contain alphabetic characters only"
     }
   },
   {
-    "pk": 5,
+    "pk": 236877384,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "5f5f556a-e3a2-a278-6e0a-fafebd3481ff",
-      "abstract_input": 45,
+      "abstract_input": 427577640,
       "value": "AlphanumLoose",
       "name": "AlphanumLoose: accept tokens that contain at least one alphanumeric character"
     }
   },
   {
-    "pk": 6,
+    "pk": 477645534,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "8af9dd9b-fc70-9745-7872-ae443896c2a8",
-      "abstract_input": 45,
+      "abstract_input": 427577640,
       "value": "AlphanumStrict",
       "name": "AlphanumStrict: accept tokens that contain alphanumeric characters only"
     }
   },
   {
-    "pk": 7,
+    "pk": 1049701084,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "e0d910d0-3c99-24bc-a3c2-dc67fea4c8ee",
-      "abstract_input": 45,
+      "abstract_input": 427577640,
       "value": "None",
       "name": "None: accept all tokens"
     }
   },
   {
-    "pk": 46,
+    "pk": 756246072,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 21,
+      "widget": 490999481,
       "name": "Minimal Token Length",
       "short_name": "int",
       "uid": "811f5465-88c6-a8db-7e7d-1663d248a0e5",
@@ -1417,10 +1237,10 @@
     }
   },
   {
-    "pk": 22,
+    "pk": 884709140,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 21,
+      "widget": 490999481,
       "name": "Tokenizer",
       "short_name": "tkn",
       "variable": "tokenizer",
@@ -1430,10 +1250,10 @@
     }
   },
   {
-    "pk": 22,
+    "pk": 595944518,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 5,
+      "category": 886836465,
       "treeview_image": null,
       "name": "Simple Tokenizer",
       "is_streaming": false,
@@ -1455,10 +1275,10 @@
     }
   },
   {
-    "pk": 47,
+    "pk": 1021366236,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 22,
+      "widget": 595944518,
       "name": "Type",
       "short_name": "typ",
       "uid": "59c6fc11-0932-4b8c-6fba-7fb4108d312b",
@@ -1473,40 +1293,40 @@
     }
   },
   {
-    "pk": 8,
+    "pk": 52310886,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "cf95fed8-1237-9797-4dea-4d83520fcdd3",
-      "abstract_input": 47,
+      "abstract_input": 1021366236,
       "value": "AllChars",
       "name": "AllChars: equivalent to [^\\s]+"
     }
   },
   {
-    "pk": 9,
+    "pk": 204706919,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "36a7266e-fc89-ffb9-488d-5d7cfe797e98",
-      "abstract_input": 47,
+      "abstract_input": 1021366236,
       "value": "AlphaOnly",
       "name": "AlphaOnly: equivalent to \\p{L}+"
     }
   },
   {
-    "pk": 10,
+    "pk": 270719455,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "9f8214a1-8ae8-051f-c708-6ebcfd949e01",
-      "abstract_input": 47,
+      "abstract_input": 1021366236,
       "value": "AlphanumOnly",
       "name": "AlphanumOnly: equivalent to [\\p{L}\\d]+"
     }
   },
   {
-    "pk": 48,
+    "pk": 621455461,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 22,
+      "widget": 595944518,
       "name": "Minimal Token Length",
       "short_name": "int",
       "uid": "dcc2c809-f060-d931-3751-34694bceec2e",
@@ -1521,10 +1341,10 @@
     }
   },
   {
-    "pk": 23,
+    "pk": 341852121,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 22,
+      "widget": 595944518,
       "name": "Tokenizer",
       "short_name": "tkn",
       "variable": "tokenizer",
@@ -1534,10 +1354,10 @@
     }
   },
   {
-    "pk": 23,
+    "pk": 334059915,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 5,
+      "category": 886836465,
       "treeview_image": null,
       "name": "Regex Tokenizer",
       "is_streaming": false,
@@ -1559,10 +1379,10 @@
     }
   },
   {
-    "pk": 49,
+    "pk": 487417549,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Regular Expression",
       "short_name": "rgx",
       "uid": "9f31b30f-a480-da88-f8aa-275e938a1484",
@@ -1577,10 +1397,10 @@
     }
   },
   {
-    "pk": 50,
+    "pk": 466386952,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Ignore Unknown Tokens",
       "short_name": "bol",
       "uid": "eddffd40-c816-c446-a2e3-606c0aaf0429",
@@ -1595,10 +1415,10 @@
     }
   },
   {
-    "pk": 51,
+    "pk": 504297514,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Ignore Case",
       "short_name": "bol",
       "uid": "89faa019-8d68-c318-7d5f-2a7c1720adbf",
@@ -1613,10 +1433,10 @@
     }
   },
   {
-    "pk": 52,
+    "pk": 799698442,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Multiline",
       "short_name": "bol",
       "uid": "ce522d23-7d8d-ec98-4d04-0d7abf0cd476",
@@ -1631,10 +1451,10 @@
     }
   },
   {
-    "pk": 53,
+    "pk": 173370405,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Explicit Capture",
       "short_name": "bol",
       "uid": "906e3a77-3d5c-9ba0-5135-066a28bbae4b",
@@ -1649,10 +1469,10 @@
     }
   },
   {
-    "pk": 54,
+    "pk": 317515190,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Compiled",
       "short_name": "bol",
       "uid": "94702d0a-a6aa-a9ea-baf4-6d3bddd7afe2",
@@ -1667,10 +1487,10 @@
     }
   },
   {
-    "pk": 55,
+    "pk": 999712042,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Singleline",
       "short_name": "bol",
       "uid": "da23b6c7-f4e2-cd81-b95c-f47fc8897da1",
@@ -1685,10 +1505,10 @@
     }
   },
   {
-    "pk": 56,
+    "pk": 252953185,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Ignore Pattern Whitespace",
       "short_name": "bol",
       "uid": "0688894c-aea7-bfe4-6d38-ca14f2ff0337",
@@ -1703,10 +1523,10 @@
     }
   },
   {
-    "pk": 57,
+    "pk": 333929571,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Right To Left",
       "short_name": "bol",
       "uid": "9d1dfbe2-5019-0896-e2f1-f4f44b228435",
@@ -1721,10 +1541,10 @@
     }
   },
   {
-    "pk": 58,
+    "pk": 314441037,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "ECMA Script",
       "short_name": "bol",
       "uid": "3283613d-19d2-4d84-cef9-ef8f168bcd24",
@@ -1739,10 +1559,10 @@
     }
   },
   {
-    "pk": 59,
+    "pk": 827957429,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Culture Invariant",
       "short_name": "bol",
       "uid": "cc5c2449-77dd-fd50-690d-6686bdf49153",
@@ -1757,10 +1577,10 @@
     }
   },
   {
-    "pk": 24,
+    "pk": 219832564,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 23,
+      "widget": 334059915,
       "name": "Tokenizer",
       "short_name": "tkn",
       "variable": "tokenizer",
@@ -1770,10 +1590,10 @@
     }
   },
   {
-    "pk": 24,
+    "pk": 427857047,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 5,
+      "category": 886836465,
       "treeview_image": null,
       "name": "Split Sentences Hub",
       "is_streaming": false,
@@ -1795,10 +1615,10 @@
     }
   },
   {
-    "pk": 60,
+    "pk": 538006872,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 24,
+      "widget": 427857047,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "d992649a-16a0-4482-96e0-f4c45db6134c",
@@ -1813,10 +1633,10 @@
     }
   },
   {
-    "pk": 61,
+    "pk": 45402847,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 24,
+      "widget": 427857047,
       "name": "Tokenizer",
       "short_name": "tkn",
       "uid": "04e625eb-87ca-5e2d-5af7-1e4a4ea21eb3",
@@ -1831,10 +1651,10 @@
     }
   },
   {
-    "pk": 62,
+    "pk": 646503476,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 24,
+      "widget": 427857047,
       "name": "Annotation to be tokenized",
       "short_name": "ann",
       "uid": "8276d0ab-b714-38dd-2971-ed603c831bbc",
@@ -1849,10 +1669,10 @@
     }
   },
   {
-    "pk": 63,
+    "pk": 279417245,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 24,
+      "widget": 427857047,
       "name": "Annotation to be produced",
       "short_name": "ann",
       "uid": "07ba8fe5-2a71-600f-b57a-9903c73e1d65",
@@ -1867,10 +1687,10 @@
     }
   },
   {
-    "pk": 25,
+    "pk": 742893897,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 24,
+      "widget": 427857047,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -1880,10 +1700,10 @@
     }
   },
   {
-    "pk": 25,
+    "pk": 313991016,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 5,
+      "category": 886836465,
       "treeview_image": null,
       "name": "Tokenizer Hub",
       "is_streaming": false,
@@ -1905,10 +1725,10 @@
     }
   },
   {
-    "pk": 64,
+    "pk": 915208846,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 25,
+      "widget": 313991016,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "8114ab48-987a-8570-27c8-1544be7bbaae",
@@ -1923,10 +1743,10 @@
     }
   },
   {
-    "pk": 65,
+    "pk": 622445943,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 25,
+      "widget": 313991016,
       "name": "Tokenizer",
       "short_name": "tkn",
       "uid": "a03ee323-a151-3931-8d36-c86b63e7ee1f",
@@ -1941,10 +1761,10 @@
     }
   },
   {
-    "pk": 66,
+    "pk": 891596168,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 25,
+      "widget": 313991016,
       "name": "Annotation to be tokenized",
       "short_name": "ann",
       "uid": "006cccbd-ee39-44b5-35fb-760a30422630",
@@ -1959,10 +1779,10 @@
     }
   },
   {
-    "pk": 67,
+    "pk": 287624040,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 25,
+      "widget": 313991016,
       "name": "Annotation to be produced",
       "short_name": "ann",
       "uid": "cd426790-640d-a1a9-18ec-a8f611780b4a",
@@ -1977,10 +1797,10 @@
     }
   },
   {
-    "pk": 26,
+    "pk": 590314826,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 25,
+      "widget": 313991016,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -1990,11 +1810,11 @@
     }
   },
   {
-    "pk": 6,
+    "pk": 175731322,
     "model": "workflows.category",
     "fields": {
       "uid": "64780432-b114-4589-a24c-2331aed23502",
-      "parent": 5,
+      "parent": 886836465,
       "workflow": null,
       "user": null,
       "order": 1,
@@ -2002,10 +1822,10 @@
     }
   },
   {
-    "pk": 26,
+    "pk": 459508989,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 6,
+      "category": 175731322,
       "treeview_image": null,
       "name": "Universal Multiple Tokenizer Hub",
       "is_streaming": false,
@@ -2027,10 +1847,10 @@
     }
   },
   {
-    "pk": 68,
+    "pk": 515834972,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 26,
+      "widget": 459508989,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "6d3002e0-b3da-86fe-d3fd-7b3ed0817c9c",
@@ -2045,10 +1865,10 @@
     }
   },
   {
-    "pk": 69,
+    "pk": 362304833,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 26,
+      "widget": 459508989,
       "name": "Tokenizer",
       "short_name": "tkn",
       "uid": "b2de28ca-9ab9-990f-43d0-5711ff877ee9",
@@ -2056,53 +1876,53 @@
       "required": true,
       "multi": true,
       "parameter_type": null,
-      "variable": "tokenizer",
+      "variable": "tokenizers",
       "parameter": false,
       "order": 2,
-      "description": "Latino.TextMining.ITokenizer"
+      "description": "System.Collections.IList"
     }
   },
   {
-    "pk": 70,
+    "pk": 476726191,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 26,
-      "name": "Annotation to be tokenized",
+      "widget": 459508989,
+      "name": "Annotations to be tokenized",
       "short_name": "ann",
       "uid": "ecb3bf15-fa48-6a10-aa11-dfc62fb0ee46",
       "default": "TextBlock",
       "required": true,
       "multi": false,
       "parameter_type": "textarea",
-      "variable": "inputAnnotation",
+      "variable": "inputAnnotations",
       "parameter": true,
       "order": 3,
       "description": "Which annotated part of document to be splited"
     }
   },
   {
-    "pk": 71,
+    "pk": 268720593,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 26,
-      "name": "Annotation to be produced",
+      "widget": 459508989,
+      "name": "Annotations to be produced",
       "short_name": "ann",
       "uid": "8c781452-1924-dc90-e405-787c3c6d3124",
       "default": "Token",
       "required": true,
       "multi": false,
       "parameter_type": "textarea",
-      "variable": "outputAnnotation",
+      "variable": "outputAnnotations",
       "parameter": true,
       "order": 4,
       "description": "How to annotate found sentences"
     }
   },
   {
-    "pk": 27,
+    "pk": 317328678,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 26,
+      "widget": 459508989,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -2112,10 +1932,10 @@
     }
   },
   {
-    "pk": 27,
+    "pk": 246528977,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 6,
+      "category": 175731322,
       "treeview_image": null,
       "name": "Split Sentences Hub (Text)",
       "is_streaming": false,
@@ -2137,10 +1957,10 @@
     }
   },
   {
-    "pk": 72,
+    "pk": 706827234,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 27,
+      "widget": 246528977,
       "name": "Text",
       "short_name": "str",
       "uid": "386df033-ec3f-649c-5c30-5231f776d16b",
@@ -2155,10 +1975,10 @@
     }
   },
   {
-    "pk": 73,
+    "pk": 719072075,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 27,
+      "widget": 246528977,
       "name": "Tokenizer",
       "short_name": "tkn",
       "uid": "2d2360e0-2bd5-355e-5be8-851d24c13a51",
@@ -2173,10 +1993,10 @@
     }
   },
   {
-    "pk": 28,
+    "pk": 656269582,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 27,
+      "widget": 246528977,
       "name": "Text",
       "short_name": "str",
       "variable": "string",
@@ -2186,10 +2006,10 @@
     }
   },
   {
-    "pk": 28,
+    "pk": 83002936,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 6,
+      "category": 175731322,
       "treeview_image": null,
       "name": "Tokenizer Hub (Text)",
       "is_streaming": false,
@@ -2211,10 +2031,10 @@
     }
   },
   {
-    "pk": 74,
+    "pk": 444267683,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 28,
+      "widget": 83002936,
       "name": "Text",
       "short_name": "str",
       "uid": "8864e6fe-0d06-4c65-d8e3-a6a71f9b7d8d",
@@ -2229,10 +2049,10 @@
     }
   },
   {
-    "pk": 75,
+    "pk": 1010930578,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 28,
+      "widget": 83002936,
       "name": "Tokenizer",
       "short_name": "tkn",
       "uid": "ccbc71bb-ad82-985c-e2de-d807fd01af59",
@@ -2247,10 +2067,10 @@
     }
   },
   {
-    "pk": 29,
+    "pk": 513733689,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 28,
+      "widget": 83002936,
       "name": "String",
       "short_name": "str",
       "variable": "string",
@@ -2260,11 +2080,11 @@
     }
   },
   {
-    "pk": 7,
+    "pk": 11481045,
     "model": "workflows.category",
     "fields": {
       "uid": "05c26564-86b5-4a73-aae9-f4dc14bc75d7",
-      "parent": 1,
+      "parent": 226420051,
       "workflow": null,
       "user": null,
       "order": 4,
@@ -2272,10 +2092,10 @@
     }
   },
   {
-    "pk": 29,
+    "pk": 612603843,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 7,
+      "category": 11481045,
       "treeview_image": null,
       "name": "Max Entropy POS Tagger",
       "is_streaming": false,
@@ -2297,10 +2117,10 @@
     }
   },
   {
-    "pk": 76,
+    "pk": 585950457,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 29,
+      "widget": 612603843,
       "name": "Beam Size",
       "short_name": "int",
       "uid": "f85d9aa7-bb95-4d17-cd09-c55785705bad",
@@ -2315,10 +2135,10 @@
     }
   },
   {
-    "pk": 30,
+    "pk": 949124374,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 29,
+      "widget": 612603843,
       "name": "POS Tagger",
       "short_name": "pst",
       "variable": "posTagger",
@@ -2328,10 +2148,10 @@
     }
   },
   {
-    "pk": 30,
+    "pk": 394070752,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 7,
+      "category": 11481045,
       "treeview_image": null,
       "name": "POS Tagger Hub",
       "is_streaming": false,
@@ -2353,10 +2173,10 @@
     }
   },
   {
-    "pk": 77,
+    "pk": 132501284,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 30,
+      "widget": 394070752,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "367dea85-fea7-1eb1-4e69-29de6cbca466",
@@ -2371,10 +2191,10 @@
     }
   },
   {
-    "pk": 78,
+    "pk": 628401882,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 30,
+      "widget": 394070752,
       "name": "POS Tagger",
       "short_name": "pst",
       "uid": "59990e29-5dc9-de5f-21c7-76d8d310fecd",
@@ -2389,10 +2209,10 @@
     }
   },
   {
-    "pk": 79,
+    "pk": 43418514,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 30,
+      "widget": 394070752,
       "name": "Sentence's Annotation",
       "short_name": "str",
       "uid": "12a9df55-64c4-4398-c210-fd7d74117ec1",
@@ -2407,10 +2227,10 @@
     }
   },
   {
-    "pk": 80,
+    "pk": 802238086,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 30,
+      "widget": 394070752,
       "name": "Element's Annotation",
       "short_name": "str",
       "uid": "ec62f621-6061-a275-f03b-69d8bef311fe",
@@ -2425,10 +2245,10 @@
     }
   },
   {
-    "pk": 81,
+    "pk": 371730923,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 30,
+      "widget": 394070752,
       "name": "Output Feature Name",
       "short_name": "str",
       "uid": "a81b24b7-8b2c-c491-8e43-a46cb87a838b",
@@ -2443,10 +2263,10 @@
     }
   },
   {
-    "pk": 31,
+    "pk": 997490791,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 30,
+      "widget": 394070752,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -2456,10 +2276,10 @@
     }
   },
   {
-    "pk": 32,
+    "pk": 472144877,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 7,
+      "category": 11481045,
       "treeview_image": null,
       "name": "Get Stopword Set",
       "is_streaming": false,
@@ -2481,10 +2301,10 @@
     }
   },
   {
-    "pk": 85,
+    "pk": 787991705,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 32,
+      "widget": 472144877,
       "name": "Language",
       "short_name": "lng",
       "uid": "6a6806de-1cbc-b670-82cc-498784c2d7f4",
@@ -2499,190 +2319,190 @@
     }
   },
   {
-    "pk": 11,
+    "pk": 793613448,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "2c472b88-5377-c473-bb7c-74612d9e8752",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Bulgarian",
       "name": "Bulgarian"
     }
   },
   {
-    "pk": 12,
+    "pk": 127482501,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "8c8245e9-ddc7-ddb7-48e8-83a1df62511a",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Czech",
       "name": "Czech"
     }
   },
   {
-    "pk": 13,
+    "pk": 435168482,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "5449a6c7-e8fd-8355-6447-70d41e87cfb9",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Danish",
       "name": "Danish"
     }
   },
   {
-    "pk": 14,
+    "pk": 163763410,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "3d04e639-6b74-5bdd-ef00-3211be836630",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Dutch",
       "name": "Dutch"
     }
   },
   {
-    "pk": 15,
+    "pk": 971154333,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "5713ce63-336f-316a-6319-30263ea86f35",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "English",
       "name": "English"
     }
   },
   {
-    "pk": 16,
+    "pk": 682485618,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "8f7a8ad5-c65b-b3ed-931e-4376d5699f5c",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Finnish",
       "name": "Finnish"
     }
   },
   {
-    "pk": 17,
+    "pk": 731326350,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "f6d4c7e3-1514-6427-f155-9b14cab0d38c",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "French",
       "name": "French"
     }
   },
   {
-    "pk": 18,
+    "pk": 825840179,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "091f177e-767f-3361-10af-bd2f6e85d994",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "German",
       "name": "German"
     }
   },
   {
-    "pk": 19,
+    "pk": 1065072759,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "39218bba-61fe-40a9-b34d-699b9f58c12e",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Hungarian",
       "name": "Hungarian"
     }
   },
   {
-    "pk": 20,
+    "pk": 46352978,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "08c09945-f0f1-d216-354d-e963dd9f19b8",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Italian",
       "name": "Italian"
     }
   },
   {
-    "pk": 21,
+    "pk": 799801346,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "49138042-2c55-3b9f-a703-89745bf7ba86",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Norwegian",
       "name": "Norwegian"
     }
   },
   {
-    "pk": 22,
+    "pk": 802074281,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "cfeae8fc-9cee-e702-96b4-a59d7cdd598f",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Portuguese",
       "name": "Portuguese"
     }
   },
   {
-    "pk": 23,
+    "pk": 745459478,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "9ad4c287-f426-299d-17e0-b079df66d04c",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Romanian",
       "name": "Romanian"
     }
   },
   {
-    "pk": 24,
+    "pk": 273268062,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "81b661f7-cf4a-fdc2-7519-268ad17e3b61",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Russian",
       "name": "Russian"
     }
   },
   {
-    "pk": 25,
+    "pk": 411940695,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "ecc8309f-87c2-de3f-757f-eebbbfeade29",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Serbian",
       "name": "Serbian"
     }
   },
   {
-    "pk": 26,
+    "pk": 1030218569,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "d328b41f-7770-2db1-9bd3-0fa7e1682751",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Slovene",
       "name": "Slovene"
     }
   },
   {
-    "pk": 27,
+    "pk": 9694148,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "c038a6e7-e788-e0d5-7f89-cabf84920123",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Spanish",
       "name": "Spanish"
     }
   },
   {
-    "pk": 28,
+    "pk": 498613282,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "bad16fe3-7af6-2e35-8728-61563526d77b",
-      "abstract_input": 85,
+      "abstract_input": 787991705,
       "value": "Swedish",
       "name": "Swedish"
     }
   },
   {
-    "pk": 33,
+    "pk": 1057328076,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 32,
+      "widget": 472144877,
       "name": "StopWords",
       "short_name": "str",
       "variable": "strings",
@@ -2692,10 +2512,10 @@
     }
   },
   {
-    "pk": 33,
+    "pk": 436025993,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 7,
+      "category": 11481045,
       "treeview_image": null,
       "name": "Lemma Tagger LemmaGen",
       "is_streaming": false,
@@ -2717,10 +2537,10 @@
     }
   },
   {
-    "pk": 86,
+    "pk": 797498886,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 33,
+      "widget": 436025993,
       "name": "Language",
       "short_name": "lng",
       "uid": "97933b25-f871-cb19-0fc6-64b0ffc2c49b",
@@ -2735,130 +2555,130 @@
     }
   },
   {
-    "pk": 29,
+    "pk": 574102391,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "d31cca41-7ee0-6eb6-a3bb-cccbbf4490ca",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "Bulgarian",
       "name": "Bulgarian"
     }
   },
   {
-    "pk": 30,
+    "pk": 735861981,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "18ddfc3a-1255-b6ea-01fc-7c5742401cfa",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "Czech",
       "name": "Czech"
     }
   },
   {
-    "pk": 31,
+    "pk": 669825425,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "0e4a2ccf-0fd4-69e3-e630-d60d8b8f658e",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "English",
       "name": "English"
     }
   },
   {
-    "pk": 32,
+    "pk": 634123475,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "7a3e3672-48fb-5929-bc0a-d58253ea5a4b",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "Estonian",
       "name": "Estonian"
     }
   },
   {
-    "pk": 33,
+    "pk": 399198591,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "9b381bf5-3eab-bcdc-3ce4-491f99291ac9",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "French",
       "name": "French"
     }
   },
   {
-    "pk": 34,
+    "pk": 540469162,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "46c55bf1-aea8-bc38-2c32-f8ce64bdb3c4",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "German",
       "name": "German"
     }
   },
   {
-    "pk": 35,
+    "pk": 156418370,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "fc7c31e4-95d8-2801-efee-b4157d29f3f2",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "Hungarian",
       "name": "Hungarian"
     }
   },
   {
-    "pk": 36,
+    "pk": 571609196,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "3364645a-3a08-6dd5-8a1f-64e3c33a0685",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "Italian",
       "name": "Italian"
     }
   },
   {
-    "pk": 37,
+    "pk": 502296109,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "e7a9adf6-d6b2-5999-6cd8-2d894a7c31b4",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "Romanian",
       "name": "Romanian"
     }
   },
   {
-    "pk": 38,
+    "pk": 310027694,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "1c164e45-6ac6-c26b-1147-da7a53412c3d",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "Serbian",
       "name": "Serbian"
     }
   },
   {
-    "pk": 39,
+    "pk": 705184794,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "705cc251-de0f-8b0b-36e7-2a34a01f7c63",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "Slovene",
       "name": "Slovene"
     }
   },
   {
-    "pk": 40,
+    "pk": 775626918,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "4a2fbfde-ad2c-721d-c563-8f7aa4860d6d",
-      "abstract_input": 86,
+      "abstract_input": 797498886,
       "value": "Spanish",
       "name": "Spanish"
     }
   },
   {
-    "pk": 34,
+    "pk": 482673462,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 33,
+      "widget": 436025993,
       "name": "Lemmatizer (Tagger)",
       "short_name": "tgr",
       "variable": "tagger",
@@ -2868,10 +2688,10 @@
     }
   },
   {
-    "pk": 34,
+    "pk": 401359606,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 7,
+      "category": 11481045,
       "treeview_image": null,
       "name": "Stem Tagger Snowball",
       "is_streaming": false,
@@ -2893,10 +2713,10 @@
     }
   },
   {
-    "pk": 87,
+    "pk": 5100309,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34,
+      "widget": 401359606,
       "name": "Language",
       "short_name": "lng",
       "uid": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee",
@@ -2911,130 +2731,130 @@
     }
   },
   {
-    "pk": 41,
+    "pk": 642879208,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "2a6956b4-d25c-c5cf-9680-37f358c44443",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "Danish",
       "name": "Danish"
     }
   },
   {
-    "pk": 42,
+    "pk": 724429704,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "44bf6b31-0384-c6f4-a32a-ea0f63dc7a64",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "Dutch",
       "name": "Dutch"
     }
   },
   {
-    "pk": 43,
+    "pk": 727821947,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "15d69a6e-35a2-e99a-339d-916620898d3e",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "English",
       "name": "English"
     }
   },
   {
-    "pk": 44,
+    "pk": 107318538,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "717fae43-e56c-75e8-873e-7d39ab06cb4b",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "Finnish",
       "name": "Finnish"
     }
   },
   {
-    "pk": 45,
+    "pk": 36662375,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "89bc5e03-96fe-4419-8d35-9dde624bdc01",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "French",
       "name": "French"
     }
   },
   {
-    "pk": 46,
+    "pk": 995586872,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "9c008d61-1052-d597-2ec3-f450a9db3ad9",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "German",
       "name": "German"
     }
   },
   {
-    "pk": 47,
+    "pk": 384696162,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "52cd8332-9770-2775-e1b2-c927225c3cdb",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "Italian",
       "name": "Italian"
     }
   },
   {
-    "pk": 48,
+    "pk": 682856669,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "7907ce4b-9e29-c093-35c1-442545a5d555",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "Norwegian",
       "name": "Norwegian"
     }
   },
   {
-    "pk": 49,
+    "pk": 1054485971,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "8a771e14-51c7-ff9a-6d1b-f6b12af42e0f",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "Portuguese",
       "name": "Portuguese"
     }
   },
   {
-    "pk": 50,
+    "pk": 743461350,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "d8d8ac95-caf7-f385-9fe1-80965496dec5",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "Russian",
       "name": "Russian"
     }
   },
   {
-    "pk": 51,
+    "pk": 229854922,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "1c32684a-8c3c-6478-1ec0-9a9758a8357c",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "Spanish",
       "name": "Spanish"
     }
   },
   {
-    "pk": 52,
+    "pk": 895992281,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "80d2656e-901f-7116-7e4d-41a0ee672536",
-      "abstract_input": 87,
+      "abstract_input": 5100309,
       "value": "Swedish",
       "name": "Swedish"
     }
   },
   {
-    "pk": 35,
+    "pk": 433060958,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 34,
+      "widget": 401359606,
       "name": "Stemmer (Tagger)",
       "short_name": "tgr",
       "variable": "tagger",
@@ -3044,10 +2864,10 @@
     }
   },
   {
-    "pk": 35,
+    "pk": 1049064337,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 7,
+      "category": 11481045,
       "treeview_image": null,
       "name": "Stopwords Tagger",
       "is_streaming": false,
@@ -3069,10 +2889,10 @@
     }
   },
   {
-    "pk": 88,
+    "pk": 212000721,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 35,
+      "widget": 1049064337,
       "name": "Stopwords",
       "short_name": "str",
       "uid": "e48be590-bbd9-0604-2542-a58ac6d43eac",
@@ -3087,10 +2907,10 @@
     }
   },
   {
-    "pk": 89,
+    "pk": 50228584,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 35,
+      "widget": 1049064337,
       "name": "Ignore Case",
       "short_name": "bol",
       "uid": "05ce0842-1fbf-a438-deac-3b84f792d62f",
@@ -3105,10 +2925,10 @@
     }
   },
   {
-    "pk": 36,
+    "pk": 843023556,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 35,
+      "widget": 1049064337,
       "name": "StopWords Tagger",
       "short_name": "tgr",
       "variable": "tagger",
@@ -3118,10 +2938,10 @@
     }
   },
   {
-    "pk": 37,
+    "pk": 540821434,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 7,
+      "category": 11481045,
       "treeview_image": null,
       "name": "Stem/Lemma Tagger Hub",
       "is_streaming": false,
@@ -3143,10 +2963,10 @@
     }
   },
   {
-    "pk": 93,
+    "pk": 161720761,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 37,
+      "widget": 540821434,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "39f94180-1a05-b54c-a2ed-aca515adfdf5",
@@ -3161,10 +2981,10 @@
     }
   },
   {
-    "pk": 94,
+    "pk": 509781756,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 37,
+      "widget": 540821434,
       "name": "Token Tagger",
       "short_name": "tgr",
       "uid": "4b53bed0-7e83-30a8-6bc7-00c61010082a",
@@ -3179,10 +2999,10 @@
     }
   },
   {
-    "pk": 95,
+    "pk": 527636029,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 37,
+      "widget": 540821434,
       "name": "Token Annotation",
       "short_name": "str",
       "uid": "568a8c0e-5e96-3315-ba84-4a1c2158050c",
@@ -3197,10 +3017,10 @@
     }
   },
   {
-    "pk": 96,
+    "pk": 560059550,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 37,
+      "widget": 540821434,
       "name": "Output Feature Name",
       "short_name": "str",
       "uid": "ce347962-18cf-ca95-cd26-37e29fef1fd8",
@@ -3215,10 +3035,10 @@
     }
   },
   {
-    "pk": 38,
+    "pk": 640312186,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 37,
+      "widget": 540821434,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -3228,10 +3048,10 @@
     }
   },
   {
-    "pk": 38,
+    "pk": 522085466,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 7,
+      "category": 11481045,
       "treeview_image": null,
       "name": "Stopword Tagger Hub",
       "is_streaming": false,
@@ -3253,10 +3073,10 @@
     }
   },
   {
-    "pk": 97,
+    "pk": 10860882,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 38,
+      "widget": 522085466,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "506918e6-a155-19db-a92d-a49020cb739e",
@@ -3271,10 +3091,10 @@
     }
   },
   {
-    "pk": 98,
+    "pk": 858259816,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 38,
+      "widget": 522085466,
       "name": "Token Tagger",
       "short_name": "tgr",
       "uid": "ab4aca52-bba4-ce58-fdb2-5f8e12117236",
@@ -3289,10 +3109,10 @@
     }
   },
   {
-    "pk": 99,
+    "pk": 602471038,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 38,
+      "widget": 522085466,
       "name": "Token Annotation",
       "short_name": "str",
       "uid": "cc2ca8d9-f024-0b55-8876-dbd2f604dc1b",
@@ -3307,10 +3127,10 @@
     }
   },
   {
-    "pk": 100,
+    "pk": 491264834,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 38,
+      "widget": 522085466,
       "name": "Output Feature Name",
       "short_name": "str",
       "uid": "4059e050-41d9-28bf-312b-245be978eb90",
@@ -3325,10 +3145,10 @@
     }
   },
   {
-    "pk": 39,
+    "pk": 1013935438,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 38,
+      "widget": 522085466,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -3338,11 +3158,11 @@
     }
   },
   {
-    "pk": 8,
+    "pk": 291857809,
     "model": "workflows.category",
     "fields": {
       "uid": "94237b9c-8e88-460c-abc5-9c8108acb821",
-      "parent": 7,
+      "parent": 11481045,
       "workflow": null,
       "user": null,
       "order": 1,
@@ -3350,10 +3170,10 @@
     }
   },
   {
-    "pk": 31,
+    "pk": 446243897,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 8,
+      "category": 291857809,
       "treeview_image": null,
       "name": "POS Tagger Hub (Text)",
       "is_streaming": false,
@@ -3375,10 +3195,10 @@
     }
   },
   {
-    "pk": 82,
+    "pk": 242834712,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 31,
+      "widget": 446243897,
       "name": "Text",
       "short_name": "str",
       "uid": "ed41747a-dc93-d818-291c-62d791613083",
@@ -3393,10 +3213,10 @@
     }
   },
   {
-    "pk": 83,
+    "pk": 609695729,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 31,
+      "widget": 446243897,
       "name": "POS Tagger",
       "short_name": "pst",
       "uid": "981e7201-35ab-7b25-ae8f-29e5b03cb407",
@@ -3411,10 +3231,10 @@
     }
   },
   {
-    "pk": 84,
+    "pk": 983045811,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 31,
+      "widget": 446243897,
       "name": "Output Feature Name",
       "short_name": "str",
       "uid": "02d347c6-12c9-9892-5d69-38548474b35a",
@@ -3429,10 +3249,10 @@
     }
   },
   {
-    "pk": 32,
+    "pk": 954809219,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 31,
+      "widget": 446243897,
       "name": "String",
       "short_name": "str",
       "variable": "string",
@@ -3442,10 +3262,10 @@
     }
   },
   {
-    "pk": 36,
+    "pk": 483142558,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 8,
+      "category": 291857809,
       "treeview_image": null,
       "name": "Condition Tagger",
       "is_streaming": false,
@@ -3467,10 +3287,10 @@
     }
   },
   {
-    "pk": 90,
+    "pk": 1045872341,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 36,
+      "widget": 483142558,
       "name": "Feature Condition",
       "short_name": "str",
       "uid": "93ce61ae-f7af-ee3a-26d0-1b0af81bcc03",
@@ -3485,10 +3305,10 @@
     }
   },
   {
-    "pk": 91,
+    "pk": 424063070,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 36,
+      "widget": 483142558,
       "name": "output Feature Value",
       "short_name": "str",
       "uid": "96c4c439-c645-d2b4-cd7d-8524f3c3b2bf",
@@ -3503,10 +3323,10 @@
     }
   },
   {
-    "pk": 92,
+    "pk": 83203404,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 36,
+      "widget": 483142558,
       "name": "Put token/feature text as the output feature value",
       "short_name": "bol",
       "uid": "b2e17caf-f2d7-b587-b76e-83bdf12109ae",
@@ -3521,10 +3341,10 @@
     }
   },
   {
-    "pk": 37,
+    "pk": 695246262,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 36,
+      "widget": 483142558,
       "name": "Tagger",
       "short_name": "tgr",
       "variable": "tagger",
@@ -3534,10 +3354,10 @@
     }
   },
   {
-    "pk": 39,
+    "pk": 491356387,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 8,
+      "category": 291857809,
       "treeview_image": null,
       "name": "Universal Multiple Tagger Hub",
       "is_streaming": false,
@@ -3559,10 +3379,10 @@
     }
   },
   {
-    "pk": 101,
+    "pk": 519424483,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 39,
+      "widget": 491356387,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "da1abf2d-4055-a35e-be5f-51113e7af728",
@@ -3577,10 +3397,10 @@
     }
   },
   {
-    "pk": 102,
+    "pk": 132913396,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 39,
+      "widget": 491356387,
       "name": "Token Tagger",
       "short_name": "tgr",
       "uid": "07a9308b-9a84-28db-7d6d-d7ba80587882",
@@ -3588,17 +3408,17 @@
       "required": true,
       "multi": true,
       "parameter_type": null,
-      "variable": "tagger",
+      "variable": "taggers",
       "parameter": false,
       "order": 2,
-      "description": "System.Object"
+      "description": "System.Collections.IList"
     }
   },
   {
-    "pk": 103,
+    "pk": 212945814,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 39,
+      "widget": 491356387,
       "name": "Token Annotation [ / Feature Name ] (one line per each tagger)",
       "short_name": "str",
       "uid": "8081e46e-e87f-d112-5008-c99825c5ff12",
@@ -3606,17 +3426,17 @@
       "required": true,
       "multi": false,
       "parameter_type": "textarea",
-      "variable": "elementAnnotation",
+      "variable": "elementAnnotations",
       "parameter": true,
       "order": 3,
-      "description": "Token Annotation of the token to be tagged. If also the feature name is used than the feature value of selected token will be tagged.\nUsage: \n1. TokenName\n2. TokenName/FatureName\nIf multiple taggers are used then one line per tagger must be specified."
+      "description": "Token Annotation of the token to be tagged. If also the feature name is used than the feature value of selected token will be tagged.\nUsage: \n1. TokenName\n2. TokenName/FatureName\n3. GroupTokenName/TokenName/FatureName\nIf multiple taggers are used then one line per tagger must be specified."
     }
   },
   {
-    "pk": 104,
+    "pk": 25574682,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 39,
+      "widget": 491356387,
       "name": "Output Feature Name (one line per each tagger)",
       "short_name": "str",
       "uid": "6e0f0289-cd76-2935-5153-a581b0bc8f89",
@@ -3624,17 +3444,17 @@
       "required": true,
       "multi": false,
       "parameter_type": "textarea",
-      "variable": "outputFeature",
+      "variable": "outputFeatures",
       "parameter": true,
       "order": 4,
       "description": "Output feature name specifies how the token will be tagged (assigend the feature to)\nIf multiple taggers are used then one line per tagger must be specified."
     }
   },
   {
-    "pk": 40,
+    "pk": 445543480,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 39,
+      "widget": 491356387,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "variable": "adc",
@@ -3644,10 +3464,10 @@
     }
   },
   {
-    "pk": 40,
+    "pk": 468100796,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 8,
+      "category": 291857809,
       "treeview_image": null,
       "name": "Stem/Lemma Tagger Hub (Text)",
       "is_streaming": false,
@@ -3669,10 +3489,10 @@
     }
   },
   {
-    "pk": 105,
+    "pk": 149228937,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 40,
+      "widget": 468100796,
       "name": "Text",
       "short_name": "str",
       "uid": "24f1fd60-dd51-d6cb-4855-d1e4b9dc780c",
@@ -3687,10 +3507,10 @@
     }
   },
   {
-    "pk": 106,
+    "pk": 551058277,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 40,
+      "widget": 468100796,
       "name": "Token Tagger",
       "short_name": "tgr",
       "uid": "c7161458-dd14-d64c-55b2-aeea24aa08b2",
@@ -3705,10 +3525,10 @@
     }
   },
   {
-    "pk": 107,
+    "pk": 1011871090,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 40,
+      "widget": 468100796,
       "name": "Output Feature Name",
       "short_name": "str",
       "uid": "c8240d9c-bddf-fb62-f7b6-666f8dba9895",
@@ -3723,10 +3543,10 @@
     }
   },
   {
-    "pk": 41,
+    "pk": 662035194,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 40,
+      "widget": 468100796,
       "name": "String",
       "short_name": "str",
       "variable": "string",
@@ -3736,10 +3556,10 @@
     }
   },
   {
-    "pk": 41,
+    "pk": 399082852,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 8,
+      "category": 291857809,
       "treeview_image": null,
       "name": "Stopword Tagger Hub (Text)",
       "is_streaming": false,
@@ -3761,10 +3581,10 @@
     }
   },
   {
-    "pk": 108,
+    "pk": 302359030,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 41,
+      "widget": 399082852,
       "name": "Text",
       "short_name": "str",
       "uid": "45d86c20-4d28-d6f5-0eb7-aaf9b3aaff54",
@@ -3779,10 +3599,10 @@
     }
   },
   {
-    "pk": 109,
+    "pk": 712312614,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 41,
+      "widget": 399082852,
       "name": "Token Tagger",
       "short_name": "tgr",
       "uid": "04643077-85b4-3f70-c52c-04515ab8c662",
@@ -3797,10 +3617,10 @@
     }
   },
   {
-    "pk": 110,
+    "pk": 604057396,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 41,
+      "widget": 399082852,
       "name": "Output Feature Name",
       "short_name": "str",
       "uid": "362bc947-acec-8ccd-8cc9-2545d8a672db",
@@ -3815,10 +3635,10 @@
     }
   },
   {
-    "pk": 42,
+    "pk": 613723123,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 41,
+      "widget": 399082852,
       "name": "String",
       "short_name": "str",
       "variable": "string",
@@ -3828,11 +3648,11 @@
     }
   },
   {
-    "pk": 9,
+    "pk": 274815427,
     "model": "workflows.category",
     "fields": {
       "uid": "b5964b0d-5acb-4dbf-a49d-4331a5a44f9c",
-      "parent": 1,
+      "parent": 226420051,
       "workflow": null,
       "user": null,
       "order": 5,
@@ -3840,10 +3660,10 @@
     }
   },
   {
-    "pk": 43,
+    "pk": 484658366,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 9,
+      "category": 274815427,
       "treeview_image": null,
       "name": "BOW Space",
       "is_streaming": false,
@@ -3865,10 +3685,10 @@
     }
   },
   {
-    "pk": 120,
+    "pk": 329231371,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "0abb5f7e-8690-60c4-b5c7-85c1d1731d8e",
@@ -3883,10 +3703,10 @@
     }
   },
   {
-    "pk": 121,
+    "pk": 950898064,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Token Annotation",
       "short_name": "str",
       "uid": "03cb77fe-4b71-3f3b-b52c-7ce359cd671a",
@@ -3901,10 +3721,10 @@
     }
   },
   {
-    "pk": 122,
+    "pk": 881122602,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Stem Feature Name",
       "short_name": "str",
       "uid": "e22eb888-c070-e863-0abf-c8b448917d5f",
@@ -3919,10 +3739,10 @@
     }
   },
   {
-    "pk": 123,
+    "pk": 834207705,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Stopword Feature Name",
       "short_name": "str",
       "uid": "7f18f58a-52b5-2422-9e66-d48cea082d82",
@@ -3937,10 +3757,10 @@
     }
   },
   {
-    "pk": 124,
+    "pk": 169389101,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Label Document Feature Name",
       "short_name": "str",
       "uid": "4eae4c2d-4cb3-f204-6de5-4864b2e45224",
@@ -3955,10 +3775,10 @@
     }
   },
   {
-    "pk": 125,
+    "pk": 241997598,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Maximum N-Gram Length",
       "short_name": "int",
       "uid": "04f5a54b-df46-1b8f-fd33-2ef08e95a170",
@@ -3973,10 +3793,10 @@
     }
   },
   {
-    "pk": 126,
+    "pk": 903626721,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Minimum Word Freqency",
       "short_name": "dbl",
       "uid": "0ee9ea90-c79d-60a6-acdb-550f3e83fc9f",
@@ -3991,10 +3811,10 @@
     }
   },
   {
-    "pk": 127,
+    "pk": 468726335,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Word Weighting Type",
       "short_name": "wwt",
       "uid": "2d8b45c0-58db-00a7-3bce-d11bfb35cbe8",
@@ -4009,50 +3829,50 @@
     }
   },
   {
-    "pk": 57,
+    "pk": 998521690,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "354d457d-d086-66e5-6392-b9adf0dc74ed",
-      "abstract_input": 127,
+      "abstract_input": 468726335,
       "value": "TermFreq",
       "name": "Term Freq"
     }
   },
   {
-    "pk": 58,
+    "pk": 634587993,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "3448d5ae-e75e-b126-29ac-4085bd1a10cf",
-      "abstract_input": 127,
+      "abstract_input": 468726335,
       "value": "TfIdf",
       "name": "Tf Idf"
     }
   },
   {
-    "pk": 59,
+    "pk": 300187218,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "e707140f-980f-f092-75cc-811878137320",
-      "abstract_input": 127,
+      "abstract_input": 468726335,
       "value": "LogDfTfIdf",
       "name": "Log Df Tf Idf"
     }
   },
   {
-    "pk": 60,
+    "pk": 1065576464,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "3d220d77-3233-6508-4420-1999a16f86ee",
-      "abstract_input": 127,
+      "abstract_input": 468726335,
       "value": "Dyakonov",
       "name": "Dyakonov"
     }
   },
   {
-    "pk": 128,
+    "pk": 498476744,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Cut Low Weights Percentage",
       "short_name": "dbl",
       "uid": "d7f036e9-9634-d94d-a489-656760b8776d",
@@ -4067,10 +3887,10 @@
     }
   },
   {
-    "pk": 129,
+    "pk": 223270460,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Normalize Vectors",
       "short_name": "bol",
       "uid": "e2ca4b98-3636-ff76-3e61-b25daed57739",
@@ -4085,10 +3905,10 @@
     }
   },
   {
-    "pk": 45,
+    "pk": 475707595,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Bag of Words Space",
       "short_name": "bow",
       "variable": "bow",
@@ -4098,10 +3918,10 @@
     }
   },
   {
-    "pk": 46,
+    "pk": 637715539,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 43,
+      "widget": 484658366,
       "name": "Dataset",
       "short_name": "ds",
       "variable": "ds",
@@ -4111,10 +3931,10 @@
     }
   },
   {
-    "pk": 44,
+    "pk": 127000653,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 9,
+      "category": 274815427,
       "treeview_image": null,
       "name": "Get Vocabulary",
       "is_streaming": false,
@@ -4136,10 +3956,10 @@
     }
   },
   {
-    "pk": 130,
+    "pk": 73634136,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 44,
+      "widget": 127000653,
       "name": "Bag of Words Space",
       "short_name": "bow",
       "uid": "42ef0943-14de-5f26-7563-a94b0a683355",
@@ -4154,10 +3974,10 @@
     }
   },
   {
-    "pk": 131,
+    "pk": 337845393,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 44,
+      "widget": 127000653,
       "name": "Index of First Retrieved Word",
       "short_name": "int",
       "uid": "b565efc9-bf78-a2da-b0bf-0c8c93ae0212",
@@ -4172,10 +3992,10 @@
     }
   },
   {
-    "pk": 132,
+    "pk": 4186550,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 44,
+      "widget": 127000653,
       "name": "Maximum Words Retrieved",
       "short_name": "int",
       "uid": "acdd5fac-b3e3-ad60-59b2-34861952383b",
@@ -4190,10 +4010,10 @@
     }
   },
   {
-    "pk": 47,
+    "pk": 997541122,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 44,
+      "widget": 127000653,
       "name": "Vocabulary Table",
       "short_name": "tbl",
       "variable": "vocabulary",
@@ -4203,10 +4023,10 @@
     }
   },
   {
-    "pk": 45,
+    "pk": 566732220,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 9,
+      "category": 274815427,
       "treeview_image": null,
       "name": "Process New Documents",
       "is_streaming": false,
@@ -4228,10 +4048,10 @@
     }
   },
   {
-    "pk": 133,
+    "pk": 273569146,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 45,
+      "widget": 566732220,
       "name": "Bag of Words Space",
       "short_name": "bow",
       "uid": "929065a7-9eda-4166-a21d-42a01cf45876",
@@ -4246,10 +4066,10 @@
     }
   },
   {
-    "pk": 134,
+    "pk": 797914498,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 45,
+      "widget": 566732220,
       "name": "Annotated Document Corpus",
       "short_name": "adc",
       "uid": "a909e63a-7921-2be9-8553-7ead130aa4d7",
@@ -4264,10 +4084,10 @@
     }
   },
   {
-    "pk": 48,
+    "pk": 279287930,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 45,
+      "widget": 566732220,
       "name": "Dataset",
       "short_name": "ds",
       "variable": "ds",
@@ -4277,11 +4097,11 @@
     }
   },
   {
-    "pk": 10,
+    "pk": 889177128,
     "model": "workflows.category",
     "fields": {
       "uid": "0378e3a8-b71e-47b5-96b0-84dca2680f4d",
-      "parent": 9,
+      "parent": 274815427,
       "workflow": null,
       "user": null,
       "order": 1,
@@ -4289,10 +4109,10 @@
     }
   },
   {
-    "pk": 42,
+    "pk": 360578851,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 10,
+      "category": 889177128,
       "treeview_image": null,
       "name": "BOW Space (Text)",
       "is_streaming": false,
@@ -4314,10 +4134,10 @@
     }
   },
   {
-    "pk": 111,
+    "pk": 362296475,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Textual Documents (Array of strings)",
       "short_name": "str",
       "uid": "e6029afb-4598-b3fb-d0a1-2cfd5ea0178b",
@@ -4332,10 +4152,10 @@
     }
   },
   {
-    "pk": 112,
+    "pk": 639170109,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Tokenizer",
       "short_name": "tkn",
       "uid": "df8d5b1f-200e-86dd-76ea-cdc3a65e2b02",
@@ -4350,10 +4170,10 @@
     }
   },
   {
-    "pk": 113,
+    "pk": 129846118,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Stemmer or Lemmatizer (Tagger)",
       "short_name": "tgr",
       "uid": "4cfdfa8f-e335-791d-72f0-f4f51666450d",
@@ -4368,10 +4188,10 @@
     }
   },
   {
-    "pk": 114,
+    "pk": 874323949,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Stopwords (Array of Stopwords)",
       "short_name": "str",
       "uid": "b183ddfb-9854-a13d-58e5-4943bb461192",
@@ -4386,10 +4206,10 @@
     }
   },
   {
-    "pk": 115,
+    "pk": 165217394,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Maximum N-Gram Length",
       "short_name": "int",
       "uid": "9f7a8787-5d03-122a-97a3-540ef7e2ce9d",
@@ -4404,10 +4224,10 @@
     }
   },
   {
-    "pk": 116,
+    "pk": 486976804,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Minimum Word Freqency",
       "short_name": "dbl",
       "uid": "10e4ef28-62b4-c59e-2f6c-7188bfac4a17",
@@ -4422,10 +4242,10 @@
     }
   },
   {
-    "pk": 117,
+    "pk": 337890314,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Word Weighting Type",
       "short_name": "wwt",
       "uid": "76121091-e83a-ec17-bdf2-cd239e7c8b5d",
@@ -4440,50 +4260,50 @@
     }
   },
   {
-    "pk": 53,
+    "pk": 887447500,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "25f63cf8-7cdf-fae2-f661-c69cfb7ec932",
-      "abstract_input": 117,
+      "abstract_input": 337890314,
       "value": "TermFreq",
       "name": "Term Freq"
     }
   },
   {
-    "pk": 54,
+    "pk": 951737434,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "699fb42d-3593-80ad-0116-b4401750e866",
-      "abstract_input": 117,
+      "abstract_input": 337890314,
       "value": "TfIdf",
       "name": "Tf Idf"
     }
   },
   {
-    "pk": 55,
+    "pk": 161894524,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "6e6fc78e-809b-3f9a-39ec-ae31d1db030f",
-      "abstract_input": 117,
+      "abstract_input": 337890314,
       "value": "LogDfTfIdf",
       "name": "Log Df Tf Idf"
     }
   },
   {
-    "pk": 56,
+    "pk": 370017342,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "718c39f4-26d5-b154-0b62-e1a5247f22ca",
-      "abstract_input": 117,
+      "abstract_input": 337890314,
       "value": "Dyakonov",
       "name": "Dyakonov"
     }
   },
   {
-    "pk": 118,
+    "pk": 167132892,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Cut Low Weights Percentage",
       "short_name": "dbl",
       "uid": "0160cac5-a82c-a2ea-d8ec-66e3a76b2a02",
@@ -4498,10 +4318,10 @@
     }
   },
   {
-    "pk": 119,
+    "pk": 251358881,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Normalize Vectors",
       "short_name": "bol",
       "uid": "58e02ee9-6308-6ad8-49aa-dce004c8175f",
@@ -4516,10 +4336,10 @@
     }
   },
   {
-    "pk": 43,
+    "pk": 836646087,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Bag of Words Space",
       "short_name": "bow",
       "variable": "bow",
@@ -4529,10 +4349,10 @@
     }
   },
   {
-    "pk": 44,
+    "pk": 428795637,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 42,
+      "widget": 360578851,
       "name": "Dataset",
       "short_name": "ds",
       "variable": "ds",
@@ -4542,10 +4362,10 @@
     }
   },
   {
-    "pk": 46,
+    "pk": 1048977147,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 10,
+      "category": 889177128,
       "treeview_image": null,
       "name": "Process New Documents (Text)",
       "is_streaming": false,
@@ -4567,10 +4387,10 @@
     }
   },
   {
-    "pk": 135,
+    "pk": 326687715,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 46,
+      "widget": 1048977147,
       "name": "Bag of Words Space",
       "short_name": "bow",
       "uid": "ca27a6d1-192b-6bee-d8e9-fc3a8376dcb3",
@@ -4585,10 +4405,10 @@
     }
   },
   {
-    "pk": 136,
+    "pk": 152057045,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 46,
+      "widget": 1048977147,
       "name": "Documents = (Nested) List of Strings",
       "short_name": "lst",
       "uid": "e953a3ff-187c-ed0d-06af-481ea0db2b76",
@@ -4603,10 +4423,10 @@
     }
   },
   {
-    "pk": 49,
+    "pk": 852295050,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 46,
+      "widget": 1048977147,
       "name": "Dataset",
       "short_name": "ds",
       "variable": "ds",
@@ -4616,11 +4436,11 @@
     }
   },
   {
-    "pk": 11,
+    "pk": 575779120,
     "model": "workflows.category",
     "fields": {
       "uid": "a8348101-116c-4e04-b2a7-af1c991c3927",
-      "parent": 1,
+      "parent": 226420051,
       "workflow": null,
       "user": null,
       "order": 6,
@@ -4628,10 +4448,10 @@
     }
   },
   {
-    "pk": 47,
+    "pk": 187708091,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 11,
+      "category": 575779120,
       "treeview_image": null,
       "name": "Add Labels",
       "is_streaming": false,
@@ -4653,10 +4473,10 @@
     }
   },
   {
-    "pk": 137,
+    "pk": 594680925,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 47,
+      "widget": 187708091,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "a1c9bdca-053d-bbff-e9d4-81d90b897185",
@@ -4671,10 +4491,10 @@
     }
   },
   {
-    "pk": 138,
+    "pk": 89819345,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 47,
+      "widget": 187708091,
       "name": "Labeles (Array of Strings)",
       "short_name": "str",
       "uid": "3045f3db-9ed9-5240-b2e9-4dab7d56fea0",
@@ -4689,10 +4509,10 @@
     }
   },
   {
-    "pk": 50,
+    "pk": 790988204,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 47,
+      "widget": 187708091,
       "name": "Dataset",
       "short_name": "ds",
       "variable": "ds",
@@ -4702,10 +4522,10 @@
     }
   },
   {
-    "pk": 48,
+    "pk": 817463523,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 11,
+      "category": 575779120,
       "treeview_image": null,
       "name": "Remove Labels",
       "is_streaming": false,
@@ -4727,10 +4547,10 @@
     }
   },
   {
-    "pk": 139,
+    "pk": 955299788,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 48,
+      "widget": 817463523,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "3e183a1e-d762-b3ba-d2a1-2a5c1c908567",
@@ -4745,10 +4565,10 @@
     }
   },
   {
-    "pk": 51,
+    "pk": 282817790,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 48,
+      "widget": 817463523,
       "name": "Dataset",
       "short_name": "ds",
       "variable": "ds",
@@ -4758,10 +4578,10 @@
     }
   },
   {
-    "pk": 49,
+    "pk": 139958966,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 11,
+      "category": 575779120,
       "treeview_image": null,
       "name": "Extract Labels",
       "is_streaming": false,
@@ -4783,10 +4603,10 @@
     }
   },
   {
-    "pk": 140,
+    "pk": 48146174,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 49,
+      "widget": 139958966,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "e9b8094a-fe83-c07e-0193-ce63532e117f",
@@ -4801,10 +4621,10 @@
     }
   },
   {
-    "pk": 52,
+    "pk": 347551398,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 49,
+      "widget": 139958966,
       "name": "Labels (Array of Strings)",
       "short_name": "str",
       "variable": "labels",
@@ -4814,10 +4634,10 @@
     }
   },
   {
-    "pk": 50,
+    "pk": 716228648,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 11,
+      "category": 575779120,
       "treeview_image": null,
       "name": "Split",
       "is_streaming": false,
@@ -4839,10 +4659,10 @@
     }
   },
   {
-    "pk": 141,
+    "pk": 288364490,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 50,
+      "widget": 716228648,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "f911747a-cd2e-5d02-1858-3a9ac4073a0b",
@@ -4857,10 +4677,10 @@
     }
   },
   {
-    "pk": 142,
+    "pk": 434360125,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 50,
+      "widget": 716228648,
       "name": "Percentage",
       "short_name": "dbl",
       "uid": "4b831641-e6c8-e45f-6944-c785c93de20e",
@@ -4875,10 +4695,10 @@
     }
   },
   {
-    "pk": 143,
+    "pk": 12238053,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 50,
+      "widget": 716228648,
       "name": "Random Seed",
       "short_name": "int",
       "uid": "2226b21b-7e55-07b6-69ba-b66d5173bef9",
@@ -4893,10 +4713,10 @@
     }
   },
   {
-    "pk": 53,
+    "pk": 672650383,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 50,
+      "widget": 716228648,
       "name": "Dataset with Extracted Set",
       "short_name": "ds",
       "variable": "ds1",
@@ -4906,10 +4726,10 @@
     }
   },
   {
-    "pk": 54,
+    "pk": 738237758,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 50,
+      "widget": 716228648,
       "name": "Dataset of Remaining Sets",
       "short_name": "ds",
       "variable": "ds2",
@@ -4919,10 +4739,10 @@
     }
   },
   {
-    "pk": 51,
+    "pk": 448910275,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 11,
+      "category": 575779120,
       "treeview_image": null,
       "name": "Split to Predefined Sets",
       "is_streaming": false,
@@ -4944,10 +4764,10 @@
     }
   },
   {
-    "pk": 144,
+    "pk": 161734600,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 51,
+      "widget": 448910275,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "3162e392-5481-6022-3b1a-8dd8965a2871",
@@ -4962,10 +4782,10 @@
     }
   },
   {
-    "pk": 145,
+    "pk": 478887072,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 51,
+      "widget": 448910275,
       "name": "Sets (List with predefined set numbers)",
       "short_name": "lst",
       "uid": "52c930c3-8b1f-6f55-b5ee-ad516c1e29f8",
@@ -4980,10 +4800,10 @@
     }
   },
   {
-    "pk": 146,
+    "pk": 754750845,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 51,
+      "widget": 448910275,
       "name": "SetId",
       "short_name": "int",
       "uid": "d7455c5e-004f-74a1-b522-8c2a551860d3",
@@ -4998,10 +4818,10 @@
     }
   },
   {
-    "pk": 55,
+    "pk": 577726088,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 51,
+      "widget": 448910275,
       "name": "Dataset with Extracted Set",
       "short_name": "ds",
       "variable": "ds1",
@@ -5011,10 +4831,10 @@
     }
   },
   {
-    "pk": 56,
+    "pk": 232153023,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 51,
+      "widget": 448910275,
       "name": "Dataset of Remaining Sets",
       "short_name": "ds",
       "variable": "ds2",
@@ -5024,11 +4844,11 @@
     }
   },
   {
-    "pk": 12,
+    "pk": 84644037,
     "model": "workflows.category",
     "fields": {
       "uid": "c7a26cb0-65af-4c6e-887b-7c6a7a162327",
-      "parent": 1,
+      "parent": 226420051,
       "workflow": null,
       "user": null,
       "order": 7,
@@ -5036,10 +4856,10 @@
     }
   },
   {
-    "pk": 52,
+    "pk": 318559195,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 12,
+      "category": 84644037,
       "treeview_image": null,
       "name": "Calculate Similarity Matrix",
       "is_streaming": false,
@@ -5061,10 +4881,10 @@
     }
   },
   {
-    "pk": 147,
+    "pk": 228354151,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 52,
+      "widget": 318559195,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "f587c4db-10ac-db98-2aff-f600d1f4853d",
@@ -5079,10 +4899,10 @@
     }
   },
   {
-    "pk": 148,
+    "pk": 1039169056,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 52,
+      "widget": 318559195,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "de21ede8-46ab-4b3c-91e2-14224bee9098",
@@ -5097,10 +4917,10 @@
     }
   },
   {
-    "pk": 149,
+    "pk": 1040990673,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 52,
+      "widget": 318559195,
       "name": "Similarity Threshold",
       "short_name": "dbl",
       "uid": "69b4f459-2c0a-7b68-4cc0-1affffd7531f",
@@ -5115,10 +4935,10 @@
     }
   },
   {
-    "pk": 150,
+    "pk": 950338624,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 52,
+      "widget": 318559195,
       "name": "Full Matrix (not only Lower Triangular)",
       "short_name": "bol",
       "uid": "f9775db0-0a33-b226-5f26-db727695324d",
@@ -5133,10 +4953,10 @@
     }
   },
   {
-    "pk": 57,
+    "pk": 715319538,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 52,
+      "widget": 318559195,
       "name": "Similarity Matrix",
       "short_name": "smx",
       "variable": "smx",
@@ -5146,10 +4966,10 @@
     }
   },
   {
-    "pk": 53,
+    "pk": 25062465,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 12,
+      "category": 84644037,
       "treeview_image": null,
       "name": "Convert Matrix to Table",
       "is_streaming": false,
@@ -5171,10 +4991,10 @@
     }
   },
   {
-    "pk": 151,
+    "pk": 279064858,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 53,
+      "widget": 25062465,
       "name": "Sparse Matrix",
       "short_name": "smx",
       "uid": "a6b405ee-579b-ac7f-d5ec-8f095e4fb284",
@@ -5189,10 +5009,10 @@
     }
   },
   {
-    "pk": 58,
+    "pk": 895247568,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 53,
+      "widget": 25062465,
       "name": "Matrix Table",
       "short_name": "tbl",
       "variable": "tbl",
@@ -5202,11 +5022,11 @@
     }
   },
   {
-    "pk": 13,
+    "pk": 344772143,
     "model": "workflows.category",
     "fields": {
       "uid": "74457dca-9fba-4d66-98dd-633df385a22b",
-      "parent": 1,
+      "parent": 226420051,
       "workflow": null,
       "user": null,
       "order": 8,
@@ -5214,10 +5034,10 @@
     }
   },
   {
-    "pk": 54,
+    "pk": 269559902,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 13,
+      "category": 344772143,
       "treeview_image": null,
       "name": "KMeans Clusterer",
       "is_streaming": false,
@@ -5239,10 +5059,10 @@
     }
   },
   {
-    "pk": 152,
+    "pk": 81855082,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 54,
+      "widget": 269559902,
       "name": "K (Number of Clusteres)",
       "short_name": "int",
       "uid": "de12d18b-684b-ea51-0bc9-4ff969ea494c",
@@ -5257,10 +5077,10 @@
     }
   },
   {
-    "pk": 153,
+    "pk": 843672800,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 54,
+      "widget": 269559902,
       "name": "Centroid Type",
       "short_name": "typ",
       "uid": "0806279f-9562-89a0-a1d0-cade15c962e8",
@@ -5275,40 +5095,40 @@
     }
   },
   {
-    "pk": 61,
+    "pk": 934379021,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "947c0190-6f41-28ba-9201-f7241cb70c81",
-      "abstract_input": 153,
+      "abstract_input": 843672800,
       "value": "Sum",
       "name": "Sum"
     }
   },
   {
-    "pk": 62,
+    "pk": 119693396,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "3beb3f40-ed4d-d744-b7db-8f2f60812c3d",
-      "abstract_input": 153,
+      "abstract_input": 843672800,
       "value": "Avg",
       "name": "Avg"
     }
   },
   {
-    "pk": 63,
+    "pk": 773332862,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "0294df92-e048-bb36-eb41-16cdad8fc0b4",
-      "abstract_input": 153,
+      "abstract_input": 843672800,
       "value": "NrmL2",
       "name": "Nrm L2"
     }
   },
   {
-    "pk": 154,
+    "pk": 817663337,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 54,
+      "widget": 269559902,
       "name": "Similarity Measure",
       "short_name": "typ",
       "uid": "ef384f86-a53a-0eef-1d95-2b0a0058cf33",
@@ -5323,30 +5143,30 @@
     }
   },
   {
-    "pk": 64,
+    "pk": 1025329103,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "515ac573-1c2f-a1eb-c2c7-6ed90cf50612",
-      "abstract_input": 154,
+      "abstract_input": 817663337,
       "value": "Cosine",
       "name": "Cosine"
     }
   },
   {
-    "pk": 65,
+    "pk": 579713479,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "bfbf01d8-0c41-646e-da71-3d493788ff04",
-      "abstract_input": 154,
+      "abstract_input": 817663337,
       "value": "DotProduct",
       "name": "Dot Product"
     }
   },
   {
-    "pk": 155,
+    "pk": 999969434,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 54,
+      "widget": 269559902,
       "name": "Random Seed (-1: Use Always Different)",
       "short_name": "int",
       "uid": "fdd2526b-8927-0b15-c98e-b9f6a156d23f",
@@ -5361,10 +5181,10 @@
     }
   },
   {
-    "pk": 156,
+    "pk": 685541901,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 54,
+      "widget": 269559902,
       "name": "Eps",
       "short_name": "dbl",
       "uid": "6f033ef3-4c89-be34-5ce7-0dba9b9440f9",
@@ -5379,10 +5199,10 @@
     }
   },
   {
-    "pk": 157,
+    "pk": 894622111,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 54,
+      "widget": 269559902,
       "name": "Trials (Num of Initializations)",
       "short_name": "int",
       "uid": "f51990f9-63d1-e0b6-fd8e-b3d15ac265c3",
@@ -5397,10 +5217,10 @@
     }
   },
   {
-    "pk": 59,
+    "pk": 132465639,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 54,
+      "widget": 269559902,
       "name": "Clusterer",
       "short_name": "cls",
       "variable": "clusterer",
@@ -5410,10 +5230,10 @@
     }
   },
   {
-    "pk": 55,
+    "pk": 472114239,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 13,
+      "category": 344772143,
       "treeview_image": null,
       "name": "KMeans Fast Clusterer",
       "is_streaming": false,
@@ -5435,10 +5255,10 @@
     }
   },
   {
-    "pk": 158,
+    "pk": 552041615,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 55,
+      "widget": 472114239,
       "name": "K (Number of Clusteres)",
       "short_name": "int",
       "uid": "26e666b5-47c1-db2b-8ae4-97e4d384496a",
@@ -5453,10 +5273,10 @@
     }
   },
   {
-    "pk": 159,
+    "pk": 361456567,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 55,
+      "widget": 472114239,
       "name": "Random Seed (-1: Use Always Different)",
       "short_name": "int",
       "uid": "31ecfb03-fbcf-677a-8580-d4419528df02",
@@ -5471,10 +5291,10 @@
     }
   },
   {
-    "pk": 160,
+    "pk": 668318610,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 55,
+      "widget": 472114239,
       "name": "Eps",
       "short_name": "dbl",
       "uid": "62781010-c8f7-da9a-50e8-92339f9ac8ec",
@@ -5489,10 +5309,10 @@
     }
   },
   {
-    "pk": 161,
+    "pk": 228521750,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 55,
+      "widget": 472114239,
       "name": "Trials (Num of Initializations)",
       "short_name": "int",
       "uid": "e7859e72-e2cc-54eb-d4f7-e14133d2a60a",
@@ -5507,10 +5327,10 @@
     }
   },
   {
-    "pk": 60,
+    "pk": 304220055,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 55,
+      "widget": 472114239,
       "name": "Clusterer",
       "short_name": "cls",
       "variable": "clusterer",
@@ -5520,10 +5340,10 @@
     }
   },
   {
-    "pk": 56,
+    "pk": 616832434,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 13,
+      "category": 344772143,
       "treeview_image": null,
       "name": "Hierarchical Bisecting Clusterer",
       "is_streaming": false,
@@ -5545,10 +5365,10 @@
     }
   },
   {
-    "pk": 162,
+    "pk": 1052064366,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 56,
+      "widget": 616832434,
       "name": "Min Quality",
       "short_name": "dbl",
       "uid": "c7e679d0-ff8c-afcf-0d8b-011b65f862ed",
@@ -5563,10 +5383,10 @@
     }
   },
   {
-    "pk": 61,
+    "pk": 661147390,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 56,
+      "widget": 616832434,
       "name": "Clusterer",
       "short_name": "cls",
       "variable": "clusterer",
@@ -5576,10 +5396,10 @@
     }
   },
   {
-    "pk": 57,
+    "pk": 711497257,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 13,
+      "category": 344772143,
       "treeview_image": null,
       "name": "Clustering Hub",
       "is_streaming": false,
@@ -5601,10 +5421,10 @@
     }
   },
   {
-    "pk": 163,
+    "pk": 817197412,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 57,
+      "widget": 711497257,
       "name": "Clusterer",
       "short_name": "cls",
       "uid": "2b67a699-e1be-2ba8-f3ef-d7aca6aa7999",
@@ -5619,10 +5439,10 @@
     }
   },
   {
-    "pk": 164,
+    "pk": 812595088,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 57,
+      "widget": 711497257,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "9d3b1094-54ab-55d2-53e5-56b840e924d1",
@@ -5637,10 +5457,10 @@
     }
   },
   {
-    "pk": 62,
+    "pk": 568092835,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 57,
+      "widget": 711497257,
       "name": "Clustering Results",
       "short_name": "cr",
       "variable": "clustRes",
@@ -5650,10 +5470,10 @@
     }
   },
   {
-    "pk": 58,
+    "pk": 991110934,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 13,
+      "category": 344772143,
       "treeview_image": null,
       "name": "Clustering Results Info",
       "is_streaming": false,
@@ -5675,10 +5495,10 @@
     }
   },
   {
-    "pk": 165,
+    "pk": 133700618,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 58,
+      "widget": 991110934,
       "name": "Clustering Results",
       "short_name": "cr",
       "uid": "8ad4dfeb-cf27-9013-826d-046edc418b25",
@@ -5693,10 +5513,10 @@
     }
   },
   {
-    "pk": 63,
+    "pk": 554015911,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 58,
+      "widget": 991110934,
       "name": "Document Labels (Array of Clusteres Ids)",
       "short_name": "str",
       "variable": "docLabels",
@@ -5706,10 +5526,10 @@
     }
   },
   {
-    "pk": 64,
+    "pk": 152800646,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 58,
+      "widget": 991110934,
       "name": "Clusters Tree",
       "short_name": "obj",
       "variable": "clustTree",
@@ -5719,10 +5539,10 @@
     }
   },
   {
-    "pk": 59,
+    "pk": 439779241,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 13,
+      "category": 344772143,
       "treeview_image": null,
       "name": "View Clusters",
       "is_streaming": false,
@@ -5744,10 +5564,10 @@
     }
   },
   {
-    "pk": 166,
+    "pk": 1029593033,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 59,
+      "widget": 439779241,
       "name": "Clustering Results",
       "short_name": "cr",
       "uid": "8dbe38d0-3b33-3d44-efe6-b21f26c17b5d",
@@ -5762,11 +5582,11 @@
     }
   },
   {
-    "pk": 14,
+    "pk": 837637361,
     "model": "workflows.category",
     "fields": {
       "uid": "c8fd491e-75ad-487d-b42f-b5ca07ec045a",
-      "parent": 1,
+      "parent": 226420051,
       "workflow": null,
       "user": null,
       "order": 9,
@@ -5774,12 +5594,12 @@
     }
   },
   {
-    "pk": 60,
+    "pk": 825864234,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
-      "name": "Centroid Classifier",
+      "name": "Nearest Centroid Classifier",
       "is_streaming": false,
       "uid": "093a5005-0368-4b46-9720-5a9b2b365c2f",
       "interaction_view": "",
@@ -5799,10 +5619,10 @@
     }
   },
   {
-    "pk": 167,
+    "pk": 48711550,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 60,
+      "widget": 825864234,
       "name": "Similarity Model",
       "short_name": "typ",
       "uid": "8c1b49cb-78f8-a7d2-2d8a-8710b5f25a03",
@@ -5817,30 +5637,30 @@
     }
   },
   {
-    "pk": 66,
+    "pk": 512922236,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "8484d913-23ba-43ba-508e-12a012b52f39",
-      "abstract_input": 167,
+      "abstract_input": 48711550,
       "value": "Cosine",
       "name": "Cosine"
     }
   },
   {
-    "pk": 67,
+    "pk": 248862793,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "acab5c6c-60e6-81c3-820a-c3158948cf31",
-      "abstract_input": 167,
+      "abstract_input": 48711550,
       "value": "DotProduct",
       "name": "Dot Product"
     }
   },
   {
-    "pk": 168,
+    "pk": 831710057,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 60,
+      "widget": 825864234,
       "name": "Normalize Centorids",
       "short_name": "bol",
       "uid": "c3a78c28-2c45-7233-7f40-c424577eb01b",
@@ -5855,10 +5675,10 @@
     }
   },
   {
-    "pk": 65,
+    "pk": 6237061,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 60,
+      "widget": 825864234,
       "name": "Centroid Classifier",
       "short_name": "csf",
       "variable": "classifier",
@@ -5868,10 +5688,10 @@
     }
   },
   {
-    "pk": 61,
+    "pk": 1044067225,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Naive Bayes Classifier",
       "is_streaming": false,
@@ -5893,10 +5713,10 @@
     }
   },
   {
-    "pk": 169,
+    "pk": 769644327,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 61,
+      "widget": 1044067225,
       "name": "Normalize",
       "short_name": "bol",
       "uid": "20a4318d-7bae-6986-5036-ad156a89582b",
@@ -5911,10 +5731,10 @@
     }
   },
   {
-    "pk": 170,
+    "pk": 311489667,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 61,
+      "widget": 1044067225,
       "name": "Log Sum Exp Trick",
       "short_name": "bol",
       "uid": "c87a9f5d-59a8-83d9-b0e9-24ed978e0359",
@@ -5929,10 +5749,10 @@
     }
   },
   {
-    "pk": 66,
+    "pk": 281707195,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 61,
+      "widget": 1044067225,
       "name": "Classifier",
       "short_name": "csf",
       "variable": "classifier",
@@ -5942,10 +5762,10 @@
     }
   },
   {
-    "pk": 62,
+    "pk": 138453882,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Svm Binary Classifier",
       "is_streaming": false,
@@ -5967,10 +5787,10 @@
     }
   },
   {
-    "pk": 171,
+    "pk": 893925414,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "C",
       "short_name": "dbl",
       "uid": "ed9be48d-dc9f-5496-b414-1abf8c077652",
@@ -5985,10 +5805,10 @@
     }
   },
   {
-    "pk": 172,
+    "pk": 798743998,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "Biased Hyperplane",
       "short_name": "bol",
       "uid": "7892b4b0-9f15-4ab2-2ed3-88a37abd987c",
@@ -6003,10 +5823,10 @@
     }
   },
   {
-    "pk": 173,
+    "pk": 23520622,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "Kernel Type",
       "short_name": "typ",
       "uid": "f63be5e5-9f93-fbba-c06e-d80de1d65191",
@@ -6021,50 +5841,50 @@
     }
   },
   {
-    "pk": 68,
+    "pk": 682632750,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "82b349e8-5939-7427-8680-3b1fff526dc6",
-      "abstract_input": 173,
+      "abstract_input": 23520622,
       "value": "Linear",
       "name": "Linear"
     }
   },
   {
-    "pk": 69,
+    "pk": 480530119,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "2abcf4cd-6d46-f77f-532c-68f2d80b63d3",
-      "abstract_input": 173,
+      "abstract_input": 23520622,
       "value": "Polynomial",
       "name": "Polynomial"
     }
   },
   {
-    "pk": 70,
+    "pk": 479105395,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "f44c4e6e-7c0d-2af0-5f90-a810bb49beaf",
-      "abstract_input": 173,
+      "abstract_input": 23520622,
       "value": "RadialBasisFunction",
       "name": "Radial Basis Function"
     }
   },
   {
-    "pk": 71,
+    "pk": 886717099,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "82d22a12-33de-af87-88c6-ed0eb99c084b",
-      "abstract_input": 173,
+      "abstract_input": 23520622,
       "value": "Sigmoid",
       "name": "Sigmoid"
     }
   },
   {
-    "pk": 174,
+    "pk": 238072528,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "Kernel Parameter Gamma",
       "short_name": "dbl",
       "uid": "9febc0b2-4792-9a75-d078-06cba1fec00b",
@@ -6079,10 +5899,10 @@
     }
   },
   {
-    "pk": 175,
+    "pk": 480366388,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "Kernel Parameter D",
       "short_name": "dbl",
       "uid": "32512a7e-6e2c-76de-94ba-61b70f9c6ac5",
@@ -6097,10 +5917,10 @@
     }
   },
   {
-    "pk": 176,
+    "pk": 19735073,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "Kernel Parameter S",
       "short_name": "dbl",
       "uid": "84a0f438-e258-bb86-0a47-95aab9b37912",
@@ -6115,10 +5935,10 @@
     }
   },
   {
-    "pk": 177,
+    "pk": 525661224,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "Kernel Parameter C",
       "short_name": "dbl",
       "uid": "42583600-9253-fa64-557b-7e435aea5d73",
@@ -6133,10 +5953,10 @@
     }
   },
   {
-    "pk": 178,
+    "pk": 76513254,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "Eps",
       "short_name": "dbl",
       "uid": "f67237da-15fe-930d-4c54-f3da246953ac",
@@ -6151,10 +5971,10 @@
     }
   },
   {
-    "pk": 179,
+    "pk": 31043856,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "Max Iterations",
       "short_name": "int",
       "uid": "189b1989-a282-605a-16dc-894a1f4561cf",
@@ -6169,10 +5989,10 @@
     }
   },
   {
-    "pk": 180,
+    "pk": 869799427,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "Custom Parameter String",
       "short_name": "str",
       "uid": "fdbde52d-2257-24a8-fec4-6b0b8aa0a414",
@@ -6187,10 +6007,10 @@
     }
   },
   {
-    "pk": 67,
+    "pk": 381492542,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 62,
+      "widget": 138453882,
       "name": "Classifier",
       "short_name": "csf",
       "variable": "classifier",
@@ -6200,10 +6020,10 @@
     }
   },
   {
-    "pk": 63,
+    "pk": 45410238,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Svm Multiclass Fast Classifier",
       "is_streaming": false,
@@ -6225,10 +6045,10 @@
     }
   },
   {
-    "pk": 181,
+    "pk": 544141275,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 63,
+      "widget": 45410238,
       "name": "C",
       "short_name": "dbl",
       "uid": "aa4af239-bf2b-9396-9382-1d3e62dbba60",
@@ -6243,10 +6063,10 @@
     }
   },
   {
-    "pk": 182,
+    "pk": 217687992,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 63,
+      "widget": 45410238,
       "name": "Eps",
       "short_name": "dbl",
       "uid": "02ad47bb-6058-37d1-85cb-140ddcfec097",
@@ -6261,10 +6081,10 @@
     }
   },
   {
-    "pk": 68,
+    "pk": 790901996,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 63,
+      "widget": 45410238,
       "name": "Classifier",
       "short_name": "csf",
       "variable": "classifier",
@@ -6274,10 +6094,10 @@
     }
   },
   {
-    "pk": 64,
+    "pk": 893359590,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Majority Classifier",
       "is_streaming": false,
@@ -6299,10 +6119,10 @@
     }
   },
   {
-    "pk": 69,
+    "pk": 214233130,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 64,
+      "widget": 893359590,
       "name": "Classifier",
       "short_name": "csf",
       "variable": "classifier",
@@ -6312,10 +6132,10 @@
     }
   },
   {
-    "pk": 65,
+    "pk": 877767277,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Maximum Entropy Classifier",
       "is_streaming": false,
@@ -6337,10 +6157,10 @@
     }
   },
   {
-    "pk": 183,
+    "pk": 468453894,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 65,
+      "widget": 877767277,
       "name": "Move Data",
       "short_name": "bol",
       "uid": "5388af0b-ce34-92a3-0f7c-514191196514",
@@ -6355,10 +6175,10 @@
     }
   },
   {
-    "pk": 184,
+    "pk": 975222513,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 65,
+      "widget": 877767277,
       "name": "Num of Iterations",
       "short_name": "int",
       "uid": "c31bbe9d-0354-503d-b9b3-807e7844a237",
@@ -6373,10 +6193,10 @@
     }
   },
   {
-    "pk": 185,
+    "pk": 183131694,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 65,
+      "widget": 877767277,
       "name": "CutOff",
       "short_name": "int",
       "uid": "8a227607-600a-8909-0216-25ea11d5a839",
@@ -6391,10 +6211,10 @@
     }
   },
   {
-    "pk": 186,
+    "pk": 390347933,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 65,
+      "widget": 877767277,
       "name": "Num of Threads",
       "short_name": "int",
       "uid": "279fff3f-5f66-58f1-5a03-3c51d5648c95",
@@ -6409,10 +6229,10 @@
     }
   },
   {
-    "pk": 187,
+    "pk": 376574766,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 65,
+      "widget": 877767277,
       "name": "Normalize",
       "short_name": "bol",
       "uid": "61c3861b-b61c-01a3-ae0e-62ac34a292f8",
@@ -6427,10 +6247,10 @@
     }
   },
   {
-    "pk": 70,
+    "pk": 713354509,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 65,
+      "widget": 877767277,
       "name": "Classifier",
       "short_name": "csf",
       "variable": "classifier",
@@ -6440,10 +6260,10 @@
     }
   },
   {
-    "pk": 66,
+    "pk": 633069720,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Maximum Entropy Fast Classifier",
       "is_streaming": false,
@@ -6465,10 +6285,10 @@
     }
   },
   {
-    "pk": 188,
+    "pk": 878757491,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 66,
+      "widget": 633069720,
       "name": "Move Data",
       "short_name": "bol",
       "uid": "526be33e-ac76-f04e-0b71-15f6ecb82a15",
@@ -6483,10 +6303,10 @@
     }
   },
   {
-    "pk": 189,
+    "pk": 473001062,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 66,
+      "widget": 633069720,
       "name": "Num of Iterations",
       "short_name": "int",
       "uid": "bed915e1-fab9-728b-0d3c-dcb61afa34fd",
@@ -6501,10 +6321,10 @@
     }
   },
   {
-    "pk": 190,
+    "pk": 177351711,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 66,
+      "widget": 633069720,
       "name": "CutOff",
       "short_name": "int",
       "uid": "3e2ac4a9-3e2a-d81b-a272-6122dd6e3e2e",
@@ -6519,10 +6339,10 @@
     }
   },
   {
-    "pk": 191,
+    "pk": 592020375,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 66,
+      "widget": 633069720,
       "name": "Num of Threads",
       "short_name": "int",
       "uid": "c3d4d8f6-da2b-8380-3f8f-4891d16163fb",
@@ -6537,10 +6357,10 @@
     }
   },
   {
-    "pk": 192,
+    "pk": 881829834,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 66,
+      "widget": 633069720,
       "name": "Normalize",
       "short_name": "bol",
       "uid": "d9850b7d-ca56-df40-d886-41f6675bbbf6",
@@ -6555,10 +6375,10 @@
     }
   },
   {
-    "pk": 71,
+    "pk": 1034400352,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 66,
+      "widget": 633069720,
       "name": "Classifier",
       "short_name": "csf",
       "variable": "classifier",
@@ -6568,10 +6388,10 @@
     }
   },
   {
-    "pk": 67,
+    "pk": 205496236,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Knn Classifier",
       "is_streaming": false,
@@ -6593,10 +6413,10 @@
     }
   },
   {
-    "pk": 193,
+    "pk": 409449270,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 67,
+      "widget": 205496236,
       "name": "Similarity Model",
       "short_name": "typ",
       "uid": "96168cbb-3359-2286-2754-6d322af7f38c",
@@ -6611,30 +6431,30 @@
     }
   },
   {
-    "pk": 72,
+    "pk": 325932425,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "1a36620b-a316-77aa-e786-43ae1ddb521f",
-      "abstract_input": 193,
+      "abstract_input": 409449270,
       "value": "Cosine",
       "name": "Cosine"
     }
   },
   {
-    "pk": 73,
+    "pk": 192660593,
     "model": "workflows.abstractoption",
     "fields": {
       "uid": "03ff898e-93fc-8d55-b69b-1106693a7917",
-      "abstract_input": 193,
+      "abstract_input": 409449270,
       "value": "DotProduct",
       "name": "Dot Product"
     }
   },
   {
-    "pk": 194,
+    "pk": 446838678,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 67,
+      "widget": 205496236,
       "name": "K (Neighbourhood)",
       "short_name": "int",
       "uid": "94782d0e-43be-f9b9-bfc5-a00132ff1237",
@@ -6649,10 +6469,10 @@
     }
   },
   {
-    "pk": 195,
+    "pk": 384753444,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 67,
+      "widget": 205496236,
       "name": "Soft Voting",
       "short_name": "bol",
       "uid": "9614283a-4628-4fa5-a62e-7aaee386c143",
@@ -6667,10 +6487,10 @@
     }
   },
   {
-    "pk": 72,
+    "pk": 726262833,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 67,
+      "widget": 205496236,
       "name": "Classifier",
       "short_name": "csf",
       "variable": "classifier",
@@ -6680,10 +6500,10 @@
     }
   },
   {
-    "pk": 68,
+    "pk": 399917189,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Knn Fast Classifier",
       "is_streaming": false,
@@ -6705,10 +6525,10 @@
     }
   },
   {
-    "pk": 196,
+    "pk": 612147136,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 68,
+      "widget": 399917189,
       "name": "K (Neighbourhood)",
       "short_name": "int",
       "uid": "50732a27-8321-b266-db28-85cba65c7f21",
@@ -6723,10 +6543,10 @@
     }
   },
   {
-    "pk": 197,
+    "pk": 132568947,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 68,
+      "widget": 399917189,
       "name": "Soft Voting",
       "short_name": "bol",
       "uid": "70286a7a-bb2c-f5d7-9ffc-e838a3c880c1",
@@ -6741,10 +6561,10 @@
     }
   },
   {
-    "pk": 73,
+    "pk": 712582970,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 68,
+      "widget": 399917189,
       "name": "Classifier",
       "short_name": "csf",
       "variable": "classifier",
@@ -6754,10 +6574,10 @@
     }
   },
   {
-    "pk": 69,
+    "pk": 809284141,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Train Classifier Hub",
       "is_streaming": false,
@@ -6779,10 +6599,10 @@
     }
   },
   {
-    "pk": 198,
+    "pk": 993922553,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 69,
+      "widget": 809284141,
       "name": "Classifier",
       "short_name": "csf",
       "uid": "e9bac05e-f82f-09cd-497d-4407fcecd056",
@@ -6797,10 +6617,10 @@
     }
   },
   {
-    "pk": 199,
+    "pk": 758827227,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 69,
+      "widget": 809284141,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "4df20aa1-64f1-11c1-bd8c-b9c64e5c0437",
@@ -6815,10 +6635,10 @@
     }
   },
   {
-    "pk": 74,
+    "pk": 917597738,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 69,
+      "widget": 809284141,
       "name": "Classifier",
       "short_name": "csf",
       "variable": "csf",
@@ -6828,10 +6648,10 @@
     }
   },
   {
-    "pk": 70,
+    "pk": 902822955,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Predict Classification",
       "is_streaming": false,
@@ -6853,10 +6673,10 @@
     }
   },
   {
-    "pk": 200,
+    "pk": 567836808,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 70,
+      "widget": 902822955,
       "name": "Classifier",
       "short_name": "csf",
       "uid": "d48016c2-edb0-265e-c40a-858745ab012b",
@@ -6871,10 +6691,10 @@
     }
   },
   {
-    "pk": 201,
+    "pk": 316388099,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 70,
+      "widget": 902822955,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "6bfd0b18-b660-feb8-8894-492da5fb7ac9",
@@ -6889,10 +6709,10 @@
     }
   },
   {
-    "pk": 75,
+    "pk": 586741041,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 70,
+      "widget": 902822955,
       "name": "Prediction(s)",
       "short_name": "prd",
       "variable": "predictions",
@@ -6902,10 +6722,10 @@
     }
   },
   {
-    "pk": 76,
+    "pk": 983603863,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 70,
+      "widget": 902822955,
       "name": "Labeled dataset",
       "short_name": "ds",
       "variable": "ds",
@@ -6915,10 +6735,10 @@
     }
   },
   {
-    "pk": 71,
+    "pk": 786742058,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Prediction Info",
       "is_streaming": false,
@@ -6940,10 +6760,10 @@
     }
   },
   {
-    "pk": 202,
+    "pk": 314070459,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 71,
+      "widget": 786742058,
       "name": "Prediction(s)",
       "short_name": "prd",
       "uid": "4196036a-5c53-8452-8ccc-325f1ac734d6",
@@ -6958,10 +6778,10 @@
     }
   },
   {
-    "pk": 77,
+    "pk": 426490591,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 71,
+      "widget": 786742058,
       "name": "Lable(s) (Array of Strings)",
       "short_name": "str",
       "variable": "labels",
@@ -6971,10 +6791,10 @@
     }
   },
   {
-    "pk": 78,
+    "pk": 692444736,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 71,
+      "widget": 786742058,
       "name": "Prediction Info(s)",
       "short_name": "obj",
       "variable": "predictInfos",
@@ -6984,10 +6804,10 @@
     }
   },
   {
-    "pk": 72,
+    "pk": 154772926,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Cross Validation",
       "is_streaming": false,
@@ -7009,10 +6829,10 @@
     }
   },
   {
-    "pk": 203,
+    "pk": 161710494,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 72,
+      "widget": 154772926,
       "name": "Classifier",
       "short_name": "csf",
       "uid": "06a3b7c8-681f-ab02-f171-75362b9ea5a0",
@@ -7027,10 +6847,10 @@
     }
   },
   {
-    "pk": 204,
+    "pk": 1024005826,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 72,
+      "widget": 154772926,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "eeab1227-dfa8-31df-b27b-2a27efeda6b0",
@@ -7045,10 +6865,10 @@
     }
   },
   {
-    "pk": 205,
+    "pk": 740564028,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 72,
+      "widget": 154772926,
       "name": "Num of Sets",
       "short_name": "int",
       "uid": "21ea2877-e44d-c8db-0612-b9bce6e62f36",
@@ -7063,10 +6883,10 @@
     }
   },
   {
-    "pk": 206,
+    "pk": 446424769,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 72,
+      "widget": 154772926,
       "name": "Assign Sets Randomly",
       "short_name": "bol",
       "uid": "f7bb77e7-327e-5794-f330-186d669d6b1b",
@@ -7081,10 +6901,10 @@
     }
   },
   {
-    "pk": 207,
+    "pk": 590488885,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 72,
+      "widget": 154772926,
       "name": "Use Seed for Random",
       "short_name": "bol",
       "uid": "bdc7e5b8-00f1-d7bd-6927-fc91856a280a",
@@ -7099,10 +6919,10 @@
     }
   },
   {
-    "pk": 208,
+    "pk": 238288051,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 72,
+      "widget": 154772926,
       "name": "Random Seed",
       "short_name": "int",
       "uid": "15d0d98c-b25b-e7fc-19f1-d547a0dddd14",
@@ -7117,10 +6937,10 @@
     }
   },
   {
-    "pk": 79,
+    "pk": 285280223,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 72,
+      "widget": 154772926,
       "name": "Data Object with results",
       "short_name": "obj",
       "variable": "obj",
@@ -7130,10 +6950,10 @@
     }
   },
   {
-    "pk": 73,
+    "pk": 969524863,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Cross Validation (Predefined Splits)",
       "is_streaming": false,
@@ -7155,10 +6975,10 @@
     }
   },
   {
-    "pk": 209,
+    "pk": 389736176,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 73,
+      "widget": 969524863,
       "name": "Classifier",
       "short_name": "csf",
       "uid": "4178be10-5a31-bbfd-dafc-51470e1458bb",
@@ -7173,10 +6993,10 @@
     }
   },
   {
-    "pk": 210,
+    "pk": 766398363,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 73,
+      "widget": 969524863,
       "name": "Dataset",
       "short_name": "ds",
       "uid": "657a8f1f-7958-d479-a062-428ea6250620",
@@ -7191,10 +7011,10 @@
     }
   },
   {
-    "pk": 211,
+    "pk": 180983821,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 73,
+      "widget": 969524863,
       "name": "Sets (List with predefined set numbers)",
       "short_name": "lst",
       "uid": "f51e4a03-3fc8-f5b2-2555-5f07920a4ddb",
@@ -7209,10 +7029,10 @@
     }
   },
   {
-    "pk": 80,
+    "pk": 677909998,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 73,
+      "widget": 969524863,
       "name": "Data Object with results",
       "short_name": "obj",
       "variable": "obj",
@@ -7222,10 +7042,10 @@
     }
   },
   {
-    "pk": 74,
+    "pk": 143252862,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "View Classifications",
       "is_streaming": false,
@@ -7247,10 +7067,10 @@
     }
   },
   {
-    "pk": 212,
+    "pk": 94988545,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 74,
+      "widget": 143252862,
       "name": "Prediction(s)",
       "short_name": "prd",
       "uid": "1f322a3d-2653-00f7-557e-f13bd0f9a118",
@@ -7265,10 +7085,10 @@
     }
   },
   {
-    "pk": 75,
+    "pk": 24727658,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 14,
+      "category": 837637361,
       "treeview_image": null,
       "name": "Accuracy Claculation",
       "is_streaming": false,
@@ -7290,10 +7110,10 @@
     }
   },
   {
-    "pk": 213,
+    "pk": 611585477,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 75,
+      "widget": 24727658,
       "name": "List 1",
       "short_name": "lst",
       "uid": "4337f7d3-5113-be91-9dcd-7f23d955ca3e",
@@ -7308,10 +7128,10 @@
     }
   },
   {
-    "pk": 214,
+    "pk": 290092085,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 75,
+      "widget": 24727658,
       "name": "List 2",
       "short_name": "lst",
       "uid": "3865d2f0-cf4f-cacc-78dc-77a6b0071e45",
@@ -7326,10 +7146,10 @@
     }
   },
   {
-    "pk": 81,
+    "pk": 287778854,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 75,
+      "widget": 24727658,
       "name": "Accuracy",
       "short_name": "dbl",
       "variable": "accuracy",
@@ -7339,10 +7159,10 @@
     }
   },
   {
-    "pk": 82,
+    "pk": 555821475,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 75,
+      "widget": 24727658,
       "name": "Statistics",
       "short_name": "obj",
       "variable": "statistics",
@@ -7352,11 +7172,11 @@
     }
   },
   {
-    "pk": 15,
+    "pk": 673028489,
     "model": "workflows.category",
     "fields": {
       "uid": "438cb7e7-d0e5-4bb9-9cad-10f6907ec568",
-      "parent": 1,
+      "parent": 226420051,
       "workflow": null,
       "user": null,
       "order": 10,
@@ -7364,10 +7184,10 @@
     }
   },
   {
-    "pk": 3,
+    "pk": 44350287,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 15,
+      "category": 673028489,
       "treeview_image": null,
       "name": "Flatten String Hierarchy",
       "is_streaming": false,
@@ -7389,10 +7209,10 @@
     }
   },
   {
-    "pk": 7,
+    "pk": 477923361,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 3,
+      "widget": 44350287,
       "name": "data",
       "short_name": "obj",
       "uid": "26dc986a-e8c4-ee4b-ac32-5ce895f3383a",
@@ -7407,10 +7227,10 @@
     }
   },
   {
-    "pk": 3,
+    "pk": 155860590,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 3,
+      "widget": 44350287,
       "name": "flatData",
       "short_name": "obj",
       "variable": "flatData",
@@ -7420,10 +7240,10 @@
     }
   },
   {
-    "pk": 4,
+    "pk": 1049809873,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 15,
+      "category": 673028489,
       "treeview_image": null,
       "name": "Display Table",
       "is_streaming": false,
@@ -7445,10 +7265,10 @@
     }
   },
   {
-    "pk": 8,
+    "pk": 665024112,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 4,
+      "widget": 1049809873,
       "name": "Table",
       "short_name": "tbl",
       "uid": "5800c1e5-44ec-5843-e9cf-fde725c7b521",
@@ -7463,10 +7283,10 @@
     }
   },
   {
-    "pk": 5,
+    "pk": 842764734,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 15,
+      "category": 673028489,
       "treeview_image": null,
       "name": "Generate Integer Range",
       "is_streaming": false,
@@ -7488,10 +7308,10 @@
     }
   },
   {
-    "pk": 9,
+    "pk": 1067796598,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 5,
+      "widget": 842764734,
       "name": "Start",
       "short_name": "int",
       "uid": "4c165f6b-7698-65d2-f8fb-2d2cf104ba47",
@@ -7506,10 +7326,10 @@
     }
   },
   {
-    "pk": 10,
+    "pk": 535193762,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 5,
+      "widget": 842764734,
       "name": "Stop",
       "short_name": "int",
       "uid": "c707764e-6ee4-8318-565e-3c4aab14cc45",
@@ -7524,10 +7344,10 @@
     }
   },
   {
-    "pk": 11,
+    "pk": 164381067,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 5,
+      "widget": 842764734,
       "name": "Step",
       "short_name": "int",
       "uid": "64dbf120-d027-0a31-a88d-e78bd15fb0c1",
@@ -7542,10 +7362,10 @@
     }
   },
   {
-    "pk": 4,
+    "pk": 301678323,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 5,
+      "widget": 842764734,
       "name": "Range",
       "short_name": "ary",
       "variable": "range",
@@ -7555,10 +7375,10 @@
     }
   },
   {
-    "pk": 6,
+    "pk": 852454843,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 15,
+      "category": 673028489,
       "treeview_image": null,
       "name": "Python Snippet",
       "is_streaming": false,
@@ -7580,10 +7400,10 @@
     }
   },
   {
-    "pk": 12,
+    "pk": 727493001,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 6,
+      "widget": 852454843,
       "name": "in",
       "short_name": "in",
       "uid": "16ca773f-1d2d-823f-6e9c-1be0dd267369",
@@ -7598,10 +7418,10 @@
     }
   },
   {
-    "pk": 13,
+    "pk": 317173175,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 6,
+      "widget": 852454843,
       "name": "Python Snippet Code",
       "short_name": "py",
       "uid": "1991f19a-463b-d851-aab6-72facc87a2f1",
@@ -7616,10 +7436,10 @@
     }
   },
   {
-    "pk": 5,
+    "pk": 522612459,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 6,
+      "widget": 852454843,
       "name": "out",
       "short_name": "out",
       "variable": "out",
@@ -7629,10 +7449,10 @@
     }
   },
   {
-    "pk": 7,
+    "pk": 872247456,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 15,
+      "category": 673028489,
       "treeview_image": null,
       "name": "Split Object",
       "is_streaming": false,
@@ -7654,10 +7474,10 @@
     }
   },
   {
-    "pk": 14,
+    "pk": 934438767,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 7,
+      "widget": 872247456,
       "name": "object",
       "short_name": "obj",
       "uid": "298ce522-7061-993e-a940-069d9c9b739d",
@@ -7672,10 +7492,10 @@
     }
   },
   {
-    "pk": 15,
+    "pk": 161179056,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 7,
+      "widget": 872247456,
       "name": "Object Modifier",
       "short_name": "atr",
       "uid": "bf822d07-096d-1aeb-e6da-3670d6aa9c53",
@@ -7690,10 +7510,10 @@
     }
   },
   {
-    "pk": 6,
+    "pk": 567927732,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 7,
+      "widget": 872247456,
       "name": "object",
       "short_name": "obj",
       "variable": "object",
@@ -7703,10 +7523,10 @@
     }
   },
   {
-    "pk": 76,
+    "pk": 847943239,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 15,
+      "category": 673028489,
       "treeview_image": null,
       "name": "C#.NET Snippet",
       "is_streaming": false,
@@ -7728,10 +7548,10 @@
     }
   },
   {
-    "pk": 215,
+    "pk": 230095553,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 76,
+      "widget": 847943239,
       "name": "Snippet Input Parameter(s)",
       "short_name": "in",
       "uid": "2b2c9753-afa0-8b31-e0ff-c9d3d50e80c7",
@@ -7746,10 +7566,10 @@
     }
   },
   {
-    "pk": 216,
+    "pk": 403483405,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 76,
+      "widget": 847943239,
       "name": "C# Snippet Code",
       "short_name": "cs",
       "uid": "2ec1a3c4-e2aa-bf52-c253-ba4473c26938",
@@ -7764,10 +7584,10 @@
     }
   },
   {
-    "pk": 217,
+    "pk": 752900841,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 76,
+      "widget": 847943239,
       "name": "Additional References (imports)",
       "short_name": "str",
       "uid": "5ae25dd8-d110-b97b-615b-6a5810dd7ef0",
@@ -7782,10 +7602,10 @@
     }
   },
   {
-    "pk": 218,
+    "pk": 976971737,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 76,
+      "widget": 847943239,
       "name": "Namespace Section (using directives)",
       "short_name": "str",
       "uid": "6cb80407-d2c4-f810-c9cd-34527394644c",
@@ -7800,10 +7620,10 @@
     }
   },
   {
-    "pk": 83,
+    "pk": 694653467,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 76,
+      "widget": 847943239,
       "name": "out",
       "short_name": "out",
       "variable": "out",
@@ -7813,10 +7633,10 @@
     }
   },
   {
-    "pk": 84,
+    "pk": 195042500,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 76,
+      "widget": 847943239,
       "name": "Console Output",
       "short_name": "str",
       "variable": "consoleOut",
@@ -7826,10 +7646,10 @@
     }
   },
   {
-    "pk": 85,
+    "pk": 885754258,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 76,
+      "widget": 847943239,
       "name": "Possible compile/runtime errors",
       "short_name": "str",
       "variable": "error",
@@ -7839,10 +7659,10 @@
     }
   },
   {
-    "pk": 86,
+    "pk": 660836053,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 76,
+      "widget": 847943239,
       "name": "Generated Code",
       "short_name": "str",
       "variable": "code",
@@ -7852,10 +7672,10 @@
     }
   },
   {
-    "pk": 77,
+    "pk": 456683856,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 15,
+      "category": 673028489,
       "treeview_image": null,
       "name": "Advanced object viewer",
       "is_streaming": false,
@@ -7877,10 +7697,10 @@
     }
   },
   {
-    "pk": 219,
+    "pk": 927568605,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 77,
+      "widget": 456683856,
       "name": "Object",
       "short_name": "obj",
       "uid": "6482823f-f2e5-01b4-4f05-4d235f5ee2eb",
@@ -7895,10 +7715,10 @@
     }
   },
   {
-    "pk": 220,
+    "pk": 547633641,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 77,
+      "widget": 456683856,
       "name": "Attribute",
       "short_name": "int",
       "uid": "84be4d9b-6210-39f1-a4c3-324a37d5b1a6",
@@ -7913,10 +7733,10 @@
     }
   },
   {
-    "pk": 221,
+    "pk": 53145965,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 77,
+      "widget": 456683856,
       "name": "Maximum Output Length",
       "short_name": "int",
       "uid": "d0a89d3b-705e-46ef-eaf7-266c48d4432b",

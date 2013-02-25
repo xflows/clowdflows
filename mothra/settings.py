@@ -195,7 +195,8 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.weka',
     'workflows.cforange',
     'workflows.perfeval',
-    'workflows.mysql'
+    'workflows.mysql',
+    'workflows.lemmagen',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 

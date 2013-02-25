@@ -1,0 +1,618 @@
+[
+  {
+    "pk": 670474768,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "3f47e2a2-682f-4439-9b7c-e67c6506fd67",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "LemmaGen"
+    }
+  },
+  {
+    "pk": 143357551,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "44fdf9b8-8259-4a43-8a77-59753b74cacd",
+      "parent": 670474768,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Lemmatization"
+    }
+  },
+  {
+    "pk": 112143617,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 143357551,
+      "treeview_image": null,
+      "name": "Prebuild Lemmatizer",
+      "is_streaming": false,
+      "uid": "9796304a-c9dc-4ffe-a721-65c29e846e34",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_construct_prebuild_lemmatizer",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Automatically generated widget from function ConstructPrebuildLemmatizer in package lemmagen. The original function signature: ConstructPrebuildLemmatizer."
+    }
+  },
+  {
+    "pk": 222876823,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 112143617,
+      "name": "Language",
+      "short_name": "lng",
+      "uid": "2452e058-506e-6f62-9f45-1d15de5824bb",
+      "default": "English",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "language",
+      "parameter": true,
+      "order": 1,
+      "description": "LemmaSharp.LanguagePrebuilt"
+    }
+  },
+  {
+    "pk": 971860473,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "d2925cf1-2943-5aa3-6c2b-5b46caa6c3a6",
+      "abstract_input": 222876823,
+      "value": "Bulgarian",
+      "name": "Bulgarian  (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 562050028,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "a3505874-906b-da5e-5b90-58178db7381c",
+      "abstract_input": 222876823,
+      "value": "Czech",
+      "name": "Czech      (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 738046929,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e529c7d6-83b7-9279-ee22-ecdf7295e5bf",
+      "abstract_input": 222876823,
+      "value": "English",
+      "name": "English    (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 31386161,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "16ea0b07-a565-851b-4feb-2f217e49f9f7",
+      "abstract_input": 222876823,
+      "value": "Estonian",
+      "name": "Estonian   (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 492581273,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "4fc30fb2-816d-aece-f281-cb5d6cc4fdbf",
+      "abstract_input": 222876823,
+      "value": "Persian",
+      "name": "Persian    (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 976062185,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "50278c48-956a-32a2-761e-b5a195e8cf29",
+      "abstract_input": 222876823,
+      "value": "French",
+      "name": "French     (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 645392254,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "08a3121c-4705-cee1-6575-88483a5a7105",
+      "abstract_input": 222876823,
+      "value": "Hungarian",
+      "name": "Hungarian  (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 490857421,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e8d69c6b-b37f-874a-8dbf-714a4fa04279",
+      "abstract_input": 222876823,
+      "value": "Macedonian",
+      "name": "Macedonian (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 368788361,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "ebd5a5b6-3b46-2147-95e5-051633ba43c4",
+      "abstract_input": 222876823,
+      "value": "Polish",
+      "name": "Polish     (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 629253816,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "a5107bb6-d9a8-4103-7ecb-2bc79196c145",
+      "abstract_input": 222876823,
+      "value": "Romanian",
+      "name": "Romanian   (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 755813253,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "b68822dc-44c5-0d01-fca7-84a523f0f2f0",
+      "abstract_input": 222876823,
+      "value": "Russian",
+      "name": "Russian    (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 362172735,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "6c117cab-06bd-be31-0d15-4ec6b7b5a8a1",
+      "abstract_input": 222876823,
+      "value": "Slovak",
+      "name": "Slovak     (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 338426072,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "4c5b91b6-c056-c693-1ed0-6d8880099cc5",
+      "abstract_input": 222876823,
+      "value": "Slovene",
+      "name": "Slovene    (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 844876010,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "c711244e-ae1e-86b6-536b-c78b3890d4d9",
+      "abstract_input": 222876823,
+      "value": "Serbian",
+      "name": "Serbian    (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 1058178025,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "a1e4a3b6-2f0a-1d96-65a5-99cafc66b2b6",
+      "abstract_input": 222876823,
+      "value": "Ukrainian",
+      "name": "Ukrainian  (trained on MULTEXT-East v4 resources)"
+    }
+  },
+  {
+    "pk": 709329936,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "96e4b2dc-01ba-4565-4d70-329c04a3aa08",
+      "abstract_input": 222876823,
+      "value": "EnglishMT",
+      "name": "EnglishMT  (trained on MULTEXT resources)"
+    }
+  },
+  {
+    "pk": 880770479,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "616ddeb6-86be-cf89-c5ff-0b04df7d3235",
+      "abstract_input": 222876823,
+      "value": "FrenchMT",
+      "name": "FrenchMT   (trained on MULTEXT resources)"
+    }
+  },
+  {
+    "pk": 358351563,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "d4fa9df0-c5b4-bd05-10ff-50243773b89e",
+      "abstract_input": 222876823,
+      "value": "German",
+      "name": "German     (trained on MULTEXT resources)"
+    }
+  },
+  {
+    "pk": 352301260,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "959c9cdb-aa93-7600-a08f-e1c8d9a63400",
+      "abstract_input": 222876823,
+      "value": "Italian",
+      "name": "Italian    (trained on MULTEXT resources)"
+    }
+  },
+  {
+    "pk": 721366577,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "3119b7e0-e42e-17ab-dd29-4b7678a46402",
+      "abstract_input": 222876823,
+      "value": "Spanish",
+      "name": "Spanish    (trained on MULTEXT resources)"
+    }
+  },
+  {
+    "pk": 810525562,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 112143617,
+      "name": "LemmaGen Lemmatizer",
+      "short_name": "lmz",
+      "variable": "lemamtizer",
+      "uid": "24208d82-d047-9bea-4091-0bf9ab47f69e",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 862594096,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 143357551,
+      "treeview_image": null,
+      "name": "Empty Lemmatizer",
+      "is_streaming": false,
+      "uid": "2f4a3645-673c-4b91-bd66-216d092df23f",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_construct_lemmatizer",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": "Automatically generated widget from function ConstructLemmatizer in package lemmagen. The original function signature: ConstructLemmatizer."
+    }
+  },
+  {
+    "pk": 418880431,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 862594096,
+      "name": "Use From In Rules",
+      "short_name": "bol",
+      "uid": "728f879e-491d-fd9d-8565-5ad4c409e5de",
+      "default": "true",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "useFromInRules",
+      "parameter": true,
+      "order": 1,
+      "description": "True if from string should be included in rule identifier ([from]->[to]). False if just length of from string is used ([#len]->[to])."
+    }
+  },
+  {
+    "pk": 656009326,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 862594096,
+      "name": "Msd Consideration",
+      "short_name": "msd",
+      "uid": "46ed84fe-644e-502c-c8b2-cee449185b91",
+      "default": "Distinct",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "msdConsider",
+      "parameter": true,
+      "order": 2,
+      "description": "Specification how algorithm considers msd tags."
+    }
+  },
+  {
+    "pk": 101086762,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "d902c599-57b2-f31b-5745-5b33e6cb9885",
+      "abstract_input": 656009326,
+      "value": "Ignore",
+      "name": "Ignore            (Completely ignores mds tags - join examples with different tags and sum their weihgts)"
+    }
+  },
+  {
+    "pk": 430658844,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "5f9232e6-9ffd-930f-5052-e3aac75d5758",
+      "abstract_input": 656009326,
+      "value": "Distinct",
+      "name": "Distinct          (Same examples with different msd's are not considered equal and joined)"
+    }
+  },
+  {
+    "pk": 750614859,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "8e8cfc28-07c8-f676-63d2-7dbcbf26b1d4",
+      "abstract_input": 656009326,
+      "value": "JoinAll",
+      "name": "JoinAll           (Joins examples with different tags - concatenates all msd tags)"
+    }
+  },
+  {
+    "pk": 524423716,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "19b7e352-6d87-edea-93ae-3c88885ade7d",
+      "abstract_input": 656009326,
+      "value": "JoinDistinct",
+      "name": "JoinDistinct      (Joins examples with different tags - concatenates just distinct msd tags - somehow slower)"
+    }
+  },
+  {
+    "pk": 486368124,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "60549577-cfdd-b845-f7d1-c8fd0209423d",
+      "abstract_input": 656009326,
+      "value": "JoinSameSubstring",
+      "name": "JoinSameSubstring (Joins examples with different tags - new tag is the left to right substring that all joined examples share)"
+    }
+  },
+  {
+    "pk": 741564781,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 862594096,
+      "name": "Max Rules Per Node",
+      "short_name": "bol",
+      "uid": "edb3b6c7-aed0-7644-b805-740e4a43ae0e",
+      "default": "0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "maxRulesPerNode",
+      "parameter": true,
+      "order": 3,
+      "description": "How many of the best rules are kept in memory for each node. Zero means unlimited."
+    }
+  },
+  {
+    "pk": 571211926,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 862594096,
+      "name": "Build Front Lemmatizer",
+      "short_name": "bol",
+      "uid": "ff32090f-5cb7-ec11-ada4-060669d1beb5",
+      "default": "false",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "buildFrontLemmatizer",
+      "parameter": true,
+      "order": 4,
+      "description": "True: build proccess uses few more hevristics to build first left to right lemmatizer (lemmatizes front of the word); False: (default) do not create additional front lemmatizer;"
+    }
+  },
+  {
+    "pk": 167197124,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 862594096,
+      "name": "Store All Full Known Words",
+      "short_name": "bol",
+      "uid": "d506a033-baa6-ced4-9e77-bbfc5f848655",
+      "default": "false",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "storeAllFullKnownWords",
+      "parameter": true,
+      "order": 5,
+      "description": "True: the model will store all known words in full -> the same as having lexicon to check each word before using lemmatizer and then use the lemmatizer only for unknown words; False: (default) the model will try to mimimize the size and will store the full forms of words only in the case if they add new knowledge;"
+    }
+  },
+  {
+    "pk": 82952051,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 862594096,
+      "name": "Use Msd Split Tree Optimization",
+      "short_name": "bol",
+      "uid": "f7fbaba1-ca7e-11e5-ea4a-d052b3380b0f",
+      "default": "false",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "useMsdSplitTreeOptimization",
+      "parameter": true,
+      "order": 6,
+      "description": "This is advanced functionality, read the manual."
+    }
+  },
+  {
+    "pk": 213375530,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 862594096,
+      "name": "Msd specification String",
+      "short_name": "str",
+      "uid": "8c7d3609-c428-1b47-ad6c-1d36b0d2c2ca",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "msdSpec",
+      "parameter": true,
+      "order": 7,
+      "description": "This is advanced functionality, read the manual."
+    }
+  },
+  {
+    "pk": 849902915,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 862594096,
+      "name": "Example List",
+      "short_name": "lst",
+      "uid": "7d8677e9-65eb-cfc3-ed37-18184ea1e0d1",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "exampleList",
+      "parameter": false,
+      "order": 8,
+      "description": "List of lemmatization examples which are used for initial lemmatizer training."
+    }
+  },
+  {
+    "pk": 423204809,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 862594096,
+      "name": "LemmaGen Lemmatizer",
+      "short_name": "lmz",
+      "variable": "lemmatizer",
+      "uid": "b5c40a94-0934-8b9b-13e9-b8cf677fc4ae",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 34232932,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 143357551,
+      "treeview_image": null,
+      "name": "Lemmatizer",
+      "is_streaming": false,
+      "uid": "3c8148d6-54a6-4d5a-9c24-7be671e95f29",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_lemmatize_words",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 3,
+      "description": "Automatically generated widget from function LemmatizeWords in package lemmagen. The original function signature: LemmatizeWords."
+    }
+  },
+  {
+    "pk": 566085476,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34232932,
+      "name": "Trained Lemmatizer",
+      "short_name": "lmz",
+      "uid": "ee0eda9c-7387-7ea0-2145-2f7a9b8ee164",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "lemmatizer",
+      "parameter": false,
+      "order": 1,
+      "description": "Latino.TextMining.IStemmer"
+    }
+  },
+  {
+    "pk": 349847221,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34232932,
+      "name": "Word(s)",
+      "short_name": "wrd",
+      "uid": "cd08ca1e-be3a-1f14-50a8-70414e21c2ef",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "words",
+      "parameter": false,
+      "order": 2,
+      "description": "System.Object"
+    }
+  },
+  {
+    "pk": 346557257,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34232932,
+      "name": "Leave words & append lemmas",
+      "short_name": "bol",
+      "uid": "44cb6e3e-444d-6d0d-4712-462d3dda5346",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "leaveWord",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 233971187,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 34232932,
+      "name": "Lemmatized Word(s) = Lemma(s)",
+      "short_name": "lem",
+      "variable": "lemmas",
+      "uid": "2a28edee-8041-2f3f-0fd5-02c6b234bf31",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 0,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "c0502e02-2e9e-4b93-8c93-9eb217b0799b",
+      "parent": 670474768,
+      "workflow": null,
+      "user": null,
+      "order": 2,
+      "name": "Lemmatizer Training"
+    }
+  }
+]
