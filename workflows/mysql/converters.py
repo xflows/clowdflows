@@ -172,7 +172,7 @@ class Aleph_Converter(ILP_Converter):
 
 class Orange_Converter(Converter):
     '''
-    Converts the target table selected in the given context as an orange example table.
+    Converts the selected tables in the given context to orange example tables.
     '''
     continuous_types = ('FLOAT','DOUBLE','DECIMAL','NEWDECIMAL')
     integer_types = ('TINY','SHORT','LONG','LONGLONG','INT24')
@@ -180,21 +180,33 @@ class Orange_Converter(Converter):
     
     def __init__(self, *args, **kwargs):
         Converter.__init__(self, *args, **kwargs)
-        self.types = self.db.fetch_types(self.db.target_table, self.db.cols[self.db.target_table])
+        self.types={}
+        for table in self.db.tables:
+            self.types[table]= self.db.fetch_types(table, self.db.cols[table])
         self.db.compute_col_vals()
 
-    def target_table(self):
+    def target_Orange_table(self):
+        table, cls_att = self.db.target_table, self.db.target_att
+        return self.convert_table(table, cls_att)
+
+    def other_Orange_tables(self):
+        target_table = self.db.target_table
+
+        return[ self.convert_table(table,None) for table in self.db.tables if table!=target_table]
+
+
+    def convert_table(self,table_name, cls_att=None):
         '''
         Returns the target table as an orange example table.
         '''
         import orange
-        table, cls_att = self.db.target_table, self.db.target_att
-        cols = self.db.cols[table]
-        attributes, metas, classVar = [], [], None
+
+        cols = self.db.cols[table_name]
+        attributes, metas, class_var = [], [], []
         for col in cols:
-            att_type = self.orng_type(col)
+            att_type = self.orng_type(table_name,col)
             if att_type == 'd':
-                att_vals = self.db.col_vals[table][col]
+                att_vals = self.db.col_vals[table_name][col]
                 att_var = orange.EnumVariable(str(col), values=[str(val) for val in att_vals])
             elif att_type == 'c':
                 att_var = orange.FloatVariable(str(col))
@@ -202,33 +214,34 @@ class Orange_Converter(Converter):
                 att_var = orange.StringVariable(str(col))
             if col == cls_att:
                 if att_type == 'string':
-                    raise Exception('Unsuitable data type for a target variable: %d' % att_type)
-                class_var = att_var
+                    raise Exception('Unsuitable data type for a target variable: %s' % att_type)
+                class_var.append(att_var)
                 continue
             elif att_type == 'string':
                 metas.append(att_var)
             else:
                 attributes.append(att_var)
-        domain = orange.Domain(attributes + [class_var])
+        domain = orange.Domain(attributes + class_var)
         for meta in metas:
             domain.addmeta(orange.newmetaid(), meta)
         dataset = orange.ExampleTable(domain)
-        for row in self.db.rows(table, cols):
+        dataset.name=table_name
+        for row in self.db.rows(table_name, cols):
             example = orange.Example(domain)
             for col, val in zip(cols, row):
                 example[str(col)] = str(val)
             dataset.append(example)
         return dataset
 
-    def orng_type(self, col):
+    def orng_type(self, table_name,col):
         '''
         Assigns a given mysql column an orange type.
         '''
-        mysql_type = self.types[col]
-        n_vals = len(self.db.col_vals[self.db.target_table][col])
+        mysql_type = self.types[table_name][col]
+        n_vals = len(self.db.col_vals[table_name][col])
         if mysql_type in Orange_Converter.continuous_types or (n_vals >= 50 and mysql_type in Orange_Converter.integer_types):
             return 'c'
-        elif mysql_type in Orange_Converter.ordinal_types:
+        elif mysql_type in Orange_Converter.ordinal_types+Orange_Converter.integer_types:
             return 'd'
         else:
             return 'string'

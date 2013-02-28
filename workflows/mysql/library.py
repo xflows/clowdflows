@@ -39,4 +39,4 @@ def mysql_query_to_odt(input_dict):
 def mysql_orange_converter(input_dict):
     context = input_dict['context']
     orange = Orange_Converter(context)
-    return {'dataset' : orange.target_table()}
+    return {'target_table_dataset' : orange.target_Orange_table(),'other_table_datasets': orange.other_Orange_tables()}
