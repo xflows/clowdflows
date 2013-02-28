@@ -151,11 +151,11 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 191,
-      "name": "pos_examples",
-      "short_name": "pex",
+      "name": "positive examples",
+      "short_name": "pos",
       "variable": "pos_examples",
       "uid": "48184527-16a5-446c-9181-48a6558430c2",
-      "order": 2,
+      "order": 1,
       "description": "positive examples file"
     }
   },
@@ -164,11 +164,11 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 191,
-      "name": "neg_examples",
-      "short_name": "nex",
+      "name": "negative examples",
+      "short_name": "neg",
       "variable": "neg_examples",
       "uid": "2c623064-95cd-48ac-8bff-617edf2b9468",
-      "order": 3,
+      "order": 2,
       "description": "negative examples file"
     }
   },
@@ -177,11 +177,11 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 191,
-      "name": "bk",
-      "short_name": "bk",
+      "name": "background knowledge",
+      "short_name": "b",
       "variable": "bk",
       "uid": "5e61e44e-cc52-4471-9a41-3afa52f58ab1",
-      "order": 4,
+      "order": 3,
       "description": "background knowledge"
     }
   },
@@ -303,7 +303,7 @@
     "fields": {
       "widget": 193,
       "name": "examples",
-      "short_name": "exm",
+      "short_name": "ex",
       "variable": "examples",
       "uid": "f17690db-636b-4874-8406-f57778550c27",
       "order": 1,
@@ -315,8 +315,8 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 193,
-      "name": "bk",
-      "short_name": "bk",
+      "name": "background knowledge",
+      "short_name": "b",
       "variable": "bk",
       "uid": "89a386ef-3aa8-441f-99ff-4b64b1e3357f",
       "order": 2,
