@@ -23,7 +23,7 @@ logger.addHandler(ch)
 class RSD(object):
     THIS_DIR = os.path.dirname(__file__) if os.path.dirname(__file__) else '.'
     RSD_FILES = ['featurize.pl', 'process.pl', 'rules.pl']
-    YAP = '/usr/local/bin/yap'
+    #YAP = '/usr/local/bin/yap'
 
     # Generated scripts filenames
     CONSTRUCT = '_construct.pl'
@@ -97,7 +97,7 @@ class RSD(object):
                 # Skip subgroup discovery part?
                 if script == RSD.SUBGROUPS and not cn2sd:
                     continue
-                p = Popen(['./' + script], cwd=self.tmpdir, stdout=PIPE)
+                p = Popen(['yap', '-s50000', '-h200000', '-L', script], cwd=self.tmpdir, stdout=PIPE)
                 stdout_str, stderr_str = p.communicate()
                 logger.debug(stdout_str)
                 logger.debug(stderr_str)
@@ -110,10 +110,8 @@ class RSD(object):
 
             self.__cleanup()
             return (features, weka, rules)
-        except Exception:
+        except OSError:
             raise RuntimeError("Yap compiler could not be loaded! (see http://www.dcc.fc.up.pt/~vsc/Yap/).")
-            #logging.warning("Yap compiler could not be loaded! (see http://www.dcc.fc.up.pt/~vsc/Yap/).")
-            #return('','','')
 
     def __prepare(self, filestem, b, examples=None, pos=None, neg=None):
         """
@@ -168,7 +166,6 @@ class RSD(object):
         # 'Construction' script
         #
         w = new_script(script_construct)
-        w("#!%s -L -s50000 -h200000\n#." % RSD.YAP)
         w(':- initialization(main).')
         w('main :-')
         w('[featurize],')
@@ -180,7 +177,6 @@ class RSD(object):
         # 'Saving' script
         #
         w = new_script(script_save)
-        w("#!%s -L -s50000 -h200000\n#." % RSD.YAP)
         w(':- initialization(main).')
         w('main :-')
         w('[process],')
@@ -194,7 +190,6 @@ class RSD(object):
         # 'Subgroups' script
         #
         w = new_script(script_subgroups)
-        w("#!%s -L -s50000 -h200000\n#." % RSD.YAP)
         w(':- initialization(main).')
         w('main :-')
         w('[rules],')
