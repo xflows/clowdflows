@@ -92,23 +92,28 @@ class RSD(object):
 
         # Run the script
         logger.info("Running RSD...")
-        for script in RSD.SCRIPTS:
-            # Skip subgroup discovery part? 
-            if script == RSD.SUBGROUPS and not cn2sd:
-                continue
-            p = Popen(['./' + script], cwd=self.tmpdir, stdout=PIPE)
-            stdout_str, stderr_str = p.communicate()
-            logger.debug(stdout_str)
-            logger.debug(stderr_str)
-        logger.info("Done.")
+        try:
+            for script in RSD.SCRIPTS:
+                # Skip subgroup discovery part?
+                if script == RSD.SUBGROUPS and not cn2sd:
+                    continue
+                p = Popen(['./' + script], cwd=self.tmpdir, stdout=PIPE)
+                stdout_str, stderr_str = p.communicate()
+                logger.debug(stdout_str)
+                logger.debug(stderr_str)
+            logger.info("Done.")
 
-        # Return the rules written in the output file.
-        features = open('%s/%s' % (self.tmpdir, filestem + '_frs.pl')).read()
-        weka = open('%s/%s' % (self.tmpdir, filestem + '.arff')).read()
-        rules = open('%s/%s' % (self.tmpdir, filestem + '.rules')).read() if cn2sd else ''
+            # Return the rules written in the output file.
+            features = open('%s/%s' % (self.tmpdir, filestem + '_frs.pl')).read()
+            weka = open('%s/%s' % (self.tmpdir, filestem + '.arff')).read()
+            rules = open('%s/%s' % (self.tmpdir, filestem + '.rules')).read() if cn2sd else ''
 
-        self.__cleanup()
-        return (features, weka, rules)
+            self.__cleanup()
+            return (features, weka, rules)
+        except Exception:
+            raise RuntimeError("Yap compiler could not be loaded! (see http://www.dcc.fc.up.pt/~vsc/Yap/).")
+            #logging.warning("Yap compiler could not be loaded! (see http://www.dcc.fc.up.pt/~vsc/Yap/).")
+            #return('','','')
 
     def __prepare(self, filestem, b, examples=None, pos=None, neg=None):
         """
