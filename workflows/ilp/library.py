@@ -4,7 +4,6 @@ from random import choice
 
 from aleph import Aleph
 from rsd import RSD
-from wordification import Wordification
 from security import check_input
 
 from services.webservice import WebService
@@ -69,11 +68,3 @@ def ilp_sdmaleph(input_dict):
         dataFormat=input_dict.get('dataFormat') if input_dict.get('dataFormat') != '' else None
     )
     return {'theory' : response['theory']}
-
-
-def ilp_wordification(input_dict):
-    target_table = input_dict.get('target_table',None)
-    other_tables = input_dict.get('other_tables', None)
-    context = input_dict.get('context', None)
-    wordification = Wordification(target_table,other_tables,context)
-    return {'corpus' : wordification.wordify()}
