@@ -5,6 +5,7 @@ from random import choice
 from aleph import Aleph
 from rsd import RSD
 from wordification import Wordification
+from security import check_input
 
 from services.webservice import WebService
 
@@ -21,6 +22,9 @@ def ilp_aleph(input_dict):
     # Parse settings provided as parameters (these have higher priority)
     for setting, def_val in Aleph.ESSENTIAL_PARAMS.items():
         aleph.set(setting, input_dict.get(setting, def_val))
+    # Check for illegal predicates
+    for pl_script in [b, pos, neg]:
+        check_input(pl_script)
     # Run aleph
     theory = aleph.induce(mode, pos, neg, b)
     return {'theory' : theory}
@@ -39,6 +43,9 @@ def ilp_rsd(input_dict):
     # Parse settings provided as parameters (these have higher priority)
     for setting, def_val in RSD.ESSENTIAL_PARAMS.items():
         rsd.set(setting, input_dict.get(setting, def_val))
+    # Check for illegal predicates
+    for pl_script in [b, pos, neg, examples]:
+        check_input(pl_script)
     # Run rsd
     features, arff, rules = rsd.induce(b, examples=examples, pos=pos, neg=neg, cn2sd=subgroups)
     return {'features' : features, 'arff' : arff, 'rules' : rules}

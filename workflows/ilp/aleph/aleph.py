@@ -9,7 +9,15 @@ import logging
 import re
 import tempfile
 from stat import S_IREAD, S_IEXEC
-from subprocess import Popen, PIPE
+from subprocess import PIPE
+
+if __name__ != '__main__':
+    from ..security import SafePopen
+else:
+    import os
+    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    os.sys.path.append(parent_dir)
+    from security import SafePopen
 
 DEBUG = True
 
@@ -96,7 +104,7 @@ class Aleph(object):
         logger.info("Running aleph...")
 
         # Run the aleph script.
-        p = Popen(['yap', '-s50000', '-h200000', '-L', Aleph.SCRIPT], cwd=self.tmpdir, stdout=PIPE)
+        p = SafePopen(['yap', '-s50000', '-h200000', '-L', Aleph.SCRIPT], cwd=self.tmpdir, stdout=PIPE).safe_run()
         stdout_str, stderr_str = p.communicate()
         
         logger.debug(stdout_str)

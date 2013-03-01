@@ -8,7 +8,15 @@ import logging
 import re
 import tempfile
 from stat import S_IREAD, S_IEXEC
-from subprocess import Popen, PIPE
+from subprocess import PIPE
+
+if __name__ != '__main__':
+    from ..security import SafePopen
+else:
+    import os
+    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    os.sys.path.append(parent_dir)
+    from security import SafePopen
 
 DEBUG = True
 
@@ -23,7 +31,6 @@ logger.addHandler(ch)
 class RSD(object):
     THIS_DIR = os.path.dirname(__file__) if os.path.dirname(__file__) else '.'
     RSD_FILES = ['featurize.pl', 'process.pl', 'rules.pl']
-    #YAP = '/usr/local/bin/yap'
 
     # Generated scripts filenames
     CONSTRUCT = '_construct.pl'
@@ -97,7 +104,7 @@ class RSD(object):
                 # Skip subgroup discovery part?
                 if script == RSD.SUBGROUPS and not cn2sd:
                     continue
-                p = Popen(['yap', '-s50000', '-h200000', '-L', script], cwd=self.tmpdir, stdout=PIPE)
+                p = SafePopen(['yap', '-s50000', '-h200000', '-L', script], cwd=self.tmpdir, stdout=PIPE).safe_run()
                 stdout_str, stderr_str = p.communicate()
                 logger.debug(stdout_str)
                 logger.debug(stderr_str)
