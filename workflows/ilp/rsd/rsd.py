@@ -10,9 +10,9 @@ import tempfile
 from stat import S_IREAD, S_IEXEC
 from subprocess import PIPE
 
-if __name__ != '__main__':
+try:
     from ..security import SafePopen
-else:
+except:
     import os
     parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     os.sys.path.append(parent_dir)

@@ -129,6 +129,24 @@
     }
   },
   {
+    "pk": 644,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 191,
+      "name": "discretization intervals",
+      "short_name": "itr",
+      "uid": "02c30ce3-482b-4cc7-a9f2-08cbdb925105",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "discr_intervals",
+      "parameter": false,
+      "order": 1,
+      "description": "dictionary of intervals for discretization"
+    }
+  },
+  {
     "pk": 444,
     "model": "workflows.abstractinput",
     "fields": {
@@ -295,6 +313,24 @@
       "parameter": false,
       "order": 1,
       "description": "Database context object"
+    }
+  },
+  {
+    "pk": 645,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 193,
+      "name": "discretization intervals",
+      "short_name": "itr",
+      "uid": "1449645a-4e32-41eb-8c8b-7b494cefd04b",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "discr_intervals",
+      "parameter": false,
+      "order": 1,
+      "description": "dictionary of intervals for discretization"
     }
   },
   {

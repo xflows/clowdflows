@@ -25,7 +25,8 @@ class ILP_Converter(Converter):
     If possible, all subclasses should use lazy selects by forwarding the DB connection.
     '''
     def __init__(self, *args, **kwargs):
-        self.settings = kwargs.pop('settings') if kwargs else {}
+        self.settings = kwargs.pop('settings', {}) if kwargs else {}
+        self.discr_intervals = kwargs.pop('discr_intervals', {}) if kwargs else {}
         Converter.__init__(self, *args, **kwargs)
 
     def user_settings(self):
@@ -64,8 +65,34 @@ class ILP_Converter(Converter):
 
     def attribute_clause(self, table, att):
         var_table, var_att, pk = table.capitalize(), att.capitalize(), self.db.pkeys[table]
-        return ['%s_%s(%s, %s) :-' % (table, att, var_table, var_att),
-                '\t%s(%s).' % (table, ','.join([att.capitalize() if att!=pk else var_table for att in self.db.cols[table]]))]
+        intervals = []
+        if self.discr_intervals.has_key(table):
+            intervals = self.discr_intervals[table].get(att, [])
+            if intervals:
+                var_att = 'Discrete_%s' % var_att
+        values_goal = '\t%s(%s)%s' % (table, ','.join([arg.capitalize() if arg!=pk else var_table for arg in self.db.cols[table]]), ',' if intervals else '.')
+        discretize_goals = []
+        n_intervals = len(intervals)
+        for i, value in enumerate(intervals):
+            punct = '.' if i == n_intervals-1 else ';'
+            if i == 0:
+                # Condition: att =< value_i
+                label = '=< %d' % value
+                condition = '%s =< %d' % (att.capitalize(), value)
+                discretize_goals.append('\t((%s = \'%s\', %s)%s' % (var_att, label, condition, punct))
+            if i < n_intervals-1:
+                # Condition: att in (value_i, value_i+1]
+                value_next = intervals[i+1]
+                label = '(%d, %d]' % (value, value_next)
+                condition = '%s > %d, %s =< %d' % (att.capitalize(), value, att.capitalize(), value_next)
+                discretize_goals.append('\t(%s = \'%s\', %s)%s' % (var_att, label, condition, punct))
+            else:
+                # Condition: att > value_i
+                label = '> %d' % value
+                condition = '%s > %d' % (att.capitalize(), value)
+                discretize_goals.append('\t(%s = \'%s\', %s))%s' % (var_att, label, condition, punct))
+        return ['%s_%s(%s, %s) :-' % (table, att, var_table, var_att),  
+                values_goal] + discretize_goals
 
 class RSD_Converter(ILP_Converter):
     '''
@@ -252,13 +279,12 @@ if __name__ == '__main__':
     context = DBContext(DBConnection('root','','localhost','test'))
     context.target_table = 'trains'
     context.target_att = 'direction'
-
-    rsd = RSD_Converter(context)
-    ex, bk = rsd.all_examples(), rsd.background_knowledge()
-
-    aleph = Aleph_Converter(context, target_att_val='east')
-    print aleph.positive_examples()
-    print aleph.negative_examples()
+    intervals = {'cars': {'position' : [1, 3]}}
+    import cPickle
+    cPickle.dump(intervals, open('intervals.pkl','w'))
+    rsd = RSD_Converter(context, discr_intervals=intervals)
+    aleph = Aleph_Converter(context, target_att_val='east', discr_intervals=intervals)
+    print rsd.background_knowledge()
     print aleph.background_knowledge()
-    orange = Orange_Converter(context)
-    orange.target_table()
+    #orange = Orange_Converter(context)
+    #orange.target_table()
