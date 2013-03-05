@@ -320,6 +320,7 @@ def cforange_example_distance(input_dict):
 
 def cforange_discretize(input_dict):
     import orange
+    from collections import defaultdict
 
     input_tables = input_dict['dataset']
     output_tables=[]
@@ -337,6 +338,7 @@ def cforange_discretize(input_dict):
         ]
 
     options={}
+    points=defaultdict(dict)
     if discretizerIndex in [4]:
         #find all cut-off points
         points = [float(a) for a in input_dict['points'].replace(" ","").split(",")]
@@ -350,11 +352,21 @@ def cforange_discretize(input_dict):
     d = discretizers[discretizerIndex][1](**options)
 
     for inputdata in input_tables:
-        newattrs = [((d(attr,inputdata) if discretizerIndex in [0,2,3] else d.constructVariable(attr))) if attr.varType == orange.VarTypes.Continuous else attr for attr in inputdata.domain.attributes]
+        newattrs = []
+        for attr in inputdata.domain.attributes:
+            if attr.varType == orange.VarTypes.Continuous:
+                newattr=d(attr,inputdata) if discretizerIndex in [0,2,3] else d.constructVariable(attr)
+                print newattr.name
+                newattr.name=attr.name
+                #newattr.name=attr.name[2:] if newattr.name.startswith("D_"):
+                newattrs.append(newattr)
+                points[inputdata.name][attr.name]=newattr.get_value_from.transformer.points
+            else:
+                newattrs.append(attr)
         name=inputdata.name
-        for attr in newattrs: #TODO
-            if attr.name.startswith("D_"):
-                attr.name=attr.name[2:]
+        #for attr in newattrs: #TODO
+        #    if attr.name.startswith("D_"):
+        #        attr.name=attr.name[2:]
         new_t=inputdata.select(newattrs + [inputdata.domain.classVar])
         new_t.name=name
         output_tables.append(new_t)
