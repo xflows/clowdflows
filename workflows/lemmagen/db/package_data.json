@@ -7,7 +7,7 @@
       "parent": null,
       "workflow": null,
       "user": null,
-      "order": 1,
+      "order": 2,
       "name": "LemmaGen"
     }
   },
@@ -24,10 +24,840 @@
     }
   },
   {
-    "pk": 112143617,
+    "pk": 34232932,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 143357551,
+      "treeview_image": null,
+      "name": "Lemmatize",
+      "is_streaming": false,
+      "uid": "3c8148d6-54a6-4d5a-9c24-7be671e95f29",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_lemmatize_words",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Automatically generated widget from function LemmatizeWords in package lemmagen. The original function signature: LemmatizeWords."
+    }
+  },
+  {
+    "pk": 566085476,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34232932,
+      "name": "Trained Lemmatizer",
+      "short_name": "lmz",
+      "uid": "ee0eda9c-7387-7ea0-2145-2f7a9b8ee164",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "lemmatizer",
+      "parameter": false,
+      "order": 1,
+      "description": "Latino.TextMining.IStemmer"
+    }
+  },
+  {
+    "pk": 349847221,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34232932,
+      "name": "Word(s)",
+      "short_name": "wrd",
+      "uid": "cd08ca1e-be3a-1f14-50a8-70414e21c2ef",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "words",
+      "parameter": false,
+      "order": 2,
+      "description": "System.Object"
+    }
+  },
+  {
+    "pk": 346557257,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34232932,
+      "name": "Leave words & append lemmas",
+      "short_name": "bol",
+      "uid": "44cb6e3e-444d-6d0d-4712-462d3dda5346",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "leaveWord",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 588041308,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34232932,
+      "name": "Ignore character casing",
+      "short_name": "bol",
+      "uid": "8f527144-1f00-a6f4-8202-3d9001beb8a4",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "ignoreCase",
+      "parameter": true,
+      "order": 4,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 130605822,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34232932,
+      "name": "Msd of the input word(s)",
+      "short_name": "str",
+      "uid": "11cd3b50-c288-c0c6-484d-f3a845640f96",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "msd",
+      "parameter": true,
+      "order": 5,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 233971187,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 34232932,
+      "name": "Lemmatized Word(s) = Lemma(s)",
+      "short_name": "lem",
+      "variable": "lemmas",
+      "uid": "2a28edee-8041-2f3f-0fd5-02c6b234bf31",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 362954255,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 143357551,
+      "treeview_image": null,
+      "name": "Explain Lemmatization",
+      "is_streaming": false,
+      "uid": "7e18340c-ac40-4916-8974-88130119b367",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_lemmatize_explain_words",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": "Automatically generated widget from function LemmatizeExplainWords in package lemmagen. The original function signature: LemmatizeExplainWords."
+    }
+  },
+  {
+    "pk": 409630450,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 362954255,
+      "name": "Lemmatizer",
+      "short_name": "lmz",
+      "uid": "64e6155f-37ff-ebbc-c2dd-81a8cf3a5e29",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "lemmatizer",
+      "parameter": false,
+      "order": 1,
+      "description": "Latino.TextMining.IStemmer"
+    }
+  },
+  {
+    "pk": 226192679,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 362954255,
+      "name": "Word(s)",
+      "short_name": "wrd",
+      "uid": "95364585-fc76-cfa1-89e9-e1ccc1898555",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "words",
+      "parameter": false,
+      "order": 2,
+      "description": "System.Object"
+    }
+  },
+  {
+    "pk": 662020354,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 362954255,
+      "name": "Ignore character casing",
+      "short_name": "bol",
+      "uid": "f70a7312-29d4-5c51-edad-19928c498e46",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "ignoreCase",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 866132406,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 362954255,
+      "name": "Msd of the input word(s)",
+      "short_name": "str",
+      "uid": "0ddb821e-4661-9c59-28cf-28ed04cd997a",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "msd",
+      "parameter": true,
+      "order": 4,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 870977336,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 362954255,
+      "name": "Explanation Trees of Lemmatization(s)",
+      "short_name": "str",
+      "variable": "explanations",
+      "uid": "a12ffdee-3657-72ef-6e4b-d9e7157fb564",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 482120199,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "c0502e02-2e9e-4b93-8c93-9eb217b0799b",
+      "parent": 670474768,
+      "workflow": null,
+      "user": null,
+      "order": 2,
+      "name": "Lemmatizer Creation"
+    }
+  },
+  {
+    "pk": 79302482,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 482120199,
+      "treeview_image": null,
+      "name": "Load Example List from String",
+      "is_streaming": false,
+      "uid": "3dde957a-b5f9-41e6-9911-fdaff1432af2",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_load_example_list_from_string",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Automatically generated widget from function LoadExampleListFromString in package lemmagen. The original function signature: LoadExampleListFromString."
+    }
+  },
+  {
+    "pk": 502671632,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 79302482,
+      "name": "Tab Delimited String Table Representation",
+      "short_name": "str",
+      "uid": "16eababc-9f13-04db-456d-3a0dc0fbcee5",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "tabDelim",
+      "parameter": false,
+      "order": 1,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 290208326,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 79302482,
+      "name": "Format",
+      "short_name": "str",
+      "uid": "a7182c81-aa75-8385-8b40-1d244503766e",
+      "default": "WLM",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "format",
+      "parameter": true,
+      "order": 2,
+      "description": "Use letters to declare input column meaning: \u0027W\u0027=word, \u0027L\u0027=lemma, \u0027M\u0027=msd and \u0027F\u0027=frequency. Use \u0027_\u0027 to declare not important column. For example, format \u0027W_LM\u0027 specifies that words are in the first column, lemmas are in the third column and msds are in the fourth column. Word and lemma specifiers are required, msd and frequency are optional."
+    }
+  },
+  {
+    "pk": 733126370,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 79302482,
+      "name": "List of LemmaExamples",
+      "short_name": "lst",
+      "variable": "exampleList",
+      "uid": "774ba003-4ec2-296e-1b81-b8a253f886c5",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 711150968,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 482120199,
+      "treeview_image": null,
+      "name": "Load Example List from Table",
+      "is_streaming": false,
+      "uid": "4da610a2-7fa7-43c3-a6a8-1ff0dfb7ad76",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_load_example_list_from_table",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": "Automatically generated widget from function LoadExampleListFromTable in package lemmagen. The original function signature: LoadExampleListFromTable."
+    }
+  },
+  {
+    "pk": 573371103,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 711150968,
+      "name": "Table of Examples",
+      "short_name": "tbl",
+      "uid": "e7ab13dc-67ee-c336-8594-a90fedb525fb",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "table",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 814163531,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 711150968,
+      "name": "Format",
+      "short_name": "str",
+      "uid": "e24d9536-2890-fa60-1c7c-2618dee689f1",
+      "default": "WLM",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "format",
+      "parameter": true,
+      "order": 2,
+      "description": "Use letters to declare input column meaning: \u0027W\u0027=word, \u0027L\u0027=lemma, \u0027M\u0027=msd and \u0027F\u0027=frequency. Use \u0027_\u0027 to declare not important column. For example, format \u0027W_LM\u0027 specifies that words are in the first column, lemmas are in the third column and msds are in the fourth column. Word and lemma specifiers are required, msd and frequency are optional."
+    }
+  },
+  {
+    "pk": 302394024,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 711150968,
+      "name": "List of LemmaExamples",
+      "short_name": "lst",
+      "variable": "exampleList",
+      "uid": "63cb6cbc-cbf5-4d00-d38a-ec1b773b3ad3",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 287764101,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 482120199,
+      "treeview_image": null,
+      "name": "Example List to Table",
+      "is_streaming": false,
+      "uid": "681badb5-8a52-4a35-a9cf-5da73729ca5f",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_example_list_to_table",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 3,
+      "description": "Automatically generated widget from function ExampleListToTable in package lemmagen. The original function signature: ExampleListToTable."
+    }
+  },
+  {
+    "pk": 958858391,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 287764101,
+      "name": "List of LemmaExamples",
+      "short_name": "lst",
+      "uid": "015ac402-992b-a3fe-0ae3-abfa9e92f441",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "exampleList",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.Generic.List`1[[LemmaSharp.LemmaExample, LemmaSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+    }
+  },
+  {
+    "pk": 438817903,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 287764101,
+      "name": "Table",
+      "short_name": "tbl",
+      "variable": "table",
+      "uid": "c8b6a311-9c9f-97a6-48ef-1c75688a4f35",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 735840603,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 482120199,
+      "treeview_image": null,
+      "name": "Group Examples",
+      "is_streaming": false,
+      "uid": "f6df32f9-dae3-4af1-b322-1796a742a97b",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_group_examples",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 4,
+      "description": "Grouping of examples that have same word and same lemma."
+    }
+  },
+  {
+    "pk": 76107322,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 735840603,
+      "name": "List of LemmaExamples",
+      "short_name": "lst",
+      "uid": "8ab67fe8-f8a5-d0ea-1cc1-a4a30d3adda5",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "exampleList",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.Generic.List`1[[LemmaSharp.LemmaExample, LemmaSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+    }
+  },
+  {
+    "pk": 460667802,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 735840603,
+      "name": "Ignore Example Frequencies",
+      "short_name": "bol",
+      "uid": "88170ee7-3ffb-ed32-d554-263aa8759d78",
+      "default": "false",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "ignoreFrequencies",
+      "parameter": true,
+      "order": 2,
+      "description": "True if frequencies are to be ignored. False if frequencies of elements of a group should be summed together."
+    }
+  },
+  {
+    "pk": 173422951,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 735840603,
+      "name": "Msd Consideration",
+      "short_name": "msd",
+      "uid": "f1f0e58b-00ee-0674-d21f-95a36e08dff1",
+      "default": "Distinct",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "msdConsider",
+      "parameter": true,
+      "order": 3,
+      "description": "Specification how algorithm grouping considers msd tags."
+    }
+  },
+  {
+    "pk": 352253792,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "b48c8c8f-2f70-4fea-e434-5012e0b40872",
+      "abstract_input": 173422951,
+      "value": "Ignore",
+      "name": "Ignore            (Completely ignores mds tags - join examples with different tags and sum their weihgts)"
+    }
+  },
+  {
+    "pk": 74514485,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "c69e5f10-2706-08b8-3e76-5abcbbbde75e",
+      "abstract_input": 173422951,
+      "value": "Distinct",
+      "name": "Distinct          (Same examples with different msd\u0027s are not considered equal and joined)"
+    }
+  },
+  {
+    "pk": 630802307,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "bf48a8f4-2810-8a0e-d219-8c9f79585784",
+      "abstract_input": 173422951,
+      "value": "JoinAll",
+      "name": "JoinAll           (Joins examples with different tags - concatenates all msd tags)"
+    }
+  },
+  {
+    "pk": 942970689,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "ea9e8fbf-1dc6-23f7-4773-0e332cf74d14",
+      "abstract_input": 173422951,
+      "value": "JoinDistinct",
+      "name": "JoinDistinct      (Joins examples with different tags - concatenates just distinct msd tags - somehow slower)"
+    }
+  },
+  {
+    "pk": 263058568,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "35f3b8b5-151a-356b-76dd-64d84e1482cb",
+      "abstract_input": 173422951,
+      "value": "JoinSameSubstring",
+      "name": "JoinSameSubstring (Joins examples with different tags - new tag is the left to right substring that all joined examples share)"
+    }
+  },
+  {
+    "pk": 900751315,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 735840603,
+      "name": "List of Grouped LemmaExamples",
+      "short_name": "lst",
+      "variable": "exampleList",
+      "uid": "683de9d0-78ea-886c-520b-719fbca531a8",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 505323803,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 482120199,
+      "treeview_image": null,
+      "name": "Create Lemmatizer Settings",
+      "is_streaming": false,
+      "uid": "bfd489bb-4d5d-426e-839c-a81792a62bf9",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_construct_lemmatizer_settings",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 5,
+      "description": "Automatically generated widget from function ConstructLemmatizerSettings in package lemmagen. The original function signature: ConstructLemmatizerSettings."
+    }
+  },
+  {
+    "pk": 518232009,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 505323803,
+      "name": "Use From In Rules",
+      "short_name": "bol",
+      "uid": "e7fb66dd-2d1e-7c8c-bd73-847d1b2fd5fd",
+      "default": "true",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "useFromInRules",
+      "parameter": true,
+      "order": 1,
+      "description": "True if from string should be included in rule identifier ([from]-\u003e[to]). False if just length of from string is used ([#len]-\u003e[to])."
+    }
+  },
+  {
+    "pk": 768148594,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 505323803,
+      "name": "Msd Consideration",
+      "short_name": "msd",
+      "uid": "207135dc-56cf-ed6b-257c-8c7368a9435c",
+      "default": "Distinct",
+      "required": false,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "msdConsider",
+      "parameter": true,
+      "order": 2,
+      "description": "Specification how algorithm considers msd tags."
+    }
+  },
+  {
+    "pk": 185646279,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "33700f07-d037-d437-0f11-59edad4bfaf3",
+      "abstract_input": 768148594,
+      "value": "Ignore",
+      "name": "Ignore            (Completely ignores mds tags - join examples with different tags and sum their weihgts)"
+    }
+  },
+  {
+    "pk": 625183561,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "84e5ff67-fbb1-9981-9092-6e9cbd036e99",
+      "abstract_input": 768148594,
+      "value": "Distinct",
+      "name": "Distinct          (Same examples with different msd\u0027s are not considered equal and joined)"
+    }
+  },
+  {
+    "pk": 952675004,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "6ce84c3b-4a8b-a1cf-ff81-b30c3c607a72",
+      "abstract_input": 768148594,
+      "value": "JoinAll",
+      "name": "JoinAll           (Joins examples with different tags - concatenates all msd tags)"
+    }
+  },
+  {
+    "pk": 177328111,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e248f536-1e95-f653-e0d9-26fdde5b34c6",
+      "abstract_input": 768148594,
+      "value": "JoinDistinct",
+      "name": "JoinDistinct      (Joins examples with different tags - concatenates just distinct msd tags - somehow slower)"
+    }
+  },
+  {
+    "pk": 136484560,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "ee6728f1-7f3e-0b3e-f4a0-db4dc7e6889c",
+      "abstract_input": 768148594,
+      "value": "JoinSameSubstring",
+      "name": "JoinSameSubstring (Joins examples with different tags - new tag is the left to right substring that all joined examples share)"
+    }
+  },
+  {
+    "pk": 504805256,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 505323803,
+      "name": "Max Rules Per Node",
+      "short_name": "bol",
+      "uid": "2714046d-2c88-d885-86c1-fc0ed5008f53",
+      "default": "0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "maxRulesPerNode",
+      "parameter": true,
+      "order": 3,
+      "description": "How many of the best rules are kept in memory for each node. Zero means unlimited."
+    }
+  },
+  {
+    "pk": 251151627,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 505323803,
+      "name": "Build Front Lemmatizer",
+      "short_name": "bol",
+      "uid": "aeb49b24-f859-5694-c9ec-01d492504b0e",
+      "default": "false",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "buildFrontLemmatizer",
+      "parameter": true,
+      "order": 4,
+      "description": "True: build proccess uses few more hevristics to build first left to right lemmatizer (lemmatizes front of the word); False: (default) do not create additional front lemmatizer;"
+    }
+  },
+  {
+    "pk": 974743129,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 505323803,
+      "name": "Store All Full Known Words",
+      "short_name": "bol",
+      "uid": "d187e91f-21c8-6e37-3889-99ac0f503c61",
+      "default": "false",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "storeAllFullKnownWords",
+      "parameter": true,
+      "order": 5,
+      "description": "True: the model will store all known words in full -\u003e the same as having lexicon to check each word before using lemmatizer and then use the lemmatizer only for unknown words; False: (default) the model will try to mimimize the size and will store the full forms of words only in the case if they add new knowledge;"
+    }
+  },
+  {
+    "pk": 106199644,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 505323803,
+      "name": "Lemmatizer Settings",
+      "short_name": "stt",
+      "variable": "lemmatizerSettings",
+      "uid": "3275f2bd-f8ca-3ae0-e054-160ab45c7220",
+      "order": 5,
+      "description": ""
+    }
+  },
+  {
+    "pk": 110598242,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 482120199,
+      "treeview_image": null,
+      "name": "Extract Lemmatizer Settings",
+      "is_streaming": false,
+      "uid": "c8ae4ba7-f308-435b-8f2a-94dfb5b81f1a",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_extract_lemmatizer_settings",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 6,
+      "description": "Automatically generated widget from function ExtractLemmatizerSettings in package lemmagen. The original function signature: ExtractLemmatizerSettings."
+    }
+  },
+  {
+    "pk": 423492086,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 110598242,
+      "name": "Lemmatizer",
+      "short_name": "lmz",
+      "uid": "8cd4bc64-2caf-dfa8-5b13-26a869a0b2bd",
+      "default": "true",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "lmtz",
+      "parameter": false,
+      "order": 1,
+      "description": "Lemmatizer"
+    }
+  },
+  {
+    "pk": 492177912,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 110598242,
+      "name": "Lemmatizer Settings",
+      "short_name": "stt",
+      "variable": "lemmatizerSettings",
+      "uid": "7107ae46-49f6-d28b-643b-9679d5bd255e",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 112143617,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 482120199,
       "treeview_image": null,
       "name": "Prebuild Lemmatizer",
       "is_streaming": false,
@@ -35,7 +865,7 @@
       "interaction_view": "",
       "image": null,
       "package": "lemmagen",
-      "static_image": "lemmagen.png",
+      "static_image": "lemmagen_widget.png",
       "post_interact_action": "",
       "user": null,
       "visualization_view": "",
@@ -44,7 +874,7 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 1,
+      "order": 7,
       "description": "Automatically generated widget from function ConstructPrebuildLemmatizer in package lemmagen. The original function signature: ConstructPrebuildLemmatizer."
     }
   },
@@ -283,15 +1113,15 @@
     "pk": 862594096,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 143357551,
+      "category": 482120199,
       "treeview_image": null,
-      "name": "Empty Lemmatizer",
+      "name": "Train Lemmatizer",
       "is_streaming": false,
       "uid": "2f4a3645-673c-4b91-bd66-216d092df23f",
       "interaction_view": "",
       "image": null,
       "package": "lemmagen",
-      "static_image": "lemmagen.png",
+      "static_image": "lemmagen_widget.png",
       "post_interact_action": "",
       "user": null,
       "visualization_view": "",
@@ -300,201 +1130,43 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 2,
+      "order": 8,
       "description": "Automatically generated widget from function ConstructLemmatizer in package lemmagen. The original function signature: ConstructLemmatizer."
     }
   },
   {
-    "pk": 418880431,
+    "pk": 277535522,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 862594096,
-      "name": "Use From In Rules",
-      "short_name": "bol",
-      "uid": "728f879e-491d-fd9d-8565-5ad4c409e5de",
-      "default": "true",
-      "required": false,
-      "multi": false,
-      "parameter_type": "checkbox",
-      "variable": "useFromInRules",
-      "parameter": true,
-      "order": 1,
-      "description": "True if from string should be included in rule identifier ([from]->[to]). False if just length of from string is used ([#len]->[to])."
-    }
-  },
-  {
-    "pk": 656009326,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 862594096,
-      "name": "Msd Consideration",
-      "short_name": "msd",
-      "uid": "46ed84fe-644e-502c-c8b2-cee449185b91",
-      "default": "Distinct",
-      "required": false,
-      "multi": false,
-      "parameter_type": "select",
-      "variable": "msdConsider",
-      "parameter": true,
-      "order": 2,
-      "description": "Specification how algorithm considers msd tags."
-    }
-  },
-  {
-    "pk": 101086762,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "d902c599-57b2-f31b-5745-5b33e6cb9885",
-      "abstract_input": 656009326,
-      "value": "Ignore",
-      "name": "Ignore            (Completely ignores mds tags - join examples with different tags and sum their weihgts)"
-    }
-  },
-  {
-    "pk": 430658844,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "5f9232e6-9ffd-930f-5052-e3aac75d5758",
-      "abstract_input": 656009326,
-      "value": "Distinct",
-      "name": "Distinct          (Same examples with different msd's are not considered equal and joined)"
-    }
-  },
-  {
-    "pk": 750614859,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "8e8cfc28-07c8-f676-63d2-7dbcbf26b1d4",
-      "abstract_input": 656009326,
-      "value": "JoinAll",
-      "name": "JoinAll           (Joins examples with different tags - concatenates all msd tags)"
-    }
-  },
-  {
-    "pk": 524423716,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "19b7e352-6d87-edea-93ae-3c88885ade7d",
-      "abstract_input": 656009326,
-      "value": "JoinDistinct",
-      "name": "JoinDistinct      (Joins examples with different tags - concatenates just distinct msd tags - somehow slower)"
-    }
-  },
-  {
-    "pk": 486368124,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "60549577-cfdd-b845-f7d1-c8fd0209423d",
-      "abstract_input": 656009326,
-      "value": "JoinSameSubstring",
-      "name": "JoinSameSubstring (Joins examples with different tags - new tag is the left to right substring that all joined examples share)"
-    }
-  },
-  {
-    "pk": 741564781,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 862594096,
-      "name": "Max Rules Per Node",
-      "short_name": "bol",
-      "uid": "edb3b6c7-aed0-7644-b805-740e4a43ae0e",
-      "default": "0",
-      "required": false,
+      "name": "Lemmatizer Settings",
+      "short_name": "stt",
+      "uid": "d157b7c1-61ae-598d-2742-4ee71d74c2b8",
+      "default": "",
+      "required": true,
       "multi": false,
       "parameter_type": "text",
-      "variable": "maxRulesPerNode",
-      "parameter": true,
-      "order": 3,
-      "description": "How many of the best rules are kept in memory for each node. Zero means unlimited."
+      "variable": "lemmatizerSettings",
+      "parameter": false,
+      "order": 1,
+      "description": "LemmaSharp.LemmatizerSettings"
     }
   },
   {
-    "pk": 571211926,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 862594096,
-      "name": "Build Front Lemmatizer",
-      "short_name": "bol",
-      "uid": "ff32090f-5cb7-ec11-ada4-060669d1beb5",
-      "default": "false",
-      "required": false,
-      "multi": false,
-      "parameter_type": "checkbox",
-      "variable": "buildFrontLemmatizer",
-      "parameter": true,
-      "order": 4,
-      "description": "True: build proccess uses few more hevristics to build first left to right lemmatizer (lemmatizes front of the word); False: (default) do not create additional front lemmatizer;"
-    }
-  },
-  {
-    "pk": 167197124,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 862594096,
-      "name": "Store All Full Known Words",
-      "short_name": "bol",
-      "uid": "d506a033-baa6-ced4-9e77-bbfc5f848655",
-      "default": "false",
-      "required": false,
-      "multi": false,
-      "parameter_type": "checkbox",
-      "variable": "storeAllFullKnownWords",
-      "parameter": true,
-      "order": 5,
-      "description": "True: the model will store all known words in full -> the same as having lexicon to check each word before using lemmatizer and then use the lemmatizer only for unknown words; False: (default) the model will try to mimimize the size and will store the full forms of words only in the case if they add new knowledge;"
-    }
-  },
-  {
-    "pk": 82952051,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 862594096,
-      "name": "Use Msd Split Tree Optimization",
-      "short_name": "bol",
-      "uid": "f7fbaba1-ca7e-11e5-ea4a-d052b3380b0f",
-      "default": "false",
-      "required": false,
-      "multi": false,
-      "parameter_type": "checkbox",
-      "variable": "useMsdSplitTreeOptimization",
-      "parameter": true,
-      "order": 6,
-      "description": "This is advanced functionality, read the manual."
-    }
-  },
-  {
-    "pk": 213375530,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 862594096,
-      "name": "Msd specification String",
-      "short_name": "str",
-      "uid": "8c7d3609-c428-1b47-ad6c-1d36b0d2c2ca",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": "textarea",
-      "variable": "msdSpec",
-      "parameter": true,
-      "order": 7,
-      "description": "This is advanced functionality, read the manual."
-    }
-  },
-  {
-    "pk": 849902915,
+    "pk": 524533762,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 862594096,
       "name": "Example List",
       "short_name": "lst",
-      "uid": "7d8677e9-65eb-cfc3-ed37-18184ea1e0d1",
+      "uid": "a9b4aceb-adbe-2ce5-48a5-e4b9e16fd04e",
       "default": "",
       "required": false,
       "multi": false,
       "parameter_type": "text",
       "variable": "exampleList",
       "parameter": false,
-      "order": 8,
+      "order": 2,
       "description": "List of lemmatization examples which are used for initial lemmatizer training."
     }
   },
@@ -512,107 +1184,1076 @@
     }
   },
   {
-    "pk": 34232932,
+    "pk": 646407210,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 143357551,
+      "category": 482120199,
       "treeview_image": null,
-      "name": "Lemmatizer",
+      "name": "Display Lemmatization Rules",
       "is_streaming": false,
-      "uid": "3c8148d6-54a6-4d5a-9c24-7be671e95f29",
+      "uid": "d9faca24-a7c4-4e4e-a075-518c8bd9aada",
       "interaction_view": "",
       "image": null,
       "package": "lemmagen",
-      "static_image": "lemmagen.png",
+      "static_image": "lemmagen_widget.png",
       "post_interact_action": "",
       "user": null,
       "visualization_view": "",
-      "action": "lemmagen_lemmatize_words",
+      "action": "lemmagen_display_lemmatization_rules",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 3,
-      "description": "Automatically generated widget from function LemmatizeWords in package lemmagen. The original function signature: LemmatizeWords."
+      "order": 9,
+      "description": "Automatically generated widget from function DisplayLemmatizationRules in package lemmagen. The original function signature: DisplayLemmatizationRules."
     }
   },
   {
-    "pk": 566085476,
+    "pk": 327561531,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34232932,
-      "name": "Trained Lemmatizer",
+      "widget": 646407210,
+      "name": "Lemmatizer",
       "short_name": "lmz",
-      "uid": "ee0eda9c-7387-7ea0-2145-2f7a9b8ee164",
-      "default": "",
-      "required": true,
+      "uid": "de38c2be-cb54-d084-1126-1d1cda94e6d9",
+      "default": "true",
+      "required": false,
       "multi": false,
       "parameter_type": "text",
-      "variable": "lemmatizer",
+      "variable": "lmtz",
       "parameter": false,
       "order": 1,
-      "description": "Latino.TextMining.IStemmer"
+      "description": "Lemmatizer"
     }
   },
   {
-    "pk": 349847221,
+    "pk": 540982306,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 646407210,
+      "name": "Lemmatizer Rules",
+      "short_name": "str",
+      "variable": "lmtzTree",
+      "uid": "7be9d7ca-95bb-0d66-b5ff-39822b8d280c",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 336761152,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "1b800757-2c72-4663-b3e4-2f2b61f609ff",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 4,
+      "name": "Helpers"
+    }
+  },
+  {
+    "pk": 208417517,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 336761152,
+      "treeview_image": null,
+      "name": "Random Cross Validation Sets",
+      "is_streaming": false,
+      "uid": "a6800b60-8109-4b57-8987-5bdaf88c6964",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_random_cross_validation_sets",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Automatically generated widget from function RandomCrossValidationSets in package lemmagen. The original function signature: RandomCrossValidationSets."
+    }
+  },
+  {
+    "pk": 186462397,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34232932,
-      "name": "Word(s)",
-      "short_name": "wrd",
-      "uid": "cd08ca1e-be3a-1f14-50a8-70414e21c2ef",
-      "default": "",
+      "widget": 208417517,
+      "name": "Num of Sets",
+      "short_name": "int",
+      "uid": "5ec6119e-5067-f636-e539-ee4cb168449b",
+      "default": "10",
       "required": true,
       "multi": false,
       "parameter_type": "text",
-      "variable": "words",
-      "parameter": false,
+      "variable": "numOfSets",
+      "parameter": true,
       "order": 2,
-      "description": "System.Object"
+      "description": "System.Int32"
     }
   },
   {
-    "pk": 346557257,
+    "pk": 370403072,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34232932,
-      "name": "Leave words & append lemmas",
+      "widget": 208417517,
+      "name": "Num of Examples",
+      "short_name": "int",
+      "uid": "fb61bef0-19b2-cbb3-f10c-65df90e01393",
+      "default": "100",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "numOfExamples",
+      "parameter": true,
+      "order": 1,
+      "description": "This determines the length of the set id list. If input \u0027examples\u0027 is set then len(examples) is used for \u0027numOfExamples\u0027 and this setting is overriden."
+    }
+  },
+  {
+    "pk": 600351675,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Assign Sets Randomly",
       "short_name": "bol",
-      "uid": "44cb6e3e-444d-6d0d-4712-462d3dda5346",
-      "default": "false",
+      "uid": "61e5a30d-ed5b-2942-bb39-087186c0857d",
+      "default": "true",
       "required": true,
       "multi": false,
       "parameter_type": "checkbox",
-      "variable": "leaveWord",
+      "variable": "random",
       "parameter": true,
       "order": 3,
       "description": "System.Boolean"
     }
   },
   {
-    "pk": 233971187,
+    "pk": 755305576,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Use Seed for Random",
+      "short_name": "bol",
+      "uid": "80a229ea-c57a-c590-00cd-d550cfe290a2",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "useSeed",
+      "parameter": true,
+      "order": 4,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 538726487,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Random Seed",
+      "short_name": "int",
+      "uid": "3269cb7f-b771-c58c-9383-57bcc120575b",
+      "default": "0",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "randomSeed",
+      "parameter": true,
+      "order": 5,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 840514865,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Example List",
+      "short_name": "lst",
+      "uid": "67c5f668-0f79-ef4d-b8f0-2e6aa8f87369",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "examples",
+      "parameter": false,
+      "order": 6,
+      "description": "Not required, but if set, then it overrides parameter \u0027numOfExamples\u0027 and len(examples) is used for \u0027numOfExamples\u0027. List may be any list (interface IList) or clowdflows table type (type Dictionary\u003cLinkedList\u003cstring\u003e, List\u003cList\u003cstring\u003e\u003e\u003e)."
+    }
+  },
+  {
+    "pk": 186731366,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 34232932,
-      "name": "Lemmatized Word(s) = Lemma(s)",
-      "short_name": "lem",
-      "variable": "lemmas",
-      "uid": "2a28edee-8041-2f3f-0fd5-02c6b234bf31",
+      "widget": 208417517,
+      "name": "Example SetIds List",
+      "short_name": "lst",
+      "variable": "exampleSetId",
+      "uid": "17003e5c-5449-5da4-a22a-c1bcc6ab2647",
       "order": 1,
       "description": ""
     }
   },
   {
-    "pk": 0,
+    "pk": 334529260,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 336761152,
+      "treeview_image": null,
+      "name": "Get Set Indexes",
+      "is_streaming": false,
+      "uid": "59c7d09d-fe70-48f4-9700-4bff60e09a9f",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_get_set_indexes",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": "Automatically generated widget from function GetSetIndexes in package lemmagen. The original function signature: GetSetIndexes."
+    }
+  },
+  {
+    "pk": 266284022,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 334529260,
+      "name": "Selected Set Id",
+      "short_name": "int",
+      "uid": "2596a05a-b12f-2a65-1adb-a3ec965f91ac",
+      "default": "0",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "selectedSetId",
+      "parameter": true,
+      "order": 2,
+      "description": "Determines indexes of which Set Id should be retrieved from the Set Id List"
+    }
+  },
+  {
+    "pk": 834097661,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 334529260,
+      "name": "Set Id List",
+      "short_name": "lst",
+      "uid": "dca6e615-a35f-f132-6af1-53faa0014c74",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "setList",
+      "parameter": false,
+      "order": 1,
+      "description": "List fo Set Ids which are used for retrieving indexes"
+    }
+  },
+  {
+    "pk": 353472698,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 334529260,
+      "name": "Get Opposite Indexes",
+      "short_name": "bol",
+      "uid": "5470afdc-1cf8-d0d1-9358-b2dfb924b902",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "opposite",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 1049033258,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 334529260,
+      "name": "Indexes of occurences of Selected Set Id in the Set Id List",
+      "short_name": "lst",
+      "variable": "setIndexes",
+      "uid": "e2d5f558-d803-3d68-b92f-1e68409415a1",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 853305913,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 336761152,
+      "treeview_image": null,
+      "name": "Filter List Elements",
+      "is_streaming": false,
+      "uid": "33753234-ee1a-4fb0-8477-7a87d4c20985",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_filter_list_elements",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 3,
+      "description": "Automatically generated widget from function FilterListElements in package lemmagen. The original function signature: FilterListElements."
+    }
+  },
+  {
+    "pk": 2281769,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 853305913,
+      "name": "List to be filtered",
+      "short_name": "lst",
+      "uid": "ec843e27-6502-8205-fb62-f7c4941540d7",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "list",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.IList"
+    }
+  },
+  {
+    "pk": 506380282,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 853305913,
+      "name": "Selected Indexes",
+      "short_name": "lst",
+      "uid": "b4cd5345-8b32-45b7-01f2-9ad2365c3d2d",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "indexList",
+      "parameter": false,
+      "order": 2,
+      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 972782173,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 853305913,
+      "name": "Discard Filtered Out Elements",
+      "short_name": "bol",
+      "uid": "880daee3-6078-9adc-9c61-352403672f35",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "discardFilteredOut",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 223825252,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 853305913,
+      "name": "List with Selecter Elements",
+      "short_name": "lst",
+      "variable": "listSelected",
+      "uid": "016753cd-2343-9730-eea7-4930712224b1",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 846557210,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 853305913,
+      "name": "List with Filtered-out Elements",
+      "short_name": "lst",
+      "variable": "listFiltered",
+      "uid": "b5a439db-c53c-deee-dc19-460c484571fd",
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 744014876,
     "model": "workflows.category",
     "fields": {
-      "uid": "c0502e02-2e9e-4b93-8c93-9eb217b0799b",
-      "parent": 670474768,
+      "uid": "b86956c3-21f6-47bd-8379-edf6f6c2f351",
+      "parent": 336761152,
       "workflow": null,
       "user": null,
+      "order": 1,
+      "name": "Table Manipulation"
+    }
+  },
+  {
+    "pk": 213031132,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 744014876,
+      "treeview_image": null,
+      "name": "Load Table From File",
+      "is_streaming": false,
+      "uid": "1c53d314-dfee-46b8-8dd4-ce71f81ae780",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_delimited_file2_table",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "This is a common widget for loading a simple text (e.g. tab separated) file as table."
+    }
+  },
+  {
+    "pk": 127463489,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 213031132,
+      "name": "Raw Text File",
+      "short_name": "fil",
+      "uid": "11594519-7ecc-1149-0082-c42eb53fd7be",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "file",
+      "parameter": false,
+      "order": 1,
+      "description": "Input Text File: Contains one table row per line"
+    }
+  },
+  {
+    "pk": 1011665677,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 213031132,
+      "name": "Delimiter",
+      "short_name": "str",
+      "uid": "8c39fb18-a87f-c6b2-1436-2feb057fd046",
+      "default": "\t",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "delimiter",
+      "parameter": true,
       "order": 2,
-      "name": "Lemmatizer Training"
+      "description": "Delimiter used to split columns in a line (e.g. comma, tab)."
+    }
+  },
+  {
+    "pk": 225266910,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 213031132,
+      "name": "First Line is Header",
+      "short_name": "bol",
+      "uid": "974fbfea-1c3f-72db-4195-e35985a81f1c",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "firstLineIsHeader",
+      "parameter": true,
+      "order": 3,
+      "description": "If true then widget parses first line of file as column headers."
+    }
+  },
+  {
+    "pk": 598968539,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 213031132,
+      "name": "Header Line",
+      "short_name": "str",
+      "uid": "775427da-51a0-8cd9-a8e8-3eeedc087d4c",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "headerLine",
+      "parameter": true,
+      "order": 3,
+      "description": "If \u0027firstLineIsHeader\u0027 is set to false then widget tries to parse this paramater as header line."
+    }
+  },
+  {
+    "pk": 136410334,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 213031132,
+      "name": "Skip Empty Lines",
+      "short_name": "bool",
+      "uid": "e959b4ca-d7f2-12cf-8d9e-a3ddc6f79372",
+      "default": "true",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "skipEmptyLines",
+      "parameter": true,
+      "order": 4,
+      "description": "If true, empty lines in the input string are ignored (usefull also for eliminating a trailing newline in a document)."
+    }
+  },
+  {
+    "pk": 157312004,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 213031132,
+      "name": "Table",
+      "short_name": "tbl",
+      "variable": "table",
+      "uid": "6f9ec97d-55c4-26ec-a613-39a49956f00a",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 109638764,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 744014876,
+      "treeview_image": null,
+      "name": "Load Table From String",
+      "is_streaming": false,
+      "uid": "97803b40-1d1c-47c4-8d4a-d86b90b83d09",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_delimited_string2_table",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": "This is a common widget for loading a simple text (e.g. tab separated) string as table."
+    }
+  },
+  {
+    "pk": 472502757,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 109638764,
+      "name": "Raw Text String",
+      "short_name": "str",
+      "uid": "d2c7fe36-c315-c305-cbb2-9858f0ab3f80",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "examplesText",
+      "parameter": false,
+      "order": 1,
+      "description": "Input Text String: Contains one table row per line"
+    }
+  },
+  {
+    "pk": 463677153,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 109638764,
+      "name": "Delimiter",
+      "short_name": "str",
+      "uid": "f9089d34-c569-34da-6e3f-b79b7ccb1092",
+      "default": "\t",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "delimiter",
+      "parameter": true,
+      "order": 2,
+      "description": "Delimiter used to split columns in a line (e.g. comma, tab)."
+    }
+  },
+  {
+    "pk": 833503297,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 109638764,
+      "name": "First Line is Header",
+      "short_name": "bol",
+      "uid": "74057cba-ebac-ac44-c1a9-f6a1b9e9eb4f",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "firstLineIsHeader",
+      "parameter": true,
+      "order": 3,
+      "description": "If true then widget parses first line of file as column headers."
+    }
+  },
+  {
+    "pk": 280041981,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 109638764,
+      "name": "Header Line",
+      "short_name": "str",
+      "uid": "42ddb482-c07f-c6da-b4c8-447b0f4ebf3c",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "headerLine",
+      "parameter": true,
+      "order": 3,
+      "description": "If \u0027firstLineIsHeader\u0027 is set to false then widget tries to parse this paramater as header line."
+    }
+  },
+  {
+    "pk": 454370974,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 109638764,
+      "name": "Skip Empty Lines",
+      "short_name": "bool",
+      "uid": "e5259cf5-51c5-bf17-034b-baefae53b3b1",
+      "default": "true",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "skipEmptyLines",
+      "parameter": true,
+      "order": 4,
+      "description": "If true, empty lines in the input string are ignored (usefull also for eliminating a trailing newline in a document)."
+    }
+  },
+  {
+    "pk": 251745835,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 109638764,
+      "name": "Table",
+      "short_name": "tbl",
+      "variable": "table",
+      "uid": "1d7354c1-a0b5-2c46-1933-c6f6e30baf9a",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 429647046,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 744014876,
+      "treeview_image": null,
+      "name": "Filter Table Rows",
+      "is_streaming": false,
+      "uid": "b6cfe1c4-dac3-480e-8e1e-b5dff060acf2",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_filter_table_rows",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 3,
+      "description": "Automatically generated widget from function FilterTableRows in package lemmagen. The original function signature: FilterTableRows."
+    }
+  },
+  {
+    "pk": 1061450331,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 429647046,
+      "name": "Table",
+      "short_name": "tbl",
+      "uid": "877ff393-2280-2b67-951c-1c510a20a720",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "table",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 64655823,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 429647046,
+      "name": "Selected Indexes",
+      "short_name": "lst",
+      "uid": "8a78c098-65b0-58c7-6a62-d7bcb933a7a9",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "indexList",
+      "parameter": false,
+      "order": 2,
+      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 411348065,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 429647046,
+      "name": "Discard Filtered Out",
+      "short_name": "bol",
+      "uid": "aa6fb3ac-65d5-2817-1ae5-59abbc1f873b",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "discardFilteredOut",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 514810145,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 429647046,
+      "name": "Table with Selecter Rows",
+      "short_name": "tbl",
+      "variable": "tableSelected",
+      "uid": "2fcb8b20-5809-847d-8f23-2b30b597bbfa",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 894716598,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 429647046,
+      "name": "Table with Filtered-out Rows",
+      "short_name": "tbl",
+      "variable": "tableFiltered",
+      "uid": "133ec3ec-7aaf-617e-e8aa-ff73602f0809",
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 829696622,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 744014876,
+      "treeview_image": null,
+      "name": "Extract Column as List",
+      "is_streaming": false,
+      "uid": "a368eeb7-31a8-43c7-b7a3-e04ca8a669f2",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_extract_column_as_list",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 4,
+      "description": "Automatically generated widget from function ExtractColumnAsList in package lemmagen. The original function signature: ExtractColumnAsList."
+    }
+  },
+  {
+    "pk": 949292749,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 829696622,
+      "name": "Table",
+      "short_name": "tbl",
+      "uid": "74835bed-8926-1811-6ca2-5c1308790386",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "table",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 156697756,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 829696622,
+      "name": "Selected Column Index",
+      "short_name": "int",
+      "uid": "9ce23548-2cfe-e042-3365-d81d9cc6bce2",
+      "default": "0",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "columnIndex",
+      "parameter": true,
+      "order": 2,
+      "description": "Zero based column index"
+    }
+  },
+  {
+    "pk": 826426634,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 829696622,
+      "name": "Column Values List",
+      "short_name": "lst",
+      "variable": "columnValues",
+      "uid": "2f6ba6b5-b5e4-c619-37bf-26c28656f0df",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 980924238,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 829696622,
+      "name": "Column Name",
+      "short_name": "str",
+      "variable": "columnName",
+      "uid": "8b0b4d0d-6c67-5975-81e6-2b87b164f203",
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 529044587,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 744014876,
+      "treeview_image": null,
+      "name": "Insert List as Column",
+      "is_streaming": false,
+      "uid": "ca83d20f-805d-443a-9dd0-519dc155943a",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_insert_list_as_column",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 5,
+      "description": "Automatically generated widget from function InsertListAsColumn in package lemmagen. The original function signature: InsertListAsColumn."
+    }
+  },
+  {
+    "pk": 792895637,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 529044587,
+      "name": "Table",
+      "short_name": "tbl",
+      "uid": "8e314efd-99ee-3e17-9f24-9096c251a228",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "table",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 385999730,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 529044587,
+      "name": "Position of Inserted Column",
+      "short_name": "int",
+      "uid": "9db3ea01-6260-4472-fe4e-df39e6f2477d",
+      "default": "0",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "columnIndex",
+      "parameter": true,
+      "order": 2,
+      "description": "Zero based index where the column should be inserted."
+    }
+  },
+  {
+    "pk": 757037051,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 529044587,
+      "name": "Inserted Column Values",
+      "short_name": "lst",
+      "uid": "c27cbbe2-3f61-1f8a-3c4a-c6f0c4d34113",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "columnValues",
+      "parameter": false,
+      "order": 3,
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 51127859,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 529044587,
+      "name": "Inserted Column Name",
+      "short_name": "str",
+      "uid": "82b538e9-eb57-0092-ff50-3b97e4296a9e",
+      "default": "ColumnX",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "columnName",
+      "parameter": true,
+      "order": 4,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 54063787,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 529044587,
+      "name": "Table with Inserted Column",
+      "short_name": "tbl",
+      "variable": "table",
+      "uid": "59c0f2f9-4778-b3e5-ee1c-d13067de662b",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 240692604,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 744014876,
+      "treeview_image": null,
+      "name": "Table to Delimited String",
+      "is_streaming": false,
+      "uid": "2d9e3324-d221-4bcd-8799-22e33707db4b",
+      "interaction_view": "",
+      "image": null,
+      "package": "lemmagen",
+      "static_image": "lemmagen_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "lemmagen_table2_string_delimited",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 6,
+      "description": "Automatically generated widget from function Table2StringDelimited in package lemmagen. The original function signature: Table2StringDelimited."
+    }
+  },
+  {
+    "pk": 605789581,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 240692604,
+      "name": "Table",
+      "short_name": "tbl",
+      "uid": "f2c0a800-0505-4ba2-6f72-d60b38e55801",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "table",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 76948395,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 240692604,
+      "name": "Delimiter",
+      "short_name": "str",
+      "uid": "180372a1-f24e-0423-ff66-3edb94ce2b05",
+      "default": "\t",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "delimiter",
+      "parameter": true,
+      "order": 2,
+      "description": "Delimiter used to split columns in a line (e.g. comma, tab)."
+    }
+  },
+  {
+    "pk": 1026848878,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 240692604,
+      "name": "If true then column headers are written as the first line of string",
+      "short_name": "bol",
+      "uid": "fb31b326-1937-1f39-2089-395019a487b7",
+      "default": "true",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "outputHeader",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 68296932,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 240692604,
+      "name": "Delimited String Representation of the Table",
+      "short_name": "str",
+      "variable": "string",
+      "uid": "3b482422-b08f-ffac-6d1d-7f5b719c7155",
+      "order": 1,
+      "description": ""
     }
   }
 ]

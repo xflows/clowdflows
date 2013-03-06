@@ -3,30 +3,6 @@ import time
 import logging
 logging.basicConfig(format='%(asctime)s %(message)s', level=logging.INFO)
 
-
-#------------------------------supposed----------------------------------------
-# Generic interfaces for pickling .net or standard objects
-#------------------------------------------------------------------------------
-
-#check if .net object and wrap it accordingly
-def GetBaseOrLSO(obj):
-    #print "----------------------------------------------------------------------------------"
-    #print hasattr(obj, "GetType")
-    if (hasattr(obj, "GetType")):
-        #print System.Object().GetType().IsAssignableFrom(obj.GetType())
-        #print "----------------------------------------------------------------------------------"
-        if System.Object().GetType().IsAssignableFrom(obj.GetType()):
-            try:
-                srlz = Latino.ISerializable(obj)
-                return LSO(srlz)
-            except:
-                return obj
-        else:
-            return obj
-    else:
-        #print "----------------------------------------------------------------------------------"
-        return obj
-
 #------------------------------supposed------------------------------------------------
 # Generic interfaces for pickling .net objects
 #------------------------------------------------------------------------------
@@ -58,21 +34,21 @@ class SerializableObject:
 
 class LatinoSerializableObject(SerializableObject):
     def __getstate__(self):
-        logging.info('Serialize {0} with latino serializer (start)'.format(self.netObj.__class__.__name__))
+        #logging.info('Serialize {0} with latino serializer (start)'.format(self.netObj.__class__.__name__))
         start = time.clock()
         #for interface in self.netObj.GetType().GetInterfaces():
         #    print(interface)
         byteData = LemmaSharpPy.Save(self.netObj)
         elapsed = (time.clock() - start)
-        logging.info('Serialize {0} with latino serializer (end, size: {1:,} chars) in {2} ms'.format(self.netObj.__class__.__name__, len(byteData),elapsed))
+        #logging.info('Serialize {0} with latino serializer (end, size: {1:,} chars) in {2} ms'.format(self.netObj.__class__.__name__, len(byteData),elapsed))
         return {'byteData': byteData}
     def __setstate__(self, dict):
-        logging.info('Deserialize {0} with latino deserializer (start)'.format("<LatinoObject>"))
+        #logging.info('Deserialize {0} with latino deserializer (start)'.format("<LatinoObject>"))
         start = time.clock()
         self.netObj = LemmaSharpPy.Load(dict['byteData'])
         self.copyAttributes()
         elapsed = (time.clock() - start)
-        logging.info('Deserialize {0} with latino deserializer (end, size: {1:,} chars) in {2} ms'.format(self.netObj.__class__.__name__, len(dict['byteData']),elapsed))
+        #logging.info('Deserialize {0} with latino deserializer (end, size: {1:,} chars) in {2} ms'.format(self.netObj.__class__.__name__, len(dict['byteData']),elapsed))
     def __repr__(self):
         return "<LSO: " + self.netObj.__str__() + ">"
 
