@@ -28,8 +28,8 @@
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.cookie.js"></script>
 <script src="{{ STATIC_URL }}js/jquery.treeview.js" type="text/javascript"></script>
 <script src="{{ STATIC_URL }}js/jquery.treeview.edit.js" type="text/javascript"></script>
-<script src="{{ STATIC_URL }}js/jquery.jstree.js" type="text/javascript"></script>
-<script src="{{ STATIC_URL }}js/jquery.dataTables.min.js" type="text/javascript"></script>
+<!-- <script src="{{ STATIC_URL }}js/jquery.jstree.js" type="text/javascript"></script>
+ --><script src="{{ STATIC_URL }}js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="{{ STATIC_URL }}js/jquery.jeditable.mini.js" type="text/javascript"></script>
 <!-- <script type="text/javascript" src="{{ STATIC_URL }}js/graphics.js"></script>-->
 <script type="text/javascript" src="{{ STATIC_URL }}js/fileuploader.js"></script>
@@ -127,7 +127,7 @@ userIsStaff = '{{ user.is_staff }}'=='True';
 	</div>
 	<div id="widgets"> 
 		<input type="text" name="searchBox" id="searchBox" placeholder="Search"/>
-		<ul class="browser filetree">
+		<ul id="widgetsTree" class="browser filetree">
 			<li class="closed"><span class="folder">Local services</span>
 			<ul id="corewidgets">
 			{% for category in categories %}
@@ -283,5 +283,10 @@ Preconditions for running this widget have not yet been met. Do you want to run 
         <img src="{{STATIC_URL}}images/ajax-loader-big.gif">
     </div>
     
+    <div id="treecontrol">
+    	<a href="#"></a>
+    	<a href="#"></a>
+    	<a href="#"></a>
+	</div>
 </body>
 </html>
