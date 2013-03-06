@@ -222,7 +222,7 @@ class Orange_Converter(Converter):
         return[ self.convert_table(table,None) for table in self.db.tables if table!=target_table]
 
 
-    def convert_table(self,table_name, cls_att=None):
+    def convert_table(self, table_name, cls_att=None):
         '''
         Returns the target table as an orange example table.
         '''
@@ -244,7 +244,7 @@ class Orange_Converter(Converter):
                     raise Exception('Unsuitable data type for a target variable: %s' % att_type)
                 class_var.append(att_var)
                 continue
-            elif att_type == 'string':
+            elif att_type == 'string' or col in self.db.pkeys[table_name] or col in self.db.fkeys[table_name]:
                 metas.append(att_var)
             else:
                 attributes.append(att_var)
@@ -260,7 +260,7 @@ class Orange_Converter(Converter):
             dataset.append(example)
         return dataset
 
-    def orng_type(self, table_name,col):
+    def orng_type(self, table_name, col):
         '''
         Assigns a given mysql column an orange type.
         '''
