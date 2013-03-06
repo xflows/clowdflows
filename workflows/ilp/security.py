@@ -1,6 +1,5 @@
 import time
 import re
-import pwd
 import os
 import sys
 from subprocess import Popen, PIPE
