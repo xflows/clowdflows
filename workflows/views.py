@@ -1228,6 +1228,7 @@ def export_package(request, packages):
     except:
         return HttpResponse(status=400)
     newuid = (request.GET.get('newuid', 'False').lower()=='true' or request.GET.get('n', 'False').lower()=='true')
+    updateuid = (request.GET.get('updateuid', 'False').lower()=='true' or request.GET.get('u', 'False').lower()=='true')
     all = (request.GET.get('all', 'False').lower()=='true' or request.GET.get('a', 'False').lower()=='true')
     try:
         verbosity = int(request.GET.get('v', '1'))
@@ -1245,7 +1246,7 @@ def export_package(request, packages):
     ov = OutWriter()
 
     from workflows.management.commands.export_package import export_package_string
-    result = export_package_string(ov.write, packagesArray, newuid, all, verbosity)
+    result = export_package_string(ov.write, packagesArray, newuid, updateuid, all, verbosity)
     content = '----------------------------------------\n' + \
               'Export procedure message:' +\
               "\n----------------------------------------\n" +\

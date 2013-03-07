@@ -20,16 +20,17 @@ def mysql_db_context(input_dict):
 
 def mysql_db_context_finished(postdata, input_dict, output_dict):
     con = input_dict['connection']
-    context = DBContext(con)
+    find_con = input_dict['find_connections'] == 'true'
+    context = DBContext(con, find_connections=find_con)
     context.update(postdata)
     return {'context' : context}
 
 def mysql_rsd_converter(input_dict):
-    rsd = RSD_Converter(input_dict['context'])
+    rsd = RSD_Converter(input_dict['context'], discr_intervals=input_dict.get('discr_intervals', {}))
     return {'examples' : rsd.all_examples(), 'bk' : rsd.background_knowledge()}
 
 def mysql_aleph_converter(input_dict):
-    aleph = Aleph_Converter(input_dict['context'], target_att_val=input_dict['target_att_val'])
+    aleph = Aleph_Converter(input_dict['context'], target_att_val=input_dict['target_att_val'], discr_intervals=input_dict.get('discr_intervals', {}))
     return {'pos_examples' : aleph.positive_examples(), 'neg_examples' : aleph.negative_examples(), 'bk' : aleph.background_knowledge()}
 
 def mysql_query_to_odt(input_dict):
@@ -38,4 +39,4 @@ def mysql_query_to_odt(input_dict):
 def mysql_orange_converter(input_dict):
     context = input_dict['context']
     orange = Orange_Converter(context)
-    return {'dataset' : orange.target_table()}
+    return {'target_table_dataset' : orange.target_Orange_table(),'other_table_datasets': orange.other_Orange_tables()}

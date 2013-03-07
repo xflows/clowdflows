@@ -100,7 +100,8 @@ def import_package_string(writeFunc, string, replace, verbosity=1):
                 idMappingDict[objFileTypeId] = objDb.id
             else:
                 raise CommandError('Input process terminated without any changes to the database. Two models match by uid but not '
-                                   'by type:\n    - from file: %s\n    - from database: %s\n    Please resolve manually!'% (objFileTypeId, objDbTypeId))
+                                   'by type:\n    - from file: id: %s uid: %s\n    - from database: id: %s uid: %s\n    Please resolve manually!'%
+                                   (objFileTypeId, objFile.object.uid, objDbTypeId, objsdbDict[objFile.object.uid].uid))
 
     #ouput statistics about database
     if verbosity>0:

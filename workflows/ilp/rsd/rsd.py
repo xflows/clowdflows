@@ -8,7 +8,15 @@ import logging
 import re
 import tempfile
 from stat import S_IREAD, S_IEXEC
-from subprocess import Popen, PIPE
+from subprocess import PIPE
+
+try:
+    from ..security import SafePopen
+except:
+    import os
+    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    os.sys.path.append(parent_dir)
+    from security import SafePopen
 
 DEBUG = True
 
@@ -23,7 +31,6 @@ logger.addHandler(ch)
 class RSD(object):
     THIS_DIR = os.path.dirname(__file__) if os.path.dirname(__file__) else '.'
     RSD_FILES = ['featurize.pl', 'process.pl', 'rules.pl']
-    YAP = '/usr/local/bin/yap'
 
     # Generated scripts filenames
     CONSTRUCT = '_construct.pl'
@@ -92,23 +99,26 @@ class RSD(object):
 
         # Run the script
         logger.info("Running RSD...")
-        for script in RSD.SCRIPTS:
-            # Skip subgroup discovery part? 
-            if script == RSD.SUBGROUPS and not cn2sd:
-                continue
-            p = Popen(['./' + script], cwd=self.tmpdir, stdout=PIPE)
-            stdout_str, stderr_str = p.communicate()
-            logger.debug(stdout_str)
-            logger.debug(stderr_str)
-        logger.info("Done.")
+        try:
+            for script in RSD.SCRIPTS:
+                # Skip subgroup discovery part?
+                if script == RSD.SUBGROUPS and not cn2sd:
+                    continue
+                p = SafePopen(['yap', '-s50000', '-h200000', '-L', script], cwd=self.tmpdir, stdout=PIPE).safe_run()
+                stdout_str, stderr_str = p.communicate()
+                logger.debug(stdout_str)
+                logger.debug(stderr_str)
+            logger.info("Done.")
 
-        # Return the rules written in the output file.
-        features = open('%s/%s' % (self.tmpdir, filestem + '_frs.pl')).read()
-        weka = open('%s/%s' % (self.tmpdir, filestem + '.arff')).read()
-        rules = open('%s/%s' % (self.tmpdir, filestem + '.rules')).read() if cn2sd else ''
+            # Return the rules written in the output file.
+            features = open('%s/%s' % (self.tmpdir, filestem + '_frs.pl')).read()
+            weka = open('%s/%s' % (self.tmpdir, filestem + '.arff')).read()
+            rules = open('%s/%s' % (self.tmpdir, filestem + '.rules')).read() if cn2sd else ''
 
-        self.__cleanup()
-        return (features, weka, rules)
+            self.__cleanup()
+            return (features, weka, rules)
+        except OSError:
+            raise RuntimeError("Yap compiler could not be loaded! (see http://www.dcc.fc.up.pt/~vsc/Yap/).")
 
     def __prepare(self, filestem, b, examples=None, pos=None, neg=None):
         """
@@ -163,7 +173,6 @@ class RSD(object):
         # 'Construction' script
         #
         w = new_script(script_construct)
-        w("#!%s -L -s50000 -h200000\n#." % RSD.YAP)
         w(':- initialization(main).')
         w('main :-')
         w('[featurize],')
@@ -175,7 +184,6 @@ class RSD(object):
         # 'Saving' script
         #
         w = new_script(script_save)
-        w("#!%s -L -s50000 -h200000\n#." % RSD.YAP)
         w(':- initialization(main).')
         w('main :-')
         w('[process],')
@@ -189,7 +197,6 @@ class RSD(object):
         # 'Subgroups' script
         #
         w = new_script(script_subgroups)
-        w("#!%s -L -s50000 -h200000\n#." % RSD.YAP)
         w(':- initialization(main).')
         w('main :-')
         w('[rules],')

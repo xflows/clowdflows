@@ -6,11 +6,18 @@ $(function () {
     $('#searchBox').on('keyup', function () {
         var w = $(this).val();
         if (w) {
-            $('#widgets li').hide();
-            $('#widgets .folder:Contains(' + w + ')').parent().show().find('li').show();
-            $('#widgets li:Contains(' + w + ')').show();
+            $('#widgetsTree li').hide();
+            $('#widgetsTree .folder:Contains(' + w + ')').parent().show().find('li').show();
+            $('#widgetsTree li:Contains(' + w + ')').show();
+
+            $('#widgetsTree').find("div[class*=expandable-hitarea]").click();
         } else {
-            $('#widgets li').show();
+            $('#widgetsTree li').show();
+            
+            var collapsables = $('#widgetsTree').find("div[class*=collapsable-hitarea]");
+            for (var i = collapsables.length - 1; i >= 0; i--) {
+                collapsables[i].click();
+            };
         }
     });
 });

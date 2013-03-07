@@ -45,7 +45,7 @@ class DBContext:
         self.tables = [table for (table,) in cursor]
         self.cols = {}
         for table in self.tables:
-            cursor.execute("SELECT column_name FROM information_schema.columns WHERE table_name = '%s'" % table)
+            cursor.execute("SELECT column_name FROM information_schema.columns WHERE table_name = '%s' AND table_schema='%s'" % (table,connection.database))
             self.cols[table] = [col for (col,) in cursor]
         self.all_cols = dict(self.cols)
         self.col_vals = {}
@@ -62,15 +62,18 @@ class DBContext:
                 for col in self.cols[table]:
                     if col.endswith('_id'):
                         ref_table = (col[:-4] + 'ies') if col[-4] == 'y' else (col[:-3] + 's')
-                        self.connected[(table, ref_table)] = (col, 'id')
-                        self.connected[(ref_table, table)] = ('id', col)
-                        self.fkeys[table].add(col)
-                if col == 'id':
-                    self.pkeys[table] = col
+                        if ref_table in self.tables:
+                            self.connected[(table, ref_table)] = (col, 'id')
+                            self.connected[(ref_table, table)] = ('id', col)
+                            self.fkeys[table].add(col)
+                    if col == 'id':
+                        self.pkeys[table] = col
         for (table, col, ref_table, ref_col) in cursor:
             self.connected[(table, ref_table)] = (col, ref_col)
             self.connected[(ref_table, table)] = (ref_col, col)
             self.fkeys[table].add(col)
+
+
         cursor.execute(
             "SELECT table_name, column_name \
              FROM information_schema.KEY_COLUMN_USAGE \

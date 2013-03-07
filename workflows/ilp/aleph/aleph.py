@@ -9,7 +9,15 @@ import logging
 import re
 import tempfile
 from stat import S_IREAD, S_IEXEC
-from subprocess import Popen, PIPE
+from subprocess import PIPE
+
+if __name__ != '__main__':
+    from ..security import SafePopen
+else:
+    import os
+    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    os.sys.path.append(parent_dir)
+    from security import SafePopen
 
 DEBUG = True
 
@@ -25,7 +33,6 @@ class Aleph(object):
     # The aleph source file is presumed to be in the same dir as this file.
     THIS_DIR = os.path.dirname(__file__) if os.path.dirname(__file__) else '.'
     ALEPH_FN = 'aleph.pl'
-    YAP = '/usr/local/bin/yap'
     RULES_SUFFIX = 'Rules'
     SCRIPT = 'run_aleph.pl'
 
@@ -97,7 +104,7 @@ class Aleph(object):
         logger.info("Running aleph...")
 
         # Run the aleph script.
-        p = Popen(['./' + Aleph.SCRIPT], cwd=self.tmpdir, stdout=PIPE)
+        p = SafePopen(['yap', '-s50000', '-h200000', '-L', Aleph.SCRIPT], cwd=self.tmpdir, stdout=PIPE).safe_run()
         stdout_str, stderr_str = p.communicate()
         
         logger.debug(stdout_str)
@@ -146,14 +153,11 @@ class Aleph(object):
         """
         scriptPath = '%s/%s' % (self.tmpdir, Aleph.SCRIPT)
         script = open(scriptPath, 'w')
-        
-        #print scriptPath
-        
+               
         # Permit the owner to execute and read this script
         os.chmod(scriptPath, S_IREAD | S_IEXEC)
         
         cat = lambda x: script.write(x + '\n')
-        cat("#!%s -L -s50000 -h200000" % Aleph.YAP)
         cat(":- initialization(run_aleph).")
         cat("run_aleph :- ")
         cat("consult(aleph),")

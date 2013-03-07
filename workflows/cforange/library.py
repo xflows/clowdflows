@@ -318,6 +318,71 @@ def cforange_example_distance(input_dict):
     output_dict['dm']=matrix
     return output_dict
 
+def cforange_discretize(input_dict):
+    import orange
+    from collections import defaultdict
+
+    input_tables = input_dict['dataset']
+    output_tables=[]
+    input_type_is_list=type(input_tables) is list
+    if not input_type_is_list:
+        input_tables=[input_tables]
+
+    discretizerIndex = int(input_dict['discretizer_id'])
+    discretizers = [
+        ("Equi-distant discretization",orange.EquiDistDiscretization), #numberOfIntervals
+        ("Quantile-based discretization", orange.EquiNDiscretization), #numberOfIntervals
+        ("Entropy-based discretization", orange.EntropyDiscretization), #no arguments
+        ("Bi-modal discretization", orange.BiModalDiscretization),#no arguments
+        ("Fixed discretization", orange.EquiNDiscretization)#FixedDiscretization) #points
+        ]
+
+    options={}
+    points=defaultdict(dict)
+    if discretizerIndex in [4]:
+        #find all cut-off points
+        points = [float(a) for a in input_dict['points'].replace(" ","").split(",")]
+        #for k,v in input_dict.items():
+        #    if k.startswith('points'):
+        #        points.append(float(v))
+        options['points']=sorted(points)
+    elif discretizerIndex in [0,1]:
+        options['numberOfIntervals']=int(input_dict['numberOfIntervals'])
+
+    d = discretizers[discretizerIndex][1](**options)
+
+    for inputdata in input_tables:
+        newattrs = []
+        for attr in inputdata.domain.attributes:
+            if attr.varType == orange.VarTypes.Continuous:
+                newattr=d(attr,inputdata) if discretizerIndex in [0,2,3] else d.constructVariable(attr)
+                print newattr.name
+                newattr.name=attr.name
+                #newattr.name=attr.name[2:] if newattr.name.startswith("D_"):
+                newattrs.append(newattr)
+                points[inputdata.name][attr.name]=newattr.get_value_from.transformer.points
+            else:
+                newattrs.append(attr)
+        name=inputdata.name
+        #for attr in newattrs: #TODO
+        #    if attr.name.startswith("D_"):
+        #        attr.name=attr.name[2:]
+        new_t=inputdata.select(newattrs + [inputdata.domain.classVar])
+        new_t.name=name
+        output_tables.append(new_t)
+
+        #for attr in newattrs:
+        #    print "%s: %s" % (attr.name, attr.values)
+
+    #interval4
+    #newclass = orange.EnumVariable("is versicolor", values = ["no", "yes"])
+    #newclass.getValueFrom = lambda ex, w: ex["iris"]=="Iris-versicolor"
+    #newdomain = orange.Domain(data.domain.attributes, newclass)
+    #data_v = orange.ExampleTable(newdomain, data)
+
+    output_dict = {'odt': output_tables if input_type_is_list else output_tables[0]} #returns list if input is list
+    return output_dict
+
 def cforange_attribute_distance(input_dict):
     import orange
     import orngInteract
