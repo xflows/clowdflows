@@ -26,11 +26,13 @@ def mysql_db_context_finished(postdata, input_dict, output_dict):
     return {'context' : context}
 
 def mysql_rsd_converter(input_dict):
-    rsd = RSD_Converter(input_dict['context'], discr_intervals=input_dict.get('discr_intervals', {}))
+    dump = input_dict['dump'] == 'true'
+    rsd = RSD_Converter(input_dict['context'], discr_intervals=input_dict.get('discr_intervals', {}), dump=dump)
     return {'examples' : rsd.all_examples(), 'bk' : rsd.background_knowledge()}
 
 def mysql_aleph_converter(input_dict):
-    aleph = Aleph_Converter(input_dict['context'], target_att_val=input_dict['target_att_val'], discr_intervals=input_dict.get('discr_intervals', {}))
+    dump = input_dict['dump'] == 'true'
+    aleph = Aleph_Converter(input_dict['context'], target_att_val=input_dict['target_att_val'], discr_intervals=input_dict.get('discr_intervals', {}), dump=dump)
     return {'pos_examples' : aleph.positive_examples(), 'neg_examples' : aleph.negative_examples(), 'bk' : aleph.background_knowledge()}
 
 def mysql_query_to_odt(input_dict):

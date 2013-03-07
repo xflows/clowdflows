@@ -27,6 +27,8 @@ class ILP_Converter(Converter):
     def __init__(self, *args, **kwargs):
         self.settings = kwargs.pop('settings', {}) if kwargs else {}
         self.discr_intervals = kwargs.pop('discr_intervals', {}) if kwargs else {}
+        self.dump = kwargs.pop('dump', False) if kwargs else False
+        print self.dump
         Converter.__init__(self, *args, **kwargs)
 
     def user_settings(self):
@@ -94,6 +96,24 @@ class ILP_Converter(Converter):
         return ['%s_%s(%s, %s) :-' % (table, att, var_table, var_att),  
                 values_goal] + discretize_goals
 
+    @staticmethod
+    def numeric(val):
+        for num_type in [int, float, long, complex]:
+            try:
+                num_type(val)
+                return True
+            except:
+                pass
+        return False
+
+    def dump_tables(self):
+        dump = []
+        fmt_cols = lambda cols: ','.join([("%s" % col) if ILP_Converter.numeric(col) else ("'%s'" % col) for col in cols])
+        for table in self.db.tables:
+            attributes = self.db.cols[table]
+            dump.append('\n'.join(["%s(%s)." % (table, fmt_cols(cols)) for cols in self.db.rows(table, attributes)]))
+        return dump
+
 class RSD_Converter(ILP_Converter):
     '''
     Converts the database context to RSD inputs.
@@ -118,7 +138,11 @@ class RSD_Converter(ILP_Converter):
                 modeslist.append(self.mode('%s_%s' % (table, att), [('+', table), ('-', att)]))
                 modeslist.append(self.mode('instantiate', [('+', att)]))
                 getters.extend(self.attribute_clause(table, att))
-        return '\n'.join(self.db_connection() + modeslist + getters + self.user_settings())
+        if not self.dump:
+            b = '\n'.join(self.db_connection() + modeslist + getters + self.user_settings())
+        else:
+            b = '\n'.join(modeslist + getters + self.user_settings() + self.dump_tables())
+        return b
 
 class Aleph_Converter(ILP_Converter):
     '''
@@ -171,7 +195,11 @@ class Aleph_Converter(ILP_Converter):
                 types.extend(self.constant_type_def(table, att))
                 getters.extend(self.attribute_clause(table, att))
         local_copies = [self.local_copy(table) for table in self.db.tables]
-        return '\n'.join(self.db_connection() + local_copies + self.user_settings() + modeslist + determinations + types + getters)
+        if not self.dump:
+            b = '\n'.join(self.db_connection() + local_copies + self.user_settings() + modeslist + determinations + types + getters)
+        else:
+            b = '\n'.join(self.user_settings() + modeslist + determinations + types + getters + self.dump_tables())
+        return b
 
     def concept_type_def(self, table):
         var_pk = self.db.pkeys[table].capitalize()
@@ -282,8 +310,8 @@ if __name__ == '__main__':
     intervals = {'cars': {'position' : [1, 3]}}
     import cPickle
     cPickle.dump(intervals, open('intervals.pkl','w'))
-    rsd = RSD_Converter(context, discr_intervals=intervals)
-    aleph = Aleph_Converter(context, target_att_val='east', discr_intervals=intervals)
+    rsd = RSD_Converter(context, discr_intervals=intervals, dump=True)
+    aleph = Aleph_Converter(context, target_att_val='east', discr_intervals=intervals, dump=True)
     print rsd.background_knowledge()
     print aleph.background_knowledge()
     #orange = Orange_Converter(context)

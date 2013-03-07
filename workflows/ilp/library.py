@@ -36,7 +36,7 @@ def ilp_rsd(input_dict):
     neg = input_dict.get('neg', None)
     examples = input_dict.get('examples', None)
     b = input_dict['b']
-    subgroups = True if input_dict['subgroups'] == 'true' else False
+    subgroups = input_dict['subgroups'] == 'true'
     # Parse settings
     if settings:
         rsd.settingsAsFacts(settings)

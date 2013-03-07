@@ -129,20 +129,38 @@
     }
   },
   {
+    "pk": 660,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 191,
+      "name": "dump full database",
+      "short_name": "dmp",
+      "uid": "fb5fc5f5-aa8f-4667-b96a-2b3f9a7672c7",
+      "default": "false",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "dump",
+      "parameter": true,
+      "order": 1,
+      "description": "dump full database to prolog"
+    }
+  },
+  {
     "pk": 644,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 191,
       "name": "discretization intervals",
       "short_name": "itr",
-      "uid": "02c30ce3-482b-4cc7-a9f2-08cbdb925105",
+      "uid": "e20c7a7c-d2f5-4ab6-9ef1-b3d244140d88",
       "default": "",
       "required": false,
       "multi": false,
       "parameter_type": null,
       "variable": "discr_intervals",
       "parameter": false,
-      "order": 1,
+      "order": 2,
       "description": "dictionary of intervals for discretization"
     }
   },
@@ -160,7 +178,7 @@
       "parameter_type": null,
       "variable": "context",
       "parameter": false,
-      "order": 2,
+      "order": 3,
       "description": "Database context object"
     }
   },
@@ -316,20 +334,38 @@
     }
   },
   {
+    "pk": 659,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 193,
+      "name": "dump full database",
+      "short_name": "dmp",
+      "uid": "3c1375b1-10ed-400d-abfe-261115723c2f",
+      "default": "false",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "dump",
+      "parameter": true,
+      "order": 1,
+      "description": "dump full database"
+    }
+  },
+  {
     "pk": 645,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 193,
       "name": "discretization intervals",
       "short_name": "itr",
-      "uid": "1449645a-4e32-41eb-8c8b-7b494cefd04b",
+      "uid": "de698509-3bdc-482f-b5f9-9c6b3916426b",
       "default": "",
       "required": false,
       "multi": false,
       "parameter_type": null,
       "variable": "discr_intervals",
       "parameter": false,
-      "order": 1,
+      "order": 2,
       "description": "dictionary of intervals for discretization"
     }
   },
