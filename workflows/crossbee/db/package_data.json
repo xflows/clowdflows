@@ -1,261 +1,62 @@
 [
   {
-    "pk": 20, 
-    "model": "workflows.category", 
+    "pk": 45725108,
+    "model": "workflows.category",
     "fields": {
-      "uid": "8a36b427-3c07-4905-b62a-c9cc6b9d461a",
-      "parent": null, 
-      "workflow": null, 
-      "user": null, 
+      "uid": "62a3ddb8-ff28-4e54-8144-3a7af70d235a",
+      "parent": null,
+      "workflow": null,
+      "user": null,
       "order": 3,
       "name": "CrossBee"
     }
-  }, 
+  },
   {
-    "pk": 98, 
-    "model": "workflows.abstractwidget", 
+    "pk": 256795544,
+    "model": "workflows.category",
     "fields": {
-      "category": 20, 
-      "treeview_image": "", 
-      "name": "Create Integer List", 
-      "is_streaming": false, 
-      "uid": "41de0b36-c531-411e-bf99-dc6d304bc4c8",
-      "interaction_view": "", 
-      "image": "", 
-      "package": "crossbee", 
-      "static_image": "construction_work .png", 
-      "post_interact_action": "", 
-      "user": null, 
-      "visualization_view": "", 
-      "action": "crossbee_create_integers", 
-      "wsdl_method": "", 
-      "wsdl": "", 
-      "interactive": false, 
-      "has_progress_bar": false, 
-      "order": 1, 
-      "description": ""
+      "uid": "7b1fb3c2-3dd7-4754-9a3e-ccf71a43e7c6",
+      "parent": 45725108,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Term Ranking"
     }
-  }, 
+  },
   {
-    "pk": 248, 
-    "model": "workflows.abstractinput", 
+    "pk": 848356857,
+    "model": "workflows.category",
     "fields": {
-      "widget": 98, 
-      "name": "Integer List String", 
-      "short_name": "str", 
-      "uid": "32049f66-214a-4b25-a4ed-d4df961a62bc",
-      "default": "3\r\n2\r\n1\r\n4", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "intStr", 
-      "parameter": true, 
-      "order": 1, 
-      "description": "Comma or new-line separated list of integers"
+      "uid": "e47e7821-f8b2-40d5-9bbc-c3508367aed7",
+      "parent": 45725108,
+      "workflow": null,
+      "user": null,
+      "order": 2,
+      "name": "Ranking Evaluation"
     }
-  }, 
+  },
   {
-    "pk": 253, 
-    "model": "workflows.abstractinput", 
+    "pk": 336761152,
+    "model": "workflows.category",
     "fields": {
-      "widget": 98, 
-      "name": "Sort list", 
-      "short_name": "bol", 
-      "uid": "64511a98-df6c-4643-b727-abb2ba696645",
-      "default": "true", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "sort", 
-      "parameter": true, 
-      "order": 2, 
-      "description": "Should the list be sorted"
+      "uid": "1b800757-2c72-4663-b3e4-2f2b61f609ff",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 4,
+      "name": "Helpers"
     }
-  }, 
+  },
   {
-    "pk": 104, 
-    "model": "workflows.abstractoutput", 
+    "pk": 744014876,
+    "model": "workflows.category",
     "fields": {
-      "widget": 98, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "variable": "intList", 
-      "uid": "0b8eed09-4150-4451-92c7-1d44bdb5d004",
-      "order": 1, 
-      "description": "List of integers"
-    }
-  }, 
-  {
-    "pk": 101, 
-    "model": "workflows.abstractwidget", 
-    "fields": {
-      "category": 20, 
-      "treeview_image": "", 
-      "name": "Filter Integers", 
-      "is_streaming": false, 
-      "uid": "6206b6f9-b3d6-4fff-95fc-0983adda7b29",
-      "interaction_view": "crossbee_filter_integers", 
-      "image": "", 
-      "package": "crossbee", 
-      "static_image": "construction_work .png", 
-      "post_interact_action": "crossbee_post_filter_integers", 
-      "user": null, 
-      "visualization_view": "", 
-      "action": "crossbee_pre_filter_integers", 
-      "wsdl_method": "", 
-      "wsdl": "", 
-      "interactive": true, 
-      "has_progress_bar": false, 
-      "order": 2, 
-      "description": ""
-    }
-  }, 
-  {
-    "pk": 250, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 101, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "uid": "b3727994-d2be-41ea-bb21-416f58b32232",
-      "default": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "intList", 
-      "parameter": false, 
-      "order": 1, 
-      "description": "List of integers"
-    }
-  }, 
-  {
-    "pk": 106, 
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": 101, 
-      "name": "Filtered Integer List", 
-      "short_name": "lst", 
-      "variable": "intList", 
-      "uid": "556ada77-eb44-4b4c-a738-2f1aee5253ba",
-      "order": 1, 
-      "description": "Filtered list of integers"
-    }
-  }, 
-  {
-    "pk": 99, 
-    "model": "workflows.abstractwidget", 
-    "fields": {
-      "category": 20, 
-      "treeview_image": "", 
-      "name": "Sum Integers", 
-      "is_streaming": false, 
-      "uid": "09406cda-7d3e-43d0-89cc-26f8ae69c698",
-      "interaction_view": "", 
-      "image": "", 
-      "package": "crossbee", 
-      "static_image": "construction_work .png", 
-      "post_interact_action": "", 
-      "user": null, 
-      "visualization_view": "", 
-      "action": "crossbee_sum_integers", 
-      "wsdl_method": "", 
-      "wsdl": "", 
-      "interactive": false, 
-      "has_progress_bar": false, 
-      "order": 3, 
-      "description": ""
-    }
-  }, 
-  {
-    "pk": 249, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 99, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "uid": "35cbd410-6eef-4eb3-9ea2-5211d9d164da",
-      "default": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "intList", 
-      "parameter": false, 
-      "order": 1, 
-      "description": "List of integers"
-    }
-  }, 
-  {
-    "pk": 105, 
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": 99, 
-      "name": "Sum", 
-      "short_name": "int", 
-      "variable": "sum", 
-      "uid": "6b99b92b-a0fc-49e5-a4a0-457607c1c0cf",
-      "order": 1, 
-      "description": "Sum of integer list"
-    }
-  }, 
-  {
-    "pk": 100, 
-    "model": "workflows.abstractwidget", 
-    "fields": {
-      "category": 20, 
-      "treeview_image": "", 
-      "name": "Display Summation", 
-      "is_streaming": false, 
-      "uid": "4f844f8b-7dec-4d38-8030-b2bd2072e165",
-      "interaction_view": "", 
-      "image": "", 
-      "package": "crossbee", 
-      "static_image": "construction_work .png", 
-      "post_interact_action": "", 
-      "user": null, 
-      "visualization_view": "crossbee_display_summation", 
-      "action": "crossbee_pre_display_summation", 
-      "wsdl_method": "", 
-      "wsdl": "", 
-      "interactive": false, 
-      "has_progress_bar": false, 
-      "order": 4, 
-      "description": ""
-    }
-  }, 
-  {
-    "pk": 251, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 100, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "uid": "28a082d5-8071-4f70-8d4a-8d21202eebd5",
-      "default": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "intList", 
-      "parameter": false, 
-      "order": 1, 
-      "description": "List of integers"
-    }
-  }, 
-  {
-    "pk": 252, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 100, 
-      "name": "Sum", 
-      "short_name": "int", 
-      "uid": "7893b2b8-e4ed-4e4a-98bf-0fb8ada3617c",
-      "default": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "sum", 
-      "parameter": false, 
-      "order": 2, 
-      "description": "Sum (possibly correct) of integer list"
+      "uid": "b86956c3-21f6-47bd-8379-edf6f6c2f351",
+      "parent": 336761152,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Table Manipulation"
     }
   }
 ]
