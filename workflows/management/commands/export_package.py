@@ -99,7 +99,7 @@ def get_package_wids_in_category(cat, packages, all):
     objs = []
 
     if all:
-        wids = cat.widgets.all(user = None)
+        wids = cat.widgets.filter(user = None)
     else:
         wids = cat.widgets.filter(package__in = packages)
 
