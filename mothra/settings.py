@@ -197,6 +197,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.perfeval',
     'workflows.mysql',
     'workflows.lemmagen',
+    'workflows.crossbee',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 
