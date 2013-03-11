@@ -145,7 +145,7 @@
       "interaction_view": "", 
       "image": "images/orange-C45.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-C45.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -183,7 +183,7 @@
       "interaction_view": "", 
       "image": "images/orange-CN2-small.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-CN2-small.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -221,7 +221,7 @@
       "interaction_view": "", 
       "image": "images/orange-ClassificationTree.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-ClassificationTree.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -259,7 +259,7 @@
       "interaction_view": "", 
       "image": "images/orange-LogisticRegression.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-LogisticRegression.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -297,7 +297,7 @@
       "interaction_view": "", 
       "image": "images/lookup.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "lookup.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -335,7 +335,7 @@
       "interaction_view": "", 
       "image": "images/orange-Majority.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-Majority.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -373,7 +373,7 @@
       "interaction_view": "", 
       "image": "images/orange-NaiveBayes.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-NaiveBayes.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -411,7 +411,7 @@
       "interaction_view": "", 
       "image": "images/orange-RandomForest.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-RandomForest.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -467,7 +467,7 @@
       "interaction_view": "", 
       "image": "images/orange-Rule-Learner.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-Rule-Learner.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -505,7 +505,7 @@
       "interaction_view": "", 
       "image": "images/orange-SVM_1.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-SVM_1.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -543,7 +543,7 @@
       "interaction_view": "", 
       "image": "images/orange-SVMEasy-new.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-SVMEasy-new.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -581,7 +581,7 @@
       "interaction_view": "", 
       "image": "images/orange-kNN.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-kNN.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -608,7 +608,7 @@
     }
   }, 
   {
-    "pk": 7, 
+    "pk": 19, 
     "model": "workflows.category", 
     "fields": {
       "uid": "5723a5b8-8c18-4b1f-9398-e93828556c3c", 
@@ -620,10 +620,10 @@
     }
   }, 
   {
-    "pk": 35, 
+    "pk": 101, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 7, 
+      "category": 19, 
       "treeview_image": "", 
       "name": "Attribute distance", 
       "is_streaming": false, 
@@ -631,7 +631,7 @@
       "interaction_view": "", 
       "image": "", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "AttributeDistance.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -645,10 +645,10 @@
     }
   }, 
   {
-    "pk": 75, 
+    "pk": 191, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 35, 
+      "widget": 101, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "b7706775-ed85-4094-b116-555043a1ebca", 
@@ -663,10 +663,10 @@
     }
   }, 
   {
-    "pk": 76, 
+    "pk": 192, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 35, 
+      "widget": 101, 
       "name": "Measures for attributes", 
       "short_name": "mat", 
       "uid": "cc42fca8-68a7-4874-b369-49e4bb4fa85f", 
@@ -681,60 +681,60 @@
     }
   }, 
   {
-    "pk": 1, 
+    "pk": 52, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "fe39a54a-3b27-42eb-97eb-4c53b0d775ee", 
-      "abstract_input": 76, 
+      "abstract_input": 192, 
       "value": "1", 
       "name": "2-way interactions - I(A;B)/H(A,B)"
     }
   }, 
   {
-    "pk": 2, 
+    "pk": 53, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "5f77005a-d387-4550-afc9-d333c114ed00", 
-      "abstract_input": 76, 
+      "abstract_input": 192, 
       "value": "2", 
       "name": "3-way interactions - I(A;B;C)"
     }
   }, 
   {
-    "pk": 3, 
+    "pk": 54, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "103b7429-09b3-434f-a70b-40a6cc97326e", 
-      "abstract_input": 76, 
+      "abstract_input": 192, 
       "value": "0", 
       "name": "Pearson's chi-square"
     }
   }, 
   {
-    "pk": 4, 
+    "pk": 55, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "279e0d29-ca9a-4409-bf44-a34247125804", 
-      "abstract_input": 76, 
+      "abstract_input": 192, 
       "value": "3", 
       "name": "Pearson's correlation"
     }
   }, 
   {
-    "pk": 5, 
+    "pk": 56, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "9740ed3e-036c-4972-890d-b8f9d05d995b", 
-      "abstract_input": 76, 
+      "abstract_input": 192, 
       "value": "4", 
       "name": "Spearman's correlation"
     }
   }, 
   {
-    "pk": 45, 
+    "pk": 112, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 35, 
+      "widget": 101, 
       "name": "Distance matrix", 
       "short_name": "dm", 
       "variable": "dm", 
@@ -744,10 +744,10 @@
     }
   }, 
   {
-    "pk": 36, 
+    "pk": 102, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 7, 
+      "category": 19, 
       "treeview_image": "", 
       "name": "Example Distance", 
       "is_streaming": false, 
@@ -755,7 +755,7 @@
       "interaction_view": "", 
       "image": "", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "ExampleDistance.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -769,10 +769,10 @@
     }
   }, 
   {
-    "pk": 77, 
+    "pk": 193, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 36, 
+      "widget": 102, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "44a7c33e-5da8-4676-9ca7-e3188ad7b5c3", 
@@ -787,10 +787,10 @@
     }
   }, 
   {
-    "pk": 78, 
+    "pk": 194, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 36, 
+      "widget": 102, 
       "name": "Distance Metrics", 
       "short_name": "dm", 
       "uid": "df5d4372-6365-4285-9c8b-261bb620ca39", 
@@ -805,70 +805,70 @@
     }
   }, 
   {
-    "pk": 6, 
+    "pk": 57, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "b0b46bdb-c632-4559-8d1d-e450b41405d2", 
-      "abstract_input": 78, 
+      "abstract_input": 194, 
       "value": "0", 
       "name": "Euclidean"
     }
   }, 
   {
-    "pk": 7, 
+    "pk": 58, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "69e12fe0-281d-4a67-8144-5a52d9d23140", 
-      "abstract_input": 78, 
+      "abstract_input": 194, 
       "value": "4", 
       "name": "Hamming"
     }
   }, 
   {
-    "pk": 8, 
+    "pk": 59, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "7d01bf53-798d-4656-aca5-701c00136ae6", 
-      "abstract_input": 78, 
+      "abstract_input": 194, 
       "value": "3", 
       "name": "Manhattan"
     }
   }, 
   {
-    "pk": 9, 
+    "pk": 60, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "2de2a685-cb40-499a-908a-8e669c7881b9", 
-      "abstract_input": 78, 
+      "abstract_input": 194, 
       "value": "1", 
       "name": "Pearson Correlation"
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 61, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "213dba49-9471-4b03-9a1e-928de961b54b", 
-      "abstract_input": 78, 
+      "abstract_input": 194, 
       "value": "5", 
       "name": "Relief"
     }
   }, 
   {
-    "pk": 11, 
+    "pk": 62, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "43f56e1e-56d5-4fd5-9dd8-ba27b8a1b6fa", 
-      "abstract_input": 78, 
+      "abstract_input": 194, 
       "value": "2", 
       "name": "Spearman Rank Correlation"
     }
   }, 
   {
-    "pk": 79, 
+    "pk": 195, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 36, 
+      "widget": 102, 
       "name": "Normalization", 
       "short_name": "nor", 
       "uid": "88835ea7-91d0-4bc7-8de0-8bba3734ef01", 
@@ -883,10 +883,10 @@
     }
   }, 
   {
-    "pk": 46, 
+    "pk": 113, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 36, 
+      "widget": 102, 
       "name": "Distance matrix", 
       "short_name": "dm", 
       "variable": "dm", 
@@ -896,10 +896,10 @@
     }
   }, 
   {
-    "pk": 37, 
+    "pk": 103, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 7, 
+      "category": 19, 
       "treeview_image": "", 
       "name": "Hierarchical clustering", 
       "is_streaming": false, 
@@ -921,10 +921,10 @@
     }
   }, 
   {
-    "pk": 237, 
+    "pk": 196, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 37, 
+      "widget": 103, 
       "name": "Distance Matrix", 
       "short_name": "dm", 
       "uid": "bc238f40-be7b-48c4-a526-f17d461a1e10", 
@@ -939,10 +939,10 @@
     }
   }, 
   {
-    "pk": 81, 
+    "pk": 197, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 37, 
+      "widget": 103, 
       "name": "Linkage", 
       "short_name": "lin", 
       "uid": "9804f098-f6b6-4858-9d83-df2a45e6174a", 
@@ -957,50 +957,50 @@
     }
   }, 
   {
-    "pk": 12, 
+    "pk": 63, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "e5a0e0cd-aefe-4d2f-b2dd-26c54aecda41", 
-      "abstract_input": 81, 
+      "abstract_input": 197, 
       "value": "1", 
       "name": "Average linkage"
     }
   }, 
   {
-    "pk": 13, 
+    "pk": 64, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "e7ab085c-59a2-469b-b4e0-aeef40685a1f", 
-      "abstract_input": 81, 
+      "abstract_input": 197, 
       "value": "3", 
       "name": "Complete linkage"
     }
   }, 
   {
-    "pk": 14, 
+    "pk": 65, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "e751309c-0f24-409e-b21e-94692c3fa5cf", 
-      "abstract_input": 81, 
+      "abstract_input": 197, 
       "value": "0", 
       "name": "Single linkage"
     }
   }, 
   {
-    "pk": 15, 
+    "pk": 66, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "16d7b4ca-b14d-4a93-bda3-ca3478efd316", 
-      "abstract_input": 81, 
+      "abstract_input": 197, 
       "value": "2", 
       "name": "Ward's linkage"
     }
   }, 
   {
-    "pk": 82, 
+    "pk": 198, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 37, 
+      "widget": 103, 
       "name": "Visualization type", 
       "short_name": "viz", 
       "uid": "f0c1c618-f7c4-4b9c-8780-d03e1ab29834", 
@@ -1015,30 +1015,30 @@
     }
   }, 
   {
-    "pk": 16, 
+    "pk": 67, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "ea7c03eb-b596-4b7f-82ea-840ca44daaad", 
-      "abstract_input": 82, 
+      "abstract_input": 198, 
       "value": "circle", 
       "name": "Circle"
     }
   }, 
   {
-    "pk": 17, 
+    "pk": 68, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "4bd2311e-3051-451e-8c47-5bb526a885e6", 
-      "abstract_input": 82, 
+      "abstract_input": 198, 
       "value": "tree", 
       "name": "Tree"
     }
   }, 
   {
-    "pk": 47, 
+    "pk": 114, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 37, 
+      "widget": 103, 
       "name": "Centroids", 
       "short_name": "ctr", 
       "variable": "centroids", 
@@ -1048,10 +1048,10 @@
     }
   }, 
   {
-    "pk": 48, 
+    "pk": 115, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 37, 
+      "widget": 103, 
       "name": "Selected examples", 
       "short_name": "sel", 
       "variable": "selected_examples", 
@@ -1061,10 +1061,10 @@
     }
   }, 
   {
-    "pk": 49, 
+    "pk": 116, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 37, 
+      "widget": 103, 
       "name": "Unselected examples", 
       "short_name": "uns", 
       "variable": "unselected_examples", 
@@ -1074,7 +1074,7 @@
     }
   }, 
   {
-    "pk": 8, 
+    "pk": 7, 
     "model": "workflows.category", 
     "fields": {
       "uid": "583debcb-5041-46b3-b464-e21875896710", 
@@ -1086,10 +1086,10 @@
     }
   }, 
   {
-    "pk": 38, 
+    "pk": 35, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 8, 
+      "category": 7, 
       "treeview_image": "treeview/Orange-ApplyClassifier5.png", 
       "name": "Apply Classifier", 
       "is_streaming": false, 
@@ -1097,7 +1097,7 @@
       "interaction_view": "", 
       "image": "images/Orange-ApplyClassifier5.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "Orange-ApplyClassifier5.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1111,10 +1111,10 @@
     }
   }, 
   {
-    "pk": 83, 
+    "pk": 75, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 38, 
+      "widget": 35, 
       "name": "Classifier", 
       "short_name": "clf", 
       "uid": "fd103975-883d-4501-9fe3-9ebadb01ae4f", 
@@ -1129,10 +1129,10 @@
     }
   }, 
   {
-    "pk": 84, 
+    "pk": 76, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 38, 
+      "widget": 35, 
       "name": "Dataset", 
       "short_name": "dat", 
       "uid": "7c16a50f-c548-4104-afd2-0f3be086fc9e", 
@@ -1147,10 +1147,10 @@
     }
   }, 
   {
-    "pk": 50, 
+    "pk": 45, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 38, 
+      "widget": 35, 
       "name": "Dataset", 
       "short_name": "dat", 
       "variable": "data", 
@@ -1160,10 +1160,10 @@
     }
   }, 
   {
-    "pk": 39, 
+    "pk": 36, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 8, 
+      "category": 7, 
       "treeview_image": "treeview/Orange-BuildClassifier.png", 
       "name": "Build Classifier", 
       "is_streaming": false, 
@@ -1171,7 +1171,7 @@
       "interaction_view": "", 
       "image": "images/Orange-BuildClassifier.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "Orange-BuildClassifier.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1185,10 +1185,10 @@
     }
   }, 
   {
-    "pk": 85, 
+    "pk": 77, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 39, 
+      "widget": 36, 
       "name": "learner", 
       "short_name": "lrn", 
       "uid": "24b03594-14c8-4534-98de-b4bf703fef63", 
@@ -1203,10 +1203,10 @@
     }
   }, 
   {
-    "pk": 86, 
+    "pk": 78, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 39, 
+      "widget": 36, 
       "name": "data", 
       "short_name": "dat", 
       "uid": "3de89884-15aa-40dd-a514-cb7e7d5298c5", 
@@ -1221,10 +1221,10 @@
     }
   }, 
   {
-    "pk": 51, 
+    "pk": 46, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 39, 
+      "widget": 36, 
       "name": "classifier", 
       "short_name": "clf", 
       "variable": "classifier", 
@@ -1234,11 +1234,11 @@
     }
   }, 
   {
-    "pk": 9, 
+    "pk": 8, 
     "model": "workflows.category", 
     "fields": {
       "uid": "2c4c8f68-33db-411c-a8ce-176096349eba", 
-      "parent": 8, 
+      "parent": 7, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -1246,10 +1246,10 @@
     }
   }, 
   {
-    "pk": 40, 
+    "pk": 37, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 8, 
       "treeview_image": "", 
       "name": "Area under curve (ROC analysis)", 
       "is_streaming": false, 
@@ -1271,10 +1271,10 @@
     }
   }, 
   {
-    "pk": 87, 
+    "pk": 79, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 40, 
+      "widget": 37, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "51a10241-e26e-4fab-831b-4295ac82081a", 
@@ -1289,10 +1289,10 @@
     }
   }, 
   {
-    "pk": 88, 
+    "pk": 80, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 40, 
+      "widget": 37, 
       "name": "Method", 
       "short_name": "met", 
       "uid": "538f7e3a-8650-4c33-ad49-d00221d86145", 
@@ -1307,50 +1307,50 @@
     }
   }, 
   {
-    "pk": 18, 
+    "pk": 1, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "cde2a234-f9be-461a-9298-d3f0698cea8b", 
-      "abstract_input": 88, 
+      "abstract_input": 80, 
       "value": "1", 
       "name": "By Pairs"
     }
   }, 
   {
-    "pk": 19, 
+    "pk": 2, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "ad6a3d61-5be9-45f7-b9d6-9826dde0986c", 
-      "abstract_input": 88, 
+      "abstract_input": 80, 
       "value": "0", 
       "name": "By Weighted Pairs"
     }
   }, 
   {
-    "pk": 20, 
+    "pk": 3, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "64e1c620-ce14-4c78-9aed-199bf803b6b7", 
-      "abstract_input": 88, 
+      "abstract_input": 80, 
       "value": "3", 
       "name": "One Against All"
     }
   }, 
   {
-    "pk": 21, 
+    "pk": 4, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "8f39364a-2698-430e-912e-dd8c547ca0a7", 
-      "abstract_input": 88, 
+      "abstract_input": 80, 
       "value": "2", 
       "name": "Weighted One Against All"
     }
   }, 
   {
-    "pk": 52, 
+    "pk": 47, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 40, 
+      "widget": 37, 
       "name": "Area Under Curve", 
       "short_name": "auc", 
       "variable": "AUC", 
@@ -1360,10 +1360,10 @@
     }
   }, 
   {
-    "pk": 41, 
+    "pk": 38, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 8, 
       "treeview_image": "", 
       "name": "Brier Score", 
       "is_streaming": false, 
@@ -1385,10 +1385,10 @@
     }
   }, 
   {
-    "pk": 89, 
+    "pk": 81, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 41, 
+      "widget": 38, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "dc37ebf6-0148-4aee-945a-857ea3e8e4fb", 
@@ -1403,10 +1403,10 @@
     }
   }, 
   {
-    "pk": 90, 
+    "pk": 82, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 41, 
+      "widget": 38, 
       "name": "Report Standard Error", 
       "short_name": "rse", 
       "uid": "49a8722a-74b9-4cd6-a9bf-aec25ff05120", 
@@ -1421,10 +1421,10 @@
     }
   }, 
   {
-    "pk": 53, 
+    "pk": 48, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 41, 
+      "widget": 38, 
       "name": "Brier Score", 
       "short_name": "bs", 
       "variable": "bs", 
@@ -1434,10 +1434,10 @@
     }
   }, 
   {
-    "pk": 42, 
+    "pk": 39, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 8, 
       "treeview_image": "", 
       "name": "Classification Accuracy", 
       "is_streaming": false, 
@@ -1459,10 +1459,10 @@
     }
   }, 
   {
-    "pk": 91, 
+    "pk": 83, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 42, 
+      "widget": 39, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "844835a9-5473-4eba-ad40-162ec8712088", 
@@ -1477,10 +1477,10 @@
     }
   }, 
   {
-    "pk": 92, 
+    "pk": 84, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 42, 
+      "widget": 39, 
       "name": "Report Standard Error", 
       "short_name": "rse", 
       "uid": "322d1975-8cff-423c-b73a-e7f5a1488e2e", 
@@ -1495,10 +1495,10 @@
     }
   }, 
   {
-    "pk": 54, 
+    "pk": 49, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 42, 
+      "widget": 39, 
       "name": "Classification Accuracy", 
       "short_name": "ca", 
       "variable": "ca", 
@@ -1508,10 +1508,10 @@
     }
   }, 
   {
-    "pk": 43, 
+    "pk": 40, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 8, 
       "treeview_image": "", 
       "name": "Confusion Matrix", 
       "is_streaming": false, 
@@ -1533,10 +1533,10 @@
     }
   }, 
   {
-    "pk": 93, 
+    "pk": 85, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 43, 
+      "widget": 40, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "cbce1aeb-69f9-44ab-9ba1-58e7f7c7edd2", 
@@ -1551,10 +1551,10 @@
     }
   }, 
   {
-    "pk": 94, 
+    "pk": 86, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 43, 
+      "widget": 40, 
       "name": "Cutoff", 
       "short_name": "ctf", 
       "uid": "c6fa462e-df86-424e-8803-3ded38ee6f73", 
@@ -1569,10 +1569,10 @@
     }
   }, 
   {
-    "pk": 95, 
+    "pk": 87, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 43, 
+      "widget": 40, 
       "name": "Class Index", 
       "short_name": "cli", 
       "uid": "93b12c97-c01a-42a9-a934-b9c0a220f67a", 
@@ -1587,10 +1587,10 @@
     }
   }, 
   {
-    "pk": 55, 
+    "pk": 50, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 43, 
+      "widget": 40, 
       "name": "Confusion Matrix", 
       "short_name": "cm", 
       "variable": "cm", 
@@ -1600,10 +1600,10 @@
     }
   }, 
   {
-    "pk": 44, 
+    "pk": 41, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 8, 
       "treeview_image": "", 
       "name": "Confusion Matrix Computations", 
       "is_streaming": false, 
@@ -1625,10 +1625,10 @@
     }
   }, 
   {
-    "pk": 96, 
+    "pk": 88, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "Confusion Matrix", 
       "short_name": "cm", 
       "uid": "5bbce817-42f9-4454-ade9-c6b73a8b4f56", 
@@ -1643,10 +1643,10 @@
     }
   }, 
   {
-    "pk": 97, 
+    "pk": 89, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "alpha", 
       "short_name": "alp", 
       "uid": "26e4f697-0231-4cf8-8cbd-2cb325441ba7", 
@@ -1661,10 +1661,10 @@
     }
   }, 
   {
-    "pk": 56, 
+    "pk": 51, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "Sensitiviry", 
       "short_name": "sen", 
       "variable": "sens", 
@@ -1674,10 +1674,10 @@
     }
   }, 
   {
-    "pk": 57, 
+    "pk": 52, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "Specificity", 
       "short_name": "spe", 
       "variable": "spec", 
@@ -1687,10 +1687,10 @@
     }
   }, 
   {
-    "pk": 58, 
+    "pk": 53, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "Positive Predictive Value", 
       "short_name": "ppv", 
       "variable": "PPV", 
@@ -1700,10 +1700,10 @@
     }
   }, 
   {
-    "pk": 59, 
+    "pk": 54, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "Negative Predictive Value", 
       "short_name": "npv", 
       "variable": "NPV", 
@@ -1713,10 +1713,10 @@
     }
   }, 
   {
-    "pk": 60, 
+    "pk": 55, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "Precision", 
       "short_name": "pre", 
       "variable": "precision", 
@@ -1726,10 +1726,10 @@
     }
   }, 
   {
-    "pk": 61, 
+    "pk": 56, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "Recall", 
       "short_name": "rec", 
       "variable": "recall", 
@@ -1739,10 +1739,10 @@
     }
   }, 
   {
-    "pk": 62, 
+    "pk": 57, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "F1", 
       "short_name": "f1", 
       "variable": "F1", 
@@ -1752,10 +1752,10 @@
     }
   }, 
   {
-    "pk": 63, 
+    "pk": 58, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "Falpha", 
       "short_name": "fal", 
       "variable": "Falpha", 
@@ -1765,10 +1765,10 @@
     }
   }, 
   {
-    "pk": 64, 
+    "pk": 59, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 44, 
+      "widget": 41, 
       "name": "MCC", 
       "short_name": "mcc", 
       "variable": "MCC", 
@@ -1778,10 +1778,10 @@
     }
   }, 
   {
-    "pk": 45, 
+    "pk": 42, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 8, 
       "treeview_image": "", 
       "name": "Correct Class Average Probability", 
       "is_streaming": false, 
@@ -1803,10 +1803,10 @@
     }
   }, 
   {
-    "pk": 98, 
+    "pk": 90, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 45, 
+      "widget": 42, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "2b1e7d82-9c60-47be-8d27-d88d56de0c5d", 
@@ -1821,10 +1821,10 @@
     }
   }, 
   {
-    "pk": 99, 
+    "pk": 91, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 45, 
+      "widget": 42, 
       "name": "Report Standard Error", 
       "short_name": "rse", 
       "uid": "3dfeb6f5-fe7a-461a-b965-de7daa0b61eb", 
@@ -1839,10 +1839,10 @@
     }
   }, 
   {
-    "pk": 65, 
+    "pk": 60, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 45, 
+      "widget": 42, 
       "name": "Average Probability", 
       "short_name": "ap", 
       "variable": "ap", 
@@ -1852,10 +1852,10 @@
     }
   }, 
   {
-    "pk": 46, 
+    "pk": 43, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 8, 
       "treeview_image": "", 
       "name": "Information Score", 
       "is_streaming": false, 
@@ -1877,10 +1877,10 @@
     }
   }, 
   {
-    "pk": 100, 
+    "pk": 92, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 46, 
+      "widget": 43, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "d85b2f09-ae60-49b7-9b07-b73e4f2f37f9", 
@@ -1895,10 +1895,10 @@
     }
   }, 
   {
-    "pk": 101, 
+    "pk": 93, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 46, 
+      "widget": 43, 
       "name": "Report Standard Error", 
       "short_name": "rse", 
       "uid": "34afe990-c3e7-40ac-93c9-15283b3e12fc", 
@@ -1913,10 +1913,10 @@
     }
   }, 
   {
-    "pk": 66, 
+    "pk": 61, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 46, 
+      "widget": 43, 
       "name": "Information Score", 
       "short_name": "is", 
       "variable": "is", 
@@ -1926,11 +1926,11 @@
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 9, 
     "model": "workflows.category", 
     "fields": {
       "uid": "d13c01e6-675f-4c48-a211-b24af72229b0", 
-      "parent": 8, 
+      "parent": 7, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -1938,10 +1938,10 @@
     }
   }, 
   {
-    "pk": 47, 
+    "pk": 44, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 10, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Mean Squared Error", 
       "is_streaming": false, 
@@ -1963,10 +1963,10 @@
     }
   }, 
   {
-    "pk": 102, 
+    "pk": 94, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 47, 
+      "widget": 44, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "1f40bcbb-e919-4078-8f11-fc2462bba84b", 
@@ -1981,10 +1981,10 @@
     }
   }, 
   {
-    "pk": 67, 
+    "pk": 62, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 47, 
+      "widget": 44, 
       "name": "Mean Squared Error", 
       "short_name": "mse", 
       "variable": "MSE", 
@@ -1994,10 +1994,10 @@
     }
   }, 
   {
-    "pk": 48, 
+    "pk": 45, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 10, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Mean absolute error", 
       "is_streaming": false, 
@@ -2019,10 +2019,10 @@
     }
   }, 
   {
-    "pk": 103, 
+    "pk": 95, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 48, 
+      "widget": 45, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "b8b260d7-3497-42f5-93a0-09a411a03852", 
@@ -2037,10 +2037,10 @@
     }
   }, 
   {
-    "pk": 68, 
+    "pk": 63, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 48, 
+      "widget": 45, 
       "name": "Mean Absolute Error", 
       "short_name": "mse", 
       "variable": "MSE", 
@@ -2050,10 +2050,10 @@
     }
   }, 
   {
-    "pk": 49, 
+    "pk": 46, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 10, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "R-squared", 
       "is_streaming": false, 
@@ -2075,10 +2075,10 @@
     }
   }, 
   {
-    "pk": 104, 
+    "pk": 96, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 49, 
+      "widget": 46, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "e06248e9-dd6d-4746-8972-1cbf6e6f116f", 
@@ -2093,10 +2093,10 @@
     }
   }, 
   {
-    "pk": 69, 
+    "pk": 64, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 49, 
+      "widget": 46, 
       "name": "R-Squared", 
       "short_name": "r2", 
       "variable": "R2", 
@@ -2106,10 +2106,10 @@
     }
   }, 
   {
-    "pk": 50, 
+    "pk": 47, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 10, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Relative Squared Error", 
       "is_streaming": false, 
@@ -2131,10 +2131,10 @@
     }
   }, 
   {
-    "pk": 105, 
+    "pk": 97, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 50, 
+      "widget": 47, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "64ff64b7-5878-4c9f-8a43-908d3d9b187a", 
@@ -2149,10 +2149,10 @@
     }
   }, 
   {
-    "pk": 70, 
+    "pk": 65, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 50, 
+      "widget": 47, 
       "name": "Relative Squared Error", 
       "short_name": "rse", 
       "variable": "RSE", 
@@ -2162,10 +2162,10 @@
     }
   }, 
   {
-    "pk": 51, 
+    "pk": 48, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 10, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Root Relative Squared Error", 
       "is_streaming": false, 
@@ -2187,10 +2187,10 @@
     }
   }, 
   {
-    "pk": 106, 
+    "pk": 98, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 51, 
+      "widget": 48, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "44ac11fb-201e-4d8f-b0b2-4d7668ea49a2", 
@@ -2205,10 +2205,10 @@
     }
   }, 
   {
-    "pk": 71, 
+    "pk": 66, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 51, 
+      "widget": 48, 
       "name": "Root Relative Squared Error", 
       "short_name": "rrs", 
       "variable": "RRSE", 
@@ -2218,10 +2218,10 @@
     }
   }, 
   {
-    "pk": 52, 
+    "pk": 49, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 10, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Root mean-squared error", 
       "is_streaming": false, 
@@ -2243,10 +2243,10 @@
     }
   }, 
   {
-    "pk": 107, 
+    "pk": 99, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 52, 
+      "widget": 49, 
       "name": "Results", 
       "short_name": "res", 
       "uid": "588d6e48-4365-43e7-8388-09da5fe660ea", 
@@ -2261,10 +2261,10 @@
     }
   }, 
   {
-    "pk": 72, 
+    "pk": 67, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 52, 
+      "widget": 49, 
       "name": "Root Mean Squared Error", 
       "short_name": "rms", 
       "variable": "RMSE", 
@@ -2274,11 +2274,11 @@
     }
   }, 
   {
-    "pk": 11, 
+    "pk": 10, 
     "model": "workflows.category", 
     "fields": {
       "uid": "8b90267f-c82d-4b62-bee3-66184f4db931", 
-      "parent": 8, 
+      "parent": 7, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -2286,10 +2286,10 @@
     }
   }, 
   {
-    "pk": 53, 
+    "pk": 50, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 10, 
       "treeview_image": "", 
       "name": "Cross Validation", 
       "is_streaming": false, 
@@ -2311,10 +2311,10 @@
     }
   }, 
   {
-    "pk": 108, 
+    "pk": 100, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 53, 
+      "widget": 50, 
       "name": "Dataset", 
       "short_name": "odt", 
       "uid": "70f67094-39bb-4dad-b567-049002dabdac", 
@@ -2329,10 +2329,10 @@
     }
   }, 
   {
-    "pk": 109, 
+    "pk": 101, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 53, 
+      "widget": 50, 
       "name": "Learner", 
       "short_name": "lrn", 
       "uid": "a7f392fe-55f7-48df-9afb-1d0044562a2a", 
@@ -2347,10 +2347,10 @@
     }
   }, 
   {
-    "pk": 110, 
+    "pk": 102, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 53, 
+      "widget": 50, 
       "name": "Folds", 
       "short_name": "fld", 
       "uid": "2e4561d0-99fd-44fd-99a5-7ac32457aa58", 
@@ -2365,10 +2365,10 @@
     }
   }, 
   {
-    "pk": 73, 
+    "pk": 68, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 53, 
+      "widget": 50, 
       "name": "Results", 
       "short_name": "res", 
       "variable": "results", 
@@ -2378,10 +2378,10 @@
     }
   }, 
   {
-    "pk": 54, 
+    "pk": 51, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 10, 
       "treeview_image": "", 
       "name": "Cross Validation (multiple learners)", 
       "is_streaming": false, 
@@ -2403,10 +2403,10 @@
     }
   }, 
   {
-    "pk": 111, 
+    "pk": 103, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 54, 
+      "widget": 51, 
       "name": "Dataset", 
       "short_name": "odt", 
       "uid": "16d1fe96-ce53-4a94-8c3e-90ac444b45f8", 
@@ -2421,10 +2421,10 @@
     }
   }, 
   {
-    "pk": 112, 
+    "pk": 104, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 54, 
+      "widget": 51, 
       "name": "Learners", 
       "short_name": "lrn", 
       "uid": "499f4007-55c3-431c-93ca-5f493a9e592c", 
@@ -2439,10 +2439,10 @@
     }
   }, 
   {
-    "pk": 113, 
+    "pk": 105, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 54, 
+      "widget": 51, 
       "name": "Folds", 
       "short_name": "fld", 
       "uid": "2b7ef618-6f7a-4f0c-ad5f-50000aa5ec0b", 
@@ -2457,10 +2457,10 @@
     }
   }, 
   {
-    "pk": 74, 
+    "pk": 69, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 54, 
+      "widget": 51, 
       "name": "Results", 
       "short_name": "res", 
       "variable": "results", 
@@ -2470,10 +2470,10 @@
     }
   }, 
   {
-    "pk": 55, 
+    "pk": 52, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 10, 
       "treeview_image": "", 
       "name": "Leave One Out", 
       "is_streaming": false, 
@@ -2495,10 +2495,10 @@
     }
   }, 
   {
-    "pk": 114, 
+    "pk": 106, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 55, 
+      "widget": 52, 
       "name": "learners", 
       "short_name": "lrn", 
       "uid": "153d8297-ab47-4c51-a540-ed5cf907173f", 
@@ -2513,10 +2513,10 @@
     }
   }, 
   {
-    "pk": 115, 
+    "pk": 107, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 55, 
+      "widget": 52, 
       "name": "dataset", 
       "short_name": "odt", 
       "uid": "51ffb874-f2b3-431c-a38b-16177631fd6f", 
@@ -2531,10 +2531,10 @@
     }
   }, 
   {
-    "pk": 75, 
+    "pk": 70, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 55, 
+      "widget": 52, 
       "name": "Results", 
       "short_name": "res", 
       "variable": "results", 
@@ -2544,10 +2544,10 @@
     }
   }, 
   {
-    "pk": 56, 
+    "pk": 53, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 10, 
       "treeview_image": "", 
       "name": "Proportion Test", 
       "is_streaming": false, 
@@ -2569,10 +2569,10 @@
     }
   }, 
   {
-    "pk": 116, 
+    "pk": 108, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 56, 
+      "widget": 53, 
       "name": "learners", 
       "short_name": "lrn", 
       "uid": "b77f51b3-6c21-4d6a-922a-bbbb4679155d", 
@@ -2587,10 +2587,10 @@
     }
   }, 
   {
-    "pk": 117, 
+    "pk": 109, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 56, 
+      "widget": 53, 
       "name": "dataset", 
       "short_name": "odt", 
       "uid": "2b2037f4-b240-4b26-81e5-8ca01a215193", 
@@ -2605,10 +2605,10 @@
     }
   }, 
   {
-    "pk": 118, 
+    "pk": 110, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 56, 
+      "widget": 53, 
       "name": "Proportion", 
       "short_name": "prp", 
       "uid": "ff523b52-e08b-4da5-bb2c-7050731dcf16", 
@@ -2623,10 +2623,10 @@
     }
   }, 
   {
-    "pk": 119, 
+    "pk": 111, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 56, 
+      "widget": 53, 
       "name": "Number of repetitions", 
       "short_name": "rep", 
       "uid": "da5ab14e-9e1c-4395-b6ce-8ff0d53de4c9", 
@@ -2641,10 +2641,10 @@
     }
   }, 
   {
-    "pk": 76, 
+    "pk": 71, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 56, 
+      "widget": 53, 
       "name": "Results", 
       "short_name": "res", 
       "variable": "results", 
@@ -2654,7 +2654,7 @@
     }
   }, 
   {
-    "pk": 12, 
+    "pk": 11, 
     "model": "workflows.category", 
     "fields": {
       "uid": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
@@ -2666,10 +2666,10 @@
     }
   }, 
   {
-    "pk": 57, 
+    "pk": 104, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "ARFF string to Orange Data Table", 
       "is_streaming": false, 
@@ -2691,10 +2691,10 @@
     }
   }, 
   {
-    "pk": 120, 
+    "pk": 199, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 57, 
+      "widget": 104, 
       "name": "Arff string", 
       "short_name": "arf", 
       "uid": "f05fee52-61fe-4f93-81a1-59fd9976fd3b", 
@@ -2709,10 +2709,10 @@
     }
   }, 
   {
-    "pk": 77, 
+    "pk": 117, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 57, 
+      "widget": 104, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "dataset", 
@@ -2722,10 +2722,10 @@
     }
   }, 
   {
-    "pk": 58, 
+    "pk": 54, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "treeview/add_noise3.png", 
       "name": "Add Class Noise", 
       "is_streaming": false, 
@@ -2733,7 +2733,7 @@
       "interaction_view": "", 
       "image": "images/add_noise3.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "add_noise3.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -2747,10 +2747,10 @@
     }
   }, 
   {
-    "pk": 121, 
+    "pk": 112, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 58, 
+      "widget": 54, 
       "name": "Random Seed", 
       "short_name": "rns", 
       "uid": "89c20239-c4e0-4368-9828-ab73155e2457", 
@@ -2765,10 +2765,10 @@
     }
   }, 
   {
-    "pk": 122, 
+    "pk": 113, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 58, 
+      "widget": 54, 
       "name": "Dataset", 
       "short_name": "ds", 
       "uid": "aa5d2630-534f-4662-8da5-342b2e87995b", 
@@ -2783,10 +2783,10 @@
     }
   }, 
   {
-    "pk": 123, 
+    "pk": 114, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 58, 
+      "widget": 54, 
       "name": "Noise Level (%)", 
       "short_name": "nlv", 
       "uid": "9c5ec335-76a0-4208-81a0-76b4a0457d5d", 
@@ -2801,10 +2801,10 @@
     }
   }, 
   {
-    "pk": 78, 
+    "pk": 72, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 58, 
+      "widget": 54, 
       "name": "Noisy Dataset", 
       "short_name": "nds", 
       "variable": "noisy_data", 
@@ -2814,10 +2814,10 @@
     }
   }, 
   {
-    "pk": 79, 
+    "pk": 73, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 58, 
+      "widget": 54, 
       "name": "Noise Indices", 
       "short_name": "nid", 
       "variable": "noise_inds", 
@@ -2827,10 +2827,10 @@
     }
   }, 
   {
-    "pk": 59, 
+    "pk": 55, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Alter table", 
       "is_streaming": false, 
@@ -2852,10 +2852,10 @@
     }
   }, 
   {
-    "pk": 124, 
+    "pk": 115, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 59, 
+      "widget": 55, 
       "name": "Table", 
       "short_name": "tab", 
       "uid": "1aff9f6a-6d0b-4cf2-ae5c-6de3301dc931", 
@@ -2870,10 +2870,10 @@
     }
   }, 
   {
-    "pk": 80, 
+    "pk": 74, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 59, 
+      "widget": 55, 
       "name": "Table", 
       "short_name": "tab", 
       "variable": "altered_data", 
@@ -2883,10 +2883,10 @@
     }
   }, 
   {
-    "pk": 110, 
+    "pk": 105, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Dataset Discretization", 
       "is_streaming": false, 
@@ -2908,10 +2908,10 @@
     }
   }, 
   {
-    "pk": 238, 
+    "pk": 200, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 110, 
+      "widget": 105, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "6172ffda-8582-42ee-b8c3-6e47e1e5aba2", 
@@ -2926,10 +2926,10 @@
     }
   }, 
   {
-    "pk": 239, 
+    "pk": 201, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 110, 
+      "widget": 105, 
       "name": "Discretizators", 
       "short_name": "dis", 
       "uid": "6facdb69-d2e9-4625-bfaf-0b498adba715", 
@@ -2944,60 +2944,60 @@
     }
   }, 
   {
-    "pk": 89, 
+    "pk": 69, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "2c59cad9-6515-49d2-80e2-3e6638040521", 
-      "abstract_input": 239, 
+      "abstract_input": 201, 
       "value": "3", 
       "name": "Bi-modal discretization"
     }
   }, 
   {
-    "pk": 88, 
+    "pk": 70, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "80b0bca8-a4b3-4edb-9b79-1be959c4069c", 
-      "abstract_input": 239, 
+      "abstract_input": 201, 
       "value": "2", 
       "name": "Entropy-based discretization"
     }
   }, 
   {
-    "pk": 86, 
+    "pk": 71, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "cf6d0204-e2ef-4be4-b953-96ca63ff35c8", 
-      "abstract_input": 239, 
+      "abstract_input": 201, 
       "value": "0", 
       "name": "Equi-distant discretization"
     }
   }, 
   {
-    "pk": 90, 
+    "pk": 72, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "d99c4046-34f4-422b-b294-50753e6f75f6", 
-      "abstract_input": 239, 
+      "abstract_input": 201, 
       "value": "4", 
       "name": "Fixed discretization"
     }
   }, 
   {
-    "pk": 87, 
+    "pk": 73, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "da697eb2-853d-4ad1-a15a-f5afb04dfae9", 
-      "abstract_input": 239, 
+      "abstract_input": 201, 
       "value": "1", 
       "name": "Quantile-based discretization"
     }
   }, 
   {
-    "pk": 240, 
+    "pk": 202, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 110, 
+      "widget": 105, 
       "name": "Number of intervals", 
       "short_name": "nor", 
       "uid": "a51a20f2-b336-4c4b-a818-30922a4e83d1", 
@@ -3012,10 +3012,10 @@
     }
   }, 
   {
-    "pk": 241, 
+    "pk": 203, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 110, 
+      "widget": 105, 
       "name": "Cut-off points", 
       "short_name": "cp", 
       "uid": "43b2e055-65c1-4cc3-ae94-926b71911c0e", 
@@ -3030,10 +3030,10 @@
     }
   }, 
   {
-    "pk": 126, 
+    "pk": 118, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 110, 
+      "widget": 105, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "odt", 
@@ -3043,10 +3043,10 @@
     }
   }, 
   {
-    "pk": 60, 
+    "pk": 56, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "treeview/Load-ODT.png", 
       "name": "Load Dataset to Orange Data Table", 
       "is_streaming": false, 
@@ -3054,7 +3054,7 @@
       "interaction_view": "", 
       "image": "images/Load-ODT.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "Load-ODT.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -3068,10 +3068,10 @@
     }
   }, 
   {
-    "pk": 125, 
+    "pk": 116, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 60, 
+      "widget": 56, 
       "name": "File", 
       "short_name": "fil", 
       "uid": "748e5dff-6c21-4feb-af71-aaf955f73893", 
@@ -3086,10 +3086,10 @@
     }
   }, 
   {
-    "pk": 81, 
+    "pk": 75, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 60, 
+      "widget": 56, 
       "name": "Dataset", 
       "short_name": "ds", 
       "variable": "dataset", 
@@ -3099,10 +3099,10 @@
     }
   }, 
   {
-    "pk": 61, 
+    "pk": 57, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "treeview/ODT-to-ARFF-string.png", 
       "name": "Orange Data Table to ARFF String", 
       "is_streaming": false, 
@@ -3110,7 +3110,7 @@
       "interaction_view": "", 
       "image": "images/ODT-to-ARFF-string.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "ODT-to-ARFF-string.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -3124,10 +3124,10 @@
     }
   }, 
   {
-    "pk": 126, 
+    "pk": 117, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 61, 
+      "widget": 57, 
       "name": "Orange data table", 
       "short_name": "odt", 
       "uid": "052788be-6a3d-4c8f-be34-b957ff445c04", 
@@ -3142,10 +3142,10 @@
     }
   }, 
   {
-    "pk": 82, 
+    "pk": 76, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 61, 
+      "widget": 57, 
       "name": "ARFF", 
       "short_name": "arf", 
       "variable": "arff", 
@@ -3155,10 +3155,10 @@
     }
   }, 
   {
-    "pk": 62, 
+    "pk": 58, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Orange Data Table to ARFF file", 
       "is_streaming": false, 
@@ -3180,10 +3180,10 @@
     }
   }, 
   {
-    "pk": 127, 
+    "pk": 118, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 62, 
+      "widget": 58, 
       "name": "Data", 
       "short_name": "dat", 
       "uid": "1eb8eb33-61d6-4b77-93ef-abfe6fd2c15f", 
@@ -3198,10 +3198,10 @@
     }
   }, 
   {
-    "pk": 63, 
+    "pk": 59, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Orange Data Table to CSV file", 
       "is_streaming": false, 
@@ -3223,10 +3223,10 @@
     }
   }, 
   {
-    "pk": 128, 
+    "pk": 119, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 63, 
+      "widget": 59, 
       "name": "Data", 
       "short_name": "dat", 
       "uid": "a9f98093-9488-483a-bfd2-4e484b1c1ccb", 
@@ -3241,10 +3241,10 @@
     }
   }, 
   {
-    "pk": 64, 
+    "pk": 60, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Orange Data Table to TAB file", 
       "is_streaming": false, 
@@ -3266,10 +3266,10 @@
     }
   }, 
   {
-    "pk": 129, 
+    "pk": 120, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 64, 
+      "widget": 60, 
       "name": "Dataset", 
       "short_name": "dat", 
       "uid": "1b6f9c59-36f1-4deb-bec7-c9633f6c7fd8", 
@@ -3284,10 +3284,10 @@
     }
   }, 
   {
-    "pk": 65, 
+    "pk": 61, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "treeview/Orange-SelectAttributes_60.png", 
       "name": "Select Attributes", 
       "is_streaming": false, 
@@ -3295,7 +3295,7 @@
       "interaction_view": "select_attrs", 
       "image": "images/Orange-SelectAttributes_60.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "selectattributes.png", 
       "post_interact_action": "select_attrs_post", 
       "user": null, 
       "visualization_view": "", 
@@ -3309,10 +3309,10 @@
     }
   }, 
   {
-    "pk": 130, 
+    "pk": 121, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 65, 
+      "widget": 61, 
       "name": "Data table", 
       "short_name": "tab", 
       "uid": "d0f1d1e2-b3e8-4f79-bb88-50c2f3812e79", 
@@ -3327,10 +3327,10 @@
     }
   }, 
   {
-    "pk": 83, 
+    "pk": 77, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 65, 
+      "widget": 61, 
       "name": "Data table", 
       "short_name": "tab", 
       "variable": "data", 
@@ -3340,10 +3340,10 @@
     }
   }, 
   {
-    "pk": 66, 
+    "pk": 62, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "treeview/orange-SelectData.png", 
       "name": "Select Data", 
       "is_streaming": false, 
@@ -3351,7 +3351,7 @@
       "interaction_view": "select_data", 
       "image": "images/orange-SelectData.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "orange-SelectData.png", 
       "post_interact_action": "select_data_post", 
       "user": null, 
       "visualization_view": "", 
@@ -3365,10 +3365,10 @@
     }
   }, 
   {
-    "pk": 131, 
+    "pk": 122, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 66, 
+      "widget": 62, 
       "name": "data", 
       "short_name": "dat", 
       "uid": "042b574e-c08a-43ad-87db-9030a8a74cb8", 
@@ -3383,10 +3383,10 @@
     }
   }, 
   {
-    "pk": 84, 
+    "pk": 78, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 66, 
+      "widget": 62, 
       "name": "Matching Data", 
       "short_name": "dat", 
       "variable": "data", 
@@ -3396,10 +3396,10 @@
     }
   }, 
   {
-    "pk": 67, 
+    "pk": 63, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Split dataset", 
       "is_streaming": false, 
@@ -3407,7 +3407,7 @@
       "interaction_view": "", 
       "image": "", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "split_dataset.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -3421,10 +3421,10 @@
     }
   }, 
   {
-    "pk": 132, 
+    "pk": 123, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 67, 
+      "widget": 63, 
       "name": "Dataset", 
       "short_name": "odt", 
       "uid": "fe354f76-d6ed-4907-9ab6-d8784b3c7620", 
@@ -3439,10 +3439,10 @@
     }
   }, 
   {
-    "pk": 133, 
+    "pk": 124, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 67, 
+      "widget": 63, 
       "name": "Split factor", 
       "short_name": "p", 
       "uid": "6a637f14-7ba4-4c33-90e0-6cc260587260", 
@@ -3452,15 +3452,15 @@
       "parameter_type": "text", 
       "variable": "p", 
       "parameter": true, 
-      "order": 1, 
+      "order": 2, 
       "description": "A number between 0 and 1 that determines the sizes of the two datasets"
     }
   }, 
   {
-    "pk": 85, 
+    "pk": 79, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 67, 
+      "widget": 63, 
       "name": "Train data", 
       "short_name": "tra", 
       "variable": "train_data", 
@@ -3470,23 +3470,23 @@
     }
   }, 
   {
-    "pk": 86, 
+    "pk": 80, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 67, 
+      "widget": 63, 
       "name": "Test data", 
       "short_name": "tes", 
       "variable": "test_data", 
       "uid": "514abf26-b0d5-4483-9273-6b930bf4eb68", 
-      "order": 1, 
+      "order": 2, 
       "description": "Test data"
     }
   }, 
   {
-    "pk": 68, 
+    "pk": 64, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Table viewer", 
       "is_streaming": false, 
@@ -3494,7 +3494,7 @@
       "interaction_view": "", 
       "image": "", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "table_viewer.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "table_viewer", 
@@ -3508,10 +3508,10 @@
     }
   }, 
   {
-    "pk": 134, 
+    "pk": 125, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 68, 
+      "widget": 64, 
       "name": "Table", 
       "short_name": "tab", 
       "uid": "8b1571c3-dc4d-401b-a634-560236572496", 
@@ -3526,10 +3526,10 @@
     }
   }, 
   {
-    "pk": 69, 
+    "pk": 99, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Tree Visualization", 
       "is_streaming": false, 
@@ -3537,7 +3537,7 @@
       "interaction_view": "", 
       "image": "", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "TreeVisualization.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "tree_visualization", 
@@ -3551,10 +3551,10 @@
     }
   }, 
   {
-    "pk": 135, 
+    "pk": 189, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 69, 
+      "widget": 99, 
       "name": "Classification Tree", 
       "short_name": "clt", 
       "uid": "ae24ffde-8868-4646-86c8-f209c62e98bb", 
@@ -3569,10 +3569,10 @@
     }
   }, 
   {
-    "pk": 70, 
+    "pk": 65, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 11, 
       "treeview_image": "treeview/UCI-2-ODT.png", 
       "name": "UCI Dataset to Orange Data Table", 
       "is_streaming": false, 
@@ -3580,7 +3580,7 @@
       "interaction_view": "", 
       "image": "images/UCI-2-ODT.png", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "UCI-2-ODT.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -3594,10 +3594,10 @@
     }
   }, 
   {
-    "pk": 136, 
+    "pk": 126, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 70, 
+      "widget": 65, 
       "name": "Dataset", 
       "short_name": "ds", 
       "uid": "268452b1-6016-404d-bdb8-01f03df4890f", 
@@ -3612,280 +3612,280 @@
     }
   }, 
   {
-    "pk": 22, 
+    "pk": 5, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "0808be1d-5602-4277-9571-96ecb1faf58b", 
-      "abstract_input": 136, 
+      "abstract_input": 126, 
       "value": "adult_sample.tab", 
       "name": "Adult (sample)"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "46fca181-b956-47c6-8281-eb60b69052d8", 
+      "abstract_input": 126, 
+      "value": "balance-scale.tab", 
+      "name": "Balance Scale"
+    }
+  }, 
+  {
+    "pk": 7, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "84129065-b876-4ce7-ac3a-09d5dd19989b", 
+      "abstract_input": 126, 
+      "value": "breast-cancer.tab", 
+      "name": "Breast Cancer"
+    }
+  }, 
+  {
+    "pk": 8, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "dd097a8f-01c7-4ec6-b00e-22efe6aeeb61", 
+      "abstract_input": 126, 
+      "value": "breast-cancer-wisconsin.tab", 
+      "name": "Breast Cancer Wisconsin"
+    }
+  }, 
+  {
+    "pk": 9, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "45898880-5a9e-4b8f-9a04-d04c77a0ab28", 
+      "abstract_input": 126, 
+      "value": "car.tab", 
+      "name": "Car Evaluation"
+    }
+  }, 
+  {
+    "pk": 10, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "2b7b385d-b1c5-4242-86eb-ce77602f2c8b", 
+      "abstract_input": 126, 
+      "value": "voting.tab", 
+      "name": "Congressional Voting Records"
+    }
+  }, 
+  {
+    "pk": 11, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "e2e36bac-e538-4783-9821-81d57a5eba58", 
+      "abstract_input": 126, 
+      "value": "crx.tab", 
+      "name": "Credit Approval"
+    }
+  }, 
+  {
+    "pk": 12, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "33892420-6b22-4262-93d8-45f8c0fb05f8", 
+      "abstract_input": 126, 
+      "value": "glass.tab", 
+      "name": "Glass Identification"
+    }
+  }, 
+  {
+    "pk": 13, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "346d63f4-53ec-40d1-8080-e97e1f8b7663", 
+      "abstract_input": 126, 
+      "value": "heart_disease.tab", 
+      "name": "Heart Disease"
+    }
+  }, 
+  {
+    "pk": 14, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "6edc1a09-369f-4465-8b0e-0c6f192f0d82", 
+      "abstract_input": 126, 
+      "value": "horse-colic.tab", 
+      "name": "Horse Colic"
+    }
+  }, 
+  {
+    "pk": 15, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "1e765b4f-0c6f-43d6-a4c8-630faa528030", 
+      "abstract_input": 126, 
+      "value": "housing.tab", 
+      "name": "Housing"
+    }
+  }, 
+  {
+    "pk": 16, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "e14dbdbb-5849-4a56-b8be-8fc2d75d280d", 
+      "abstract_input": 126, 
+      "value": "ionosphere.tab", 
+      "name": "Ionosphere"
+    }
+  }, 
+  {
+    "pk": 17, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "bfd3ffc2-f47c-487f-bfa1-4331a1c5aa3c", 
+      "abstract_input": 126, 
+      "value": "iris.tab", 
+      "name": "Iris"
+    }
+  }, 
+  {
+    "pk": 18, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "695fadad-4433-4d51-88d9-c6ca9ccf0730", 
+      "abstract_input": 126, 
+      "value": "kr-vs-kp.tab", 
+      "name": "King Rook vs. King Pawn"
+    }
+  }, 
+  {
+    "pk": 19, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "27f607c8-651a-4637-a4ab-4f7f12a0a37f", 
+      "abstract_input": 126, 
+      "value": "lenses.tab", 
+      "name": "Lenses"
+    }
+  }, 
+  {
+    "pk": 20, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "66a974be-f910-4710-a18a-87a98136ae7d", 
+      "abstract_input": 126, 
+      "value": "bupa.tab", 
+      "name": "Liver Disorder (BUPA)"
+    }
+  }, 
+  {
+    "pk": 21, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "338f8871-e237-4c35-a34c-03228248deac", 
+      "abstract_input": 126, 
+      "value": "lung-cancer.tab", 
+      "name": "Lung Cancer"
+    }
+  }, 
+  {
+    "pk": 22, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "b0a9f5aa-1b16-4dba-981d-eb9145883700", 
+      "abstract_input": 126, 
+      "value": "promoters.tab", 
+      "name": "Molecular Biology (Promoter Gene Sequences)"
     }
   }, 
   {
     "pk": 23, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "46fca181-b956-47c6-8281-eb60b69052d8", 
-      "abstract_input": 136, 
-      "value": "balance-scale.tab", 
-      "name": "Balance Scale"
+      "uid": "a316eaf4-053b-4b02-9c96-c5f80f06d02f", 
+      "abstract_input": 126, 
+      "value": "monks-1_test.tab", 
+      "name": "Monks 1 Test"
     }
   }, 
   {
     "pk": 24, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "84129065-b876-4ce7-ac3a-09d5dd19989b", 
-      "abstract_input": 136, 
-      "value": "breast-cancer.tab", 
-      "name": "Breast Cancer"
+      "uid": "9ab37819-cdd4-4dba-8a38-21bf7d3076f0", 
+      "abstract_input": 126, 
+      "value": "monks-2_test.tab", 
+      "name": "Monks 2 Test"
     }
   }, 
   {
     "pk": 25, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "dd097a8f-01c7-4ec6-b00e-22efe6aeeb61", 
-      "abstract_input": 136, 
-      "value": "breast-cancer-wisconsin.tab", 
-      "name": "Breast Cancer Wisconsin"
+      "uid": "0d832f9c-6fa6-4af9-bbb5-b6bfdabbbe5e", 
+      "abstract_input": 126, 
+      "value": "monks-3_test.tab", 
+      "name": "Monks 3 Test"
     }
   }, 
   {
     "pk": 26, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "45898880-5a9e-4b8f-9a04-d04c77a0ab28", 
-      "abstract_input": 136, 
-      "value": "car.tab", 
-      "name": "Car Evaluation"
+      "uid": "f498f469-904c-4e36-88d1-9748495e6cf3", 
+      "abstract_input": 126, 
+      "value": "mushroom.tab", 
+      "name": "Mushroom"
     }
   }, 
   {
     "pk": 27, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "2b7b385d-b1c5-4242-86eb-ce77602f2c8b", 
-      "abstract_input": 136, 
-      "value": "voting.tab", 
-      "name": "Congressional Voting Records"
+      "uid": "136a2c2e-a3b6-4abb-88f1-641ca837804b", 
+      "abstract_input": 126, 
+      "value": "post-operative.tab", 
+      "name": "Post-Operative Patient"
     }
   }, 
   {
     "pk": 28, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "e2e36bac-e538-4783-9821-81d57a5eba58", 
-      "abstract_input": 136, 
-      "value": "crx.tab", 
-      "name": "Credit Approval"
+      "uid": "8ecb78b9-17d4-48d7-8bdf-09c09445a569", 
+      "abstract_input": 126, 
+      "value": "tic_tac_toe.tab", 
+      "name": "Tic Tac Toe"
     }
   }, 
   {
     "pk": 29, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "33892420-6b22-4262-93d8-45f8c0fb05f8", 
-      "abstract_input": 136, 
-      "value": "glass.tab", 
-      "name": "Glass Identification"
+      "uid": "d7033002-c7de-4295-84ff-c9a9b2e32cb6", 
+      "abstract_input": 126, 
+      "value": "wine.tab", 
+      "name": "Wine"
     }
   }, 
   {
     "pk": 30, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "346d63f4-53ec-40d1-8080-e97e1f8b7663", 
-      "abstract_input": 136, 
-      "value": "heart_disease.tab", 
-      "name": "Heart Disease"
+      "uid": "1b451375-329b-46f2-b471-9e4d7d0bc6ca", 
+      "abstract_input": 126, 
+      "value": "yeast.tab", 
+      "name": "Yeast"
     }
   }, 
   {
     "pk": 31, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "6edc1a09-369f-4465-8b0e-0c6f192f0d82", 
-      "abstract_input": 136, 
-      "value": "horse-colic.tab", 
-      "name": "Horse Colic"
-    }
-  }, 
-  {
-    "pk": 32, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "1e765b4f-0c6f-43d6-a4c8-630faa528030", 
-      "abstract_input": 136, 
-      "value": "housing.tab", 
-      "name": "Housing"
-    }
-  }, 
-  {
-    "pk": 33, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "e14dbdbb-5849-4a56-b8be-8fc2d75d280d", 
-      "abstract_input": 136, 
-      "value": "ionosphere.tab", 
-      "name": "Ionosphere"
-    }
-  }, 
-  {
-    "pk": 34, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "bfd3ffc2-f47c-487f-bfa1-4331a1c5aa3c", 
-      "abstract_input": 136, 
-      "value": "iris.tab", 
-      "name": "Iris"
-    }
-  }, 
-  {
-    "pk": 35, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "695fadad-4433-4d51-88d9-c6ca9ccf0730", 
-      "abstract_input": 136, 
-      "value": "kr-vs-kp.tab", 
-      "name": "King Rook vs. King Pawn"
-    }
-  }, 
-  {
-    "pk": 36, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "27f607c8-651a-4637-a4ab-4f7f12a0a37f", 
-      "abstract_input": 136, 
-      "value": "lenses.tab", 
-      "name": "Lenses"
-    }
-  }, 
-  {
-    "pk": 37, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "66a974be-f910-4710-a18a-87a98136ae7d", 
-      "abstract_input": 136, 
-      "value": "bupa.tab", 
-      "name": "Liver Disorder (BUPA)"
-    }
-  }, 
-  {
-    "pk": 38, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "338f8871-e237-4c35-a34c-03228248deac", 
-      "abstract_input": 136, 
-      "value": "lung-cancer.tab", 
-      "name": "Lung Cancer"
-    }
-  }, 
-  {
-    "pk": 39, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "b0a9f5aa-1b16-4dba-981d-eb9145883700", 
-      "abstract_input": 136, 
-      "value": "promoters.tab", 
-      "name": "Molecular Biology (Promoter Gene Sequences)"
-    }
-  }, 
-  {
-    "pk": 40, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "a316eaf4-053b-4b02-9c96-c5f80f06d02f", 
-      "abstract_input": 136, 
-      "value": "monks-1_test.tab", 
-      "name": "Monks 1 Test"
-    }
-  }, 
-  {
-    "pk": 41, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "9ab37819-cdd4-4dba-8a38-21bf7d3076f0", 
-      "abstract_input": 136, 
-      "value": "monks-2_test.tab", 
-      "name": "Monks 2 Test"
-    }
-  }, 
-  {
-    "pk": 42, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "0d832f9c-6fa6-4af9-bbb5-b6bfdabbbe5e", 
-      "abstract_input": 136, 
-      "value": "monks-3_test.tab", 
-      "name": "Monks 3 Test"
-    }
-  }, 
-  {
-    "pk": 43, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "f498f469-904c-4e36-88d1-9748495e6cf3", 
-      "abstract_input": 136, 
-      "value": "mushroom.tab", 
-      "name": "Mushroom"
-    }
-  }, 
-  {
-    "pk": 44, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "136a2c2e-a3b6-4abb-88f1-641ca837804b", 
-      "abstract_input": 136, 
-      "value": "post-operative.tab", 
-      "name": "Post-Operative Patient"
-    }
-  }, 
-  {
-    "pk": 45, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "8ecb78b9-17d4-48d7-8bdf-09c09445a569", 
-      "abstract_input": 136, 
-      "value": "tic_tac_toe.tab", 
-      "name": "Tic Tac Toe"
-    }
-  }, 
-  {
-    "pk": 46, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "d7033002-c7de-4295-84ff-c9a9b2e32cb6", 
-      "abstract_input": 136, 
-      "value": "wine.tab", 
-      "name": "Wine"
-    }
-  }, 
-  {
-    "pk": 47, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "1b451375-329b-46f2-b471-9e4d7d0bc6ca", 
-      "abstract_input": 136, 
-      "value": "yeast.tab", 
-      "name": "Yeast"
-    }
-  }, 
-  {
-    "pk": 48, 
-    "model": "workflows.abstractoption", 
-    "fields": {
       "uid": "d1464e56-53fc-47fd-b1b4-43d635159c45", 
-      "abstract_input": 136, 
+      "abstract_input": 126, 
       "value": "zoo.tab", 
       "name": "Zoo"
     }
   }, 
   {
-    "pk": 87, 
+    "pk": 81, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 70, 
+      "widget": 65, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "data", 
@@ -3895,7 +3895,7 @@
     }
   }, 
   {
-    "pk": 13, 
+    "pk": 12, 
     "model": "workflows.category", 
     "fields": {
       "uid": "81efce93-b6c5-4270-bde9-ec946a394b10", 
@@ -3907,10 +3907,10 @@
     }
   }, 
   {
-    "pk": 71, 
+    "pk": 66, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 13, 
+      "category": 12, 
       "treeview_image": "", 
       "name": "Filter ReliefF", 
       "is_streaming": false, 
@@ -3918,7 +3918,7 @@
       "interaction_view": "", 
       "image": "", 
       "package": "cforange", 
-      "static_image": "", 
+      "static_image": "relieff.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -3932,10 +3932,10 @@
     }
   }, 
   {
-    "pk": 137, 
+    "pk": 127, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 71, 
+      "widget": 66, 
       "name": "Dataset", 
       "short_name": "odt", 
       "uid": "2dc5a9e7-06c8-494f-9f4b-80b3c5eb31ff", 
@@ -3950,10 +3950,10 @@
     }
   }, 
   {
-    "pk": 138, 
+    "pk": 128, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 71, 
+      "widget": 66, 
       "name": "k", 
       "short_name": "k", 
       "uid": "3ef628d4-03af-4d46-b90b-6c4475054d31", 
@@ -3963,15 +3963,15 @@
       "parameter_type": "text", 
       "variable": "k", 
       "parameter": true, 
-      "order": 1, 
+      "order": 2, 
       "description": ""
     }
   }, 
   {
-    "pk": 139, 
+    "pk": 129, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 71, 
+      "widget": 66, 
       "name": "m", 
       "short_name": "m", 
       "uid": "9b3082b4-5903-41cb-a4c0-63d471f80f57", 
@@ -3981,15 +3981,15 @@
       "parameter_type": "text", 
       "variable": "m", 
       "parameter": true, 
-      "order": 1, 
+      "order": 3, 
       "description": ""
     }
   }, 
   {
-    "pk": 140, 
+    "pk": 130, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 71, 
+      "widget": 66, 
       "name": "margin", 
       "short_name": "mrg", 
       "uid": "1cce36a4-167d-4a23-83ee-eae626a3b492", 
@@ -3999,15 +3999,15 @@
       "parameter_type": "text", 
       "variable": "margin", 
       "parameter": true, 
-      "order": 1, 
+      "order": 4, 
       "description": ""
     }
   }, 
   {
-    "pk": 88, 
+    "pk": 82, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 71, 
+      "widget": 66, 
       "name": "New Dataset", 
       "short_name": "odt", 
       "variable": "new_dataset", 
@@ -4017,10 +4017,10 @@
     }
   }, 
   {
-    "pk": 72, 
+    "pk": 67, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 13, 
+      "category": 12, 
       "treeview_image": "", 
       "name": "Score estimation (Relief)", 
       "is_streaming": false, 
@@ -4042,10 +4042,10 @@
     }
   }, 
   {
-    "pk": 141, 
+    "pk": 131, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 72, 
+      "widget": 67, 
       "name": "Dataset", 
       "short_name": "odt", 
       "uid": "964fbb76-a749-4775-a665-ff0242b7dc2c", 
@@ -4060,10 +4060,10 @@
     }
   }, 
   {
-    "pk": 142, 
+    "pk": 132, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 72, 
+      "widget": 67, 
       "name": "k", 
       "short_name": "k", 
       "uid": "d6f4067c-39c3-4ea5-80f8-77759db7b2dc", 
@@ -4078,10 +4078,10 @@
     }
   }, 
   {
-    "pk": 143, 
+    "pk": 133, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 72, 
+      "widget": 67, 
       "name": "m", 
       "short_name": "m", 
       "uid": "cc9cff1e-75d7-474c-8408-dc39aec692af", 
@@ -4096,10 +4096,10 @@
     }
   }, 
   {
-    "pk": 89, 
+    "pk": 83, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 72, 
+      "widget": 67, 
       "name": "Scores", 
       "short_name": "sco", 
       "variable": "results", 
@@ -4109,10 +4109,10 @@
     }
   }, 
   {
-    "pk": 73, 
+    "pk": 68, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 13, 
+      "category": 12, 
       "treeview_image": "", 
       "name": "Select Attributes Above Threshold", 
       "is_streaming": false, 
@@ -4134,10 +4134,10 @@
     }
   }, 
   {
-    "pk": 144, 
+    "pk": 134, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 73, 
+      "widget": 68, 
       "name": "Dataset", 
       "short_name": "odt", 
       "uid": "ca1fcc61-3c66-4908-a381-0974fecda1a1", 
@@ -4152,10 +4152,10 @@
     }
   }, 
   {
-    "pk": 145, 
+    "pk": 135, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 73, 
+      "widget": 68, 
       "name": "Scores", 
       "short_name": "sco", 
       "uid": "2e60fc2e-3470-46d3-a64f-ab1e7c75487b", 
@@ -4170,10 +4170,10 @@
     }
   }, 
   {
-    "pk": 146, 
+    "pk": 136, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 73, 
+      "widget": 68, 
       "name": "Threshold", 
       "short_name": "thr", 
       "uid": "2ee5a729-2e13-49c0-805b-120833d80909", 
@@ -4188,10 +4188,10 @@
     }
   }, 
   {
-    "pk": 90, 
+    "pk": 84, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 73, 
+      "widget": 68, 
       "name": "New Dataset", 
       "short_name": "odt", 
       "variable": "new_dataset", 
@@ -4201,10 +4201,10 @@
     }
   }, 
   {
-    "pk": 74, 
+    "pk": 69, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 13, 
+      "category": 12, 
       "treeview_image": "", 
       "name": "Select best N attributes", 
       "is_streaming": false, 
@@ -4226,10 +4226,10 @@
     }
   }, 
   {
-    "pk": 147, 
+    "pk": 137, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 74, 
+      "widget": 69, 
       "name": "Dataset", 
       "short_name": "odt", 
       "uid": "b41c9bbf-7405-451d-8dda-794ce850d452", 
@@ -4244,10 +4244,10 @@
     }
   }, 
   {
-    "pk": 148, 
+    "pk": 138, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 74, 
+      "widget": 69, 
       "name": "Scores", 
       "short_name": "sco", 
       "uid": "a19e140e-4aab-4491-9536-992152a3d56f", 
@@ -4262,10 +4262,10 @@
     }
   }, 
   {
-    "pk": 149, 
+    "pk": 139, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 74, 
+      "widget": 69, 
       "name": "N", 
       "short_name": "n", 
       "uid": "af3d33a6-674f-42c6-a092-abfd65196617", 
@@ -4280,10 +4280,10 @@
     }
   }, 
   {
-    "pk": 91, 
+    "pk": 85, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 74, 
+      "widget": 69, 
       "name": "New Dataset", 
       "short_name": "odt", 
       "variable": "new_dataset", 
