@@ -2,8 +2,8 @@
 # WARNING: THIS IS AUTOMATICALLY GENERATED FILE, DO NOT EDIT IT MANUALLY AS YOU MAY LOOSE YOUR CHANGES!
 # -----------------------------------------------------------------------------------------------------
 
-from serialization_utils import *
 from import_dotnet import *
+from serialization_utils import *
 
 def latino_flatten_object_to_string_array(inputDict):
     _data = ToNetObj(inputDict['data'])
@@ -15,9 +15,9 @@ def latino_flatten_object_to_string_array(inputDict):
 
 def latino_load_adc(inputDict):
     _file = ToString(inputDict['file'])
-    _leadingLabels = ToBool(inputDict['leadingLabels'])
     _tabSeparatedTitle = ToBool(inputDict['tabSeparatedTitle'])
-    execResult = LatinoCF.LoadADC(_file, _leadingLabels, _tabSeparatedTitle)
+    _leadingLabels = ToBool(inputDict['leadingLabels'])
+    execResult = LatinoCF.LoadADC(_file, _tabSeparatedTitle, _leadingLabels)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
     outputDict['adc'] = execResultPy
@@ -25,9 +25,9 @@ def latino_load_adc(inputDict):
 
 def latino_load_adcfrom_string(inputDict):
     _plainString = ToString(inputDict['plainString'])
-    _leadingLabels = ToBool(inputDict['leadingLabels'])
     _tabSeparatedTitle = ToBool(inputDict['tabSeparatedTitle'])
-    execResult = LatinoCF.LoadADCFromString(_plainString, _leadingLabels, _tabSeparatedTitle)
+    _leadingLabels = ToBool(inputDict['leadingLabels'])
+    execResult = LatinoCF.LoadADCFromString(_plainString, _tabSeparatedTitle, _leadingLabels)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
     outputDict['adc'] = execResultPy
@@ -84,7 +84,8 @@ def latino_add_documents_features(inputDict):
 def latino_split_documents_by_feature_value(inputDict):
     _adc = ToNetObj(inputDict['adc'])
     _featureCondition = ToString(inputDict['featureCondition'])
-    execResult = LatinoCF.SplitDocumentsByFeatureValue(_adc, _featureCondition)
+    _discardFilteredOut = ToBool(inputDict['discardFilteredOut'])
+    execResult = LatinoCF.SplitDocumentsByFeatureValue(_adc, _featureCondition, _discardFilteredOut)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
     outputDict['adcFiltered'] = execResultPy['adcFiltered']

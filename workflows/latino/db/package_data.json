@@ -7,7 +7,7 @@
       "parent": null,
       "workflow": null,
       "user": null,
-      "order": 1,
+      "order": 2,
       "name": "Latino"
     }
   },
@@ -71,14 +71,14 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 144090684,
-      "name": "First words in line with preceding exclamation (!) present labels",
+      "name": "Text before the first tabulator [/t] represents the title of a document",
       "short_name": "bol",
       "uid": "cb7ddfe9-08ad-6b8a-d1fa-76cd91888d5e",
       "default": "false",
       "required": true,
       "multi": false,
       "parameter_type": "checkbox",
-      "variable": "leadingLabels",
+      "variable": "tabSeparatedTitle",
       "parameter": true,
       "order": 2,
       "description": "System.Boolean"
@@ -89,14 +89,14 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 144090684,
-      "name": "Text before the first tabulator [/t] represents the title of a document",
+      "name": "First words in a line (after optional title) with preceding exclamation (!) present labels",
       "short_name": "bol",
       "uid": "bc7ca808-781e-4de4-09cb-2bf3ff1f8954",
       "default": "false",
       "required": true,
       "multi": false,
       "parameter_type": "checkbox",
-      "variable": "tabSeparatedTitle",
+      "variable": "leadingLabels",
       "parameter": true,
       "order": 3,
       "description": "System.Boolean"
@@ -163,14 +163,14 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 6330651,
-      "name": "First words in line with preceding exclamation (!) present labels",
+      "name": "Text before the first tabulator [/t] represents the title of a document",
       "short_name": "bol",
       "uid": "18f37a99-5141-f7d2-108e-49ee6505c3da",
       "default": "false",
       "required": true,
       "multi": false,
       "parameter_type": "checkbox",
-      "variable": "leadingLabels",
+      "variable": "tabSeparatedTitle",
       "parameter": true,
       "order": 2,
       "description": "System.Boolean"
@@ -181,14 +181,14 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 6330651,
-      "name": "Text before the first tabulator [/t] represents the title of a document",
+      "name": "First words in a line (after optional title) with preceding exclamation (!) present labels",
       "short_name": "bol",
       "uid": "c696eb66-0d08-ea16-7d68-57d160e613f3",
       "default": "false",
       "required": true,
       "multi": false,
       "parameter_type": "checkbox",
-      "variable": "tabSeparatedTitle",
+      "variable": "leadingLabels",
       "parameter": true,
       "order": 3,
       "description": "System.Boolean"
@@ -395,7 +395,7 @@
       "variable": "elementFeatureConditions",
       "parameter": true,
       "order": 3,
-      "description": "Condition which tokens to include based on their features.\nFormat examples:\n-Feature1 (don't include tokens with Feature1 set ta any value)\n-Feature1=Value1 (don't include tokens with Feature1 set to the value Value1)\n-Feature1 +Feature2 (don't include tokens with Feature1 set unless it has also Feature2 set)\n-Feature1=Value1 +Feature2 (don't include tokens with Feature1 set to Value1 unless it has also Feature2 set to any value)..."
+      "description": "Condition which tokens to include based on their features.\r\nFormat examples:\r\n-Feature1 (don\u0027t include tokens with Feature1 set ta any value)\r\n-Feature1=Value1 (don\u0027t include tokens with Feature1 set to the value Value1)\r\n-Feature1 +Feature2 (don\u0027t include tokens with Feature1 set unless it has also Feature2 set)\r\n-Feature1=Value1 +Feature2 (don\u0027t include tokens with Feature1 set to Value1 unless it has also Feature2 set to any value)..."
     }
   },
   {
@@ -591,7 +591,7 @@
       "variable": "featureValues",
       "parameter": false,
       "order": 2,
-      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -702,6 +702,24 @@
       "parameter": true,
       "order": 2,
       "description": "System.String"
+    }
+  },
+  {
+    "pk": 284041807,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 822745258,
+      "name": "Discard The Rest (The Filtered Out)",
+      "short_name": "bol",
+      "uid": "cda48ea0-9018-41c0-6ef7-7710f48ac59f",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "discardFilteredOut",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
     }
   },
   {
@@ -2988,14 +3006,14 @@
       "name": "Token Tagger",
       "short_name": "tgr",
       "uid": "4b53bed0-7e83-30a8-6bc7-00c61010082a",
-      "default": "Output feature name specifies how the token will be tagged (assigend the feature to)\nIf multiple taggers are used then one line per tagger must be specified.",
+      "default": "Output feature name specifies how the token will be tagged (assigend the feature to)\r\nIf multiple taggers are used then one line per tagger must be specified.",
       "required": true,
       "multi": false,
       "parameter_type": null,
       "variable": "tagger",
       "parameter": false,
       "order": 2,
-      "description": "Token Annotation of the token to be tagged. If also the feature name is used than the feature value of selected token will be tagged.\nUsage: \n1. TokenName\n2. TokenName/FeatureName\nIf multiple taggers are used then one line per tagger must be specified."
+      "description": "Token Annotation of the token to be tagged. If also the feature name is used than the feature value of selected token will be tagged.\r\nUsage: \r\n1. TokenName\r\n2. TokenName/FeatureName\r\nIf multiple taggers are used then one line per tagger must be specified."
     }
   },
   {
@@ -3301,7 +3319,7 @@
       "variable": "featureCondition",
       "parameter": true,
       "order": 1,
-      "description": "Condition which tokens to include based on their features.\nFormat examples:\n-Feature1 (don't include tokens with Feature1 set ta any value)\n-Feature1=Value1 (don't include tokens with Feature1 set to the value Value1)\n-Feature1 +Feature2 (don't include tokens with Feature1 set unless it has also Feature2 set)\n-Feature1=Value1 +Feature2 (don't include tokens with Feature1 set to Value1 unless it has also Feature2 set to any value)..."
+      "description": "Condition which tokens to include based on their features.\r\nFormat examples:\r\n-Feature1 (don\u0027t include tokens with Feature1 set ta any value)\r\n-Feature1=Value1 (don\u0027t include tokens with Feature1 set to the value Value1)\r\n-Feature1 +Feature2 (don\u0027t include tokens with Feature1 set unless it has also Feature2 set)\r\n-Feature1=Value1 +Feature2 (don\u0027t include tokens with Feature1 set to Value1 unless it has also Feature2 set to any value)..."
     }
   },
   {
@@ -3337,7 +3355,7 @@
       "variable": "elementsTextToFeatureValue",
       "parameter": true,
       "order": 3,
-      "description": "If set to true than token or token's feature text is asigned as output feature value"
+      "description": "If set to true than token or token\u0027s feature text is asigned as output feature value"
     }
   },
   {
@@ -3429,7 +3447,7 @@
       "variable": "elementAnnotations",
       "parameter": true,
       "order": 3,
-      "description": "Token Annotation of the token to be tagged. If also the feature name is used than the feature value of selected token will be tagged.\nUsage: \n1. TokenName\n2. TokenName/FatureName\n3. GroupTokenName/TokenName/FatureName\nIf multiple taggers are used then one line per tagger must be specified."
+      "description": "Token Annotation of the token to be tagged. If also the feature name is used than the feature value of selected token will be tagged.\r\nUsage: \r\n1. TokenName\r\n2. TokenName/FatureName\r\n3. GroupTokenName/TokenName/FatureName\r\nIf multiple taggers are used then one line per tagger must be specified."
     }
   },
   {
@@ -3447,7 +3465,7 @@
       "variable": "outputFeatures",
       "parameter": true,
       "order": 4,
-      "description": "Output feature name specifies how the token will be tagged (assigend the feature to)\nIf multiple taggers are used then one line per tagger must be specified."
+      "description": "Output feature name specifies how the token will be tagged (assigend the feature to)\r\nIf multiple taggers are used then one line per tagger must be specified."
     }
   },
   {
@@ -4202,7 +4220,7 @@
       "variable": "stopwords",
       "parameter": false,
       "order": 4,
-      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -4487,7 +4505,7 @@
       "variable": "ds",
       "parameter": false,
       "order": 1,
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -4505,7 +4523,7 @@
       "variable": "labels",
       "parameter": false,
       "order": 2,
-      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -4561,7 +4579,7 @@
       "variable": "ds",
       "parameter": false,
       "order": 1,
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -4617,7 +4635,7 @@
       "variable": "ds",
       "parameter": false,
       "order": 1,
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -4673,7 +4691,7 @@
       "variable": "ds",
       "parameter": false,
       "order": 1,
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -4778,7 +4796,7 @@
       "variable": "ds",
       "parameter": false,
       "order": 1,
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -4895,7 +4913,7 @@
       "variable": "ds1",
       "parameter": false,
       "order": 1,
-      "description": "Latino.Model.IUnlabeledExampleCollection`1[[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.IUnlabeledExampleCollection`1[[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -4913,7 +4931,7 @@
       "variable": "ds2",
       "parameter": false,
       "order": 2,
-      "description": "Latino.Model.IUnlabeledExampleCollection`1[[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.IUnlabeledExampleCollection`1[[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -5005,7 +5023,7 @@
       "variable": "smx",
       "parameter": false,
       "order": 1,
-      "description": "Latino.SparseMatrix`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "Latino.SparseMatrix`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -5453,7 +5471,7 @@
       "variable": "dataset",
       "parameter": false,
       "order": 2,
-      "description": "Latino.Model.IUnlabeledExampleCollection`1[[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.IUnlabeledExampleCollection`1[[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -6613,7 +6631,7 @@
       "variable": "csf",
       "parameter": false,
       "order": 1,
-      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -6631,7 +6649,7 @@
       "variable": "ds",
       "parameter": false,
       "order": 2,
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -6687,7 +6705,7 @@
       "variable": "csf",
       "parameter": false,
       "order": 1,
-      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -6705,7 +6723,7 @@
       "variable": "ds",
       "parameter": false,
       "order": 2,
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -6774,7 +6792,7 @@
       "variable": "predictions",
       "parameter": false,
       "order": 1,
-      "description": "System.Collections.Generic.List`1[[Latino.Model.Prediction`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "System.Collections.Generic.List`1[[Latino.Model.Prediction`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -6843,7 +6861,7 @@
       "variable": "csf",
       "parameter": false,
       "order": 1,
-      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -6861,7 +6879,7 @@
       "variable": "ds",
       "parameter": false,
       "order": 2,
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -6989,7 +7007,7 @@
       "variable": "csf",
       "parameter": false,
       "order": 1,
-      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -7007,7 +7025,7 @@
       "variable": "ds",
       "parameter": false,
       "order": 2,
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -7025,7 +7043,7 @@
       "variable": "sets",
       "parameter": false,
       "order": 3,
-      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -7172,14 +7190,14 @@
     }
   },
   {
-    "pk": 673028489,
+    "pk": 336761152,
     "model": "workflows.category",
     "fields": {
-      "uid": "438cb7e7-d0e5-4bb9-9cad-10f6907ec568",
-      "parent": 226420051,
+      "uid": "1b800757-2c72-4663-b3e4-2f2b61f609ff",
+      "parent": null,
       "workflow": null,
       "user": null,
-      "order": 10,
+      "order": 4,
       "name": "Helpers"
     }
   },
@@ -7187,7 +7205,7 @@
     "pk": 44350287,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 673028489,
+      "category": 336761152,
       "treeview_image": null,
       "name": "Flatten String Hierarchy",
       "is_streaming": false,
@@ -7243,7 +7261,7 @@
     "pk": 1049809873,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 673028489,
+      "category": 336761152,
       "treeview_image": null,
       "name": "Display Table",
       "is_streaming": false,
@@ -7286,7 +7304,7 @@
     "pk": 842764734,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 673028489,
+      "category": 336761152,
       "treeview_image": null,
       "name": "Generate Integer Range",
       "is_streaming": false,
@@ -7378,7 +7396,7 @@
     "pk": 852454843,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 673028489,
+      "category": 336761152,
       "treeview_image": null,
       "name": "Python Snippet",
       "is_streaming": false,
@@ -7425,7 +7443,7 @@
       "name": "Python Snippet Code",
       "short_name": "py",
       "uid": "1991f19a-463b-d851-aab6-72facc87a2f1",
-      "default": "# This is the Python Code Snippet where you can modify the data however is needed.\n# Varaible \"in1\" .. \"inN\" contains whatever you connected to the input port\n# Whatever is assigned to the variable \"out1\" will be transfered to the output port.\n\nout1 = in1",
+      "default": "# This is the Python Code Snippet where you can modify the data however is needed.\r\n# Varaible \"in1\" .. \"inN\" contains whatever you connected to the input port\r\n# Whatever is assigned to the variable \"out1\" will be transfered to the output port.\r\n\r\nout1 = in1",
       "required": true,
       "multi": false,
       "parameter_type": "textarea",
@@ -7452,7 +7470,7 @@
     "pk": 872247456,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 673028489,
+      "category": 336761152,
       "treeview_image": null,
       "name": "Split Object",
       "is_streaming": false,
@@ -7506,7 +7524,7 @@
       "variable": "attribute",
       "parameter": true,
       "order": 2,
-      "description": "if one wants to extract object's attributes, leading dot should be used."
+      "description": "if one wants to extract object\u0027s attributes, leading dot should be used."
     }
   },
   {
@@ -7526,7 +7544,7 @@
     "pk": 847943239,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 673028489,
+      "category": 336761152,
       "treeview_image": null,
       "name": "C#.NET Snippet",
       "is_streaming": false,
@@ -7573,7 +7591,7 @@
       "name": "C# Snippet Code",
       "short_name": "cs",
       "uid": "2ec1a3c4-e2aa-bf52-c253-ba4473c26938",
-      "default": "// This is the C#.NET Code Snippet where you can modify the data.\n// Varaible \"in1\" .. \"inN\" contains whatever you connected to the input port\n// Input variables are correctly typed.\n// Whatever is assigned to the variable \"out1\" will be transfered to the output port.\nout1 = in1;",
+      "default": "// This is the C#.NET Code Snippet where you can modify the data.\r\n// Varaible \"in1\" .. \"inN\" contains whatever you connected to the input port\r\n// Input variables are correctly typed.\r\n// Whatever is assigned to the variable \"out1\" will be transfered to the output port.\r\nout1 = in1;",
       "required": true,
       "multi": false,
       "parameter_type": "textarea",
@@ -7591,7 +7609,7 @@
       "name": "Additional References (imports)",
       "short_name": "str",
       "uid": "5ae25dd8-d110-b97b-615b-6a5810dd7ef0",
-      "default": "System.dll\nSystem.Xml.dll\nworkflows\\latino\\bin\\Latino.dll\nworkflows\\latino\\bin\\LatinoWorkflows.dll\nworkflows\\latino\\bin\\LatinoClowdFlows.dll",
+      "default": "System.dll\r\nSystem.Xml.dll\r\nworkflows\\latino\\bin\\Latino.dll\r\nworkflows\\latino\\bin\\LatinoWorkflows.dll\r\nworkflows\\latino\\bin\\LatinoClowdFlows.dll",
       "required": false,
       "multi": false,
       "parameter_type": "textarea",
@@ -7609,7 +7627,7 @@
       "name": "Namespace Section (using directives)",
       "short_name": "str",
       "uid": "6cb80407-d2c4-f810-c9cd-34527394644c",
-      "default": "using System;\nusing System.Collections.Generic;\nusing Latino;\nusing Latino.TextMining;\nusing LatinoClowdFlows;",
+      "default": "using System;\r\nusing System.Collections.Generic;\r\nusing Latino;\r\nusing Latino.TextMining;\r\nusing LatinoClowdFlows;",
       "required": false,
       "multi": false,
       "parameter_type": "textarea",
@@ -7675,9 +7693,9 @@
     "pk": 456683856,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 673028489,
+      "category": 336761152,
       "treeview_image": null,
-      "name": "Advanced object viewer",
+      "name": "Advanced Object Viewer",
       "is_streaming": false,
       "uid": "f03856df-f050-40d3-b0ea-105dd946a73f",
       "interaction_view": "",
