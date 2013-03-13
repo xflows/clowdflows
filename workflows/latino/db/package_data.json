@@ -3877,16 +3877,6 @@
     }
   },
   {
-    "pk": 1065576464,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "3d220d77-3233-6508-4420-1999a16f86ee",
-      "abstract_input": 468726335,
-      "value": "Dyakonov",
-      "name": "Dyakonov"
-    }
-  },
-  {
     "pk": 498476744,
     "model": "workflows.abstractinput",
     "fields": {
@@ -4305,16 +4295,6 @@
       "abstract_input": 337890314,
       "value": "LogDfTfIdf",
       "name": "Log Df Tf Idf"
-    }
-  },
-  {
-    "pk": 370017342,
-    "model": "workflows.abstractoption",
-    "fields": {
-      "uid": "718c39f4-26d5-b154-0b62-e1a5247f22ca",
-      "abstract_input": 337890314,
-      "value": "Dyakonov",
-      "name": "Dyakonov"
     }
   },
   {
