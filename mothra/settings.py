@@ -175,6 +175,7 @@ INSTALLED_APPS_DEFAULT = (
     'django.contrib.humanize',
     'orderable_inlines',
     'workflows',
+    'picklefield'
     )
 
 INSTALLED_APPS_CONCUR = (

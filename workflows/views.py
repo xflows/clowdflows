@@ -268,13 +268,15 @@ def add_connection(request):
         mimetype = 'application/javascript'
         message = ""
         previousExists=False
-        i = get_object_or_404(Input, pk=request.POST['input_id'])
-        o = get_object_or_404(Output, pk=request.POST['output_id'])
+        i = Input.objects.defer("value").get(pk=request.POST['input_id'])
+        #i = get_object_or_404(Input, pk=request.POST['input_id'])
+        o = Output.objects.defer("value").get(pk=request.POST['output_id'])
+        #o = get_object_or_404(Output, pk=request.POST['output_id'])
         if (i.widget.workflow==o.widget.workflow and i.widget.workflow.user == request.user):
             if Connection.objects.filter(input=i).exists():
                 previousExists=True
                 new_c = Connection.objects.get(input=i)
-                oldOutput = new_c.output
+                oldOutput = Output.objects.defer("value").get(pk=new_c.output_id)
                 deleted=new_c.id
             else:
                 new_c = Connection()
@@ -572,7 +574,11 @@ def synchronize_widgets(request):
     if request.is_ajax() or DEBUG:
         w = get_object_or_404(Workflow,pk=request.POST['workflow_id'])
         if (w.user==request.user):
-            return render(request, 'widgets.html', {'widgets':w.widgets.all()})
+            widgets = w.widgets.all()
+            for w in widgets:
+                w.defered_outputs = w.outputs.defer("value").all()
+                w.defered_inputs = w.inputs.defer("value").all()
+            return render(request, 'widgets.html', {'widgets':widgets})
         else:
             return HttpResponse(status=400)
     else:
