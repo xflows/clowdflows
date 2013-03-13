@@ -92,6 +92,17 @@ def latino_split_documents_by_feature_value(inputDict):
     outputDict['adcRest'] = execResultPy['adcRest']
     return outputDict
 
+def latino_extract_documents(inputDict):
+    _adc = ToNetObj(inputDict['adc'])
+    _indexList = ToNetObj(inputDict['indexList'])
+    _discardFilteredOut = ToBool(inputDict['discardFilteredOut'])
+    execResult = LatinoCF.ExtractDocuments(_adc, _indexList, _discardFilteredOut)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['adcFiltered'] = execResultPy['adcFiltered']
+    outputDict['adcRest'] = execResultPy['adcRest']
+    return outputDict
+
 def latino_mark_documents_with_set_feature(inputDict):
     _adc = ToNetObj(inputDict['adc'])
     _featureName = ToString(inputDict['featureName'])
@@ -114,6 +125,43 @@ def latino_corpus_statistics(inputDict):
     outputDict['docCount'] = execResultPy['docCount']
     outputDict['featureCount'] = execResultPy['featureCount']
     outputDict['description'] = execResultPy['description']
+    return outputDict
+
+def latino_random_cross_validation_sets(inputDict):
+    _numOfSets = ToInt(inputDict['numOfSets'])
+    _numOfExamples = ToInt(inputDict['numOfExamples'])
+    _random = ToBool(inputDict['random'])
+    _useSeed = ToBool(inputDict['useSeed'])
+    _randomSeed = ToInt(inputDict['randomSeed'])
+    _examples = ToNetObj(inputDict['examples'])
+    execResult = LatinoCF.RandomCrossValidationSets(_numOfSets, _numOfExamples, _random, _useSeed, _randomSeed, _examples)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['exampleSetId'] = execResultPy
+    return outputDict
+
+def latino_random_sequential_validation_sets(inputDict):
+    _numOfSets = ToInt(inputDict['numOfSets'])
+    _numOfExamples = ToInt(inputDict['numOfExamples'])
+    _random = ToBool(inputDict['random'])
+    _useSeed = ToBool(inputDict['useSeed'])
+    _randomSeed = ToInt(inputDict['randomSeed'])
+    _trainSize = ToString(inputDict['trainSize'])
+    _testSize = ToString(inputDict['testSize'])
+    _trainTestDelay = ToString(inputDict['trainTestDelay'])
+    _examples = ToNetObj(inputDict['examples'])
+    execResult = LatinoCF.RandomSequentialValidationSets(_numOfSets, _numOfExamples, _random, _useSeed, _randomSeed, _trainSize, _testSize, _trainTestDelay, _examples)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['dict'] = execResultPy
+    return outputDict
+
+def latino_get_multi_set_indexes(inputDict):
+    _sets = ToNetObj(inputDict['sets'])
+    execResult = LatinoCF.GetMultiSetIndexes(_sets)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['dict'] = execResultPy
     return outputDict
 
 def latino_construct_english_maximum_entropy_sentence_detector(inputDict):
@@ -663,6 +711,16 @@ def latino_cross_validation_predef_splits(inputDict):
     _ds = ToNetObj(inputDict['ds'])
     _sets = ToNetObj(inputDict['sets'])
     execResult = LatinoCF.CrossValidationPredefSplits(_csf, _ds, _sets)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['obj'] = execResultPy
+    return outputDict
+
+def latino_cross_validation_predef_multi_splits(inputDict):
+    _csf = ToNetObj(inputDict['csf'])
+    _ds = ToNetObj(inputDict['ds'])
+    _multiSets = ToNetObj(inputDict['multiSets'])
+    execResult = LatinoCF.CrossValidationPredefMultiSplits(_csf, _ds, _multiSets)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
     outputDict['obj'] = execResultPy

@@ -749,6 +749,111 @@
     }
   },
   {
+    "pk": 357386158,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 840702242,
+      "treeview_image": null,
+      "name": "Extract Documents",
+      "is_streaming": false,
+      "uid": "4f67d94e-fe8c-4309-96cf-6d13a086fc4d",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "adc_split_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_extract_documents",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 6,
+      "description": "Automatically generated widget from function ExtractDocuments in package latino. The original function signature: ExtractDocuments."
+    }
+  },
+  {
+    "pk": 203180030,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 357386158,
+      "name": "Annotated Document Corpus",
+      "short_name": "adc",
+      "uid": "1750fb9e-7e7a-335d-c304-f0b6453acaf9",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "adc",
+      "parameter": false,
+      "order": 1,
+      "description": "LatinoClowdFlows.DocumentCorpus"
+    }
+  },
+  {
+    "pk": 793503217,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 357386158,
+      "name": "List of Document Indexes to be Extracted",
+      "short_name": "lst",
+      "uid": "d044e982-d465-5081-7834-5cb71c2c8160",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "indexList",
+      "parameter": false,
+      "order": 2,
+      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 547978335,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 357386158,
+      "name": "Discard The Rest (The Filtered Out)",
+      "short_name": "bol",
+      "uid": "986aade1-9a84-03e6-5951-d2e2a0eff7a1",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "discardFilteredOut",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 384748439,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 357386158,
+      "name": "Annotated Document Corpus of Extracted Documents",
+      "short_name": "adc",
+      "variable": "adcFiltered",
+      "uid": "e9f552d1-8b0a-c54b-cb00-53fd897c353b",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 851710890,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 357386158,
+      "name": "Annotated Document Corpus of the Rest of Documents",
+      "short_name": "adc",
+      "variable": "adcRest",
+      "uid": "a4b90021-e1fe-90cb-3d97-faf863753aea",
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
     "pk": 1002506927,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -7040,6 +7145,98 @@
     }
   },
   {
+    "pk": 564711357,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 837637361,
+      "treeview_image": null,
+      "name": "Multiple Splits Validation",
+      "is_streaming": false,
+      "uid": "520d10ee-f1de-45d8-bcd8-01fa3e363222",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "classif_cross_valid_predef_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_cross_validation_predef_multi_splits",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 13,
+      "description": "Automatically generated widget from function CrossValidationPredefMultiSplits in package latino. The original function signature: CrossValidationPredefMultiSplits."
+    }
+  },
+  {
+    "pk": 630299332,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 564711357,
+      "name": "Classifier",
+      "short_name": "csf",
+      "uid": "299ac3d4-d939-9d43-349d-2f5be6e8647d",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "csf",
+      "parameter": false,
+      "order": 1,
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 718874634,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 564711357,
+      "name": "Dataset",
+      "short_name": "ds",
+      "uid": "d9f20d4b-7d7a-b113-5e93-e52303416352",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "ds",
+      "parameter": false,
+      "order": 2,
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+    }
+  },
+  {
+    "pk": 830927291,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 564711357,
+      "name": "Multiple Set Indexes",
+      "short_name": "dct",
+      "uid": "fc3ba46a-fdb2-f840-efd7-7d17e4b4f797",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "multiSets",
+      "parameter": false,
+      "order": 3,
+      "description": "Dictionary with multiple predefined split element indexes. {\"train0\":[1,2,3],\"test0\":[4,5],\"train1\":[2,3,4],\"test1\":[5,6]}"
+    }
+  },
+  {
+    "pk": 918188845,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 564711357,
+      "name": "Data Object with results",
+      "short_name": "obj",
+      "variable": "obj",
+      "uid": "7d4746d4-6587-a610-7344-93b6d93e6d49",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 143252862,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -7516,6 +7713,408 @@
       "short_name": "obj",
       "variable": "object",
       "uid": "6817c1ee-8e0f-8e63-f4d6-7c43522b7f10",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 208417517,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 336761152,
+      "treeview_image": null,
+      "name": "Random Cross Validation Sets",
+      "is_streaming": false,
+      "uid": "a6800b60-8109-4b57-8987-5bdaf88c6964",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "helper_general.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_random_cross_validation_sets",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Automatically generated widget from function RandomCrossValidationSets in package latino. The original function signature: RandomCrossValidationSets."
+    }
+  },
+  {
+    "pk": 186462397,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Num of Sets",
+      "short_name": "int",
+      "uid": "5ec6119e-5067-f636-e539-ee4cb168449b",
+      "default": "10",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "numOfSets",
+      "parameter": true,
+      "order": 2,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 370403072,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Num of Examples",
+      "short_name": "int",
+      "uid": "fb61bef0-19b2-cbb3-f10c-65df90e01393",
+      "default": "100",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "numOfExamples",
+      "parameter": true,
+      "order": 1,
+      "description": "This determines the length of the set id list. If input \u0027examples\u0027 is set then len(examples) is used for \u0027numOfExamples\u0027 and this setting is overriden."
+    }
+  },
+  {
+    "pk": 600351675,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Assign Sets Randomly",
+      "short_name": "bol",
+      "uid": "61e5a30d-ed5b-2942-bb39-087186c0857d",
+      "default": "true",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "random",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 755305576,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Use Seed for Random",
+      "short_name": "bol",
+      "uid": "80a229ea-c57a-c590-00cd-d550cfe290a2",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "useSeed",
+      "parameter": true,
+      "order": 4,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 538726487,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Random Seed",
+      "short_name": "int",
+      "uid": "3269cb7f-b771-c58c-9383-57bcc120575b",
+      "default": "0",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "randomSeed",
+      "parameter": true,
+      "order": 5,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 840514865,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Example List",
+      "short_name": "obj",
+      "uid": "67c5f668-0f79-ef4d-b8f0-2e6aa8f87369",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "examples",
+      "parameter": false,
+      "order": 6,
+      "description": "Not required, but if set, then it overrides parameter \u0027numOfExamples\u0027 and len(examples) is used for \u0027numOfExamples\u0027. This should be a type implementing Count, Count() or Length."
+    }
+  },
+  {
+    "pk": 186731366,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 208417517,
+      "name": "Example SetIds List",
+      "short_name": "lst",
+      "variable": "exampleSetId",
+      "uid": "17003e5c-5449-5da4-a22a-c1bcc6ab2647",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 838262560,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 336761152,
+      "treeview_image": null,
+      "name": "Random Sequential Validation Sets",
+      "is_streaming": false,
+      "uid": "5d4f624c-b0e1-4366-9f60-650cb29417e8",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "helper_general.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_random_sequential_validation_sets",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Automatically generated widget from function RandomSequentialValidationSets in package latino. The original function signature: RandomSequentialValidationSets."
+    }
+  },
+  {
+    "pk": 300917682,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 838262560,
+      "name": "Num of Sets",
+      "short_name": "int",
+      "uid": "3c925a37-0ee3-f62e-7b22-d1714d351d1d",
+      "default": "10",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "numOfSets",
+      "parameter": true,
+      "order": 2,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 94406499,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 838262560,
+      "name": "Num of Examples",
+      "short_name": "int",
+      "uid": "462fb6c6-cd17-00fb-d043-1f1ffba08207",
+      "default": "100",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "numOfExamples",
+      "parameter": true,
+      "order": 1,
+      "description": "This determines the length of the set id list. If input \u0027examples\u0027 is set then len(examples) is used for \u0027numOfExamples\u0027 and this setting is overriden."
+    }
+  },
+  {
+    "pk": 961310399,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 838262560,
+      "name": "Assign Sets Randomly",
+      "short_name": "bol",
+      "uid": "a6f0f610-f5f0-849f-8b12-60bf2ec87697",
+      "default": "true",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "random",
+      "parameter": true,
+      "order": 3,
+      "description": "If not set then sets are exactly evenly distributet across the whole dataset."
+    }
+  },
+  {
+    "pk": 323516565,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 838262560,
+      "name": "Use Seed for Random",
+      "short_name": "bol",
+      "uid": "cf82fbf2-afcb-3dfb-e9b0-729905db423e",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "useSeed",
+      "parameter": true,
+      "order": 4,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 204030911,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 838262560,
+      "name": "Random Seed",
+      "short_name": "int",
+      "uid": "8c1254ff-9daf-705a-4538-63c58d0e6ecf",
+      "default": "0",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "randomSeed",
+      "parameter": true,
+      "order": 5,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 205567430,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 838262560,
+      "name": "Size of Train Set",
+      "short_name": "num",
+      "uid": "31018dd7-7d3d-7389-81bf-b62f01ab1aa7",
+      "default": "40%",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "trainSize",
+      "parameter": true,
+      "order": 6,
+      "description": "May be specified as absolute number or number foloweed by \u0027%\u0027 to denote the percentage of the whole dataset."
+    }
+  },
+  {
+    "pk": 105068480,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 838262560,
+      "name": "Size of Test Set",
+      "short_name": "num",
+      "uid": "2d2abe8f-342c-76c1-28e7-81f64f993296",
+      "default": "10%",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "testSize",
+      "parameter": true,
+      "order": 7,
+      "description": "May be specified as absolute number or number foloweed by \u0027%\u0027 to denote the percentage of the whole dataset."
+    }
+  },
+  {
+    "pk": 35171448,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 838262560,
+      "name": "Size of Space Between Train and Test Set",
+      "short_name": "num",
+      "uid": "7907fe83-3ce8-2c40-bda9-f82a0596e58d",
+      "default": "1%",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "trainTestDelay",
+      "parameter": true,
+      "order": 8,
+      "description": "May be specified as absolute number or number foloweed by \u0027%\u0027 to denote the percentage of the whole dataset."
+    }
+  },
+  {
+    "pk": 520932495,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 838262560,
+      "name": "Example List",
+      "short_name": "obj",
+      "uid": "2a148451-6c7d-ce3f-b8e5-d13d64a9c45e",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "examples",
+      "parameter": false,
+      "order": 9,
+      "description": "Not required, but if set, then it overrides parameter \u0027numOfExamples\u0027 and len(examples) is used for \u0027numOfExamples\u0027. This should be a type implementing Count, Count() or Length."
+    }
+  },
+  {
+    "pk": 1049054337,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 838262560,
+      "name": "Multiple Set Indexes",
+      "short_name": "dct",
+      "variable": "dict",
+      "uid": "90a04e2b-c617-c9d9-341c-08b8c3b2c9b7",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 97722211,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 336761152,
+      "treeview_image": null,
+      "name": "Get Multi Set Indexes",
+      "is_streaming": false,
+      "uid": "611632c9-2ad4-447a-b1aa-724ace8515ef",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "helper_general.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_get_multi_set_indexes",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 3,
+      "description": "Generates multiple set indexes from a list of predefined set numbers. See widgets \"Cross Validation (Predefined Splits)\" and \"Multiple Splits Validation\""
+    }
+  },
+  {
+    "pk": 204057506,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 97722211,
+      "name": "Sets (List with predefined set numbers)",
+      "short_name": "lst",
+      "uid": "6e18728d-3123-6783-94a9-06baa4421877",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "sets",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 768389853,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 97722211,
+      "name": "Multiple Set Indexes",
+      "short_name": "dct",
+      "variable": "dict",
+      "uid": "267b5756-9898-150a-1d84-d7555b03842a",
       "order": 1,
       "description": ""
     }
