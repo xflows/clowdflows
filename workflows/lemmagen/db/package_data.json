@@ -387,7 +387,7 @@
       "variable": "table",
       "parameter": false,
       "order": 1,
-      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -1252,152 +1252,6 @@
     }
   },
   {
-    "pk": 208417517,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 336761152,
-      "treeview_image": null,
-      "name": "Random Cross Validation Sets",
-      "is_streaming": false,
-      "uid": "a6800b60-8109-4b57-8987-5bdaf88c6964",
-      "interaction_view": "",
-      "image": null,
-      "package": "lemmagen",
-      "static_image": "helper_general.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "lemmagen_random_cross_validation_sets",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 1,
-      "description": "Automatically generated widget from function RandomCrossValidationSets in package lemmagen. The original function signature: RandomCrossValidationSets."
-    }
-  },
-  {
-    "pk": 186462397,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 208417517,
-      "name": "Num of Sets",
-      "short_name": "int",
-      "uid": "5ec6119e-5067-f636-e539-ee4cb168449b",
-      "default": "10",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "numOfSets",
-      "parameter": true,
-      "order": 2,
-      "description": "System.Int32"
-    }
-  },
-  {
-    "pk": 370403072,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 208417517,
-      "name": "Num of Examples",
-      "short_name": "int",
-      "uid": "fb61bef0-19b2-cbb3-f10c-65df90e01393",
-      "default": "100",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "numOfExamples",
-      "parameter": true,
-      "order": 1,
-      "description": "This determines the length of the set id list. If input \u0027examples\u0027 is set then len(examples) is used for \u0027numOfExamples\u0027 and this setting is overriden."
-    }
-  },
-  {
-    "pk": 600351675,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 208417517,
-      "name": "Assign Sets Randomly",
-      "short_name": "bol",
-      "uid": "61e5a30d-ed5b-2942-bb39-087186c0857d",
-      "default": "true",
-      "required": true,
-      "multi": false,
-      "parameter_type": "checkbox",
-      "variable": "random",
-      "parameter": true,
-      "order": 3,
-      "description": "System.Boolean"
-    }
-  },
-  {
-    "pk": 755305576,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 208417517,
-      "name": "Use Seed for Random",
-      "short_name": "bol",
-      "uid": "80a229ea-c57a-c590-00cd-d550cfe290a2",
-      "default": "false",
-      "required": true,
-      "multi": false,
-      "parameter_type": "checkbox",
-      "variable": "useSeed",
-      "parameter": true,
-      "order": 4,
-      "description": "System.Boolean"
-    }
-  },
-  {
-    "pk": 538726487,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 208417517,
-      "name": "Random Seed",
-      "short_name": "int",
-      "uid": "3269cb7f-b771-c58c-9383-57bcc120575b",
-      "default": "0",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "randomSeed",
-      "parameter": true,
-      "order": 5,
-      "description": "System.Int32"
-    }
-  },
-  {
-    "pk": 840514865,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 208417517,
-      "name": "Example List",
-      "short_name": "lst",
-      "uid": "67c5f668-0f79-ef4d-b8f0-2e6aa8f87369",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "examples",
-      "parameter": false,
-      "order": 6,
-      "description": "Not required, but if set, then it overrides parameter \u0027numOfExamples\u0027 and len(examples) is used for \u0027numOfExamples\u0027. List may be any list (interface IList) or clowdflows table type (type Dictionary\u003cLinkedList\u003cstring\u003e, List\u003cList\u003cstring\u003e\u003e\u003e)."
-    }
-  },
-  {
-    "pk": 186731366,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 208417517,
-      "name": "Example SetIds List",
-      "short_name": "lst",
-      "variable": "exampleSetId",
-      "uid": "17003e5c-5449-5da4-a22a-c1bcc6ab2647",
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
     "pk": 334529260,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -1547,7 +1401,7 @@
       "variable": "indexList",
       "parameter": false,
       "order": 2,
-      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -1902,7 +1756,7 @@
       "variable": "table",
       "parameter": false,
       "order": 1,
-      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -1920,7 +1774,7 @@
       "variable": "indexList",
       "parameter": false,
       "order": 2,
-      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -2007,7 +1861,7 @@
       "variable": "table",
       "parameter": false,
       "order": 1,
-      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -2094,7 +1948,7 @@
       "variable": "table",
       "parameter": false,
       "order": 1,
-      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -2130,7 +1984,7 @@
       "variable": "columnValues",
       "parameter": false,
       "order": 3,
-      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {
@@ -2204,7 +2058,7 @@
       "variable": "table",
       "parameter": false,
       "order": 1,
-      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
     }
   },
   {

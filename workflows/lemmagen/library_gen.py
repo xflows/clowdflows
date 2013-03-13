@@ -175,19 +175,6 @@ def lemmagen_table2_string_delimited(inputDict):
     outputDict['string'] = execResultPy
     return outputDict
 
-def lemmagen_random_cross_validation_sets(inputDict):
-    _numOfSets = ToInt(inputDict['numOfSets'])
-    _numOfExamples = ToInt(inputDict['numOfExamples'])
-    _random = ToBool(inputDict['random'])
-    _useSeed = ToBool(inputDict['useSeed'])
-    _randomSeed = ToInt(inputDict['randomSeed'])
-    _examples = ToNetObj(inputDict['examples'])
-    execResult = LemmaSharpIntf.RandomCrossValidationSets(_numOfSets, _numOfExamples, _random, _useSeed, _randomSeed, _examples)
-    execResultPy = ToPyObj(execResult)
-    outputDict = {}
-    outputDict['exampleSetId'] = execResultPy
-    return outputDict
-
 def lemmagen_get_set_indexes(inputDict):
     _selectedSetId = ToInt(inputDict['selectedSetId'])
     _setList = ToNetObj(inputDict['setList'])
