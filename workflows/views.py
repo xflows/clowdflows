@@ -142,6 +142,8 @@ def add_widget(request):
                     outputOrder += 1
                     j.order = outputOrder
                     j.save()
+                w.defered_outputs = w.outputs.defer("value").all()
+                w.defered_inputs = w.inputs.defer("value").all()
                 return render(request, 'widgets.html', {'widgets':[w,]})
             else:
                 return HttpResponse(status=400)
@@ -188,6 +190,8 @@ def add_widget(request):
                         j.variable = i.variable
                         j.widget = w
                         j.save()
+                    w.defered_outputs = w.outputs.defer("value").all()
+                    w.defered_inputs = w.inputs.defer("value").all()
                     return render(request, 'widgets.html', {'widgets':[w,]})        
             elif aw.type=='subprocess':
                 workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
@@ -237,6 +241,8 @@ def add_widget(request):
                         j.save()
                         output_conversion[i.pk]=j.pk
                         workflows.models.copy_workflow(aw.workflow_link, request.user, widget_conversion,input_conversion,output_conversion,w)
+                    w.defered_outputs = w.outputs.defer("value").all()
+                    w.defered_inputs = w.inputs.defer("value").all()
                     return render(request, 'widgets.html', {'widgets':[w,]})                
             else:
                 return HttpResponse(status=400)
@@ -393,6 +399,8 @@ def add_subprocess(request):
             w.save()
             new_w.widget = w
             new_w.save()
+            w.defered_outputs = w.outputs.defer("value").all()
+            w.defered_inputs = w.inputs.defer("value").all()
             return render(request, 'widgets.html', {'widgets':[w,]})
         else:
             return HttpResponse(status=400)
@@ -474,6 +482,10 @@ def add_for(request):
                 output.save()
                 input.outer_output = output
                 input.save()
+                for_input.defered_outputs = for_input.outputs.defer("value").all()
+                for_input.defered_inputs = for_input.inputs.defer("value").all()
+                widget.defered_outputs = widget.outputs.defer("value").all()
+                widget.defered_inputs = widget.inputs.defer("value").all()                
                 return render(request, 'widgets.html', {'widgets':[for_input,widget]})                
         else:
             return HttpResponse(status=400)
@@ -519,6 +531,8 @@ def add_input(request):
                 input.save()
                 output.outer_input = input
                 output.save()
+                widget.defered_outputs = widget.outputs.defer("value").all()
+                widget.defered_inputs = widget.inputs.defer("value").all()
                 return render(request, 'widgets.html', {'widgets':[widget,]})
         else:
             return HttpResponse(status=400)
@@ -563,6 +577,8 @@ def add_output(request):
                 output.save()
                 input.outer_output = output
                 input.save()
+                widget.defered_outputs = widget.outputs.defer("value").all()
+                widget.defered_inputs = widget.inputs.defer("value").all()
                 return render(request, 'widgets.html', {'widgets':[widget,]})
         else:
             return HttpResponse(status=400)
@@ -603,6 +619,8 @@ def get_widget(request):
     if request.is_ajax() or DEBUG:
         w = get_object_or_404(Widget, pk=request.POST['widget_id'])
         if (w.workflow.user==request.user):
+            w.defered_outputs = w.outputs.defer("value").all()
+            w.defered_inputs = w.inputs.defer("value").all()
             return render(request, 'widgets.html', {'widgets':[w,]})
         else:
             return HttpResponse(status=400)
