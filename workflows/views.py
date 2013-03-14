@@ -591,9 +591,11 @@ def synchronize_widgets(request):
         w = get_object_or_404(Workflow,pk=request.POST['workflow_id'])
         if (w.user==request.user):
             widgets = w.widgets.all()
+            defered_outputs = list(Output.objects.defer("value").filter(widget__workflow=w))
+            defered_inputs = list(Input.objects.defer("value").filter(widget__workflow=w))
             for w in widgets:
-                w.defered_outputs = w.outputs.defer("value").all()
-                w.defered_inputs = w.inputs.defer("value").all()
+                w.defered_outputs = filter(lambda e: e.widget_id == w.id,defered_outputs)
+                w.defered_inputs = filter(lambda e: e.widget_id == w.id,defered_inputs)
             return render(request, 'widgets.html', {'widgets':widgets})
         else:
             return HttpResponse(status=400)
