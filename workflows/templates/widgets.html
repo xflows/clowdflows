@@ -3,7 +3,7 @@
         <div class="inputs">
             {% for input in widget.defered_inputs %}
                 {% if not input.parameter %}
-                    <div class="{% if input.multi_id != 0 %}multi{% endif %} input ui-state-default ui-corner-left {% if input.inner_output %}in_output inner_output{{input.inner_output.pk}}{% endif %}{% if input.outer_output %}out_output outer_output{{input.outer_output.pk}}{% endif %}" rel="all" id="input{{ input.pk }}" title="{{ input.name }} {{ input.description }}">{{ input.short_name }}</div>
+                    <div class="{% if input.multi_id != 0 %}multi{% endif %} input ui-state-default ui-corner-left {% if input.inner_output_id %}in_output inner_output{{input.inner_output_id}}{% endif %}{% if input.outer_output_id %}out_output outer_output{{input.outer_output_id}}{% endif %}" rel="all" id="input{{ input.pk }}" title="{{ input.name }} {{ input.description }}">{{ input.short_name }}</div>
                 {% endif %}
             {% endfor %}
         </div>
@@ -12,7 +12,7 @@
         </div></div>
         <div class="outputs">
             {% for output in widget.defered_outputs %}
-                <div class="output ui-state-default ui-corner-right {% if output.inner_input %}in_input inner_input{{output.inner_input.pk}}{% endif %}{% if output.outer_input %}out_input outer_input{{output.outer_input.pk}}{% endif %}" rel="all" id="output{{ output.pk }}" title="{{ output.name }} {{ output.description }}">{{ output.short_name }}</div>
+                <div class="output ui-state-default ui-corner-right {% if output.inner_input_id %}in_input inner_input{{output.inner_input_id}}{% endif %}{% if output.outer_input_id %}out_input outer_input{{output.outer_input_id}}{% endif %}" rel="all" id="output{{ output.pk }}" title="{{ output.name }} {{ output.description }}">{{ output.short_name }}</div>
             {% endfor %}
         </div>
         <div class="clear"><!----></div>
