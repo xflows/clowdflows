@@ -28,7 +28,6 @@ class ILP_Converter(Converter):
         self.settings = kwargs.pop('settings', {}) if kwargs else {}
         self.discr_intervals = kwargs.pop('discr_intervals', {}) if kwargs else {}
         self.dump = kwargs.pop('dump', False) if kwargs else False
-        print self.dump
         Converter.__init__(self, *args, **kwargs)
 
     def user_settings(self):
