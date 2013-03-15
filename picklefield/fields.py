@@ -53,10 +53,10 @@ def dbsafe_encode(value, compress_object=False, pickle_protocol=DEFAULT_PROTOCOL
     # The reason this is important is because we do all of our lookups as
     # simple string matches, thus the character streams must be the same
     # for the lookups to work properly. See tests.py for more information.
-    import time
-    print "bla enocde!!!\n"+str(time.time())
-    import traceback
-    traceback.print_stack()
+    #import time
+    #print "bla enocde!!!\n"+str(time.time())
+    #import traceback
+    #traceback.print_stack()
     if not compress_object:
         value = b64encode(dumps(deepcopy(value), pickle_protocol))
     else:
@@ -65,10 +65,10 @@ def dbsafe_encode(value, compress_object=False, pickle_protocol=DEFAULT_PROTOCOL
 
 
 def dbsafe_decode(value, compress_object=False):
-    import time
-    print "bla decode!!!\n"+str(time.time())
-    import traceback
-    traceback.print_stack()
+    #import time
+    #print "bla decode!!!\n"+str(time.time())
+    #import traceback
+    #traceback.print_stack()
     if not compress_object:
         value = loads(b64decode(value))
     else:

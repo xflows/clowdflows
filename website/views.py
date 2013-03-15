@@ -59,7 +59,7 @@ def workflow_information(request,workflow_id):
         widget.norm_x = (x/normalized_max_x)*max_width
         widget.norm_y = (y/normalized_max_y)*max_height
         normalized_values[widget.id]=(widget.norm_x,widget.norm_y)
-    for c in w.connections.all():
+    for c in w.connections.select_related("output","input").defer("output__value","input__value").all():
         if not (c.output.widget.id,c.input.widget.id) in w.pairs:
             w.pairs.append((c.output.widget.id,c.input.widget.id))
     for pair in w.pairs:
@@ -109,7 +109,7 @@ def workflows(request):
             widget.norm_x = (x/normalized_max_x)*max_width
             widget.norm_y = (y/normalized_max_y)*max_height
             normalized_values[widget.id]=(widget.norm_x,widget.norm_y)
-        for c in w.connections.all():
+        for c in w.connections.select_related("output","input").defer("output__value","input__value").all():
             if not (c.output.widget.id,c.input.widget.id) in w.pairs:
                 w.pairs.append((c.output.widget.id,c.input.widget.id))
         for pair in w.pairs:
