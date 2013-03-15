@@ -62,13 +62,13 @@ def workflow_information(request,workflow_id):
     for c in w.connections.all():
         if not (c.output.widget.id,c.input.widget.id) in w.pairs:
             w.pairs.append((c.output.widget.id,c.input.widget.id))
-        for pair in w.pairs:
-            conn = {}
-            conn['x1'] = normalized_values[pair[0]][0]+40
-            conn['y1'] = normalized_values[pair[0]][1]+15
-            conn['x2'] = normalized_values[pair[1]][0]-10
-            conn['y2'] = normalized_values[pair[1]][1]+15
-            w.unique_connections.append(conn)
+    for pair in w.pairs:
+        conn = {}
+        conn['x1'] = normalized_values[pair[0]][0]+40
+        conn['y1'] = normalized_values[pair[0]][1]+15
+        conn['x2'] = normalized_values[pair[1]][0]-10
+        conn['y2'] = normalized_values[pair[1]][1]+15
+        w.unique_connections.append(conn)
     return render(request, 'website/existing.html', {'workflows':[w,]})
     
 def workflows(request):
@@ -112,11 +112,11 @@ def workflows(request):
         for c in w.connections.all():
             if not (c.output.widget.id,c.input.widget.id) in w.pairs:
                 w.pairs.append((c.output.widget.id,c.input.widget.id))
-            for pair in w.pairs:
-                conn = {}
-                conn['x1'] = normalized_values[pair[0]][0]+40
-                conn['y1'] = normalized_values[pair[0]][1]+15
-                conn['x2'] = normalized_values[pair[1]][0]-10
-                conn['y2'] = normalized_values[pair[1]][1]+15
-                w.unique_connections.append(conn)
+        for pair in w.pairs:
+            conn = {}
+            conn['x1'] = normalized_values[pair[0]][0]+40
+            conn['y1'] = normalized_values[pair[0]][1]+15
+            conn['x2'] = normalized_values[pair[1]][0]-10
+            conn['y2'] = normalized_values[pair[1]][1]+15
+            w.unique_connections.append(conn)
     return render(request, 'website/existing.html', {'workflows':wflows})
