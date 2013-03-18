@@ -81,6 +81,17 @@ def latino_add_documents_features(inputDict):
     outputDict['adc'] = execResultPy
     return outputDict
 
+def latino_add_computed_features(inputDict):
+    _adc = ToNetObj(inputDict['adc'])
+    _featureName = ToString(inputDict['featureName'])
+    _featureComputataion = ToString(inputDict['featureComputataion'])
+    _featureSpec = ToString(inputDict['featureSpec'])
+    execResult = LatinoCF.AddComputedFeatures(_adc, _featureName, _featureComputataion, _featureSpec)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['adc'] = execResultPy
+    return outputDict
+
 def latino_split_documents_by_feature_value(inputDict):
     _adc = ToNetObj(inputDict['adc'])
     _featureCondition = ToString(inputDict['featureCondition'])

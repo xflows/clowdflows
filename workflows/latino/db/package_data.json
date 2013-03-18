@@ -554,7 +554,7 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 1,
+      "order": 4,
       "description": "Automatically generated widget from function AddDocumentsFeatures in package latino. The original function signature: AddDocumentsFeatures."
     }
   },
@@ -644,6 +644,116 @@
     }
   },
   {
+    "pk": 136906604,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 840702242,
+      "treeview_image": null,
+      "name": "Add Computed Feature",
+      "is_streaming": false,
+      "uid": "fc9ccfaa-a2a9-4aad-a975-3e32c86f3477",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "adc_add_feature_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_add_computed_features",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 5,
+      "description": "Automatically generated widget from function AddComputedFeatures in package latino. The original function signature: AddComputedFeatures."
+    }
+  },
+  {
+    "pk": 855557341,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 136906604,
+      "name": "Annotated Document Corpus",
+      "short_name": "adc",
+      "uid": "55d8709b-85b9-bc10-4084-b64012974478",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "adc",
+      "parameter": false,
+      "order": 1,
+      "description": "LatinoClowdFlows.DocumentCorpus"
+    }
+  },
+  {
+    "pk": 188536495,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 136906604,
+      "name": "New Feature Name",
+      "short_name": "str",
+      "uid": "f2788c26-049a-cac4-d263-fa346f149424",
+      "default": "feature",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "featureName",
+      "parameter": true,
+      "order": 2,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 428524931,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 136906604,
+      "name": "New Feature Computataion",
+      "short_name": "str",
+      "uid": "e9b21c7f-0d2b-2df0-353b-30869f9a6d49",
+      "default": "{feature2:name}{feature3}, {feature1:value}",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "featureComputataion",
+      "parameter": true,
+      "order": 3,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 571675170,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 136906604,
+      "name": "Old Features Specification",
+      "short_name": "str",
+      "uid": "9446f6e6-86cb-883f-82d1-9a36b37a330e",
+      "default": "feature1, feature2",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "featureSpec",
+      "parameter": true,
+      "order": 4,
+      "description": "Comma separated list of names of old features used in the \u0027New Feature Computataion\u0027."
+    }
+  },
+  {
+    "pk": 1036210487,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 136906604,
+      "name": "Annotated Document Corpus",
+      "short_name": "adc",
+      "variable": "adc",
+      "uid": "873b611f-efa3-1ecc-c802-400e35d491bb",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 822745258,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -664,7 +774,7 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 5,
+      "order": 7,
       "description": "Automatically generated widget from function SplitDocumentsByFeatureValue in package latino. The original function signature: SplitDocumentsByFeatureValue."
     }
   },
@@ -769,7 +879,7 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 6,
+      "order": 8,
       "description": "Automatically generated widget from function ExtractDocuments in package latino. The original function signature: ExtractDocuments."
     }
   },
@@ -859,7 +969,7 @@
     "fields": {
       "category": 840702242,
       "treeview_image": null,
-      "name": "Generate Set Feature",
+      "name": "Add Set Feature",
       "is_streaming": false,
       "uid": "f19b2894-d9b0-4133-912a-b9aaf1e7982b",
       "interaction_view": "",
@@ -874,7 +984,7 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 4,
+      "order": 6,
       "description": "Automatically generated widget from function MarkDocumentsWithSetFeature in package latino. The original function signature: MarkDocumentsWithSetFeature."
     }
   },
@@ -1038,7 +1148,7 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 6,
+      "order": 2,
       "description": "Automatically generated widget from function CorpusStatistics in package latino. The original function signature: CorpusStatistics."
     }
   },
@@ -1120,7 +1230,7 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 2,
+      "order": 1,
       "description": "Automatically generated widget from function DisplayDocumentCorpus_PYTHON in package latino. The original function signature: DisplayDocumentCorpus_PYTHON."
     }
   },
