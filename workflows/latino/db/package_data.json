@@ -4159,7 +4159,7 @@
     "fields": {
       "category": 274815427,
       "treeview_image": null,
-      "name": "Get Vocabulary",
+      "name": "Get Vocabulary Table",
       "is_streaming": false,
       "uid": "427e4a62-54dc-4eff-ba86-e0758f5792f1",
       "interaction_view": "",
@@ -7405,13 +7405,13 @@
       "post_interact_action": "",
       "user": null,
       "visualization_view": "",
-      "action": "compare_lists",
+      "action": "latino_accuracy_claculation",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
       "order": 10,
-      "description": "Automatically generated widget from function AccuracyClaculation_PYTHON in package latino. The original function signature: AccuracyClaculation_PYTHON."
+      "description": "Automatically generated widget from function AccuracyClaculation in package latino. The original function signature: AccuracyClaculation."
     }
   },
   {
@@ -7419,7 +7419,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 24727658,
-      "name": "List 1",
+      "name": "True Labels",
       "short_name": "lst",
       "uid": "4337f7d3-5113-be91-9dcd-7f23d955ca3e",
       "default": "",
@@ -7429,7 +7429,7 @@
       "variable": "list1",
       "parameter": false,
       "order": 1,
-      "description": "System.Object"
+      "description": "System.Collections.IList"
     }
   },
   {
@@ -7437,7 +7437,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 24727658,
-      "name": "List 2",
+      "name": "Predicted Labels",
       "short_name": "lst",
       "uid": "3865d2f0-cf4f-cacc-78dc-77a6b0071e45",
       "default": "",
@@ -7447,7 +7447,7 @@
       "variable": "list2",
       "parameter": false,
       "order": 2,
-      "description": "System.Object"
+      "description": "System.Collections.IList"
     }
   },
   {
@@ -7473,7 +7473,7 @@
       "variable": "statistics",
       "uid": "4b9c7c60-639b-3ca5-682b-43b367f67cc3",
       "order": 2,
-      "description": ""
+      "description": "Statistics:confusionMatrix: first level of confusion matrix dictionary present true labels (first input) while the second, inner layer, presents predicted labels (second output).\r\nStataistics:additinalScores: dictionary\u0027s id presents the label that was considered positive for calculation and dictionary\u0027s value are actual additioanl scores."
     }
   },
   {

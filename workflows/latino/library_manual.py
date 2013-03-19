@@ -43,22 +43,4 @@ def create_range(input_dict):
     rng = range(ToInt(input_dict['start']), ToInt(input_dict['stop']), ToInt(input_dict['step']))
     return {'range':rng }
 
-def compare_lists(input_dict):
-    l1 = input_dict['list1']
-    l2 = input_dict['list2']
-    l = min(len(l1),len(l2))
-    cntEq = 0
-    for i in range(0,l):
-        if l1[i]==l2[i]:
-            cntEq += 1
-    return {
-        'accuracy':(0.0+cntEq)/l,
-        'statistics':{
-            'elements':l,
-            'equal':cntEq,
-            'different':l-cntEq,
-            'accuracy':(0.0+cntEq)/l,
-            'error':(0.0+l-cntEq)/l,
-            }
-    }
 

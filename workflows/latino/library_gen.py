@@ -737,6 +737,16 @@ def latino_cross_validation_predef_multi_splits(inputDict):
     outputDict['obj'] = execResultPy
     return outputDict
 
+def latino_accuracy_claculation(inputDict):
+    _list1 = ToNetObj(inputDict['list1'])
+    _list2 = ToNetObj(inputDict['list2'])
+    execResult = LatinoCF.AccuracyClaculation(_list1, _list2)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['accuracy'] = execResultPy['accuracy']
+    outputDict['statistics'] = execResultPy['statistics']
+    return outputDict
+
 def latino_run_csharp_snippet(inputDict):
     _snippetParams = ToNetObj(inputDict['snippetParams'])
     _snippetCode = ToString(inputDict['snippetCode'])
