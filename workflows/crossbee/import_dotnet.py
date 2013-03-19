@@ -15,6 +15,7 @@ try:
     import System
     #import CrossBee
     from CrossBeeInterfaces import *
+    import CrossBeeInterfaces
     #from System.Reflection import Assembly
     #Assembly.LoadFile(os.path.join(dllPath, 'CrossBeePrebuilt.dll'))
 except Exception:
