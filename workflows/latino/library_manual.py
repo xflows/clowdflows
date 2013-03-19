@@ -38,9 +38,3 @@ def python_snippet(input_dict):
     exec(input_dict['pycode'])
     output_dict['out'] = out1
     return output_dict
-
-def create_range(input_dict):
-    rng = range(ToInt(input_dict['start']), ToInt(input_dict['stop']), ToInt(input_dict['step']))
-    return {'range':rng }
-
-

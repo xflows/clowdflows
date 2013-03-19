@@ -7603,13 +7603,13 @@
       "post_interact_action": "",
       "user": null,
       "visualization_view": "",
-      "action": "create_range",
+      "action": "latino_generate_integer_range",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
       "order": 5,
-      "description": "Automatically generated widget from function GenerateIntegerRange_PYTHON in package latino. The original function signature: GenerateIntegerRange_PYTHON."
+      "description": "Automatically generated widget from function GenerateIntegerRange in package latino. The original function signature: GenerateIntegerRange."
     }
   },
   {
@@ -7672,7 +7672,7 @@
     "fields": {
       "widget": 842764734,
       "name": "Range",
-      "short_name": "ary",
+      "short_name": "lst",
       "variable": "range",
       "uid": "8eb96f55-f038-e517-5e11-8dbda6295b0f",
       "order": 1,

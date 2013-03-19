@@ -13,6 +13,16 @@ def latino_flatten_object_to_string_array(inputDict):
     outputDict['flatData'] = execResultPy
     return outputDict
 
+def latino_generate_integer_range(inputDict):
+    _start = ToInt(inputDict['start'])
+    _stop = ToInt(inputDict['stop'])
+    _step = ToInt(inputDict['step'])
+    execResult = LatinoCF.GenerateIntegerRange(_start, _stop, _step)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['range'] = execResultPy
+    return outputDict
+
 def latino_load_adc(inputDict):
     _file = ToString(inputDict['file'])
     _tabSeparatedTitle = ToBool(inputDict['tabSeparatedTitle'])
