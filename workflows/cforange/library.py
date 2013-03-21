@@ -356,7 +356,7 @@ def cforange_discretize(input_dict):
         for attr in inputdata.domain.attributes:
             if attr.varType == orange.VarTypes.Continuous:
                 newattr=d(attr,inputdata) if discretizerIndex in [0,2,3] else d.constructVariable(attr)
-                print newattr.name
+
                 newattr.name=attr.name
                 #newattr.name=attr.name[2:] if newattr.name.startswith("D_"):
                 newattrs.append(newattr)
@@ -367,7 +367,10 @@ def cforange_discretize(input_dict):
         #for attr in newattrs: #TODO
         #    if attr.name.startswith("D_"):
         #        attr.name=attr.name[2:]
-        new_t=inputdata.select(newattrs + [inputdata.domain.classVar])
+        #new_t=inputdata.select(newattrs + [inputdata.domain.classVar])
+        newdomain = orange.Domain(newattrs, inputdata.domain.classVar)
+        newdomain.addmetas(inputdata.domain.getmetas())
+        new_t = orange.ExampleTable(newdomain, inputdata)
         new_t.name=name
         output_tables.append(new_t)
 
@@ -380,7 +383,7 @@ def cforange_discretize(input_dict):
     #newdomain = orange.Domain(data.domain.attributes, newclass)
     #data_v = orange.ExampleTable(newdomain, data)
 
-    output_dict = {'odt': output_tables if input_type_is_list else output_tables[0]} #returns list if input is list
+    output_dict = {'odt': output_tables if input_type_is_list else output_tables[0],'discr_intervals':points} #returns list if input is list
     return output_dict
 
 def cforange_attribute_distance(input_dict):

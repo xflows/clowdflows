@@ -45,24 +45,27 @@ class ILP_Converter(Converter):
 
     def connecting_clause(self, table, ref_table):
         var_table, var_ref_table = table.capitalize(), ref_table.capitalize()
-        pk, fk = self.db.connected[(table, ref_table)]
-        ref_pk = self.db.pkeys[ref_table]
-        table_args, ref_table_args = [], []
-        for col in self.db.cols[table]:
-            if col == pk:
-                col = var_table
-            elif col == fk:
-                col = var_ref_table
-            table_args.append(col.capitalize())
-        for col in self.db.cols[ref_table]:
-            if col == ref_pk:
-                col = var_ref_table
-            if col == fk:
-                col = var_table
-            ref_table_args.append(col.capitalize())
-        return ['has_%s(%s, %s) :-' % (ref_table, var_table.capitalize(), var_ref_table.capitalize()),
-                '\t%s(%s),' % (table, ','.join(table_args)),
-                '\t%s(%s).' % (ref_table, ','.join(ref_table_args))]
+        result=[]
+        for pk,fk in self.db.connected[(table, ref_table)]:
+            ref_pk = self.db.pkeys[ref_table]
+            table_args, ref_table_args = [], []
+            for col in self.db.cols[table]:
+                if col == pk:
+                    col = var_table
+                elif col == fk:
+                    col = var_ref_table
+                table_args.append(col.capitalize())
+            for col in self.db.cols[ref_table]:
+                if col == ref_pk:
+                    col = var_ref_table
+                if col == fk:
+                    col = var_table
+                ref_table_args.append(col.capitalize())
+            result.extend(['has_%s(%s, %s) :-' % (ref_table, var_table.capitalize(), var_ref_table.capitalize()),
+                            '\t%s(%s),' % (table, ','.join(table_args)),
+                            '\t%s(%s).' % (ref_table, ','.join(ref_table_args))])
+        return result
+
 
     def attribute_clause(self, table, att):
         var_table, var_att, pk = table.capitalize(), att.capitalize(), self.db.pkeys[table]
