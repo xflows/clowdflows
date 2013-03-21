@@ -50,7 +50,7 @@ class DBContext:
         self.all_cols = dict(self.cols)
         self.col_vals = {}
 
-        self.connected = {}
+        self.connected = defaultdict(list)
         cursor.execute(
            "SELECT table_name, column_name, referenced_table_name, referenced_column_name \
             FROM information_schema.KEY_COLUMN_USAGE \
@@ -69,8 +69,9 @@ class DBContext:
                     if col == 'id':
                         self.pkeys[table] = col
         for (table, col, ref_table, ref_col) in cursor:
-            self.connected[(table, ref_table)] = (col, ref_col)
-            self.connected[(ref_table, table)] = (ref_col, col)
+            print table,col,ref_table, ref_col
+            self.connected[(table, ref_table)].append((col, ref_col))
+            self.connected[(ref_table, table)].append((ref_col, col))
             self.fkeys[table].add(col)
 
 

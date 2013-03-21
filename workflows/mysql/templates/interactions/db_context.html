@@ -33,10 +33,12 @@
 					<tr><th>Table</th><th>Referenced table</th><th>Column</th><th>Referenced column</th></tr>
 				</thead>
 				<tbody>
-			{% for tables, cols in context.connected.items %}
-				<tr><td>{{tables.0}}</td><td>{{tables.1}}</td><td>{{cols.0}}</td><td>{{cols.1}}</td></tr>
-			{% endfor %}
-				</tbody>
+                {% for tables, cols in context.connected.items %}
+                    {% for cols_inner in cols %}
+                        <tr><td>{{tables.0}}</td><td>{{tables.1}}</td><td>{{cols_inner.0}}</td><td>{{cols_inner.1}}</td></tr>
+                    {% endfor %}
+                {% endfor %}
+                </tbody>
 			</table>
 			<input type="hidden" name="widget_id" value="{{widget.pk}}"/>
 		</form>

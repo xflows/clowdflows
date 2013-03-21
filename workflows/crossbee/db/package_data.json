@@ -81,7 +81,7 @@
       "variable": "heurisitcSpec",
       "parameter": true,
       "order": 2,
-      "description": "CrossBeeInterfaces.StandardHeurisitc+Specification"
+      "description": "CrossBeeInterfaces.Heurisitcs.StandardHeurisitc+Specification"
     }
   },
   {
@@ -361,7 +361,7 @@
       "variable": "outlierDocumentIndexes",
       "parameter": false,
       "order": 3,
-      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+      "description": "Either unweighted list of indexes (List\u003cint\u003e) or weighted index dictionary (Dictionary\u003cint, double\u003e)."
     }
   },
   {
@@ -435,7 +435,7 @@
       "variable": "calc",
       "parameter": true,
       "order": 2,
-      "description": "CrossBeeInterfaces.CalculatedHeustistic+Calculation"
+      "description": "CrossBeeInterfaces.Heurisitcs.CalculatedHeustistic+Calculation"
     }
   },
   {
@@ -563,7 +563,7 @@
       "variable": "heuristics",
       "parameter": false,
       "order": 3,
-      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heustistics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heurisitcs.Heustistics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -637,7 +637,7 @@
       "variable": "heuristics",
       "parameter": false,
       "order": 2,
-      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heustistics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heurisitcs.Heustistics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -693,7 +693,7 @@
       "variable": "heuristics",
       "parameter": false,
       "order": 1,
-      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heustistics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heurisitcs.Heustistics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
     }
   },
   {
@@ -749,7 +749,7 @@
       "variable": "heuristics",
       "parameter": false,
       "order": 1,
-      "description": "CrossBeeInterfaces.Heustistics"
+      "description": "CrossBeeInterfaces.Heurisitcs.Heustistics"
     }
   },
   {
@@ -805,7 +805,7 @@
       "variable": "heuristics",
       "parameter": false,
       "order": 1,
-      "description": "CrossBeeInterfaces.Heustistics"
+      "description": "CrossBeeInterfaces.Heurisitcs.Heustistics"
     }
   },
   {
@@ -822,6 +822,396 @@
     }
   },
   {
+    "pk": 255327945,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "5d55b2bf-c5f6-4fff-bfd3-9d6ad83ba9f9",
+      "parent": 45725108,
+      "workflow": null,
+      "user": null,
+      "order": 2,
+      "name": "Outliers"
+    }
+  },
+  {
+    "pk": 237868088,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 255327945,
+      "treeview_image": null,
+      "name": "Load Outlier Heuristics",
+      "is_streaming": false,
+      "uid": "a79ad967-5070-449b-bcd7-a76d341cc79c",
+      "interaction_view": "",
+      "image": null,
+      "package": "crossbee",
+      "static_image": "crossbee_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "crossbee_load_outlier_heuristics",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 410,
+      "description": "Automatically generated widget from function LoadOutlierHeuristics in package crossbee. The original function signature: LoadOutlierHeuristics."
+    }
+  },
+  {
+    "pk": 400184662,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 237868088,
+      "name": "Heurisic Name Prefix",
+      "short_name": "str",
+      "uid": "d6055ed0-f08d-555b-4cd3-5355a117f07d",
+      "default": "outFreq",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "namePrefix",
+      "parameter": true,
+      "order": 1,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 655732450,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 237868088,
+      "name": "Specification",
+      "short_name": "str",
+      "uid": "1fe24622-a12a-679f-dc93-702ff6c39a6b",
+      "default": "#comment\r\nsvmOutlier (5): 0, 5(0.9), 8, 11(0.85), 12",
+      "required": true,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "specification",
+      "parameter": false,
+      "order": 2,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 732317594,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 237868088,
+      "name": "Relative",
+      "short_name": "clc",
+      "uid": "7f42ad6d-0593-5433-df7f-a482dd977c28",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "relative",
+      "parameter": true,
+      "order": 3,
+      "description": "If false then absolute number of terms apearing in outlier documents is used. If true, the relative number of terms is used - based on the frequency of the term in the whole dataset."
+    }
+  },
+  {
+    "pk": 49306862,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 237868088,
+      "name": "Ensemble Heuristics",
+      "short_name": "heu",
+      "variable": "newHeurisitcs",
+      "uid": "7e50c540-0fce-c6dc-b8d0-54a0f8a8f161",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 629075201,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 255327945,
+      "treeview_image": null,
+      "name": "Outlier Heuristics Specification",
+      "is_streaming": false,
+      "uid": "c4984507-aa74-43d0-9a9c-861561fdb5fe",
+      "interaction_view": "",
+      "image": null,
+      "package": "crossbee",
+      "static_image": "crossbee_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "crossbee_outlier_heuristics_spec",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 420,
+      "description": "Automatically generated widget from function OutlierHeuristicsSpec in package crossbee. The original function signature: OutlierHeuristicsSpec."
+    }
+  },
+  {
+    "pk": 385347087,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 629075201,
+      "name": "Outlier Heurisitc(s)",
+      "short_name": "heu",
+      "uid": "4e27297b-5056-076c-f30b-c7075a320556",
+      "default": "",
+      "required": true,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "heuristics",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heurisitcs.Heustistics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+    }
+  },
+  {
+    "pk": 986332,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 629075201,
+      "name": "Heuristics Specification",
+      "short_name": "str",
+      "variable": "specification",
+      "uid": "ef2a8e96-cba6-8340-9c9d-9ca73ebf32f9",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 154772926,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 255327945,
+      "treeview_image": null,
+      "name": "Document Outlier Detection",
+      "is_streaming": false,
+      "uid": "c42c757c-245e-4eb2-a657-e77fcc4f4802",
+      "interaction_view": "",
+      "image": null,
+      "package": "crossbee",
+      "static_image": "crossbee_widget.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "crossbee_outlier_detection_via_cross_validation",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 510,
+      "description": "Document outlier detection method is using missclassified document instances as otlier candidates."
+    }
+  },
+  {
+    "pk": 161710494,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 154772926,
+      "name": "Classifier",
+      "short_name": "csf",
+      "uid": "06a3b7c8-681f-ab02-f171-75362b9ea5a0",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "csf",
+      "parameter": false,
+      "order": 1,
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+    }
+  },
+  {
+    "pk": 1024005826,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 154772926,
+      "name": "Dataset",
+      "short_name": "ds",
+      "uid": "eeab1227-dfa8-31df-b27b-2a27efeda6b0",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "ds",
+      "parameter": false,
+      "order": 2,
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+    }
+  },
+  {
+    "pk": 740564028,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 154772926,
+      "name": "Corss-Validation Repetitions",
+      "short_name": "int",
+      "uid": "21ea2877-e44d-c8db-0612-b9bce6e62f36",
+      "default": "5",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "repetitionCount",
+      "parameter": true,
+      "order": 3,
+      "description": "How many times the whole cross-validation procedure is repeated."
+    }
+  },
+  {
+    "pk": 446424769,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 154772926,
+      "name": "Outlier Score Threshold",
+      "short_name": "int",
+      "uid": "f7bb77e7-327e-5794-f330-186d669d6b1b",
+      "default": "2",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "outlierThreshold",
+      "parameter": true,
+      "order": 4,
+      "description": "Minimal number of times a single document needs to be that it is proclaimed outlier (usualy min=1 and max = \u0027Corss-Validation Repetitions\u0027)."
+    }
+  },
+  {
+    "pk": 590488885,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 154772926,
+      "name": "Num of Cross Validation Sets/Splits",
+      "short_name": "int",
+      "uid": "bdc7e5b8-00f1-d7bd-6927-fc91856a280a",
+      "default": "10",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "numOfSets",
+      "parameter": true,
+      "order": 5,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 238288051,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 154772926,
+      "name": "Assign Sets Randomly",
+      "short_name": "bol",
+      "uid": "15d0d98c-b25b-e7fc-19f1-d547a0dddd14",
+      "default": "true",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "random",
+      "parameter": true,
+      "order": 6,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 925602434,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 154772926,
+      "name": "Use Specified Seed for Random",
+      "short_name": "bol",
+      "uid": "5996039f-bf7b-7ea9-65fa-88c68225e542",
+      "default": "false",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "useSeed",
+      "parameter": true,
+      "order": 7,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 940128487,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 154772926,
+      "name": "Random Seed",
+      "short_name": "int",
+      "uid": "fa4616c9-bf30-9bba-ddcb-8d1ac32866b4",
+      "default": "0",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "randomSeed",
+      "parameter": true,
+      "order": 8,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 788187937,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 154772926,
+      "name": "Outlier Weighting",
+      "short_name": "wgh",
+      "uid": "99da74dd-563e-796f-19a4-4f3f717f29a6",
+      "default": "RelativePercentage",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "outlierWeighting",
+      "parameter": true,
+      "order": 9,
+      "description": "CrossBeeInterfaces.CrossBeeIntf+OutlierWeighting"
+    }
+  },
+  {
+    "pk": 265779978,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e0036402-90ef-b31b-68a1-51d564895bd5",
+      "abstract_input": 788187937,
+      "value": "NoWeighting",
+      "name": "No weighting: output is list of indexes of outlier documents"
+    }
+  },
+  {
+    "pk": 224742160,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "e78c5ae3-f061-05b3-8a4d-e329d639c2c7",
+      "abstract_input": 788187937,
+      "value": "AbsoluteNumber",
+      "name": "Absolute: weight is absolute number of time a document was labeld outlier through all repetitions"
+    }
+  },
+  {
+    "pk": 254696335,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "a932e92c-6e9c-dbcb-a161-aa834bebb5b3",
+      "abstract_input": 788187937,
+      "value": "RelativePercentage",
+      "name": "Relative: weight is relative percentage how many times a document was labeled outlier through all repetitions"
+    }
+  },
+  {
+    "pk": 285280223,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 154772926,
+      "name": "List of Outlier Indexes (with Weights)",
+      "short_name": "lst",
+      "variable": "out",
+      "uid": "43d23d99-8ac4-5b3e-c89c-43d63db3920e",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 256795544,
     "model": "workflows.category",
     "fields": {
@@ -829,7 +1219,7 @@
       "parent": 45725108,
       "workflow": null,
       "user": null,
-      "order": 2,
+      "order": 3,
       "name": "Term Ranking"
     }
   },
@@ -933,7 +1323,7 @@
       "parent": 45725108,
       "workflow": null,
       "user": null,
-      "order": 3,
+      "order": 4,
       "name": "Ranking Evaluation"
     }
   },
