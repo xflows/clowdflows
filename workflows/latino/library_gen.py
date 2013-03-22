@@ -523,6 +523,22 @@ def latino_dataset_split_predefined(inputDict):
     outputDict['ds2'] = execResultPy['ds2']
     return outputDict
 
+def latino_dataset_to_object(inputDict):
+    _ds = ToNetObj(inputDict['ds'])
+    execResult = LatinoCF.DatasetToObject(_ds)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['obj'] = execResultPy
+    return outputDict
+
+def latino_object_to_dataset(inputDict):
+    _obj = ToNetObj(inputDict['obj'])
+    execResult = LatinoCF.ObjectToDataset(_obj)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['ds'] = execResultPy
+    return outputDict
+
 def latino_calculate_similarity_matrix(inputDict):
     _ds1 = ToNetObj(inputDict['ds1'])
     _ds2 = ToNetObj(inputDict['ds2'])

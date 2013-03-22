@@ -14,6 +14,7 @@ try:
     import System
     import Latino
     from LatinoClowdFlows import *
+    import LatinoClowdFlows
 
 except Exception:
     logging.warning("DotNet assemblies could not be loaded! Probable reasons: missing dlls or wrong interpreter (see http://pythonnet.sourceforge.net). "

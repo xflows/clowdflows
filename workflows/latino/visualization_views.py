@@ -15,21 +15,8 @@ def show_classifications(request,input_dict,output_dict,widget):
     return {}
 
 def advanced_object_viewer(request,input_dict,output_dict,widget):
-    import objectPprint as opp
-    obj = input_dict['obj']
-    maxStringLen = ToInt(input_dict['maxStringLen'])
-    objstr = ""
-    if input_dict.has_key('attribute') and input_dict['attribute']!="":
-        try:
-            obj = eval("obj."+input_dict['attribute'])
-        except:
-            objstr += "Given attribute '" + input_dict['attribute'] + "' can not be resolved. Showing original object instead:\n"
-    objstr += opp.ppprint(obj)
-    if (len(objstr)>maxStringLen):
-        moreChar = len(objstr) - maxStringLen
-        objstr = objstr[0:maxStringLen] + "\n... <Additional " + str(moreChar) + " characters were trimmed due to widget settings.>"
-
-    output_dict = {'object_string': objstr}
+    from library_manual import advanced_object_converter
+    output_dict = {'object_string': advanced_object_converter(input_dict).objStr}
     return render(request, 'visualizations/advanced_object_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
 
 def show_table(request,input_dict,output_dict,widget):

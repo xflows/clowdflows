@@ -5057,6 +5057,118 @@
     }
   },
   {
+    "pk": 184146477,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 575779120,
+      "treeview_image": null,
+      "name": "Dataset to Object",
+      "is_streaming": false,
+      "uid": "31a3354a-4e10-419d-8156-251f959dcd8f",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "latino_widget_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_dataset_to_object",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 6,
+      "description": "Automatically generated widget from function DatasetToObject in package latino. The original function signature: DatasetToObject."
+    }
+  },
+  {
+    "pk": 779572421,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 184146477,
+      "name": "Dataset",
+      "short_name": "ds",
+      "uid": "36c84474-6c5b-4cb5-7848-672d4311d66a",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "ds",
+      "parameter": false,
+      "order": 1,
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+    }
+  },
+  {
+    "pk": 1066704888,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 184146477,
+      "name": "Standard Object Representataion of Dataset",
+      "short_name": "obj",
+      "variable": "obj",
+      "uid": "fc1445c7-5815-0b77-1a6e-f24d78ae6621",
+      "order": 1,
+      "description": "List\u003cTuple\u003cint,string,Dictionary\u003cint,double\u003e\u003e\u003e explained as: (List of Examples)\u003c(Example Tuple)\u003c(Id) int,(Label) string,(BOW Dictionary)\u003c(Word Id) int,(Word Weight) double\u003e\u003e\u003e"
+    }
+  },
+  {
+    "pk": 732551815,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 575779120,
+      "treeview_image": null,
+      "name": "Object to Dataset",
+      "is_streaming": false,
+      "uid": "6397f519-3550-4acc-9e9b-b8820387da8a",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "latino_widget_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_object_to_dataset",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 7,
+      "description": "Automatically generated widget from function ObjectToDataset in package latino. The original function signature: ObjectToDataset."
+    }
+  },
+  {
+    "pk": 434371834,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 732551815,
+      "name": "Standard Object Representataion of Dataset",
+      "short_name": "obj",
+      "uid": "63650259-d60b-5645-9b98-59d92a9749e3",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "obj",
+      "parameter": false,
+      "order": 1,
+      "description": "List\u003cTuple\u003cint,string,Dictionary\u003cint,double\u003e\u003e\u003e explained as: (List of Examples)\u003c(Example Tuple)\u003c(Id) int,(Label) string,(BOW Dictionary)\u003c(Word Id) int,(Word Weight) double\u003e\u003e\u003e"
+    }
+  },
+  {
+    "pk": 952082153,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 732551815,
+      "name": "Dataset",
+      "short_name": "ds",
+      "variable": "ds",
+      "uid": "bf9b9cb0-fd89-0626-1482-d334cb2f2a76",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 84644037,
     "model": "workflows.category",
     "fields": {
@@ -8455,6 +8567,98 @@
       "parameter": true,
       "order": 3,
       "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 236462735,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 336761152,
+      "treeview_image": null,
+      "name": "Advanced Object to String Converter",
+      "is_streaming": false,
+      "uid": "46379e7d-28c3-43e9-bfb3-653210f2852b",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "latino_widget_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "advanced_object_converter",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": "Displays any input."
+    }
+  },
+  {
+    "pk": 300902134,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 236462735,
+      "name": "Object",
+      "short_name": "obj",
+      "uid": "35c2629f-9c6d-0408-80c3-f257bb243ae7",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "obj",
+      "parameter": false,
+      "order": 1,
+      "description": "Any type of object."
+    }
+  },
+  {
+    "pk": 301046560,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 236462735,
+      "name": "Attribute",
+      "short_name": "int",
+      "uid": "1a12a3b6-82ed-bd27-1deb-75eb133da8e3",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "attribute",
+      "parameter": true,
+      "order": 2,
+      "description": "The attribute of the object to display"
+    }
+  },
+  {
+    "pk": 780777557,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 236462735,
+      "name": "Maximum Output Length",
+      "short_name": "int",
+      "uid": "69e503b8-07e4-94b2-b968-51599304de45",
+      "default": "500000",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "maxStringLen",
+      "parameter": true,
+      "order": 3,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 892389767,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 236462735,
+      "name": "Object String Representation",
+      "short_name": "str",
+      "variable": "objStr",
+      "uid": "09a182f3-18ed-33b6-7cf4-ae0a69545641",
+      "order": 1,
+      "description": ""
     }
   }
 ]
