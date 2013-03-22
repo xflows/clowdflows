@@ -731,6 +731,62 @@
     }
   },
   {
+    "pk": 7723,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 7,
+      "treeview_image": "treeview/Task-List-icon.png",
+      "name": "Create Tuple",
+      "is_streaming": false,
+      "uid": "3e5d16f6-acb9-41b4-bc71-e1a71fac47ba",
+      "interaction_view": "",
+      "image": "images/Task-List-icon.png",
+      "package": "base",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "create_tuple",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 77231,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 7723,
+      "name": "Element",
+      "short_name": "el",
+      "uid": "49c5792d-b75d-47c9-8539-3dc12193b16b",
+      "default": "",
+      "required": false,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "elements",
+      "parameter": false,
+      "order": 0,
+      "description": ""
+    }
+  },
+  {
+    "pk": 77232,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 7723,
+      "name": "Tuple",
+      "short_name": "tup",
+      "variable": "tuple",
+      "uid": "7f6874cd-681b-4ad3-996b-cc8b5c994727",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 32,
     "model": "workflows.abstractwidget",
     "fields": {

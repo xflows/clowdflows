@@ -12,6 +12,12 @@ def base_concatenate_lists(input_dict):
 def create_list(input_dict):
     return input_dict
 
+def create_tuple(input_dict):
+    lists = input_dict['elements']
+    output_dict = {}
+    output_dict['tuple'] = tuple(lists)
+    return output_dict
+
 def create_range(input_dict):
     output_dict = {}
     output_dict['rangeout'] = range(int(input_dict['n_range']))
