@@ -16,7 +16,7 @@ def show_classifications(request,input_dict,output_dict,widget):
 
 def advanced_object_viewer(request,input_dict,output_dict,widget):
     from library_manual import advanced_object_converter
-    output_dict = {'object_string': advanced_object_converter(input_dict).objStr}
+    output_dict = {'object_string': advanced_object_converter(input_dict)["objStr"]}
     return render(request, 'visualizations/advanced_object_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
 
 def show_table(request,input_dict,output_dict,widget):
