@@ -1128,6 +1128,106 @@
     }
   },
   {
+    "pk": 230,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 7,
+      "treeview_image": "treeview/482063585452602669.png",
+      "name": "Stopwatch",
+      "is_streaming": false,
+      "uid": "eddf42f0-826c-4a64-a9c5-7af53e8b08e5",
+      "interaction_view": "",
+      "image": "images/482063585452602669.png",
+      "package": "base",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "stopwatch",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 9,
+      "description": "Logs the moment of the signal passing this widget (widget beeing run). If there is datetime in the input, it also outputs timespan difference between current time and input datetime."
+    }
+  },
+  {
+    "pk": 593,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 230,
+      "name": "Signal",
+      "short_name": "sgn",
+      "uid": "3d89935f-e3cb-4c7a-a941-abe5627fb1bc",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "signal",
+      "parameter": false,
+      "order": 1,
+      "description": "Signal that triggers stopwatch."
+    }
+  },
+  {
+    "pk": 594,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 230,
+      "name": "Datetime",
+      "short_name": "dt",
+      "uid": "7d99a31a-af1f-4c9a-8487-28a24da85bf9",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "time_in",
+      "parameter": false,
+      "order": 2,
+      "description": "Datetime, based on which the timespan is calcualted."
+    }
+  },
+  {
+    "pk": 261,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 230,
+      "name": "Signal",
+      "short_name": "sgn",
+      "variable": "signal_out",
+      "uid": "1559b8db-ca70-451a-a844-0eda8957db48",
+      "order": 1,
+      "description": "Unchanged signal from the input."
+    }
+  },
+  {
+    "pk": 262,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 230,
+      "name": "Datetime",
+      "short_name": "dt",
+      "variable": "time_out",
+      "uid": "0e82f9e6-91d6-48a1-b0fd-ffcc8fdb7693",
+      "order": 2,
+      "description": "Datetime when the signal passed this widget (when this widget was run)."
+    }
+  },
+  {
+    "pk": 263,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 230,
+      "name": "Elapsed Time",
+      "short_name": "spn",
+      "variable": "time_span",
+      "uid": "7865362b-7e67-4174-8335-107abf6d2c08",
+      "order": 3,
+      "description": "Timespan between input time and time of triggering."
+    }
+  },
+  {
     "pk": 8,
     "model": "workflows.category",
     "fields": {
