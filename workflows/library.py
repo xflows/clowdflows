@@ -1,5 +1,4 @@
 from workflows.security import safeOpen
-import cPickle
 import json
 import sys
 
@@ -11,32 +10,11 @@ module_importer.import_all_packages_libs("library",setattr_local)
 def test_interaction(input_dict):
     return input_dict
 
-def create_list(input_dict):
-    return input_dict
-    
 def add_multiple(input_dict):
     output_dict = {}
     output_dict['sum'] = 0
     for i in input_dict['integer']:
         output_dict['sum'] = int(i)+output_dict['sum']
-    return output_dict
-
-def delay(input_dict,widget):
-    widget.progress=0
-    widget.save()
-    timeleft = int(input_dict['time'])
-    i = 0
-    import time
-    import math
-    while i<timeleft:
-        time.sleep(1)
-        i=i+1
-        widget.progress = math.floor(((i*1.0)/timeleft)*100)
-        widget.save()
-    widget.progress=100
-    widget.save()
-    output_dict = {}
-    output_dict['data'] = input_dict['data']
     return output_dict
 
 def load_file(input_dict):
@@ -55,24 +33,6 @@ def load_to_string(input_dict):
     f = safeOpen(input_dict['file'])
     output_dict = {}
     output_dict['string']=f.read()
-    return output_dict
-
-def pickle_object(input_dict):
-    '''
-    Serializes the input object.
-    '''
-    pkl_obj = cPickle.dumps(input_dict['object'])
-    output_dict = {}
-    output_dict['pickled_object'] = pkl_obj
-    return output_dict
-
-def unpickle_object(input_dict):
-    '''
-    Serializes the input object.
-    '''
-    obj = cPickle.loads(str(input_dict['pickled_object']))
-    output_dict = {}
-    output_dict['object'] = obj
     return output_dict
 
 def call_webservice(input_dict):
@@ -158,11 +118,6 @@ def subtract_integers(input_dict):
     output_dict['integer'] = int(input_dict['integer1'])-int(input_dict['integer2'])
     return output_dict
     
-def create_range(input_dict):
-    output_dict = {}
-    output_dict['rangeout'] = range(int(input_dict['n_range']))
-    return output_dict
-
 def select_attrs(input_dict):
     return input_dict
 
@@ -582,36 +537,6 @@ def saturation_filter(input_dict, widget):
     output_dict['noise_dict']= noiseAlgorithms4lib.saturation_type(input_dict, widget)
     return output_dict
     
-# ENSEMBLE
-
-def ensemble(input_dict):
-    import math
-    ens = {}
-    data_inds = input_dict['data_inds']
-    ens_type = input_dict['ens_type']
-    # TODO ens_level = input_dict['ens_level']
-    for item in data_inds:
-        #det_by = item['detected_by']
-        for i in item['inds']:
-            if not ens.has_key(i):
-                ens[i] = 1
-            else:
-                ens[i] += 1
-    
-    ens_out = {}
-    ens_out['name'] = input_dict['ens_name']
-    ens_out['inds'] = []
-    n_algs = len(data_inds)
-    print ens_type
-    if ens_type == "consensus":
-        ens_out['inds'] = sorted([x[0] for x in ens.items() if x[1] == n_algs])
-    else: # majority
-        ens_out['inds'] = sorted([x[0] for x in ens.items() if x[1] >= math.floor(n_algs/2+1)])
-    
-    output_dict = {}
-    output_dict['ens_out'] = ens_out
-    return output_dict
-
 # NOISE RANK
     
 def noiserank(input_dict):
