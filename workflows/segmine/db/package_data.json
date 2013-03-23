@@ -1,0 +1,299 @@
+[
+  {
+    "pk": 5,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Orange"
+    }
+  },
+  {
+    "pk": 49,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a",
+      "parent": 5,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "SegMine"
+    }
+  },
+  {
+    "pk": 217,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 49,
+      "treeview_image": "",
+      "name": "Fold change gene filter",
+      "is_streaming": false,
+      "uid": "a0b7e149-066e-4054-874f-4d452e0de507",
+      "interaction_view": "segmine_fc_gene_filter",
+      "image": "",
+      "package": "segmine",
+      "static_image": "",
+      "post_interact_action": "segmine_fc_gene_filter_finished",
+      "user": null,
+      "visualization_view": "",
+      "action": "segmine_fc_gene_filter",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Filters the genes according to FC threshold."
+    }
+  },
+  {
+    "pk": 671,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 217,
+      "name": "Orange dataset",
+      "short_name": "odt",
+      "uid": "e008b9dd-f90d-477f-9dd0-378f64ff0627",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 2,
+      "description": "Orange dataset"
+    }
+  },
+  {
+    "pk": 249,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 217,
+      "name": "Orange dataset",
+      "short_name": "odt",
+      "variable": "dataset",
+      "uid": "8768f51e-9404-4e40-842d-71788e2df738",
+      "order": 1,
+      "description": "Orange dataset with filtered genes"
+    }
+  },
+  {
+    "pk": 216,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 49,
+      "treeview_image": "",
+      "name": "Gene Ranker",
+      "is_streaming": false,
+      "uid": "34b12afe-e881-447c-90d4-bddcd1cd137b",
+      "interaction_view": "",
+      "image": "",
+      "package": "segmine",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "segmine_gene_ranker",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 665,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 216,
+      "name": "Microarray Table",
+      "short_name": "ma",
+      "uid": "73b59971-1839-417c-a937-021ae2d12903",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "microarrayTable",
+      "parameter": false,
+      "order": 1,
+      "description": "Orange data table"
+    }
+  },
+  {
+    "pk": 666,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 216,
+      "name": "Number of neighbours",
+      "short_name": "k",
+      "uid": "96947efb-4df1-48f8-8802-ac6bc2e1984b",
+      "default": "10",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "k",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 667,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 216,
+      "name": "Reference examples (0 = all)",
+      "short_name": "m",
+      "uid": "11fd645a-cf41-4774-98aa-759478c94588",
+      "default": "0",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "m",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 246,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 216,
+      "name": "Gene ranks",
+      "short_name": "rnk",
+      "variable": "geneRanks",
+      "uid": "e3cc4347-d80b-4dbe-9e2c-37f6b0f98671",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 247,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 216,
+      "name": "tScores",
+      "short_name": "t",
+      "variable": "tScores",
+      "uid": "677d2177-8ee9-433d-920c-41b57293c601",
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 218,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 49,
+      "treeview_image": "",
+      "name": "Resolve gene synonyms",
+      "is_streaming": false,
+      "uid": "7e60189f-5fb6-42aa-a541-0848b4c5c02d",
+      "interaction_view": "",
+      "image": "",
+      "package": "segmine",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "segmine_resolve_gene_synonyms",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 672,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 218,
+      "name": "gene ranks",
+      "short_name": "gnr",
+      "uid": "65250e36-d7e3-4d21-9546-f6a8a72319c6",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "gene_ranks",
+      "parameter": false,
+      "order": 1,
+      "description": "list of pairs (gene, rank)"
+    }
+  },
+  {
+    "pk": 250,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 218,
+      "name": "gene ranks",
+      "short_name": "gnr",
+      "variable": "gene_ranks",
+      "uid": "9bd0f46d-adec-4a71-8018-9369579083a1",
+      "order": 1,
+      "description": "list of pairs (entrez_id, rank)"
+    }
+  },
+  {
+    "pk": 215,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 49,
+      "treeview_image": "",
+      "name": "T-test gene filter",
+      "is_streaming": false,
+      "uid": "90881bcb-4f56-4093-8354-76c2da153cc3",
+      "interaction_view": "segmine_ttest_gene_filter",
+      "image": "",
+      "package": "segmine",
+      "static_image": "",
+      "post_interact_action": "segmine_ttest_gene_filter_finished",
+      "user": null,
+      "visualization_view": "",
+      "action": "segmine_ttest_gene_filter",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": true,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Filters the genes according to t-test p-value threshold."
+    }
+  },
+  {
+    "pk": 669,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 215,
+      "name": "Orange dataset",
+      "short_name": "odt",
+      "uid": "0c22f321-13e3-47e1-b219-a300780570b1",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": "Orange dataset"
+    }
+  },
+  {
+    "pk": 248,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 215,
+      "name": "Orange dataset",
+      "short_name": "odt",
+      "variable": "dataset",
+      "uid": "64cf1c47-7cc4-4c57-ad06-3ffd436cbbf0",
+      "order": 1,
+      "description": "Orange dataset with filtered genes"
+    }
+  }
+]
