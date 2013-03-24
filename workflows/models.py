@@ -542,11 +542,11 @@ class Widget(models.Model):
         return None
         
     def reset(self,offline):
-        for i in self.inputs.all():
+        for i in self.inputs.defer("value").all():
             if not i.parameter:
                 i.value = None
                 i.save()
-        for i in self.outputs.all():
+        for i in self.outputs.defer("value").all():
             i.value = None
             i.save()
         self.finished = False
