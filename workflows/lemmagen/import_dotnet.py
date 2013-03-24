@@ -12,6 +12,7 @@ dllPath = os.path.join(PACKAGE_ROOT, 'bin')
 sys.path.append(dllPath)
 
 try:
+    import clr
     import System
     import LemmaSharp
     from LemmaSharpInterfaces import *
