@@ -31,6 +31,22 @@ def lemmagen_example_list_to_table(inputDict):
     outputDict['table'] = execResultPy
     return outputDict
 
+def lemmagen_save_lemmatizer(inputDict):
+    _lmtz = ToNetObj(inputDict['lmtz'])
+    execResult = LemmaSharpIntf.SaveLemmatizer(_lmtz)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['objString'] = execResultPy
+    return outputDict
+
+def lemmagen_load_net_lemmatizer(inputDict):
+    _lmtzStr = ToString(inputDict['lmtzStr'])
+    execResult = LemmaSharpIntf.LoadNetLemmatizer(_lmtzStr)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['obj'] = execResultPy
+    return outputDict
+
 def lemmagen_group_examples(inputDict):
     _exampleList = ToNetObj(inputDict['exampleList'])
     _ignoreFrequencies = ToBool(inputDict['ignoreFrequencies'])
@@ -194,5 +210,23 @@ def lemmagen_filter_list_elements(inputDict):
     outputDict = {}
     outputDict['listSelected'] = execResultPy['listSelected']
     outputDict['listFiltered'] = execResultPy['listFiltered']
+    return outputDict
+
+def lemmagen_save_net_object(inputDict):
+    _serializableObject = ToNetObj(inputDict['serializableObject'])
+    _compress = ToBool(inputDict['compress'])
+    execResult = LemmaSharpIntf.SaveNetObject(_serializableObject, _compress)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['objString'] = execResultPy
+    return outputDict
+
+def lemmagen_load_net_object(inputDict):
+    _serializableObjectStr = ToString(inputDict['serializableObjectStr'])
+    _compress = ToBool(inputDict['compress'])
+    execResult = LemmaSharpIntf.LoadNetObject(_serializableObjectStr, _compress)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['obj'] = execResultPy
     return outputDict
 

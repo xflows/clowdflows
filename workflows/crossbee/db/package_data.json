@@ -982,14 +982,14 @@
     }
   },
   {
-    "pk": 154772926,
+    "pk": 51242383,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 255327945,
       "treeview_image": null,
       "name": "Document Outlier Detection",
       "is_streaming": false,
-      "uid": "c42c757c-245e-4eb2-a657-e77fcc4f4802",
+      "uid": "a765e4a7-a840-408f-b7b1-849e4a583c8d",
       "interaction_view": "",
       "image": null,
       "package": "crossbee",
@@ -1007,13 +1007,13 @@
     }
   },
   {
-    "pk": 161710494,
+    "pk": 969814920,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 154772926,
+      "widget": 51242383,
       "name": "Classifier",
       "short_name": "csf",
-      "uid": "06a3b7c8-681f-ab02-f171-75362b9ea5a0",
+      "uid": "ce140d06-8399-9f9e-73d4-1d62f6d048aa",
       "default": "",
       "required": true,
       "multi": false,
@@ -1025,13 +1025,13 @@
     }
   },
   {
-    "pk": 1024005826,
+    "pk": 916453347,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 154772926,
+      "widget": 51242383,
       "name": "Dataset",
       "short_name": "ds",
-      "uid": "eeab1227-dfa8-31df-b27b-2a27efeda6b0",
+      "uid": "7951cba0-726f-c289-80a9-6071170fc934",
       "default": "",
       "required": true,
       "multi": false,
@@ -1043,13 +1043,13 @@
     }
   },
   {
-    "pk": 740564028,
+    "pk": 26499033,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 154772926,
+      "widget": 51242383,
       "name": "Corss-Validation Repetitions",
       "short_name": "int",
-      "uid": "21ea2877-e44d-c8db-0612-b9bce6e62f36",
+      "uid": "ffa6f21f-bab4-ec85-564d-3c97ce7f1575",
       "default": "5",
       "required": true,
       "multi": false,
@@ -1061,13 +1061,13 @@
     }
   },
   {
-    "pk": 446424769,
+    "pk": 514117643,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 154772926,
+      "widget": 51242383,
       "name": "Outlier Score Threshold",
       "short_name": "int",
-      "uid": "f7bb77e7-327e-5794-f330-186d669d6b1b",
+      "uid": "ad206ea1-4158-620d-3ea8-7a1ad7f87cc8",
       "default": "2",
       "required": true,
       "multi": false,
@@ -1079,13 +1079,13 @@
     }
   },
   {
-    "pk": 590488885,
+    "pk": 242097707,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 154772926,
+      "widget": 51242383,
       "name": "Num of Cross Validation Sets/Splits",
       "short_name": "int",
-      "uid": "bdc7e5b8-00f1-d7bd-6927-fc91856a280a",
+      "uid": "70f37618-6173-b6de-1581-333303025651",
       "default": "10",
       "required": true,
       "multi": false,
@@ -1097,13 +1097,13 @@
     }
   },
   {
-    "pk": 238288051,
+    "pk": 417567758,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 154772926,
+      "widget": 51242383,
       "name": "Assign Sets Randomly",
       "short_name": "bol",
-      "uid": "15d0d98c-b25b-e7fc-19f1-d547a0dddd14",
+      "uid": "0275f3ce-d1a3-fb1c-d241-fdd9198ba7c3",
       "default": "true",
       "required": true,
       "multi": false,
@@ -1115,13 +1115,13 @@
     }
   },
   {
-    "pk": 925602434,
+    "pk": 329230871,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 154772926,
+      "widget": 51242383,
       "name": "Use Specified Seed for Random",
       "short_name": "bol",
-      "uid": "5996039f-bf7b-7ea9-65fa-88c68225e542",
+      "uid": "b732736e-8c7f-d8f7-e9f0-7becd4a6bdcc",
       "default": "false",
       "required": true,
       "multi": false,
@@ -1133,13 +1133,13 @@
     }
   },
   {
-    "pk": 940128487,
+    "pk": 558987205,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 154772926,
+      "widget": 51242383,
       "name": "Random Seed",
       "short_name": "int",
-      "uid": "fa4616c9-bf30-9bba-ddcb-8d1ac32866b4",
+      "uid": "e7228b95-f0d5-346a-697c-6225bfc98db2",
       "default": "0",
       "required": true,
       "multi": false,
@@ -1151,13 +1151,13 @@
     }
   },
   {
-    "pk": 788187937,
+    "pk": 847156685,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 154772926,
+      "widget": 51242383,
       "name": "Outlier Weighting",
       "short_name": "wgh",
-      "uid": "99da74dd-563e-796f-19a4-4f3f717f29a6",
+      "uid": "d656fe12-2f4c-efb5-6687-013fb8c4b1e0",
       "default": "RelativePercentage",
       "required": true,
       "multi": false,
@@ -1169,44 +1169,44 @@
     }
   },
   {
-    "pk": 265779978,
+    "pk": 184129748,
     "model": "workflows.abstractoption",
     "fields": {
-      "uid": "e0036402-90ef-b31b-68a1-51d564895bd5",
-      "abstract_input": 788187937,
+      "uid": "5fc5ec58-403c-5d07-6a7e-46d8619545e5",
+      "abstract_input": 847156685,
       "value": "NoWeighting",
       "name": "No weighting: output is list of indexes of outlier documents"
     }
   },
   {
-    "pk": 224742160,
+    "pk": 478615014,
     "model": "workflows.abstractoption",
     "fields": {
-      "uid": "e78c5ae3-f061-05b3-8a4d-e329d639c2c7",
-      "abstract_input": 788187937,
+      "uid": "4f477fa7-7768-c376-c588-1f3eb74a9355",
+      "abstract_input": 847156685,
       "value": "AbsoluteNumber",
       "name": "Absolute: weight is absolute number of time a document was labeld outlier through all repetitions"
     }
   },
   {
-    "pk": 254696335,
+    "pk": 320647038,
     "model": "workflows.abstractoption",
     "fields": {
-      "uid": "a932e92c-6e9c-dbcb-a161-aa834bebb5b3",
-      "abstract_input": 788187937,
+      "uid": "1a6722dd-f1ed-4ba2-702c-13b4c0688d65",
+      "abstract_input": 847156685,
       "value": "RelativePercentage",
       "name": "Relative: weight is relative percentage how many times a document was labeled outlier through all repetitions"
     }
   },
   {
-    "pk": 285280223,
+    "pk": 485975191,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 154772926,
+      "widget": 51242383,
       "name": "List of Outlier Indexes (with Weights)",
       "short_name": "lst",
       "variable": "out",
-      "uid": "43d23d99-8ac4-5b3e-c89c-43d63db3920e",
+      "uid": "5b56d352-80b9-f52b-e714-875643cc69aa",
       "order": 1,
       "description": ""
     }
