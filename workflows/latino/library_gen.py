@@ -124,6 +124,14 @@ def latino_extract_documents(inputDict):
     outputDict['adcRest'] = execResultPy['adcRest']
     return outputDict
 
+def latino_join_documents_corpora(inputDict):
+    _adc = ToNetObj(inputDict['adc'])
+    execResult = LatinoCF.JoinDocumentsCorpora(_adc)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['adc'] = execResultPy
+    return outputDict
+
 def latino_mark_documents_with_set_feature(inputDict):
     _adc = ToNetObj(inputDict['adc'])
     _featureName = ToString(inputDict['featureName'])
@@ -446,6 +454,20 @@ def latino_construct_bow_space_2(inputDict):
     outputDict = {}
     outputDict['bow'] = execResultPy['bow']
     outputDict['ds'] = execResultPy['ds']
+    return outputDict
+
+def latino_get_raw_parsed_documents(inputDict):
+    _adc = ToNetObj(inputDict['adc'])
+    _tokenId = ToString(inputDict['tokenId'])
+    _stemId = ToString(inputDict['stemId'])
+    _stopwordId = ToString(inputDict['stopwordId'])
+    _labelId = ToString(inputDict['labelId'])
+    _maxNGramLen = ToInt(inputDict['maxNGramLen'])
+    _minWordFreq = ToInt(inputDict['minWordFreq'])
+    execResult = LatinoCF.GetRawParsedDocuments(_adc, _tokenId, _stemId, _stopwordId, _labelId, _maxNGramLen, _minWordFreq)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['rpd'] = execResultPy
     return outputDict
 
 def latino_get_vocabulary(inputDict):

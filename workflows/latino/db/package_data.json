@@ -964,6 +964,62 @@
     }
   },
   {
+    "pk": 747632237,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 840702242,
+      "treeview_image": null,
+      "name": "Join",
+      "is_streaming": false,
+      "uid": "cf21a09c-47b0-4252-93be-71d205c2fc9e",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "latino_widget_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_join_documents_corpora",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 9,
+      "description": "Automatically generated widget from function JoinDocumentsCorpora in package latino. The original function signature: JoinDocumentsCorpora."
+    }
+  },
+  {
+    "pk": 70992681,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 747632237,
+      "name": "Annotated Document Corpus",
+      "short_name": "adc",
+      "uid": "23ed1f30-b139-706e-e555-37023356e788",
+      "default": "",
+      "required": true,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "adc",
+      "parameter": false,
+      "order": 1,
+      "description": "System.Collections.Generic.List`1[[LatinoClowdFlows.DocumentCorpus, LatinoClowdFlows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+    }
+  },
+  {
+    "pk": 871883864,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 747632237,
+      "name": "Merged Annotated Document Corpus",
+      "short_name": "adc",
+      "variable": "adc",
+      "uid": "7f1828e2-9192-447b-146a-23c10ee0554b",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 1002506927,
     "model": "workflows.abstractwidget",
     "fields": {
@@ -4150,6 +4206,170 @@
       "variable": "ds",
       "uid": "4b0b8791-ab58-61a2-580d-820e9d700367",
       "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 416155332,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 274815427,
+      "treeview_image": null,
+      "name": "Get Raw Parsed Documents",
+      "is_streaming": false,
+      "uid": "7aafe757-8399-471b-8265-17e2c2be5083",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "latino_widget_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_get_raw_parsed_documents",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Automatically generated widget from function GetRawParsedDocuments in package latino. The original function signature: GetRawParsedDocuments."
+    }
+  },
+  {
+    "pk": 451885482,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 416155332,
+      "name": "Annotated Document Corpus",
+      "short_name": "adc",
+      "uid": "4746034c-518b-e9b1-3a52-7853adadb5e6",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "adc",
+      "parameter": false,
+      "order": 1,
+      "description": "LatinoClowdFlows.DocumentCorpus"
+    }
+  },
+  {
+    "pk": 257800258,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 416155332,
+      "name": "Token Annotation",
+      "short_name": "str",
+      "uid": "1ab5eba6-24ae-6d8e-0cc7-846c03f0026f",
+      "default": "Token",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "tokenId",
+      "parameter": true,
+      "order": 2,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 997391576,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 416155332,
+      "name": "Stem Feature Name",
+      "short_name": "str",
+      "uid": "152e863e-3484-8c6f-9e67-2ab93ad6be73",
+      "default": "stem",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "stemId",
+      "parameter": true,
+      "order": 3,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 614123314,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 416155332,
+      "name": "Stopword Feature Name",
+      "short_name": "str",
+      "uid": "927e7634-a9a5-5e4a-5696-7365cb4baea1",
+      "default": "stopword",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "stopwordId",
+      "parameter": true,
+      "order": 4,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 627767041,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 416155332,
+      "name": "Label Document Feature Name",
+      "short_name": "str",
+      "uid": "ab1e92e7-7cc2-59ea-77ad-841041ef79af",
+      "default": "label",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "labelId",
+      "parameter": true,
+      "order": 5,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 20591367,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 416155332,
+      "name": "Maximum N-Gram Length",
+      "short_name": "int",
+      "uid": "0abb6ca9-8516-d697-26b6-2a9fcd9fb92b",
+      "default": "2",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "maxNGramLen",
+      "parameter": true,
+      "order": 6,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 145397693,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 416155332,
+      "name": "Minimum Word Freqency",
+      "short_name": "dbl",
+      "uid": "44478eee-dde7-7a98-99b1-fe742ddf06d9",
+      "default": "5",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "minWordFreq",
+      "parameter": true,
+      "order": 7,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 707971477,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 416155332,
+      "name": "Raw Parsed Documents",
+      "short_name": "rpd",
+      "variable": "rpd",
+      "uid": "a005f62b-6ecc-ae54-68e7-b81c03877dd9",
+      "order": 1,
       "description": ""
     }
   },
