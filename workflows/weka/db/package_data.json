@@ -45,7 +45,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Instance-Based learner with fixed neighborhood."
     }
   }, 
   {
@@ -107,8 +107,8 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 1, 
-      "name": "IBk_learner", 
-      "short_name": "IBk", 
+      "name": "IBk Learner", 
+      "short_name": "lrn", 
       "variable": "IBk_learner", 
       "uid": "eb204c56-6279-4f3a-b1c0-37a6b0c7b91b", 
       "order": 1, 
@@ -137,7 +137,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "A clone of the C4.5 decision tree learner."
     }
   }, 
   {
@@ -199,8 +199,8 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 2, 
-      "name": "J48_learner", 
-      "short_name": "J48", 
+      "name": "J48 Learner", 
+      "short_name": "lrn", 
       "variable": "J48_learner", 
       "uid": "f853af74-d660-4450-ada4-fb32fc6aae86", 
       "order": 1, 
@@ -229,7 +229,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "A clone of the RIPPER rule learner."
     }
   }, 
   {
@@ -291,8 +291,8 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 3, 
-      "name": "JRip_learner", 
-      "short_name": "JRi", 
+      "name": "JRip Learner", 
+      "short_name": "lrn", 
       "variable": "JRip_learner", 
       "uid": "022a1a8a-ad2b-49bb-9ec9-05f0903bda5d", 
       "order": 1, 
@@ -321,7 +321,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Instance-Based learner."
     }
   }, 
   {
@@ -383,8 +383,8 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 4, 
-      "name": "KStar_learner", 
-      "short_name": "KSt", 
+      "name": "KStar Learner", 
+      "short_name": "lrn", 
       "variable": "KStar_learner", 
       "uid": "b82ceb0d-5430-40f7-9dbc-e1b981ee959d", 
       "order": 1, 
@@ -413,7 +413,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Support Vector Machine learner."
     }
   }, 
   {
@@ -475,8 +475,8 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 5, 
-      "name": "LibSVM_learner", 
-      "short_name": "Lib", 
+      "name": "LibSVM Learner", 
+      "short_name": "lrn", 
       "variable": "LibSVM_learner", 
       "uid": "73e0b8a5-33d6-4b23-b366-b8173028b44d", 
       "order": 1, 
@@ -567,8 +567,8 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 6, 
-      "name": "Multilayer_Perceptron_learner", 
-      "short_name": "Mul", 
+      "name": "Multilayer_Perceptron Learner", 
+      "short_name": "lrn", 
       "variable": "Multilayer_Perceptron_learner", 
       "uid": "8174e40c-d895-4db1-a51b-d9b83aa3fa42", 
       "order": 1, 
@@ -751,8 +751,8 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 8, 
-      "name": "REPTree_learner", 
-      "short_name": "REP", 
+      "name": "REPTree Learner", 
+      "short_name": "lrn", 
       "variable": "REPTree_learner", 
       "uid": "6b3e9710-6b9b-492c-808a-52a9f4476c65", 
       "order": 1, 
@@ -843,8 +843,8 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 9, 
-      "name": "RandomTree_learner", 
-      "short_name": "Ran", 
+      "name": "RandomTree Learner", 
+      "short_name": "lrn", 
       "variable": "RandomTree_learner", 
       "uid": "26150fbf-2b4c-4ab4-b227-df9c941febed", 
       "order": 1, 
@@ -873,7 +873,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Random Forest learner."
     }
   }, 
   {
@@ -935,8 +935,8 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 10, 
-      "name": "RandomForest_learner", 
-      "short_name": "Ran", 
+      "name": "RandomForest Learner", 
+      "short_name": "lrn", 
       "variable": "RandomForest_learner", 
       "uid": "5fcca051-bda1-44b3-b8d9-199fef38d0b4", 
       "order": 1, 
@@ -1069,7 +1069,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Apply the provided classifier on the provided data."
     }
   }, 
   {
@@ -1113,7 +1113,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 12, 
-      "name": "classifier", 
+      "name": "Classifier", 
       "short_name": "cla", 
       "uid": "09c54f59-0beb-4300-b682-47ebd63b71c9", 
       "default": "", 
@@ -1123,7 +1123,7 @@
       "variable": "classifier", 
       "parameter": false, 
       "order": 3, 
-      "description": ""
+      "description": "to be applied on data\r\n\r\nProvided by:\r\nWeka Build Classifier"
     }
   }, 
   {
@@ -1131,7 +1131,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 12, 
-      "name": "instances", 
+      "name": "Instances", 
       "short_name": "ins", 
       "uid": "c22197af-f60b-4b76-b40e-516c17c9e1ab", 
       "default": "", 
@@ -1141,7 +1141,7 @@
       "variable": "instances", 
       "parameter": false, 
       "order": 4, 
-      "description": ""
+      "description": "to be classified.\r\n\r\nProvided by:\r\nArff to Weka Instances"
     }
   }, 
   {
@@ -1149,12 +1149,12 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 12, 
-      "name": "classes", 
-      "short_name": "cla", 
+      "name": "Classes", 
+      "short_name": "cls", 
       "variable": "classes", 
       "uid": "9b29be8c-d5e9-46c5-84a8-530275037210", 
       "order": 1, 
-      "description": ""
+      "description": "based on the provided classifier and data.\r\n\r\nUsed by:\r\n"
     }
   }, 
   {
@@ -1179,7 +1179,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Creates data clusters based on the provided clusterer."
     }
   }, 
   {
@@ -1223,7 +1223,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 13, 
-      "name": "clusterer", 
+      "name": "Clusterer", 
       "short_name": "clu", 
       "uid": "5b14518d-51a9-4638-9231-dd73d19b6b3c", 
       "default": "", 
@@ -1233,7 +1233,7 @@
       "variable": "clusterer", 
       "parameter": false, 
       "order": 3, 
-      "description": ""
+      "description": "Clusterer provided for clustering data"
     }
   }, 
   {
@@ -1241,7 +1241,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 13, 
-      "name": "instances", 
+      "name": "Instances", 
       "short_name": "ins", 
       "uid": "278891e3-2530-4c9b-9871-57e6b6ad4070", 
       "default": "", 
@@ -1251,7 +1251,7 @@
       "variable": "instances", 
       "parameter": false, 
       "order": 4, 
-      "description": ""
+      "description": "Provided data"
     }
   }, 
   {
@@ -1259,12 +1259,12 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 13, 
-      "name": "clusters", 
+      "name": "Clusters", 
       "short_name": "clu", 
       "variable": "clusters", 
       "uid": "10685da4-1505-46f5-aed3-30e7228eaaa6", 
       "order": 1, 
-      "description": ""
+      "description": "Clusters based on provided clusterer and data"
     }
   }, 
   {
@@ -1272,12 +1272,12 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 13, 
-      "name": "number_of_clusters", 
+      "name": "Number of Clusters", 
       "short_name": "num", 
       "variable": "number_of_clusters", 
       "uid": "618a6e7b-54a2-4ee0-8356-6819a88451c7", 
       "order": 2, 
-      "description": ""
+      "description": "Number of data clusters based on the clustering done"
     }
   }, 
   {
@@ -1285,12 +1285,12 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 13, 
-      "name": "centroids", 
+      "name": "Centroids", 
       "short_name": "cen", 
       "variable": "centroids", 
       "uid": "39951e7d-8354-49b6-aa26-cbbc5be2285a", 
       "order": 3, 
-      "description": ""
+      "description": "Number of centroids based on the clustering done"
     }
   }, 
   {
@@ -1315,7 +1315,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Build a classifier based on provided learner and data."
     }
   }, 
   {
@@ -1359,7 +1359,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 14, 
-      "name": "learner", 
+      "name": "Learner", 
       "short_name": "lea", 
       "uid": "17b77977-c7fd-4a1e-8bdd-e57dda0495d9", 
       "default": "", 
@@ -1369,7 +1369,7 @@
       "variable": "learner", 
       "parameter": false, 
       "order": 3, 
-      "description": ""
+      "description": "used to build the classifier.\r\n\r\nProvided by:\r\na Weka Classification widget"
     }
   }, 
   {
@@ -1377,7 +1377,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 14, 
-      "name": "instances", 
+      "name": "Instances", 
       "short_name": "ins", 
       "uid": "1c36937f-7127-48a5-b086-ab3356e8db7d", 
       "default": "", 
@@ -1387,7 +1387,7 @@
       "variable": "instances", 
       "parameter": false, 
       "order": 4, 
-      "description": ""
+      "description": "to be used by the provided learner to create a classifier.\r\n\r\nProvided by:\r\nArff to Weka Instances"
     }
   }, 
   {
@@ -1395,12 +1395,12 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 14, 
-      "name": "classifier", 
+      "name": "Classifier", 
       "short_name": "cla", 
       "variable": "classifier", 
       "uid": "764cd629-5f3a-44b7-ab8f-a71edd9363c7", 
       "order": 1, 
-      "description": ""
+      "description": "based on the provided data and learner.\r\n\r\nUsed by:\r\nWeka Apply Classifier"
     }
   }, 
   {
@@ -1425,7 +1425,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Build a clusterer based on provided learner and data."
     }
   }, 
   {
@@ -1469,7 +1469,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 15, 
-      "name": "learner", 
+      "name": "Learner", 
       "short_name": "lea", 
       "uid": "eec2f308-1c5e-4de3-b60d-59b4f19d7aa6", 
       "default": "", 
@@ -1479,7 +1479,7 @@
       "variable": "learner", 
       "parameter": false, 
       "order": 3, 
-      "description": ""
+      "description": "used to build the clusterer."
     }
   }, 
   {
@@ -1487,7 +1487,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 15, 
-      "name": "instances", 
+      "name": "Instances", 
       "short_name": "ins", 
       "uid": "da953155-8ed2-416b-b739-bed4fd748dda", 
       "default": "", 
@@ -1497,7 +1497,7 @@
       "variable": "instances", 
       "parameter": false, 
       "order": 4, 
-      "description": ""
+      "description": "to be used by the provided learner to create a clusterer."
     }
   }, 
   {
@@ -1505,12 +1505,12 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 15, 
-      "name": "clusterer", 
+      "name": "Clusterer", 
       "short_name": "clu", 
       "variable": "clusterer", 
       "uid": "777aeed1-65ad-478b-9b2f-058e2441f13f", 
       "order": 1, 
-      "description": ""
+      "description": "based on the provided data and learner."
     }
   }, 
   {
@@ -1758,7 +1758,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 17, 
-      "name": "arff", 
+      "name": "arff file", 
       "short_name": "arf", 
       "uid": "b027ab99-adb6-44fb-96ab-08deb7db7f5d", 
       "default": "", 
@@ -1776,7 +1776,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 17, 
-      "name": "class_index", 
+      "name": "Class Index", 
       "short_name": "cla", 
       "uid": "1e067896-7006-4b44-82af-b03a61727080", 
       "default": "", 
@@ -1794,7 +1794,7 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 17, 
-      "name": "instances", 
+      "name": "Instances", 
       "short_name": "ins", 
       "variable": "instances", 
       "uid": "110f9834-3e44-419b-a3af-39622417ecd6", 
@@ -1868,7 +1868,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 18, 
-      "name": "model", 
+      "name": "Model", 
       "short_name": "mod", 
       "uid": "df7c8785-4e7f-4e74-b123-c86b7f380516", 
       "default": "", 
@@ -1886,7 +1886,7 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 18, 
-      "name": "model_as_string", 
+      "name": "Model as String", 
       "short_name": "mod", 
       "variable": "model_as_string", 
       "uid": "873ce128-d626-4490-a34e-1276f3048a8b", 
@@ -2052,7 +2052,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 20, 
-      "name": "instances", 
+      "name": "Instances", 
       "short_name": "ins", 
       "uid": "0ba276f9-f0c5-4d1e-ada8-7398e3ea3d72", 
       "default": "", 
@@ -2070,7 +2070,7 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": 20, 
-      "name": "arff", 
+      "name": "arff file", 
       "short_name": "arf", 
       "variable": "arff", 
       "uid": "bfbd3109-e756-4a38-bcaf-b2d5883eda77", 
@@ -2100,7 +2100,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Confusion Matrix shows how many instances have been assigned to each class. Elements show the number of test examples whose actual class is the row and whose predicted class is the column."
     }
   }, 
   {
