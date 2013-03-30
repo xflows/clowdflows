@@ -969,7 +969,7 @@
     "fields": {
       "category": 840702242,
       "treeview_image": null,
-      "name": "Join",
+      "name": "Merge Corpora",
       "is_streaming": false,
       "uid": "cf21a09c-47b0-4252-93be-71d205c2fc9e",
       "interaction_view": "",
@@ -3954,7 +3954,7 @@
     "fields": {
       "category": 274815427,
       "treeview_image": null,
-      "name": "BOW Space",
+      "name": "BOW Model",
       "is_streaming": false,
       "uid": "070a465b-ea02-4238-b16c-9df74fbcbba8",
       "interaction_view": "",
@@ -4188,7 +4188,7 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 484658366,
-      "name": "Bag of Words Space",
+      "name": "Bag of Words Model",
       "short_name": "bow",
       "variable": "bow",
       "uid": "f86ef891-0d04-495a-322c-062767248dd6",
@@ -4210,12 +4210,260 @@
     }
   },
   {
+    "pk": 421480322,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 274815427,
+      "treeview_image": null,
+      "name": "BOW Model",
+      "is_streaming": false,
+      "uid": "0b647891-6048-4405-a164-e258fd3a862a",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "bow_space_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_construct_bow_model",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 5,
+      "description": "Automatically generated widget from function ConstructBowModel in package latino. The original function signature: ConstructBowModel."
+    }
+  },
+  {
+    "pk": 206709265,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Annotated Document Corpus",
+      "short_name": "adc",
+      "uid": "46e9da50-b6bd-488d-6e8b-39390199f715",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "adc",
+      "parameter": false,
+      "order": 1,
+      "description": "LatinoClowdFlows.DocumentCorpus"
+    }
+  },
+  {
+    "pk": 542058821,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Token Annotation",
+      "short_name": "str",
+      "uid": "08730492-7140-e200-701c-1860a5023fe3",
+      "default": "Token",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "tokenId",
+      "parameter": true,
+      "order": 2,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 480707165,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Stem Feature Name",
+      "short_name": "str",
+      "uid": "db0b4d1f-8f3f-a538-edc9-9972862ae8fe",
+      "default": "stem",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "stemId",
+      "parameter": true,
+      "order": 3,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 549249047,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Stopword Feature Name",
+      "short_name": "str",
+      "uid": "b0ed88bf-6c79-591a-513a-b9e604836f94",
+      "default": "stopword",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "stopwordId",
+      "parameter": true,
+      "order": 4,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 221819344,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Label Document Feature Name",
+      "short_name": "str",
+      "uid": "005ed657-04f5-fc23-7831-5deb27e09ec6",
+      "default": "label",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "labelId",
+      "parameter": true,
+      "order": 5,
+      "description": "System.String"
+    }
+  },
+  {
+    "pk": 951678240,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Maximum N-Gram Length",
+      "short_name": "int",
+      "uid": "4453b145-995c-ea4f-45fc-631653422f42",
+      "default": "2",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "maxNGramLen",
+      "parameter": true,
+      "order": 6,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 58934252,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Minimum Word Freqency",
+      "short_name": "dbl",
+      "uid": "0e888dc5-bab2-8e76-b38d-4e1f9bbf4c64",
+      "default": "5",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "minWordFreq",
+      "parameter": true,
+      "order": 7,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 422692226,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Word Weighting Type",
+      "short_name": "wwt",
+      "uid": "274f41c2-90a9-282b-4241-0b1473830fe3",
+      "default": "TfIdf",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "wordWeightType",
+      "parameter": true,
+      "order": 8,
+      "description": "Latino.TextMining.WordWeightType"
+    }
+  },
+  {
+    "pk": 843080680,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "d54fdea1-21e3-3ddd-4a9d-5b8be4514585",
+      "abstract_input": 422692226,
+      "value": "TermFreq",
+      "name": "Term Freq"
+    }
+  },
+  {
+    "pk": 373274952,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "8bc02361-6117-d927-d4ba-d9c0919ca479",
+      "abstract_input": 422692226,
+      "value": "TfIdf",
+      "name": "Tf Idf"
+    }
+  },
+  {
+    "pk": 539394268,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "0f9b9e0b-9e3a-a535-16b3-6c66e4517493",
+      "abstract_input": 422692226,
+      "value": "LogDfTfIdf",
+      "name": "Log Df Tf Idf"
+    }
+  },
+  {
+    "pk": 578093785,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Cut Low Weights Percentage",
+      "short_name": "dbl",
+      "uid": "f01b5be1-c58a-a1f8-b8d3-095e9ed2ba74",
+      "default": "0.2",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "cutLowWeightsPerc",
+      "parameter": true,
+      "order": 9,
+      "description": "System.Double"
+    }
+  },
+  {
+    "pk": 751414706,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Normalize Vectors",
+      "short_name": "bol",
+      "uid": "78df0885-bff7-3211-285d-5c71b25f14a3",
+      "default": "true",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "normalizeVectors",
+      "parameter": true,
+      "order": 10,
+      "description": "System.Boolean"
+    }
+  },
+  {
+    "pk": 769328871,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 421480322,
+      "name": "Bag of Words Model",
+      "short_name": "bow",
+      "variable": "bow",
+      "uid": "c0157e76-bcea-dba0-9255-b1929201a8e8",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 416155332,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 274815427,
       "treeview_image": null,
-      "name": "Get Raw Parsed Documents",
+      "name": "Parse Documents",
       "is_streaming": false,
       "uid": "7aafe757-8399-471b-8265-17e2c2be5083",
       "interaction_view": "",
@@ -4225,13 +4473,13 @@
       "post_interact_action": "",
       "user": null,
       "visualization_view": "",
-      "action": "latino_get_raw_parsed_documents",
+      "action": "latino_parse_documents",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
       "order": 1,
-      "description": "Automatically generated widget from function GetRawParsedDocuments in package latino. The original function signature: GetRawParsedDocuments."
+      "description": "Automatically generated widget from function ParseDocuments in package latino. The original function signature: ParseDocuments."
     }
   },
   {
@@ -4365,9 +4613,9 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 416155332,
-      "name": "Raw Parsed Documents",
-      "short_name": "rpd",
-      "variable": "rpd",
+      "name": "Parsed Documents",
+      "short_name": "prd",
+      "variable": "prd",
       "uid": "a005f62b-6ecc-ae54-68e7-b81c03877dd9",
       "order": 1,
       "description": ""
@@ -4403,7 +4651,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 127000653,
-      "name": "Bag of Words Space",
+      "name": "Bag of Words Model",
       "short_name": "bow",
       "uid": "42ef0943-14de-5f26-7563-a94b0a683355",
       "default": "",
@@ -4471,7 +4719,7 @@
     "fields": {
       "category": 274815427,
       "treeview_image": null,
-      "name": "Process New Documents",
+      "name": "Create Dataset",
       "is_streaming": false,
       "uid": "7dfc02d9-3396-4387-abd4-95e48cf4576a",
       "interaction_view": "",
@@ -4495,7 +4743,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 566732220,
-      "name": "Bag of Words Space",
+      "name": "Bag of Words Model",
       "short_name": "bow",
       "uid": "929065a7-9eda-4166-a21d-42a01cf45876",
       "default": "",
@@ -4557,7 +4805,7 @@
     "fields": {
       "category": 889177128,
       "treeview_image": null,
-      "name": "BOW Space (Text)",
+      "name": "BOW Model (Text)",
       "is_streaming": false,
       "uid": "471eb047-8d39-4eac-8cc1-6c768c42d897",
       "interaction_view": "",
@@ -4773,7 +5021,7 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 360578851,
-      "name": "Bag of Words Space",
+      "name": "Bag of Words Model",
       "short_name": "bow",
       "variable": "bow",
       "uid": "6353aa61-77fd-189f-a260-14a8a4195839",
@@ -4824,7 +5072,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 1048977147,
-      "name": "Bag of Words Space",
+      "name": "Bag of Words Model",
       "short_name": "bow",
       "uid": "ca27a6d1-192b-6bee-d8e9-fc3a8376dcb3",
       "default": "",
@@ -6312,7 +6560,7 @@
     "fields": {
       "category": 837637361,
       "treeview_image": null,
-      "name": "Svm Binary Classifier",
+      "name": "SVM Binary Classifier",
       "is_streaming": false,
       "uid": "e101b293-b26d-4484-8f9f-30bda3dfe344",
       "interaction_view": "",
@@ -6570,7 +6818,7 @@
     "fields": {
       "category": 837637361,
       "treeview_image": null,
-      "name": "Svm Multiclass Fast Classifier",
+      "name": "SVM Multiclass Fast Classifier",
       "is_streaming": false,
       "uid": "48540dc6-233b-4155-ba8a-ab3a6a867361",
       "interaction_view": "",

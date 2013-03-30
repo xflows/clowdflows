@@ -456,7 +456,7 @@ def latino_construct_bow_space_2(inputDict):
     outputDict['ds'] = execResultPy['ds']
     return outputDict
 
-def latino_get_raw_parsed_documents(inputDict):
+def latino_construct_bow_model(inputDict):
     _adc = ToNetObj(inputDict['adc'])
     _tokenId = ToString(inputDict['tokenId'])
     _stemId = ToString(inputDict['stemId'])
@@ -464,10 +464,27 @@ def latino_get_raw_parsed_documents(inputDict):
     _labelId = ToString(inputDict['labelId'])
     _maxNGramLen = ToInt(inputDict['maxNGramLen'])
     _minWordFreq = ToInt(inputDict['minWordFreq'])
-    execResult = LatinoCF.GetRawParsedDocuments(_adc, _tokenId, _stemId, _stopwordId, _labelId, _maxNGramLen, _minWordFreq)
+    _wordWeightType = ToEnum(Latino.TextMining.WordWeightType, inputDict['wordWeightType'], Latino.TextMining.WordWeightType.TfIdf)
+    _cutLowWeightsPerc = ToFloat(inputDict['cutLowWeightsPerc'])
+    _normalizeVectors = ToBool(inputDict['normalizeVectors'])
+    execResult = LatinoCF.ConstructBowModel(_adc, _tokenId, _stemId, _stopwordId, _labelId, _maxNGramLen, _minWordFreq, _wordWeightType, _cutLowWeightsPerc, _normalizeVectors)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
-    outputDict['rpd'] = execResultPy
+    outputDict['bow'] = execResultPy
+    return outputDict
+
+def latino_parse_documents(inputDict):
+    _adc = ToNetObj(inputDict['adc'])
+    _tokenId = ToString(inputDict['tokenId'])
+    _stemId = ToString(inputDict['stemId'])
+    _stopwordId = ToString(inputDict['stopwordId'])
+    _labelId = ToString(inputDict['labelId'])
+    _maxNGramLen = ToInt(inputDict['maxNGramLen'])
+    _minWordFreq = ToInt(inputDict['minWordFreq'])
+    execResult = LatinoCF.ParseDocuments(_adc, _tokenId, _stemId, _stopwordId, _labelId, _maxNGramLen, _minWordFreq)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['prd'] = execResultPy
     return outputDict
 
 def latino_get_vocabulary(inputDict):
