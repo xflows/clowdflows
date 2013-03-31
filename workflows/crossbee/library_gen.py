@@ -108,28 +108,10 @@ def crossbee_outlier_detection_via_cross_validation(inputDict):
     outputDict['out'] = execResultPy
     return outputDict
 
-def crossbee_get_vocabulary(inputDict):
-    _bow = ToNetObj(inputDict['bow'])
-    _startIndex = ToInt(inputDict['startIndex'])
-    _maxWords = ToInt(inputDict['maxWords'])
-    execResult = CrossBeeIntf.GetVocabulary(_bow, _startIndex, _maxWords)
-    execResultPy = ToPyObj(execResult)
-    outputDict = {}
-    outputDict['vocabulary'] = execResultPy
-    return outputDict
-
-def crossbee_get_vocabulary_with_statistics(inputDict):
-    _rawParsedDoc = ToNetObj(inputDict['rawParsedDoc'])
-    execResult = CrossBeeIntf.GetVocabularyWithStatistics(_rawParsedDoc)
-    execResultPy = ToPyObj(execResult)
-    outputDict = {}
-    outputDict['vocabularyStat'] = execResultPy
-    return outputDict
-
 def crossbee_apply_heurisitcs(inputDict):
-    _vocabularyStat = ToNetObj(inputDict['vocabularyStat'])
+    _termDataset = ToNetObj(inputDict['termDataset'])
     _heuristics = ToNetObj(inputDict['heuristics'])
-    execResult = CrossBeeIntf.ApplyHeurisitcs(_vocabularyStat, _heuristics)
+    execResult = CrossBeeIntf.ApplyHeurisitcs(_termDataset, _heuristics)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
     outputDict['heur'] = execResultPy
@@ -152,10 +134,10 @@ def crossbee_rank_terms(inputDict):
     return outputDict
 
 def crossbee_explore_in_crossbee(inputDict):
-    _rawParsedDoc = ToNetObj(inputDict['rawParsedDoc'])
+    _parsedDoc = ToNetObj(inputDict['parsedDoc'])
     _heuristics = ToNetObj(inputDict['heuristics'])
     _bterms = ToNetObj(inputDict['bterms'])
-    execResult = CrossBeeIntf.ExploreInCrossbee(_rawParsedDoc, _heuristics, _bterms)
+    execResult = CrossBeeIntf.ExploreInCrossbee(_parsedDoc, _heuristics, _bterms)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
     return outputDict

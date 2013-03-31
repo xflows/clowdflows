@@ -1224,160 +1224,12 @@
     }
   },
   {
-    "pk": 962875447,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 14058118,
-      "treeview_image": null,
-      "name": "Get Vocabulary",
-      "is_streaming": false,
-      "uid": "e81f39e0-13d0-4465-b1ae-dba6304057e8",
-      "interaction_view": "",
-      "image": null,
-      "package": "crossbee",
-      "static_image": "get_vocabulary_image.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "crossbee_get_vocabulary",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 2,
-      "description": "Automatically generated widget from function GetVocabulary in package crossbee. The original function signature: GetVocabulary."
-    }
-  },
-  {
-    "pk": 723445188,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 962875447,
-      "name": "Bag of Words Space",
-      "short_name": "bow",
-      "uid": "c73db64c-9d63-6560-cfd5-43e966819e6a",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "bow",
-      "parameter": false,
-      "order": 1,
-      "description": "Latino.TextMining.BowSpace"
-    }
-  },
-  {
-    "pk": 46760747,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 962875447,
-      "name": "Index of First Retrieved Word",
-      "short_name": "int",
-      "uid": "54560185-50aa-5c7f-78cf-4c05b8cc4918",
-      "default": "1",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "startIndex",
-      "parameter": true,
-      "order": 2,
-      "description": "System.Int32"
-    }
-  },
-  {
-    "pk": 226273531,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 962875447,
-      "name": "Maximum Words Retrieved",
-      "short_name": "int",
-      "uid": "61c01bdf-6add-cd59-aebd-e4dac714dacc",
-      "default": "0",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "maxWords",
-      "parameter": true,
-      "order": 3,
-      "description": "Use 0 for no limit."
-    }
-  },
-  {
-    "pk": 710936258,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 962875447,
-      "name": "Vocabulary",
-      "short_name": "voc",
-      "variable": "vocabulary",
-      "uid": "f140dfd1-486d-627c-4684-e1df08c2a499",
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
-    "pk": 887715120,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 14058118,
-      "treeview_image": null,
-      "name": "Get Vocabulary with Statistics",
-      "is_streaming": false,
-      "uid": "91ee9c68-2ec3-46a2-9736-fbfe8572c734",
-      "interaction_view": "",
-      "image": null,
-      "package": "crossbee",
-      "static_image": "get_vocabulary_image.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "crossbee_get_vocabulary_with_statistics",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 3,
-      "description": "Automatically generated widget from function GetVocabularyWithStatistics in package crossbee. The original function signature: GetVocabularyWithStatistics."
-    }
-  },
-  {
-    "pk": 801178718,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 887715120,
-      "name": "Raw Parsed Documents",
-      "short_name": "rpd",
-      "uid": "0524eef4-b6f8-0b9f-c8a6-bd70d54e09b9",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "rawParsedDoc",
-      "parameter": false,
-      "order": 1,
-      "description": "System.Object"
-    }
-  },
-  {
-    "pk": 1049357764,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 887715120,
-      "name": "Vocabulary with Statistics",
-      "short_name": "vcs",
-      "variable": "vocabularyStat",
-      "uid": "1d1bb0a9-af17-4c12-0c1a-ff3dea0956e4",
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
     "pk": 799691810,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 14058118,
       "treeview_image": null,
-      "name": "Apply Heuristics to Vocabulary",
+      "name": "Calculate Terms Heuristic Scores",
       "is_streaming": false,
       "uid": "b3e9c690-e7cd-47e4-b70c-802a0e6df2d8",
       "interaction_view": "",
@@ -1401,17 +1253,17 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 799691810,
-      "name": "Vocabulary with Statistics",
-      "short_name": "vcs",
+      "name": "Term Dataset",
+      "short_name": "tds",
       "uid": "814b5a30-ba68-f7cc-cd5a-a258723c9b42",
       "default": "",
       "required": true,
       "multi": false,
       "parameter_type": null,
-      "variable": "vocabularyStat",
+      "variable": "termDataset",
       "parameter": false,
       "order": 1,
-      "description": "CrossBeeInterfaces.Vocabulary.Vocabulary"
+      "description": "System.Object"
     }
   },
   {
@@ -1599,14 +1451,14 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 474145635,
-      "name": "Raw Parsed Documents with Contex",
-      "short_name": "rpd",
+      "name": "Parsed Document Corpus",
+      "short_name": "pdc",
       "uid": "d6295874-04fd-26be-0bc1-48218f9b1aef",
       "default": "",
       "required": true,
       "multi": false,
       "parameter_type": null,
-      "variable": "rawParsedDoc",
+      "variable": "parsedDoc",
       "parameter": false,
       "order": 1,
       "description": "System.Object"
@@ -1635,7 +1487,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 474145635,
-      "name": "List of B-Terms",
+      "name": "List of B-terms",
       "short_name": "str",
       "uid": "72bc9488-3469-ae90-155f-788b0f935a74",
       "default": "",
@@ -1708,7 +1560,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 369440662,
-      "name": "List of B-Terms",
+      "name": "List of B-terms",
       "short_name": "str",
       "uid": "1c567211-d5f9-d0d0-bc21-3642d78dd2b9",
       "default": "",
@@ -1825,7 +1677,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 773122819,
-      "name": "List of B-Terms",
+      "name": "List of B-terms",
       "short_name": "str",
       "uid": "27b2094b-e8ec-d5fc-bb29-f9ebc4dcbb42",
       "default": "",
@@ -1899,7 +1751,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 524885591,
-      "name": "List of B-Terms",
+      "name": "List of B-terms",
       "short_name": "str",
       "uid": "ecd7f618-9469-c27f-bcc1-11fef779ba1f",
       "default": "",
