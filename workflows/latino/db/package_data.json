@@ -3954,7 +3954,7 @@
     "fields": {
       "category": 274815427,
       "treeview_image": null,
-      "name": "BOW Model",
+      "name": "BOW Model and Dataset",
       "is_streaming": false,
       "uid": "070a465b-ea02-4238-b16c-9df74fbcbba8",
       "interaction_view": "",
@@ -4463,7 +4463,7 @@
     "fields": {
       "category": 274815427,
       "treeview_image": null,
-      "name": "Parse Documents",
+      "name": "Parse Document Corpus",
       "is_streaming": false,
       "uid": "7aafe757-8399-471b-8265-17e2c2be5083",
       "interaction_view": "",
@@ -4505,107 +4505,17 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 416155332,
-      "name": "Token Annotation",
-      "short_name": "str",
+      "name": "Bag of Words Model",
+      "short_name": "bow",
       "uid": "1ab5eba6-24ae-6d8e-0cc7-846c03f0026f",
-      "default": "Token",
+      "default": "",
       "required": true,
       "multi": false,
-      "parameter_type": "text",
-      "variable": "tokenId",
-      "parameter": true,
+      "parameter_type": null,
+      "variable": "bow",
+      "parameter": false,
       "order": 2,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 997391576,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 416155332,
-      "name": "Stem Feature Name",
-      "short_name": "str",
-      "uid": "152e863e-3484-8c6f-9e67-2ab93ad6be73",
-      "default": "stem",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "stemId",
-      "parameter": true,
-      "order": 3,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 614123314,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 416155332,
-      "name": "Stopword Feature Name",
-      "short_name": "str",
-      "uid": "927e7634-a9a5-5e4a-5696-7365cb4baea1",
-      "default": "stopword",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "stopwordId",
-      "parameter": true,
-      "order": 4,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 627767041,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 416155332,
-      "name": "Label Document Feature Name",
-      "short_name": "str",
-      "uid": "ab1e92e7-7cc2-59ea-77ad-841041ef79af",
-      "default": "label",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "labelId",
-      "parameter": true,
-      "order": 5,
-      "description": "System.String"
-    }
-  },
-  {
-    "pk": 20591367,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 416155332,
-      "name": "Maximum N-Gram Length",
-      "short_name": "int",
-      "uid": "0abb6ca9-8516-d697-26b6-2a9fcd9fb92b",
-      "default": "2",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "maxNGramLen",
-      "parameter": true,
-      "order": 6,
-      "description": "System.Int32"
-    }
-  },
-  {
-    "pk": 145397693,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 416155332,
-      "name": "Minimum Word Freqency",
-      "short_name": "dbl",
-      "uid": "44478eee-dde7-7a98-99b1-fe742ddf06d9",
-      "default": "5",
-      "required": true,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "minWordFreq",
-      "parameter": true,
-      "order": 7,
-      "description": "System.Int32"
+      "description": "Latino.TextMining.BowSpace"
     }
   },
   {
@@ -4613,9 +4523,9 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 416155332,
-      "name": "Parsed Documents",
-      "short_name": "prd",
-      "variable": "prd",
+      "name": "Parsed Document Corpus",
+      "short_name": "pdc",
+      "variable": "pdc",
       "uid": "a005f62b-6ecc-ae54-68e7-b81c03877dd9",
       "order": 1,
       "description": ""
@@ -4637,13 +4547,13 @@
       "post_interact_action": "",
       "user": null,
       "visualization_view": "",
-      "action": "latino_get_vocabulary",
+      "action": "latino_get_vocabulary_table",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
       "order": 2,
-      "description": "Automatically generated widget from function GetVocabulary in package latino. The original function signature: GetVocabulary."
+      "description": "Automatically generated widget from function GetVocabularyTable in package latino. The original function signature: GetVocabularyTable."
     }
   },
   {
@@ -4743,17 +4653,17 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 566732220,
-      "name": "Bag of Words Model",
-      "short_name": "bow",
+      "name": "Annotated Document Corpus",
+      "short_name": "adc",
       "uid": "929065a7-9eda-4166-a21d-42a01cf45876",
       "default": "",
       "required": true,
       "multi": false,
-      "parameter_type": null,
-      "variable": "bow",
+      "parameter_type": "textarea",
+      "variable": "adc",
       "parameter": false,
       "order": 1,
-      "description": "Latino.TextMining.BowSpace"
+      "description": "LatinoClowdFlows.DocumentCorpus"
     }
   },
   {
@@ -4761,17 +4671,17 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 566732220,
-      "name": "Annotated Document Corpus",
-      "short_name": "adc",
+      "name": "Bag of Words Model",
+      "short_name": "bow",
       "uid": "a909e63a-7921-2be9-8553-7ead130aa4d7",
       "default": "",
       "required": true,
       "multi": false,
-      "parameter_type": "textarea",
-      "variable": "adc",
+      "parameter_type": null,
+      "variable": "bow",
       "parameter": false,
       "order": 2,
-      "description": "LatinoClowdFlows.DocumentCorpus"
+      "description": "Latino.TextMining.BowSpace"
     }
   },
   {
@@ -5072,17 +4982,17 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 1048977147,
-      "name": "Bag of Words Model",
-      "short_name": "bow",
+      "name": "Documents = (Nested) List of Strings",
+      "short_name": "lst",
       "uid": "ca27a6d1-192b-6bee-d8e9-fc3a8376dcb3",
       "default": "",
       "required": true,
       "multi": false,
-      "parameter_type": null,
-      "variable": "bow",
+      "parameter_type": "textarea",
+      "variable": "lst",
       "parameter": false,
       "order": 1,
-      "description": "Latino.TextMining.BowSpace"
+      "description": "System.Object"
     }
   },
   {
@@ -5090,17 +5000,17 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 1048977147,
-      "name": "Documents = (Nested) List of Strings",
-      "short_name": "lst",
+      "name": "Bag of Words Model",
+      "short_name": "bow",
       "uid": "e953a3ff-187c-ed0d-06af-481ea0db2b76",
       "default": "",
       "required": true,
       "multi": false,
-      "parameter_type": "textarea",
-      "variable": "lst",
+      "parameter_type": null,
+      "variable": "bow",
       "parameter": false,
       "order": 2,
-      "description": "System.Object"
+      "description": "Latino.TextMining.BowSpace"
     }
   },
   {
@@ -5112,6 +5022,172 @@
       "short_name": "ds",
       "variable": "ds",
       "uid": "78dc5be9-fc09-b07b-8800-3dbfe4e6674c",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 962875447,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 889177128,
+      "treeview_image": null,
+      "name": "Get Terms",
+      "is_streaming": false,
+      "uid": "e81f39e0-13d0-4465-b1ae-dba6304057e8",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "get_vocabulary_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_get_vocabulary",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": "Automatically generated widget from function GetVocabulary in package latino. The original function signature: GetVocabulary."
+    }
+  },
+  {
+    "pk": 723445188,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 962875447,
+      "name": "BOW Model",
+      "short_name": "bow",
+      "uid": "c73db64c-9d63-6560-cfd5-43e966819e6a",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "bow",
+      "parameter": false,
+      "order": 1,
+      "description": "Latino.TextMining.BowSpace"
+    }
+  },
+  {
+    "pk": 46760747,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 962875447,
+      "name": "Index of First Retrieved Word",
+      "short_name": "int",
+      "uid": "54560185-50aa-5c7f-78cf-4c05b8cc4918",
+      "default": "1",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "startIndex",
+      "parameter": true,
+      "order": 2,
+      "description": "System.Int32"
+    }
+  },
+  {
+    "pk": 226273531,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 962875447,
+      "name": "Maximum Words Retrieved",
+      "short_name": "int",
+      "uid": "61c01bdf-6add-cd59-aebd-e4dac714dacc",
+      "default": "0",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "maxWords",
+      "parameter": true,
+      "order": 3,
+      "description": "Use 0 for no limit."
+    }
+  },
+  {
+    "pk": 710936258,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 962875447,
+      "name": "Terms",
+      "short_name": "trs",
+      "variable": "terms",
+      "uid": "f140dfd1-486d-627c-4684-e1df08c2a499",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 887715120,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 889177128,
+      "treeview_image": null,
+      "name": "Create Term Dataset",
+      "is_streaming": false,
+      "uid": "91ee9c68-2ec3-46a2-9736-fbfe8572c734",
+      "interaction_view": "",
+      "image": null,
+      "package": "latino",
+      "static_image": "get_vocabulary_image.png",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "latino_create_term_dataset_from_adc",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 3,
+      "description": "Automatically generated widget from function CreateTermDatasetFromAdc in package latino. The original function signature: CreateTermDatasetFromAdc."
+    }
+  },
+  {
+    "pk": 801178718,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 887715120,
+      "name": "Annotated Document Corpus",
+      "short_name": "adc",
+      "uid": "0524eef4-b6f8-0b9f-c8a6-bd70d54e09b9",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "textarea",
+      "variable": "adc",
+      "parameter": false,
+      "order": 1,
+      "description": "LatinoClowdFlows.DocumentCorpus"
+    }
+  },
+  {
+    "pk": 608496158,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 887715120,
+      "name": "Bag of Words Model",
+      "short_name": "bow",
+      "uid": "d6f40c90-b6c9-dceb-426d-cc6781ec4dc4",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "bow",
+      "parameter": false,
+      "order": 2,
+      "description": "Latino.TextMining.BowSpace"
+    }
+  },
+  {
+    "pk": 1049357764,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 887715120,
+      "name": "Term Dataset",
+      "short_name": "tds",
+      "variable": "termDataset",
+      "uid": "1d1bb0a9-af17-4c12-0c1a-ff3dea0956e4",
       "order": 1,
       "description": ""
     }
