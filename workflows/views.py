@@ -9,6 +9,7 @@ from workflows.helpers import *
 import workflows.interaction_views
 import workflows.visualization_views
 import sys
+import traceback
 
 # modeli
 from workflows.models import *
@@ -141,6 +142,8 @@ def add_widget(request):
                     outputOrder += 1
                     j.order = outputOrder
                     j.save()
+                w.defered_outputs = w.outputs.defer("value").all()
+                w.defered_inputs = w.inputs.defer("value").all()
                 return render(request, 'widgets.html', {'widgets':[w,]})
             else:
                 return HttpResponse(status=400)
@@ -187,6 +190,8 @@ def add_widget(request):
                         j.variable = i.variable
                         j.widget = w
                         j.save()
+                    w.defered_outputs = w.outputs.defer("value").all()
+                    w.defered_inputs = w.inputs.defer("value").all()
                     return render(request, 'widgets.html', {'widgets':[w,]})        
             elif aw.type=='subprocess':
                 workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
@@ -236,6 +241,8 @@ def add_widget(request):
                         j.save()
                         output_conversion[i.pk]=j.pk
                         workflows.models.copy_workflow(aw.workflow_link, request.user, widget_conversion,input_conversion,output_conversion,w)
+                    w.defered_outputs = w.outputs.defer("value").all()
+                    w.defered_inputs = w.inputs.defer("value").all()
                     return render(request, 'widgets.html', {'widgets':[w,]})                
             else:
                 return HttpResponse(status=400)
@@ -267,13 +274,15 @@ def add_connection(request):
         mimetype = 'application/javascript'
         message = ""
         previousExists=False
-        i = get_object_or_404(Input, pk=request.POST['input_id'])
-        o = get_object_or_404(Output, pk=request.POST['output_id'])
+        i = Input.objects.defer("value").get(pk=request.POST['input_id'])
+        #i = get_object_or_404(Input, pk=request.POST['input_id'])
+        o = Output.objects.defer("value").get(pk=request.POST['output_id'])
+        #o = get_object_or_404(Output, pk=request.POST['output_id'])
         if (i.widget.workflow==o.widget.workflow and i.widget.workflow.user == request.user):
             if Connection.objects.filter(input=i).exists():
                 previousExists=True
                 new_c = Connection.objects.get(input=i)
-                oldOutput = new_c.output
+                oldOutput = Output.objects.defer("value").get(pk=new_c.output_id)
                 deleted=new_c.id
             else:
                 new_c = Connection()
@@ -390,6 +399,8 @@ def add_subprocess(request):
             w.save()
             new_w.widget = w
             new_w.save()
+            w.defered_outputs = w.outputs.defer("value").all()
+            w.defered_inputs = w.inputs.defer("value").all()
             return render(request, 'widgets.html', {'widgets':[w,]})
         else:
             return HttpResponse(status=400)
@@ -471,6 +482,10 @@ def add_for(request):
                 output.save()
                 input.outer_output = output
                 input.save()
+                for_input.defered_outputs = for_input.outputs.defer("value").all()
+                for_input.defered_inputs = for_input.inputs.defer("value").all()
+                widget.defered_outputs = widget.outputs.defer("value").all()
+                widget.defered_inputs = widget.inputs.defer("value").all()                
                 return render(request, 'widgets.html', {'widgets':[for_input,widget]})                
         else:
             return HttpResponse(status=400)
@@ -516,6 +531,8 @@ def add_input(request):
                 input.save()
                 output.outer_input = input
                 output.save()
+                widget.defered_outputs = widget.outputs.defer("value").all()
+                widget.defered_inputs = widget.inputs.defer("value").all()
                 return render(request, 'widgets.html', {'widgets':[widget,]})
         else:
             return HttpResponse(status=400)
@@ -560,6 +577,8 @@ def add_output(request):
                 output.save()
                 input.outer_output = output
                 input.save()
+                widget.defered_outputs = widget.outputs.defer("value").all()
+                widget.defered_inputs = widget.inputs.defer("value").all()
                 return render(request, 'widgets.html', {'widgets':[widget,]})
         else:
             return HttpResponse(status=400)
@@ -571,7 +590,13 @@ def synchronize_widgets(request):
     if request.is_ajax() or DEBUG:
         w = get_object_or_404(Workflow,pk=request.POST['workflow_id'])
         if (w.user==request.user):
-            return render(request, 'widgets.html', {'widgets':w.widgets.all()})
+            widgets = w.widgets.all()
+            defered_outputs = list(Output.objects.defer("value").filter(widget__workflow=w))
+            defered_inputs = list(Input.objects.defer("value").filter(widget__workflow=w))
+            for w in widgets:
+                w.defered_outputs = filter(lambda e: e.widget_id == w.id,defered_outputs)
+                w.defered_inputs = filter(lambda e: e.widget_id == w.id,defered_inputs)
+            return render(request, 'widgets.html', {'widgets':widgets})
         else:
             return HttpResponse(status=400)
     else:
@@ -596,6 +621,8 @@ def get_widget(request):
     if request.is_ajax() or DEBUG:
         w = get_object_or_404(Widget, pk=request.POST['widget_id'])
         if (w.workflow.user==request.user):
+            w.defered_outputs = w.outputs.defer("value").all()
+            w.defered_inputs = w.inputs.defer("value").all()
             return render(request, 'widgets.html', {'widgets':[w,]})
         else:
             return HttpResponse(status=400)
@@ -757,7 +784,7 @@ def rename_widget(request):
                 rename_outputs.append(w.outputs.all()[0].id)
             if w.type=='output':
                 rename_outputs.append(w.inputs.all()[0].outer_output.id)
-                rename_inputs.append(w.inputs.all()[0])
+                rename_inputs.append(w.inputs.all()[0].id)
             try:
                 workflow_link_id = w.workflow_link.id
             except Workflow.DoesNotExist:
@@ -810,17 +837,20 @@ def run_widget(request):
                         data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
                 else:
                     data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.'})
-            except:
+            except Exception,e:
                 mimetype = 'application/javascript'
                 w.error = True
                 w.running = False
                 w.finished = False
                 w.save()
+
+                print traceback.format_exc(e)
+
                 #raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
@@ -854,11 +884,12 @@ def run_tree(request):
                 w.running = False
                 w.finished = False
                 w.save()
+                print traceback.format_exc(e)
                 raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
@@ -881,10 +912,13 @@ def reset_widget(request):
                 w.running = False
                 w.finished = False
                 w.save()
+                print traceback.format_exc(e)
+
                 raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
+
                 data = simplejson.dumps({'status':'error','message':'Error occurred when trying to reset widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
             return HttpResponse(data,mimetype)
         else:
@@ -1105,18 +1139,19 @@ def finish_interaction(request):
                 w.save()
                 mimetype = 'application/javascript'
                 data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.','widget_id':w.id})
-            except:
+            except Exception,e:
                 mimetype = 'application/javascript'
                 w.error = True
                 w.running = False
                 w.finished = False
                 w.interaction_waiting = False
                 w.save()
+                print traceback.format_exc(e)
                 raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occured when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>','widget_id':w.id})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>','widget_id':w.id})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
@@ -1219,6 +1254,7 @@ def export_package(request, packages):
     except:
         return HttpResponse(status=400)
     newuid = (request.GET.get('newuid', 'False').lower()=='true' or request.GET.get('n', 'False').lower()=='true')
+    updateuid = (request.GET.get('updateuid', 'False').lower()=='true' or request.GET.get('u', 'False').lower()=='true')
     all = (request.GET.get('all', 'False').lower()=='true' or request.GET.get('a', 'False').lower()=='true')
     try:
         verbosity = int(request.GET.get('v', '1'))
@@ -1236,7 +1272,7 @@ def export_package(request, packages):
     ov = OutWriter()
 
     from workflows.management.commands.export_package import export_package_string
-    result = export_package_string(ov.write, packagesArray, newuid, all, verbosity)
+    result = export_package_string(ov.write, packagesArray, newuid, updateuid, all, verbosity)
     content = '----------------------------------------\n' + \
               'Export procedure message:' +\
               "\n----------------------------------------\n" +\

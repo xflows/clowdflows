@@ -1,5 +1,4 @@
 from workflows.security import safeOpen
-import cPickle
 import json
 import sys
 
@@ -11,32 +10,11 @@ module_importer.import_all_packages_libs("library",setattr_local)
 def test_interaction(input_dict):
     return input_dict
 
-def create_list(input_dict):
-    return input_dict
-    
 def add_multiple(input_dict):
     output_dict = {}
     output_dict['sum'] = 0
     for i in input_dict['integer']:
         output_dict['sum'] = int(i)+output_dict['sum']
-    return output_dict
-
-def delay(input_dict,widget):
-    widget.progress=0
-    widget.save()
-    timeleft = int(input_dict['time'])
-    i = 0
-    import time
-    import math
-    while i<timeleft:
-        time.sleep(1)
-        i=i+1
-        widget.progress = math.floor(((i*1.0)/timeleft)*100)
-        widget.save()
-    widget.progress=100
-    widget.save()
-    output_dict = {}
-    output_dict['data'] = input_dict['data']
     return output_dict
 
 def load_file(input_dict):
@@ -55,24 +33,6 @@ def load_to_string(input_dict):
     f = safeOpen(input_dict['file'])
     output_dict = {}
     output_dict['string']=f.read()
-    return output_dict
-
-def pickle_object(input_dict):
-    '''
-    Serializes the input object.
-    '''
-    pkl_obj = cPickle.dumps(input_dict['object'])
-    output_dict = {}
-    output_dict['pickled_object'] = pkl_obj
-    return output_dict
-
-def unpickle_object(input_dict):
-    '''
-    Serializes the input object.
-    '''
-    obj = cPickle.loads(str(input_dict['pickled_object']))
-    output_dict = {}
-    output_dict['object'] = obj
     return output_dict
 
 def call_webservice(input_dict):
@@ -102,7 +62,6 @@ def call_webservice(input_dict):
         except Exception as e: 
             print e
             ws_dict[i['name']]=''
-    print ws_dict
     results = function_to_call(**ws_dict)
     output_dict=results
     return output_dict
@@ -159,11 +118,6 @@ def subtract_integers(input_dict):
     output_dict['integer'] = int(input_dict['integer1'])-int(input_dict['integer2'])
     return output_dict
     
-def create_range(input_dict):
-    output_dict = {}
-    output_dict['rangeout'] = range(int(input_dict['n_range']))
-    return output_dict
-
 def select_attrs(input_dict):
     return input_dict
 
@@ -495,9 +449,9 @@ def svmeasy(input_dict):
     return output_dict
     
 def class_tree(input_dict):
-    import orange
+    import Orange
     output_dict = {}
-    output_dict['treeout']= orange.TreeLearner(name = "Classification Tree (Orange)")
+    output_dict['treeout']= Orange.classification.tree.TreeLearner(name = "Classification Tree (Orange)")
     return output_dict
     
 def c45_tree(input_dict):
@@ -564,6 +518,16 @@ def load_dataset(input_dict):
     output_dict = {}
     output_dict['dataset'] = orange.ExampleTable(input_dict['file'])
     return output_dict
+
+def load_dataset_from_arff_string(input_dict):
+    import orange
+    import tempfile
+    f = tempfile.NamedTemporaryFile(delete=False,suffix='.arff')
+    f.write(input_dict['arff'])
+    f.close()
+    output_dict = {}
+    output_dict['dataset'] = orange.ExampleTable(f.name)
+    return output_dict
     
 # SATURATION NOISE FILTER
 
@@ -573,36 +537,6 @@ def saturation_filter(input_dict, widget):
     output_dict['noise_dict']= noiseAlgorithms4lib.saturation_type(input_dict, widget)
     return output_dict
     
-# ENSEMBLE
-
-def ensemble(input_dict):
-    import math
-    ens = {}
-    data_inds = input_dict['data_inds']
-    ens_type = input_dict['ens_type']
-    # TODO ens_level = input_dict['ens_level']
-    for item in data_inds:
-        #det_by = item['detected_by']
-        for i in item['inds']:
-            if not ens.has_key(i):
-                ens[i] = 1
-            else:
-                ens[i] += 1
-    
-    ens_out = {}
-    ens_out['name'] = input_dict['ens_name']
-    ens_out['inds'] = []
-    n_algs = len(data_inds)
-    print ens_type
-    if ens_type == "consensus":
-        ens_out['inds'] = sorted([x[0] for x in ens.items() if x[1] == n_algs])
-    else: # majority
-        ens_out['inds'] = sorted([x[0] for x in ens.items() if x[1] >= math.floor(n_algs/2+1)])
-    
-    output_dict = {}
-    output_dict['ens_out'] = ens_out
-    return output_dict
-
 # NOISE RANK
     
 def noiserank(input_dict):
@@ -778,9 +712,6 @@ def data_table(input_dict):
 def data_info(input_dict):
     return {}
 
-def sdmsegs(input_dict):
-    return{}
-
 def definition_sentences(input_dict):
     return {}
 
@@ -831,3 +762,13 @@ def alter_table_finished(postdata, input_dict, output_dict):
             except: # Catch orange exception and give a proper error message.
                 raise Exception("Illegal value '%s' for discrete attribute '%s', legal values are: %s." % (new_value, att, new_table.domain[att].values))
     return {'altered_data' : new_table}
+
+def tree_visualization(input_dict):
+    return{}
+
+def example_distance(input_dict):
+    return input_dict
+
+def example_distance_post(postdata, input_dict, output_dict):
+
+    return{}

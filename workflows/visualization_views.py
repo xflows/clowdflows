@@ -172,22 +172,67 @@ def data_info_view(request,input_dict,output_dict,widget):
     
     return render(request, 'visualizations/data_table_info.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict, 'info_dict':info_dict})
 
-def sdmsegs_viewer(request,input_dict,output_dict,widget):
+def treeToJSON(node, path="", nodes={}):
+    #made by Bogdan Okresa Duric :)
+    
+    import Orange
     import json
-    d = json.loads(input_dict['json'])
-    output = {}
-    for k, v in d['A']['WRAcc'].items():
-        terms = []
-        for t in v['terms']:
+
+    if not node:
+        return
+
+    if path=="": #get the dictionary prepared, insert root node
+        nodes.update ({ #root node properties
+            "name": "root",
+            # "name":node.node_classifier.class_var.name,
+            "ID":node.reference(),
+            "children":[]
+        })
+        path = "['children']" #prepare path for future use, it points into 'children' property of the root node
+
+    if node.branch_selector: #if the node has branches
+        for n in range(len(node.branches)): #walk through all the branches one by one
             try:
-                terms.append(d['ontDict'][t])
-            except Exception, e:
+                if node.branches[n].branch_selector: #if the node (branch) has branches
+                    child = { #set node properties
+                        "name":node.branch_selector.class_var.name[:15] + " "
+                         + node.branch_descriptions[n][:10],
+                        "ID":node.branches[n].reference(),
+                        "children":[] #stays open for future descendant nodes
+                        }
+
+                    eval ("nodes" + path + ".append(" + str(child) + ")") #write node properties
+                    # 'nodes' is the dictionary
+                    #path is the path to the current node, i.e. current parent node
+                    #child is dictionary with node properties
+
+                else: #if node is a leaf
+                    child = {
+                        "name":node.branch_selector.class_var.name + " "
+                         + node.branch_descriptions[n]
+                          + ": "
+                           + node.branches[n].node_classifier.default_value.value
+                            + " ("
+                             + str(node.branches[n].node_classifier.GetProbabilities*100)
+                              + "%)",
+                        "ID":node.branches[n].reference(),
+                        }
+                    eval ("nodes" + path + ".append(" + str(child) + ")")
+            except:
                 pass
-        output[int(k)] = {
-        'name': terms,
-        'topGenes': int(len(v['topGenes'])),
-        'allGenes': int(len(v['allGenes'])),
-        'wracc': round(v['scores']['wracc'], 3)
-        }
-    output_dict = {'json_output':output}
-    return render(request, 'visualizations/sdmsegs_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
+        for i in range(len(node.branches)): #go and work with the branches, one by one
+            treeToJSON(node.branches[i], path + "[" + str(i) + "]" + "['children']", nodes) #work with child node, adding it's "address"
+    else: #if the node has no branches, simply return
+        return
+
+    return json.JSONEncoder().encode(nodes) #output complete JSON description of the tree
+
+def tree_visualization(request, input_dict, output_dict, widget):
+    import Orange
+    import json
+
+    tc = input_dict['clt']
+
+    jsonJ = treeToJSON(tc.tree)
+    
+    return render(request, 'visualizations/tree_visualization.html', {'widget':widget, 'input_dict':input_dict, 'json':jsonJ})

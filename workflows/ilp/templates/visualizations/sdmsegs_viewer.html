@@ -1,0 +1,45 @@
+<div id="widgetvisualization-{{widget.pk}}" width="600" height="400" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} results">
+
+<div id="widget-data-table-{{widget.pk}}" style=" margin: 0 auto">
+<center>
+<table id="sdmsegs_rules{{widget.pk}}">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Description</th>
+            <th>Positive examples</th>
+            <th>All examples</th>
+            <th>WRAcc</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for rule in rules %}
+        <tr>
+            <td>{{ forloop.counter1 }}</td>
+            <td>
+                {{ rule.terms|join:", " }}
+                {% if rule.interacting_terms %}
+                <br/>INTERACTING: {{rule.interacting_terms|join:", "}}
+                {% endif %}
+            </td>
+            <td> {{rule.support|length}} </td>
+            <td> {{rule.coverage|length}} </td>
+            <td> {{rule.scores.wracc|floatformat:3}} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</center>
+</div>
+<script type="text/javascript">
+$(function () {
+    $(document).ready(function() {
+        $('#sdmsegs_rules{{widget.pk}}').dataTable( {
+            "bSortCellsTop" : true,
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers"
+        });
+    } );
+});
+</script>
+</div>

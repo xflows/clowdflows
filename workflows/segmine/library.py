@@ -10,6 +10,7 @@ def segmine_rank_plotter(input_dict):
     return input_dict
 
 def segmine_rule_browser(input_dict):
+
     return input_dict
 
 #
