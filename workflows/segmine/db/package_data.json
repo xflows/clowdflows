@@ -24,7 +24,7 @@
     }
   }, 
   {
-    "pk": 118, 
+    "pk": 122, 
     "model": "workflows.abstractwidget", 
     "fields": {
       "category": 21, 
@@ -49,10 +49,10 @@
     }
   }, 
   {
-    "pk": 253, 
+    "pk": 278, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 118, 
+      "widget": 122, 
       "name": "Group nodes", 
       "short_name": "grn", 
       "uid": "46ac2ec3-fb26-4ed0-87eb-017222ada842", 
@@ -67,10 +67,10 @@
     }
   }, 
   {
-    "pk": 270, 
+    "pk": 279, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 118, 
+      "widget": 122, 
       "name": "Database version", 
       "short_name": "dbv", 
       "uid": "ff783343-b1b5-4f43-9caa-1cfe35706e13", 
@@ -85,10 +85,10 @@
     }
   }, 
   {
-    "pk": 263, 
+    "pk": 280, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 118, 
+      "widget": 122, 
       "name": "End nodes", 
       "short_name": "end", 
       "uid": "9a0dc048-ae26-4bb8-ba90-76521b4843b3", 
@@ -103,10 +103,10 @@
     }
   }, 
   {
-    "pk": 254, 
+    "pk": 281, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 118, 
+      "widget": 122, 
       "name": "Single component", 
       "short_name": "scm", 
       "uid": "1b27100e-c585-47f0-a30f-05d2d2720927", 
@@ -121,10 +121,10 @@
     }
   }, 
   {
-    "pk": 255, 
+    "pk": 282, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 118, 
+      "widget": 122, 
       "name": "Max nodes", 
       "short_name": "mxn", 
       "uid": "ff95b75f-b4f4-4b3e-acf2-d69aa41ed948", 
@@ -139,10 +139,10 @@
     }
   }, 
   {
-    "pk": 256, 
+    "pk": 283, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 118, 
+      "widget": 122, 
       "name": "Medoids", 
       "short_name": "mds", 
       "uid": "aecdd58f-1fef-4aec-8039-2fdbc4cc7279", 
@@ -157,10 +157,10 @@
     }
   }, 
   {
-    "pk": 257, 
+    "pk": 284, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 118, 
+      "widget": 122, 
       "name": "Start nodes", 
       "short_name": "beg", 
       "uid": "0bb9e00a-2159-419c-8a3a-758d8ae778d1", 
@@ -175,10 +175,10 @@
     }
   }, 
   {
-    "pk": 138, 
+    "pk": 147, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 118, 
+      "widget": 122, 
       "name": "Result", 
       "short_name": "res", 
       "variable": "result", 
@@ -188,10 +188,10 @@
     }
   }, 
   {
-    "pk": 139, 
+    "pk": 148, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 118, 
+      "widget": 122, 
       "name": "Best path", 
       "short_name": "pth", 
       "variable": "bestPath", 
@@ -201,7 +201,148 @@
     }
   }, 
   {
-    "pk": 120, 
+    "pk": 121, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 21, 
+      "treeview_image": "", 
+      "name": "Biomine medoid search", 
+      "is_streaming": false, 
+      "uid": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "action": "segmine_biomine_medoid", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 272, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 121, 
+      "name": "Group nodes", 
+      "short_name": "grn", 
+      "uid": "e2effb53-e150-4833-956e-5c58b15f1eb6", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "groupNodes", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Group nodes"
+    }
+  }, 
+  {
+    "pk": 273, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 121, 
+      "name": "Database version", 
+      "short_name": "dbv", 
+      "uid": "29d6ed65-55b8-4d68-8d7a-c19c0e91fe35", 
+      "default": "<latest>", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "databaseVersion", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Database version"
+    }
+  }, 
+  {
+    "pk": 274, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 121, 
+      "name": "Single component", 
+      "short_name": "scm", 
+      "uid": "adbdd779-8bad-433b-835e-c14ba567d96f", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "singleComponent", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "Single component"
+    }
+  }, 
+  {
+    "pk": 275, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 121, 
+      "name": "Max nodes", 
+      "short_name": "mxn", 
+      "uid": "1942dd52-a553-460b-bdba-4ef29b6a402c", 
+      "default": "0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxNodes", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "Max nodes"
+    }
+  }, 
+  {
+    "pk": 277, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 121, 
+      "name": "Start nodes", 
+      "short_name": "beg", 
+      "uid": "c68a9f13-92a1-4000-ae7d-bcf43311109e", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "startNodes", 
+      "parameter": false, 
+      "order": 6, 
+      "description": "Start nodes"
+    }
+  }, 
+  {
+    "pk": 145, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 121, 
+      "name": "Result", 
+      "short_name": "res", 
+      "variable": "result", 
+      "uid": "3f1c6a6d-b203-46ca-a243-f64bf2adb989", 
+      "order": 1, 
+      "description": "Result"
+    }
+  }, 
+  {
+    "pk": 146, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 121, 
+      "name": "Best path", 
+      "short_name": "pth", 
+      "variable": "bestPath", 
+      "uid": "a196316a-1b94-4c85-8915-2df0fd95ac22", 
+      "order": 2, 
+      "description": "Best path"
+    }
+  }, 
+  {
+    "pk": 123, 
     "model": "workflows.abstractwidget", 
     "fields": {
       "category": 21, 
@@ -226,10 +367,10 @@
     }
   }, 
   {
-    "pk": 264, 
+    "pk": 285, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 120, 
+      "widget": 123, 
       "name": "Group nodes", 
       "short_name": "grn", 
       "uid": "7c8954aa-083d-4f15-8784-061b59a258dc", 
@@ -244,10 +385,10 @@
     }
   }, 
   {
-    "pk": 271, 
+    "pk": 286, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 120, 
+      "widget": 123, 
       "name": "Database version", 
       "short_name": "dbv", 
       "uid": "fc0a5b03-f301-4e4a-b9d7-889d89467245", 
@@ -262,10 +403,10 @@
     }
   }, 
   {
-    "pk": 265, 
+    "pk": 287, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 120, 
+      "widget": 123, 
       "name": "Single component", 
       "short_name": "scm", 
       "uid": "980f228d-94b5-4523-9a65-2d4d3d6a6521", 
@@ -280,10 +421,10 @@
     }
   }, 
   {
-    "pk": 266, 
+    "pk": 288, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 120, 
+      "widget": 123, 
       "name": "Max nodes", 
       "short_name": "mxn", 
       "uid": "97f71cb5-1ff0-45dc-84ed-2afe8e3aa7fa", 
@@ -298,10 +439,10 @@
     }
   }, 
   {
-    "pk": 267, 
+    "pk": 289, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 120, 
+      "widget": 123, 
       "name": "Medoids", 
       "short_name": "mds", 
       "uid": "078c052f-2303-44dc-b1e4-4f39b0839b55", 
@@ -316,10 +457,10 @@
     }
   }, 
   {
-    "pk": 268, 
+    "pk": 290, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 120, 
+      "widget": 123, 
       "name": "Start nodes", 
       "short_name": "beg", 
       "uid": "14241e7b-e316-446b-b795-b5a8038769ee", 
@@ -334,10 +475,10 @@
     }
   }, 
   {
-    "pk": 142, 
+    "pk": 149, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 120, 
+      "widget": 123, 
       "name": "Result", 
       "short_name": "res", 
       "variable": "result", 
@@ -347,10 +488,10 @@
     }
   }, 
   {
-    "pk": 143, 
+    "pk": 150, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 120, 
+      "widget": 123, 
       "name": "Best path", 
       "short_name": "pth", 
       "variable": "bestPath", 
@@ -360,7 +501,7 @@
     }
   }, 
   {
-    "pk": 119, 
+    "pk": 124, 
     "model": "workflows.abstractwidget", 
     "fields": {
       "category": 21, 
@@ -385,10 +526,10 @@
     }
   }, 
   {
-    "pk": 269, 
+    "pk": 291, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 119, 
+      "widget": 124, 
       "name": "Graph", 
       "short_name": "g", 
       "uid": "b786a3b5-4b26-4e7e-b7e5-0143a8877b72", 
@@ -403,10 +544,10 @@
     }
   }, 
   {
-    "pk": 144, 
+    "pk": 151, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 119, 
+      "widget": 124, 
       "name": "Graph", 
       "short_name": "g", 
       "variable": "graph", 

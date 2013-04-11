@@ -12,7 +12,6 @@ def segmine_rank_plotter(input_dict):
     return input_dict
 
 def segmine_rule_browser(input_dict):
-
     return input_dict
 
 #
@@ -143,14 +142,12 @@ def segmine_biomine_neighbourhood(input_dict):
     groupNodes = input_dict.get('groupNodes', False)
     singleComponent = input_dict.get('singleComponent', False)
     maxNodes = int(input_dict.get('maxNodes', 0))
-    medoids = input_dict.get('medoids', False)
     startNodes = input_dict.get('startNodes', None)
     databaseVersion = input_dict.get('databaseVersion')
 
     search = BiomineSearch(groupNodes=groupNodes, 
                            singleComponent=singleComponent,
                            maxNodes=maxNodes,
-                           medoids=medoids,
                            startNodes=startNodes,
                            databaseVersion=databaseVersion)
     result, bestPath = search.invokeBiomine()
@@ -160,7 +157,6 @@ def segmine_biomine_connection(input_dict):
     groupNodes = input_dict.get('groupNodes', False)
     singleComponent = input_dict.get('singleComponent', False)
     maxNodes = int(input_dict.get('maxNodes', 0))
-    medoids = input_dict.get('medoids', False)
     startNodes = input_dict.get('startNodes', None)
     endNodes = input_dict.get('endNodes', None)
     databaseVersion = input_dict.get('databaseVersion')
@@ -168,9 +164,24 @@ def segmine_biomine_connection(input_dict):
     search = BiomineSearch(groupNodes=groupNodes, 
                            singleComponent=singleComponent,
                            maxNodes=maxNodes,
-                           medoids=medoids,
                            startNodes=startNodes,
                            endNodes=endNodes,
+                           databaseVersion=databaseVersion)
+    result, bestPath = search.invokeBiomine()
+    return {'result' : result, 'bestPath' : bestPath}
+
+def segmine_biomine_medoid(input_dict):
+    groupNodes = input_dict.get('groupNodes', False)
+    singleComponent = input_dict.get('singleComponent', False)
+    maxNodes = int(input_dict.get('maxNodes', 0))
+    startNodes = input_dict.get('startNodes', None)
+    databaseVersion = input_dict.get('databaseVersion')
+
+    search = BiomineSearch(groupNodes=groupNodes, 
+                           singleComponent=singleComponent,
+                           maxNodes=maxNodes,
+                           medoids=True,
+                           startNodes=startNodes,
                            databaseVersion=databaseVersion)
     result, bestPath = search.invokeBiomine()
     return {'result' : result, 'bestPath' : bestPath}
