@@ -3,6 +3,8 @@ Segmine library.
 
 @author: Anze Vavpetic <anze.vavpetic@ijs.si>
 '''
+from biomine import BiomineSearch
+
 #
 # Visualization widgets:
 #
@@ -136,3 +138,42 @@ def segmine_resolve_gene_synonyms(input_dict):
             mapped.append((str(entrezID), rank))
             genes[entrezID] = None
     return {'gene_ranks' : mapped}
+
+def segmine_biomine_neighbourhood(input_dict):
+    groupNodes = input_dict.get('groupNodes', False)
+    singleComponent = input_dict.get('singleComponent', False)
+    maxNodes = int(input_dict.get('maxNodes', 0))
+    medoids = input_dict.get('medoids', False)
+    startNodes = input_dict.get('startNodes', None)
+    databaseVersion = input_dict.get('databaseVersion')
+
+    search = BiomineSearch(groupNodes=groupNodes, 
+                           singleComponent=singleComponent,
+                           maxNodes=maxNodes,
+                           medoids=medoids,
+                           startNodes=startNodes,
+                           databaseVersion=databaseVersion)
+    result, bestPath = search.invokeBiomine()
+    return {'result' : result, 'bestPath' : bestPath}
+
+def segmine_biomine_connection(input_dict):
+    groupNodes = input_dict.get('groupNodes', False)
+    singleComponent = input_dict.get('singleComponent', False)
+    maxNodes = int(input_dict.get('maxNodes', 0))
+    medoids = input_dict.get('medoids', False)
+    startNodes = input_dict.get('startNodes', None)
+    endNodes = input_dict.get('endNodes', None)
+    databaseVersion = input_dict.get('databaseVersion')
+
+    search = BiomineSearch(groupNodes=groupNodes, 
+                           singleComponent=singleComponent,
+                           maxNodes=maxNodes,
+                           medoids=medoids,
+                           startNodes=startNodes,
+                           endNodes=endNodes,
+                           databaseVersion=databaseVersion)
+    result, bestPath = search.invokeBiomine()
+    return {'result' : result, 'bestPath' : bestPath}
+
+def segmine_biomine_visualizer(input_dict):
+    return {'graph' : input_dict.get('graph', None)}
