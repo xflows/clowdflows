@@ -26,7 +26,8 @@ def segmine_fc_gene_filter_finished(postdata, input_dict, output_dict):
     targets = map(str, postdata.get('target%s' % widget_id))
     ranker = rankers.ExpressionSignificance_FoldChange(dataset, False)
     ranks = ranker(target=targets if len(targets)>1 else targets[0])
-    new_domain = orange.Domain([att for att, fc in ranks if fc >= fc_threshold], dataset.domain.classVar)
+    new_domain = orange.Domain([att for att, fc in ranks if fc >= fc_threshold], 
+                               dataset.domain.classVar)
     reduced_dataset = orange.ExampleTable(new_domain, dataset)
     return {'dataset' : reduced_dataset}
 
@@ -39,7 +40,8 @@ def segmine_ttest_gene_filter_finished(postdata, input_dict, output_dict):
     targets = map(str, postdata.get('target%s' % widget_id))
     ranker = rankers.ExpressionSignificance_TTest(dataset, False)
     ranks = ranker(target=targets if len(targets)>1 else targets[0])
-    new_domain = orange.Domain([att for att, (t, pval) in ranks if pval <= pvalue_threshold], dataset.domain.classVar)
+    filter_atts = [att for att, (t, pval) in ranks if pval <= pvalue_threshold]
+    new_domain = orange.Domain(filter_atts, dataset.domain.classVar)
     reduced_dataset = orange.ExampleTable(new_domain, dataset)
     return {'dataset' : reduced_dataset}
 
@@ -64,14 +66,12 @@ def segmine_gene_ranker(input_dict):
     m = int(input_dict['m'])
     if m == 0: # special value
         m= -1  # all examples
-
     ranks = []
     # ReliefF parameters:
     #  - number of neighbours: 10
     #  - number of reference examples: all (-1)
     #  - checksum computation: none (the data do not change)
     ranker = orange.MeasureAttribute_relief(k=k, m=m, checkCachedData=False)
-
     for attr in table.domain.attributes:
         ranks.append((ranker(attr, table), attr.name))
 
@@ -81,26 +81,23 @@ def segmine_gene_ranker(input_dict):
 
     # reverse order inside sorted tuples list in result
     geneRanks = [(elt[1], elt[0]) for elt in ranks]
-
     tScores = {}
-
     control = table.selectref({CLASS_ATRR_NAME:CONTROL_GROUP_KEY})
     data = table.selectref({CLASS_ATRR_NAME:DATA_GROUP_KEY})
     nerrors = 0
     for attr in table.domain.attributes:
         geneID = attr.name
-
         controlValues = [float(example[attr]) for example in control]
-
         dataValues = [float(example[attr]) for example in data]
-
         try:
-            tScores[geneID] = (mean(dataValues) - mean(controlValues)) / sqrt(var(controlValues)/len(controlValues) + var(dataValues)/len(dataValues))
+            average = mean(dataValues) - mean(controlValues)
+            variance = var(controlValues)/len(controlValues) + \
+                       var(dataValues)/len(dataValues)
+            score = average/sqrt(variance)
+            tScores[geneID] = score
         except ZeroDivisionError:
             tScores[geneID] = 0.0
-
-    sortedTScores = [(elt[1], elt[0])  for elt in sorted([(tScores[attr.name], attr.name)  for attr in table.domain.attributes], reverse=True)]
-
+    sortedTScores = sorted(tScores.items(), reverse=True, key=lambda x: x[1])
     return {'geneRanks':geneRanks,'tScores':sortedTScores}
 
 def segmine_segs(input_dict):
