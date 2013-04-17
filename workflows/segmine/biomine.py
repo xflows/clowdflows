@@ -186,7 +186,8 @@ class BiomineSearch:
         return bmgFile, bestPath
 
     def invokeBiomine(self):
-        # if database version is not specified rely on the Biomine system to use the latest
+        # if database version is not specified rely on 
+        # the Biomine system to use the latest
         dbVer = self.databaseVersion
         if self.databaseVersion == LATEST_DB_VERSION:
             dbVer = ''

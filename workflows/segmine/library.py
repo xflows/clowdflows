@@ -4,6 +4,7 @@ Segmine library.
 @author: Anze Vavpetic <anze.vavpetic@ijs.si>
 '''
 from biomine import BiomineSearch
+from segs import Segs
 
 #
 # Visualization widgets:
@@ -13,6 +14,9 @@ def segmine_rank_plotter(input_dict):
 
 def segmine_rule_browser(input_dict):
     return input_dict
+
+def segmine_biomine_visualizer(input_dict):
+    return {'graph' : input_dict.get('graph', None)}
 
 #
 # Interactions widgets:
@@ -54,10 +58,10 @@ def segmine_ttest_gene_filter(input_dict):
 def segmine_fc_gene_filter(input_dict):
     return {'dataset' : None}
 
-def segmine_gene_ranker(input_dict):
+def segmine_gene_ranker(input_dict, widget):
     import orange
     from numpy import mean, var
-    from math import sqrt
+    from math import sqrt, floor
     CONTROL_GROUP_KEY = 'control group'
     DATA_GROUP_KEY = 'data group'
     CLASS_ATRR_NAME = 'group'    
@@ -85,7 +89,9 @@ def segmine_gene_ranker(input_dict):
     control = table.selectref({CLASS_ATRR_NAME:CONTROL_GROUP_KEY})
     data = table.selectref({CLASS_ATRR_NAME:DATA_GROUP_KEY})
     nerrors = 0
-    for attr in table.domain.attributes:
+    widget.progress = 0
+    widget.save()
+    for i, attr in enumerate(table.domain.attributes):
         geneID = attr.name
         controlValues = [float(example[attr]) for example in control]
         dataValues = [float(example[attr]) for example in data]
@@ -97,13 +103,18 @@ def segmine_gene_ranker(input_dict):
             tScores[geneID] = score
         except ZeroDivisionError:
             tScores[geneID] = 0.0
+        if (i + 1)%100 == 0:
+            widget.progress = floor((i + 1)/float(len(table.domain.attributes))*100)
+            widget.save()
+    widget.progress = 100
+    widget.save()
     sortedTScores = sorted(tScores.items(), reverse=True, key=lambda x: x[1])
     return {'geneRanks':geneRanks,'tScores':sortedTScores}
 
-def segmine_segs(input_dict):
-    # TODO
-    output_dict = {}
-    return output_dict
+def segmine_segs(input_dict, widget):
+    segs = Segs(input_dict['wsdl'])
+    results = segs.run(input_dict, widget=widget)
+    return {'rules' : results}
 
 def segmine_resolve_gene_synonyms(input_dict):
     from .data import mappings
@@ -183,5 +194,3 @@ def segmine_biomine_medoid(input_dict):
     result, bestPath = search.invokeBiomine()
     return {'result' : result, 'bestPath' : bestPath}
 
-def segmine_biomine_visualizer(input_dict):
-    return {'graph' : input_dict.get('graph', None)}
