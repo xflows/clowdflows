@@ -1,0 +1,65 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} wants your input!" width=800 height=600>
+    <center>
+        <form>
+            <table id="segs_rules{{widget.pk}}">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Description</th>
+                        <th>Top genes</th>
+                        <th>All genes</th>
+                        <th>Fisher p-value</th>
+                        <th>GSEA p-value</th>
+                        <th>PAGE p-value</th>
+                        <th>Aggregate p-value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rule in rules %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            {% for term in rule.description.terms %}
+                                <a data-toggle="tooltip" title="{{term.termID}}" id="{{term.termID}}">{{ term.name }}</a>{% if forloop.counter < rule.description.terms|length %},{% endif %}
+                            {% endfor %}
+                            {% if rule.description.interactingTerms %}
+                            <br/>INTERACTING:
+                            {% endif %}
+                            {% for term in rule.description.interactingTerms %}
+                                <a data-toggle="tooltip" title="{{term.termID}}" id="{{term.termID}}">{{ term.name }}</a>{% if forloop.counter < rule.description.interactingTerms|length %},{% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>{{rule.coveredTopGenes|length}}</td>
+                        <td>{{rule.coveredGenes|length}}</td>
+                        <td>{{rule.fisher_pval|floatformat:3}}</td>
+                        <td>{{rule.GSEA_pval|floatformat:3}}</td>
+                        <td>{{rule.PAGE_pval|floatformat:3}}</td>
+                        <td>{% if rule.aggregate_pval %}
+                                {{rule.aggregate_pval|floatformat:3}}
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+        </form>
+    </center>
+    </div>
+    <script type="text/javascript">
+    $(function () {
+        $(document).ready(function() {
+            $('#segs_rules{{widget.pk}}').dataTable( {
+                "bSortCellsTop" : true,
+                "bJQueryUI": true,
+                "sPaginationType": "full_numbers"
+            });
+            $('#segs_rules{{widget.pk}}').selectable({
+              filter: "td"
+            });
+        });
+    });
+    </script>
+</div>

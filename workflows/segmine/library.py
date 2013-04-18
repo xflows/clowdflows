@@ -10,10 +10,7 @@ from segs import Segs
 # Visualization widgets:
 #
 def segmine_rank_plotter(input_dict):
-    return input_dict
-
-def segmine_rule_browser(input_dict):
-    return input_dict
+    return {}
 
 def segmine_biomine_visualizer(input_dict):
     return {'graph' : input_dict.get('graph', None)}
@@ -21,6 +18,12 @@ def segmine_biomine_visualizer(input_dict):
 #
 # Interactions widgets:
 #
+def segmine_rule_browser(input_dict):
+    return {'node_list' : []}
+
+def segmine_rule_browser_finished(input_dict):
+    return {'node_list' : []}
+
 def segmine_fc_gene_filter_finished(postdata, input_dict, output_dict):
     from orngBioinformatics import obiExpression as rankers
     import orange
@@ -114,7 +117,10 @@ def segmine_gene_ranker(input_dict, widget):
 def segmine_segs(input_dict, widget):
     segs = Segs(input_dict['wsdl'])
     results = segs.run(input_dict, widget=widget)
-    return {'rules' : results}
+    return {'rules_fisher' : results.get('rules_fisher', None),
+            'rules_PAGE' : results.get('rules_PAGE', None),
+            'rules_GSEA' : results.get('rules_GSEA', None),
+            'rules_combined' : results.get('rules_combined', None)}
 
 def segmine_resolve_gene_synonyms(input_dict):
     from .data import mappings

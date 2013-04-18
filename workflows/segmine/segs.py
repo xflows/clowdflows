@@ -22,9 +22,6 @@ def recursive_asdict(d):
             out[k] = v
     return out
 
-def suds_to_json(data):
-    return json.dumps(recursive_asdict(data))
-
 class Segs:
     '''Interface to the SEGS web service'''
 
@@ -50,7 +47,7 @@ class Segs:
         jobID = self.client.service.runSEGS(**inputs)
         self.wait_for_job(widget, jobID)
         rules = self.client.service.getResult(jobID=jobID)
-        return suds_to_json(rules)
+        return recursive_asdict(rules)
 
     def wait_for_job(self, widget, jobID):
         if widget:
@@ -76,4 +73,7 @@ if __name__ == '__main__':
     }
     segs = Segs('http://segs.ijs.si:8090/SEGS?wsdl')
     result = segs.run(inputs)
-    print suds_to_json(result)
+    with open('rules.pkl', 'w') as f:
+        json.dump(result, f)
+        f.flush()
+    print result
