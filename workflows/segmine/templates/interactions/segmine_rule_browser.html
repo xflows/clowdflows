@@ -11,7 +11,9 @@
                         <th>Fisher p-value</th>
                         <th>GSEA p-value</th>
                         <th>PAGE p-value</th>
+                        {% if aggregate %}
                         <th>Aggregate p-value</th>
+                        {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -34,12 +36,9 @@
                         <td>{{rule.fisher_pval|floatformat:3}}</td>
                         <td>{{rule.GSEA_pval|floatformat:3}}</td>
                         <td>{{rule.PAGE_pval|floatformat:3}}</td>
-                        <td>{% if rule.aggregate_pval %}
-                                {{rule.aggregate_pval|floatformat:3}}
-                            {% else %}
-                                N/A
-                            {% endif %}
-                        </td>
+                        {% if aggregate %}
+                        <td> {{rule.aggregate_pval|floatformat:3}}</td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                 </tbody>

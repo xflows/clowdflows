@@ -21,6 +21,7 @@ def segmine_fc_gene_filter(request, input_dict, output_dict, widget):
 
 def segmine_rule_browser(request, input_dict, output_dict, widget):
     rules = input_dict['rules']
+    aggregate = rules[0].has_key('aggregate_pval') if rules else False
     return render(request, 'interactions/segmine_rule_browser.html', 
-                  {'widget':widget, 'rules' : rules})
+                  {'widget':widget, 'rules' : rules, 'aggregate' : aggregate})
 
