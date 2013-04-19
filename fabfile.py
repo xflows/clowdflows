@@ -17,27 +17,28 @@ def deploy():
     uporaba:
     $ fab live deploy
     """
-    with cd('/srv/django-projects/mothra'):
-        puts(yellow("[Pulling from origin, on branch %s]" % (env.branch,)))
-        run('git pull origin %s' % (env.branch,))
-        run('git checkout %s' % (env.branch,))
+    with prefix('source /srv/django-envs/mothra/bin/activate'):
+        with cd('/srv/django-projects/mothra'):
+            puts(yellow("[Pulling from origin, on branch %s]" % (env.branch,)))
+            run('git pull origin %s' % (env.branch,))
+            run('git checkout %s' % (env.branch,))
 
-        puts(yellow("[Installing packages]"))
-        run('pip install -qr requirements.txt')
+            puts(yellow("[Installing packages]"))
+            run('pip install -qr requirements.txt')
 
-        puts(yellow("[Migrating apps]"))
-        for app in apps_to_migrate:
-            puts("--> [Migrating %s]" % (app,))
-            run('python manage.py migrate %s --no-initial-data' % (app, ))
+            puts(yellow("[Migrating apps]"))
+            for app in apps_to_migrate:
+                puts("--> [Migrating %s]" % (app,))
+                run('python manage.py migrate %s --no-initial-data' % (app, ))
 
-        puts(yellow("[Collecting static files]"))
-        run("python manage.py collectstatic --noinput")
-        
-        puts(yellow("[Auto importing packages]"))
-        run("python manage.py auto_import_packages")
+            puts(yellow("[Collecting static files]"))
+            run("python manage.py collectstatic --noinput")
+            
+            puts(yellow("[Auto importing packages]"))
+            run("python manage.py auto_import_packages")
 
-        #puts(yellow("[Compressing]"))
-        #run('python manage.py compress')
+            #puts(yellow("[Compressing]"))
+            #run('python manage.py compress')
 
 def apache_restart():
     """restarta apache service
