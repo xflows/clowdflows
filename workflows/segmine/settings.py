@@ -1,6 +1,6 @@
 import os
 
-package_name = 'bioinformatics'
+package_name = 'segmine'
 
 package_root = os.path.dirname(__file__)
 package_statics = os.path.join(os.path.dirname(__file__), 'static', package_name)
