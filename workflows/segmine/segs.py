@@ -6,6 +6,7 @@ import json
 
 def recursive_asdict(d):
     from suds.sudsobject import asdict
+    from suds.sax.text import Text
     """Convert Suds object into serializable format."""
     out = {}
     for k, v in asdict(d).iteritems():
@@ -17,8 +18,12 @@ def recursive_asdict(d):
                 if hasattr(item, '__keylist__'):
                     out[k].append(recursive_asdict(item))
                 else:
+                    if isinstance(item, Text):
+                        item = str(item)
                     out[k].append(item)
         else:
+            if isinstance(v, Text):
+                v = str(v)
             out[k] = v
     return out
 

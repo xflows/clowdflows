@@ -21,8 +21,21 @@ def segmine_biomine_visualizer(input_dict):
 def segmine_rule_browser(input_dict):
     return {'node_list' : []}
 
-def segmine_rule_browser_finished(input_dict):
-    return {'node_list' : []}
+def segmine_rule_browser_finished(postdata, input_dict, output_dict):
+    rules = input_dict['rules']
+    widget_id = postdata.get('widget_id')[0]
+    selectedCell = postdata.get('selectedCell')[0]
+    key, _, idx = selectedCell.split('_')
+    node_list = []
+    rule = rules[int(idx)]
+    if key == 'terms':
+        terms = rule['description']['terms'] + \
+                rule['description']['interactingTerms']
+        node_list.extend([term['termID'] for term in terms])
+    elif key in ['coveredGenes', 'coveredTopGenes']:
+        genes = ['EntrezGene:%s' % gene for gene in rule[key]]
+        node_list.extend(genes)
+    return {'node_list' : node_list}
 
 def segmine_fc_gene_filter_finished(postdata, input_dict, output_dict):
     from orngBioinformatics import obiExpression as rankers
