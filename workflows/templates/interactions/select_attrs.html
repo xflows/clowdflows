@@ -15,7 +15,7 @@
 		var count = 0;
 		for (var i = selObj.options.length - 1; i >= 0; i--) {
 			if (selObj.options[i].selected) {
-				if (dest == "ca_list" && (destObj.options.length != 0 || count >= 1) ) {
+				if (dest == "ca_list{{widget.pk}}" && (destObj.options.length != 0 || count >= 1) ) {
 					msgDisplay("Class Attribute already assigned!")
 					break;
 				};
@@ -31,14 +31,14 @@
 	}
 
 	function msgDisplay (msg) {
-		document.getElementById("msg").innerHTML = msg;
+		document.getElementById("msg{{widget.pk}}").innerHTML = msg;
 	}
 
 	function prepareForm () {
-		var selObj_ma = document.getElementById('ma_list');
-		var hideObj_ma = document.getElementById('ma_values');
-		var selObj_attrs = document.getElementById('attrs_list');
-		var hideObj_attrs = document.getElementById('attrs_values');
+		var selObj_ma = document.getElementById('ma_list{{widget.pk}}');
+		var hideObj_ma = document.getElementById('ma_values{{widget.pk}}');
+		var selObj_attrs = document.getElementById('attrs_list{{widget.pk}}');
+		var hideObj_attrs = document.getElementById('attrs_values{{widget.pk}}');
 		hideObj_ma.value = '';
 		hideObj_attrs.value = '';
 		for (var i = selObj_ma.options.length - 1; i >= 0; i--) {
@@ -58,9 +58,9 @@
 		};
 	}
 
-	function prepareForm2{{widget.id}} () {
-		var selObj_ma = document.getElementById('ma_list');
-		var selObj_attrs = document.getElementById('attrs_list');
+	function prepareForm2{{widget.pk}} () {
+		var selObj_ma = document.getElementById('ma_list{{widget.pk}}');
+		var selObj_attrs = document.getElementById('attrs_list{{widget.pk}}');
 		for (var i = selObj_ma.options.length - 1; i >= 0; i--) {
 			selObj_ma.options[i].selected = true;
 		};
@@ -71,8 +71,8 @@
 
 </script>
 <p>Arrange the attributes. The attributes on the right side are the ones that are included in the dataset.<br><br></p>
-<p id="msg" style="color:red;font-weight:bold" ></p>
-<form id="interactionform-{{widget.pk}}" name="interactionform-{{widget.pk}}" onsubmit="prepareForm2{{widget.id}}();" >
+<p id="msg{{widget.pk}}" style="color:red;font-weight:bold" ></p>
+<form id="interactionform-{{widget.pk}}" name="interactionform-{{widget.pk}}" onsubmit="prepareForm2{{widget.pk}}();" >
 <table>
 	<tr>
 
@@ -84,30 +84,32 @@
 		        <tr>
 		            <td rowspan="3" >
 		                <h2>Attributes (not in the dataset)</h2>
-		                <select name="att" id="attr_list" style="width: 250px" size="29" multiple="multiple" >
+		                <select name="att" id="attr_list{{widget.pk}}" style="width: 250px" size="29" multiple="multiple" >
 		                </select>
 		            </td>
 		            <td style = "vertical-align:middle; text-align:center" >
-		                <button type="button" onclick="movAttr('ca_list', 'attr_list', 'No Class Attributes available!');" > <-- </button>
+		                <button type="button" onclick="movAttr('ca_list{{widget.pk}}', 'attr_list{{widget.pk}}', 'No Class Attributes available!');" > <-- </button>
 		            </br>
-		                <button type="button" onclick="movAttr('attr_list', 'ca_list', 'No more unsorted Attributes available!');" > --> </button>
+		                <button type="button" onclick="movAttr('attr_list{{widget.pk}}', 'ca_list{{widget.pk}}', 'No more unsorted Attributes available!');" > --> </button>
 		            </td>
 		            <td>
 		                <h2>Class Attribute</h2>
-		                <SELECT name="ca" id="ca_list" style="width: 250px" SIZE="1" >
+		                <SELECT name="ca" id="ca_list{{widget.pk}}" style="width: 250px" SIZE="1" >
+	                		{% if input_dict.ca %}
 		                    <OPTION value="{{input_dict.ca}}" SELECTED> {{input_dict.ca}}
+		                    {% endif %}
 		                </SELECT>
 		            </td>
 		        </tr>
 		        <tr>
 		            <td style = "vertical-align:middle; text-align:center">
-		                <button type="button" onclick="movAttr('ma_list', 'attr_list', 'No more Meta Attributes available!');" > <-- </button>
+		                <button type="button" onclick="movAttr('ma_list{{widget.pk}}', 'attr_list{{widget.pk}}', 'No more Meta Attributes available!');" > <-- </button>
 		            </br>
-		                <button type="button" onclick="movAttr('attr_list', 'ma_list', 'No more unsorted Attributes available!');" > --> </button>
+		                <button type="button" onclick="movAttr('attr_list{{widget.pk}}', 'ma_list{{widget.pk}}', 'No more unsorted Attributes available!');" > --> </button>
 		            </td>
 		            <td>
 		                <h2>Meta Attributes</h2>
-		                <select name="ma" id="ma_list" style="width: 250px" size="10" multiple="multiple" >
+		                <select name="ma" id="ma_list{{widget.pk}}" style="width: 250px" size="10" multiple="multiple" >
 		                    {% for attr in input_dict.ma %}
 		                    <option value="{{attr}}">
 		                        {{attr}}
@@ -118,13 +120,13 @@
 		        </tr>
 		        <tr>
 		            <td style = "vertical-align:middle; text-align:center" >
-		                <button type="button" onclick="movAttr('attrs_list', 'attr_list', 'No more Attributes available!');" > <-- </button>
+		                <button type="button" onclick="movAttr('attrs_list{{widget.pk}}', 'attr_list{{widget.pk}}', 'No more Attributes available!');" > <-- </button>
 		            </br>
-		                <button type="button" onclick="movAttr('attr_list', 'attrs_list', 'No more unsorted Attributes available!');" > --> </button>
+		                <button type="button" onclick="movAttr('attr_list{{widget.pk}}', 'attrs_list{{widget.pk}}', 'No more unsorted Attributes available!');" > --> </button>
 		            </td>
 		            <td>
 		                <h2>Attributes (in the dataset)</h2>
-		                <select name="attrs" id="attrs_list" style="width: 250px" size="15" multiple="multiple" >
+		                <select name="attrs" id="attrs_list{{widget.pk}}" style="width: 250px" size="15" multiple="multiple" >
 		                    {% for k, v in input_dict.sorted_attrs %}
 		                    <option value="{{k}}">
 		                        {{k}}
@@ -135,7 +137,7 @@
 		        </tr>
 		    </table>
 
-            <input class="runfunction" type="hidden" name="runfunction" value="prepareForm2{{widget.id}}();">
+            <input class="runfunction" type="hidden" name="runfunction" value="prepareForm2{{widget.pk}}();">
 		    <input type="hidden" name="widget_id" value="{{widget.pk}}">
 		
 		</center>
