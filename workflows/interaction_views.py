@@ -59,7 +59,7 @@ def select_data(request, input_dict, output_dict, widget):
                            'values': list(values)}
 
     sorted_attrs = sorted(attrs.items())
-    return render(request, 'interactions/select_data_2.html', 
+    return render(request, 'interactions/select_data.html', 
                   {'widget' : widget, 'attrs' : sorted_attrs})
     
 def alter_table(request, input_dict, output_dict, widget):
