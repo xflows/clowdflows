@@ -1,4 +1,6 @@
 import re
+import json
+import tempfile
 from string import ascii_lowercase as chars
 from random import choice
 
@@ -54,10 +56,22 @@ def ilp_sdmsegs_rule_viewer(input_dict):
     return {}
 
 def ilp_sdmaleph(input_dict):
-    #ws = WebService('http://workflow.ijs.si:8081', 3600)
+    import orange
     ws = WebService('http://vihar.ijs.si:8097', 3600)
+    data = input_dict.get('examples')
+    if isinstance(data, orange.ExampleTable):
+        with tempfile.NamedTemporaryFile(suffix='.tab', delete=True) as f:
+            data.save(f.name)
+            examples = f.read()
+    elif isinstance(data, list):
+        examples = json.dumps(data)
+    elif isinstance(data, str):
+        examples = data
+    else:
+        raise Exception('Illegal examples format. \
+                         Supported formats: str, list or Orange')
     response = ws.client.sdmaleph(
-        examples=input_dict.get('examples'),
+        examples=examples,
         mapping=input_dict.get('mapping'),
         ontologies=[{'ontology' : ontology} for ontology in input_dict.get('ontology')],
         relations=[{'relation' : relation} for relation in input_dict.get('relation')],

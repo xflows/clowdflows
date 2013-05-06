@@ -144,8 +144,6 @@ def segmine_resolve_gene_synonyms(input_dict):
     mapped = []
     genes = {}
     for (i, (geneID, rank)) in enumerate(gene_ranks):
-        if i%100 == 0:
-            self.progressBar.advance()
         # gene name can also be symbolic or synonym
         geneID = geneID.lower()
         try:
