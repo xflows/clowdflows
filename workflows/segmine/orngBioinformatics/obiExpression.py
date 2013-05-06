@@ -214,7 +214,6 @@ class ExpressionSignificance_Test(object):
                 ind1 = [i for i, cl in enumerate(self.classes) if cl in target]
                 ind2 = [i for i, cl in enumerate(self.classes) if cl not in target]
                 ind = [ind1, ind2]
-                
         return ind
     
     def __call__(self, target):

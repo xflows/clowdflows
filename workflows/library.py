@@ -345,8 +345,6 @@ def select_data_post(postdata, input_dict, output_dict):
         if cond['condition'][0]['operator'] in ["is defined", "sis defined"]:
             data_filter = Orange.data.filter.IsDefined(domain = data.domain)
             data_filter.negate = cond['negate']
-            #for v in range(len(data.domain.variables)):
-            #    data_filter.check[int(v)] = 0
             data_filter.check[str(cond['condition'][0]['attr'])] = 1
         else:
             data_filter = Orange.data.filter.Values()
