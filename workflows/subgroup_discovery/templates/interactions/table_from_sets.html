@@ -3,10 +3,10 @@
     <label for="class_name{{widget.pk}}">New class attribute name</label>
     <input type="text" name="class_name{{widget.pk}}" value="{{class_name}}"/>
     {% for class_val in class_values %}
-        <label for="{{class_val}}{{widget.pk}}">Class label for set on signal #{{forloop.counter}}</label>
-        <input type="text" name="{{class_val}}{{widget.pk}}" value="{{class_val}}"/>
+        <label for="class{{forloop.counter0}}{{widget.pk}}">Class label for set on signal #{{forloop.counter}}</label>
+        <input type="text" name="class{{forloop.counter0}}{{widget.pk}}" value="{{class_val}}"/>
     {% endfor %}
-    <input type="checkbox" name="replace{{widget.pk}}" value="{{replace}}"/>
+    <input type="checkbox" name="replace{{widget.pk}}" {% if replace %}checked{% endif %}/>
     <label for="replace{{widget.pk}}">Replace existing class</label>
     <input type="hidden" name="widget_id" value="{{widget.pk}}">
 </form>
