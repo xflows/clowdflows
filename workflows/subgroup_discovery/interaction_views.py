@@ -45,9 +45,15 @@ def table_from_sets(request, input_dict, output_dict, widget):
     @author: Anze Vavpetic, 2012
     '''
     tables = input_dict['data']
+    if len(tables) == 2:
+        class_name = 'group'
+        class_values = ['data group', 'control group']
+    else:
+        class_name = 'class name'
+        class_values = ['class%d' % i for i in range(len(tables))]
     return render(request, 'interactions/table_from_sets.html', {
         'widget' : widget,
-        'class_name' : 'class name',
-        'class_values' : ['class%d' % i for i in range(len(tables))],
+        'class_name' : class_name,
+        'class_values' : class_values,
         'replace' : True
         })
