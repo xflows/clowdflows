@@ -4,20 +4,20 @@ Decision support library functions.
 @author: Anze Vavpetic <anze.vavpetic@ijs.si>
 '''
 
-def kepner_tregoe(input_dict):
+def decision_support_wsm(input_dict):
     output_dict = input_dict
     output_dict['model'] = None
     return output_dict
 
-class KepnerTregoe:
+class WeightedSumModel:
     '''
-    Kepner-Tregoe model.
+    Weighted sum model.
     '''
     def __init__(self, data, weights, smaller_is_better=None):
         self.data = data
         self.weights = weights
         self.smaller_is_better = smaller_is_better if smaller_is_better else set()
-        self.name = 'Kepner-Tregoe'
+        self.name = 'Weighted sum model'
     def __call__(self, weights=None):
         import Orange
         from Orange.feature import Type
@@ -44,7 +44,7 @@ class KepnerTregoe:
             ex['score'] = score
         return norm_data
 
-def kepner_tregoe_finished(postdata, input_dict, output_dict):
+def decision_support_wsm_finished(postdata, input_dict, output_dict):
     # Fetch the data and the weights from the form.
     data = input_dict['data']
     attributes = [att.name for att in data.domain.features]
@@ -55,15 +55,15 @@ def kepner_tregoe_finished(postdata, input_dict, output_dict):
         weights[att]=int(postdata['weight'+str(widget_id)+str(att)][0])
         if postdata.has_key('smallerIsBetter'+str(widget_id)+str(att)):
             smaller_is_better.add(att)
-    # Instantiate a KepnerTregoe model.
-    kt = KepnerTregoe(data, weights, smaller_is_better=smaller_is_better)
+    # Instantiate a WeightedSumModel model.
+    kt = WeightedSumModel(data, weights, smaller_is_better=smaller_is_better)
     output_dict = {}
     output_dict['data'] = kt()
     output_dict['model'] = kt
     return output_dict
 
-def sensitivity_analysis(input_dict):
+def decision_support_sensitivity_analysis(input_dict):
     return input_dict
 
-def ds_charts(input_dict):
+def decision_support_charts(input_dict):
     return input_dict

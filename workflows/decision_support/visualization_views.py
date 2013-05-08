@@ -6,7 +6,7 @@ Decision support visualization views.
 from django.shortcuts import render
 import json
 
-def sensitivity_analysis_viewer(request, input_dict, output_dict, widget):
+def decision_support_sensitivity_analysis_viewer(request, input_dict, output_dict, widget):
     '''
     Computes the sensitivity analysis graph.
         
@@ -39,7 +39,7 @@ def sensitivity_analysis_viewer(request, input_dict, output_dict, widget):
                    'output_dict': {}
                    })
 
-def ds_charts_viewer(request, input_dict, output_dict, widget):
+def decision_support_charts_viewer(request, input_dict, output_dict, widget):
     '''
     Decision support visualization.
         
@@ -52,7 +52,9 @@ def ds_charts_viewer(request, input_dict, output_dict, widget):
     alternatives = [ex['label'].value for ex in norm_data]
     weights_bar = [{ 'data' : [model.weights[att] for att in attributes] }]
     values_column = [{ 'data' : [ex['score'].value for ex in norm_data] }]
-    alt_data = [{ 'name' : ex['label'].value, 'data' : [ex[att].value for att in attributes] } for ex in norm_data ]
+    alt_data = [{'name' : ex['label'].value, 
+                 'data' : [ex[att].value for att in attributes]} 
+                 for ex in norm_data ]
     return render(request, 'visualizations/ds_charts.html', 
                   {'widget' : widget, 
                    'model_name' : model.name, 
