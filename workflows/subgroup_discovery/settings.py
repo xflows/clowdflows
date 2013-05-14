@@ -1,11 +1,13 @@
 import os
 
-package_name = 'subgroup_discovery'
+# === STANDARD PACKAGE SETTINGS ===
+PACKAGE_ROOT = os.path.dirname(__file__)
 
-package_root = os.path.dirname(__file__)
-package_statics = os.path.join(os.path.dirname(__file__), 'static', package_name)
-package_bin = os.path.join(package_root, 'bin')
-
-auto_update_db = True
-create_backups = True
+# === AUTO IMPORT OPTIONS ===
+#If auto_import_package_data is true then given data file is automatically imported when ClowdFlows project is newly deployed or refreshed from git
+AUTO_IMPORT_DB = True
+#For auto_import_package_data_replace_option description see the 'replace' option in workflows/import_package command
+AUTO_IMPORT_DB_REPLACE_OPTION = True
+#If file(s) other than ./db/package_data.json should be imported, auto_import_package_data_files should be corrected
+AUTO_IMPORT_DB_FILES = [os.path.join(PACKAGE_ROOT,'db/package_data.json')]
 

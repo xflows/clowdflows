@@ -1,0 +1,15 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction" width="400" height="300">
+<form>
+    <label for="class_name{{widget.pk}}">New class attribute name</label>
+    <input type="text" name="class_name{{widget.pk}}" value="{{class_name}}"/>
+    {% for class_val in class_values %}
+        <label for="class{{forloop.counter0}}{{widget.pk}}">Class label for set on signal #{{forloop.counter}}</label>
+        <input type="text" name="class{{forloop.counter0}}{{widget.pk}}" value="{{class_val}}"/>
+    {% endfor %}
+    <input type="checkbox" name="replace{{widget.pk}}" {% if replace %}checked{% endif %}/>
+    <label for="replace{{widget.pk}}">Replace existing class</label>
+    <input type="hidden" name="widget_id" value="{{widget.pk}}">
+</form>
+<script type="text/javascript">
+</script>
+</div>

@@ -20,6 +20,23 @@ def advanced_object_viewer(input_dict):
 def show_table(input_dict):
     return {}
 
+def advanced_object_converter(input_dict):
+    import objectPprint as opp
+    obj = input_dict['obj']
+    maxStringLen = ToInt(input_dict['maxStringLen'])
+    objstr = ""
+    if input_dict.has_key('attribute') and input_dict['attribute']!="":
+        try:
+            obj = eval("obj."+input_dict['attribute'])
+        except:
+            objstr += "Given attribute '" + input_dict['attribute'] + "' can not be resolved. Showing original object instead:\n"
+    objstr += opp.ppprint(obj)
+    if (len(objstr)>maxStringLen):
+        moreChar = len(objstr) - maxStringLen
+        objstr = objstr[0:maxStringLen] + "\n... <Additional " + str(moreChar) + " characters were trimmed due to widget settings.>"
+    output_dict = {'objStr': objstr}
+    return output_dict
+
 #------------------------------------------------------------------------------
 # SUPPLEMENTARY FUNCTIONS
 #------------------------------------------------------------------------------
@@ -38,27 +55,3 @@ def python_snippet(input_dict):
     exec(input_dict['pycode'])
     output_dict['out'] = out1
     return output_dict
-
-def create_range(input_dict):
-    rng = range(ToInt(input_dict['start']), ToInt(input_dict['stop']), ToInt(input_dict['step']))
-    return {'range':rng }
-
-def compare_lists(input_dict):
-    l1 = input_dict['list1']
-    l2 = input_dict['list2']
-    l = min(len(l1),len(l2))
-    cntEq = 0
-    for i in range(0,l):
-        if l1[i]==l2[i]:
-            cntEq += 1
-    return {
-        'accuracy':(0.0+cntEq)/l,
-        'statistics':{
-            'elements':l,
-            'equal':cntEq,
-            'different':l-cntEq,
-            'accuracy':(0.0+cntEq)/l,
-            'error':(0.0+l-cntEq)/l,
-            }
-    }
-

@@ -61,9 +61,7 @@ urlpatterns += patterns('',
     url(r'^unfinish-visualizations/', 'workflows.views.unfinish_visualizations', name='unfinish visualizations'),
     
     url(r'^(?P<workflow_id>[0-9]+)/$', 'workflows.views.open_workflow', name='open workflow'),
-    
-    url(r'^sensitivity_analysis/', 'workflows.visualization_views.sensitivity_analysis_viewer', name='sensitivity analysis'),
-    
+     
     url(r'^reset-widget/', 'workflows.views.reset_widget', name='reset widget'),
     url(r'^get-executed-status/', 'workflows.views.get_executed_status', name='get executed status'),
     url(r'^reset-workflow/', 'workflows.views.reset_workflow', name='reset workflow'),

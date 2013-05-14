@@ -175,6 +175,7 @@ INSTALLED_APPS_DEFAULT = (
     'django.contrib.humanize',
     'orderable_inlines',
     'workflows',
+    'picklefield'
     )
 
 INSTALLED_APPS_CONCUR = (
@@ -187,10 +188,17 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.base',
     'workflows.latino',
     'workflows.decision_support',
-    'workflows.bioinformatics',
+    'workflows.segmine',
     'workflows.subgroup_discovery',
     'workflows.nlp',
     'workflows.nl_toolkit',
+    'workflows.ilp',
+    'workflows.weka',
+    'workflows.cforange',
+    'workflows.perfeval',
+    'workflows.mysql',
+    'workflows.lemmagen',
+    'workflows.crossbee',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 
@@ -213,3 +221,4 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 
 STATIC_DOC_ROOT = os.path.join(os.getcwd(), 'mothra/public/media')
+

@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
-from workflows.models import Workflow
+from workflows.models import Workflow, Connection
 
 #settings
 from mothra.settings import DEBUG, PROJECT_FOLDER
@@ -59,16 +59,16 @@ def workflow_information(request,workflow_id):
         widget.norm_x = (x/normalized_max_x)*max_width
         widget.norm_y = (y/normalized_max_y)*max_height
         normalized_values[widget.id]=(widget.norm_x,widget.norm_y)
-    for c in w.connections.all():
-        if not (c.output.widget.id,c.input.widget.id) in w.pairs:
-            w.pairs.append((c.output.widget.id,c.input.widget.id))
-        for pair in w.pairs:
-            conn = {}
-            conn['x1'] = normalized_values[pair[0]][0]+40
-            conn['y1'] = normalized_values[pair[0]][1]+15
-            conn['x2'] = normalized_values[pair[1]][0]-10
-            conn['y2'] = normalized_values[pair[1]][1]+15
-            w.unique_connections.append(conn)
+    for c in w.connections.select_related("output","input").defer("output__value","input__value").all():
+        if not (c.output.widget_id,c.input.widget_id) in w.pairs:
+            w.pairs.append((c.output.widget_id,c.input.widget_id))
+    for pair in w.pairs:
+        conn = {}
+        conn['x1'] = normalized_values[pair[0]][0]+40
+        conn['y1'] = normalized_values[pair[0]][1]+15
+        conn['x2'] = normalized_values[pair[1]][0]-10
+        conn['y2'] = normalized_values[pair[1]][1]+15
+        w.unique_connections.append(conn)
     return render(request, 'website/existing.html', {'workflows':[w,]})
     
 def workflows(request):
@@ -80,6 +80,7 @@ def workflows(request):
     max_width = 300
     max_height = 200
     normalized_values = {}
+    cons = list(Connection.objects.select_related("output","input").defer("output__value","input__value").filter(workflow__public=True))
     for w in wflows:
         w.normalized_widgets = w.widgets.all()
         w.unique_connections = []
@@ -109,14 +110,15 @@ def workflows(request):
             widget.norm_x = (x/normalized_max_x)*max_width
             widget.norm_y = (y/normalized_max_y)*max_height
             normalized_values[widget.id]=(widget.norm_x,widget.norm_y)
-        for c in w.connections.all():
-            if not (c.output.widget.id,c.input.widget.id) in w.pairs:
-                w.pairs.append((c.output.widget.id,c.input.widget.id))
-            for pair in w.pairs:
-                conn = {}
-                conn['x1'] = normalized_values[pair[0]][0]+40
-                conn['y1'] = normalized_values[pair[0]][1]+15
-                conn['x2'] = normalized_values[pair[1]][0]-10
-                conn['y2'] = normalized_values[pair[1]][1]+15
-                w.unique_connections.append(conn)
+        connection_list = filter(lambda e: e.workflow_id == w.id, cons)
+        for c in connection_list:
+            if not (c.output.widget_id,c.input.widget_id) in w.pairs:
+                w.pairs.append((c.output.widget_id,c.input.widget_id))
+        for pair in w.pairs:
+            conn = {}
+            conn['x1'] = normalized_values[pair[0]][0]+40
+            conn['y1'] = normalized_values[pair[0]][1]+15
+            conn['x2'] = normalized_values[pair[1]][0]-10
+            conn['y2'] = normalized_values[pair[1]][1]+15
+            w.unique_connections.append(conn)
     return render(request, 'website/existing.html', {'workflows':wflows})

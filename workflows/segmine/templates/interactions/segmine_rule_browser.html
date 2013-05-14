@@ -1,0 +1,74 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} wants your input!" width=800 height=600>
+    <center>
+        <form id="segs_rules_form{{widget.pk}}">
+            <table id="segs_rules{{widget.pk}}">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Description</th>
+                        <th>Top genes</th>
+                        <th>All genes</th>
+                        <th>Fisher p-value</th>
+                        <th>GSEA p-value</th>
+                        <th>PAGE p-value</th>
+                        {% if aggregate %}
+                        <th>Aggregate p-value</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rule in rules %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td id="terms_{{widget.pk}}_{{forloop.counter0}}" class="selectable-cell">
+                            {% for term in rule.description.terms %}
+                                <span data-toggle="tooltip" title="{{term.termID}}" id="{{term.termID}}">{{ term.name }}</span>{% if forloop.counter < rule.description.terms|length %},{% endif %}
+                            {% endfor %}
+                            {% if rule.description.interactingTerms %}
+                            <br/>INTERACTING:
+                            {% endif %}
+                            {% for term in rule.description.interactingTerms %}
+                                <span data-toggle="tooltip" title="{{term.termID}}" id="{{term.termID}}">{{ term.name }}</span>{% if forloop.counter < rule.description.interactingTerms|length %},{% endif %}
+                            {% endfor %}
+                        </td>
+                        <td id="coveredTopGenes_{{widget.pk}}_{{forloop.counter0}}" class="selectable-cell">{{rule.coveredTopGenes|length}}</td>
+                        <td id="coveredGenes_{{widget.pk}}_{{forloop.counter0}}" class="selectable-cell">{{rule.coveredGenes|length}}</td>
+                        <td>{{rule.fisher_pval|floatformat:3}}</td>
+                        <td>{{rule.GSEA_pval|floatformat:3}}</td>
+                        <td>{{rule.PAGE_pval|floatformat:3}}</td>
+                        {% if aggregate %}
+                        <td> {{rule.aggregate_pval|floatformat:3}}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <input type="hidden" id="selectedCell{{widget.pk}}" name="selectedCell" value=""/>
+            <input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+        </form>
+    </center>
+    </div>
+    <style type="text/css">
+        .ui-selecting { background: #eee; }
+        .ui-selected { background: #dde; }
+    </style>
+    <script type="text/javascript">
+    $(function () {
+        $(document).ready(function() {
+            $('#segs_rules{{widget.pk}}').dataTable( {
+                "bSortCellsTop" : true,
+                "bJQueryUI": true,
+                "sPaginationType": "full_numbers"
+            });
+            $('#segs_rules{{widget.pk}}').selectable({
+              filter: ".selectable-cell"
+            });
+        });
+        // Check which elements are selected on submit
+        $('.selectable-cell').click(function() {
+            var id = $(this).attr('id');
+            $('#selectedCell{{widget.pk}}').val(id);
+        });
+    });
+    </script>
+</div>
