@@ -1,0 +1,2 @@
+#! /bin/bash
+cloc --exclude-dir=mothra-env,picklefield,.git,workflows/segmine/data --by-file-by-lang .
