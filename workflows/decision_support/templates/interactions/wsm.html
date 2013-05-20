@@ -91,11 +91,12 @@
             modal: true,
             buttons: {
                 'Cancel' : function() {
-                    $(this).dialog('close');
+                    $('#edit-attribute-properties-{{widget.pk}}').dialog('close');
                 },
                 'Apply' : function() {
-                    $(this).dialog('close');
-                    var attId = $(this).data('attId');
+                    var dialogDiv = $('#edit-attribute-properties-{{widget.pk}}');
+                    dialogDiv.dialog('close');
+                    var attId = dialogDiv.data('attId');
                     // Get the edited options.
                     var dir_select = $('#dialog-att-direction-{{widget.pk}}')
                                         .find('option:selected');
@@ -114,11 +115,11 @@
                     // Check for sane range values
                     if (isNaN(rangeMin) || isNaN(rangeMax)) {
                         $('#dialog-error-{{widget.pk}}').text('Problem: Illegal range value.');
-                        $(this).dialog('open');
+                        dialogDiv.dialog('open');
                         return;
                     } else if (rangeMin > rangeMax) {
                         $('#dialog-error-{{widget.pk}}').text('Problem: Lower range value is larger than the upper.');
-                        $(this).dialog('open');
+                        dialogDiv.dialog('open');
                         return;
                     }
 
