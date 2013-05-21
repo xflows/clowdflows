@@ -59,9 +59,9 @@
                     <option value="min">Minimize</option>
                 </select>
                 <label for="lower-bound">Range lower bound</label>
-                <input type="text" name="lower-bound" id="dialog-att-lower-bound-{{widget.pk}}" value="" class="text ui-widget-content ui-corner-all" />
+                <input type="text" name="lower-bound" id="dialog-att-lower-bound-{{widget.pk}}" class="text ui-widget-content ui-corner-all" />
                 <label for="upper-bound">Range upper bound</label>
-                <input type="text" name="upper-bound" id="dialog-att-upper-bound-{{widget.pk}}" value="" class="text ui-widget-content ui-corner-all" />
+                <input type="text" name="upper-bound" id="dialog-att-upper-bound-{{widget.pk}}" class="text ui-widget-content ui-corner-all" />
             </fieldset>
         </form>
         <div id="dialog-error-{{widget.pk}}" class="dialog-error">
@@ -91,12 +91,12 @@
             modal: true,
             buttons: {
                 'Cancel' : function() {
-                    $('#edit-attribute-properties-{{widget.pk}}').dialog('close');
+                    $(this).dialog('close');
                 },
                 'Apply' : function() {
-                    var dialogDiv = $('#edit-attribute-properties-{{widget.pk}}');
-                    dialogDiv.dialog('close');
-                    var attId = dialogDiv.data('attId');
+                    $(this).dialog('close');
+                    var attId = $(this).data('attId');
+
                     // Get the edited options.
                     var dir_select = $('#dialog-att-direction-{{widget.pk}}')
                                         .find('option:selected');
@@ -112,14 +112,18 @@
                     rangeMin = parseFloat(rangeMin);
                     rangeMax = parseFloat(rangeMax);
 
+                    console.log("dialog")
+                    console.log(attId);
+                    console.log(rangeMin);
+
                     // Check for sane range values
                     if (isNaN(rangeMin) || isNaN(rangeMax)) {
                         $('#dialog-error-{{widget.pk}}').text('Problem: Illegal range value.');
-                        dialogDiv.dialog('open');
+                        $(this).dialog('open');
                         return;
                     } else if (rangeMin > rangeMax) {
                         $('#dialog-error-{{widget.pk}}').text('Problem: Lower range value is larger than the upper.');
-                        dialogDiv.dialog('open');
+                        $(this).dialog('open');
                         return;
                     }
 
@@ -159,7 +163,10 @@
                     $('#dialog-att-lower-bound-{{pk}}').val(rangeMin);
                     $('#dialog-att-upper-bound-{{pk}}').val(rangeMax);
 
-                    // Show the dialog
+                    console.log('setup')
+                    console.log(attId);
+                    console.log(rangeMin);
+
                     $('#edit-attribute-properties-{{widget.pk}}')
                         .data('attId', attId)
                         .dialog('option', 'title', 'Properties of "{{att}}"')
