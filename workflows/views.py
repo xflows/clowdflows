@@ -784,7 +784,7 @@ def rename_widget(request):
                 rename_outputs.append(w.outputs.all()[0].id)
             if w.type=='output':
                 rename_outputs.append(w.inputs.all()[0].outer_output.id)
-                rename_inputs.append(w.inputs.all()[0])
+                rename_inputs.append(w.inputs.all()[0].id)
             try:
                 workflow_link_id = w.workflow_link.id
             except Workflow.DoesNotExist:

@@ -18,6 +18,15 @@ def create_tuple(input_dict):
     output_dict['tuple'] = tuple(lists)
     return output_dict
 
+def create_dictionary(input_dict):
+    keys = input_dict['keys']
+    values = input_dict['values']
+    dic = {}
+    for idx in range(0,min(len(keys),len(values))):
+        dic[keys[idx]] = values[idx]
+    output_dict = {'dict': dic}
+    return output_dict
+
 def create_range(input_dict):
     output_dict = {}
     output_dict['rangeout'] = range(int(input_dict['n_range']))

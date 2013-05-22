@@ -108,13 +108,71 @@ def crossbee_outlier_detection_via_cross_validation(inputDict):
     outputDict['out'] = execResultPy
     return outputDict
 
-def crossbee_get_vocabulary(inputDict):
-    _bow = ToNetObj(inputDict['bow'])
-    _startIndex = ToInt(inputDict['startIndex'])
-    _maxWords = ToInt(inputDict['maxWords'])
-    execResult = CrossBeeIntf.GetVocabulary(_bow, _startIndex, _maxWords)
+def crossbee_apply_heurisitcs(inputDict):
+    _termDataset = ToNetObj(inputDict['termDataset'])
+    _heuristics = ToNetObj(inputDict['heuristics'])
+    execResult = CrossBeeIntf.ApplyHeurisitcs(_termDataset, _heuristics)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
-    outputDict['vocabulary'] = execResultPy
+    outputDict['heur'] = execResultPy
+    return outputDict
+
+def crossbee_select_heuristics(inputDict):
+    _heuristics = ToNetObj(inputDict['heuristics'])
+    execResult = CrossBeeIntf.SelectHeuristics(_heuristics)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['heuristics'] = execResultPy
+    return outputDict
+
+def crossbee_rank_terms(inputDict):
+    _heuristics = ToNetObj(inputDict['heuristics'])
+    execResult = CrossBeeIntf.RankTerms(_heuristics)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['table'] = execResultPy
+    return outputDict
+
+def crossbee_explore_in_crossbee(inputDict):
+    _parsedDoc = ToNetObj(inputDict['parsedDoc'])
+    _heuristics = ToNetObj(inputDict['heuristics'])
+    _bterms = ToNetObj(inputDict['bterms'])
+    execResult = CrossBeeIntf.ExploreInCrossbee(_parsedDoc, _heuristics, _bterms)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    return outputDict
+
+def crossbee_get_roc_curves(inputDict):
+    _heuristics = ToNetObj(inputDict['heuristics'])
+    _bterms = ToNetObj(inputDict['bterms'])
+    execResult = CrossBeeIntf.GetRocCurves(_heuristics, _bterms)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['roc'] = execResultPy
+    return outputDict
+
+def crossbee_display_roc_curves(inputDict):
+    _roc = ToNetObj(inputDict['roc'])
+    execResult = CrossBeeIntf.DisplayRocCurves(_roc)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    return outputDict
+
+def crossbee_get_performance_measures(inputDict):
+    _heuristics = ToNetObj(inputDict['heuristics'])
+    _bterms = ToNetObj(inputDict['bterms'])
+    execResult = CrossBeeIntf.GetPerformanceMeasures(_heuristics, _bterms)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['perf'] = execResultPy
+    return outputDict
+
+def crossbee_get_viper_measures(inputDict):
+    _heuristics = ToNetObj(inputDict['heuristics'])
+    _bterms = ToNetObj(inputDict['bterms'])
+    execResult = CrossBeeIntf.GetViperMeasures(_heuristics, _bterms)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['perf'] = execResultPy
     return outputDict
 

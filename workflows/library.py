@@ -159,7 +159,6 @@ def build_filter(val, attr, data):
     import Orange
 
     pos = 0
-
     try:
         pos = data.domain.meta_id(attr)
     except Exception, e:
@@ -339,47 +338,25 @@ def select_data_post(postdata, input_dict, output_dict):
     import Orange, json
 
     data = input_dict['data']
+    conditions = json.loads(str(postdata['conditions'][0]))
 
-    try:
-        conditions = json.loads(str(postdata['conditions'][0]))
+    for cond in conditions['conditions']:
+        data_filter = None
+        if cond['condition'][0]['operator'] in ["is defined", "sis defined"]:
+            data_filter = Orange.data.filter.IsDefined(domain = data.domain)
+            data_filter.negate = cond['negate']
+            data_filter.check[str(cond['condition'][0]['attr'])] = 1
+        else:
+            data_filter = Orange.data.filter.Values()
+            data_filter.domain = data.domain
+            data_filter.negate = cond['negate']
+            data_filter.conjunction = False
+            for or_cond in cond['condition']:
+                attr = data.domain[str(or_cond['attr'])]
+                data_filter.conditions.append(build_filter(or_cond, attr, data))
+        data = data_filter(data)
 
-        for c in conditions['conditions']:
-            if c['condition'][0]['operator'] in ["is defined", "sis defined"]:
-                # if the operator is "is defined"
-
-                fil = Orange.data.filter.IsDefined(domain = data.domain)
-                for v in range(len(data.domain.variables)):
-                    fil.check[int(v)] = 0
-                    
-                if c['negate']:
-                    fil.negate = True
-
-                fil.check[str(c['condition'][0]['attr'])] = 1
-
-            else:
-                fil = Orange.data.filter.Values()
-                fil.domain = data.domain
-
-                if c['negate']:
-                    fil.negate = True
-
-                if len(c['condition']) > 1:
-                    fil.conjunction = False
-                    for val in c['condition']:
-                        attr = data.domain[str(val['attr'])]
-                        fil.conditions.append(build_filter(val, attr, data))
-
-                else:
-                    for val in c['condition']:
-                        attr = data.domain[str(val['attr'])]
-                        fil.conditions.append(build_filter(val, attr, data))
-
-            data = fil(data)
-    except Exception, e:
-        pass
-    
-    output_dict = {'data': data}
-    return output_dict
+    return {'data': data}
 
 def build_classifier(input_dict):
     learner = input_dict['learner']

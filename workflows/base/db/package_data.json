@@ -787,6 +787,80 @@
     }
   },
   {
+    "pk": 7724,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 7,
+      "treeview_image": "treeview/Task-List-icon.png",
+      "name": "Create Dictionary",
+      "is_streaming": false,
+      "uid": "d9285877-7db7-4540-aaf3-e6349772dac2",
+      "interaction_view": "",
+      "image": "images/Task-List-icon.png",
+      "package": "base",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "action": "create_dictionary",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 77241,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 7724,
+      "name": "Key",
+      "short_name": "key",
+      "uid": "f777f094-06f8-4e6e-a7ea-eeadce33edac",
+      "default": "",
+      "required": false,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "keys",
+      "parameter": false,
+      "order": 0,
+      "description": ""
+    }
+  },
+  {
+    "pk": 77242,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 7724,
+      "name": "Value",
+      "short_name": "val",
+      "uid": "8e7d857b-0ed5-4256-8ee7-18c7c2423f29",
+      "default": "",
+      "required": false,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "values",
+      "parameter": false,
+      "order": 0,
+      "description": ""
+    }
+  },
+  {
+    "pk": 77243,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 7724,
+      "name": "Dictionary",
+      "short_name": "dct",
+      "variable": "dict",
+      "uid": "6fb7b2b2-7630-454a-a1b1-b0de3e486ef9",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
     "pk": 32,
     "model": "workflows.abstractwidget",
     "fields": {

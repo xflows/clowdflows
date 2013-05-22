@@ -69,7 +69,6 @@ class DBContext:
                     if col == 'id':
                         self.pkeys[table] = col
         for (table, col, ref_table, ref_col) in cursor:
-            print table,col,ref_table, ref_col
             self.connected[(table, ref_table)].append((col, ref_col))
             self.connected[(ref_table, table)].append((ref_col, col))
             self.fkeys[table].add(col)

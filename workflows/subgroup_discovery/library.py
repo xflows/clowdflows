@@ -99,6 +99,7 @@ def table_from_sets_finished(postdata, input_dict, output_dict):
     class_name = str(postdata['class_name'+widget_id][0])
     class_values = [str(postdata['class'+str(i)+widget_id][0]) for i in range(len(tables))]
     replace = postdata.get('replace'+widget_id, [False])[0]
+    replace = replace == 'on'
     class_var = Orange.feature.Discrete(class_name, values = class_values)
     class_table = Orange.data.Table(Orange.data.Domain([class_var]))
     # Check if the domains are the same

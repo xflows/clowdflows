@@ -124,6 +124,14 @@ def latino_extract_documents(inputDict):
     outputDict['adcRest'] = execResultPy['adcRest']
     return outputDict
 
+def latino_join_documents_corpora(inputDict):
+    _adc = ToNetObj(inputDict['adc'])
+    execResult = LatinoCF.JoinDocumentsCorpora(_adc)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['adc'] = execResultPy
+    return outputDict
+
 def latino_mark_documents_with_set_feature(inputDict):
     _adc = ToNetObj(inputDict['adc'])
     _featureName = ToString(inputDict['featureName'])
@@ -448,6 +456,60 @@ def latino_construct_bow_space_2(inputDict):
     outputDict['ds'] = execResultPy['ds']
     return outputDict
 
+def latino_construct_bow_model(inputDict):
+    _adc = ToNetObj(inputDict['adc'])
+    _tokenId = ToString(inputDict['tokenId'])
+    _stemId = ToString(inputDict['stemId'])
+    _stopwordId = ToString(inputDict['stopwordId'])
+    _labelId = ToString(inputDict['labelId'])
+    _maxNGramLen = ToInt(inputDict['maxNGramLen'])
+    _minWordFreq = ToInt(inputDict['minWordFreq'])
+    _wordWeightType = ToEnum(Latino.TextMining.WordWeightType, inputDict['wordWeightType'], Latino.TextMining.WordWeightType.TfIdf)
+    _cutLowWeightsPerc = ToFloat(inputDict['cutLowWeightsPerc'])
+    _normalizeVectors = ToBool(inputDict['normalizeVectors'])
+    execResult = LatinoCF.ConstructBowModel(_adc, _tokenId, _stemId, _stopwordId, _labelId, _maxNGramLen, _minWordFreq, _wordWeightType, _cutLowWeightsPerc, _normalizeVectors)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['bow'] = execResultPy
+    return outputDict
+
+def latino_parse_documents(inputDict):
+    _adc = ToNetObj(inputDict['adc'])
+    _bow = ToNetObj(inputDict['bow'])
+    execResult = LatinoCF.ParseDocuments(_adc, _bow)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['pdc'] = execResultPy
+    return outputDict
+
+def latino_get_vocabulary_table(inputDict):
+    _bow = ToNetObj(inputDict['bow'])
+    _startIndex = ToInt(inputDict['startIndex'])
+    _maxWords = ToInt(inputDict['maxWords'])
+    execResult = LatinoCF.GetVocabularyTable(_bow, _startIndex, _maxWords)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['vocabulary'] = execResultPy
+    return outputDict
+
+def latino_process_new_documents_from_adc(inputDict):
+    _adc = ToNetObj(inputDict['adc'])
+    _bow = ToNetObj(inputDict['bow'])
+    execResult = LatinoCF.ProcessNewDocumentsFromADC(_adc, _bow)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['ds'] = execResultPy
+    return outputDict
+
+def latino_process_new_documents_from_string(inputDict):
+    _lst = ToNetObj(inputDict['lst'])
+    _bow = ToNetObj(inputDict['bow'])
+    execResult = LatinoCF.ProcessNewDocumentsFromString(_lst, _bow)
+    execResultPy = ToPyObj(execResult)
+    outputDict = {}
+    outputDict['ds'] = execResultPy
+    return outputDict
+
 def latino_get_vocabulary(inputDict):
     _bow = ToNetObj(inputDict['bow'])
     _startIndex = ToInt(inputDict['startIndex'])
@@ -455,25 +517,16 @@ def latino_get_vocabulary(inputDict):
     execResult = LatinoCF.GetVocabulary(_bow, _startIndex, _maxWords)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
-    outputDict['vocabulary'] = execResultPy
+    outputDict['terms'] = execResultPy
     return outputDict
 
-def latino_process_new_documents_from_adc(inputDict):
-    _bow = ToNetObj(inputDict['bow'])
+def latino_create_term_dataset_from_adc(inputDict):
     _adc = ToNetObj(inputDict['adc'])
-    execResult = LatinoCF.ProcessNewDocumentsFromADC(_bow, _adc)
-    execResultPy = ToPyObj(execResult)
-    outputDict = {}
-    outputDict['ds'] = execResultPy
-    return outputDict
-
-def latino_process_new_documents_from_string(inputDict):
     _bow = ToNetObj(inputDict['bow'])
-    _lst = ToNetObj(inputDict['lst'])
-    execResult = LatinoCF.ProcessNewDocumentsFromString(_bow, _lst)
+    execResult = LatinoCF.CreateTermDatasetFromAdc(_adc, _bow)
     execResultPy = ToPyObj(execResult)
     outputDict = {}
-    outputDict['ds'] = execResultPy
+    outputDict['termDataset'] = execResultPy
     return outputDict
 
 def latino_add_labels_to_document_vectors(inputDict):

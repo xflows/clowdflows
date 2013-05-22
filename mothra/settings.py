@@ -188,7 +188,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.base',
     'workflows.latino',
     'workflows.decision_support',
-    'workflows.bioinformatics',
+    'workflows.segmine',
     'workflows.subgroup_discovery',
     'workflows.nlp',
     'workflows.nl_toolkit',
