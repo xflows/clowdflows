@@ -12,7 +12,7 @@ def decision_support_wsm_finished(postdata, input_dict, output_dict):
     from wsm import WeightedSumModel
     # Fetch the data from the form.
     data = input_dict['data']
-    attributes = [att.name for att in data.domain.features]
+    attributes = sorted([att.name for att in data.domain.features])
     weights = {}
     widget_id = int(postdata['widget_id'][0])
     minimize = set()

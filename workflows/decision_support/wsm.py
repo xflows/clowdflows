@@ -1,5 +1,6 @@
 import orange
 
+
 class WeightedSumModel:
     '''
     Weighted sum decision support model.
@@ -19,7 +20,7 @@ class WeightedSumModel:
         ranges = {}
         for i, att in enumerate(self.data.domain.features):
             if att.varType == orange.VarTypes.Continuous:
-                ranges[att.name] = (min(data_np[:,i]), max(data_np[:,i]))
+                ranges[att.name] = (min(data_np[:, i]), max(data_np[:, i]))
         return ranges
 
     def unusable_attributes(self):
@@ -48,20 +49,28 @@ class WeightedSumModel:
 
         # New augmented table
         norm_data = orange.ExampleTable(self.data)
-        newid = min(norm_data.domain.get_metas().keys(),0) - 1
+        newid = min(norm_data.domain.get_metas().keys(), 0) - 1
         score_attr = orange.FloatVariable('score')
         norm_data.domain.add_meta(newid, score_attr)
         norm_data.add_meta_attribute(score_attr)
 
-        # Normalize the attributes column-wise
+        # Normalize the attributes to the proper range
         for att, (lower_bound, upper_bound) in self.ranges.items():
             for ex in norm_data:
                 ex[att] = ex[att] / (upper_bound - lower_bound)
 
-        # Use the inverse of an attr. value if smaller values should be treated as 'better'.
-        inverse = lambda x, att: 1-x if att in self.minimize else x
+        # Normalize column-wise
+        col_sum = {}
+        for att in norm_data.domain.features:
+            col_sum[att] = float(sum([ex[att] for ex in norm_data]))
         for ex in norm_data:
-            score = sum([inverse(ex[att], att) * weights.get(att, 1) 
+            for att in norm_data.domain.features:
+                ex[att] = ex[att] / col_sum[att]
+
+        # Use the inverse of an attr. value it should be minimized.
+        inverse = lambda x, att: 1 - x if att in self.minimize else x
+        for ex in norm_data:
+            score = sum([inverse(ex[att].value, att) * weights.get(att, 1)
                         for att in self.ranges.keys()])
             ex['score'] = score
 
