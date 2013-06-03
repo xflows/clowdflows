@@ -35,6 +35,7 @@ function reportOk(statusMessage) {
     $(".ajax-loader").hide();
     logging_val = $("#logging textarea").val();
     logging_val += "\n"+"<"+getCurrentTimeAsString()+"> "+statusMessage;
+    $("#logging textarea").val(logging_val);
     $("#logging textarea").scrollTop($("#logging textarea")[0].scrollHeight);
 }
 function reportStatus(statusMessage) {
@@ -47,6 +48,7 @@ function reportStatus(statusMessage) {
     $(".ajax-loader").hide();
     logging_val = $("#logging textarea").val();
     logging_val += "\n"+"<"+getCurrentTimeAsString()+"> "+statusMessage;
+    $("#logging textarea").val(logging_val);
     $("#logging textarea").scrollTop($("#logging textarea")[0].scrollHeight);
 }
 
