@@ -2,10 +2,10 @@ html, body {
 	width:100%;
 	height:100%;
 	font: 12px "Trebuchet MS", sans-serif;
-            -moz-user-select: none; 
-        -khtml-user-select: none; 
-        -webkit-user-select: none; 
-        -o-user-select: none; 
+            -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
 }
 
 label, input {
@@ -20,13 +20,15 @@ input {
 #toolbar {
 	padding:10px;
 	border-bottom:1px solid black;
+	height:30px;
 }
 
 #widgets {
 	width:300px;
-	height:90%;
-	border-bottom:1px solid black;
-	float:left;
+	position:absolute;
+	top:51px;
+	left:0px;
+	bottom:0px;
 	padding:10px;
 	overflow:auto;
 }
@@ -49,12 +51,43 @@ input {
 */
 
 #content {
-	margin-left:320px;
-	height:90%;
+	/* margin-left:320px; */
+	position:absolute;
+	left:320px;
+	top:51px;
+	bottom:0px;
+	right:0px;
 	padding:10px;
 	border-left:1px solid black;
-	border-bottom:1px solid black;
 	background:#eeeeee;
+}
+
+#widgets.logging {
+	bottom:100px;
+	border-bottom:1px solid black;
+}
+
+#content.logging {
+	bottom:100px;
+	border-bottom:1px solid black;
+}
+
+#logging {
+	position:absolute;
+	height:100px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+}
+
+#logging textarea {
+	width:100%;
+	border:none;
+	height:95px;
+	box-sizing: border-box;         /* For IE and modern versions of Chrome */
+	-moz-box-sizing: border-box;    /* For Firefox                          */
+	-webkit-box-sizing: border-box; /* For Safari                           */
+
 }
 
 .canvas {
@@ -149,10 +182,10 @@ th{
 }
 
 td{
-	padding: 5px 10px; 
+	padding: 5px 10px;
 }
 .ttip{
-	padding: 0px 5px; 
+	padding: 0px 5px;
 }
 
 .tablecellcenter{
@@ -171,15 +204,15 @@ td{
 /*
 	Data table fine-tuning.
 */
-table.display { 
-	width: 100%; 
+table.display {
+	width: 100%;
 }
-tr.odd { 
-	background-color: rgb(221, 255, 221); 
+tr.odd {
+	background-color: rgb(221, 255, 221);
 }
-tr.even { 
-	background-color: rgb(238, 255, 238); 
-} 
+tr.even {
+	background-color: rgb(238, 255, 238);
+}
 .dataTable .ui-icon {
 	display: inline;
 	float: right;
@@ -198,8 +231,8 @@ tr.even {
 	white-space: nowrap;
 	width: auto;
 }
-.dataTables_length { 
-	//width: 40%; 
+.dataTables_length {
+	//width: 40%;
 	float: left;
 	text-align: left;
 }
