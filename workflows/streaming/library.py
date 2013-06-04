@@ -4,6 +4,10 @@ Streaming widgets librarby
 @author: Janez Kranjc <janez.kranjc@ijs.si>
 '''
 
+def streaming_twitter(input_dict,widget,stream=None):
+    output_dict = {}
+    return output_dict
+
 def streaming_rss_reader(input_dict,widget,stream=None):
     import feedparser
     from streams.models import StreamWidgetData
@@ -25,12 +29,13 @@ def streaming_rss_reader(input_dict,widget,stream=None):
         feed_length = len(feed['items'])
         feed['items'].reverse()
         for item in feed['items']:
-            if item['id'] not in data:
-                data.append(item['id'])
+            if item['link'] not in data:
+                data.append(item['link'])
                 swd.value = data
                 swd.save()
                 output_dict['url'] = item['link']
                 break
         else:
-            raise Exception("Halting stream.")
+            from streams.models import HaltStream
+            raise HaltStream("Halting stream.")
     return output_dict

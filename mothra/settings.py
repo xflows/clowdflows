@@ -186,10 +186,10 @@ INSTALLED_APPS_CONCUR = (
 
 INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.base',
-    'workflows.latino',
+    #'workflows.latino',
     'workflows.decision_support',
     'workflows.segmine',
-    'workflows.subgroup_discovery',
+    #'workflows.subgroup_discovery',
     'workflows.nlp',
     'workflows.nl_toolkit',
     'workflows.ilp',
@@ -197,8 +197,8 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.cforange',
     'workflows.perfeval',
     'workflows.mysql',
-    'workflows.lemmagen',
-    'workflows.crossbee',
+    #'workflows.lemmagen',
+    #'workflows.crossbee',
     'workflows.streaming',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )

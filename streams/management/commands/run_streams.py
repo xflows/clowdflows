@@ -16,4 +16,4 @@ class Command(NoArgsCommand):
                 stream.last_executed = now
                 stream.save()
                 print stream.execute()
-                
+
