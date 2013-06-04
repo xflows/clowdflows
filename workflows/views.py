@@ -62,7 +62,7 @@ def new_workflow(request):
     request.user.userprofile.active_workflow = w
     request.user.userprofile.save()
     return redirect('the index')
-    
+
 @login_required
 def open_workflow(request,workflow_id):
     w = get_object_or_404(Workflow, pk=workflow_id)
@@ -70,9 +70,9 @@ def open_workflow(request,workflow_id):
         request.user.userprofile.active_workflow = w
         request.user.userprofile.save()
     else:
-        return HttpResponse(status=400) 
-    return redirect('the index')    
-    
+        return HttpResponse(status=400)
+    return redirect('the index')
+
 @login_required
 def widget_progress(request):
     w = get_object_or_404(Widget, pk=request.GET['widget_id'])
@@ -82,7 +82,7 @@ def widget_progress(request):
         if w.progress==100:
             return HttpResponse("100")
         return HttpResponse("-1")
-    
+
 @login_required
 def add_widget(request):
     if request.is_ajax() or DEBUG:
@@ -172,7 +172,7 @@ def add_widget(request):
                         j.widget = w
                         j.required = i.required
                         j.parameter = i.parameter
-                        j.parameter_type = i.parameter_type                        
+                        j.parameter_type = i.parameter_type
                         j.value = i.value
                         j.multi_id = i.multi_id
                         j.save()
@@ -192,13 +192,13 @@ def add_widget(request):
                         j.save()
                     w.defered_outputs = w.outputs.defer("value").all()
                     w.defered_inputs = w.inputs.defer("value").all()
-                    return render(request, 'widgets.html', {'widgets':[w,]})        
+                    return render(request, 'widgets.html', {'widgets':[w,]})
             elif aw.type=='subprocess':
                 workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
                 if (workflow.user==request.user):
                     widget_conversion = {}
                     input_conversion = {}
-                    output_conversion = {}              
+                    output_conversion = {}
                     w = Widget()
                     w.workflow = workflow
                     w.x = int(request.POST['scrollLeft'])+50
@@ -220,7 +220,7 @@ def add_widget(request):
                         j.widget = w
                         j.required = i.required
                         j.parameter = i.parameter
-                        j.parameter_type = i.parameter_type                        
+                        j.parameter_type = i.parameter_type
                         j.value = i.value
                         j.multi_id = i.multi_id
                         j.save()
@@ -243,12 +243,12 @@ def add_widget(request):
                         workflows.models.copy_workflow(aw.workflow_link, request.user, widget_conversion,input_conversion,output_conversion,w)
                     w.defered_outputs = w.outputs.defer("value").all()
                     w.defered_inputs = w.inputs.defer("value").all()
-                    return render(request, 'widgets.html', {'widgets':[w,]})                
+                    return render(request, 'widgets.html', {'widgets':[w,]})
             else:
                 return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-    
+
 @login_required
 def save_position(request):
     if request.is_ajax() or DEBUG:
@@ -262,7 +262,7 @@ def save_position(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def add_connection(request):
     if request.is_ajax() or DEBUG:
@@ -329,7 +329,7 @@ def add_connection(request):
             return HttpResponse(data,mimetype)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def delete_connection(request):
     if request.is_ajax() or DEBUG:
@@ -360,7 +360,7 @@ def delete_widget(request):
     if request.is_ajax() or DEBUG:
         w = get_object_or_404(Widget, pk=request.POST['widget_id'])
         w.unfinish()
-        mimetype = 'application/javascript'        
+        mimetype = 'application/javascript'
         refresh = []
         delete_tab = -1
         if (w.workflow.user!=request.user):
@@ -392,7 +392,7 @@ def add_subprocess(request):
             w.x = int(request.POST['scrollLeft'])+50
             y = int(request.POST['scrollTop'])+50
             while workflow.widgets.filter(y=y,x=w.x).count()>0:
-                y = y + 100              
+                y = y + 100
             w.y=y
             w.name = "Untitled widget"
             w.type = 'subprocess'
@@ -432,7 +432,7 @@ def add_for(request):
             elif workflow.widgets.filter(type='for_input').count()>0:
                 message = 'This subprocess already has a for loop. Try deleting it and adding it again.'
                 data = simplejson.dumps({'message':message,'success':success})
-                return HttpResponse(data,mimetype)               
+                return HttpResponse(data,mimetype)
             else:
                 for_input = Widget()
                 for_input.workflow = workflow
@@ -459,7 +459,7 @@ def add_for(request):
                 input.save()
                 output.outer_input = input
                 output.save()
-                
+
                 widget = Widget()
                 widget.workflow = workflow
                 widget.x=int(request.POST['scrollLeft'])+200
@@ -485,14 +485,14 @@ def add_for(request):
                 for_input.defered_outputs = for_input.outputs.defer("value").all()
                 for_input.defered_inputs = for_input.inputs.defer("value").all()
                 widget.defered_outputs = widget.outputs.defer("value").all()
-                widget.defered_inputs = widget.inputs.defer("value").all()                
-                return render(request, 'widgets.html', {'widgets':[for_input,widget]})                
+                widget.defered_inputs = widget.inputs.defer("value").all()
+                return render(request, 'widgets.html', {'widgets':[for_input,widget]})
         else:
             return HttpResponse(status=400)
     else:
-        return HttpResponse(status=400)               
-                
-        
+        return HttpResponse(status=400)
+
+
 @login_required
 def add_input(request):
     success = False
@@ -511,7 +511,7 @@ def add_input(request):
                 widget.x=int(request.POST['scrollLeft'])+50
                 y = int(request.POST['scrollTop'])+50
                 while workflow.widgets.filter(y=y,x=widget.x).count()>0:
-                    y = y + 100                
+                    y = y + 100
                 widget.y=y
                 widget.name = 'Input'
                 widget.type = 'input'
@@ -538,7 +538,7 @@ def add_input(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def add_output(request):
     success = False
@@ -583,8 +583,8 @@ def add_output(request):
         else:
             return HttpResponse(status=400)
     else:
-        return HttpResponse(status=400)        
-        
+        return HttpResponse(status=400)
+
 @login_required
 def synchronize_widgets(request):
     if request.is_ajax() or DEBUG:
@@ -601,7 +601,7 @@ def synchronize_widgets(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def synchronize_connections(request):
     if request.is_ajax() or DEBUG:
@@ -614,8 +614,8 @@ def synchronize_connections(request):
         else:
             return HttpResponse(status=400)
     else:
-        return HttpResponse(status=400)        
-        
+        return HttpResponse(status=400)
+
 @login_required
 def get_widget(request):
     if request.is_ajax() or DEBUG:
@@ -628,7 +628,7 @@ def get_widget(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def get_parameters(request):
     if request.is_ajax() or DEBUG:
@@ -639,7 +639,7 @@ def get_parameters(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def save_parameter(request):
     if request.is_ajax() or DEBUG:
@@ -667,7 +667,7 @@ def get_configuration(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def save_configuration(request):
     if request.is_ajax() or DEBUG:
@@ -744,8 +744,8 @@ def save_designation(request):
                 input.save()
         return HttpResponse(status=200)
     else:
-        return HttpResponse(status=400) 
-        
+        return HttpResponse(status=400)
+
 @login_required
 def get_parameters(request):
     if request.is_ajax() or DEBUG:
@@ -755,8 +755,8 @@ def get_parameters(request):
         else:
             return HttpResponse(status=400)
     else:
-        return HttpResponse(status=400)        
-        
+        return HttpResponse(status=400)
+
 @login_required
 def get_rename_dialog(request):
     if request.is_ajax() or DEBUG:
@@ -766,7 +766,7 @@ def get_rename_dialog(request):
         else:
             return HttpResponse(status=400)
     else:
-        return HttpResponse(status=400)             
+        return HttpResponse(status=400)
 
 @login_required
 def rename_widget(request):
@@ -795,7 +795,7 @@ def rename_widget(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def rename_workflow(request):
     if request.is_ajax() or DEBUG:
@@ -814,8 +814,8 @@ def rename_workflow(request):
         else:
             return HttpResponse(status=400)
     else:
-        return HttpResponse(status=400)        
-        
+        return HttpResponse(status=400)
+
 @login_required
 def run_widget(request):
     if request.is_ajax() or DEBUG:
@@ -850,13 +850,13 @@ def run_widget(request):
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+': '+str(type(e))+' '+str(e)})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def run_tree(request):
     if request.is_ajax() or DEBUG:
@@ -885,11 +885,11 @@ def run_tree(request):
                 w.finished = False
                 w.save()
                 print traceback.format_exc(e)
-                raise
+                #raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+': '+str(type(e))+' '+str(e)})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
@@ -914,12 +914,12 @@ def reset_widget(request):
                 w.save()
                 print traceback.format_exc(e)
 
-                raise
+                #raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
 
-                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to reset widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>'})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to reset the widget '+w.name+': '+str(type(e))+' '+str(e)})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
@@ -981,19 +981,19 @@ def visualize_widget(request):
                     if not i.value == None:
                         input_dict[i.variable].append(i.value)
             view_to_call = getattr(workflows.visualization_views,w.abstract_widget.visualization_view)
-            return view_to_call(request, input_dict, output_dict, w)            
+            return view_to_call(request, input_dict, output_dict, w)
         else:
             return HttpResponse(status=400)
     else:
-        return HttpResponse(status=400)   
-        
+        return HttpResponse(status=400)
+
 @login_required
 def widget_results(request):
     def cap(s):
         """
         Caps the display size of long strings.
         """
-        if type(s) in [unicode, str] and len(s) > 300: 
+        if type(s) in [unicode, str] and len(s) > 300:
             return s[:300] + '\n...\''
         return s
     if request.is_ajax() or DEBUG:
@@ -1024,7 +1024,7 @@ def widget_results(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def documentation(request):
     if request.is_ajax() or DEBUG:
@@ -1035,7 +1035,7 @@ def documentation(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def get_designate_dialogs(request):
     if request.is_ajax() or DEBUG:
@@ -1056,12 +1056,12 @@ def get_unfinished(request):
             unfinished_list = workflow.get_ready_to_run()
             mimetype = 'application/javascript'
             data = simplejson.dumps({'ready_to_run':unfinished_list})
-            return HttpResponse(data,mimetype)           
+            return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
     else:
-        return HttpResponse(status=400)  
-        
+        return HttpResponse(status=400)
+
 
 @login_required
 def unfinish_visualizations(request):
@@ -1077,9 +1077,9 @@ def unfinish_visualizations(request):
         data = simplejson.dumps({'unfinished':unfinished_list})
         return HttpResponse(data,mimetype)
     else:
-        return HttpResponse(status=400)          
-        
-@login_required        
+        return HttpResponse(status=400)
+
+@login_required
 def upload_handler(request):
     input = get_object_or_404(Input, pk=request.POST['input_id'])
     if (input.widget.workflow.user==request.user):
@@ -1096,7 +1096,7 @@ def upload_handler(request):
         return render(request,'upload_handler.html', {"error":error,"input_id":input.id})
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def widget_interaction(request):
     if request.is_ajax() or DEBUG:
@@ -1127,7 +1127,7 @@ def widget_interaction(request):
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
-        
+
 @login_required
 def finish_interaction(request):
     if request.is_ajax() or DEBUG:
@@ -1147,18 +1147,18 @@ def finish_interaction(request):
                 w.interaction_waiting = False
                 w.save()
                 print traceback.format_exc(e)
-                raise
+                #raise
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+':<pre>'+str(sys.exc_info())+'</pre>','widget_id':w.id})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+': '+str(type(e))+' '+str(e)},'widget_id':w.id})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
     else:
         return HttpResponse(status=400)
 
-        
+
 @login_required
 def import_webservice(request):
     from services.webservice import WebService
@@ -1226,7 +1226,7 @@ def import_webservice(request):
     data = simplejson.dumps({'category_id':new_c.id})
     return HttpResponse(data,mimetype)
 
-@login_required    
+@login_required
 def copy_workflow(request,workflow_id):
     w = get_object_or_404(Workflow, pk=workflow_id)
     if w.user == request.user or w.public:
@@ -1234,10 +1234,10 @@ def copy_workflow(request,workflow_id):
         request.user.userprofile.active_workflow = new_w
         request.user.userprofile.save()
     else:
-        return HttpResponse(status=400) 
+        return HttpResponse(status=400)
     return redirect('the index')
 
-@login_required    
+@login_required
 def workflow_url(request):
     if request.is_ajax() or DEBUG:
         if request.user.userprofile.active_workflow is None:
