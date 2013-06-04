@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<!DOCTYPE html>
+<html>
 <head>
 <title>Workflow editor</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <style type="text/css">
 	@import url({{ STATIC_URL }}css/reset.css);
-	@import url({{ STATIC_URL }}css/style.css);
+	@import url({{ STATIC_URL }}css/style.css?v=2);
 </style>
 <!--[if IE]><script type="text/javascript" src="{{ STATIC_URL }}js/excanvas.js"></script><![endif]-->
 <!--[if IE 7]>
@@ -19,11 +19,11 @@
 </style>
 <![endif]-->
 
-<link type="text/css" href="{{ STATIC_URL }}css/ui-lightness/jquery-ui-1.8rc3.custom.css" rel="stylesheet" />	
+<link type="text/css" href="{{ STATIC_URL }}css/ui-lightness/jquery-ui-1.8rc3.custom.css" rel="stylesheet" />
 <link href="{{ STATIC_URL }}css/jquery.contextmenu.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{{ STATIC_URL }}css/jquery.treeview.css" />
 <link href="{{ STATIC_URL }}css/fileuploader.css" rel="stylesheet" type="text/css" />
-<link type="text/css" href="http://onehackoranother.com/projects/jquery/tipsy/stylesheets/tipsy.css" rel="stylesheet" /> 
+<link type="text/css" href="http://onehackoranother.com/projects/jquery/tipsy/stylesheets/tipsy.css" rel="stylesheet" />
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui-1.8rc3.custom.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.cookie.js"></script>
@@ -35,7 +35,7 @@
 <!-- <script type="text/javascript" src="{{ STATIC_URL }}js/graphics.js"></script>-->
 <script type="text/javascript" src="{{ STATIC_URL }}js/fileuploader.js"></script>
 <script src="{{ STATIC_URL }}js/jquery.contextmenu.js" type="text/javascript"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}js/new-script.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/new-script.js?v=2"></script>
 <script src="{{STATIC_URL}}js/highcharts-2.2.5-tooltip-id.js"></script>
 <script src="{{STATIC_URL}}js/highcharts-exporting.js"></script>
 <script type="text/javascript" src="https://raw.github.com/jaz303/tipsy/master/src/javascripts/jquery.tipsy.js"></script>
@@ -111,7 +111,7 @@ userIsStaff = '{{ user.is_staff }}'=='True';
 <body>
 	<div id="toolbar">
 		<div style="float:left;">
-			<ul id="icons" class="ui-widget ui-helper-clearfix">			
+			<ul id="icons" class="ui-widget ui-helper-clearfix">
 				<li class="ui-state-default ui-corner-all new" title="New workflow"><span class="ui-icon ui-icon-document"></span></li>
 				<li class="ui-state-default ui-corner-all open" title="Open a workflow"><span class="ui-icon ui-icon-folder-open"></span></li>
 				<li class="ui-state-default ui-corner-all save" title="Save workflow"><span class="ui-icon ui-icon-disk"></span></li>
@@ -122,13 +122,13 @@ userIsStaff = '{{ user.is_staff }}'=='True';
 			</ul>
 		</div>
 		<div class="ui-widget">
-			<div id="status" class="ui-state-highlight ui-corner-all" style="padding: 5px .7em;"> 
+			<div id="status" class="ui-state-highlight ui-corner-all" style="padding: 5px .7em;">
 				<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em; margin-top:1px;"></span>
-				<span class="infotext"><strong>Hello!</strong> Welcome to the new web-based DM tool.</span>
+				<span class="infotext"><strong>Hello!</strong> Welcome to ClowdFlows. Start by clicking on widgets in the treeview on the left side!</span>
 			</div>
 		</div>
 	</div>
-	<div id="widgets"> 
+	<div id="widgets" class="logging">
 		<input type="text" name="searchBox" id="searchBox" placeholder="Search"/>
 		<ul id="widgetsTree" class="browser filetree">
 			<li class="closed"><span class="folder">Local services</span>
@@ -167,7 +167,7 @@ userIsStaff = '{{ user.is_staff }}'=='True';
             {% endfor %}
 			</ul>
 			</li>
-			
+
 			<li class="closed"><span class="folder">Subprocess widgets</span>
 			<ul id="specialwidgets">
 				<li><a class="subprocess wid" rel=""><span class="image" style="background-image:url('{{MEDIA_URL}}treeview/120px-Gears_icon.png');">Subprocess</span></a></li>
@@ -176,7 +176,7 @@ userIsStaff = '{{ user.is_staff }}'=='True';
                 <li><a class="forloop wid" rel=""><span class="image" style="background-image:url('{{MEDIA_URL}}treeview/Toolbar_-_Loop.png');">For loop (input and output)</span></a></li>
 			</ul>
 			</li>
-			
+
 			<li class="closed"><span class="folder">WSDL Imports</span>
 			<ul id="userwidgets">
 			{% for category in user_categories %}
@@ -187,29 +187,33 @@ userIsStaff = '{{ user.is_staff }}'=='True';
                 </ul></li>
             {% endfor %}
             {% for widget in user_widgets %}
-                <li><a class="widget wid" rel="{{ widget.id }}"><span class="image" style="background-image:url('{% if widget.abstract_widget.treeview_image %}{{MEDIA_URL}}{{widget.abstract_widget.treeview_image}}{% else %}{% if widget.abstract_widget.wsdl %}{{STATIC_URL}}widget-icons/ws_1.png{% else %}{{STATIC_URL}}widget-icons/question-mark.png{% endif %}{% endif %}');">{{ widget.name }}</span></a></li>          
+                <li><a class="widget wid" rel="{{ widget.id }}"><span class="image" style="background-image:url('{% if widget.abstract_widget.treeview_image %}{{MEDIA_URL}}{{widget.abstract_widget.treeview_image}}{% else %}{% if widget.abstract_widget.wsdl %}{{STATIC_URL}}widget-icons/ws_1.png{% else %}{{STATIC_URL}}widget-icons/question-mark.png{% endif %}{% endif %}');">{{ widget.name }}</span></a></li>
             {% endfor %}
 			</ul>
 			</li>
-			
+
 		</ul>
 		<a href="javascript:;" class="importWebservice">Import webservice</a>
 	</div>
-	<div id="content">
+	<div id="content" class="logging">
 		<div id="tabs">
 			<ul style="height:32px;">
 				<li><a href="#canvas{{ user.userprofile.active_workflow.id }}"><span rel="#canvas{{ user.userprofile.active_workflow.id }}">{{ user.userprofile.active_workflow }}</span></a></li>
-			</ul>	
+			</ul>
 			<div rel="{{ user.userprofile.active_workflow.id }}" class="canvas{{ user.userprofile.active_workflow.id }} canvas" id="canvas{{ user.userprofile.active_workflow.id }}">
                 <div style="width:100%;height:100%;">
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="position:absolute;top:0px;left:0px;width:100%;height:100%;">
-                 
-                </svg> 
+
+                </svg>
 			</div>
 		</div>
 	</div>
-	
+
+    <div id="logging">
+        <textarea readonly id="logtext" style="position:relative;top:0px;right:0px;left:0px;bottom:0px;">Welcome to ClowdFlows. This is the console where success and error messages are logged.</textarea>
+    </div>
+
 	<div style="display:none;" id="dialogs">
 	<div id="newdialog" title="Create a new workflow?">
 		<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
@@ -217,7 +221,7 @@ Are you sure you wish to start a new workflow?</p>
 	</div>
 	<div id="preferencesdialog" title="Preferences">
 
-	</div>	
+	</div>
 	<div id="rundialog" title="Running the workflow">
 		<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
 Some widgets have already been run. Do you wish to run the whole workflow again?</p>
@@ -226,12 +230,12 @@ Some widgets have already been run. Do you wish to run the whole workflow again?
 		<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 50px 0;"></span>
 Preconditions for running this widget have not yet been met. Do you want to run all required widgets?</p>
 	</div>
-	
+
 	<div id="wsdldialog" title="Import a webservice">
 		<p><label>Please enter the URL of the WSDL:<input type="text" value="" name="wsdl" id="wsdlinput" /></label>
 		</p>
-	</div>	
-	
+	</div>
+
 	<div id="opendialog" title="Load a workflow">
 		Please select one of your workflows:<br />
         <br />
@@ -240,24 +244,24 @@ Preconditions for running this widget have not yet been met. Do you want to run 
         <a onClick="$(this).parent().dialog('close');$('.ajax-loader').show();" href="{{ w.get_absolute_url }}"><span rel="#canvas{{ w.id }}">{{ w }}</span></a> <a onClick="$(this).parent().dialog('close');$('.ajax-loader').show();" href="{{ w.get_copy_url }}">Open as new</a><br />
         {% endif %}
         {% endfor %}
-        
+
 	</div>
-    
+
 	<div rel="{{ user.userprofile.active_workflow.id }}" id="savedialog" title="Save your workflow">
         <fieldset>
 		Enter a name for your workflow:
         <br />
-        
+
         <input type="text" class="workflownameinput" name="workflowname" id="workflowname" value="{{ user.userprofile.active_workflow.name }}" />
-        
+
         Enter a description of what the workflow does:<br />
-        
+
         <textarea type="text" class="workflowdescriptioninput" style="width:100%;height:250px;" name="workflowdescription" id="workflowdescription">{{ user.userprofile.active_workflow.description }}</textarea><br /> <br />
         <label><input id="workflowpublicinput" class="workflowpublicinput" name="workflowpublicinput" type="checkbox" value="true" {% if user.userprofile.active_workflow.public %}checked{% endif %} style="width:15px;display:inline;float:left;" /> Public workflow</label>
         </fieldset>
-        
-	</div>    
-	
+
+	</div>
+
 	</div>
 
 
@@ -285,7 +289,7 @@ Preconditions for running this widget have not yet been met. Do you want to run 
     <div style="position:absolute;top:50%;left:50%;display:none;z-index:1003;" class="ajax-loader">
         <img src="{{STATIC_URL}}images/ajax-loader-big.gif">
     </div>
-    
+
     <div id="treecontrol">
     	<a href="#"></a>
     	<a href="#"></a>
