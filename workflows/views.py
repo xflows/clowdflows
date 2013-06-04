@@ -1151,7 +1151,7 @@ def finish_interaction(request):
                 for o in w.outputs.all():
                     o.value=None
                     o.save()
-                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+': '+str(type(e))+' '+str(e)},'widget_id':w.id})
+                data = simplejson.dumps({'status':'error','message':'Error occurred when trying to execute widget '+w.name+': '+str(type(e))+' '+str(e),'widget_id':w.id})
             return HttpResponse(data,mimetype)
         else:
             return HttpResponse(status=400)
