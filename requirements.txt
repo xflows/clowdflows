@@ -11,3 +11,4 @@ pyparsing==1.5.6
 pydot==1.0.28
 wsgiref==0.1.2
 feedparser==5.1.2
+tweepy==2.0
