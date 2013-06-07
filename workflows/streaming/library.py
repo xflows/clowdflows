@@ -5,6 +5,25 @@ Streaming widgets librarby
 @author: Janez Kranjc <janez.kranjc@ijs.si>
 '''
 
+def streaming_collect_and_display_tweets(input_dict,widget,stream=None):
+    from streams.models import StreamWidgetData
+    if stream is None:
+        return {}
+    else:
+        try:
+            swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+            data = swd.value
+        except Exception as e:
+            swd = StreamWidgetData()
+            swd.stream = stream
+            swd.widget = widget
+            data = []
+            swd.value = data
+            swd.save()
+        swd.value = input_dict['ltw']+swd.value
+        swd.save()
+        return {}
+
 def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
     import pickle
     from pysimplesoap.client import SoapClient, SoapFault

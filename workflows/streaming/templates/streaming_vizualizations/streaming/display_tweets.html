@@ -1,0 +1,22 @@
+<html>
+<body>
+    <table>
+        <thead>
+            <td>Text</td>
+            <td>User</td>
+            <td>Id</td>
+            <td>Sentiment</td>
+        </thead>
+        <tbody>
+{% for tweet in tweets %}
+<tr>
+    <td>{{tweet.text}}</td>
+    <td>{{tweet.user.screen_name}}</td>
+    <td>{{tweet.id}}</td>
+    <td>{{tweet.sentiment}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+    </body>
+</html>
