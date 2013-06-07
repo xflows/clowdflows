@@ -239,6 +239,7 @@ class AbstractWidget(models.Model):
     description = models.TextField(blank=True,help_text='Description is used for a human readable description of what a widget does. A user will see this when he right clicks the widget and clicks help.')
     category = models.ForeignKey(Category,related_name="widgets",help_text='Category determines to which category this widget belongs. Categories can be nested.')
     visualization_view = models.CharField(max_length=200,blank=True,default='',help_text='Visualization view is (like the action) a python function that is a view that will render a template.')
+    streaming_visualization_view = models.CharField(max_length=200,blank=True,default='',help_text='Visualization view is (like the action) a python function that is a view that will render a template.')
     user = models.ForeignKey(User,blank=True,null=True,related_name="widgets",help_text='If the User field is blank, everyone will see the widget, otherwise just this user. This is mainly used for Web Service imports as they are only visible to users that imported them.')
     interactive = models.BooleanField(default=False,help_text='The widget can be interactive. This means that when a user executes the widget, the action will perform, then the interaction view will be executed and finally the Post interact action will be executed.')
     interaction_view = models.CharField(max_length=200,blank=True,default='')
