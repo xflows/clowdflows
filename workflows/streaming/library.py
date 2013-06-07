@@ -1,12 +1,128 @@
+# -*- coding: utf-8 -*-
 '''
 Streaming widgets librarby
 
 @author: Janez Kranjc <janez.kranjc@ijs.si>
 '''
 
-def streaming_twitter(input_dict,widget,stream=None):
+def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
+    import pickle
+    from pysimplesoap.client import SoapClient, SoapFault
+
+    client = SoapClient(location = "http://batman.ijs.si:8008/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+
+    list_of_tweets = input_dict['ltw']
+
+    new_list_of_tweets = []
+
+    for tweet in list_of_tweets:
+        new_list_of_tweets.append({'id':tweet['id'],'text':tweet['text'],'language':tweet['lang']})
+
+    pickled_list_of_tweets = pickle.dumps(new_list_of_tweets)
+
+    response = client.TweetSentimentService(tweets=pickled_list_of_tweets)
+
+    new_ltw = pickle.loads(unicode(response.TweetSentimentResult))
+
+    i=0
+    for new_tweet in new_ltw:
+        list_of_tweets[i]['sentiment']=new_tweet['sentiment']
+        list_of_tweets[i]['lang']=new_tweet['language']
+        list_of_tweets[i]['reliability']=new_tweet['reliability']
+        i = i + 1
+
     output_dict = {}
+
+    output_dict['ltw'] = list_of_tweets
+
     return output_dict
+
+def streaming_twitter(input_dict,widget,stream=None):
+    import tweepy
+    from streams.models import StreamWidgetData
+    from streams.models import HaltStream
+
+    if input_dict['cfauth']=="true":
+        consumer_key="zmK41mqxU3ZNJTFQpYwTdg"
+        consumer_secret="9StnKNAe20ebDOREQjsVjAjBEiz5R9feZJTGUYWqLo"
+        access_token="45210078-VydgdJMwhWYjZRvlNbrKj6jfqicUIsdMnRbnaPElL"
+        access_token_secret="uLvIN3MMxFSxdK4M8P5RYojjUkbc2reqNydYtpT7Ks"
+    else:
+        consumer_key = input_dict['ck']
+        consumer_secret = input_dict['cs']
+        access_token = input_dict['at']
+        access_token_secret = input_dict['as']
+
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    api = tweepy.API(auth)
+
+    query = input_dict['query']
+
+    rate_limit_status = api.rate_limit_status()
+
+    if rate_limit_status['resources']['search']['/search/tweets']['remaining']>0:
+
+        if stream is None:
+            try:
+                ltw = api.new_search(q=input_dict['query'],geocode=input_dict['geocode'],count=100)
+            except Exception as e:
+                raise HaltStream("The Twitter API returned an error: "+str(e))
+        else:
+            try:
+                swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+                data = swd.value
+            except Exception as e:
+                swd = StreamWidgetData()
+                swd.stream = stream
+                swd.widget = widget
+                data = {}
+                swd.value = data
+                swd.save()
+            if data.has_key(query):
+                since_id = data[query]
+                try:
+                    ltw = api.new_search(q=input_dict['query'],geocode=input_dict['geocode'],count=100,since_id=since_id)
+                except Exception as e:
+                    raise HaltStream("The Twitter API returned an error: "+str(e))
+            else:
+                try:
+                    ltw = api.new_search(q=input_dict['query'],geocode=input_dict['geocode'],count=100)
+                except Exception as e:
+                    raise HaltStream("The Twitter API returned an error: "+str(e))
+            if len(ltw)>0:
+                data[query]=ltw[0].id
+                swd.value = data
+                swd.save()
+    else:
+        import datetime
+        import time
+        current_time = int(time.mktime(datetime.datetime.now().timetuple()))
+        remaining = rate_limit_status['resources']['search']['/search/tweets']['reset']-current_time
+        if input_dict['cfauth']=="true":
+            raise HaltStream("The twitter API limit has been reached. Try again in "+str(remaining)+" seconds. Try using your own credentials.")
+        else:
+            raise HaltStream("The twitter API limit has been reached. Try again in "+str(remaining)+" seconds.")
+
+    output_dict = {}
+
+    tweets = []
+
+    for tw in ltw:
+        tweet = {}
+        tweet['id'] = tw.id
+        tweet['created_at'] = tw.created_at
+        tweet['text'] = unicode(tw.text).encode("utf-8")
+        tweet['user'] = tw.user
+        tweet['lang'] = tw.lang
+        tweets.append(tweet)
+
+    if len(tweets)>0 or stream is None:
+        output_dict['ltw']=tweets
+        return output_dict
+    else:
+        raise HaltStream("No new results, halting stream.")
 
 def streaming_rss_reader(input_dict,widget,stream=None):
     import feedparser
