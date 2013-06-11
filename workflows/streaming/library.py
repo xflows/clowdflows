@@ -24,6 +24,25 @@ def streaming_collect_and_display_tweets(input_dict,widget,stream=None):
         swd.save()
         return {}
 
+def streaming_sentiment_graph(input_dict,widget,stream=None):
+    from streams.models import StreamWidgetData
+    if stream is None:
+        return {}
+    else:
+        try:
+            swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+            data = swd.value
+        except Exception as e:
+            swd = StreamWidgetData()
+            swd.stream = stream
+            swd.widget = widget
+            data = []
+            swd.value = data
+            swd.save()
+        swd.value = input_dict['ltw']+swd.value
+        swd.save()
+        return {}
+
 def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
     import pickle
     from pysimplesoap.client import SoapClient, SoapFault
@@ -133,7 +152,10 @@ def streaming_twitter(input_dict,widget,stream=None):
         tweet['id'] = tw.id
         tweet['created_at'] = tw.created_at
         tweet['text'] = unicode(tw.text).encode("utf-8")
-        tweet['user'] = tw.user
+        try:
+            tweet['user'] = tw.user['screen_name']
+        except:
+            tweet['user'] = ""
         tweet['lang'] = tw.lang
         tweets.append(tweet)
 

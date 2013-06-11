@@ -17,6 +17,12 @@ class Stream(models.Model):
     period = models.IntegerField(default=60)
     active = models.BooleanField(default=False)
 
+    def stream_visualization_widgets(self):
+        return self.workflow.widgets.all().exclude(abstract_widget__streaming_visualization_view='')
+
+    def reset(self):
+        self.widget_data.all().delete()
+
     def execute(self,workflow=None,outputs={}):
         if workflow is None:
             workflow = self.workflow

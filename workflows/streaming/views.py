@@ -39,4 +39,53 @@ def streaming_collect_and_display_visualization(request,widget,stream):
         data = []
         swd.value = data
         swd.save()
-    return render(request, 'streaming_vizualizations/streaming/display_tweets.html', {'tweets':swd.value})
+    return render(request, 'streaming_vizualizations/streaming/display_tweets.html', {'tweets':swd.value,'widget':widget,
+        'stream':stream})
+
+def streaming_sentiment_graph(request,widget,stream):
+    try:
+        swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+        data = swd.value
+    except Exception as e:
+        swd = StreamWidgetData()
+        swd.stream = stream
+        swd.widget = widget
+        data = []
+        swd.value = data
+        swd.save()
+    aggregated_data = {}
+    positive = {}
+    negative = {}
+    difference = {}
+    for tweet in data:
+        if aggregated_data.has_key(tweet['created_at'].date()):
+            aggregated_data[tweet['created_at'].date()] = (tweet['created_at'].date(),aggregated_data[tweet['created_at'].date()][1]+1)
+        else:
+            positive[tweet['created_at'].date()] = (tweet['created_at'].date(),0)
+            negative[tweet['created_at'].date()] = (tweet['created_at'].date(),0)
+            difference[tweet['created_at'].date()] = (tweet['created_at'].date(),0)
+            aggregated_data[tweet['created_at'].date()] = (tweet['created_at'].date(),1)
+        if tweet['reliability'] != -1.0:
+            if tweet['sentiment'] == "Positive":
+                positive[tweet['created_at'].date()] = (tweet['created_at'].date(),positive[tweet['created_at'].date()][1]+1)
+                difference[tweet['created_at'].date()] = (tweet['created_at'].date(),difference[tweet['created_at'].date()][1]+1)
+            if tweet['sentiment'] == "Negative":
+                negative[tweet['created_at'].date()] = (tweet['created_at'].date(),negative[tweet['created_at'].date()][1]+1)
+                difference[tweet['created_at'].date()] = (tweet['created_at'].date(),difference[tweet['created_at'].date()][1]-1)
+    volumes = aggregated_data.values()
+    volumes.sort()
+    positive = positive.values()
+    positive.sort()
+    negative = negative.values()
+    negative.sort()
+    difference = difference.values()
+    difference.sort()
+    return render(request, 'streaming_vizualizations/streaming/sentiment_graph.html',
+        {'widget':widget,
+        'stream':stream,
+        'tweets':swd.value,
+        'volumes':volumes,
+        'positive':positive,
+        'negative':negative,
+        'difference':difference,
+        })

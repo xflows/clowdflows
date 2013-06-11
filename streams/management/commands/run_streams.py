@@ -11,6 +11,8 @@ class Command(NoArgsCommand):
         while True:
             streams = Stream.objects.filter(active=True)
             for stream in streams:
+                #self.stdout.write(u"\nChecking stream "+unicode(stream)+"...\n")
+                #self.stdout.flush()
                 #preverimo ce je ze dost casa pretekl
                 import django
                 now = django.utils.timezone.now()
@@ -19,8 +21,16 @@ class Command(NoArgsCommand):
                 if delta_seconds > stream.period:
                     stream.last_executed = now
                     stream.save()
-                    #self.stdout.write("-")
-                    #self.stdout.flush()
+                    self.stdout.write(u"Executing "+unicode(stream)+"...")
+                    self.stdout.flush()
+                    try:
+                        stream.execute()
+                    except:
+                        import traceback
+                        self.stdout.write("\n ERROR in executing stream:\n")
+                        traceback.print_exc(file=self.stdout)
+                    self.stdout.write("done!\n")
+                    self.stdout.flush()
                     #print stream.execute()
             time.sleep(1)
             #self.stdout.write(".")

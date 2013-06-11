@@ -1,5 +1,6 @@
 {% extends "website/base.html" %}
 {% load url from future %}
+{% block "homeactive" %}class="active"{% endblock %}
 {% block 'container' %}
       <div class="hero-unit">
         <h1>ClowdFlows</h1>
@@ -10,26 +11,26 @@
 
       <!-- Example row of columns -->
       <div class="row">
-      
+
         <div class="span4">
           <h2>Work anywhere</h2>
            <p>The non local nature of the application allows you to work anywhere at anytime! No installation required!</p>
            <p>It's a web application, and your work is saved on the server.</p>
-       </div>      
-      
+       </div>
+
         <div class="span4">
           <h2>Absolutely free</h2>
            <p>You can use the platform for free! Just register and you're good to go!</p>
-       </div> 
-       
+       </div>
+
         <div class="span4">
 
           <h2>Powerful workflow controls</h2>
           <p>Organize your workflows with powerful tools that allow packing workflows into workflow elements and even running them in <strong>for loops</strong>.</p>
-        </div>       
+        </div>
 
       </div>
-      
+
       <div class="row">
         <div class="span4">
           <h2>Web services in workflows</h2>
@@ -41,12 +42,12 @@
           <h2>Data mining algorithms</h2>
            <p>Unleash the power of data mining by using Weka's algorithms that have been exposed as WSDL web services. Construct trees, build models and experiment!</p>
        </div>
-       
+
         <div class="span4">
 
           <h2>Contribute and share your work</h2>
           <p>Have you constructed an interesting workflow? Share it with other people, so that they may use it to create or improve their workflows!</p>
-        </div>       
+        </div>
 
-      </div>     
+      </div>
 {% endblock %}

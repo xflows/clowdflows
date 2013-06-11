@@ -1,22 +1,28 @@
-<html>
-<body>
-    <table>
+{% extends "streams/base.html" %}
+{% block 'container' %}
+<h1>Tweets</h1>
+    <table class="table table-striped table-bordered">
         <thead>
-            <td>Text</td>
-            <td>User</td>
-            <td>Id</td>
-            <td>Sentiment</td>
+            <tr>
+            <th style="width:50%">Text</th>
+            <th>User</th>
+            <th>Sentiment</th>
+            <th>Sentiment reliability</th>
+            <th>Date and time</th>
+            <th>Language</th>
+            </tr>
         </thead>
         <tbody>
 {% for tweet in tweets %}
 <tr>
-    <td>{{tweet.text}}</td>
-    <td>{{tweet.user.screen_name}}</td>
-    <td>{{tweet.id}}</td>
-    <td>{{tweet.sentiment}}</td>
+    <td>{% if tweet.reliability != -1.0 %}<div class="alert alert{% if tweet.sentiment == "Positive" %}-success{% endif %}{% if tweet.sentiment == "Negative" %}-error{% endif %}" style="margin-bottom:0px;">{{tweet.text}}</div>{% else %}{{tweet.text}}{% endif %}</td>
+    <td>{{tweet.user}}</td>
+    <td>{% if tweet.reliability != -1.0 %}{{tweet.sentiment}}{% endif %}</td>
+    <td>{{tweet.reliability}}</td>
+    <td>{{tweet.created_at}}</td>
+    <td><img src="{{STATIC_URL}}streaming/flags/{{tweet.lang}}.png"> {{tweet.lang}}</td>
 </tr>
 {% endfor %}
 </tbody>
 </table>
-    </body>
-</html>
+{% endblock %}
