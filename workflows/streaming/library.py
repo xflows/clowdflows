@@ -5,23 +5,33 @@ Streaming widgets librarby
 @author: Janez Kranjc <janez.kranjc@ijs.si>
 '''
 
-def streaming_collect_and_display_tweets(input_dict,widget,stream=None):
+def streaming_display_tweets(input_dict,widget,stream=None):
     from streams.models import StreamWidgetData
     if stream is None:
         return {}
     else:
         try:
             swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
-            data = swd.value
-        except Exception as e:
+            swd.value = input_dict['ltw']
+            swd.save()
+        except:
             swd = StreamWidgetData()
             swd.stream = stream
             swd.widget = widget
-            data = []
+            data = input_dict['ltw']
             swd.value = data
             swd.save()
-        swd.value = input_dict['ltw']+swd.value
-        swd.save()
+        return {}
+
+def streaming_collect_and_display_tweets(input_dict,widget,stream=None):
+    from streams.models import StreamWidgetData
+    if stream is None:
+        return {}
+    else:
+        new_tweets = []
+        for tweet in input_dict['ltw']:
+            new_tweets.append(StreamWidgetData(stream=stream,widget=widget,value=tweet))
+        StreamWidgetData.objects.bulk_create(new_tweets)
         return {}
 
 def streaming_sentiment_graph(input_dict,widget,stream=None):
@@ -29,18 +39,10 @@ def streaming_sentiment_graph(input_dict,widget,stream=None):
     if stream is None:
         return {}
     else:
-        try:
-            swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
-            data = swd.value
-        except Exception as e:
-            swd = StreamWidgetData()
-            swd.stream = stream
-            swd.widget = widget
-            data = []
-            swd.value = data
-            swd.save()
-        swd.value = input_dict['ltw']+swd.value
-        swd.save()
+        new_tweets = []
+        for tweet in input_dict['ltw']:
+            new_tweets.append(StreamWidgetData(stream=stream,widget=widget,value=tweet))
+        StreamWidgetData.objects.bulk_create(new_tweets)
         return {}
 
 def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
@@ -195,4 +197,33 @@ def streaming_rss_reader(input_dict,widget,stream=None):
         else:
             from streams.models import HaltStream
             raise HaltStream("Halting stream.")
+    return output_dict
+
+
+def streaming_sliding_window(input_dict,widget,stream=None):
+    from streams.models import StreamWidgetData
+    output_dict = {}
+    if stream is None:
+        output_dict['list']=input_dict['list'][:int(input_dict['size'])]
+    else:
+        try:
+            swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+            data = swd.value
+        except:
+            swd = StreamWidgetData()
+            swd.stream = stream
+            swd.widget = widget
+            data = []
+            swd.value = data
+            swd.save()
+        size = int(input_dict['size'])
+        if len(input_dict['list'])>=size:
+            output_dict['list']=input_dict['list'][:size]
+            swd.value=output_dict['list']
+            swd.save()
+        else:
+            current_window = input_dict['list'] + swd.value
+            swd.value = current_window[:size]
+            output_dict['list']=current_window[:size]
+            swd.save()
     return output_dict

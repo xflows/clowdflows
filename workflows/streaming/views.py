@@ -28,31 +28,70 @@ import os
 
 from streams.models import *
 
-def streaming_collect_and_display_visualization(request,widget,stream):
+import operator
+
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+def streaming_tweet_cloud(request,widget,stream):
     try:
-        swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
-        data = swd.value
-    except Exception as e:
-        swd = StreamWidgetData()
-        swd.stream = stream
-        swd.widget = widget
-        data = []
-        swd.value = data
-        swd.save()
-    return render(request, 'streaming_vizualizations/streaming/display_tweets.html', {'tweets':swd.value,'widget':widget,
-        'stream':stream})
+        tweet_data = StreamWidgetData.objects.get(widget=widget,stream=stream).value
+    except:
+        tweet_data = []
+    tweets_unsorted = tweet_data
+    tweets = sorted(tweets_unsorted, key=operator.itemgetter('created_at'))
+    tweets.reverse()
+    paginator = Paginator(tweets,20)
+    page=request.GET.get('page')
+    try:
+        tweets = paginator.page(page)
+    except PageNotAnInteger:
+        tweets = paginator.page(1)
+    except EmptyPage:
+        tweets = paginator.page(paginator.num_pages)
+
+    return render(request, 'streaming_vizualizations/streaming/display_tweets.html', {'tweets':tweets,'widget':widget,
+        'stream':stream,'paged':tweets})
+
+def streaming_display_tweets_visualization(request,widget,stream):
+    try:
+        tweet_data = StreamWidgetData.objects.get(widget=widget,stream=stream).value
+    except:
+        tweet_data = []
+    tweets_unsorted = tweet_data
+    tweets = sorted(tweets_unsorted, key=operator.itemgetter('created_at'))
+    tweets.reverse()
+    paginator = Paginator(tweets,20)
+    page=request.GET.get('page')
+    try:
+        tweets = paginator.page(page)
+    except PageNotAnInteger:
+        tweets = paginator.page(1)
+    except EmptyPage:
+        tweets = paginator.page(paginator.num_pages)
+
+    return render(request, 'streaming_vizualizations/streaming/display_tweets.html', {'tweets':tweets,'widget':widget,
+        'stream':stream,'paged':tweets})
+
+def streaming_collect_and_display_visualization(request,widget,stream):
+    tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
+    tweets_unsorted = [x.value for x in tweet_data]
+    tweets = sorted(tweets_unsorted, key=operator.itemgetter('created_at'))
+    tweets.reverse()
+    paginator = Paginator(tweets,20)
+    page=request.GET.get('page')
+    try:
+        tweets = paginator.page(page)
+    except PageNotAnInteger:
+        tweets = paginator.page(1)
+    except EmptyPage:
+        tweets = paginator.page(paginator.num_pages)
+
+    return render(request, 'streaming_vizualizations/streaming/display_tweets.html', {'tweets':tweets,'widget':widget,
+        'stream':stream,'paged':tweets})
 
 def streaming_sentiment_graph(request,widget,stream):
-    try:
-        swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
-        data = swd.value
-    except Exception as e:
-        swd = StreamWidgetData()
-        swd.stream = stream
-        swd.widget = widget
-        data = []
-        swd.value = data
-        swd.save()
+    tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
+    data = [x.value for x in tweet_data]
     aggregated_data = {}
     positive = {}
     negative = {}
@@ -83,7 +122,7 @@ def streaming_sentiment_graph(request,widget,stream):
     return render(request, 'streaming_vizualizations/streaming/sentiment_graph.html',
         {'widget':widget,
         'stream':stream,
-        'tweets':swd.value,
+        'tweets':data,
         'volumes':volumes,
         'positive':positive,
         'negative':negative,

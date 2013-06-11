@@ -1,0 +1,30 @@
+<div class="dataTables_paginate paging_bootstrap pagination">
+   <ul>
+   {% if has_previous %}
+      <li class="prev"><a href="?page={{previous}}">←</a></li>      
+   {% else %}
+      <li class="prev disabled"><a href="javascript:;">←</a></li>
+   {% endif %}
+
+   {% if show_first %}
+      <li><a href="?page=1">1</a></li>
+      <li><a>...</a></li>
+   {% endif %}
+   {% for linkpage in page_numbers %}
+      {% ifequal linkpage page %}
+         <li class="active"><a href="?page={{linkpage}}">{{linkpage}}</a></li>
+      {% else %}
+         <li><a href="?page={{ linkpage }}">{{ linkpage }}</a></li>
+      {% endifequal %}
+   {% endfor %}
+   {% if show_last %}
+      <li><a>...</a></li>
+      <li><a href="?page={{last}}">{{last}}</a></li>
+   {% endif %}
+   {% if has_next %}
+      <li class="next"><a href="?page={{next}}">→</a></li>
+   {% else %}
+      <li class="next disabled"><a href="javascript:;">→</a></li>
+   {% endif %}
+   </ul>
+</div>
