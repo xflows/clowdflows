@@ -75,6 +75,20 @@ def workflow_information(request,workflow_id):
 def your_workflows(request):
     return render(request, 'website/yourworkflows.html', {'workflows':request.user.workflows.all()})
 
+def make_public(request,workflow_id):
+    workflow = get_object_or_404(Workflow,pk=workflow_id)
+    if request.user == workflow.user:
+        workflow.public = True
+        workflow.save()
+    return redirect('your workflows')
+
+def make_private(request,workflow_id):
+    workflow = get_object_or_404(Workflow,pk=workflow_id)
+    if request.user == workflow.user:
+        workflow.public = False
+        workflow.save()
+    return redirect('your workflows')
+
 def workflows(request):
     wflows = Workflow.objects.filter(public=True)
     min_x = 10000

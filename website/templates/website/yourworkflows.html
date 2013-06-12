@@ -18,7 +18,7 @@
   <tr>
     <td class="name">{{w}}</td>
     <td>{% if w.public %}<a href="{{w.get_info_url}}">{{w.get_info_url}}</a>{% else %}This workflow is private.{% endif %}</td>
-    <td><a href="{{w.get_absolute_url}}">Edit</a> | <a href="{{w.get_copy_url}}">Open as new</a> | <a href="javascript:;" rel="{{w.pk}}" class="delete_workflow">Delete</a> | {% if not w.public %}<a href="#">Make public</a>{% else %}<a href="#">Make private</a>{% endif %}</td>
+    <td><a href="{{w.get_absolute_url}}">Edit</a> | <a href="{{w.get_copy_url}}">Open as new</a> | <a href="javascript:;" rel="{{w.pk}}" class="delete_workflow">Delete</a> | {% if not w.public %}<a href="{% url 'make public' w.pk %}">Make public</a>{% else %}<a href="{% url 'make private' w.pk %}">Make private</a>{% endif %}</td>
   </tr>
   {% endfor %}
 </tbody>
