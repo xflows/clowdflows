@@ -44,6 +44,13 @@ def deploy():
             #puts(yellow("[Compressing]"))
             #run('python manage.py compress')
 
+def supervisorstat():
+    "supervisor statistika na serverju"
+    with prefix('source /srv/django-envs/mothra/bin/activate'):
+        with cd('/srv/django-projects/supervisor'):
+            #run('tail /srv/django-logs/runstreams.stdout.log')
+            run('supervisorctl status')
+
 def apache_restart():
     """restarta apache service
     primer:
