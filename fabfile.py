@@ -33,9 +33,13 @@ def deploy():
 
             puts(yellow("[Collecting static files]"))
             run("python manage.py collectstatic --noinput")
-            
+
             puts(yellow("[Auto importing packages]"))
             run("python manage.py auto_import_packages")
+
+        with cd('/srv/django-projects/supervisor'):
+            puts(yellow("[Restarting the run streams daemon"))
+            run('supervisorctl restart runstreams')
 
             #puts(yellow("[Compressing]"))
             #run('python manage.py compress')
