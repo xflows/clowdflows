@@ -1,0 +1,44 @@
+{% extends 'website/base.html' %}
+{% load url from future %}
+{% block "yourworkflowsactive" %}class="active"{% endblock %}
+{% block 'container' %}
+
+<h1>Your workflows</h1>
+<table class="table table-striped table-bordered table-hover">
+<thead>
+  <tr>
+    <th>Workflow title</th>
+    <th>Public URL</th>
+    <th style="width:30%;">Action</th>
+  </tr>
+
+</thead>
+<tbody>
+  {% for w in workflows %}
+  <tr>
+    <td class="name">{{w}}</td>
+    <td>{% if w.public %}<a href="{{w.get_info_url}}">{{w.get_info_url}}</a>{% else %}This workflow is private.{% endif %}</td>
+    <td><a href="{{w.get_absolute_url}}">Edit</a> | <a href="{{w.get_copy_url}}">Open as new</a> | <a href="javascript:;" rel="{{w.pk}}" class="delete_workflow">Delete</a> | {% if not w.public %}<a href="#">Make public</a>{% else %}<a href="#">Make private</a>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</tbody>
+
+</table>
+
+<script type="text/javascript">
+
+$(function() {
+  $(".delete_workflow").click(function() {
+    var thistd = $(this);
+  bootbox.confirm("Are you sure you wish to delete the workflow: "+$(this).parent().parent().find("td.name").html()+"?","No way!", "Yes, definitely!", function(result) {
+    if (result==true) {
+      thistd.parent().parent().remove();
+      $.post("{% url 'delete workflow' %}?workflow_id="+thistd.attr('rel'))
+    }
+  });
+  });
+});
+
+</script>
+
+{% endblock %}

@@ -19,7 +19,7 @@ import os
 
 def index(request):
     return render(request, 'website/index.html')
-    
+
 def workflow_information(request,workflow_id):
     w = Workflow.objects.get(pk=workflow_id)
     if not w.public:
@@ -70,7 +70,11 @@ def workflow_information(request,workflow_id):
         conn['y2'] = normalized_values[pair[1]][1]+15
         w.unique_connections.append(conn)
     return render(request, 'website/existing.html', {'workflows':[w,]})
-    
+
+
+def your_workflows(request):
+    return render(request, 'website/yourworkflows.html', {'workflows':request.user.workflows.all()})
+
 def workflows(request):
     wflows = Workflow.objects.filter(public=True)
     min_x = 10000

@@ -5,6 +5,44 @@ Streaming widgets librarby
 @author: Janez Kranjc <janez.kranjc@ijs.si>
 '''
 
+def streaming_split_pos_neg(input_dict):
+
+    tweets = input_dict['ltw']
+
+    positive_tweets = []
+    negative_tweets = []
+
+    for tweet in tweets:
+        try:
+            if tweet['sentiment']=="Positive":
+                positive_tweets.append(tweet)
+            if tweet['sentiment']=="Negative" and tweet['reliability']!=-1.0:
+                negative_tweets.append(tweet)
+        except:
+            pass
+
+    output_dict = {}
+
+    output_dict['ptw']=positive_tweets
+    output_dict['ntw']=negative_tweets
+    return output_dict
+
+def streaming_filter_tweets_by_language(input_dict):
+
+    language = input_dict['lang']
+
+    tweets = input_dict['ltw']
+
+    new_tweets = []
+
+    for tweet in tweets:
+        if tweet['lang']==language:
+            new_tweets.append(tweet)
+
+    output_dict = {}
+    output_dict['ltw']=new_tweets
+    return output_dict
+
 def streaming_display_tweets(input_dict,widget,stream=None):
     from streams.models import StreamWidgetData
     if stream is None:

@@ -37,20 +37,14 @@ def streaming_tweet_cloud(request,widget,stream):
         tweet_data = StreamWidgetData.objects.get(widget=widget,stream=stream).value
     except:
         tweet_data = []
-    tweets_unsorted = tweet_data
-    tweets = sorted(tweets_unsorted, key=operator.itemgetter('created_at'))
-    tweets.reverse()
-    paginator = Paginator(tweets,20)
-    page=request.GET.get('page')
-    try:
-        tweets = paginator.page(page)
-    except PageNotAnInteger:
-        tweets = paginator.page(1)
-    except EmptyPage:
-        tweets = paginator.page(paginator.num_pages)
+    tweets = tweet_data
 
-    return render(request, 'streaming_vizualizations/streaming/display_tweets.html', {'tweets':tweets,'widget':widget,
-        'stream':stream,'paged':tweets})
+    if request.GET.get('raw_tweets')=='1':
+        return render(request, 'streaming_vizualizations/streaming/raw_tweets.html', {'tweets':tweets,'widget':widget,
+        'stream':stream})
+    else:
+        return render(request, 'streaming_vizualizations/streaming/tweet_cloud.html', {'tweets':tweets,'widget':widget,
+        'stream':stream})
 
 def streaming_display_tweets_visualization(request,widget,stream):
     try:
