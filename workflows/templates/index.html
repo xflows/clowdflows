@@ -240,11 +240,13 @@ Preconditions for running this widget have not yet been met. Do you want to run 
 	<div id="opendialog" title="Load a workflow">
 		Please select one of your workflows:<br />
         <br />
+        <div style="height:300px;overflow:auto;">
         {% for w in user.workflows.all %}
         {% if not w.widget %}
         <a onClick="$(this).parent().dialog('close');$('.ajax-loader').show();" href="{{ w.get_absolute_url }}"><span rel="#canvas{{ w.id }}">{{ w }}</span></a> <a onClick="$(this).parent().dialog('close');$('.ajax-loader').show();" href="{{ w.get_copy_url }}">Open as new</a><br />
         {% endif %}
         {% endfor %}
+        </div>
 
 	</div>
 
