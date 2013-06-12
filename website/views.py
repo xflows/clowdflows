@@ -71,10 +71,11 @@ def workflow_information(request,workflow_id):
         w.unique_connections.append(conn)
     return render(request, 'website/existing.html', {'workflows':[w,]})
 
-
+@login_required
 def your_workflows(request):
     return render(request, 'website/yourworkflows.html', {'workflows':request.user.workflows.filter(widget=None)})
 
+@login_required
 def make_public(request,workflow_id):
     workflow = get_object_or_404(Workflow,pk=workflow_id)
     if request.user == workflow.user:
@@ -82,6 +83,7 @@ def make_public(request,workflow_id):
         workflow.save()
     return redirect('your workflows')
 
+@login_required
 def make_private(request,workflow_id):
     workflow = get_object_or_404(Workflow,pk=workflow_id)
     if request.user == workflow.user:
