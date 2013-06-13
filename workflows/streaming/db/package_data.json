@@ -1,0 +1,701 @@
+[
+  {
+    "pk": 25, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Streaming"
+    }
+  }, 
+  {
+    "pk": 163, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 25, 
+      "treeview_image": "", 
+      "name": "Filter tweets by language", 
+      "is_streaming": false, 
+      "uid": "63608f38-ee19-4898-90ba-ea2a928daa1f", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_filter_tweets_by_language", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 410, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 163, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "uid": "e969d30e-dc5c-4c45-8fa4-319e83f20699", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 411, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 163, 
+      "name": "Language", 
+      "short_name": "lan", 
+      "uid": "9befb8ed-7644-4f41-8887-1c6f74bdeba7", 
+      "default": "en", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 180, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 163, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "variable": "ltw", 
+      "uid": "5642b7b5-596b-475c-b59c-2656427482ad", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 141, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 25, 
+      "treeview_image": "", 
+      "name": "RSS Reader", 
+      "is_streaming": true, 
+      "uid": "723e4654-abf4-4c9f-920f-08915c4d7a72", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_rss_reader", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 339, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 141, 
+      "name": "RSS URL", 
+      "short_name": "url", 
+      "uid": "bab53d85-8423-409c-91c3-f36a857b5e5f", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "The URL of the RSS feed"
+    }
+  }, 
+  {
+    "pk": 162, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 141, 
+      "name": "URL", 
+      "short_name": "url", 
+      "variable": "url", 
+      "uid": "50d8c3ec-e1df-4f0a-b743-5e00509fed02", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 160, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 25, 
+      "treeview_image": "", 
+      "name": "Sliding Window", 
+      "is_streaming": true, 
+      "uid": "b21b4e13-8d15-4584-ad17-03405a79b020", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_sliding_window", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 406, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 160, 
+      "name": "List", 
+      "short_name": "lst", 
+      "uid": "5411d874-0e24-446e-88b2-065c23ee2817", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "list", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Any type of list"
+    }
+  }, 
+  {
+    "pk": 407, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 160, 
+      "name": "Size", 
+      "short_name": "siz", 
+      "uid": "fb2215c6-04e6-4c0b-97e5-f380c4b2f6e8", 
+      "default": "500", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "size", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Window size"
+    }
+  }, 
+  {
+    "pk": 179, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 160, 
+      "name": "List", 
+      "short_name": "lst", 
+      "variable": "list", 
+      "uid": "02cfba05-bf1c-44f1-a94a-324feed8f3bf", 
+      "order": 1, 
+      "description": "The window"
+    }
+  }, 
+  {
+    "pk": 164, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 25, 
+      "treeview_image": "", 
+      "name": "Split positive and negative tweets", 
+      "is_streaming": false, 
+      "uid": "2786eaa2-3505-4d44-9962-23df9f23c072", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_split_pos_neg", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 412, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 164, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "uid": "eea9cd8a-dbbb-4c08-98c4-d0d6df97aee0", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 181, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 164, 
+      "name": "Positive tweets", 
+      "short_name": "ptw", 
+      "variable": "ptw", 
+      "uid": "8694851c-3f97-4177-835e-fb49c43f8dcd", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 182, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 164, 
+      "name": "Negative tweets", 
+      "short_name": "ntw", 
+      "variable": "ntw", 
+      "uid": "bb2debb9-914d-4c8a-abc2-3eff09009dd9", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 157, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 25, 
+      "treeview_image": "", 
+      "name": "Tweet Sentiment Analysis", 
+      "is_streaming": true, 
+      "uid": "62e7f354-d6c7-4c4c-b1b7-795ac613a7e0", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_tweet_sentiment_service", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Annotates the list of tweets with sentiments, reliability and a corrected language."
+    }
+  }, 
+  {
+    "pk": 403, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 157, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "uid": "bf47f1f1-d4e2-47f8-bbe3-fa28281763e0", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of tweets generated by the twitter feed."
+    }
+  }, 
+  {
+    "pk": 178, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 157, 
+      "name": "Sentiment Annotated List Of Tweets", 
+      "short_name": "ltw", 
+      "variable": "ltw", 
+      "uid": "163a4c4a-b72e-439e-85a1-eaa82fdd8846", 
+      "order": 1, 
+      "description": "An annotated list of tweets with Sentiment, Language and Reliability."
+    }
+  }, 
+  {
+    "pk": 149, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 25, 
+      "treeview_image": "", 
+      "name": "Twitter", 
+      "is_streaming": true, 
+      "uid": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "twitter.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_twitter", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Queries the twitter API for tweets. Also works in a streaming environment."
+    }
+  }, 
+  {
+    "pk": 373, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 149, 
+      "name": "Query", 
+      "short_name": "q", 
+      "uid": "07b8a51c-41d9-48af-b823-92e94ce300d2", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "query", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 374, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 149, 
+      "name": "Geocode", 
+      "short_name": "geo", 
+      "uid": "80d1e542-7f7c-4a8e-b683-764d0a754b03", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "geocode", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 368, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 149, 
+      "name": "Use ClowdFlows authentication (warning: not stable)", 
+      "short_name": "cfa", 
+      "uid": "c78c8f03-92c4-4f6c-972d-c064baecd09a", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "cfauth", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "If this is set, the default consumer and access tokens are used."
+    }
+  }, 
+  {
+    "pk": 369, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 149, 
+      "name": "Consumer Key", 
+      "short_name": "ck", 
+      "uid": "ed2db381-2ed2-4a4d-bd6d-9f9dc0430a50", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "ck", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "Go to http://dev.twitter.com and create an app. The consumer key and secret will be generated for you after."
+    }
+  }, 
+  {
+    "pk": 370, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 149, 
+      "name": "Consumer Secret", 
+      "short_name": "cs", 
+      "uid": "9b9d6268-675a-46c5-82d5-b143e5fdd326", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cs", 
+      "parameter": true, 
+      "order": 5, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 371, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 149, 
+      "name": "Access Token", 
+      "short_name": "at", 
+      "uid": "a951f2d1-c2d1-40b3-afe9-799195e03aa0", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "at", 
+      "parameter": true, 
+      "order": 6, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 372, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 149, 
+      "name": "Access Token Secret", 
+      "short_name": "as", 
+      "uid": "299ae040-2916-4b88-8a79-3ced689ef23f", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "as", 
+      "parameter": true, 
+      "order": 7, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 170, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 149, 
+      "name": "List of tweets", 
+      "short_name": "ltw", 
+      "variable": "ltw", 
+      "uid": "212aab18-6058-4e35-b64c-f1e1fb1078b7", 
+      "order": 1, 
+      "description": "A list of Tweets."
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "d0803d58-35d4-4590-bb32-f2041e735247", 
+      "parent": 25, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Streaming Visualizations"
+    }
+  }, 
+  {
+    "pk": 158, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 28, 
+      "treeview_image": "", 
+      "name": "Collect and Display tweets", 
+      "is_streaming": true, 
+      "uid": "f950409e-5913-4937-b7e5-7d9677a88e19", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "streaming_collect_and_display_visualization", 
+      "action": "streaming_collect_and_display_tweets", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 404, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 158, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "uid": "8479d41b-43af-4db9-a144-d0a438400404", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of tweets (can be annotated or not)"
+    }
+  }, 
+  {
+    "pk": 161, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 28, 
+      "treeview_image": "", 
+      "name": "Display tweets", 
+      "is_streaming": true, 
+      "uid": "95027c9a-b555-4b47-9f9a-57cc4e40fb96", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "streaming_display_tweets_visualization", 
+      "action": "streaming_display_tweets", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 408, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 161, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "uid": "e8fc4c63-2e17-4ad4-a3ab-6ec8d554ecac", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of tweets (can be annotated or not)"
+    }
+  }, 
+  {
+    "pk": 159, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 28, 
+      "treeview_image": "", 
+      "name": "Sentiment graph", 
+      "is_streaming": true, 
+      "uid": "c4dc0648-79b0-49e8-b670-aef1f511050d", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "streaming_sentiment_graph", 
+      "action": "streaming_sentiment_graph", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 405, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 159, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "uid": "0413b69e-b954-4a77-a8ad-59dc559ee4c6", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of tweets (can be annotated or not)"
+    }
+  }, 
+  {
+    "pk": 162, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 28, 
+      "treeview_image": "", 
+      "name": "Tweet word cloud", 
+      "is_streaming": true, 
+      "uid": "e83e17a4-6e8a-40de-8ebe-585503d065e5", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "streaming_tweet_cloud", 
+      "action": "streaming_display_tweets", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 409, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 162, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "uid": "98c77b95-1221-4a85-bdbf-6436327e39b3", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of tweets"
+    }
+  }
+]
