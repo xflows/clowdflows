@@ -17,6 +17,10 @@ class Stream(models.Model):
     period = models.IntegerField(default=60)
     active = models.BooleanField(default=False)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('stream', [str(self.id)])
+
     def stream_visualization_widgets(self):
         return self.workflow.widgets.all().exclude(abstract_widget__streaming_visualization_view='')
 

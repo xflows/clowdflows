@@ -9,6 +9,8 @@ from django.contrib.auth import authenticate, login, logout
 
 from workflows.models import Workflow, Connection
 
+from streams.models import Stream
+
 #settings
 from mothra.settings import DEBUG, PROJECT_FOLDER
 
@@ -19,6 +21,12 @@ import os
 
 def index(request):
     return render(request, 'website/index.html')
+
+def stream(request,stream_id):
+    stream = get_object_or_404(Stream,pk=stream_id)
+    if stream.workflow.user != request.user:
+        raise Http404
+    return render(request, 'website/stream.html', {'stream':stream})
 
 def workflow_information(request,workflow_id):
     w = Workflow.objects.get(pk=workflow_id)
