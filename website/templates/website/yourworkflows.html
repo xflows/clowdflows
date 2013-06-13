@@ -9,6 +9,7 @@
   <tr>
     <th>Workflow title</th>
     <th>Public URL</th>
+    <th style="width:15%;">Streaming</th>
     <th style="width:30%;">Action</th>
   </tr>
 
@@ -18,12 +19,14 @@
   <tr>
     <td class="name">{{w}}</td>
     <td>{% if w.public %}<a href="{{w.get_info_url}}">{{w.get_info_url}}</a>{% else %}This workflow is private.{% endif %}</td>
+    <td>{% if w.can_be_streaming %}{% if w.streams.count > 0 %}<i class="icon-ok"></i>{% else %}Make into stream{% endif %}{% else %}<span class="label label-info"><i class="icon-remove icon-white"></i> No streaming widgets</span>{% endif %}</td>
     <td><a href="{{w.get_absolute_url}}">Edit</a> | <a href="{{w.get_copy_url}}">Open as new</a> | <a href="javascript:;" rel="{{w.pk}}" class="delete_workflow">Delete</a> | {% if not w.public %}<a href="{% url 'make public' w.pk %}">Make public</a>{% else %}<a href="{% url 'make private' w.pk %}">Make private</a>{% endif %}</td>
   </tr>
   {% endfor %}
 </tbody>
 
 </table>
+
 
 <script type="text/javascript">
 

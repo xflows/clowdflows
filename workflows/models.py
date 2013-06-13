@@ -52,6 +52,11 @@ class Workflow(models.Model):
     widget = models.OneToOneField('Widget',related_name="workflow_link",blank=True,null=True)
     template_parent = models.ForeignKey('Workflow',blank=True,null=True,default=None,on_delete=models.SET_NULL)
 
+    def can_be_streaming(self):
+        if self.widgets.filter(abstract_widget__is_streaming=True).count()>0:
+            return True
+        else:
+            return False
 
     def is_for_loop(self):
         if self.widgets.filter(type='for_input').count()>0:

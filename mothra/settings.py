@@ -175,13 +175,14 @@ INSTALLED_APPS_DEFAULT = (
     'django.contrib.humanize',
     'orderable_inlines',
     'workflows',
-    'picklefield'
+    'picklefield',
+    'streams',
     )
 
 INSTALLED_APPS_CONCUR = (
         'djcelery',
     ) if USE_CONCURRENCY else (
-        'streams',
+
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = (

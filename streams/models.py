@@ -12,7 +12,7 @@ class HaltStream(Exception):
 
 class Stream(models.Model):
     user = models.ForeignKey(User,related_name="streams")
-    workflow = models.ForeignKey(Workflow, related_name="streams")
+    workflow = models.OneToOneField(Workflow, related_name="stream")
     last_executed = models.DateTimeField(auto_now_add=True)
     period = models.IntegerField(default=60)
     active = models.BooleanField(default=False)
