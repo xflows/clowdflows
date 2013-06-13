@@ -7,6 +7,13 @@ urlpatterns = patterns('',
     url(r'^your-workflows/', 'website.views.your_workflows', name='your workflows'),
     url(r'^streams/(?P<stream_id>[0-9]+)/$', 'website.views.stream', name='stream'),
 
+    url(r'^start-stream/(?P<workflow_id>[0-9]+)/$', 'website.views.start_stream', name='start stream'),
+
+    url(r'^activate-stream/(?P<stream_id>[0-9]+)/$', 'website.views.activate_stream', name='activate stream'),
+    url(r'^deactivate-stream/(?P<stream_id>[0-9]+)/$', 'website.views.deactivate_stream', name='deactivate stream'),
+
+    url(r'^reset-stream/(?P<stream_id>[0-9]+)/$', 'website.views.reset_stream', name='reset stream'),
+
     url(r'^make-private/(?P<workflow_id>[0-9]+)/$', 'website.views.make_private', name='make private'),
     url(r'^make-public/(?P<workflow_id>[0-9]+)/$', 'website.views.make_public', name='make public'),
 

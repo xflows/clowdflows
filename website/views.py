@@ -22,6 +22,38 @@ import os
 def index(request):
     return render(request, 'website/index.html')
 
+def reset_stream(request,stream_id):
+    s = get_object_or_404(Stream, pk=stream_id)
+    if s.user != request.user:
+        raise Http404
+    s.reset()
+    s.save()
+    return redirect(s.get_absolute_url())
+
+def deactivate_stream(request,stream_id):
+    s = get_object_or_404(Stream, pk=stream_id)
+    if s.user != request.user:
+        raise Http404
+    s.active = False
+    s.save()
+    return redirect(s.get_absolute_url())
+
+def activate_stream(request,stream_id):
+    s = get_object_or_404(Stream, pk=stream_id)
+    if s.user != request.user:
+        raise Http404
+    s.active = True
+    s.save()
+    return redirect(s.get_absolute_url())
+
+def start_stream(request,workflow_id):
+    w = get_object_or_404(Workflow, pk=workflow_id)
+    if w.user != request.user:
+        raise Http404
+    s = Stream(workflow=w,user=request.user,active=True)
+    s.save()
+    return redirect(s.get_absolute_url())
+
 def stream(request,stream_id):
     stream = get_object_or_404(Stream,pk=stream_id)
     if stream.workflow.user != request.user:
