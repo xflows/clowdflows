@@ -4,7 +4,7 @@ from fabric.colors import *
 from fabric.utils import puts, abort
 
 env.use_ssh_config = True
-apps_to_migrate = ('workflows',)
+apps_to_migrate = ('workflows','streams',)
 
 def live():
     """ doloci live server kot aktivni """
