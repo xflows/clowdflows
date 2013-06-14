@@ -100,7 +100,7 @@ def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
 
     response = client.TweetSentimentService(tweets=pickled_list_of_tweets)
 
-    new_ltw = pickle.loads(unicode(response.TweetSentimentResult))
+    new_ltw = pickle.loads(str(response.TweetSentimentResult))
 
     i=0
     for new_tweet in new_ltw:
