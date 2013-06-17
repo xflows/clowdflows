@@ -1,0 +1,77 @@
+{% extends 'website/base.html' %}
+{% load url from future %}
+{% load date_diff %}
+{% block "yourworkflowsactive" %}class="active"{% endblock %}
+{% block 'container' %}
+
+<h1>{{stream}}</h1>
+<div class="well">
+            <table class="table table-condensed">
+                <tbody>
+                    <tr>
+                        <td style="width:20%;"><b>Stream status</b></td>
+                        <td>{% if stream.active %}<span class="label label-success">Active</span>{% else %}<span class="label label-warning">Inactive</span>{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Last heartbeat</b></td>
+                        <td>{{ stream.last_executed|date_diff }}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Period</b></td>
+                        <td>{{stream.period}} seconds</td>
+                    </tr>
+                    <tr>
+                        <td><b>Workflow</b></td>
+                        <td><a href="{{stream.workflow.get_absolute_url}}">{{stream.workflow}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+<div class="row">
+  <div class="span12">
+  {% if stream.active %}
+  <a href="{% url 'deactivate stream' stream.pk %}" class="btn btn-warning btn-large">Deactivate</a>
+  {% else %}
+  <a href="{% url 'activate stream' stream.pk %}" class="btn btn-success btn-large">Activate</a>
+  {% endif %}
+  <a href="javascript:;" class="reset-stream btn btn-warning btn-danger btn-large">Reset</a>
+  </div>
+</div>
+<hr>
+<h1>Results widgets</h1>
+
+<table class="table table-striped table-bordered table-hover">
+<thead>
+  <tr>
+    <th>Widget title</th>
+    <th>Results</th>
+  </tr>
+
+</thead>
+<tbody>
+  {% for w in stream.stream_visualization_widgets %}
+  <tr>
+    <td class="name">{{w}}</td>
+    <td><a href="{% url 'stream widget visualization' stream.pk w.pk %}" class="btn btn-mini">View results</a></td>
+  </tr>
+  {% endfor %}
+</tbody>
+
+</table>
+
+<script type="text/javascript">
+
+$(function() {
+  $(".reset-stream").click(function() {
+  bootbox.confirm("Are you sure you wish to reset the stream? This means that all data that you have mined so far will be cleared.","No way!", "Yes, definitely!", function(result) {
+    if (result==true) {
+      window.location='{% url 'reset stream' stream.pk %}';
+    }
+  });
+  });
+});
+
+</script>
+
+{% endblock %}

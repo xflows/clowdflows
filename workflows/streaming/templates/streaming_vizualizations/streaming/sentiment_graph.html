@@ -1,0 +1,77 @@
+{% extends "streams/base.html" %}
+{% block 'container' %}
+
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="sentiment-graph" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+<script>
+$(function () {
+        $('#sentiment-graph').highcharts({
+            chart: {
+                type: 'areaspline'
+            },
+            title: {
+                text: '{{stream.workflow}}'
+            },
+            subtitle: {
+                text: '{{widget}}'
+            },
+            xAxis: {
+                type: 'datetime',
+                dateTimeLabelFormats: { // don't display the dummy year
+                    month: '%e. %b',
+                    year: '%b'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Volume'
+                },
+                //min: 0
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        Highcharts.dateFormat('%e. %b', this.x) +': '+ this.y +' tweets';
+                }
+            },
+
+            series: [{
+                name: 'Volume',
+                type: 'spline',
+                data: [
+                    {% for tweet in volumes %}
+                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}), {{tweet.1}}   ],
+                    {% endfor %}
+                ]
+            },{
+                name: 'Positive',
+                color: '#12aa12',
+                data: [
+                    {% for tweet in positive %}
+                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}), {{tweet.1}}   ],
+                    {% endfor %}
+                ]
+            },{
+                name: 'Negative',
+                color: '#aa1212',
+                data: [
+                    {% for tweet in negative %}
+                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}), -{{tweet.1}}   ],
+                    {% endfor %}
+                ]
+            },{
+                name: 'Difference',
+                type: 'spline',
+                data: [
+                    {% for tweet in difference %}
+                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}), {{tweet.1}}   ],
+                    {% endfor %}
+                ]
+            }]
+        });
+    });
+    </script>
+{% endblock %}
