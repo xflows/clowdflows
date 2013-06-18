@@ -731,7 +731,7 @@
       "treeview_image": "", 
       "name": "Map miRNA to gene (tarbase)", 
       "is_streaming": false, 
-      "uid": "62a5daf4-158f-45be-a76f-77b3b3c775de", 
+      "uid": "309b79f4-0761-4ced-b754-5844bbad14d9", 
       "interaction_view": "", 
       "image": "", 
       "package": "segmine", 
@@ -756,7 +756,7 @@
       "widget": 141, 
       "name": "miRNA ranks", 
       "short_name": "rnk", 
-      "uid": "58eff0c1-ab96-4f03-a3a5-506cec73014f", 
+      "uid": "d66cf1c3-5619-4c89-9ad1-220b7238e06c", 
       "default": "", 
       "required": true, 
       "multi": false, 
@@ -775,7 +775,7 @@
       "name": "gene ranks", 
       "short_name": "rnk", 
       "variable": "gene_ranks", 
-      "uid": "d9619376-b048-42bd-9da0-01d642a3072d", 
+      "uid": "04b571c8-2e52-4c00-af3b-4b66ad1a4f63", 
       "order": 1, 
       "description": "list of pairs (gene, rank)"
     }
@@ -788,7 +788,7 @@
       "treeview_image": "", 
       "name": "Map miRNA to gene (targetscan)", 
       "is_streaming": false, 
-      "uid": "5238c322-7fa9-454a-81b7-20f72849126e", 
+      "uid": "bcc04bde-485f-4ca3-ace1-28161ff281e4", 
       "interaction_view": "", 
       "image": "", 
       "package": "segmine", 
@@ -813,7 +813,7 @@
       "widget": 143, 
       "name": "miRNA ranks", 
       "short_name": "rnk", 
-      "uid": "83e626e6-e717-4f31-a38e-3059a255fca2", 
+      "uid": "0e0b0db4-1d36-4ef3-9bd8-51a1c343b2ec", 
       "default": "", 
       "required": true, 
       "multi": false, 
@@ -832,7 +832,7 @@
       "name": "gene ranks", 
       "short_name": "rnk", 
       "variable": "gene_ranks", 
-      "uid": "389b0578-22fd-4dc2-b1d3-13d62e0ec142", 
+      "uid": "e94960b5-2f39-462d-99eb-30f19b75994a", 
       "order": 1, 
       "description": "list of pairs (gene, rank)"
     }
@@ -879,6 +879,152 @@
       "parameter": false, 
       "order": 1, 
       "description": "List of pairs (geneID, rank)"
+    }
+  }, 
+  {
+    "pk": 144, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 16, 
+      "treeview_image": "", 
+      "name": "Read microarray data from file", 
+      "is_streaming": false, 
+      "uid": "01aad79e-9991-412c-b619-cb87a956b65a", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_read_microarray_data", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Reads a csv of gene expression data in SegMine specific format into an Orange data table."
+    }
+  }, 
+  {
+    "pk": 342, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 144, 
+      "name": "Microarray csv data file", 
+      "short_name": "csv", 
+      "uid": "4a2fc0cc-4140-46a8-924c-72ffad6297e0", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 343, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 144, 
+      "name": "Fold change: Input data format", 
+      "short_name": "f", 
+      "uid": "94c5f4f1-7d85-45e2-8393-38fc31a70630", 
+      "default": "1", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "idf", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Specifies whether the input data is linear or log2 transformed (needed for fold change computation)."
+    }
+  }, 
+  {
+    "pk": 94, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "43a8b68c-6fcc-4908-a45e-53f08e27670b", 
+      "abstract_input": 343, 
+      "value": "1", 
+      "name": "linear"
+    }
+  }, 
+  {
+    "pk": 95, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "dcd58ba0-8956-4802-b954-f2a2c7deae79", 
+      "abstract_input": 343, 
+      "value": "2", 
+      "name": "log2-transformed"
+    }
+  }, 
+  {
+    "pk": 344, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 144, 
+      "name": "Fold change: Calculation method", 
+      "short_name": "m", 
+      "uid": "f3c2883f-e4a6-4c2b-90d8-07a73af84708", 
+      "default": "1", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "cm", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "Specifies fold change calculation method."
+    }
+  }, 
+  {
+    "pk": 97, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "2ff3aa8b-b70b-48c7-9306-4e39727894bd", 
+      "abstract_input": 344, 
+      "value": "2", 
+      "name": "difference of average log2 values"
+    }
+  }, 
+  {
+    "pk": 96, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "c36b408a-4947-424b-af2b-534bb57a0804", 
+      "abstract_input": 344, 
+      "value": "1", 
+      "name": "ratio"
+    }
+  }, 
+  {
+    "pk": 165, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 144, 
+      "name": "Orange data table with class", 
+      "short_name": "odt", 
+      "variable": "table", 
+      "uid": "e376fd1f-31d0-4d20-98e3-032bccbdb00a", 
+      "order": 1, 
+      "description": "Orange data table where columns are genes and rows are measurements. The class attribute indicates whether the measurement belongs to the control or the treatment group."
+    }
+  }, 
+  {
+    "pk": 166, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 144, 
+      "name": "Fold change", 
+      "short_name": "fc", 
+      "variable": "fold_change", 
+      "uid": "9d0b23d8-4493-4f61-842a-78356402fd54", 
+      "order": 2, 
+      "description": "sorted list of pairs (gene, fold change)"
     }
   }, 
   {
