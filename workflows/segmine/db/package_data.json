@@ -1,6 +1,6 @@
 [
   {
-    "pk": 5, 
+    "pk": 6, 
     "model": "workflows.category", 
     "fields": {
       "uid": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99", 
@@ -12,11 +12,11 @@
     }
   }, 
   {
-    "pk": 21, 
+    "pk": 16, 
     "model": "workflows.category", 
     "fields": {
       "uid": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
-      "parent": 5, 
+      "parent": 6, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -24,10 +24,10 @@
     }
   }, 
   {
-    "pk": 122, 
+    "pk": 86, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
       "treeview_image": "", 
       "name": "Biomine connection search", 
       "is_streaming": false, 
@@ -39,6 +39,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "segmine_biomine_connection", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -49,10 +50,10 @@
     }
   }, 
   {
-    "pk": 278, 
+    "pk": 166, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 122, 
+      "widget": 86, 
       "name": "Group nodes", 
       "short_name": "grn", 
       "uid": "46ac2ec3-fb26-4ed0-87eb-017222ada842", 
@@ -67,10 +68,10 @@
     }
   }, 
   {
-    "pk": 279, 
+    "pk": 167, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 122, 
+      "widget": 86, 
       "name": "Database version", 
       "short_name": "dbv", 
       "uid": "ff783343-b1b5-4f43-9caa-1cfe35706e13", 
@@ -85,10 +86,10 @@
     }
   }, 
   {
-    "pk": 280, 
+    "pk": 168, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 122, 
+      "widget": 86, 
       "name": "End nodes", 
       "short_name": "end", 
       "uid": "9a0dc048-ae26-4bb8-ba90-76521b4843b3", 
@@ -103,10 +104,10 @@
     }
   }, 
   {
-    "pk": 281, 
+    "pk": 169, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 122, 
+      "widget": 86, 
       "name": "Single component", 
       "short_name": "scm", 
       "uid": "1b27100e-c585-47f0-a30f-05d2d2720927", 
@@ -121,10 +122,10 @@
     }
   }, 
   {
-    "pk": 282, 
+    "pk": 170, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 122, 
+      "widget": 86, 
       "name": "Max nodes", 
       "short_name": "mxn", 
       "uid": "ff95b75f-b4f4-4b3e-acf2-d69aa41ed948", 
@@ -139,10 +140,10 @@
     }
   }, 
   {
-    "pk": 283, 
+    "pk": 171, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 122, 
+      "widget": 86, 
       "name": "Medoids", 
       "short_name": "mds", 
       "uid": "aecdd58f-1fef-4aec-8039-2fdbc4cc7279", 
@@ -157,10 +158,10 @@
     }
   }, 
   {
-    "pk": 284, 
+    "pk": 172, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 122, 
+      "widget": 86, 
       "name": "Start nodes", 
       "short_name": "beg", 
       "uid": "0bb9e00a-2159-419c-8a3a-758d8ae778d1", 
@@ -175,10 +176,10 @@
     }
   }, 
   {
-    "pk": 147, 
+    "pk": 101, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 122, 
+      "widget": 86, 
       "name": "Result", 
       "short_name": "g", 
       "variable": "result", 
@@ -188,10 +189,10 @@
     }
   }, 
   {
-    "pk": 148, 
+    "pk": 102, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 122, 
+      "widget": 86, 
       "name": "Best path", 
       "short_name": "pth", 
       "variable": "bestPath", 
@@ -201,10 +202,10 @@
     }
   }, 
   {
-    "pk": 125, 
+    "pk": 87, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
       "treeview_image": "", 
       "name": "Biomine medoid search", 
       "is_streaming": false, 
@@ -216,6 +217,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "segmine_biomine_medoid", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -226,10 +228,10 @@
     }
   }, 
   {
-    "pk": 292, 
+    "pk": 173, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 125, 
+      "widget": 87, 
       "name": "Group nodes", 
       "short_name": "grn", 
       "uid": "e2effb53-e150-4833-956e-5c58b15f1eb6", 
@@ -244,10 +246,10 @@
     }
   }, 
   {
-    "pk": 293, 
+    "pk": 174, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 125, 
+      "widget": 87, 
       "name": "Database version", 
       "short_name": "dbv", 
       "uid": "29d6ed65-55b8-4d68-8d7a-c19c0e91fe35", 
@@ -262,10 +264,10 @@
     }
   }, 
   {
-    "pk": 294, 
+    "pk": 175, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 125, 
+      "widget": 87, 
       "name": "Single component", 
       "short_name": "scm", 
       "uid": "adbdd779-8bad-433b-835e-c14ba567d96f", 
@@ -280,10 +282,10 @@
     }
   }, 
   {
-    "pk": 295, 
+    "pk": 176, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 125, 
+      "widget": 87, 
       "name": "Max nodes", 
       "short_name": "mxn", 
       "uid": "1942dd52-a553-460b-bdba-4ef29b6a402c", 
@@ -298,10 +300,10 @@
     }
   }, 
   {
-    "pk": 296, 
+    "pk": 177, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 125, 
+      "widget": 87, 
       "name": "Start nodes", 
       "short_name": "beg", 
       "uid": "c68a9f13-92a1-4000-ae7d-bcf43311109e", 
@@ -316,10 +318,10 @@
     }
   }, 
   {
-    "pk": 152, 
+    "pk": 103, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 125, 
+      "widget": 87, 
       "name": "Result", 
       "short_name": "g", 
       "variable": "result", 
@@ -329,10 +331,10 @@
     }
   }, 
   {
-    "pk": 153, 
+    "pk": 104, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 125, 
+      "widget": 87, 
       "name": "Best path", 
       "short_name": "pth", 
       "variable": "bestPath", 
@@ -342,10 +344,10 @@
     }
   }, 
   {
-    "pk": 123, 
+    "pk": 88, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
       "treeview_image": "", 
       "name": "Biomine neighbourhood search", 
       "is_streaming": false, 
@@ -357,6 +359,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "segmine_biomine_neighbourhood", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -367,10 +370,10 @@
     }
   }, 
   {
-    "pk": 285, 
+    "pk": 178, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 123, 
+      "widget": 88, 
       "name": "Group nodes", 
       "short_name": "grn", 
       "uid": "7c8954aa-083d-4f15-8784-061b59a258dc", 
@@ -385,10 +388,10 @@
     }
   }, 
   {
-    "pk": 286, 
+    "pk": 179, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 123, 
+      "widget": 88, 
       "name": "Database version", 
       "short_name": "dbv", 
       "uid": "fc0a5b03-f301-4e4a-b9d7-889d89467245", 
@@ -403,10 +406,10 @@
     }
   }, 
   {
-    "pk": 287, 
+    "pk": 180, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 123, 
+      "widget": 88, 
       "name": "Single component", 
       "short_name": "scm", 
       "uid": "980f228d-94b5-4523-9a65-2d4d3d6a6521", 
@@ -421,10 +424,10 @@
     }
   }, 
   {
-    "pk": 288, 
+    "pk": 181, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 123, 
+      "widget": 88, 
       "name": "Max nodes", 
       "short_name": "mxn", 
       "uid": "97f71cb5-1ff0-45dc-84ed-2afe8e3aa7fa", 
@@ -439,10 +442,10 @@
     }
   }, 
   {
-    "pk": 289, 
+    "pk": 182, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 123, 
+      "widget": 88, 
       "name": "Medoids", 
       "short_name": "mds", 
       "uid": "078c052f-2303-44dc-b1e4-4f39b0839b55", 
@@ -457,10 +460,10 @@
     }
   }, 
   {
-    "pk": 290, 
+    "pk": 183, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 123, 
+      "widget": 88, 
       "name": "Start nodes", 
       "short_name": "beg", 
       "uid": "14241e7b-e316-446b-b795-b5a8038769ee", 
@@ -475,10 +478,10 @@
     }
   }, 
   {
-    "pk": 149, 
+    "pk": 105, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 123, 
+      "widget": 88, 
       "name": "Result", 
       "short_name": "g", 
       "variable": "result", 
@@ -488,10 +491,10 @@
     }
   }, 
   {
-    "pk": 150, 
+    "pk": 106, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 123, 
+      "widget": 88, 
       "name": "Best path", 
       "short_name": "pth", 
       "variable": "bestPath", 
@@ -501,10 +504,10 @@
     }
   }, 
   {
-    "pk": 124, 
+    "pk": 89, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
       "treeview_image": "", 
       "name": "Biomine visualizer", 
       "is_streaming": false, 
@@ -516,6 +519,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "segmine_biomine_visualizer", 
+      "streaming_visualization_view": "", 
       "action": "segmine_biomine_visualizer", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -526,10 +530,10 @@
     }
   }, 
   {
-    "pk": 291, 
+    "pk": 184, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 124, 
+      "widget": 89, 
       "name": "Graph", 
       "short_name": "g", 
       "uid": "b786a3b5-4b26-4e7e-b7e5-0143a8877b72", 
@@ -544,10 +548,10 @@
     }
   }, 
   {
-    "pk": 151, 
+    "pk": 107, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 124, 
+      "widget": 89, 
       "name": "Graph", 
       "short_name": "g", 
       "variable": "graph", 
@@ -557,10 +561,10 @@
     }
   }, 
   {
-    "pk": 114, 
+    "pk": 90, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
       "treeview_image": "", 
       "name": "Fold change gene filter", 
       "is_streaming": false, 
@@ -572,6 +576,7 @@
       "post_interact_action": "segmine_fc_gene_filter_finished", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "segmine_fc_gene_filter", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -582,10 +587,10 @@
     }
   }, 
   {
-    "pk": 247, 
+    "pk": 185, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 114, 
+      "widget": 90, 
       "name": "Orange dataset", 
       "short_name": "odt", 
       "uid": "d3abfbe3-7871-49e0-9f9f-76d5e39346cc", 
@@ -600,10 +605,10 @@
     }
   }, 
   {
-    "pk": 133, 
+    "pk": 108, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 114, 
+      "widget": 90, 
       "name": "Orange dataset", 
       "short_name": "odt", 
       "variable": "dataset", 
@@ -613,10 +618,10 @@
     }
   }, 
   {
-    "pk": 115, 
+    "pk": 91, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
       "treeview_image": "", 
       "name": "Gene Ranker", 
       "is_streaming": false, 
@@ -628,6 +633,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "segmine_gene_ranker", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -638,10 +644,10 @@
     }
   }, 
   {
-    "pk": 248, 
+    "pk": 186, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 115, 
+      "widget": 91, 
       "name": "Microarray Table", 
       "short_name": "ma", 
       "uid": "73b59971-1839-417c-a937-021ae2d12903", 
@@ -656,10 +662,10 @@
     }
   }, 
   {
-    "pk": 249, 
+    "pk": 187, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 115, 
+      "widget": 91, 
       "name": "Number of neighbours", 
       "short_name": "k", 
       "uid": "96947efb-4df1-48f8-8802-ac6bc2e1984b", 
@@ -674,10 +680,10 @@
     }
   }, 
   {
-    "pk": 250, 
+    "pk": 188, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 115, 
+      "widget": 91, 
       "name": "Reference examples (0 = all)", 
       "short_name": "m", 
       "uid": "11fd645a-cf41-4774-98aa-759478c94588", 
@@ -692,10 +698,10 @@
     }
   }, 
   {
-    "pk": 134, 
+    "pk": 109, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 115, 
+      "widget": 91, 
       "name": "Gene ranks", 
       "short_name": "rnk", 
       "variable": "geneRanks", 
@@ -705,10 +711,10 @@
     }
   }, 
   {
-    "pk": 135, 
+    "pk": 110, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 115, 
+      "widget": 91, 
       "name": "tScores", 
       "short_name": "t", 
       "variable": "tScores", 
@@ -718,10 +724,124 @@
     }
   }, 
   {
-    "pk": 127, 
+    "pk": 141, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
+      "treeview_image": "", 
+      "name": "Map miRNA to gene (tarbase)", 
+      "is_streaming": false, 
+      "uid": "309b79f4-0761-4ced-b754-5844bbad14d9", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_mirna_to_gene_tarbase", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 339, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 141, 
+      "name": "miRNA ranks", 
+      "short_name": "rnk", 
+      "uid": "d66cf1c3-5619-4c89-9ad1-220b7238e06c", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "mirna_ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "list of pairs (rna, rank)"
+    }
+  }, 
+  {
+    "pk": 162, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 141, 
+      "name": "gene ranks", 
+      "short_name": "rnk", 
+      "variable": "gene_ranks", 
+      "uid": "04b571c8-2e52-4c00-af3b-4b66ad1a4f63", 
+      "order": 1, 
+      "description": "list of pairs (gene, rank)"
+    }
+  }, 
+  {
+    "pk": 143, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 16, 
+      "treeview_image": "", 
+      "name": "Map miRNA to gene (targetscan)", 
+      "is_streaming": false, 
+      "uid": "bcc04bde-485f-4ca3-ace1-28161ff281e4", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_mirna_to_gene_targetscan", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Maps a the input list of ranked miRNA into a ranked list of genes using the Targetscan database."
+    }
+  }, 
+  {
+    "pk": 341, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 143, 
+      "name": "miRNA ranks", 
+      "short_name": "rnk", 
+      "uid": "0e0b0db4-1d36-4ef3-9bd8-51a1c343b2ec", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "mirna_ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "list of pairs (rna, rank)"
+    }
+  }, 
+  {
+    "pk": 164, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 143, 
+      "name": "gene ranks", 
+      "short_name": "rnk", 
+      "variable": "gene_ranks", 
+      "uid": "e94960b5-2f39-462d-99eb-30f19b75994a", 
+      "order": 1, 
+      "description": "list of pairs (gene, rank)"
+    }
+  }, 
+  {
+    "pk": 92, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 16, 
       "treeview_image": "", 
       "name": "Rank plotter", 
       "is_streaming": false, 
@@ -733,6 +853,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "segmine_rank_plotter", 
+      "streaming_visualization_view": "", 
       "action": "segmine_rank_plotter", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -743,10 +864,10 @@
     }
   }, 
   {
-    "pk": 314, 
+    "pk": 189, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 127, 
+      "widget": 92, 
       "name": "Gene ranks", 
       "short_name": "rnk", 
       "uid": "1cf60ff1-4e25-4fb2-8a55-6bbc07998608", 
@@ -761,10 +882,156 @@
     }
   }, 
   {
-    "pk": 116, 
+    "pk": 144, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
+      "treeview_image": "", 
+      "name": "Read microarray data from file", 
+      "is_streaming": false, 
+      "uid": "01aad79e-9991-412c-b619-cb87a956b65a", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_read_microarray_data", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Reads a csv of gene expression data in SegMine specific format into an Orange data table."
+    }
+  }, 
+  {
+    "pk": 342, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 144, 
+      "name": "Microarray csv data file", 
+      "short_name": "csv", 
+      "uid": "4a2fc0cc-4140-46a8-924c-72ffad6297e0", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 343, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 144, 
+      "name": "Fold change: Input data format", 
+      "short_name": "f", 
+      "uid": "94c5f4f1-7d85-45e2-8393-38fc31a70630", 
+      "default": "1", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "idf", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Specifies whether the input data is linear or log2 transformed (needed for fold change computation)."
+    }
+  }, 
+  {
+    "pk": 94, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "43a8b68c-6fcc-4908-a45e-53f08e27670b", 
+      "abstract_input": 343, 
+      "value": "1", 
+      "name": "linear"
+    }
+  }, 
+  {
+    "pk": 95, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "dcd58ba0-8956-4802-b954-f2a2c7deae79", 
+      "abstract_input": 343, 
+      "value": "2", 
+      "name": "log2-transformed"
+    }
+  }, 
+  {
+    "pk": 344, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 144, 
+      "name": "Fold change: Calculation method", 
+      "short_name": "m", 
+      "uid": "f3c2883f-e4a6-4c2b-90d8-07a73af84708", 
+      "default": "1", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "cm", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "Specifies fold change calculation method."
+    }
+  }, 
+  {
+    "pk": 97, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "2ff3aa8b-b70b-48c7-9306-4e39727894bd", 
+      "abstract_input": 344, 
+      "value": "2", 
+      "name": "difference of average log2 values"
+    }
+  }, 
+  {
+    "pk": 96, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "c36b408a-4947-424b-af2b-534bb57a0804", 
+      "abstract_input": 344, 
+      "value": "1", 
+      "name": "ratio"
+    }
+  }, 
+  {
+    "pk": 165, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 144, 
+      "name": "Orange data table with class", 
+      "short_name": "odt", 
+      "variable": "table", 
+      "uid": "e376fd1f-31d0-4d20-98e3-032bccbdb00a", 
+      "order": 1, 
+      "description": "Orange data table where columns are genes and rows are measurements. The class attribute indicates whether the measurement belongs to the control or the treatment group."
+    }
+  }, 
+  {
+    "pk": 166, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 144, 
+      "name": "Fold change", 
+      "short_name": "fc", 
+      "variable": "fold_change", 
+      "uid": "9d0b23d8-4493-4f61-842a-78356402fd54", 
+      "order": 2, 
+      "description": "sorted list of pairs (gene, fold change)"
+    }
+  }, 
+  {
+    "pk": 93, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 16, 
       "treeview_image": "", 
       "name": "Resolve gene synonyms", 
       "is_streaming": false, 
@@ -776,6 +1043,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "segmine_resolve_gene_synonyms", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -786,10 +1054,10 @@
     }
   }, 
   {
-    "pk": 251, 
+    "pk": 190, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 116, 
+      "widget": 93, 
       "name": "gene ranks", 
       "short_name": "rnk", 
       "uid": "ba3dc8e2-4948-4450-a456-30a611cf2283", 
@@ -804,10 +1072,10 @@
     }
   }, 
   {
-    "pk": 136, 
+    "pk": 111, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 116, 
+      "widget": 93, 
       "name": "gene ranks", 
       "short_name": "rnk", 
       "variable": "gene_ranks", 
@@ -817,10 +1085,10 @@
     }
   }, 
   {
-    "pk": 126, 
+    "pk": 94, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
       "treeview_image": "", 
       "name": "SEGS", 
       "is_streaming": false, 
@@ -832,6 +1100,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "segmine_segs", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -842,10 +1111,10 @@
     }
   }, 
   {
-    "pk": 297, 
+    "pk": 191, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Input data", 
       "short_name": "rnk", 
       "uid": "d8f1ceef-1bdb-4422-ac4b-34c84298fc15", 
@@ -860,10 +1129,10 @@
     }
   }, 
   {
-    "pk": 313, 
+    "pk": 192, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Service wsdl location", 
       "short_name": "loc", 
       "uid": "7a0ba606-a0de-4616-a8bc-600e03219fb7", 
@@ -878,10 +1147,10 @@
     }
   }, 
   {
-    "pk": 309, 
+    "pk": 193, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "GSEA test weight", 
       "short_name": "wgs", 
       "uid": "c1b246b4-7b00-4447-9e05-166fb84a7854", 
@@ -896,10 +1165,10 @@
     }
   }, 
   {
-    "pk": 310, 
+    "pk": 194, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "PAGE test weight", 
       "short_name": "wpa", 
       "uid": "f9a9b5d6-f6d6-4d53-abac-bd67d12bb939", 
@@ -914,10 +1183,10 @@
     }
   }, 
   {
-    "pk": 308, 
+    "pk": 195, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Fisher test weight", 
       "short_name": "wfi", 
       "uid": "0ecfe685-2bed-4110-821a-51c465099094", 
@@ -932,10 +1201,10 @@
     }
   }, 
   {
-    "pk": 298, 
+    "pk": 196, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Use molecular functions ontology", 
       "short_name": "mol", 
       "uid": "f0349a66-56c0-4de6-985f-b9d2ed6b0232", 
@@ -950,10 +1219,10 @@
     }
   }, 
   {
-    "pk": 311, 
+    "pk": 197, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Summarize descriptions", 
       "short_name": "sde", 
       "uid": "28ee1f37-9ed8-4f95-bb9b-4f1b0791c207", 
@@ -968,10 +1237,10 @@
     }
   }, 
   {
-    "pk": 299, 
+    "pk": 198, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Use biological processes ontology", 
       "short_name": "bio", 
       "uid": "e276f6f7-a532-4cba-b9d6-7ffc0e5b12dc", 
@@ -986,10 +1255,10 @@
     }
   }, 
   {
-    "pk": 312, 
+    "pk": 199, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Random seed", 
       "short_name": "rnd", 
       "uid": "41a2859a-2a69-4233-999c-a4639b6493a0", 
@@ -1004,10 +1273,10 @@
     }
   }, 
   {
-    "pk": 300, 
+    "pk": 200, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Use cellular components ontology", 
       "short_name": "cel", 
       "uid": "bf731c43-4c16-4665-ab52-1a43cd07db6e", 
@@ -1022,10 +1291,10 @@
     }
   }, 
   {
-    "pk": 306, 
+    "pk": 201, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Max reported rules", 
       "short_name": "mrr", 
       "uid": "549e0f34-14e9-4012-9824-3f610a8531b3", 
@@ -1040,10 +1309,10 @@
     }
   }, 
   {
-    "pk": 301, 
+    "pk": 202, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Use KEGG ontology", 
       "short_name": "keg", 
       "uid": "7df06a95-70ca-4b7f-ab73-3deabc4e3462", 
@@ -1058,10 +1327,10 @@
     }
   }, 
   {
-    "pk": 307, 
+    "pk": 203, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "maximalPvalue", 
       "short_name": "mxp", 
       "uid": "964f5419-a0c0-4324-acd1-43320b32c638", 
@@ -1076,10 +1345,10 @@
     }
   }, 
   {
-    "pk": 304, 
+    "pk": 204, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Minimal set size", 
       "short_name": "mss", 
       "uid": "1e1141ab-efd0-47e8-9f61-39a824f79c83", 
@@ -1094,10 +1363,10 @@
     }
   }, 
   {
-    "pk": 305, 
+    "pk": 205, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Maximum number of terms", 
       "short_name": "mnt", 
       "uid": "33884ed9-1237-4d28-87fb-27f3e7970fc6", 
@@ -1112,10 +1381,10 @@
     }
   }, 
   {
-    "pk": 302, 
+    "pk": 206, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Number of interacting terms", 
       "short_name": "int", 
       "uid": "1dec0a3f-81e8-49ae-b076-ba236147ccb1", 
@@ -1130,10 +1399,10 @@
     }
   }, 
   {
-    "pk": 303, 
+    "pk": 207, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Cutoff", 
       "short_name": "cut", 
       "uid": "825de055-cd10-41ec-8da8-e0ac6b77a599", 
@@ -1148,10 +1417,10 @@
     }
   }, 
   {
-    "pk": 154, 
+    "pk": 112, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Best rules according to fisher", 
       "short_name": "fis", 
       "variable": "rules_fisher", 
@@ -1161,10 +1430,10 @@
     }
   }, 
   {
-    "pk": 155, 
+    "pk": 113, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Best rules according to PAGE", 
       "short_name": "pag", 
       "variable": "rules_PAGE", 
@@ -1174,10 +1443,10 @@
     }
   }, 
   {
-    "pk": 156, 
+    "pk": 114, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Best rules according to GSEA", 
       "short_name": "gse", 
       "variable": "rules_GSEA", 
@@ -1187,10 +1456,10 @@
     }
   }, 
   {
-    "pk": 157, 
+    "pk": 115, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 126, 
+      "widget": 94, 
       "name": "Best rules with combined metrics", 
       "short_name": "com", 
       "variable": "rules_combined", 
@@ -1200,10 +1469,10 @@
     }
   }, 
   {
-    "pk": 128, 
+    "pk": 95, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
       "treeview_image": "", 
       "name": "SEGS Rule browser", 
       "is_streaming": false, 
@@ -1215,6 +1484,7 @@
       "post_interact_action": "segmine_rule_browser_finished", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "segmine_rule_browser", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1225,10 +1495,10 @@
     }
   }, 
   {
-    "pk": 315, 
+    "pk": 208, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 128, 
+      "widget": 95, 
       "name": "SEGS set of rules", 
       "short_name": "rls", 
       "uid": "1e4ce1f5-f8f1-4f50-8ebf-5d230909e968", 
@@ -1243,10 +1513,10 @@
     }
   }, 
   {
-    "pk": 158, 
+    "pk": 116, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 128, 
+      "widget": 95, 
       "name": "List of nodes", 
       "short_name": "nds", 
       "variable": "node_list", 
@@ -1256,10 +1526,10 @@
     }
   }, 
   {
-    "pk": 117, 
+    "pk": 96, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 21, 
+      "category": 16, 
       "treeview_image": "", 
       "name": "T-test gene filter", 
       "is_streaming": false, 
@@ -1271,6 +1541,7 @@
       "post_interact_action": "segmine_ttest_gene_filter_finished", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "segmine_ttest_gene_filter", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1281,10 +1552,10 @@
     }
   }, 
   {
-    "pk": 252, 
+    "pk": 209, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 117, 
+      "widget": 96, 
       "name": "Orange dataset", 
       "short_name": "odt", 
       "uid": "bdf0c245-91ed-4177-a2e0-2eb7fa78003a", 
@@ -1299,10 +1570,10 @@
     }
   }, 
   {
-    "pk": 137, 
+    "pk": 117, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 117, 
+      "widget": 96, 
       "name": "Orange dataset", 
       "short_name": "odt", 
       "variable": "dataset", 
