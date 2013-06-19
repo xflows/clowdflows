@@ -84,35 +84,105 @@ def streaming_collect_and_display_visualization(request,widget,stream):
         'stream':stream,'paged':tweets})
 
 def streaming_sentiment_graph(request,widget,stream):
-    tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
-    data = [x.value for x in tweet_data]
-    aggregated_data = {}
-    positive = {}
-    negative = {}
-    difference = {}
-    for tweet in data:
-        if aggregated_data.has_key(tweet['created_at'].date()):
-            aggregated_data[tweet['created_at'].date()] = (tweet['created_at'].date(),aggregated_data[tweet['created_at'].date()][1]+1)
-        else:
-            positive[tweet['created_at'].date()] = (tweet['created_at'].date(),0)
-            negative[tweet['created_at'].date()] = (tweet['created_at'].date(),0)
-            difference[tweet['created_at'].date()] = (tweet['created_at'].date(),0)
-            aggregated_data[tweet['created_at'].date()] = (tweet['created_at'].date(),1)
-        if tweet['reliability'] != -1.0:
-            if tweet['sentiment'] == "Positive":
-                positive[tweet['created_at'].date()] = (tweet['created_at'].date(),positive[tweet['created_at'].date()][1]+1)
-                difference[tweet['created_at'].date()] = (tweet['created_at'].date(),difference[tweet['created_at'].date()][1]+1)
-            if tweet['sentiment'] == "Negative":
-                negative[tweet['created_at'].date()] = (tweet['created_at'].date(),negative[tweet['created_at'].date()][1]+1)
-                difference[tweet['created_at'].date()] = (tweet['created_at'].date(),difference[tweet['created_at'].date()][1]-1)
-    volumes = aggregated_data.values()
-    volumes.sort()
-    positive = positive.values()
-    positive.sort()
-    negative = negative.values()
-    negative.sort()
-    difference = difference.values()
-    difference.sort()
+    zoomlevel = "day"
+    if request.GET.has_key('zoomlevel'):
+        zoomlevel = request.GET.get('zoomlevel')
+    if zoomlevel == "day":
+        tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
+        data = [x.value for x in tweet_data]
+        aggregated_data = {}
+        positive = {}
+        negative = {}
+        difference = {}
+        for tweet in data:
+            if aggregated_data.has_key(tweet['created_at'].date()):
+                aggregated_data[tweet['created_at'].date()] = (tweet['created_at'].date(),aggregated_data[tweet['created_at'].date()][1]+1)
+            else:
+                positive[tweet['created_at'].date()] = (tweet['created_at'].date(),0)
+                negative[tweet['created_at'].date()] = (tweet['created_at'].date(),0)
+                difference[tweet['created_at'].date()] = (tweet['created_at'].date(),0)
+                aggregated_data[tweet['created_at'].date()] = (tweet['created_at'].date(),1)
+            if tweet['reliability'] != -1.0:
+                if tweet['sentiment'] == "Positive":
+                    positive[tweet['created_at'].date()] = (tweet['created_at'].date(),positive[tweet['created_at'].date()][1]+1)
+                    difference[tweet['created_at'].date()] = (tweet['created_at'].date(),difference[tweet['created_at'].date()][1]+1)
+                if tweet['sentiment'] == "Negative":
+                    negative[tweet['created_at'].date()] = (tweet['created_at'].date(),negative[tweet['created_at'].date()][1]+1)
+                    difference[tweet['created_at'].date()] = (tweet['created_at'].date(),difference[tweet['created_at'].date()][1]-1)
+        volumes = aggregated_data.values()
+        volumes.sort()
+        positive = positive.values()
+        positive.sort()
+        negative = negative.values()
+        negative.sort()
+        difference = difference.values()
+        difference.sort()
+    if zoomlevel == "hour":
+        import datetime
+        tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
+        data = [x.value for x in tweet_data]
+        aggregated_data = {}
+        positive = {}
+        negative = {}
+        difference = {}
+        for tweet in data:
+            d = tweet['created_at']
+
+            if aggregated_data.has_key(datetime.datetime(d.year,d.month,d.day,d.hour)):
+                aggregated_data[datetime.datetime(d.year,d.month,d.day,d.hour)] = (datetime.datetime(d.year,d.month,d.day,d.hour),aggregated_data[datetime.datetime(d.year,d.month,d.day,d.hour)][1]+1)
+            else:
+                positive[datetime.datetime(d.year,d.month,d.day,d.hour)] = (datetime.datetime(d.year,d.month,d.day,d.hour),0)
+                negative[datetime.datetime(d.year,d.month,d.day,d.hour)] = (datetime.datetime(d.year,d.month,d.day,d.hour),0)
+                difference[datetime.datetime(d.year,d.month,d.day,d.hour)] = (datetime.datetime(d.year,d.month,d.day,d.hour),0)
+                aggregated_data[datetime.datetime(d.year,d.month,d.day,d.hour)] = (datetime.datetime(d.year,d.month,d.day,d.hour),1)
+            if tweet['reliability'] != -1.0:
+                if tweet['sentiment'] == "Positive":
+                    positive[datetime.datetime(d.year,d.month,d.day,d.hour)] = (datetime.datetime(d.year,d.month,d.day,d.hour),positive[datetime.datetime(d.year,d.month,d.day,d.hour)][1]+1)
+                    difference[datetime.datetime(d.year,d.month,d.day,d.hour)] = (datetime.datetime(d.year,d.month,d.day,d.hour),difference[datetime.datetime(d.year,d.month,d.day,d.hour)][1]+1)
+                if tweet['sentiment'] == "Negative":
+                    negative[datetime.datetime(d.year,d.month,d.day,d.hour)] = (datetime.datetime(d.year,d.month,d.day,d.hour),negative[datetime.datetime(d.year,d.month,d.day,d.hour)][1]+1)
+                    difference[datetime.datetime(d.year,d.month,d.day,d.hour)] = (datetime.datetime(d.year,d.month,d.day,d.hour),difference[datetime.datetime(d.year,d.month,d.day,d.hour)][1]-1)
+        volumes = aggregated_data.values()
+        volumes.sort()
+        positive = positive.values()
+        positive.sort()
+        negative = negative.values()
+        negative.sort()
+        difference = difference.values()
+        difference.sort()
+    if zoomlevel == "minute":
+        import datetime
+        tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
+        data = [x.value for x in tweet_data]
+        aggregated_data = {}
+        positive = {}
+        negative = {}
+        difference = {}
+        for tweet in data:
+            d = tweet['created_at']
+
+            if aggregated_data.has_key(datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)):
+                aggregated_data[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)] = (datetime.datetime(d.year,d.month,d.day,d.hour,d.minute),aggregated_data[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)][1]+1)
+            else:
+                positive[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)] = (datetime.datetime(d.year,d.month,d.day,d.hour,d.minute),0)
+                negative[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)] = (datetime.datetime(d.year,d.month,d.day,d.hour,d.minute),0)
+                difference[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)] = (datetime.datetime(d.year,d.month,d.day,d.hour,d.minute),0)
+                aggregated_data[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)] = (datetime.datetime(d.year,d.month,d.day,d.hour,d.minute),1)
+            if tweet['reliability'] != -1.0:
+                if tweet['sentiment'] == "Positive":
+                    positive[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)] = (datetime.datetime(d.year,d.month,d.day,d.hour,d.minute),positive[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)][1]+1)
+                    difference[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)] = (datetime.datetime(d.year,d.month,d.day,d.hour,d.minute),difference[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)][1]+1)
+                if tweet['sentiment'] == "Negative":
+                    negative[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)] = (datetime.datetime(d.year,d.month,d.day,d.hour,d.minute),negative[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)][1]+1)
+                    difference[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)] = (datetime.datetime(d.year,d.month,d.day,d.hour,d.minute),difference[datetime.datetime(d.year,d.month,d.day,d.hour,d.minute)][1]-1)
+        volumes = aggregated_data.values()
+        volumes.sort()
+        positive = positive.values()
+        positive.sort()
+        negative = negative.values()
+        negative.sort()
+        difference = difference.values()
+        difference.sort()
     return render(request, 'streaming_vizualizations/streaming/sentiment_graph.html',
         {'widget':widget,
         'stream':stream,
@@ -121,4 +191,5 @@ def streaming_sentiment_graph(request,widget,stream):
         'positive':positive,
         'negative':negative,
         'difference':difference,
+        'zoomlevel':zoomlevel,
         })

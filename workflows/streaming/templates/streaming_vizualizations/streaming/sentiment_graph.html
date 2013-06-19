@@ -4,13 +4,27 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
+<div class="nav">
+    </div>
+
 <div id="sentiment-graph" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+        <li {% if zoomlevel == "day" %}class="active"{% endif %}><a href="?zoomlevel=day">aggregate by day</a></li>
+        <li {% if zoomlevel == "hour" %}class="active"{% endif %}><a href="?zoomlevel=hour">aggregate by hour</a></li>
+        <li {% if zoomlevel == "minute" %}class="active"{% endif %}><a class="active" href="?zoomlevel=minute">aggregate by minute</a></li>
+    </ul>
+  </div>
+</div>
 
 <script>
 $(function () {
         $('#sentiment-graph').highcharts({
             chart: {
-                type: 'areaspline'
+                type: 'areaspline',
+                zoomType: 'x',
             },
             title: {
                 text: '{{stream.workflow}}'
@@ -34,7 +48,7 @@ $(function () {
             tooltip: {
                 formatter: function() {
                         return '<b>'+ this.series.name +'</b><br/>'+
-                        Highcharts.dateFormat('%e. %b', this.x) +': '+ this.y +' tweets';
+                        Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +': '+ this.y +' tweets';
                 }
             },
 
@@ -43,7 +57,7 @@ $(function () {
                 type: 'spline',
                 data: [
                     {% for tweet in volumes %}
-                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}), {{tweet.1}}   ],
+                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}{% if zoomlevel == "hour" %}, {{tweet.0|date:"H"}},0{% endif %}{% if zoomlevel == "minute" %}, {{tweet.0|date:"H"}}, {{tweet.0|date:"i"}}{% endif %}), {{tweet.1}}   ],
                     {% endfor %}
                 ]
             },{
@@ -51,7 +65,7 @@ $(function () {
                 color: '#12aa12',
                 data: [
                     {% for tweet in positive %}
-                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}), {{tweet.1}}   ],
+                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}{% if zoomlevel == "hour" %}, {{tweet.0|date:"H"}},0{% endif %}{% if zoomlevel == "minute" %}, {{tweet.0|date:"H"}}, {{tweet.0|date:"i"}}{% endif %}), {{tweet.1}}   ],
                     {% endfor %}
                 ]
             },{
@@ -59,7 +73,7 @@ $(function () {
                 color: '#aa1212',
                 data: [
                     {% for tweet in negative %}
-                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}), -{{tweet.1}}   ],
+                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}{% if zoomlevel == "hour" %}, {{tweet.0|date:"H"}},0{% endif %}{% if zoomlevel == "minute" %}, {{tweet.0|date:"H"}}, {{tweet.0|date:"i"}}{% endif %}), -{{tweet.1}}   ],
                     {% endfor %}
                 ]
             },{
@@ -67,7 +81,7 @@ $(function () {
                 type: 'spline',
                 data: [
                     {% for tweet in difference %}
-                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}), {{tweet.1}}   ],
+                    [Date.UTC({{tweet.0|date:"Y"}},  {{tweet.0|date:"n"|add:"-1"}},  {{tweet.0|date:"j"}}{% if zoomlevel == "hour" %}, {{tweet.0|date:"H"}},0{% endif %}{% if zoomlevel == "minute" %}, {{tweet.0|date:"H"}}, {{tweet.0|date:"i"}}{% endif %}), {{tweet.1}}   ],
                     {% endfor %}
                 ]
             }]
