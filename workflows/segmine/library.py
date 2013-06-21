@@ -495,3 +495,149 @@ def segmine_read_microarray_data(input_dict):
     return {'table': table, 'fold_change': sortedLogFCs}
 #end
 
+
+# this function creates a table from SEGS rules where columns are terms
+def __make_rule_term_example_table(tableDict, allTerms):
+    import orange
+    import constants as const
+
+    attrList = [orange.EnumVariable(name=str(term), values=[const.PRESENT, const.ABSENT]) for term in allTerms]
+
+    # three meta attributes
+    ruleName = orange.StringVariable(const.NAME_ATTR)
+    mid = orange.newmetaid()
+    ruleTerms = orange.StringVariable(const.TERMS_ATTR)
+    mid1 = orange.newmetaid()
+    #ruleNumber = orange.EnumVariable(SEQ_NUM_ATTR) #StringVariable(SEQ_NUM_ATTR)
+    ruleNumber = orange.FloatVariable(const.SEQ_NUM_ATTR, startValue=1, endValue=len(tableDict), stepValue=1, numberOfDecimals=0)
+    mid2 = orange.newmetaid()
+
+
+    # this is a classless domain
+    domain = orange.Domain(attrList, False)
+
+    # name of the rule is a meta attribute
+    domain.addmeta(mid, ruleName, False)
+    domain.addmeta(mid1, ruleTerms, False)
+    domain.addmeta(mid2, ruleNumber, False)
+
+    table = orange.ExampleTable(domain)
+
+    for k in sorted(tableDict.keys()):
+        exampleValues = []
+        for (i,term) in enumerate(allTerms):
+            if term in tableDict[k][const.RULETERMS_KEY]:
+                #exampleValues.append(PRESENT)
+                exampleValues.append(orange.Value(attrList[i], const.PRESENT))
+            else:
+                #exampleValues.append(ABSENT)
+                exampleValues.append(orange.Value(attrList[i], const.ABSENT))
+        example = orange.Example(domain, exampleValues)
+        #example[NAME_ATTR] = tableDict[k][RULENAME_KEY][1:-1]    #skip square brackets from the string
+        #example[TERMS_ATTR] = tableDict[k][RULETERMS_STR_KEY][1:-1]
+        #example[SEQ_NUM_ATTR] = k
+
+        example[const.NAME_ATTR] = orange.Value(ruleName, tableDict[k][const.RULENAME_KEY][1:-1])    #skip square brackets from the string
+        example[const.TERMS_ATTR] = orange.Value(ruleTerms, tableDict[k][const.RULETERMS_STR_KEY][1:-1])
+        example[const.SEQ_NUM_ATTR] = orange.Value(ruleNumber, k)
+
+        table.append(example)
+    #end
+    return table
+#end
+
+
+
+# this function creates a table from SEGS rules where columns are genes
+def __make_rule_gene_example_table(tableDict, genes):
+    import orange
+    import constants as const
+    # attributes are rules (all conjuncts of a rule form the name of the attribute)
+    #attrList = [orange.EnumVariable(name=ruleString[1:-1].replace(' ', '_'), values=[PRESENT, ABSENT])
+    #            for ruleString in tableDict.keys()]
+
+    attrList = [orange.EnumVariable(name=str(gene), values=[const.PRESENT, const.ABSENT]) for gene in genes]
+
+    # three meta attributes
+    ruleName = orange.StringVariable(const.NAME_ATTR)
+    mid = orange.newmetaid()
+    ruleTerms = orange.StringVariable(const.TERMS_ATTR)
+    mid1 = orange.newmetaid()
+    #ruleNumber = orange.EnumVariable(SEQ_NUM_ATTR) #StringVariable(SEQ_NUM_ATTR)
+    ruleNumber = orange.FloatVariable(const.SEQ_NUM_ATTR, startValue=1, endValue=len(tableDict), stepValue=1, numberOfDecimals=0)
+    mid2 = orange.newmetaid()
+
+
+    # this is a classless domain
+    domain = orange.Domain(attrList, False)
+
+    # name of the rule is a meta attribute
+    domain.addmeta(mid, ruleName, False)
+    domain.addmeta(mid1, ruleTerms, False)
+    domain.addmeta(mid2, ruleNumber, False)
+
+    table = orange.ExampleTable(domain)
+
+    for k in sorted(tableDict.keys()):
+        exampleValues = []
+        for (i,gene) in enumerate(genes):
+            #if gene in tableDict[k][GENES_KEY]:
+            if gene in tableDict[k][const.TOP_GENES_KEY]:
+                #exampleValues.append(PRESENT)
+                exampleValues.append(orange.Value(attrList[i], const.PRESENT))
+            else:
+                exampleValues.append(orange.Value(attrList[i], const.ABSENT))
+                #exampleValues.append(ABSENT)
+        example = orange.Example(domain, exampleValues)
+        example[const.NAME_ATTR] = tableDict[k][const.RULENAME_KEY][1:-1]    #skip square brackets from the string
+        example[const.TERMS_ATTR] = tableDict[k][const.RULETERMS_STR_KEY][1:-1]
+        example[const.SEQ_NUM_ATTR] = k
+
+        example[const.NAME_ATTR] = orange.Value(ruleName, tableDict[k][const.RULENAME_KEY][1:-1])    #skip square brackets from the string
+        example[const.TERMS_ATTR] = orange.Value(ruleTerms, tableDict[k][const.RULETERMS_STR_KEY][1:-1])
+        example[const.SEQ_NUM_ATTR] = orange.Value(ruleNumber, k)
+
+        table.append(example)
+    #end
+    return table
+#end
+
+
+def segmine_rules_as_table(input_dict):
+    import constants as const
+
+    rules = input_dict['rules']
+    tableDict = {}
+    allGenes = set()
+    allGenesDE = set()
+    allTerms = set()
+
+    for (i, rule) in enumerate(rules):
+        TERMids = [x[const.TERMID_KEY] for x in rule[const.DESCRIPTION_KEY][const.RULETERMS_STR_KEY]]
+        TERMnames = [x[const.TERMNAME_KEY] for x in rule[const.DESCRIPTION_KEY][const.RULETERMS_STR_KEY]]
+        INTids = []
+        INTnames = []
+        if const.INTTERMS_KEY in rule[const.DESCRIPTION_KEY]:
+            INTids = [x[const.TERMID_KEY] for x in rule[const.DESCRIPTION_KEY][const.INTTERMS_KEY]]
+            INTnames = [x[const.TERMNAME_KEY] for x in rule[const.DESCRIPTION_KEY][const.INTTERMS_KEY]]
+
+        ruleTerms = TERMids + INTids
+        ruleTermNames = TERMnames + INTnames
+        ruleGenes = rule[const.COVGENES_KEY]
+        ruleGenesDE = rule[const.COVTOPGENES_KEY]
+
+        tableDict[i] = {}
+        tableDict[i][const.GENES_KEY] = dict.fromkeys(ruleGenes)
+        tableDict[i][const.TOP_GENES_KEY] = dict.fromkeys(ruleGenesDE)
+        tableDict[i][const.RULENAME_KEY] = str(ruleTermNames)
+        tableDict[i][const.RULETERMS_STR_KEY] = str(ruleTerms)
+        tableDict[i][const.RULETERMS_KEY] = ruleTerms
+        allGenes.update(ruleGenes)
+        allGenesDE.update(ruleGenesDE)
+        allTerms.update(ruleTerms)
+    #endfor
+
+    geneTable = __make_rule_gene_example_table(tableDict, sorted(list(allGenesDE)))
+    termTable = __make_rule_term_example_table(tableDict, sorted(list(allTerms)))
+    return {'gene_table': geneTable, 'term_table': termTable}
+#end
