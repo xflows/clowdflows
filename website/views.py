@@ -9,6 +9,8 @@ from django.contrib.auth import authenticate, login, logout
 
 from workflows.models import Workflow, Connection
 
+from streams.models import Stream
+
 #settings
 from mothra.settings import DEBUG, PROJECT_FOLDER
 
@@ -19,7 +21,45 @@ import os
 
 def index(request):
     return render(request, 'website/index.html')
-    
+
+def reset_stream(request,stream_id):
+    s = get_object_or_404(Stream, pk=stream_id)
+    if s.user != request.user:
+        raise Http404
+    s.reset()
+    s.save()
+    return redirect(s.get_absolute_url())
+
+def deactivate_stream(request,stream_id):
+    s = get_object_or_404(Stream, pk=stream_id)
+    if s.user != request.user:
+        raise Http404
+    s.active = False
+    s.save()
+    return redirect(s.get_absolute_url())
+
+def activate_stream(request,stream_id):
+    s = get_object_or_404(Stream, pk=stream_id)
+    if s.user != request.user:
+        raise Http404
+    s.active = True
+    s.save()
+    return redirect(s.get_absolute_url())
+
+def start_stream(request,workflow_id):
+    w = get_object_or_404(Workflow, pk=workflow_id)
+    if w.user != request.user:
+        raise Http404
+    s = Stream(workflow=w,user=request.user,active=True)
+    s.save()
+    return redirect(s.get_absolute_url())
+
+def stream(request,stream_id):
+    stream = get_object_or_404(Stream,pk=stream_id)
+    if stream.workflow.user != request.user:
+        raise Http404
+    return render(request, 'website/stream.html', {'stream':stream})
+
 def workflow_information(request,workflow_id):
     w = Workflow.objects.get(pk=workflow_id)
     if not w.public:
@@ -70,7 +110,27 @@ def workflow_information(request,workflow_id):
         conn['y2'] = normalized_values[pair[1]][1]+15
         w.unique_connections.append(conn)
     return render(request, 'website/existing.html', {'workflows':[w,]})
-    
+
+@login_required
+def your_workflows(request):
+    return render(request, 'website/yourworkflows.html', {'workflows':request.user.workflows.filter(widget=None)})
+
+@login_required
+def make_public(request,workflow_id):
+    workflow = get_object_or_404(Workflow,pk=workflow_id)
+    if request.user == workflow.user:
+        workflow.public = True
+        workflow.save()
+    return redirect('your workflows')
+
+@login_required
+def make_private(request,workflow_id):
+    workflow = get_object_or_404(Workflow,pk=workflow_id)
+    if request.user == workflow.user:
+        workflow.public = False
+        workflow.save()
+    return redirect('your workflows')
+
 def workflows(request):
     wflows = Workflow.objects.filter(public=True)
     min_x = 10000

@@ -4,7 +4,7 @@ from fabric.colors import *
 from fabric.utils import puts, abort
 
 env.use_ssh_config = True
-apps_to_migrate = ('workflows',)
+apps_to_migrate = ('workflows','streams',)
 
 def live():
     """ doloci live server kot aktivni """
@@ -33,12 +33,24 @@ def deploy():
 
             puts(yellow("[Collecting static files]"))
             run("python manage.py collectstatic --noinput")
-            
+
             puts(yellow("[Auto importing packages]"))
             run("python manage.py auto_import_packages")
 
+        with cd('/srv/django-projects/supervisor'):
+            puts(yellow("[Restarting the run streams daemon"))
+            run('supervisorctl restart runstreams')
+
             #puts(yellow("[Compressing]"))
             #run('python manage.py compress')
+
+def supervisorstat():
+    "supervisor statistika na serverju"
+    with prefix('source /srv/django-envs/mothra/bin/activate'):
+        with cd('/srv/django-projects/supervisor'):
+            run('tail /srv/django-logs/runstreams.stdout.log')
+            run('supervisorctl status')
+
 
 def apache_restart():
     """restarta apache service

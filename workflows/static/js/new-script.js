@@ -1,3 +1,20 @@
+function getCurrentTimeAsString() {
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+
+    if (minutes < 10)
+    { minutes = "0" + minutes; }
+
+    if (seconds < 10)
+        { seconds = "0" + seconds; }
+
+    return hours + ":" +minutes+":"+seconds;
+
+}
+
+
 function reportError(errorMessage) {
 	$("#status").find(".infotext").html(errorMessage);
 	$("#status").find(".ui-icon").addClass("ui-icon-alert");
@@ -6,6 +23,10 @@ function reportError(errorMessage) {
 	$("#status").removeClass("ui-state-highlight");
 	$("#status").addClass("ui-state-error");
     $(".ajax-loader").hide();
+    logging_val = $("#logging textarea").val();
+    logging_val += "\n"+"<"+getCurrentTimeAsString()+"> "+errorMessage;
+    $("#logging textarea").val(logging_val);
+    $("#logging textarea").scrollTop($("#logging textarea")[0].scrollHeight);
 }
 function reportOk(statusMessage) {
 	$("#status").find(".infotext").html(statusMessage);
@@ -15,6 +36,10 @@ function reportOk(statusMessage) {
 	$("#status").addClass("ui-state-highlight");
 	$("#status").removeClass("ui-state-error");
     $(".ajax-loader").hide();
+    logging_val = $("#logging textarea").val();
+    logging_val += "\n"+"<"+getCurrentTimeAsString()+"> "+statusMessage;
+    $("#logging textarea").val(logging_val);
+    $("#logging textarea").scrollTop($("#logging textarea")[0].scrollHeight);
 }
 function reportStatus(statusMessage) {
 	$("#status").find(".infotext").html(statusMessage);
@@ -24,6 +49,10 @@ function reportStatus(statusMessage) {
 	$("#status").addClass("ui-state-highlight");
 	$("#status").removeClass("ui-state-error");
     $(".ajax-loader").hide();
+    logging_val = $("#logging textarea").val();
+    logging_val += "\n"+"<"+getCurrentTimeAsString()+"> "+statusMessage;
+    $("#logging textarea").val(logging_val);
+    $("#logging textarea").scrollTop($("#logging textarea")[0].scrollHeight);
 }
 
 activeCanvas = -1;
@@ -39,10 +68,10 @@ executed = {};
 function Connection(output,input) {
 	this.output = output;
 	this.input = input;
-    
+
     this.inputWidget = $("#input"+input).parent().parent().attr('rel');
     this.outputWidget = $("#output"+output).parent().parent().attr('rel');
-    
+
 }
 
 $(document).ajaxError(function(e, jqxhr, settings, exception) {
@@ -51,8 +80,8 @@ $(document).ajaxError(function(e, jqxhr, settings, exception) {
         reportStatus("A widget is taking more than 15 minutes to run. Don't worry, it still works, but when it finishes you'll have to run the rest of the widgets manually or run the rest of the workflow again. We're soon fixing this bug, don't worry.");
     } else {
 
-    reportError("Django error. Check console!");
-    
+    reportError("An unexpected error has occured (possibly while executing a widget). We're sorry for this. A much nicer error message will be available soon! (The ClowdFlows team has been notified of this error)");
+
     }
 
 });
@@ -97,12 +126,12 @@ $(document).ajaxSend(function(event, xhr, settings) {
 function synchronize(workflow_id) {
     $.post(url['synchronize-widgets'], {'workflow_id':workflow_id}, function(data) {
         $("#canvas"+workflow_id).append(data);
-        
+
         updateWidgetListeners();
         resizeWidgets();
-        
+
         $.post(url['synchronize-connections'], {'workflow_id':workflow_id}, function(data) {
-            var connectionsArray = new Array();       
+            var connectionsArray = new Array();
              for (object in data) {
                 if (data[object].model=="workflows.connection") {
                     connectionsArray.push(data[object]);
@@ -111,12 +140,12 @@ function synchronize(workflow_id) {
             for (c in connectionsArray) {
                 connections[connectionsArray[c].pk] = new Connection(connectionsArray[c].fields.output,connectionsArray[c].fields.input);
             }
-            
+
             redrawLines();
-            
-            setTimeout("redrawLines()",500);            
+
+            setTimeout("redrawLines()",500);
         },'json')
-    
+
     }
     ,'html')
 }
@@ -135,7 +164,7 @@ function recursiveDelete(widget) {
             recursiveDelete($(this));
         }
     });
-    
+
     $("#canvas"+workflow_link).remove();
     var i = 0;
     $("div#tabs ul li").each(function() {
@@ -144,13 +173,13 @@ function recursiveDelete(widget) {
         }
         i++;
     });
-    
+
     for (c in connections) {
         if ($("#drawingcanvas"+c).size()==0) {
             delete connections[c];
         }
     }
-    
+
 }
 
 function deleteSelected() {
@@ -178,8 +207,8 @@ function deleteSelected() {
                     delete connections[conId];
                 }
             }
-            refreshWidget(outer_widget_id,outer_widget_workflow_id);         
-            
+            refreshWidget(outer_widget_id,outer_widget_workflow_id);
+
         });
         $("#widget"+newSelected).find(".out_output").each(function() {
             var currentId = $(this).attr('id');
@@ -188,19 +217,19 @@ function deleteSelected() {
             var deletedOutputId = deletedOutput.attr('id');
             deletedOutputId = deletedOutputId.replace("output","");
             deletedOutput.remove();
-            
+
             for (conId in connections) {
                 if (connections[conId].output==deletedOutputId) {
                     delete connections[conId];
                 }
             }
-            
+
             var outer_widget_id = $("#widget"+newSelected).find(".outer-widget-link").attr('rel');
             var outer_widget_workflow_id = $("#widget"+newSelected).find(".outer-widget-workflow").attr('rel');
-            
-            
+
+
             refreshWidget(outer_widget_id,outer_widget_workflow_id);
-                           
+
         });
 		$("#widget"+newSelected).remove();
         $("#widgetpreferences-"+newSelected).remove();
@@ -212,15 +241,15 @@ function deleteSelected() {
                 delete connections[conId];
             }
         }
-        
+
         for (r in data.refresh) {
             var widget_id = data.refresh[r][0];
             var workflow_id = data.refresh[r][1];
-            
+
             refreshWidget(widget_id,workflow_id);
-                          
+
         }
-        
+
         if (data.delete_tab!=-1) {
             //$("#canvas"+data.delete_tab).remove()
                 $("#canvas"+data.delete_tab).remove();
@@ -232,8 +261,8 @@ function deleteSelected() {
                     i++;
                 });
         }
-        
-        
+
+
         },'json');
 	} else if (selectedConnection!=-1) {
         var newSelected = selectedConnection;
@@ -247,13 +276,13 @@ function deleteSelected() {
             // refresh widget
                 var old_Data = data;
                 refreshWidget(data.refresh,data.refreshworkflow);
-            }  
+            }
         },'json');
 	}
 	//checkRequirements();
 }
 
-/* resizeWidgets() selects all currently active widgets, counts their inputs and outputs and resizes them accordingly, 
+/* resizeWidgets() selects all currently active widgets, counts their inputs and outputs and resizes them accordingly,
 so that graphically they appear longer when there are larger number of inputs/outputs used. Each excess input/output adds 29pixels
 to the height of the widget. The icon representing the widget is then vertically aligned to the middle of the widget */
 function resizeWidgets() {
@@ -269,25 +298,25 @@ function resizeWidgets() {
 			max = image.height()/29;
 		}
 		$(this).find(".widgetcenter").height((max*29)+'px');
-		
+
 		thisWidget = $(this);
-		
-		
+
+
 		image.load(function() {
-		
+
 			if ($(this).height()>max*29) {
 				max = image.height()/29;
 			}
 			thisWidget.find(".widgetcenter").height((max*29)+'px');
-		
+
 			$(this).css('top',((max*29/2)-(image.height()/2))+'px');
-			
+
 			thisWidget.css('width','auto');
-			
+
 			thisWidget.css('width',thisWidget.width());
-	
-		});    
-	
+
+		});
+
 	});
 }
 
@@ -299,7 +328,7 @@ function showResults(widgetId) {
 
     var dialog = $("#widgetresults-"+widgetId);
     var thisWidget = widgetId;
-    
+
     $.post(url['widget-results'], {'widget_id':thisWidget}, function(data) {
         $("#dialogs").append(data);
         updateWidgetListeners();
@@ -315,7 +344,7 @@ function copyWidget(widgetId) {
             updateWidgetListeners();
             resizeWidgets();
         },'html');
-    
+
 }
 
 function showDocumentation(widgetId) {
@@ -325,7 +354,7 @@ function showDocumentation(widgetId) {
 
     var dialog = $("#widgetdocumentation-"+widgetId);
     var thisWidget = widgetId;
-    
+
     $.post(url['documentation'], {'widget_id':thisWidget}, function(data) {
         $("#dialogs").append(data);
         updateWidgetListeners();
@@ -340,7 +369,7 @@ function visualizeWidget(widgetId) {
 
     var dialog = $("#widgetvisualization-"+widgetId);
     var thisWidget = widgetId;
-    
+
     $.post(url['widget-visualization'], {'widget_id':thisWidget}, function(data) {
         $("#dialogs").append(data);
         updateWidgetListeners();
@@ -384,12 +413,12 @@ function runWidget(widgetId) {
         setTimeout("updateProgressBar("+widgetId+")",1000);
     }
     $.post(url['run-widget'], { 'widget_id':widgetId }, function(data) {
- 
+
        if (data.status=="ok") {
         unfinishDescendants(widgetId);
         reportOk(data.message);
        $(".statusimage"+widgetId).hide();
-       $(".done"+widgetId).show();        
+       $(".done"+widgetId).show();
        } else if (data.status=="error") {
         reportError(data.message);
         $(".statusimage"+widgetId).hide();
@@ -489,7 +518,7 @@ function updateProgressBar(widgetId) {
         } else {
             $(".widget"+widgetId+"progress").hide();
         }
-    }); 
+    });
 }
 
 function displayInteraction(widgetId) {
@@ -497,7 +526,7 @@ function displayInteraction(widgetId) {
     $("#widgetinteract-"+widgetId).remove();
 
     var thisWidget = widgetId;
-    
+
     $.post(url['widget-interaction'], {'widget_id':thisWidget}, function(data) {
         $("#dialogs").append(data);
         updateWidgetListeners();
@@ -512,18 +541,18 @@ function runWorkflowWidget(widgetId,workflowId) {
 
         $(".statusimage"+widgetId).hide();
         $(".running"+widgetId).show();
-        
+
         if ($("#widget"+widgetId).hasClass("has_progress_bar")) {
             $(".widget"+widgetId+"progress").show();
             $(".widget"+widgetId+"progressbar").css('width','0px');
             setTimeout("updateProgressBar("+widgetId+")",1000);
-        }        
-        
+        }
+
         $.post(url['run-widget'], { 'widget_id':widgetId }, function(data) {
 
                $(".statusimage"+widgetId).hide();
                $(".done"+widgetId).show();
-           
+
            if (data.status=="ok") {
             reportOk(data.message);
             runWorkflow(workflowId);
@@ -561,7 +590,7 @@ function runWorkflow(workflowId) {
     },'json')
 }
 /* works in a similar way to updateConnectionListeners(), it should be called when a new widget has been drawn on the canvas.
-Each widget may be dragged along the canvas. While the users is dragging the widget the lines are redrawn in real time (unless direct lines are used) 
+Each widget may be dragged along the canvas. While the users is dragging the widget the lines are redrawn in real time (unless direct lines are used)
 Clicking on a widget selects it. Clicking on an input of a widget selects the widget and the input. Clicking on an output of the widget selects the widget and the output.
 When clicking on an input a check is made to determine whether an output is already selected. If yes, a connection is attempted.
 In the same way when clicking on an output a check is made to determine whether an input is already selected. If selected, a connection is attempted.
@@ -600,7 +629,7 @@ function updateWidgetListeners() {
                 });
                 $(this).find("textarea").each(function() {
                         var paramId = $(this).attr('id').replace("pref-","")
-                        var paramVal = $(this).val(); 
+                        var paramVal = $(this).val();
                         $.post(url['save-parameter'], { 'input_id':paramId, 'value':paramVal });
                         changed = true;
                         $(".statusimage"+widgetId).hide();
@@ -610,7 +639,7 @@ function updateWidgetListeners() {
                     var paramVal = $(this).val();
                     $.post(url['save-parameter'], { 'input_id':paramId, 'value':paramVal });
                     changed = true;
-                    $(".statusimage"+widgetId).hide();                    
+                    $(".statusimage"+widgetId).hide();
                 });
                 var widgetId = $(this).attr('id').replace("widgetpreferences-","");
                 if (changed) {
@@ -621,12 +650,12 @@ function updateWidgetListeners() {
             }
             ,
             "Close": function() {
-                $(this).dialog("close"); 
+                $(this).dialog("close");
                 $(this).remove();
             }
         }
     });
-    
+
     $("#dialogs div.widgetconfdialog").dialog({
         autoOpen: false,
         modal: false,
@@ -689,55 +718,55 @@ function updateWidgetListeners() {
             }
         }
     });
-    
+
     $("#dialogs div.widgetrenamedialog").dialog({
     autoOpen: false,
     modal: false,
     resizable: true,
     buttons: {
             "Apply": function() {
-            
+
                 var newName = $(this).find(".widgetnameinput").val()
                 var widgetId = ($(this).attr('rel'));
                 $.post(url['rename-widget'], { 'new_name':newName, 'widget_id':widgetId }, function(data) {
-            
+
                 $("#widgetcaptionspan"+widgetId).html(newName);
-                
+
                 if (data.workflow_link==true) {
                     $("span[rel=#canvas"+data.workflow_link_id+"]").html(newName);
                 }
-                
+
                 for (i in data.rename_inputs) {
-                
+
                     $("#input"+data.rename_inputs[i]).html(newName.substring(0,3));
-                
+
                 }
-                
+
                 for (i in data.rename_outputs) {
                     $("#output"+data.rename_outputs[i]).html(newName.substring(0,3));
                 }
-                
+
                 },'json');
-                $(this).dialog("close"); 
+                $(this).dialog("close");
             }
             ,
             "Close": function() {
-                $(this).dialog("close"); 
+                $(this).dialog("close");
             }
         }
     });
-    
+
     $("#dialogs div.widgetdesignationdialog").dialog({
     autoOpen: true,
     modal: false,
     resizable: true,
     buttons: {
             "Apply": function() {
-            
+
                 var inputDesignation = {};
-            
+
                 $(this).find("input").each(function() {
-                
+
                     if (($(this).attr('type')=="radio")&&($(this).is(":checked"))) {
                         var paramId = $(this).attr('name').replace("inputdesignation-","")
                         var paramVal = $(this).val();
@@ -746,27 +775,27 @@ function updateWidgetListeners() {
                         //changed = true;
                         //$(".statusimage"+widgetId).hide();
                     }
-                    
-                    
 
-                    
+
+
+
                 });
-                
+
                 $.post(url['save-designation'], inputDesignation);
-            
-                $(this).dialog("close"); 
+
+                $(this).dialog("close");
                 $(this).dialog("destroy");
-                $(this).remove(); 
+                $(this).remove();
             }
             ,
             "Close": function() {
-                $(this).dialog("close"); 
+                $(this).dialog("close");
                 $(this).dialog("destroy");
                 $(this).remove();
             }
         }
-    });    
-    
+    });
+
     $("#dialogs div.widgetresultsdialog").dialog({
     autoOpen: false,
     width: 500,
@@ -774,56 +803,26 @@ function updateWidgetListeners() {
     resizable: true,
     buttons: {
             "Close": function() {
-                $(this).dialog("close"); 
+                $(this).dialog("close");
                 $(this).dialog("destroy");
                 $(this).remove();
             }
         }
-    });   
-    
-    $("#dialogs div.widgetvisualizationdialog").each(function() {
-    
-    var thisWidth = 500
-    var thisHeight = 400
-    
-    if (parseInt($(this).attr('width'))>0) {
-        thisWidth = parseInt($(this).attr('width'));
-    }
-    
-    if (parseInt($(this).attr('height'))>0) {
-        thisHeight = parseInt($(this).attr('height'))
-    }
-    
-    $(this).dialog({
-    autoOpen: false,
-    width: thisWidth,
-    height: thisHeight,
-    modal: false,
-    resizable: true,
-    buttons: {
-            "Close": function() {
-                $(this).dialog("close"); 
-                $(this).dialog("destroy");
-                $(this).remove();
-            }
-        }
-    });     
-    
     });
-    
-    $("#dialogs div.widgetdocumentationdialog").each(function() {
-    
+
+    $("#dialogs div.widgetvisualizationdialog").each(function() {
+
     var thisWidth = 500
     var thisHeight = 400
-    
+
     if (parseInt($(this).attr('width'))>0) {
         thisWidth = parseInt($(this).attr('width'));
     }
-    
+
     if (parseInt($(this).attr('height'))>0) {
         thisHeight = parseInt($(this).attr('height'))
     }
-    
+
     $(this).dialog({
     autoOpen: false,
     width: thisWidth,
@@ -832,33 +831,63 @@ function updateWidgetListeners() {
     resizable: true,
     buttons: {
             "Close": function() {
-                $(this).dialog("close"); 
+                $(this).dialog("close");
                 $(this).dialog("destroy");
                 $(this).remove();
             }
         }
-    });     
-    
-    });    
+    });
+
+    });
+
+    $("#dialogs div.widgetdocumentationdialog").each(function() {
+
+    var thisWidth = 500
+    var thisHeight = 400
+
+    if (parseInt($(this).attr('width'))>0) {
+        thisWidth = parseInt($(this).attr('width'));
+    }
+
+    if (parseInt($(this).attr('height'))>0) {
+        thisHeight = parseInt($(this).attr('height'))
+    }
+
+    $(this).dialog({
+    autoOpen: false,
+    width: thisWidth,
+    height: thisHeight,
+    modal: false,
+    resizable: true,
+    buttons: {
+            "Close": function() {
+                $(this).dialog("close");
+                $(this).dialog("destroy");
+                $(this).remove();
+            }
+        }
+    });
+
+    });
 
     $("#dialogs div.widgetinteractdialog").each(function() {
-    
+
     var thisWidth = 500
     var thisHeight = 400
-    
+
     if (parseInt($(this).attr('width'))>0) {
         thisWidth = parseInt($(this).attr('width'));
     }
-    
+
     if (parseInt($(this).attr('height'))>0) {
         thisHeight = parseInt($(this).attr('height'))
-    }    
-    
+    }
+
     $(this).dialog({
     autoOpen: false,
     width: thisWidth,
     height: thisHeight,
-    modal: false,	
+    modal: false,
     resizable: true,
 
     buttons: {
@@ -885,49 +914,49 @@ function updateWidgetListeners() {
                    $(".statusimage"+data.widget_id).hide();
                    $(".done"+data.widget_id).show();
                    }
-                   
+
                    $("#widgetinteract-"+data.widget_id).dialog("destroy");
                    $("#widgetinteract-"+data.widget_id).remove();
-                    
+
                 },'json');
-                
-                $(this).dialog("close"); 
+
+                $(this).dialog("close");
                 $(this).dialog("destroy");
                 $(this).remove();
             }
         }
-    });     
+    });
 
     });
-    
+
     $(".canvas div.widget").unbind("click");
     $(".canvas div.widget").unbind("dblclick");
     $(".canvas div.widget div.input").unbind("click");
-    $(".canvas div.widget div.output").unbind("click");    
-    
+    $(".canvas div.widget div.output").unbind("click");
+
 		$(".canvas div.widget").each(function() {
-		
+
 			var thisWidgetId = $(this).attr('rel');
 			//alert(thisWidgetId);
-		
+
 			if ($(this).data('contextMenu')!=true) {
 				$(this).contextMenu({
 					menu: 'widgetMenu'
 				},
 					function(action, el, pos) {
-                    
-					
+
+
 					if (action=='delete') {
                         selectedWidget = $(el).attr('rel');
                         selectedConnection=-1;
 						deleteSelected();
 					}
-					
+
 					if (action=='run') {
                         runWidget(thisWidgetId);
-						
+
 					}
-					
+
 					if (action=='properties') {
                         $("#widget"+thisWidgetId).dblclick();
 					}
@@ -948,12 +977,12 @@ function updateWidgetListeners() {
 					if (action=='results') {
 						showResults(thisWidgetId);
 					}
-                    
+
 					if (action=='rename') {
                         var dialog = $("#widgetrename-"+$(el).attr('rel'));
                         var thisWidget = $(el).attr('rel');
-                        
-                        if (dialog.size()==0) {    
+
+                        if (dialog.size()==0) {
                             $.post(url['get-rename'], {'widget_id':$(el).attr('rel')}, function(data) {
                                 $("#dialogs").append(data);
                                 updateWidgetListeners();
@@ -963,55 +992,55 @@ function updateWidgetListeners() {
                             dialog.dialog('open');
                         }
 					}
-                    
+
                     if (action=='copy') {
                         copyWidget(thisWidgetId);
                     }
-                    
+
                     if (action=='help') {
                         showDocumentation(thisWidgetId);
                     }
-					                    
-						
+
+
 				});
 				$(this).data('contextMenu',true);
 			}
-		});    
+		});
 
     $(".canvas div.widget").dblclick(function(){
         if ($(this).hasClass("subprocess")) {
-            
+
             var this_workflow_link = $(this).find(".workflow_link").attr('rel');
             if ($("#canvas"+this_workflow_link).size()==0) {
                 var thisWidget = this;
                 $.post(url['get-subprocess'], { 'widget_id':$(thisWidget).attr('rel') }, function(data) {
                 $(thisWidget).data("workflow_link",data.workflow_link);
-                
+
                 $("#tabs").append('<div rel="'+data.workflow_link+'" class="canvas'+data.workflow_link+' canvas" id="canvas'+data.workflow_link+'"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"></svg></div>');
                 $("#tabs").tabs("add","#canvas"+data.workflow_link,data.workflow_name);
                 $("#tabs").tabs("select","#canvas"+$(thisWidget).data('workflow_link'));
                 activeCanvasId = $(thisWidget).data('workflow_link');
                 activeCanvas = $(".canvas"+activeCanvasId);
                 resizeCanvas();
-                
+
                 synchronize($(thisWidget).data("workflow_link"));
-                
+
             },'json');
-            
+
             } else {
             $("#tabs").tabs("select","#canvas"+this_workflow_link);
             activeCanvasId = this_workflow_link;
             activeCanvas = $(".canvas"+activeCanvasId);
-            resizeCanvas();		
+            resizeCanvas();
 
-            } 
+            }
         } else {
         //$("#widgetpreferences-"+$(this).attr('rel')).dialog('open');
-        
+
             var dialog = $("#widgetpreferences-"+$(this).attr('rel'));
             var thisWidget = $(this).attr('rel');
-            
-            if (dialog.size()==0) {    
+
+            if (dialog.size()==0) {
                 $.post(url['get-parameters'], {'widget_id':$(this).attr('rel')}, function(data) {
                     $("#dialogs").append(data);
                     updateWidgetListeners();
@@ -1022,38 +1051,38 @@ function updateWidgetListeners() {
                 dialog.dialog('open');
             }
         }
-    });   
+    });
 
     $(".canvas div.widget").draggable({
         handle: "div.widgetcenter, img.widgetimage",
         drag: function() {
             // this function exectues every time the mouse moves and the user is holding down the left mouse button
             for (c in connections) {
-            
+
                 if (connections[c].inputWidget==$(this).attr('rel')) {
                   //  $(".connection"+c).remove();
                     drawConnection(c);
                 }
-                
+
                 if (connections[c].outputWidget==$(this).attr('rel')) {
-                
+
                   //  $(".connection"+c).remove();
                     drawConnection(c);
                 }
-                
-            }
-            
 
-            
+            }
+
+
+
             resizeSvg();
-            
+
             /*var y = parseInt($(this).css('top'));
             var x = parseInt($(this).css('left'));*/
 
-            
-            
+
+
         },
-        
+
         stop: function() {
             // this function exectues when the user stops dragging the widget
                 if (($(this).css('left')).charAt(0)=='-') {
@@ -1062,61 +1091,61 @@ function updateWidgetListeners() {
                 if (($(this).css('top')).charAt(0)=='-') {
                     $(this).css('top','0px');
                 }
-                
+
                 var y = parseInt($(this).css('top'));
                 var x = parseInt($(this).css('left'));
-                
+
                 //alert($(this).attr('rel'));
-                
+
                $.post(url['save-position'], { "widget_id": $(this).attr('rel'), "x": x, "y": y } );
-            
+
                 redrawLines();
-        
+
         }}
     );
-    
+
     $(".canvas div.widget").click(function() {
         selectedWidget = $(this).attr('rel');
         $(".widgetcenter").removeClass("ui-state-highlight");
         $(this).find(".widgetcenter").addClass("ui-state-highlight");
         selectedConnection=-1;
-        
-        //clicking on a widget selects it and deselects any connection
-        
-        redrawLines();
-        
-    });    
 
-    
-    
+        //clicking on a widget selects it and deselects any connection
+
+        redrawLines();
+
+    });
+
+
+
 		$(".canvas div.widget div.input").click(function() {
 			selectedInput = parseInt($(this).attr('id').replace("input",""));
-			
+
 			$(".input").removeClass("ui-state-highlight");
 			$(this).addClass("ui-state-highlight");
-			
-			if (selectedOutput!=-1) {			
+
+			if (selectedOutput!=-1) {
 				addConnection(selectedOutput,selectedInput);
-			
+
 			}
 		});
-		
+
 		$(".canvas div.widget div.output").click(function() {
 			selectedOutput = parseInt($(this).attr('id').replace("output",""));
-			
+
 			$(".output").removeClass("ui-state-highlight");
 			$(this).addClass("ui-state-highlight");
 			if (selectedInput!=-1) {
 				addConnection(selectedOutput,selectedInput);
 			}
-		});    
-        
+		});
+
         $(".interactionwaiting").each(function() {
             $(this).removeClass("interactionwaiting");
             var widgetId = $(this).attr('rel');
             displayInteraction(widgetId);
         });
-    
+
 }
 
 function openConfiguration(thisWidgetId) {
@@ -1138,7 +1167,7 @@ function openConfiguration(thisWidgetId) {
 }
 
 function addConnection(output,input) {
-    
+
     $.post(url['add-connection'], { "output_id": output, "input_id": input }, function(data) {
         if (data.success==true) {
             reportOk(data.message);
@@ -1149,16 +1178,16 @@ function addConnection(output,input) {
             }
             if (data.added!=-1) {
                 //add connection
-                
+
                 connections[data.added] = new Connection(data.output_id,data.input_id);
                 drawConnection(data.added);
                 unfinish(connections[data.added].inputWidget);
-                
+
                 selectedInput=-1;
 				selectedOutput=-1;
 				$(".input").removeClass("ui-state-highlight");
-				$(".output").removeClass("ui-state-highlight");	
-                   
+				$(".output").removeClass("ui-state-highlight");
+
             }
             if (data.refresh!=-1) {
             // refresh widget
@@ -1170,35 +1199,35 @@ function addConnection(output,input) {
             selectedInput=-1;
             selectedOutput=-1;
             $(".input").removeClass("ui-state-highlight");
-            $(".output").removeClass("ui-state-highlight");	
+            $(".output").removeClass("ui-state-highlight");
         }
     },'json' );
-    
+
 }
 
 
-/* resizeWidgets() selects all currently active widgets, counts their inputs and outputs and resizes them accordingly, 
+/* resizeWidgets() selects all currently active widgets, counts their inputs and outputs and resizes them accordingly,
 so that graphically they appear longer when there are larger number of inputs/outputs used. Each excess input/output adds 29pixels
 to the height of the widget. The icon representing the widget is then vertically aligned to the middle of the widget */
 function resizeWidgets() {
 	$("div.canvas div.widget").each(function () {
-    
+
 		var widget = $(this).children("div.widgetcenter").height();
 		var inputs = $(this).children("div.inputs").height();
 		var outputs = $(this).children("div.outputs").height();
-        
+
         max = widget;
-        
+
         if (inputs>max) {
             max=inputs;
         }
-        
+
         if (outputs>max) {
             max=outputs;
         }
-        
+
         $(this).children("div.widgetcenter").css('height',max+'px');
-        
+
     });
 }
 
@@ -1221,34 +1250,34 @@ $(function(){
 	},
 	tabTemplate: '<li><a href="#{href}"><span rel="#{href}">#{label}</span></a></li>'
 	});
-	
+
 	activeCanvas = $(".canvas").eq(0);
-	
+
 	resizeCanvas();
-	
+
 	$(window).bind('resize', function() {
-	
+
 	resizeCanvas();
-	
+
 	});
 	//jg = new jsGraphics("canvas0");
 	$(".expand").click(function() {
-	
+
 		//$(this).parent().children("ul").slideToggle();
-	
+
 	});
-	
+
 	$("#status").css('margin-left',''+(($("#toolbar ul#icons li").size()*30)+4)+'px');
-	
+
 	$('#icons li').hover(
-		function() { $(this).addClass('ui-state-hover'); }, 
+		function() { $(this).addClass('ui-state-hover'); },
 		function() { $(this).removeClass('ui-state-hover'); }
 	);
-	
+
 	$(".new").click(function() {
 		$('#newdialog').dialog('open');
 	});
-    
+
     $(".run").click(function() {
         $.post(url['unfinish-vizualizations'], { 'workflow_id':activeCanvasId }, function(data) {
         for (i in data.unfinished) {
@@ -1257,7 +1286,7 @@ $(function(){
         runWorkflow(activeCanvasId);
         },'json');
     });
-	
+
 	$(window).keydown(function(event) {
 		if (event.keyCode==46) {
             var dialog_open = false;
@@ -1265,53 +1294,53 @@ $(function(){
                 if ($(this).is(":visible")) {
                     dialog_open = true;
                 }
-            
+
             });
             if (!dialog_open) {
                 deleteSelected();
             }
 		}
 	});
-	
-	
-	
+
+
+
 	$(".delete").click(function() {
 		deleteSelected();
 	});
-	
+
 	$(".redraw").click(function() {
 		redrawLines();
-	});	
-	
+	});
+
 	$(".preferences").click(function() {
 		$('#preferencesdialog').dialog('open');
-	});	
+	});
 	$(".open").click(function() {
 		$("#opendialog").dialog('open');
 	});
-    
+
 	$(".save").click(function() {
 		$("#savedialog").dialog('open');
 	});
-    
+
 	$(".loadwidget").click(function() {
 		$("#loadwidgetdialog").dialog('open');
-	});	
+	});
 
 	$(".info").click(function() {
         $.get(url['workflow-url'], function(data) {
         reportStatus(data)
-    },'html');        
-		
-	});	
-	
+    },'html');
+
+	});
+
 	$('#newdialog').dialog({
 		autoOpen: false,
 		modal: true,
 		resizable: false,
 		buttons: {
-			"Yes": function() { 
-				/*$(this).dialog("close"); 
+			"Yes": function() {
+				/*$(this).dialog("close");
 				activeCanvas.html('');
 				activeWidgets = new Array();
 				activeWidgetsCounter = 0;
@@ -1333,7 +1362,7 @@ $(function(){
 			}
 		}
 	});
-	
+
 	$('#wsdldialog').dialog({
 		autoOpen: false,
 		modal: true,
@@ -1355,8 +1384,8 @@ $(function(){
                             $(".ajax-loader").hide();
                             addCategory(data.category_id);
                             designateInputs(data.category_id);
-                            
-                            
+
+
 						},
 						error: function(e,f) {
 							reportError("Error: Cannot import webservice."+f);
@@ -1364,14 +1393,14 @@ $(function(){
 							$(this).dialog("close");
 						}
 					});
-				
-			}, 
-			"Cancel": function() { 
-				$(this).dialog("close"); 
-			} 
+
+			},
+			"Cancel": function() {
+				$(this).dialog("close");
+			}
 		}
-	});	
-	
+	});
+
 	/*$('#rundialog').dialog({
 		autoOpen: false,
 		modal: true,
@@ -1386,14 +1415,14 @@ $(function(){
 					}
 				}
 				runWorkflow(0);
-			}, 
-			"Run the changes": function() { 
+			},
+			"Run the changes": function() {
 				$(this).dialog("close");
-				runWorkflow(0); 
-			} 
+				runWorkflow(0);
+			}
 		}
-	});*/	
-	
+	});*/
+
 	$('#opendialog').dialog({
 		autoOpen: false,
 		modal: true,
@@ -1403,7 +1432,7 @@ $(function(){
 				$(this).dialog("close");
 			}
 		}
-	});	
+	});
 
 	$('#savedialog').dialog({
 		autoOpen: false,
@@ -1417,47 +1446,47 @@ $(function(){
                 if (!$(this).find(".workflowpublicinput").is(":checked")) {
                     pub = 'false'
                 }
-                var workflowId = ($(this).attr('rel'));                
+                var workflowId = ($(this).attr('rel'));
                 $.post(url['rename-workflow'], { 'new_name':newName, 'workflow_id':workflowId, 'description':description, 'public':pub }, function(data) {
-                
+
                     $("span[rel=#canvas"+data.workflow_id+"]").html(newName);
-                
+
                 },'json');
-                
+
                 $(this).dialog("close");
-                
+
             },
 			"Close": function() {
 				$(this).dialog("close");
 			}
 		}
-	});		
-	
+	});
+
 	$('#preferencesdialog').dialog({
 		autoOpen: false,
 		modal: false,
 		resizable: false,
 		buttons: {
-			"Close": function() { 
-				$(this).dialog("close"); 
-			} 
+			"Close": function() {
+				$(this).dialog("close");
+			}
 		}
-	});	
-	
+	});
+
 	$('#preconditionsdialog').dialog({
 		autoOpen: false,
 		modal: true,
 		resizable: false,
 		buttons: {
 			"Yes": function() {
-				$(this).dialog("close"); 
-			},		
+				$(this).dialog("close");
+			},
 			"No": function() {
-				$(this).dialog("close"); 
+				$(this).dialog("close");
 			}
 		}
 	});
-	
+
 	$('#tempdialog').dialog({
 		autoOpen: false,
 		modal: true,
@@ -1465,11 +1494,11 @@ $(function(){
 		width: "1000px",
 		buttons: {
 			"Ok!": function() {
-				$(this).dialog("close"); 
+				$(this).dialog("close");
 			}
-		}	
+		}
 	});
-	
+
 	$('#loadwidgetdialog').dialog({
 		autoOpen: false,
 		modal: true,
@@ -1477,34 +1506,34 @@ $(function(){
 		buttons: {
 			"Cancel": function() {
 				$(this).dialog("close");
-			} 
+			}
 		}
-	});	
-	
-	
+	});
+
+
     $(".browser").treeview({
         persist: "cookie",
-		cookieId: "workflowstree"}   
+		cookieId: "workflowstree"}
     );
 
     /*$("#demo1").jstree();
-    
+
     $("#selector").jstree({
 			// the `plugins` array allows you to configure the active plugins on this instance
 			"plugins" : ["themes","html_data","ui"],
 		});*/
-      
-	
-	
-    $("#widgets a.subprocess").click(function() { 
+
+
+
+    $("#widgets a.subprocess").click(function() {
         $.post(url['add-subprocess'], {'active_workflow' : activeCanvasId, 'scrollTop':	activeCanvas.scrollTop(), 'scrollLeft':activeCanvas.scrollLeft()}, function(data) {
             activeCanvas.append(data);
             updateWidgetListeners();
             resizeWidgets();
-        },'html' );        
-    });	
-    
-    $("#widgets a.forloop").click(function() { 
+        },'html' );
+    });
+
+    $("#widgets a.forloop").click(function() {
          $.post(url['add-for'], {'active_workflow' : activeCanvasId, 'scrollTop':	activeCanvas.scrollTop(), 'scrollLeft':activeCanvas.scrollLeft()}, function(data) {
             try {
                 jsonData = $.parseJSON(data)
@@ -1520,13 +1549,13 @@ $(function(){
                 $("#widget"+outer_widget_id).remove();
                 refreshWidget(outer_widget_id,outer_widget_workflow_id);
                 updateWidgetListeners();
-                resizeWidgets();   
+                resizeWidgets();
             }
         },'html');
-        
-    });    
-    
-    $("#widgets a.input").click(function() { 
+
+    });
+
+    $("#widgets a.input").click(function() {
          $.post(url['add-input'], {'active_workflow' : activeCanvasId, 'scrollTop':	activeCanvas.scrollTop(), 'scrollLeft':activeCanvas.scrollLeft()}, function(data) {
             try {
                 jsonData = $.parseJSON(data)
@@ -1542,13 +1571,13 @@ $(function(){
                 $("#widget"+outer_widget_id).remove();
                 refreshWidget(outer_widget_id,outer_widget_workflow_id);
                 updateWidgetListeners();
-                resizeWidgets();   
+                resizeWidgets();
             }
         },'html');
-        
+
     });
-    
-    $("#widgets a.output").click(function() { 
+
+    $("#widgets a.output").click(function() {
           $.post(url['add-output'], {'active_workflow' : activeCanvasId, 'scrollTop':	activeCanvas.scrollTop(), 'scrollLeft':activeCanvas.scrollLeft()}, function(data) {
             try {
                 jsonData = $.parseJSON(data)
@@ -1564,29 +1593,29 @@ $(function(){
                 $("#widget"+outer_widget_id).remove();
                 refreshWidget(outer_widget_id,outer_widget_workflow_id);
                 updateWidgetListeners();
-                resizeWidgets();   
+                resizeWidgets();
             }
         },'html');
-    });			
-	
+    });
+
 	resizeWidgets();
-	
+
 	$(".importWebservice").button();
 	$(".importWebservice").click(function() {
 		$("#wsdldialog").dialog('open');
 	});
-    
+
 
     refreshAddWidgetListeners();
-    
+
     synchronize(activeCanvasId);
-    
+
     setTimeout("refreshProgressBars()",5000);
-    
+
     resizeSvg();
-    
+
     setTimeout("resizeSvg()",1000);
-    
+
     //MatjazJ: Make links for admin editing widgets and categories directly from treeview
     //doesnt matter if user manually tammpers this setting as he will not have permission to enter admin mode due to the provided django security
     if(typeof userIsStaff === 'undefined') userIsStaff=false;
@@ -1615,12 +1644,12 @@ $(function(){
 
 function refreshProgressBars() {
     $(".currentlyrunning").each(function() {
-    
+
         if ($(this).hasClass("has_progress_bar")) {
             $(".widget"+$(this).attr('rel')+"progress").show();
             updateProgressBar($(this).attr('rel'));
         }
-    
+
     });
 }
 
@@ -1628,15 +1657,15 @@ function refreshAddWidgetListeners() {
 
     $("#widgets a.widget").unbind("click");
     $("#widgets a.widget").click(function() { // this happens every time a new widget is put onto the canvas
-        
+
         $.post(url['add-widget'], { 'abstractwidget_id' : $(this).attr('rel'), 'active_workflow' : activeCanvasId, 'scrollTop':	activeCanvas.scrollTop(), 'scrollLeft':activeCanvas.scrollLeft() }, function(data) {
 
             activeCanvas.append(data);
             updateWidgetListeners();
             resizeWidgets();
         },'html');
-        
-    });    
+
+    });
 }
 
 function addCategory(category_id) {
@@ -1644,19 +1673,19 @@ function addCategory(category_id) {
     //refresh list
 
         $.post(url['get-category'], {'category_id':category_id}, function(data) {
- 
+
         var branches = $(data).appendTo("#userwidgets");
         $(".browser").treeview({
             add: branches
         });
-        
+
         refreshAddWidgetListeners();
-    
+
         }
         ,'html');
-    
 
-    
+
+
 }
 
 function designateInputs(category_id) {
@@ -1666,9 +1695,9 @@ function designateInputs(category_id) {
             updateWidgetListeners();
         }
         ,'html');
-    
 
-    
+
+
 }
 
 function refreshWidget(widget_id,workflow_id) {
@@ -1677,14 +1706,14 @@ function refreshWidget(widget_id,workflow_id) {
         $("#widget"+widget_id).remove();
         $("#canvas"+workflow_id).append(data);
         updateWidgetListeners();
-        resizeWidgets();                    
+        resizeWidgets();
         redrawLines();
-    
+
     },'html');
 }
 
 function drawConnection(connectionid,bgcolor,color) {
-    
+
     var conn = connections[connectionid];
     if ($("#input"+conn.input).parent().parent().parent().attr('rel')!=activeCanvas.attr('rel')) {
         return;
@@ -1699,27 +1728,27 @@ function drawConnection(connectionid,bgcolor,color) {
 		//color='rgb(173, 216, 230)';
         color='#d1d1d1';
 	}
-	
+
 	if (selectedConnection==connectionid) {
 		bgcolor='#ff0000';
 		color='#ffaaaa';
 	}
 
 	var canvasPos = activeCanvas.offset();
-    
+
     if (canvasPos != null) {
 	var connection = connections[connectionid];
-	
+
 	input = $("#input"+connection.input);
 	output = $("#output"+connection.output);
-    
+
     //alert("#output"+connection.output);
-	
+
 	inputPos = input.position();
 	outputPos = output.position();
     inputParent = input.parent().parent();
     outputParent = output.parent().parent();
-    
+
 	/*
 	outputX = outputPos.left-canvasPos.left+(output.width());
 	outputY = outputPos.top-canvasPos.top+(output.height()/2);
@@ -1731,32 +1760,32 @@ function drawConnection(connectionid,bgcolor,color) {
     inputX = inputPos.left+parseInt(inputParent.css('left'))+10;
     inputY = inputPos.top+parseInt(inputParent.css('top'))+30;
 	drawingConnection = connectionid;
-	
+
       var p1 = [outputX,outputY];
       var p2 = [inputX,inputY];
-  
+
       var coeffMulDirection = 100;
-   
-   
+
+
       var distance=Math.sqrt(Math.pow(p1[0]-p2[0],2)+Math.pow(p1[1]-p2[1],2));
       if(distance < coeffMulDirection){
          coeffMulDirection = distance/4;
       }
-   
-      
+
+
       var d1 = [1*coeffMulDirection,
                 0*coeffMulDirection];
       var d2 = [-1*coeffMulDirection,
                 0*coeffMulDirection];
-				
+
 	  if (outputX>inputX&&Math.abs(outputY-inputY)<65) {
 	  coeffMulDirection=150;
       var d1 = [1*coeffMulDirection,
-                -1*coeffMulDirection];	  
+                -1*coeffMulDirection];
       var d2 = [-1*coeffMulDirection,
-                -1*coeffMulDirection];		
+                -1*coeffMulDirection];
 	  }
-	       
+
       var bezierPoints=[];
       bezierPoints[0] = p1;
       bezierPoints[1] = [p1[0]+d1[0],p1[1]+d1[1]];
@@ -1779,7 +1808,7 @@ function drawConnection(connectionid,bgcolor,color) {
             max[1] = p[1];
          }
       }
-      
+
       var margin = [4,4];
       min[0] = min[0]-margin[0];
       min[1] = min[1]-margin[1];
@@ -1787,17 +1816,17 @@ function drawConnection(connectionid,bgcolor,color) {
       max[1] = max[1]+margin[1];
       var lw = Math.abs(max[0]-min[0]);
       var lh = Math.abs(max[1]-min[1]);
-    
+
     svg = activeCanvas.find('svg');
-    
+
     svg = svg[0];
-    
-    
+
+
     $("#drawingcanvas"+connectionid).remove();
-    
+
     $("#drawingoutline"+connectionid).remove();
-    
-    
+
+
     var c1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
     c1.setAttribute("id","drawingoutline"+connectionid);
     c1.setAttribute("stroke-width", "5");
@@ -1805,11 +1834,11 @@ function drawConnection(connectionid,bgcolor,color) {
     c1.setAttribute("stroke-linejoin","round");
     c1.setAttribute("fill", "none");
     c1.setAttribute("rel", connectionid);
-    c1.setAttribute("class", "drawingoutline"+connectionid);    
+    c1.setAttribute("class", "drawingoutline"+connectionid);
     c1.setAttribute("d", "M"+bezierPoints[0][0]+","+bezierPoints[0][1]+" C"+bezierPoints[1][0]+","+bezierPoints[1][1]+" "+bezierPoints[2][0]+","+bezierPoints[2][1]+" "+bezierPoints[3][0]+","+bezierPoints[3][1]);
-    svg.appendChild(c1);    
-    
-     
+    svg.appendChild(c1);
+
+
     var c1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
     c1.setAttribute("id","drawingcanvas"+connectionid);
     c1.setAttribute("stroke-width", "3");
@@ -1820,9 +1849,9 @@ function drawConnection(connectionid,bgcolor,color) {
     c1.setAttribute("class", "drawingcanvases");
     c1.setAttribute("d", "M"+bezierPoints[0][0]+","+bezierPoints[0][1]+" C"+bezierPoints[1][0]+","+bezierPoints[1][1]+" "+bezierPoints[2][0]+","+bezierPoints[2][1]+" "+bezierPoints[3][0]+","+bezierPoints[3][1]);
     svg.appendChild(c1);
-    
+
 	updateConnectionListeners();
-	
+
 	//setTimeout(resetSelection,100);
 	} else {
        // alert("test");
@@ -1849,19 +1878,19 @@ function updateConnectionListeners() {
         $(this).attr('stroke','#ffaaaa');
         $(".drawingoutline"+$(this).attr('rel')).attr('stroke','#ff0000');
 	});
-	
+
 	$(".drawingcanvases").unbind('mouseleave');
 	$(".drawingcanvases").mouseleave(function() {
-		connectionid = $(this).attr('rel');	
+		connectionid = $(this).attr('rel');
         if (selectedConnection!=($(this).attr('rel'))) {
         $(this).attr('stroke','#d1d1d1');
         $(".drawingoutline"+$(this).attr('rel')).attr('stroke','#a3a3a3');
         } else {
             $(this).attr('stroke','#ffaaaa');
             $(".drawingoutline"+$(this).attr('rel')).attr('stroke','#ff0000');
-        }	
+        }
 	});
-	
+
 	$(".drawingcanvases").unbind('click');
 	$(".drawingcanvases").click(function() {
 		connectionid = $(this).attr('rel');
@@ -1869,17 +1898,17 @@ function updateConnectionListeners() {
         $(this).attr('stroke','#ffaaaa');
 		$(".widgetcenter").removeClass("ui-state-highlight");
 		selectedWidget=-1;
-		
+
 		$(".drawingcanvases").each(function() {
-			connectionid = $(this).attr('rel');	
+			connectionid = $(this).attr('rel');
 			currentLeft = $(this).css('left');
-			currentTop=$(this).css('top');		
-			drawConnection(connectionid);		
+			currentTop=$(this).css('top');
+			drawConnection(connectionid);
 			$(this).css('top',currentTop);
-			$(this).css('left',currentLeft);			
+			$(this).css('left',currentLeft);
 		});
 	});
-	
+
 }
 
 function fileListeners() {

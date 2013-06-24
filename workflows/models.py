@@ -15,16 +15,19 @@ from mothra.settings import USE_CONCURRENCY
 if USE_CONCURRENCY:
     from workflows.tasks import runWidgetAsync, runForLoopIteration
 
+class WidgetException(Exception):
+    pass
+
 class Connection(models.Model):
     output = models.ForeignKey("Output",related_name="connections")
     input = models.ForeignKey("Input",related_name="connections")
     workflow = models.ForeignKey("Workflow",related_name="connections")
-   
+
 class Category(models.Model):
     name = models.CharField(max_length=50)
     parent = models.ForeignKey('self',related_name="children",null=True,blank=True)
     user = models.ForeignKey(User,null=True,blank=True,related_name="categories")
-    
+
     workflow = models.ForeignKey('Workflow',null=True,blank=True,related_name="categories")
 
     order = models.PositiveIntegerField(default=1)
@@ -48,14 +51,19 @@ class Workflow(models.Model):
     description = models.TextField(blank=True,default='')
     widget = models.OneToOneField('Widget',related_name="workflow_link",blank=True,null=True)
     template_parent = models.ForeignKey('Workflow',blank=True,null=True,default=None,on_delete=models.SET_NULL)
-    
-    
+
+    def can_be_streaming(self):
+        if self.widgets.filter(abstract_widget__is_streaming=True).count()>0:
+            return True
+        else:
+            return False
+
     def is_for_loop(self):
         if self.widgets.filter(type='for_input').count()>0:
             return True
         else:
-            return False    
-    
+            return False
+
     def get_ready_to_run(self):
         widgets = self.widgets.all()
         unfinished_list = []
@@ -70,7 +78,7 @@ class Workflow(models.Model):
                 if ready_to_run:
                     unfinished_list.append(w.id)
         return unfinished_list
-        
+
     def get_runnable_widgets(self):
         widgets = self.widgets.all()
         unfinished_list = []
@@ -93,7 +101,7 @@ class Workflow(models.Model):
         outer_output = fo.inputs.all()[0].outer_output
         outer_output.value=[]
         outer_output.save()
-        
+
         input_list = fi.outputs.all()[0].outer_input.value
         progress_total = len(input_list)
         current_iteration = 0
@@ -112,7 +120,7 @@ class Workflow(models.Model):
                         for w in unfinished_list:
                             w.run(True)
                             total = self.widgets.count()
-                            completed = self.widgets.filter(finished=True).count()    
+                            completed = self.widgets.filter(finished=True).count()
                             self.widget.progress = (int)((current_iteration*100.0/progress_total)+(((completed*1.0)/total)*(100/progress_total)))
                             self.widget.save()
                         unfinished_list = self.get_runnable_widgets()
@@ -148,7 +156,7 @@ class Workflow(models.Model):
                                     completed = self.widgets.filter(finished=True).count()
                                     if self.widget:
                                         self.widget.progress = (int)((current_iteration*100.0/progress_total)+(((completed*1.0)/total)*(100/progress_total)))
-                                        self.widget.save()                         
+                                        self.widget.save()
                             unfinished_list = self.get_runnable_widgets()
                 except:
                     raise
@@ -189,7 +197,7 @@ class Workflow(models.Model):
                             self.widget.progress = (int)(((completed*1.0)/total)*100)
                             self.widget.save()
                     is_running=True
-                    unfinished_list = self.get_runnable_widgets()                    
+                    unfinished_list = self.get_runnable_widgets()
                     while len(unfinished_list)==0 and is_running:
                         unfinished_list = self.get_runnable_widgets()
                         is_running = False
@@ -201,32 +209,32 @@ class Workflow(models.Model):
                                 completed = self.widgets.filter(finished=True).count()
                                 if self.widget:
                                     self.widget.progress = (int)(((completed*1.0)/total)*100)
-                                    self.widget.save() 
+                                    self.widget.save()
                         time.sleep(1)
-                    unfinished_list = self.get_runnable_widgets()  
+                    unfinished_list = self.get_runnable_widgets()
             except:
                 raise
     def rename(self,new_name):
         self.name = new_name
-        self.save()       
- 
+        self.save()
+
     @models.permalink
     def get_absolute_url(self):
-        return ('open workflow', [str(self.id)])        
-        
+        return ('open workflow', [str(self.id)])
+
     @models.permalink
     def get_copy_url(self):
         return ('copy workflow', [str(self.id)])
-        
+
     @models.permalink
     def get_info_url(self):
         return ('workflow information', [str(self.id)])
-    
+
     def __unicode__(self):
         return unicode(self.name)
-        
+
     class Meta:
-        ordering = ['name']        
+        ordering = ['name']
 
 class AbstractWidget(models.Model):
     name = models.CharField(max_length=200,help_text='Name is the name that will be displayed in the widget repository and under the actual widget itself.')
@@ -236,25 +244,26 @@ class AbstractWidget(models.Model):
     description = models.TextField(blank=True,help_text='Description is used for a human readable description of what a widget does. A user will see this when he right clicks the widget and clicks help.')
     category = models.ForeignKey(Category,related_name="widgets",help_text='Category determines to which category this widget belongs. Categories can be nested.')
     visualization_view = models.CharField(max_length=200,blank=True,default='',help_text='Visualization view is (like the action) a python function that is a view that will render a template.')
+    streaming_visualization_view = models.CharField(max_length=200,blank=True,default='',help_text='Visualization view is (like the action) a python function that is a view that will render a template.')
     user = models.ForeignKey(User,blank=True,null=True,related_name="widgets",help_text='If the User field is blank, everyone will see the widget, otherwise just this user. This is mainly used for Web Service imports as they are only visible to users that imported them.')
     interactive = models.BooleanField(default=False,help_text='The widget can be interactive. This means that when a user executes the widget, the action will perform, then the interaction view will be executed and finally the Post interact action will be executed.')
     interaction_view = models.CharField(max_length=200,blank=True,default='')
     post_interact_action = models.CharField(max_length=200,blank=True,default='')
-    
+
     image = ThumbnailField(blank=True,null=True,upload_to="images",size=(34,34),help_text='Image and Treeview image are deprecated and will be phased out soon. Please use the static image field.')
     treeview_image = ThumbnailField(blank=True,null=True,upload_to="treeview",size=(16,16))
 
     static_image = models.CharField(max_length=250,blank=True,default='',help_text='In the static image field just enter the filename of the image (without the path). The path will be $package_name$/icons/widget/$filename$ and $package_name$/icons/treeview/$filename$ where the treeview image is the small image that appears in the treeview on the left side and the widget image is the actual normal sized icon for the widget. IMPORTANT: the static image field only works if the package is set.')
-    
+
     has_progress_bar = models.BooleanField(default=False,help_text='The flag has progress bar determines if the widget implements a progress bar.')
     is_streaming = models.BooleanField(default=False,help_text='The is streaming flag is currently under construction, please do not use it yet.')
-    
+
     order = models.PositiveIntegerField(default=1,help_text='The Order determines the order in which the widget will be displayed in the repository. This is set automatically when sorting widgets in a single category from the admin.')
 
     uid = models.CharField(max_length=250,blank=True,default='',help_text='UID is set automatically when you export a package with the -u switch.')
 
     package = models.CharField(max_length=150,blank=True,default='',help_text='Package is the package name. You are encouraged to use packages.')
-        
+
     class Meta:
         ordering = ('order','name',)
 
@@ -298,17 +307,17 @@ class AbstractInput(models.Model):
         ('file', 'File'),
     )
     parameter_type = models.CharField(max_length=50,choices=PARAMETER_CHOICES,blank=True,null=True)
-    
+
     order = models.PositiveIntegerField(default=1)
 
     uid = models.CharField(max_length=250,blank=True,default='')
-    
+
     def __unicode__(self):
         return unicode(self.name)
-        
+
     class Meta:
         ordering = ('order',)
-        
+
 class AbstractOption(models.Model):
     abstract_input = models.ForeignKey(AbstractInput,related_name="options")
     name = models.CharField(max_length=200)
@@ -318,9 +327,9 @@ class AbstractOption(models.Model):
 
     def __unicode__(self):
         return unicode(self.name)
-        
+
     class Meta:
-        ordering = ['name']        
+        ordering = ['name']
 
 class AbstractOutput(models.Model):
     name = models.CharField(max_length=200)
@@ -328,14 +337,14 @@ class AbstractOutput(models.Model):
     description = models.TextField(blank=True)
     variable = models.CharField(max_length=50,help_text='The variable attribute of both the input and the output are important because this is how the data will be accessed in the python function that is executed when the widget runs.')
     widget = models.ForeignKey(AbstractWidget,related_name="outputs")
-    
+
     order = models.PositiveIntegerField(default=1)
 
     uid = models.CharField(max_length=250,blank=True,default='')
-        
+
     class Meta:
-        ordering = ('order',)    
-    
+        ordering = ('order',)
+
     def __unicode__(self):
         return unicode(self.name)
 
@@ -356,23 +365,23 @@ class Widget(models.Model):
         ('output', 'Output widget'),
     )
     type = models.CharField(max_length=50,choices=WIDGET_CHOICES,default='regular')
-    
+
     progress = models.IntegerField(default=0)
-    
+
     def is_visualization(self):
         try:
             if self.abstract_widget.visualization_view != '':
                 return True
         except:
             return False
-    
+
     def ready_to_run(self):
         cons = Connection.objects.filter(input__widget=self)
         for c in cons:
             if not c.output.widget.finished:
                 return False
         return True
-    
+
     def unfinish(self):
         if self.finished or self.error:
             self.finished=False
@@ -390,7 +399,7 @@ class Widget(models.Model):
                 w.save()
                 if w.type=='subprocess':
                     w.subunfinish()
-                    
+
     def subunfinish(self):
         if self.type == 'subprocess':
             for w in self.workflow_link.widgets.all():
@@ -399,7 +408,7 @@ class Widget(models.Model):
                 w.save()
                 if w.type=='subprocess':
                     w.subunfinish()
-    
+
     def rename(self,new_name):
         self.name = new_name
         self.save()
@@ -418,17 +427,17 @@ class Widget(models.Model):
             inp.save()
             inp.outer_output.name = self.name
             inp.outer_output.short_name = self.name[:3]
-            inp.outer_output.save()            
+            inp.outer_output.save()
         try:
             w_link = self.workflow_link
             w_link.name=new_name
             w_link.save()
         except Workflow.DoesNotExist:
             pass
-            
+
     def run(self,offline):
         if not self.ready_to_run():
-            raise Exception("The prerequisites for running this widget have not been met.")
+            raise WidgetException("The prerequisites for running this widget have not been met.")
         self.running=True
         self.save()
         if self.type == 'regular' or self.type == 'subprocess':
@@ -459,6 +468,8 @@ class Widget(models.Model):
                         input_dict['wsdl_method']=self.abstract_widget.wsdl_method
                     if self.abstract_widget.has_progress_bar:
                         outputs = function_to_call(input_dict,self)
+                    elif self.abstract_widget.is_streaming:
+                        outputs = function_to_call(input_dict,self,None)
                     else:
                         outputs = function_to_call(input_dict)
                 else:
@@ -535,12 +546,12 @@ class Widget(models.Model):
                         i.outer_output.value = i.value
                         i.outer_output.save()
                         self.finished=True
-            self.finished=True                        
+            self.finished=True
             self.running=False
             self.error=False
             self.save()
         return None
-        
+
     def reset(self,offline):
         for i in self.inputs.defer("value").all():
             if not i.parameter:
@@ -556,7 +567,7 @@ class Widget(models.Model):
 
     def run_post(self,request):
         if not self.ready_to_run():
-            raise Exception("The prerequisites for running this widget have not been met.")
+            raise WidgetException("The prerequisites for running this widget have not been met.")
         self.running=True
         self.save()
         function_to_call = getattr(workflows.library,self.abstract_widget.post_interact_action)
@@ -603,11 +614,11 @@ class Widget(models.Model):
         cons = Connection.objects.filter(output__widget=self)
         for c in cons:
             c.input.widget.unfinish()
-        return outputs      
-    
+        return outputs
+
     def __unicode__(self):
         return unicode(self.name)
-        
+
 class Input(models.Model):
     name = models.CharField(max_length=200)
     short_name = models.CharField(max_length=3)
@@ -630,17 +641,17 @@ class Input(models.Model):
 
     class Meta:
         ordering = ('order',)
-    
+
     def __unicode__(self):
-        return unicode(self.name)             
-        
+        return unicode(self.name)
+
 class Option(models.Model):
     input = models.ForeignKey(Input,related_name="options")
     name = models.CharField(max_length=200)
     value = models.TextField(blank=True,null=True)
-    
+
     class Meta:
-        ordering = ['name']     
+        ordering = ['name']
 
 class Output(models.Model):
     name = models.CharField(max_length=200)
@@ -655,14 +666,14 @@ class Output(models.Model):
 
     class Meta:
         ordering = ('order',)
-    
+
     def __unicode__(self):
         return unicode(self.name)
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User,related_name="userprofile")
     active_workflow = models.ForeignKey(Workflow,related_name="users",null=True,blank=True,on_delete=models.SET_NULL)
-    
+
     def __unicode__(self):
         return unicode(self.user)
 

@@ -112,3 +112,15 @@ def stopwatch(input_dict):
     output_dict['time_span'] = elapsedTime
 
     return output_dict
+
+
+def base_safe_eval_string(input_dict):
+    import ast
+    sdata = str(input_dict['data'])
+    try:
+        result = ast.literal_eval(sdata)
+    except Exception:
+        raise Exception('Cannot evaluate string (remember, for safety reasons only literal structures can be evaluated: strings, numbers, tuples, lists, dicts, booleans, and None)')
+    else:
+        return {'evaluation_result': result}
+#end

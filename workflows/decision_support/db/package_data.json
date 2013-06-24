@@ -131,7 +131,7 @@
       "short_name": "odt", 
       "uid": "41e34489-1835-4d16-88cf-fdfc355839de", 
       "default": "", 
-      "required": false, 
+      "required": true, 
       "multi": false, 
       "parameter_type": null, 
       "variable": "data", 
