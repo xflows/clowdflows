@@ -17,7 +17,7 @@ import os
 import sys
 import site
 
-site.addsitedir('/srv/django-envs/mothra/lib/python2.7/site-packages')
+site.addsitedir('/srv/django-envs/mothra2/lib/python2.7/site-packages')
 
 project_path = '/srv/django-projects/mothra'
 if project_path not in sys.path:
