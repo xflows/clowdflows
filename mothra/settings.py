@@ -204,6 +204,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     #'workflows.lemmagen',
     #'workflows.crossbee',
     'workflows.streaming',
+    'workflows.bio3graph',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 
