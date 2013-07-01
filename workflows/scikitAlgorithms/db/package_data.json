@@ -1,0 +1,1093 @@
+[
+  {
+    "pk": 25, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "62f6171b-5448-424b-b5cc-88cd63883fd0", 
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "ScikitAlgorithms"
+    }
+  }, 
+  {
+    "pk": 27, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "317018eb-3bc8-4862-bce8-273451a01de4", 
+      "parent": 25, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Classification"
+    }
+  }, 
+  {
+    "pk": 151, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 27, 
+      "treeview_image": "", 
+      "name": "Decision Tree", 
+      "is_streaming": false, 
+      "uid": "2e92b1c1-0d1a-4569-a003-0bb3b9400801", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_Tree-icon.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_J48", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Creates a decision tree"
+    }
+  }, 
+  {
+    "pk": 172, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 151, 
+      "name": "Dataset", 
+      "short_name": "lrn", 
+      "variable": "treeOut", 
+      "uid": "c1eedb63-fabc-46c4-b751-7e7072847180", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 158, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 27, 
+      "treeview_image": "", 
+      "name": "Linear Support Vector Classification", 
+      "is_streaming": false, 
+      "uid": "bab37f12-8d69-4823-a86b-13af7e1cb00d", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_svm.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_linearSVC", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Support Vector Machines without kernels based on liblinear"
+    }
+  }, 
+  {
+    "pk": 175, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 158, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "variable": "SVCout", 
+      "uid": "592151e0-6d55-4a42-bec2-f60cfd59dc2a", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 159, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 27, 
+      "treeview_image": "", 
+      "name": "Logistic Regression", 
+      "is_streaming": false, 
+      "uid": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_LogisticRegression.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_logiscticRegression", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 176, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 159, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "variable": "LRout", 
+      "uid": "6aa463be-9fdf-452f-a920-11d7ebd47f2e", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 162, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 27, 
+      "treeview_image": "", 
+      "name": "Normal Support Vector Classification", 
+      "is_streaming": false, 
+      "uid": "38c5a557-3fcb-40de-910b-341397c5f7fb", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_svm.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_SVC", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Support Vector Machines with kernels based on libsvm"
+    }
+  }, 
+  {
+    "pk": 179, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 162, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "variable": "SVCout", 
+      "uid": "1900d766-a254-4c3a-9495-51a836f642b6", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 161, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 27, 
+      "treeview_image": "", 
+      "name": "k-Nearest Neighbours", 
+      "is_streaming": false, 
+      "uid": "9996e844-67e4-49a6-ac1f-8b64cd72cc1c", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_network.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_kNearestNeighbors", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "k-Nearest Neighbors classifier based on the ball tree datastructure for low dimensional data and brute force search for high dimensional data"
+    }
+  }, 
+  {
+    "pk": 178, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 161, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "variable": "KNNout", 
+      "uid": "62d4cc9a-d6f1-4a84-8f49-0685676e2ce8", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 147, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 27, 
+      "treeview_image": "", 
+      "name": "Naive Bayes", 
+      "is_streaming": false, 
+      "uid": "14161bcf-f025-47a4-abe9-a34ec848cf1c", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_NaiveBayes_60.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_naiveBayes", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 4, 
+      "description": "implements the Naive Bayes algorithm for classification. "
+    }
+  }, 
+  {
+    "pk": 167, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 147, 
+      "name": "Bayes Learner", 
+      "short_name": "lst", 
+      "variable": "bayesout", 
+      "uid": "3ceddb72-81fd-48ff-b73d-73f34ffa7642", 
+      "order": 1, 
+      "description": "The naive Bayesian learning algorithm."
+    }
+  }, 
+  {
+    "pk": 28, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "5888aa38-270f-423b-8d5f-e08f23c1a3b9", 
+      "parent": 25, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Evaluation"
+    }
+  }, 
+  {
+    "pk": 154, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 28, 
+      "treeview_image": "", 
+      "name": "Apply Classifier", 
+      "is_streaming": false, 
+      "uid": "fb514cfb-99f7-46cd-9e5c-9c0d8367da69", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_applyClassifier.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_applyClassifier", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 355, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 154, 
+      "name": "Classifier", 
+      "short_name": "cls", 
+      "uid": "6b9238bf-af83-468d-83a7-dd59fc8e8bcd", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 356, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 154, 
+      "name": "ScikitDataset", 
+      "short_name": "dts", 
+      "uid": "2cf65003-ff21-4c06-8783-0473fe66195d", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 174, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 154, 
+      "name": "Classes", 
+      "short_name": "dts", 
+      "variable": "classes", 
+      "uid": "37abe044-2c32-45ea-a61d-914ca3337680", 
+      "order": 1, 
+      "description": "based on the provided classifier and data."
+    }
+  }, 
+  {
+    "pk": 153, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 28, 
+      "treeview_image": "", 
+      "name": "Build Classifier", 
+      "is_streaming": false, 
+      "uid": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_buildClassifier.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_buildClassifier", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 352, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 153, 
+      "name": "Learner", 
+      "short_name": "lea", 
+      "uid": "97bdb348-947c-4564-88b3-07f0f6134307", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "learner", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "used to build the classifier.\r\n\r\nProvided by:\r\na Weka Classification widget"
+    }
+  }, 
+  {
+    "pk": 353, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 153, 
+      "name": "Instances", 
+      "short_name": "dts", 
+      "uid": "436e18dc-5bab-4a74-8cce-0b31b81b2bbd", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 2, 
+      "description": "to be used by the provided learner to create a classifier.\r\n\r\nProvided by:\r\nArff to Weka Instances"
+    }
+  }, 
+  {
+    "pk": 173, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 153, 
+      "name": "Classifier", 
+      "short_name": "cls", 
+      "variable": "classifier", 
+      "uid": "21f0bf7d-7415-4c4e-b68f-053155c015c2", 
+      "order": 1, 
+      "description": "based on the provided data and learner.\r\n\r\nUsed by:\r\nWeka Apply Classifier"
+    }
+  }, 
+  {
+    "pk": 29, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "168025e9-edfe-44d0-9818-1ac1d7d5cfe3", 
+      "parent": 25, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Regression"
+    }
+  }, 
+  {
+    "pk": 167, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 29, 
+      "treeview_image": "", 
+      "name": "ARD Regression", 
+      "is_streaming": false, 
+      "uid": "e733abdb-9109-4f0e-88e3-23beecb3d330", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_ARD.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_ARDRegression", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Bayesian Automated Relevance Determination regression"
+    }
+  }, 
+  {
+    "pk": 184, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 167, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "variable": "out", 
+      "uid": "3f8f387d-fbf7-4cbc-b469-a23b21c1ad7f", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 164, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 29, 
+      "treeview_image": "", 
+      "name": "Elastic Net", 
+      "is_streaming": false, 
+      "uid": "0a5cb319-2063-4518-b0a0-d4686e7d0e7d", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_NET.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_ElasticNet", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "L1+L2-regularized least squares linear model trained using Coordinate Descent"
+    }
+  }, 
+  {
+    "pk": 181, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 164, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "variable": "out", 
+      "uid": "dc4f1e7a-aaf9-45a2-8d00-51ddb3948eb3", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 165, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 29, 
+      "treeview_image": "", 
+      "name": "Lasso LARS", 
+      "is_streaming": false, 
+      "uid": "3f5f203d-638c-495c-8402-bf602a1168af", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_LARS.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_LassoLARS", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "L1-regularized least squares linear model trained with Least Angle Regression"
+    }
+  }, 
+  {
+    "pk": 182, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 165, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "variable": "out", 
+      "uid": "b346d0ee-85bc-45dc-a1b1-4a0a4eb49379", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 163, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 29, 
+      "treeview_image": "", 
+      "name": "Ridge", 
+      "is_streaming": false, 
+      "uid": "5f1d2eba-123f-41f4-ac54-118c6cf036ff", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_RDG.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_Ridge", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "L2-regularized least squares linear model"
+    }
+  }, 
+  {
+    "pk": 180, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 163, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "variable": "out", 
+      "uid": "7e86922d-29e8-42a2-81f7-771c2043e7d2", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 166, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 29, 
+      "treeview_image": "", 
+      "name": "SGD Regressor", 
+      "is_streaming": false, 
+      "uid": "fb5ccfaf-d587-4077-b69e-dc32a782ce32", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_SGD.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_SGDRegressor", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "L1+L2-regularized least squares linear model trained using Stochastic Gradient Descent"
+    }
+  }, 
+  {
+    "pk": 183, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 166, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "variable": "out", 
+      "uid": "f9da971d-5bbc-49b5-93d8-6dbb148c3c10", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 168, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 29, 
+      "treeview_image": "", 
+      "name": "Support Vector Regression", 
+      "is_streaming": false, 
+      "uid": "e9285c89-bac7-41dc-aa54-1a3ed4e94b68", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_svm.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_SVR", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Non-linear regression using Support Vector Machines (wrapper for libsvm)"
+    }
+  }, 
+  {
+    "pk": 185, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 168, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "variable": "out", 
+      "uid": "7a0b535f-807c-4d31-843c-545b7dcb6311", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "ef06ed94-c57a-4bb0-8f05-1212920c95a0", 
+      "parent": 25, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Utilities"
+    }
+  }, 
+  {
+    "pk": 169, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "CSV to Orange Data Table", 
+      "is_streaming": false, 
+      "uid": "3ce67944-b38e-433d-8274-e9838ebdedab", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "SDT-to-CSV.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_CSVtoOrange", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 359, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 169, 
+      "name": "File", 
+      "short_name": "csv", 
+      "uid": "30bf4478-dfbc-4e31-9933-806f68941b3b", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "file", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 187, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 169, 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "variable": "dataset", 
+      "uid": "257607d4-205f-4a1d-9136-1cf54b19bc3d", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 150, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "CSV to Scikit-Dataset", 
+      "is_streaming": false, 
+      "uid": "ae9c30f4-22a5-49f0-a678-6a9fc71c3518", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "SDT-to-CSV.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_CSVtoNumpy", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Transforms CSV file into Scikit-learn dataset. Result values must be in the last column"
+    }
+  }, 
+  {
+    "pk": 350, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 150, 
+      "name": "FileIn", 
+      "short_name": "fil", 
+      "uid": "60c22566-2703-473d-8575-df5471d25d1d", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fileIn", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 171, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 150, 
+      "name": "Dataset", 
+      "short_name": "dts", 
+      "variable": "scikitDataset", 
+      "uid": "f0fe78a8-00ab-4266-9e2f-aaea3dc6492d", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 157, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Display Dataset", 
+      "is_streaming": false, 
+      "uid": "2da30291-be0b-4df8-b17c-2b3c80f7b6a8", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "scikit_display.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "scikitAlgorithms_displayDS", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_displayDS", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 358, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 157, 
+      "name": "DataSet", 
+      "short_name": "dts", 
+      "uid": "e5cd20c4-8346-45d7-a39a-d58bcb5a66c5", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 171, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Display Decision Tree", 
+      "is_streaming": false, 
+      "uid": "0b152c3b-7bc0-4e93-b4f2-92a4c059107d", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "TreeVisualization.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_displayDecisionTree", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 361, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 171, 
+      "name": "Classifier", 
+      "short_name": "cls", 
+      "uid": "f0d90a6c-e40f-4b40-9f91-e54c2f6e68b0", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 149, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "SVM to Scikit Dataset", 
+      "is_streaming": false, 
+      "uid": "125b73c7-d009-4198-8fb8-328c826b6c29", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "table.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_SVMtoScikitDataset", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 349, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 149, 
+      "name": "FileIn", 
+      "short_name": "fil", 
+      "uid": "792a13ff-e47e-4482-aaec-bc5e40a81c37", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fileIn", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 170, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 149, 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "variable": "datasetOut", 
+      "uid": "606cc624-54a5-4636-89f5-b8ad1cfce925", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 155, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Scikit-Dataset to CSV", 
+      "is_streaming": false, 
+      "uid": "1bc483d6-4d6c-435f-9fc0-ad3716fe390b", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "SDT-to-CSV.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_scikitDatasetToCSV", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Transforms scikit dataset to CSV"
+    }
+  }, 
+  {
+    "pk": 354, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 155, 
+      "name": "DataSet", 
+      "short_name": "dts", 
+      "uid": "8782c523-ca3c-43f2-9c49-29ddb706a67e", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "scikitDataset", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 186, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 155, 
+      "name": "Out", 
+      "short_name": "csv", 
+      "variable": "CSVout", 
+      "uid": "0171b31d-4edd-43f8-abf1-e8a898fd4f8c", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 170, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "UCI dataset to Scikit Dataset", 
+      "is_streaming": false, 
+      "uid": "b3918a2b-afab-4225-9c17-5665d4c1a898", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "scikitAlgorithms", 
+      "static_image": "table.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "scikitAlgorithms_UCIDataset", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 360, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 170, 
+      "name": "DataSet", 
+      "short_name": "ds", 
+      "uid": "b29f0614-1db8-48a4-8645-9f28c5d05f66", 
+      "default": "iris", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "dsIn", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 96, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "48f974a6-5a7e-45aa-9ce9-13d092ddcaf7", 
+      "abstract_input": 360, 
+      "value": "boston", 
+      "name": "Boston (regression)"
+    }
+  }, 
+  {
+    "pk": 95, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "10f6c559-491a-471d-8853-5afa14489aa1", 
+      "abstract_input": 360, 
+      "value": "diabetes", 
+      "name": "Diabetes (regression)"
+    }
+  }, 
+  {
+    "pk": 94, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "dd6bb693-a735-4d43-9680-71843f8f58d9", 
+      "abstract_input": 360, 
+      "value": "iris", 
+      "name": "Iris (classification)"
+    }
+  }, 
+  {
+    "pk": 97, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "31ac6a55-5935-42af-9033-b31769f28c6c", 
+      "abstract_input": 360, 
+      "value": " linnerud", 
+      "name": "Linnerud dataset (multivariate regression)"
+    }
+  }, 
+  {
+    "pk": 188, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 170, 
+      "name": "Dataset", 
+      "short_name": "dts", 
+      "variable": "dtsOut", 
+      "uid": "1118a566-6963-483e-a0b2-78d66e07ac66", 
+      "order": 1, 
+      "description": ""
+    }
+  }
+]
