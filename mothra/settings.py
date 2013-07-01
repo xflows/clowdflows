@@ -198,15 +198,12 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.cforange',
     'workflows.perfeval',
     'workflows.mysql',
-<<<<<<< HEAD
     'workflows.lemmagen',
     'workflows.crossbee',
     'workflows.scikitAlgorithms',
-=======
     #'workflows.lemmagen',
     #'workflows.crossbee',
     'workflows.streaming',
->>>>>>> 3d4c5605eb0cc9b6e49e1daeb50a05f2accc9d75
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 
