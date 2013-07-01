@@ -52,6 +52,11 @@ class Workflow(models.Model):
     widget = models.OneToOneField('Widget',related_name="workflow_link",blank=True,null=True)
     template_parent = models.ForeignKey('Workflow',blank=True,null=True,default=None,on_delete=models.SET_NULL)
 
+    def can_be_streaming(self):
+        if self.widgets.filter(abstract_widget__is_streaming=True).count()>0:
+            return True
+        else:
+            return False
 
     def is_for_loop(self):
         if self.widgets.filter(type='for_input').count()>0:
@@ -463,6 +468,8 @@ class Widget(models.Model):
                         input_dict['wsdl_method']=self.abstract_widget.wsdl_method
                     if self.abstract_widget.has_progress_bar:
                         outputs = function_to_call(input_dict,self)
+                    elif self.abstract_widget.is_streaming:
+                        outputs = function_to_call(input_dict,self,None)
                     else:
                         outputs = function_to_call(input_dict)
                 else:

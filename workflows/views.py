@@ -379,6 +379,17 @@ def delete_widget(request):
         return HttpResponse(status=400)
 
 @login_required
+def delete_workflow(request):
+    if request.is_ajax() or DEBUG:
+        w = get_object_or_404(Workflow, pk=request.GET['workflow_id'])
+        if (w.user!=request.user):
+            return HttpResponse(status=400)
+        w.delete()
+        return HttpResponse("Ok")
+    else:
+        return HttpResponse(status=400)
+
+@login_required
 def add_subprocess(request):
     if request.is_ajax() or DEBUG:
         workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
