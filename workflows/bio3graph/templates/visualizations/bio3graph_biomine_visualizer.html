@@ -1,0 +1,7 @@
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization" width=700 height=600>
+    <applet code="biomine.bmvis.BMVis"
+            archive="{{STATIC_URL}}bio3graph/bmvis.jar"
+            width="100%" height="100%">
+            <param name="graph" value="{{ MEDIA_URL }}{{ filename }}"> 
+    </applet>
+</div>

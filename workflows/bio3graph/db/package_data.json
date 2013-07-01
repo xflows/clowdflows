@@ -1,0 +1,1129 @@
+[
+  {
+    "pk": 26, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "472a416b-b56a-4f6e-aae9-0ffb9cef240d", 
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Bio3graph"
+    }
+  }, 
+  {
+    "pk": 165, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Biomine graph visualizer", 
+      "is_streaming": false, 
+      "uid": "9d9319eb-41ae-4cce-a5f6-dd595ec233b7", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "BiomineVisualizer.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "bio3graph_biomine_visualizer", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_biomine_visualizer", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Biomine graph visualizer which is run as a Java applet."
+    }
+  }, 
+  {
+    "pk": 380, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 165, 
+      "name": "Biomine graph", 
+      "short_name": "bmg", 
+      "uid": "e9ac830a-b1aa-4667-be2a-e05a899d2de8", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "biomine_graph", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Biomine graph as string."
+    }
+  }, 
+  {
+    "pk": 162, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Build default vocabulary", 
+      "is_streaming": false, 
+      "uid": "58f17dac-2bcd-419d-8803-76f97b30fd1d", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_build_default_vocabulary", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Constructs a default Bio3graph vocabulary."
+    }
+  }, 
+  {
+    "pk": 183, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 162, 
+      "name": "Vocabulary", 
+      "short_name": "voc", 
+      "variable": "vocabulary", 
+      "uid": "0958f164-e661-46a5-983b-a4437e9960aa", 
+      "order": 1, 
+      "description": "Bio3graph vocabulary structure."
+    }
+  }, 
+  {
+    "pk": 158, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Build vocabulary", 
+      "is_streaming": false, 
+      "uid": "e125fbf2-b0b6-4561-b7fc-502f3cea32a5", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_build_vocabulary", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Constructs a Bio3graph vocabulary for triplet extraction using the provided files."
+    }
+  }, 
+  {
+    "pk": 365, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 158, 
+      "name": "Compounds", 
+      "short_name": "cmp", 
+      "uid": "68264277-23c9-4b01-9122-9b15ed10bfe8", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "compounds", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "CSV file with compounds."
+    }
+  }, 
+  {
+    "pk": 366, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 158, 
+      "name": "Activation", 
+      "short_name": "act", 
+      "uid": "d8b7066a-ae97-4032-a79d-18df661180ac", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "activation", 
+      "parameter": false, 
+      "order": 2, 
+      "description": "CSV file with activations."
+    }
+  }, 
+  {
+    "pk": 367, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 158, 
+      "name": "Activation rotate", 
+      "short_name": "acr", 
+      "uid": "58339119-1f45-4b6e-a135-d466737f9b57", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "activation_rotate", 
+      "parameter": false, 
+      "order": 3, 
+      "description": "CSV file with activations for rotation."
+    }
+  }, 
+  {
+    "pk": 368, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 158, 
+      "name": "Inhibition", 
+      "short_name": "inh", 
+      "uid": "b816a978-a040-429a-9d29-8bb91e1ce27c", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "inhibition", 
+      "parameter": false, 
+      "order": 4, 
+      "description": "CSV file with inhibitions."
+    }
+  }, 
+  {
+    "pk": 369, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 158, 
+      "name": "Binding", 
+      "short_name": "bnd", 
+      "uid": "532e271d-5f30-491a-bf09-b69340ef7ec2", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "binding", 
+      "parameter": false, 
+      "order": 5, 
+      "description": "CSV file with bindings."
+    }
+  }, 
+  {
+    "pk": 370, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 158, 
+      "name": "Activation passive", 
+      "short_name": "acp", 
+      "uid": "910d6c79-bd85-47cd-8862-acfc9644bd56", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "activation_passive", 
+      "parameter": false, 
+      "order": 6, 
+      "description": "CSV file with passive forms of activation."
+    }
+  }, 
+  {
+    "pk": 371, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 158, 
+      "name": "Inhibition passive", 
+      "short_name": "inp", 
+      "uid": "0494534a-ebb6-4727-be5a-531ec78902df", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "inhibition_passive", 
+      "parameter": false, 
+      "order": 7, 
+      "description": "CSV file with passive forms of inhibition."
+    }
+  }, 
+  {
+    "pk": 372, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 158, 
+      "name": "Binding passive", 
+      "short_name": "bnp", 
+      "uid": "9a3d582d-9c37-484f-ab3e-1d48536c42d2", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "binding_passive", 
+      "parameter": false, 
+      "order": 8, 
+      "description": "CSV file with passive forms of binding."
+    }
+  }, 
+  {
+    "pk": 178, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 158, 
+      "name": "Vocabulary", 
+      "short_name": "voc", 
+      "variable": "vocabulary", 
+      "uid": "cbeb1307-28b4-4a61-957e-c0aa606c4292", 
+      "order": 1, 
+      "description": "Bio3graph vocabulary data structure."
+    }
+  }, 
+  {
+    "pk": 169, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Colour relations", 
+      "is_streaming": false, 
+      "uid": "ac4161dd-e10b-4fa3-ab8c-5128a302b8bf", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_colour_relations", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Colours given relations in a given graph. Pink colour is used."
+    }
+  }, 
+  {
+    "pk": 387, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 169, 
+      "name": "Network", 
+      "short_name": "nwx", 
+      "uid": "a13f4f67-bc3c-470d-8acf-b327b53a5025", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "network", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "NetworkX data structure"
+    }
+  }, 
+  {
+    "pk": 388, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 169, 
+      "name": "Relations", 
+      "short_name": "rls", 
+      "uid": "f4f1fa82-2c5c-4f7d-9eec-1f7827c7222c", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "relations", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of relations"
+    }
+  }, 
+  {
+    "pk": 189, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 169, 
+      "name": "Network", 
+      "short_name": "nwx", 
+      "variable": "network", 
+      "uid": "c461873e-edbe-4895-84b9-43f21d5f6a20", 
+      "order": 1, 
+      "description": "Network with relations coloured"
+    }
+  }, 
+  {
+    "pk": 161, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Construct triplet network", 
+      "is_streaming": false, 
+      "uid": "48910a6a-2e0b-41e7-9f58-28465da4f284", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_construct_triplet_network", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Constructs a network from input triplets. Biomine's .bmg format as well as NetworkX data structure is produced."
+    }
+  }, 
+  {
+    "pk": 377, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 161, 
+      "name": "Triplets", 
+      "short_name": "trs", 
+      "uid": "17ea284c-78c9-4326-98e0-aa20c4b3bcd3", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Input list of triplet objects"
+    }
+  }, 
+  {
+    "pk": 182, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 161, 
+      "name": "NetworkX structure", 
+      "short_name": "nwx", 
+      "variable": "network_object", 
+      "uid": "414330ff-9577-43bf-afdf-ae9b37840c6b", 
+      "order": 2, 
+      "description": "NetworkX graph data structure."
+    }
+  }, 
+  {
+    "pk": 155, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Create document", 
+      "is_streaming": false, 
+      "uid": "3159f277-2ad5-4d03-b7f6-f55913c62c79", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_create_document", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Creates a document object structure."
+    }
+  }, 
+  {
+    "pk": 362, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 155, 
+      "name": "Document file", 
+      "short_name": "fil", 
+      "uid": "6e849ef5-dc10-459b-994f-29e24b9ca728", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "docfile", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Input document file"
+    }
+  }, 
+  {
+    "pk": 175, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 155, 
+      "name": "Document object", 
+      "short_name": "obj", 
+      "variable": "document", 
+      "uid": "a5ad8a1f-cb4c-430a-ae28-949f7d71eb65", 
+      "order": 1, 
+      "description": "Document object structure"
+    }
+  }, 
+  {
+    "pk": 159, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Extract triplets", 
+      "is_streaming": false, 
+      "uid": "d609c4d7-ac7b-4b19-a42a-aa3f5d8619c2", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_extract_triplets", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Bio3graph triplet extraction method."
+    }
+  }, 
+  {
+    "pk": 373, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 159, 
+      "name": "Document", 
+      "short_name": "doc", 
+      "uid": "1db348dd-1db1-44a1-af47-e244694e7424", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "document", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Bio3graph document structure."
+    }
+  }, 
+  {
+    "pk": 374, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 159, 
+      "name": "Vocabulary", 
+      "short_name": "voc", 
+      "uid": "e1b47681-9b1b-4780-b52a-b9753eef4308", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "vocabulary", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Bio3graph vocabulary structure."
+    }
+  }, 
+  {
+    "pk": 179, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 159, 
+      "name": "Triplets", 
+      "short_name": "trs", 
+      "variable": "triplets", 
+      "uid": "71e5adbc-9595-4590-9595-22b75e1fd231", 
+      "order": 1, 
+      "description": "A list of Bio3graph triplet structures."
+    }
+  }, 
+  {
+    "pk": 166, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Find transitive relations", 
+      "is_streaming": false, 
+      "uid": "f8ea0463-5df6-45d6-bc22-15bef2a236cd", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_find_redundant_transitive_relations", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Finds redundant transitive relations in the new network (which are already present in the given existing network)."
+    }
+  }, 
+  {
+    "pk": 381, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 166, 
+      "name": "Initial network", 
+      "short_name": "inw", 
+      "uid": "5d11c6c0-fc03-4382-9022-5244878e7b93", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "initial_network", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Initial network as a NetworkX data structure."
+    }
+  }, 
+  {
+    "pk": 382, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 166, 
+      "name": "New network", 
+      "short_name": "nnw", 
+      "uid": "d62ddb0d-13b1-4408-beaa-1664685debf3", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "new_network", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "New network as a NetworkX data structure."
+    }
+  }, 
+  {
+    "pk": 186, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 166, 
+      "name": "Transitive relations", 
+      "short_name": "trl", 
+      "variable": "transitive_relations", 
+      "uid": "637814d0-c004-460e-962a-c1b54838cb09", 
+      "order": 1, 
+      "description": "List of discovered transitive relations."
+    }
+  }, 
+  {
+    "pk": 168, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Incremental merge of networks", 
+      "is_streaming": false, 
+      "uid": "0545cd95-2683-4204-87af-dee639df01f9", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_incremental_network_merge", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Merges an exiting network and a new network and colours the relations accordingly: old: black colour, overlap: green colour, new: red colour."
+    }
+  }, 
+  {
+    "pk": 385, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 168, 
+      "name": "Old network", 
+      "short_name": "nwx", 
+      "uid": "3ec069b5-3d43-4c86-b1c2-a57572addbb7", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "existing_network", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Existing network as NetworkX data structure"
+    }
+  }, 
+  {
+    "pk": 386, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 168, 
+      "name": "New network", 
+      "short_name": "nwx", 
+      "uid": "9e739f4d-b1b6-4709-bb65-36d4fea9975c", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "new_network", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "New network as NetworkX data structure"
+    }
+  }, 
+  {
+    "pk": 188, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 168, 
+      "name": "Merged network", 
+      "short_name": "nwx", 
+      "variable": "merged_network", 
+      "uid": "203f747a-cefe-4a98-b9df-01cd8186b450", 
+      "order": 1, 
+      "description": "Merged and coloured network as NetworkX data structure"
+    }
+  }, 
+  {
+    "pk": 160, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Normalise triplets", 
+      "is_streaming": false, 
+      "uid": "8bf777db-89d2-447a-a970-ac47c7465db9", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_normalise_triplets", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Normalises all triplets in the input list."
+    }
+  }, 
+  {
+    "pk": 375, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 160, 
+      "name": "Triplets", 
+      "short_name": "trs", 
+      "uid": "a35f27a6-4ff4-4bfe-a295-16525f82c393", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of triplet data structures."
+    }
+  }, 
+  {
+    "pk": 376, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 160, 
+      "name": "Vocabulary", 
+      "short_name": "voc", 
+      "uid": "70bc9b2a-7cd7-4611-a1ea-fe28f1a204fc", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "vocabulary", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Bio3graph vocabulary structure."
+    }
+  }, 
+  {
+    "pk": 180, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 160, 
+      "name": "Normalised triplets", 
+      "short_name": "ntr", 
+      "variable": "normalised_triplets", 
+      "uid": "9fdac49a-0695-4eb3-9ace-1e896faf70e2", 
+      "order": 1, 
+      "description": "List of normalised triplets."
+    }
+  }, 
+  {
+    "pk": 157, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Parse sentences", 
+      "is_streaming": false, 
+      "uid": "4ad1a850-0c5f-43ca-a842-0b911011c273", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_parse_sentences", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Parses document sentences using the GENIA POS tagger."
+    }
+  }, 
+  {
+    "pk": 364, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 157, 
+      "name": "Document", 
+      "short_name": "doc", 
+      "uid": "5d8766cd-22a0-4891-9f24-0edbdc7c0f78", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "document", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Bio3graph document structure with sentences splitted."
+    }
+  }, 
+  {
+    "pk": 177, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 157, 
+      "name": "Document", 
+      "short_name": "doc", 
+      "variable": "document", 
+      "uid": "e2625ebd-7c71-4928-95df-0bfb3905075e", 
+      "order": 1, 
+      "description": "Bio3graph document structure with sentences parsed."
+    }
+  }, 
+  {
+    "pk": 167, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Remove relations", 
+      "is_streaming": false, 
+      "uid": "c83a632e-3844-4c84-9734-9020ecf05481", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_remove_relations", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Removes given relations from a given network."
+    }
+  }, 
+  {
+    "pk": 383, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 167, 
+      "name": "NetworkX network", 
+      "short_name": "nwx", 
+      "uid": "9ca8eb91-33d9-429e-8275-0c67cbabe75e", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "network", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "NetworkX data structure"
+    }
+  }, 
+  {
+    "pk": 384, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 167, 
+      "name": "Relations", 
+      "short_name": "rls", 
+      "uid": "8b908e66-3e22-4ca9-9780-531f085df490", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "relations", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of relations"
+    }
+  }, 
+  {
+    "pk": 187, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 167, 
+      "name": "NetworkX network", 
+      "short_name": "nwx", 
+      "variable": "pruned_graph", 
+      "uid": "49450bcf-c121-4cfe-96cd-281e34ad72fd", 
+      "order": 1, 
+      "description": "Network with given relations removed."
+    }
+  }, 
+  {
+    "pk": 170, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Reset colours", 
+      "is_streaming": false, 
+      "uid": "102de05a-bec5-4a14-ba69-d6f3e3a68aa7", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_reset_colours", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Resets colours of all relations to black."
+    }
+  }, 
+  {
+    "pk": 389, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 170, 
+      "name": "Network", 
+      "short_name": "nwx", 
+      "uid": "b30ac011-9262-48c9-b77f-cdfddb96e655", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "network", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "NetworkX data structure"
+    }
+  }, 
+  {
+    "pk": 190, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 170, 
+      "name": "Network", 
+      "short_name": "nwx", 
+      "variable": "network", 
+      "uid": "811d4a66-fee1-4421-8b17-7e4eb2770f5e", 
+      "order": 1, 
+      "description": "NetworkX data structure"
+    }
+  }, 
+  {
+    "pk": 156, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Split sentences", 
+      "is_streaming": false, 
+      "uid": "2103852a-7b84-4f8f-890b-61375ade29c4", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_split_sentences", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Splits document text into sentences using NLTK's Punkt sentence splitter."
+    }
+  }, 
+  {
+    "pk": 363, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 156, 
+      "name": "Document", 
+      "short_name": "doc", 
+      "uid": "83951622-4dba-463b-b2b9-c540bbb32e36", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "document", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Bio3graph Document object"
+    }
+  }, 
+  {
+    "pk": 176, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 156, 
+      "name": "Document", 
+      "short_name": "doc", 
+      "variable": "document", 
+      "uid": "ee3659c7-e083-42da-a394-d378cc37c9de", 
+      "order": 1, 
+      "description": "Bio3graph Document object with sentences splitted."
+    }
+  }, 
+  {
+    "pk": 164, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Transform Biomine to NetworkX", 
+      "is_streaming": false, 
+      "uid": "403a20b8-4720-4cb1-9df4-c6d6de4aeca9", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_biomine_to_networkx", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Transforms a Biomine graph into a NetworkX data structure."
+    }
+  }, 
+  {
+    "pk": 379, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 164, 
+      "name": "Biomine graph", 
+      "short_name": "bmg", 
+      "uid": "981300ab-66e5-4301-a3c3-cca9929d121f", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "biomine_graph", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Biomine graph as string"
+    }
+  }, 
+  {
+    "pk": 185, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 164, 
+      "name": "NetworkX network", 
+      "short_name": "nwx", 
+      "variable": "network_object", 
+      "uid": "5f3b097a-fd56-4b74-83a4-48a1a7cbc78e", 
+      "order": 1, 
+      "description": "NetworkX network object"
+    }
+  }, 
+  {
+    "pk": 163, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Transform NetworkX to Biomine ", 
+      "is_streaming": false, 
+      "uid": "15dcdfc1-f147-4c63-9840-0a1e1c5f00d6", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_networkx_to_biomine", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Converts NetworkX data structure into a Biomine graph."
+    }
+  }, 
+  {
+    "pk": 378, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 163, 
+      "name": "NetworkX network", 
+      "short_name": "nwx", 
+      "uid": "85fb6fa5-23b5-4a15-8446-ae45e4a89a2b", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "network", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "NetworkX data object"
+    }
+  }, 
+  {
+    "pk": 184, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 163, 
+      "name": "Biomine graph", 
+      "short_name": "bmg", 
+      "variable": "biomine_graph", 
+      "uid": "19685b0f-58f9-4333-8d7b-2da4b703e97c", 
+      "order": 1, 
+      "description": "Biomine graph as string"
+    }
+  }
+]
