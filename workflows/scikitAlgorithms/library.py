@@ -1,47 +1,5 @@
 import re
 
-# def scikitAlgorithms_create_integers(input_dict):
-#     intStr = input_dict['intStr']
-#     intList = []
-#     for i in re.findall(r'\w+', intStr):
-#         try:
-#             intList.append(int(i))
-#         except:
-#             pass
-#     if input_dict['sort'].lower() == "true":
-#         intList.sort()
-#     return {'intList':intList}
-
-# def scikitAlgorithms_sum_integers(input_dict):
-#     intList = input_dict['intList']
-#     return {'sum':sum(intList)}
-
-# def scikitAlgorithms_pre_filter_integers(input_dict):
-#     return input_dict
-
-# def scikitAlgorithms_post_filter_integers(postdata,input_dict,output_dict):
-#     intListOut = postdata['intListOut']
-#     intList = []
-#     for i in intListOut:
-#         try:
-#             intList.append(int(i))
-#         except:
-#             pass
-#     return {'intList': intList}
-
-# def scikitAlgorithms_pre_display_summation(input_dict):
-#     return {}
-
-# def scikitAlgorithms_sumTwoIntegers(input_dict):
-#     output_dict = {}
-#     output_dict['sum'] = int(input_dict['int1']) + int(input_dict['int2'])
-#     return  output_dict
-
-# def scikitAlgorithms_myFirstAction(input_dict):
-#     output_dict={}
-#     output_dict['out1'] = input_dict['inp1']
-#     return output_dict
-
 
 #
 # CLASSIFICATION ALGORITHMS
@@ -56,35 +14,40 @@ def scikitAlgorithms_naiveBayes(input_dict):
 
 def scikitAlgorithms_J48(input_dict):
     from sklearn import tree
-    clf = tree.DecisionTreeClassifier()
+    #parse input and determin its type
+    try:
+        featureValue= float(input_dict["featureIn"]) if '.' in input_dict["featureIn"] else int(input_dict["featureIn"]) #return int or float
+    except ValueError:
+        featureValue= input_dict["featureIn"] #return string
+    clf = tree.DecisionTreeClassifier(max_features=featureValue, max_depth=int(input_dict["depthIn"]))
     output_dict={}
     output_dict['treeOut'] = clf
     return output_dict
 
 def scikitAlgorithms_linearSVC(input_dict):
     from sklearn.svm import LinearSVC
-    clf = LinearSVC()
+    clf = LinearSVC(C=float(input_dict["penaltyIn"]),loss=input_dict["lossIn"],penalty=input_dict["normIn"], multi_class=input_dict["classIn"])
     output_dict={}
     output_dict['SVCout'] = clf
     return output_dict
 
 def scikitAlgorithms_SVC(input_dict):
     from sklearn.svm import SVC
-    clf = SVC()
+    clf = SVC(C=float(input_dict["penaltyIn"]), kernel=str(input_dict["kernelIn"]), degree=int(input_dict["degIn"]))
     output_dict={}
     output_dict['SVCout'] = clf
     return output_dict
 
 def scikitAlgorithms_kNearestNeighbors(input_dict):
     from sklearn.neighbors import KNeighborsClassifier
-    knn = KNeighborsClassifier()
+    knn = KNeighborsClassifier(n_neighbors=int(input_dict['numNeib']), weights=input_dict['wgIn'], algorithm=input_dict['algIn'])
     output_dict={}
     output_dict['KNNout'] = knn
     return output_dict
 
 def scikitAlgorithms_logiscticRegression(input_dict):
     from sklearn.linear_model import LogisticRegression
-    clf = LogisticRegression()
+    clf = LogisticRegression(penalty=str(input_dict["penIn"]), C=float(input_dict["cIn"]))
     output_dict={}
     output_dict['LRout'] = clf
     return output_dict
@@ -108,8 +71,8 @@ def scikitAlgorithms_ElasticNet(input_dict):
     return output_dict
 
 def scikitAlgorithms_LassoLARS(input_dict):
-    from sklearn.linear_model import LassoLARS
-    clf = LassoLARS()
+    from sklearn.linear_model import LassoLars
+    clf = LassoLars(alpha=float(input_dict["authIn"]))
     output_dict={}
     output_dict['out'] = clf
     return output_dict
@@ -123,13 +86,13 @@ def scikitAlgorithms_SGDRegressor(input_dict):
 
 def scikitAlgorithms_ARDRegression(input_dict):
     from sklearn.linear_model import ARDRegression
-    clf = ARDRegression()
+    clf = ARDRegression(n_iter=int(input_dict["iterIn"]))
     output_dict={}
     output_dict['out'] = clf
     return output_dict
 
 def scikitAlgorithms_SVR(input_dict):
-    from sklearn.linear_model import SVR 
+    from sklearn.svm import SVR 
     clf = SVR()
     output_dict={}
     output_dict['out'] = clf
@@ -153,10 +116,10 @@ def scikitAlgorithms_KMeans(input_dict):
 
 def scikitAlgorithms_UCIDataset(input_dict):
     from sklearn import datasets
-    allDSets = {"iris":datasets.load_iris(), "boston":datasets.load_diabetes(), "diabetes":datasets.load_boston(), " linnerud":datasets.load_linnerud()}
+    allDSets = {"iris":datasets.load_iris(), "boston":datasets.load_boston(), "diabetes":datasets.load_diabetes(), " linnerud":datasets.load_linnerud()}
     dataset = allDSets[input_dict['dsIn']]
     output_dict = {}
-    output_dict['dtsOut'] = (dataset.data, dataset.target)
+    output_dict['dtsOut'] = dataset#(dataset.data, dataset.target)
     return output_dict
 
 def scikitAlgorithms_CSVtoNumpy(input_dict):
@@ -187,8 +150,8 @@ def scikitAlgorithms_SVMtoScikitDataset(input_dict):
 def scikitAlgorithms_buildClassifier(input_dict):
     learner = input_dict['learner']
     data = input_dict['instances']
-    n_sample = data[0]
-    n_feature = data[1]
+    n_sample = data["data"]
+    n_feature = data["target"]
 
     classifier = learner.fit(n_sample, n_feature) #.predict(n_sample)
 
@@ -199,11 +162,11 @@ def scikitAlgorithms_applyClassifier(input_dict):
 
     classifier = input_dict['classifier']
     data = input_dict['data']
+    data["target"] = classifier.predict(data["data"])
 
-    y_pred = (data[0], classifier.predict(data[0]))
-    new_data = y_pred #"Number of mislabeled points : %d" % (data[0] != y_pred).sum()
-
-    output_dict = {'classes':new_data}
+    new_data = (data["data"], classifier.predict(data["data"]))
+   
+    output_dict = {'classes':data}
     return output_dict
 
 def scikitAlgorithms_scikitDatasetToCSV(input_dict):

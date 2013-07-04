@@ -12,7 +12,7 @@
     }
   }, 
   {
-    "pk": 27, 
+    "pk": 30, 
     "model": "workflows.category", 
     "fields": {
       "uid": "317018eb-3bc8-4862-bce8-273451a01de4", 
@@ -24,10 +24,10 @@
     }
   }, 
   {
-    "pk": 151, 
+    "pk": 172, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 27, 
+      "category": 30, 
       "treeview_image": "", 
       "name": "Decision Tree", 
       "is_streaming": false, 
@@ -46,14 +46,50 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "Creates a decision tree"
+      "description": "max_features : {int, float or string } The number of features to consider when looking for the best split:\r\n\r\nint, then consider max_features features at each split.\r\nfloat, then max_features is a percentage and int(max_features * n_features) features are considered at each split.\r\n“auto”, then max_features=sqrt(n_features).\r\n“sqrt”, then max_features=sqrt(n_features).\r\n“log2”, then max_features=log2(n_features).\r\nNone, then max_features=n_features.\r\n\r\nmax_depth : {integer} The maximum depth of the tree. \r\n"
     }
   }, 
   {
-    "pk": 172, 
+    "pk": 376, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 172, 
+      "name": "max_feature", 
+      "short_name": "par", 
+      "uid": "61d7acc2-72c8-4943-a602-fcbabea6cc0f", 
+      "default": "auto", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "featureIn", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 377, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 172, 
+      "name": "max_depth", 
+      "short_name": "par", 
+      "uid": "d3fe38b1-f3b2-4364-a30e-dac5a27d3dfa", 
+      "default": "100", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "depthIn", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 189, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 151, 
+      "widget": 172, 
       "name": "Dataset", 
       "short_name": "lrn", 
       "variable": "treeOut", 
@@ -63,10 +99,10 @@
     }
   }, 
   {
-    "pk": 158, 
+    "pk": 173, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 27, 
+      "category": 30, 
       "treeview_image": "", 
       "name": "Linear Support Vector Classification", 
       "is_streaming": false, 
@@ -85,14 +121,146 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "Support Vector Machines without kernels based on liblinear"
+      "description": "Support Vector Machines without kernels based on liblinear\r\n\r\nC : {float} - Penalty parameter C of the error term.\r\nloss : string, ‘l1’ or ‘l2’ (default=’l2’) Specifies the loss function. ‘l1’ is the hinge loss (standard SVM) while ‘l2’ is the squared hinge loss.\r\npenalty : string, ‘l1’ or ‘l2’ (default=’l2’) Specifies the norm used in the penalization. The ‘l2’ penalty is the standard used in SVC. The ‘l1’ leads to coef_ vectors that are sparse.\r\n\r\nmulti_class: string, ‘ovr’ or ‘crammer_singer’ (default=’ovr’) :\r\nDetermines the multi-class strategy if y contains more than two classes. ovr trains n_classes one-vs-rest classifiers, while crammer_singer optimizes a joint objective over all classes. While crammer_singer is interesting from an theoretical perspective as it is consistent it is seldom used in practice and rarely leads to better accuracy and is more expensive to compute. If crammer_singer is chosen, the options loss, penalty and dual will be ignored."
     }
   }, 
   {
-    "pk": 175, 
+    "pk": 378, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 173, 
+      "name": "Penalty parameter(C)", 
+      "short_name": "par", 
+      "uid": "2404bc82-b32b-4787-acd4-82ceef160c22", 
+      "default": "1.0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "penaltyIn", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 379, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 173, 
+      "name": "Loss parameter(loss)", 
+      "short_name": "par", 
+      "uid": "4511ba8c-015c-4e26-8ca4-164c74afde18", 
+      "default": "l2", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lossIn", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 108, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "64809f7f-3b98-4b63-9c84-66608c1f6a8c", 
+      "abstract_input": 379, 
+      "value": "l1", 
+      "name": "l1"
+    }
+  }, 
+  {
+    "pk": 109, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "554b3404-de82-418a-bc9e-f7fa530acde1", 
+      "abstract_input": 379, 
+      "value": "l2", 
+      "name": "l2"
+    }
+  }, 
+  {
+    "pk": 380, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 173, 
+      "name": "Norm(penalty)", 
+      "short_name": "par", 
+      "uid": "b8b407d1-c11e-4829-a851-f1cd9ebe1409", 
+      "default": "l2", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "normIn", 
+      "parameter": true, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 110, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "5c1c4169-8fba-4921-8241-e69da36ee797", 
+      "abstract_input": 380, 
+      "value": "l1", 
+      "name": "l1"
+    }
+  }, 
+  {
+    "pk": 111, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "7739f64c-c5e3-4cb7-b506-f5816c2c09c9", 
+      "abstract_input": 380, 
+      "value": "l2", 
+      "name": "l2"
+    }
+  }, 
+  {
+    "pk": 381, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 173, 
+      "name": "multi_class", 
+      "short_name": "par", 
+      "uid": "da13b053-3d1b-48ad-a046-5683143f1391", 
+      "default": "ovr", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "classIn", 
+      "parameter": true, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 113, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "b009551e-ca6c-428c-b7a1-8fd3b7b49d08", 
+      "abstract_input": 381, 
+      "value": "crammer_singer", 
+      "name": "crammer_singer"
+    }
+  }, 
+  {
+    "pk": 112, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "2b37e801-b2b0-44ae-b4f8-53e1177845f0", 
+      "abstract_input": 381, 
+      "value": "ovr", 
+      "name": "ovr"
+    }
+  }, 
+  {
+    "pk": 190, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 158, 
+      "widget": 173, 
       "name": "Learner", 
       "short_name": "lrn", 
       "variable": "SVCout", 
@@ -102,10 +270,10 @@
     }
   }, 
   {
-    "pk": 159, 
+    "pk": 174, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 27, 
+      "category": 30, 
       "treeview_image": "", 
       "name": "Logistic Regression", 
       "is_streaming": false, 
@@ -124,14 +292,70 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
+      "description": "penalty : {string} Used to specify the norm used in the penalization.\r\n‘l1’ or ‘l2’\r\n\r\nC : {float} \r\nInverse of regularization strength; must be a positive float. Like in support vector machines, smaller values specify stronger regularization."
+    }
+  }, 
+  {
+    "pk": 385, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 174, 
+      "name": "penalty", 
+      "short_name": "par", 
+      "uid": "fb0e5723-41b0-4ef3-9fbd-d88c0a987252", 
+      "default": "l1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "penIn", 
+      "parameter": true, 
+      "order": 1, 
       "description": ""
     }
   }, 
   {
-    "pk": 176, 
+    "pk": 118, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "f8542745-ec0d-4f8e-bd84-f686628fae30", 
+      "abstract_input": 385, 
+      "value": "l1", 
+      "name": "l1"
+    }
+  }, 
+  {
+    "pk": 119, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "9eaf2578-db7b-4341-b9b9-8622aa4d8de8", 
+      "abstract_input": 385, 
+      "value": "l2", 
+      "name": "l2"
+    }
+  }, 
+  {
+    "pk": 386, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 174, 
+      "name": "C", 
+      "short_name": "par", 
+      "uid": "78a44bbf-4da4-46e1-9be2-e3335b04c74b", 
+      "default": "1.0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cIn", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 191, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 159, 
+      "widget": 174, 
       "name": "Learner", 
       "short_name": "lrn", 
       "variable": "LRout", 
@@ -141,10 +365,10 @@
     }
   }, 
   {
-    "pk": 162, 
+    "pk": 175, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 27, 
+      "category": 30, 
       "treeview_image": "", 
       "name": "Normal Support Vector Classification", 
       "is_streaming": false, 
@@ -167,10 +391,104 @@
     }
   }, 
   {
-    "pk": 179, 
+    "pk": 382, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Penalty parameter (C)", 
+      "short_name": "par", 
+      "uid": "83daa60b-af19-4d20-81d9-cdbdb78afd75", 
+      "default": "1.0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "penaltyIn", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 383, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "kernel", 
+      "short_name": "par", 
+      "uid": "e1d631a9-e85b-4734-a3df-813b638def50", 
+      "default": "rbf", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "kernelIn", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 117, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "83eb0b69-b114-4b9b-a539-562203555834", 
+      "abstract_input": 383, 
+      "value": "linear", 
+      "name": "linear"
+    }
+  }, 
+  {
+    "pk": 115, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "1a2e2e5e-68e0-4da8-8ba5-10991a198a1c", 
+      "abstract_input": 383, 
+      "value": "poly", 
+      "name": "poly"
+    }
+  }, 
+  {
+    "pk": 114, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "d0507071-d708-49eb-b83b-6d515c94bd96", 
+      "abstract_input": 383, 
+      "value": "rbf", 
+      "name": "rbf"
+    }
+  }, 
+  {
+    "pk": 116, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "97aa6d96-c845-433b-a899-cb893ff60538", 
+      "abstract_input": 383, 
+      "value": "sigmoid", 
+      "name": "sigmoid"
+    }
+  }, 
+  {
+    "pk": 384, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "degree", 
+      "short_name": "par", 
+      "uid": "8f21f50d-caf6-4bdb-9dd4-0c5e35466cac", 
+      "default": "3", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "degIn", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 192, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 162, 
+      "widget": 175, 
       "name": "Learner", 
       "short_name": "lrn", 
       "variable": "SVCout", 
@@ -180,10 +498,10 @@
     }
   }, 
   {
-    "pk": 161, 
+    "pk": 176, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 27, 
+      "category": 30, 
       "treeview_image": "", 
       "name": "k-Nearest Neighbours", 
       "is_streaming": false, 
@@ -202,14 +520,128 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "k-Nearest Neighbors classifier based on the ball tree datastructure for low dimensional data and brute force search for high dimensional data"
+      "description": "k-Nearest Neighbors classifier based on the ball tree datastructure for low dimensional data and brute force search for high dimensional data.\r\n\r\nn_neighbors: {Natural Numbers} - Number of neighbors to use for k_neighbors queries\r\n\r\nweights : {‘uniform’, ‘distance’,  [callable]}\r\n    ‘uniform’ : uniform weights. All points in each neighborhood are weighted equally.\r\n    ‘distance’ : weight points by the inverse of their distance. in this case, closer neighbors of a query point will have a greater influence than neighbors which are further away.\r\n    [callable] : a user-defined function which accepts an array of distances, and returns an array of the same shape containing the weights.\r\n\r\n\r\nalgorithm : {‘auto’, ‘ball_tree’, ‘kd_tree’, ‘brute’} - Algorithm used to compute the nearest neighbors:\r\n    ‘ball_tree’ will use BallTree\r\n    ‘kd_tree’ will use scipy.spatial.cKDtree\r\n    ‘brute’ will use a brute-force search.\r\n    ‘auto’ will attempt to decide the most appropriate algorithm based on the values passed to fit method.\r\n\r\n"
     }
   }, 
   {
-    "pk": 178, 
+    "pk": 373, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 176, 
+      "name": "n_neighbors", 
+      "short_name": "par", 
+      "uid": "8e52a690-4a80-4d1b-9527-81258157e7c1", 
+      "default": "5", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numNeib", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 375, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 176, 
+      "name": "algorithm", 
+      "short_name": "par", 
+      "uid": "cfdfd105-8eb0-4a7a-bf06-2df3e25f4880", 
+      "default": "auto", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "algIn", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 102, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "74b8fd6b-3f9e-491f-83d4-1fc4ec9ae636", 
+      "abstract_input": 375, 
+      "value": "ball_tree", 
+      "name": "Ball Tree"
+    }
+  }, 
+  {
+    "pk": 104, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "046af724-e351-4ca8-b5a1-5c96f8205007", 
+      "abstract_input": 375, 
+      "value": "brute", 
+      "name": "brute-force search"
+    }
+  }, 
+  {
+    "pk": 103, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "444c6e49-d8ed-442f-9b8e-f83117a36222", 
+      "abstract_input": 375, 
+      "value": "kd_tree", 
+      "name": "kd_tree"
+    }
+  }, 
+  {
+    "pk": 105, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "80dbee28-4f54-4dbd-b5be-c68971901bc0", 
+      "abstract_input": 375, 
+      "value": "auto", 
+      "name": "most appropriate (automatically)"
+    }
+  }, 
+  {
+    "pk": 374, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 176, 
+      "name": "weights", 
+      "short_name": "par", 
+      "uid": "322b76b8-dba1-4251-9920-871d62d7df4a", 
+      "default": "uniform", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "wgIn", 
+      "parameter": true, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 107, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "234a816e-95cd-4eba-b481-35ba1118d9ac", 
+      "abstract_input": 374, 
+      "value": "distance", 
+      "name": "distance"
+    }
+  }, 
+  {
+    "pk": 106, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "e9b3a7e9-bf96-401f-85b9-9c4144a09d7f", 
+      "abstract_input": 374, 
+      "value": "uniform", 
+      "name": "uniform"
+    }
+  }, 
+  {
+    "pk": 193, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 161, 
+      "widget": 176, 
       "name": "Learner", 
       "short_name": "lrn", 
       "variable": "KNNout", 
@@ -219,10 +651,10 @@
     }
   }, 
   {
-    "pk": 147, 
+    "pk": 177, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 27, 
+      "category": 30, 
       "treeview_image": "", 
       "name": "Naive Bayes", 
       "is_streaming": false, 
@@ -245,10 +677,10 @@
     }
   }, 
   {
-    "pk": 167, 
+    "pk": 194, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 147, 
+      "widget": 177, 
       "name": "Bayes Learner", 
       "short_name": "lst", 
       "variable": "bayesout", 
@@ -258,7 +690,7 @@
     }
   }, 
   {
-    "pk": 28, 
+    "pk": 31, 
     "model": "workflows.category", 
     "fields": {
       "uid": "5888aa38-270f-423b-8d5f-e08f23c1a3b9", 
@@ -270,10 +702,10 @@
     }
   }, 
   {
-    "pk": 154, 
+    "pk": 178, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 28, 
+      "category": 31, 
       "treeview_image": "", 
       "name": "Apply Classifier", 
       "is_streaming": false, 
@@ -296,10 +728,10 @@
     }
   }, 
   {
-    "pk": 355, 
+    "pk": 362, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 154, 
+      "widget": 178, 
       "name": "Classifier", 
       "short_name": "cls", 
       "uid": "6b9238bf-af83-468d-83a7-dd59fc8e8bcd", 
@@ -314,10 +746,10 @@
     }
   }, 
   {
-    "pk": 356, 
+    "pk": 363, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 154, 
+      "widget": 178, 
       "name": "ScikitDataset", 
       "short_name": "dts", 
       "uid": "2cf65003-ff21-4c06-8783-0473fe66195d", 
@@ -332,10 +764,10 @@
     }
   }, 
   {
-    "pk": 174, 
+    "pk": 195, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 154, 
+      "widget": 178, 
       "name": "Classes", 
       "short_name": "dts", 
       "variable": "classes", 
@@ -345,10 +777,10 @@
     }
   }, 
   {
-    "pk": 153, 
+    "pk": 179, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 28, 
+      "category": 31, 
       "treeview_image": "", 
       "name": "Build Classifier", 
       "is_streaming": false, 
@@ -371,10 +803,10 @@
     }
   }, 
   {
-    "pk": 352, 
+    "pk": 364, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 153, 
+      "widget": 179, 
       "name": "Learner", 
       "short_name": "lea", 
       "uid": "97bdb348-947c-4564-88b3-07f0f6134307", 
@@ -389,10 +821,10 @@
     }
   }, 
   {
-    "pk": 353, 
+    "pk": 365, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 153, 
+      "widget": 179, 
       "name": "Instances", 
       "short_name": "dts", 
       "uid": "436e18dc-5bab-4a74-8cce-0b31b81b2bbd", 
@@ -407,10 +839,10 @@
     }
   }, 
   {
-    "pk": 173, 
+    "pk": 196, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 153, 
+      "widget": 179, 
       "name": "Classifier", 
       "short_name": "cls", 
       "variable": "classifier", 
@@ -420,7 +852,7 @@
     }
   }, 
   {
-    "pk": 29, 
+    "pk": 32, 
     "model": "workflows.category", 
     "fields": {
       "uid": "168025e9-edfe-44d0-9818-1ac1d7d5cfe3", 
@@ -432,10 +864,10 @@
     }
   }, 
   {
-    "pk": 167, 
+    "pk": 180, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 32, 
       "treeview_image": "", 
       "name": "ARD Regression", 
       "is_streaming": false, 
@@ -458,10 +890,28 @@
     }
   }, 
   {
-    "pk": 184, 
+    "pk": 387, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 180, 
+      "name": "n_iter", 
+      "short_name": "par", 
+      "uid": "3d658af4-f2c7-4e6c-b8a8-44be1e73a6bf", 
+      "default": "300", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "iterIn", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 197, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 167, 
+      "widget": 180, 
       "name": "Learner", 
       "short_name": "lrn", 
       "variable": "out", 
@@ -471,10 +921,10 @@
     }
   }, 
   {
-    "pk": 164, 
+    "pk": 181, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 32, 
       "treeview_image": "", 
       "name": "Elastic Net", 
       "is_streaming": false, 
@@ -497,10 +947,10 @@
     }
   }, 
   {
-    "pk": 181, 
+    "pk": 198, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 164, 
+      "widget": 181, 
       "name": "Learner", 
       "short_name": "lrn", 
       "variable": "out", 
@@ -510,10 +960,10 @@
     }
   }, 
   {
-    "pk": 165, 
+    "pk": 182, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 32, 
       "treeview_image": "", 
       "name": "Lasso LARS", 
       "is_streaming": false, 
@@ -536,10 +986,28 @@
     }
   }, 
   {
-    "pk": 182, 
+    "pk": 388, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 182, 
+      "name": "alpha", 
+      "short_name": "par", 
+      "uid": "20ca688a-93c7-4079-99df-85ea07beb777", 
+      "default": "1.0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "authIn", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 199, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 165, 
+      "widget": 182, 
       "name": "Learner", 
       "short_name": "lrn", 
       "variable": "out", 
@@ -549,10 +1017,10 @@
     }
   }, 
   {
-    "pk": 163, 
+    "pk": 183, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 32, 
       "treeview_image": "", 
       "name": "Ridge", 
       "is_streaming": false, 
@@ -575,10 +1043,10 @@
     }
   }, 
   {
-    "pk": 180, 
+    "pk": 200, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 163, 
+      "widget": 183, 
       "name": "Learner", 
       "short_name": "lrn", 
       "variable": "out", 
@@ -588,10 +1056,10 @@
     }
   }, 
   {
-    "pk": 166, 
+    "pk": 184, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 32, 
       "treeview_image": "", 
       "name": "SGD Regressor", 
       "is_streaming": false, 
@@ -614,10 +1082,10 @@
     }
   }, 
   {
-    "pk": 183, 
+    "pk": 201, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 166, 
+      "widget": 184, 
       "name": "Learner", 
       "short_name": "lrn", 
       "variable": "out", 
@@ -627,10 +1095,10 @@
     }
   }, 
   {
-    "pk": 168, 
+    "pk": 185, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 32, 
       "treeview_image": "", 
       "name": "Support Vector Regression", 
       "is_streaming": false, 
@@ -653,10 +1121,10 @@
     }
   }, 
   {
-    "pk": 185, 
+    "pk": 202, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 168, 
+      "widget": 185, 
       "name": "Learner", 
       "short_name": "lrn", 
       "variable": "out", 
@@ -666,7 +1134,7 @@
     }
   }, 
   {
-    "pk": 26, 
+    "pk": 33, 
     "model": "workflows.category", 
     "fields": {
       "uid": "ef06ed94-c57a-4bb0-8f05-1212920c95a0", 
@@ -678,10 +1146,10 @@
     }
   }, 
   {
-    "pk": 169, 
+    "pk": 186, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 26, 
+      "category": 33, 
       "treeview_image": "", 
       "name": "CSV to Orange Data Table", 
       "is_streaming": false, 
@@ -704,10 +1172,10 @@
     }
   }, 
   {
-    "pk": 359, 
+    "pk": 366, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 169, 
+      "widget": 186, 
       "name": "File", 
       "short_name": "csv", 
       "uid": "30bf4478-dfbc-4e31-9933-806f68941b3b", 
@@ -722,10 +1190,10 @@
     }
   }, 
   {
-    "pk": 187, 
+    "pk": 203, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 169, 
+      "widget": 186, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "dataset", 
@@ -735,10 +1203,10 @@
     }
   }, 
   {
-    "pk": 150, 
+    "pk": 187, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 26, 
+      "category": 33, 
       "treeview_image": "", 
       "name": "CSV to Scikit-Dataset", 
       "is_streaming": false, 
@@ -761,10 +1229,10 @@
     }
   }, 
   {
-    "pk": 350, 
+    "pk": 367, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 150, 
+      "widget": 187, 
       "name": "FileIn", 
       "short_name": "fil", 
       "uid": "60c22566-2703-473d-8575-df5471d25d1d", 
@@ -779,10 +1247,10 @@
     }
   }, 
   {
-    "pk": 171, 
+    "pk": 204, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 150, 
+      "widget": 187, 
       "name": "Dataset", 
       "short_name": "dts", 
       "variable": "scikitDataset", 
@@ -792,10 +1260,10 @@
     }
   }, 
   {
-    "pk": 157, 
+    "pk": 188, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 26, 
+      "category": 33, 
       "treeview_image": "", 
       "name": "Display Dataset", 
       "is_streaming": false, 
@@ -818,10 +1286,10 @@
     }
   }, 
   {
-    "pk": 358, 
+    "pk": 368, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 157, 
+      "widget": 188, 
       "name": "DataSet", 
       "short_name": "dts", 
       "uid": "e5cd20c4-8346-45d7-a39a-d58bcb5a66c5", 
@@ -836,10 +1304,10 @@
     }
   }, 
   {
-    "pk": 171, 
+    "pk": 189, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 26, 
+      "category": 33, 
       "treeview_image": "", 
       "name": "Display Decision Tree", 
       "is_streaming": false, 
@@ -862,10 +1330,10 @@
     }
   }, 
   {
-    "pk": 361, 
+    "pk": 369, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 171, 
+      "widget": 189, 
       "name": "Classifier", 
       "short_name": "cls", 
       "uid": "f0d90a6c-e40f-4b40-9f91-e54c2f6e68b0", 
@@ -880,10 +1348,10 @@
     }
   }, 
   {
-    "pk": 149, 
+    "pk": 190, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 26, 
+      "category": 33, 
       "treeview_image": "", 
       "name": "SVM to Scikit Dataset", 
       "is_streaming": false, 
@@ -906,10 +1374,10 @@
     }
   }, 
   {
-    "pk": 349, 
+    "pk": 370, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 149, 
+      "widget": 190, 
       "name": "FileIn", 
       "short_name": "fil", 
       "uid": "792a13ff-e47e-4482-aaec-bc5e40a81c37", 
@@ -924,10 +1392,10 @@
     }
   }, 
   {
-    "pk": 170, 
+    "pk": 205, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 149, 
+      "widget": 190, 
       "name": "Dataset", 
       "short_name": "dst", 
       "variable": "datasetOut", 
@@ -937,10 +1405,10 @@
     }
   }, 
   {
-    "pk": 155, 
+    "pk": 191, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 26, 
+      "category": 33, 
       "treeview_image": "", 
       "name": "Scikit-Dataset to CSV", 
       "is_streaming": false, 
@@ -963,10 +1431,10 @@
     }
   }, 
   {
-    "pk": 354, 
+    "pk": 371, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 155, 
+      "widget": 191, 
       "name": "DataSet", 
       "short_name": "dts", 
       "uid": "8782c523-ca3c-43f2-9c49-29ddb706a67e", 
@@ -981,10 +1449,10 @@
     }
   }, 
   {
-    "pk": 186, 
+    "pk": 206, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 155, 
+      "widget": 191, 
       "name": "Out", 
       "short_name": "csv", 
       "variable": "CSVout", 
@@ -994,10 +1462,10 @@
     }
   }, 
   {
-    "pk": 170, 
+    "pk": 192, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 26, 
+      "category": 33, 
       "treeview_image": "", 
       "name": "UCI dataset to Scikit Dataset", 
       "is_streaming": false, 
@@ -1020,10 +1488,10 @@
     }
   }, 
   {
-    "pk": 360, 
+    "pk": 372, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 170, 
+      "widget": 192, 
       "name": "DataSet", 
       "short_name": "ds", 
       "uid": "b29f0614-1db8-48a4-8645-9f28c5d05f66", 
@@ -1038,50 +1506,50 @@
     }
   }, 
   {
-    "pk": 96, 
+    "pk": 98, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "48f974a6-5a7e-45aa-9ce9-13d092ddcaf7", 
-      "abstract_input": 360, 
+      "abstract_input": 372, 
       "value": "boston", 
       "name": "Boston (regression)"
     }
   }, 
   {
-    "pk": 95, 
+    "pk": 99, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "10f6c559-491a-471d-8853-5afa14489aa1", 
-      "abstract_input": 360, 
+      "abstract_input": 372, 
       "value": "diabetes", 
       "name": "Diabetes (regression)"
     }
   }, 
   {
-    "pk": 94, 
+    "pk": 100, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "dd6bb693-a735-4d43-9680-71843f8f58d9", 
-      "abstract_input": 360, 
+      "abstract_input": 372, 
       "value": "iris", 
       "name": "Iris (classification)"
     }
   }, 
   {
-    "pk": 97, 
+    "pk": 101, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "31ac6a55-5935-42af-9033-b31769f28c6c", 
-      "abstract_input": 360, 
+      "abstract_input": 372, 
       "value": " linnerud", 
       "name": "Linnerud dataset (multivariate regression)"
     }
   }, 
   {
-    "pk": 188, 
+    "pk": 207, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 170, 
+      "widget": 192, 
       "name": "Dataset", 
       "short_name": "dts", 
       "variable": "dtsOut", 
