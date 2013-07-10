@@ -53,8 +53,16 @@ def streaming_display_tweets_visualization(request,widget,stream):
         tweet_data = []
     tweets_unsorted = tweet_data
     tweets = sorted(tweets_unsorted, key=operator.itemgetter('created_at'))
-    tweets.reverse()
-    paginator = Paginator(tweets,20)
+    if request.GET.get('reverse')=="true":
+        pass
+    else:
+        tweets.reverse()
+    rpp=20
+    if request.GET.has_key('rpp'):
+        rpp = int(request.GET.get('rpp'))
+        if rpp<1:
+            rpp = 20
+    paginator = Paginator(tweets,rpp)
     page=request.GET.get('page')
     try:
         tweets = paginator.page(page)

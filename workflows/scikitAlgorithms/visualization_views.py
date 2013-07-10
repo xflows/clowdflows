@@ -11,13 +11,13 @@ from django.shortcuts import render
 def scikitAlgorithms_displayDS(request,input_dict,output_dict,widget):
     data = input_dict['data']
     return render(request, 'visualizations/scikitAlgorithms_displayDS.html',{'widget':widget,'input_dict':input_dict,'output_dict':helperDisplayDS(output_dict)})
-   
+
 def scikitDataset_table_to_dict(data):
     attrs, metas, data_new = [], [], []
   #  try:
    #     class_var = data.domain.class_var.name
     #except:
-        class_var = ''
+    class_var = ''
     for m in data.domain.get_metas():
         metas.append(data.domain.get_meta(m).name)
     for a in data.domain.attributes:
@@ -34,4 +34,4 @@ def scikitDataset_table_to_dict(data):
             inst_new.append((a.name, pretty_float(value, a)))
         data_new.append(inst_new)
     return {'attrs':attrs, 'metas':metas, 'data':data_new, 'class_var':class_var}
-    
+

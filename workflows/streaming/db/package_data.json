@@ -1,6 +1,6 @@
 [
   {
-    "pk": 25, 
+    "pk": 48, 
     "model": "workflows.category", 
     "fields": {
       "uid": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
@@ -12,10 +12,85 @@
     }
   }, 
   {
-    "pk": 163, 
+    "pk": 292, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 25, 
+      "category": 48, 
+      "treeview_image": "", 
+      "name": "Add neutral zone", 
+      "is_streaming": false, 
+      "uid": "722e5c1f-9d52-4fa1-81f4-afde8ea508d8", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_add_neutral_zone", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 719, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 292, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "uid": "f3027af6-ee71-4991-9ae7-b8877de16b35", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 720, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 292, 
+      "name": "Neutral zone", 
+      "short_name": "nz", 
+      "uid": "607375c0-f4e3-43b8-9f99-2830ac7e5c83", 
+      "default": "0.1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "zone", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "A value between 0 and 1"
+    }
+  }, 
+  {
+    "pk": 317, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 292, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "variable": "ltw", 
+      "uid": "f285bb7f-4298-4ef4-bab8-9d15572775f7", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 280, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 48, 
       "treeview_image": "", 
       "name": "Filter tweets by language", 
       "is_streaming": false, 
@@ -38,10 +113,10 @@
     }
   }, 
   {
-    "pk": 410, 
+    "pk": 698, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 163, 
+      "widget": 280, 
       "name": "List of Tweets", 
       "short_name": "ltw", 
       "uid": "e969d30e-dc5c-4c45-8fa4-319e83f20699", 
@@ -56,10 +131,10 @@
     }
   }, 
   {
-    "pk": 411, 
+    "pk": 699, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 163, 
+      "widget": 280, 
       "name": "Language", 
       "short_name": "lan", 
       "uid": "9befb8ed-7644-4f41-8887-1c6f74bdeba7", 
@@ -74,10 +149,10 @@
     }
   }, 
   {
-    "pk": 180, 
+    "pk": 308, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 163, 
+      "widget": 280, 
       "name": "List of Tweets", 
       "short_name": "ltw", 
       "variable": "ltw", 
@@ -87,10 +162,10 @@
     }
   }, 
   {
-    "pk": 141, 
+    "pk": 281, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 25, 
+      "category": 48, 
       "treeview_image": "", 
       "name": "RSS Reader", 
       "is_streaming": true, 
@@ -113,10 +188,10 @@
     }
   }, 
   {
-    "pk": 339, 
+    "pk": 700, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 141, 
+      "widget": 281, 
       "name": "RSS URL", 
       "short_name": "url", 
       "uid": "bab53d85-8423-409c-91c3-f36a857b5e5f", 
@@ -131,10 +206,10 @@
     }
   }, 
   {
-    "pk": 162, 
+    "pk": 309, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 141, 
+      "widget": 281, 
       "name": "URL", 
       "short_name": "url", 
       "variable": "url", 
@@ -144,10 +219,199 @@
     }
   }, 
   {
-    "pk": 160, 
+    "pk": 291, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 25, 
+      "category": 48, 
+      "treeview_image": "", 
+      "name": "Remove words from tweets", 
+      "is_streaming": false, 
+      "uid": "258e97c6-e44d-41a3-97c0-689de94f3049", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_remove_words_from_tweets", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 717, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 291, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "uid": "68692ac4-df32-432d-8b10-00ed68ec7c04", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 718, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 291, 
+      "name": "Words", 
+      "short_name": "wrd", 
+      "uid": "69b06741-8055-4dad-b677-3940d3434bc2", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "words", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "One word or phrase per line"
+    }
+  }, 
+  {
+    "pk": 316, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 291, 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "variable": "ltw", 
+      "uid": "fa942ac2-f92a-4f42-a806-56f359d41d93", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 290, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 48, 
+      "treeview_image": "", 
+      "name": "Simulate stream from Gamasystem csv", 
+      "is_streaming": true, 
+      "uid": "7a72dcc4-53a2-4a45-96e6-31b0c2e01e32", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "twitter.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_simulate_stream_from_csv", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Simulates a stream from gama system's csv export"
+    }
+  }, 
+  {
+    "pk": 716, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 290, 
+      "name": "CSV file", 
+      "short_name": "csv", 
+      "uid": "e064e54e-47de-42a1-a9a5-fa1552845403", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "csv", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "CSV file exportet by gamasystem's perceptionanalytics"
+    }
+  }, 
+  {
+    "pk": 315, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 290, 
+      "name": "List of tweets", 
+      "short_name": "ltw", 
+      "variable": "ltw", 
+      "uid": "c63bf850-8c95-40e3-afc9-25ecb2783c44", 
+      "order": 1, 
+      "description": "A list of Tweets."
+    }
+  }, 
+  {
+    "pk": 293, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 48, 
+      "treeview_image": "", 
+      "name": "Simulate stream from text file", 
+      "is_streaming": true, 
+      "uid": "9a20da2e-0903-4332-8938-63b15d370657", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "twitter.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_simulate_stream_from_text_file", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 721, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 293, 
+      "name": "Text file", 
+      "short_name": "txt", 
+      "uid": "b3f3126c-6004-41f4-839b-08e047ffcb62", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Text file of line separated tweets"
+    }
+  }, 
+  {
+    "pk": 318, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 293, 
+      "name": "List of tweets", 
+      "short_name": "ltw", 
+      "variable": "ltw", 
+      "uid": "76b17d4f-7bf4-4f7d-9685-1f2cb4dda73e", 
+      "order": 1, 
+      "description": "A list of Tweets."
+    }
+  }, 
+  {
+    "pk": 282, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 48, 
       "treeview_image": "", 
       "name": "Sliding Window", 
       "is_streaming": true, 
@@ -170,10 +434,10 @@
     }
   }, 
   {
-    "pk": 406, 
+    "pk": 701, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 160, 
+      "widget": 282, 
       "name": "List", 
       "short_name": "lst", 
       "uid": "5411d874-0e24-446e-88b2-065c23ee2817", 
@@ -188,10 +452,10 @@
     }
   }, 
   {
-    "pk": 407, 
+    "pk": 702, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 160, 
+      "widget": 282, 
       "name": "Size", 
       "short_name": "siz", 
       "uid": "fb2215c6-04e6-4c0b-97e5-f380c4b2f6e8", 
@@ -206,10 +470,10 @@
     }
   }, 
   {
-    "pk": 179, 
+    "pk": 310, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 160, 
+      "widget": 282, 
       "name": "List", 
       "short_name": "lst", 
       "variable": "list", 
@@ -219,10 +483,10 @@
     }
   }, 
   {
-    "pk": 164, 
+    "pk": 283, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 25, 
+      "category": 48, 
       "treeview_image": "", 
       "name": "Split positive and negative tweets", 
       "is_streaming": false, 
@@ -245,10 +509,10 @@
     }
   }, 
   {
-    "pk": 412, 
+    "pk": 703, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 164, 
+      "widget": 283, 
       "name": "List of Tweets", 
       "short_name": "ltw", 
       "uid": "eea9cd8a-dbbb-4c08-98c4-d0d6df97aee0", 
@@ -263,10 +527,10 @@
     }
   }, 
   {
-    "pk": 181, 
+    "pk": 311, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 164, 
+      "widget": 283, 
       "name": "Positive tweets", 
       "short_name": "ptw", 
       "variable": "ptw", 
@@ -276,10 +540,10 @@
     }
   }, 
   {
-    "pk": 182, 
+    "pk": 312, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 164, 
+      "widget": 283, 
       "name": "Negative tweets", 
       "short_name": "ntw", 
       "variable": "ntw", 
@@ -289,10 +553,10 @@
     }
   }, 
   {
-    "pk": 157, 
+    "pk": 284, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 25, 
+      "category": 48, 
       "treeview_image": "", 
       "name": "Tweet Sentiment Analysis", 
       "is_streaming": true, 
@@ -315,10 +579,10 @@
     }
   }, 
   {
-    "pk": 403, 
+    "pk": 704, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 157, 
+      "widget": 284, 
       "name": "List of Tweets", 
       "short_name": "ltw", 
       "uid": "bf47f1f1-d4e2-47f8-bbe3-fa28281763e0", 
@@ -333,10 +597,10 @@
     }
   }, 
   {
-    "pk": 178, 
+    "pk": 313, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 157, 
+      "widget": 284, 
       "name": "Sentiment Annotated List Of Tweets", 
       "short_name": "ltw", 
       "variable": "ltw", 
@@ -346,10 +610,10 @@
     }
   }, 
   {
-    "pk": 149, 
+    "pk": 285, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 25, 
+      "category": 48, 
       "treeview_image": "", 
       "name": "Twitter", 
       "is_streaming": true, 
@@ -372,10 +636,10 @@
     }
   }, 
   {
-    "pk": 373, 
+    "pk": 705, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 149, 
+      "widget": 285, 
       "name": "Query", 
       "short_name": "q", 
       "uid": "07b8a51c-41d9-48af-b823-92e94ce300d2", 
@@ -390,10 +654,10 @@
     }
   }, 
   {
-    "pk": 374, 
+    "pk": 706, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 149, 
+      "widget": 285, 
       "name": "Geocode", 
       "short_name": "geo", 
       "uid": "80d1e542-7f7c-4a8e-b683-764d0a754b03", 
@@ -408,10 +672,10 @@
     }
   }, 
   {
-    "pk": 368, 
+    "pk": 707, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 149, 
+      "widget": 285, 
       "name": "Use ClowdFlows authentication (warning: not stable)", 
       "short_name": "cfa", 
       "uid": "c78c8f03-92c4-4f6c-972d-c064baecd09a", 
@@ -426,10 +690,10 @@
     }
   }, 
   {
-    "pk": 369, 
+    "pk": 708, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 149, 
+      "widget": 285, 
       "name": "Consumer Key", 
       "short_name": "ck", 
       "uid": "ed2db381-2ed2-4a4d-bd6d-9f9dc0430a50", 
@@ -444,10 +708,10 @@
     }
   }, 
   {
-    "pk": 370, 
+    "pk": 709, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 149, 
+      "widget": 285, 
       "name": "Consumer Secret", 
       "short_name": "cs", 
       "uid": "9b9d6268-675a-46c5-82d5-b143e5fdd326", 
@@ -462,10 +726,10 @@
     }
   }, 
   {
-    "pk": 371, 
+    "pk": 710, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 149, 
+      "widget": 285, 
       "name": "Access Token", 
       "short_name": "at", 
       "uid": "a951f2d1-c2d1-40b3-afe9-799195e03aa0", 
@@ -480,10 +744,10 @@
     }
   }, 
   {
-    "pk": 372, 
+    "pk": 711, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 149, 
+      "widget": 285, 
       "name": "Access Token Secret", 
       "short_name": "as", 
       "uid": "299ae040-2916-4b88-8a79-3ced689ef23f", 
@@ -498,10 +762,10 @@
     }
   }, 
   {
-    "pk": 170, 
+    "pk": 314, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 149, 
+      "widget": 285, 
       "name": "List of tweets", 
       "short_name": "ltw", 
       "variable": "ltw", 
@@ -511,11 +775,11 @@
     }
   }, 
   {
-    "pk": 28, 
+    "pk": 49, 
     "model": "workflows.category", 
     "fields": {
       "uid": "d0803d58-35d4-4590-bb32-f2041e735247", 
-      "parent": 25, 
+      "parent": 48, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -523,10 +787,10 @@
     }
   }, 
   {
-    "pk": 158, 
+    "pk": 286, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 28, 
+      "category": 49, 
       "treeview_image": "", 
       "name": "Collect and Display tweets", 
       "is_streaming": true, 
@@ -549,10 +813,10 @@
     }
   }, 
   {
-    "pk": 404, 
+    "pk": 712, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 158, 
+      "widget": 286, 
       "name": "List of Tweets", 
       "short_name": "ltw", 
       "uid": "8479d41b-43af-4db9-a144-d0a438400404", 
@@ -567,10 +831,10 @@
     }
   }, 
   {
-    "pk": 161, 
+    "pk": 287, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 28, 
+      "category": 49, 
       "treeview_image": "", 
       "name": "Display tweets", 
       "is_streaming": true, 
@@ -593,10 +857,10 @@
     }
   }, 
   {
-    "pk": 408, 
+    "pk": 713, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 161, 
+      "widget": 287, 
       "name": "List of Tweets", 
       "short_name": "ltw", 
       "uid": "e8fc4c63-2e17-4ad4-a3ab-6ec8d554ecac", 
@@ -611,10 +875,10 @@
     }
   }, 
   {
-    "pk": 159, 
+    "pk": 288, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 28, 
+      "category": 49, 
       "treeview_image": "", 
       "name": "Sentiment graph", 
       "is_streaming": true, 
@@ -637,10 +901,10 @@
     }
   }, 
   {
-    "pk": 405, 
+    "pk": 714, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 159, 
+      "widget": 288, 
       "name": "List of Tweets", 
       "short_name": "ltw", 
       "uid": "0413b69e-b954-4a77-a8ad-59dc559ee4c6", 
@@ -655,10 +919,10 @@
     }
   }, 
   {
-    "pk": 162, 
+    "pk": 289, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 28, 
+      "category": 49, 
       "treeview_image": "", 
       "name": "Tweet word cloud", 
       "is_streaming": true, 
@@ -681,10 +945,10 @@
     }
   }, 
   {
-    "pk": 409, 
+    "pk": 715, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 162, 
+      "widget": 289, 
       "name": "List of Tweets", 
       "short_name": "ltw", 
       "uid": "98c77b95-1221-4a85-bdbf-6436327e39b3", 
