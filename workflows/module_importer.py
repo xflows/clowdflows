@@ -33,8 +33,11 @@ def import_package_lib(packageName, libName, localSetAttrFunc):
     dynamic_import_globals(appName+"."+packageName + "." + libName, packageName, localSetAttrFunc)
 
 def dynamic_import_globals(name, package, localSetAttrFunc):
+    m = None
     try:
         m = __import__(name, globals(), locals(), ['*'])
+    except ImportError:
+        pass
     except:
         import sys, traceback
         print "Exception in user code:"
