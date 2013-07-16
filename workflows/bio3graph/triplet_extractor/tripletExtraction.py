@@ -49,8 +49,11 @@ def readEntitiesLnDoc_csv(fname):
     Each line is either empty, or contains synonym(s) for some entity.
     Returns a dictionary where keys are base names and values are synonyms.
     '''
+    if isinstance(fname, StringIO.StringIO):
+        reader = csv.reader(fname, skipinitialspace=True)
+    else:
+        reader = csv.reader(open(fname), skipinitialspace=True)
 
-    reader = csv.reader(open(fname), skipinitialspace=True)
     entities = {}
     for row in reader:
         if len(row) == 0:
@@ -590,7 +593,8 @@ class Vocabulary(object):
 
 
     def loadCompounds_stringIO(self, compString):
-        compounds = readEntitiesLnDoc_stringIO(compString)
+#        compounds = readEntitiesLnDoc_stringIO(com
+        compounds = readEntitiesLnDoc_csv(compString)
         self._buildCompoundsStructures(compounds)
     #end
 
