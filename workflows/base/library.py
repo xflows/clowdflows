@@ -124,3 +124,20 @@ def base_safe_eval_string(input_dict):
     else:
         return {'evaluation_result': result}
 #end
+
+
+def base_ravel_list(input_dict):
+    def ravel(data, result):
+        for x in data:
+            if not isinstance(x, list):
+                result.append(x)
+            else:
+                if x:
+                    ravel(x, result)
+    #end
+
+    ilist = input_dict['input_list']
+    result = []
+    ravel(ilist, result)
+    return {'clean_list': result}
+#end

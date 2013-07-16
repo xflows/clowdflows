@@ -875,7 +875,7 @@
     }
   }, 
   {
-    "pk": 147, 
+    "pk": 153, 
     "model": "workflows.abstractwidget", 
     "fields": {
       "category": 22, 
@@ -901,10 +901,10 @@
     }
   }, 
   {
-    "pk": 352, 
+    "pk": 360, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 147, 
+      "widget": 153, 
       "name": "Input string", 
       "short_name": "str", 
       "uid": "8436f5de-560f-427d-bb3e-b5e3774b56e7", 
@@ -919,16 +919,73 @@
     }
   }, 
   {
-    "pk": 165, 
+    "pk": 172, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 147, 
+      "widget": 153, 
       "name": "Object", 
       "short_name": "obj", 
       "variable": "evaluation_result", 
       "uid": "68a67e71-8973-41e8-9f22-991f9f46ff26", 
       "order": 1, 
       "description": "Result of evaluation"
+    }
+  }, 
+  {
+    "pk": 206, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 22, 
+      "treeview_image": "", 
+      "name": "Ravel list", 
+      "is_streaming": false, 
+      "uid": "ac754eed-37a4-48bc-b837-2f3db3f8f547", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "base", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "base_ravel_list", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Ravels and removes empty sublists from the input list. Useful in for loops."
+    }
+  }, 
+  {
+    "pk": 434, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 206, 
+      "name": "List", 
+      "short_name": "lst", 
+      "uid": "c35deb32-ca39-435a-b859-50e4c94a7c74", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "input_list", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Input list"
+    }
+  }, 
+  {
+    "pk": 225, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 206, 
+      "name": "List", 
+      "short_name": "lst", 
+      "variable": "clean_list", 
+      "uid": "27187dd2-3ce4-4abe-bfec-f96288c342f3", 
+      "order": 1, 
+      "description": "Output list"
     }
   }, 
   {
