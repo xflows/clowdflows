@@ -494,7 +494,7 @@
       "interaction_view": "", 
       "image": "", 
       "package": "streaming", 
-      "static_image": "", 
+      "static_image": "static.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -548,7 +548,7 @@
       "short_name": "ntw", 
       "variable": "ntw", 
       "uid": "bb2debb9-914d-4c8a-abc2-3eff09009dd9", 
-      "order": 1, 
+      "order": 2, 
       "description": ""
     }
   }, 
