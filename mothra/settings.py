@@ -205,6 +205,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     #'workflows.crossbee',
     'workflows.streaming',
     'workflows.bio3graph',
+    'workflows.noise',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 

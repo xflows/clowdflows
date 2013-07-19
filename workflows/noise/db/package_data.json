@@ -1,0 +1,507 @@
+[
+  {
+    "pk": 50, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "92fd265d-26cb-434f-bbfe-1780feb83dae", 
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Noise Handling"
+    }
+  }, 
+  {
+    "pk": 294, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 50, 
+      "treeview_image": "treeview/HARF_60-48-RF.png", 
+      "name": "HARF", 
+      "is_streaming": false, 
+      "uid": "b9b86060-859f-413e-88be-8facb5357753", 
+      "interaction_view": "", 
+      "image": "images/HARF_60-48-RF.png", 
+      "package": "noise", 
+      "static_image": "HARF_60-48-RF.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "harf", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "High Agreement Random Forest"
+    }
+  }, 
+  {
+    "pk": 722, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 294, 
+      "name": "Agreement Level", 
+      "short_name": "agl", 
+      "uid": "7903039a-7e1c-4cb2-a20a-1730431fd122", 
+      "default": "70", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "agr_level", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 174, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "fd06328e-cb70-4ba1-ae9d-d62c9c77401d", 
+      "abstract_input": 722, 
+      "value": "60", 
+      "name": "60"
+    }
+  }, 
+  {
+    "pk": 175, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "58128fe8-5dde-4648-bead-d9dc0ef67a3a", 
+      "abstract_input": 722, 
+      "value": "70", 
+      "name": "70"
+    }
+  }, 
+  {
+    "pk": 176, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "b857927d-26b1-4881-a1e0-e36b565f60fc", 
+      "abstract_input": 722, 
+      "value": "80", 
+      "name": "80"
+    }
+  }, 
+  {
+    "pk": 177, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "c08b3596-348e-4999-9ccd-476ef087472d", 
+      "abstract_input": 722, 
+      "value": "90", 
+      "name": "90"
+    }
+  }, 
+  {
+    "pk": 319, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 294, 
+      "name": "HARF Classifier", 
+      "short_name": "hrf", 
+      "variable": "harfout", 
+      "uid": "41a82b5f-22e9-4a98-9aa3-0173f36f5000", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 295, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 50, 
+      "treeview_image": "treeview/NoiseRank3.png", 
+      "name": "NoiseRank", 
+      "is_streaming": false, 
+      "uid": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
+      "interaction_view": "noiserankview", 
+      "image": "images/NoiseRank3.png", 
+      "package": "noise", 
+      "static_image": "NoiseRank3.png", 
+      "post_interact_action": "noiserank_select", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "noiserank", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 723, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 295, 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "uid": "ddd786e1-f8e5-4731-977c-48a80deb9de3", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 724, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 295, 
+      "name": "Noisy Instances", 
+      "short_name": "nsi", 
+      "uid": "609eae39-00b0-4713-ba0e-55f54e7d642e", 
+      "default": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "noise", 
+      "parameter": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 320, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 295, 
+      "name": "All Noise", 
+      "short_name": "ans", 
+      "variable": "allnoise", 
+      "uid": "1b051588-c6cc-472c-88ec-18f96216d46c", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 321, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 295, 
+      "name": "Selected Instances", 
+      "short_name": "sel", 
+      "variable": "selection", 
+      "uid": "16252437-410b-4b27-82d3-04cdf6655a77", 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "fa867c58-d6eb-458f-989e-fddec3e2a8c7", 
+      "parent": 50, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Noise Filters"
+    }
+  }, 
+  {
+    "pk": 296, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 51, 
+      "treeview_image": "treeview/CF-filter-black.png", 
+      "name": "Classification Filter", 
+      "is_streaming": false, 
+      "uid": "ae7f1d26-8477-4192-b7e6-5b35a055074c", 
+      "interaction_view": "", 
+      "image": "images/CF-filter-black.png", 
+      "package": "noise", 
+      "static_image": "CF-filter-black.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "classification_filter", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 725, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 296, 
+      "name": "Timeout", 
+      "short_name": "tmo", 
+      "uid": "df47c26c-4440-4dd0-9abb-b00759c5d4a5", 
+      "default": "300", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 726, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 296, 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "uid": "a111962a-9cff-418a-8ad9-037569cfd2c3", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "learner", 
+      "parameter": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 727, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 296, 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "uid": "acb2c1f9-d57c-4122-8088-a270aab2565a", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 728, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 296, 
+      "name": "Number of Folds for Cross-Validation", 
+      "short_name": "kfl", 
+      "uid": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9", 
+      "default": "10", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "k_folds", 
+      "parameter": true, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 178, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "7878abe8-7d00-463f-872d-f454086fac37", 
+      "abstract_input": 728, 
+      "value": "10", 
+      "name": "10"
+    }
+  }, 
+  {
+    "pk": 179, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "3909de0e-c5af-41ff-a784-568e68eb7993", 
+      "abstract_input": 728, 
+      "value": "2", 
+      "name": "2"
+    }
+  }, 
+  {
+    "pk": 180, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "3325ac07-e21c-4b7c-9e1f-653954e3e54d", 
+      "abstract_input": 728, 
+      "value": "3", 
+      "name": "3"
+    }
+  }, 
+  {
+    "pk": 181, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "aa0f50f5-4389-4a14-8480-ba18f754a83d", 
+      "abstract_input": 728, 
+      "value": "4", 
+      "name": "4"
+    }
+  }, 
+  {
+    "pk": 182, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "83b4ef78-205f-44da-bae1-4d1b8e939b75", 
+      "abstract_input": 728, 
+      "value": "5", 
+      "name": "5"
+    }
+  }, 
+  {
+    "pk": 183, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "ea261928-74fe-488e-a6cb-09c22f044879", 
+      "abstract_input": 728, 
+      "value": "6", 
+      "name": "6"
+    }
+  }, 
+  {
+    "pk": 184, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "8e68a530-d7b1-4fd5-875b-c4cc2ab6508f", 
+      "abstract_input": 728, 
+      "value": "7", 
+      "name": "7"
+    }
+  }, 
+  {
+    "pk": 185, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "7ea91039-9522-41ac-a419-5624b4bb62ff", 
+      "abstract_input": 728, 
+      "value": "8", 
+      "name": "8"
+    }
+  }, 
+  {
+    "pk": 186, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "27b1c2e5-ef44-4614-abc0-0de7d4c62d79", 
+      "abstract_input": 728, 
+      "value": "9", 
+      "name": "9"
+    }
+  }, 
+  {
+    "pk": 322, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 296, 
+      "name": "Noise instances", 
+      "short_name": "noi", 
+      "variable": "noise_dict", 
+      "uid": "e86463e7-e8e9-41b0-8820-d8176123b0ce", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 297, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 51, 
+      "treeview_image": "treeview/SF-filter_1.png", 
+      "name": "Saturation Filter", 
+      "is_streaming": false, 
+      "uid": "babfecd3-5b19-42b0-a8a5-438826ec7ff8", 
+      "interaction_view": "", 
+      "image": "images/SF-filter_1.png", 
+      "package": "noise", 
+      "static_image": "SF-filter_1.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "saturation_filter", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 729, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 297, 
+      "name": "Type of Saturation Filtering", 
+      "short_name": "tsf", 
+      "uid": "6c4683c8-4be5-4115-af3d-a01aef2082b8", 
+      "default": "normal", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "satur_type", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 187, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "e7657f7b-4a43-4297-b669-658418189ae5", 
+      "abstract_input": 729, 
+      "value": "normal", 
+      "name": "Normal"
+    }
+  }, 
+  {
+    "pk": 188, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "e44478f8-43fa-46a1-851e-c3e347e2de7b", 
+      "abstract_input": 729, 
+      "value": "prune", 
+      "name": "Pre-pruned "
+    }
+  }, 
+  {
+    "pk": 730, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 297, 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "uid": "fd433309-d6b5-4fea-b99c-e55152a87e7a", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 323, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 297, 
+      "name": "Noise instances", 
+      "short_name": "noi", 
+      "variable": "noise_dict", 
+      "uid": "a4beb882-b19e-4ccb-892b-14cf3cc40c01", 
+      "order": 1, 
+      "description": ""
+    }
+  }
+]
