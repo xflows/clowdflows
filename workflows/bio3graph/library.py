@@ -122,6 +122,14 @@ def bio3graph_construct_triplet_network(input_dict):
     return {'network_object': graph}
 
 
+def bio3graph_export_triplets_to_text(input_dict):
+    from triplet_extractor import tripletExtraction as te
+    triplets = input_dict['triplets']
+    gk = te.TripletGraphConstructor(triplets)
+    ttext = gk.exportText()
+    return {'triplets_as_text': ttext}
+
+
 def bio3graph_networkx_to_biomine(input_dict):
     from triplet_extractor import graph_operations as gop
     nwx = input_dict['network']
