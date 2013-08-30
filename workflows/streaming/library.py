@@ -5,6 +5,134 @@ Streaming widgets librarby
 @author: Janez Kranjc <janez.kranjc@ijs.si>
 '''
 
+from workflows.security import safeOpen
+
+def streaming_add_neutral_zone(input_dict):
+    import copy
+    tweets = copy.deepcopy(input_dict['ltw'])
+    neutral_zone = float(input_dict['zone'])
+
+    ltw = []
+
+    for tweet in tweets:
+        if tweet['reliability']!=-1.0 and tweet['reliability']<neutral_zone:
+            tweet['sentiment']="Neutral"
+        ltw.append(tweet)
+
+    output_dict = {}
+
+    output_dict['ltw']=ltw
+    return output_dict
+
+def streaming_remove_words_from_tweets(input_dict):
+    import copy
+    tweets = copy.deepcopy(input_dict['ltw'])
+    words = input_dict['words'].encode("utf-8")
+    words = words.split("\n")
+
+    ltw = []
+    import re
+
+    for tweet in tweets:
+        for word in words:
+            pattern = re.compile(word, re.IGNORECASE)
+            tweet['text']=pattern.sub('',tweet['text'])
+        ltw.append(tweet)
+
+    output_dict = {}
+
+    output_dict['ltw']=ltw
+    return output_dict
+
+def streaming_simulate_stream_from_text_file(input_dict,widget,stream=None):
+    import datetime
+    csvfile = safeOpen(input_dict['file'])
+    tweet_data = csvfile.read()
+    tweet_data = tweet_data.strip()
+    tweets = tweet_data.split("\n")
+    ltw = []
+    i=1
+    for tw in tweets:
+        tweet = {}
+        tweet['id']=i
+        tweet['created_at']=datetime.datetime.now()
+        tweet['text']=tw
+        tweet['user']="dragi"
+        tweet['lang']="bg"
+        i=i+1
+        ltw.append(tweet)
+    output_dict = {}
+    output_dict['ltw']=ltw
+    return output_dict
+
+def streaming_simulate_stream_from_csv(input_dict,widget,stream=None):
+    from streams.models import StreamWidgetData
+    import datetime
+    import csv
+    csvfile = safeOpen(input_dict['csv'])
+    csvreader = csv.reader(csvfile,delimiter=";",quotechar='"')
+    rows = []
+    ltw = []
+    i=0
+    counter = 0
+    started = False
+    last_id = "not-started-yet"
+    if not stream is None:
+        try:
+            swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+            last_id = swd.value
+        except:
+            started = True
+    else:
+        started = True
+    for row in csvreader:
+        rows.append(row)
+        if i!=0:
+            rows[i][1] = datetime.datetime.strptime(rows[i][1],"%m/%d/%Y %I:%M:%S %p")
+            tweet = {}
+            tweet['id'] = rows[i][0]
+            tweet['created_at'] = rows[i][1]
+            tweet['text'] = rows[i][3].encode('utf-8')
+            tweet['user'] = rows[i][5].encode('utf-8')
+            tweet['lang'] = rows[i][11]
+            if started:
+                counter = counter + 1
+                ltw.append(tweet)
+            if counter == 50 and started:
+                started = False
+                if not stream is None:
+                    try:
+                        swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+                        swd.value = tweet['id']
+                        swd.save()
+                    except:
+                        swd = StreamWidgetData()
+                        swd.stream = stream
+                        swd.widget = widget
+                        data = tweet['id']
+                        swd.value = data
+                        swd.save()
+            if tweet['id']==last_id:
+                started = True
+        i = i + 1
+    if counter < 51 and not stream is None and started == True:
+        try:
+            swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+            swd.value = "done"
+            swd.save()
+        except:
+            swd = StreamWidgetData()
+            swd.stream = stream
+            swd.widget = widget
+            data = "done"
+            swd.value = data
+            swd.save()
+    output_dict = {}
+    #print ltw
+    #print len(ltw)
+    output_dict['ltw']=ltw
+    return output_dict
+
 def streaming_split_pos_neg(input_dict):
 
     tweets = input_dict['ltw']
@@ -86,8 +214,10 @@ def streaming_sentiment_graph(input_dict,widget,stream=None):
 def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
     import pickle
     from pysimplesoap.client import SoapClient, SoapFault
+    import pysimplesoap
 
     client = SoapClient(location = "http://batman.ijs.si:8008/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    pysimplesoap.client.TIMEOUT = 60
 
     list_of_tweets = input_dict['ltw']
 

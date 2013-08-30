@@ -30,7 +30,6 @@ import workflows.views
 #ostalo
 import os
 
-@login_required
 def stream_widget_visualization(request,stream_id,widget_id):
     stream = get_object_or_404(Stream,pk=stream_id)
     widget = get_object_or_404(Widget,pk=widget_id)

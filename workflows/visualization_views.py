@@ -60,6 +60,58 @@ def object_viewer(request,input_dict,output_dict,widget):
     output_dict = {'object_string':pprint.pformat(input_dict['object'])}
     return render(request, 'visualizations/object_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
 
+#YOU HAVE TO MOVE THIS FUNCTION TO ScikitAlgorithms/visualization_views.py
+def scikitAlgorithms_displayDS(request,input_dict,output_dict,widget):
+    data = input_dict['data']
+    output_dict={'data':data}
+    return render(request, 'visualizations/scikitAlgorithms_displayDS.html',{'widget':widget,'input_dict':input_dict,'output_dict':helperDisplayDS(output_dict)})
+   
+def helperDisplayDS(data):
+    #get data to fill table
+    info = data['data']
+    n_sample = info["data"]
+    n_feature = info["target"]
+
+    # join data in the right format
+    import numpy
+    csv=[]
+    count=0
+    for sample in n_sample:
+        csv.append(numpy.append(sample,n_feature[count])) #join n_sample and n_feature array
+        count+=1
+
+    attrs = ["attribute" for i in range(len(n_sample[0]))] #name of attributes
+    class_var = 'category'
+    metas = '' 
+    data_new = csv #fill table with data
+    
+    return {'attrs':attrs, 'metas':metas, 'data_new':data_new, 'class_var':class_var}
+
+# def helperDisplayDS(data):
+#     #get data to fill table
+#     info = data['data']
+#     n_sample = info["data"]
+#     n_feature = info["target"]
+#     attrs = info["feature_names"]
+
+#     # join data in the right format
+#     import numpy
+#     csv=[]
+#     count=0
+#     for sample in n_sample:
+#         csv.append(numpy.append(sample,n_feature[count])) #join n_sample and n_feature array
+#         count+=1
+
+#    # attrs = ["attribute" for i in range(len(n_sample[0]))] #name of attributes
+#     class_var = ["class" for i in range(len([n_sample[0]]))]
+#     metas = '' 
+#     data_new = csv #fill table with data
+    
+#  
+# return {'attrs':attrs, 'metas':metas, 'data_new':data_new, 'class_var':class_var}
+
+
+
 def orng_table_to_dict(data):
     import Orange
     attrs, metas, data_new = [], [], []

@@ -67,6 +67,7 @@ def export_package_string(writeFunc, packages, newuid, updateuid, all, verbosity
     for a in objs:
         if newuid or (not a.uid and updateuid):
             a.uid = str(uuid.uuid4())
+            a.save()
 
     print_stataistics(objs, verbosity, writeFunc)
 

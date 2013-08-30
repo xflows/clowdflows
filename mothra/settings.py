@@ -200,7 +200,12 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.mysql',
     #'workflows.lemmagen',
     #'workflows.crossbee',
+    'workflows.scikitAlgorithms',
+    #'workflows.lemmagen',
+    #'workflows.crossbee',
     'workflows.streaming',
+    'workflows.bio3graph',
+    'workflows.noise',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 

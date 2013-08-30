@@ -33,9 +33,17 @@ def import_package_lib(packageName, libName, localSetAttrFunc):
     dynamic_import_globals(appName+"."+packageName + "." + libName, packageName, localSetAttrFunc)
 
 def dynamic_import_globals(name, package, localSetAttrFunc):
+    m = None
     try:
         m = __import__(name, globals(), locals(), ['*'])
+    except ImportError:
+        pass
     except:
+        import sys, traceback
+        print "Exception in user code:"
+        print '-'*60
+        traceback.print_exc(file=sys.stdout)
+        print '-'*60
         return
     all_names = [name for name in dir(m) if name[0]!='_']
     g = globals()
