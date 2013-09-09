@@ -123,7 +123,7 @@ def orng_table_to_dict(data):
         metas.append(data.domain.get_meta(m).name)
     for a in data.domain.attributes:
         attrs.append(a.name)
-    pretty_float = lambda x, a: '%.3f' % x if a.var_type == Orange.feature.Type.Continuous else x
+    pretty_float = lambda x, a: '%.3f' % x if a.var_type == Orange.feature.Type.Continuous and x!='?' else x
     for inst in xrange(len(data)):
         inst_new = []
         for a in data.domain.variables:

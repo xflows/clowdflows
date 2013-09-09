@@ -89,5 +89,7 @@ def ilp_wordification(input_dict):
     target_table = input_dict.get('target_table',None)
     other_tables = input_dict.get('other_tables', None)
     context = input_dict.get('context', None)
-    wordification = Wordification(target_table,other_tables,context)
+    word_att_length = int(input_dict.get('f_ngram_size', 1))
+    wordification = Wordification(target_table,other_tables,context,word_att_length)
+
     return {'corpus' : wordification.wordify()}

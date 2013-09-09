@@ -259,7 +259,7 @@ class Orange_Converter(Converter):
         import orange
 
         cols = self.db.cols[table_name]
-        attributes, metas, class_var = [], [], []
+        attributes, metas, class_var = [], [], None
         for col in cols:
             att_type = self.orng_type(table_name,col)
             if att_type == 'd':
@@ -272,13 +272,13 @@ class Orange_Converter(Converter):
             if col == cls_att:
                 if att_type == 'string':
                     raise Exception('Unsuitable data type for a target variable: %s' % att_type)
-                class_var.append(att_var)
+                class_var=att_var
                 continue
-            elif att_type == 'string' or col in self.db.pkeys[table_name] or col in self.db.fkeys[table_name]:
+            elif att_type == 'string' or table_name in self.db.pkeys and col in self.db.pkeys[table_name] or table_name in self.db.fkeys and col in self.db.fkeys[table_name]:
                 metas.append(att_var)
             else:
                 attributes.append(att_var)
-        domain = orange.Domain(attributes + class_var)
+        domain = orange.Domain(attributes, class_var)
         for meta in metas:
             domain.addmeta(orange.newmetaid(), meta)
         dataset = orange.ExampleTable(domain)
@@ -286,7 +286,7 @@ class Orange_Converter(Converter):
         for row in self.db.rows(table_name, cols):
             example = orange.Example(domain)
             for col, val in zip(cols, row):
-                example[str(col)] = str(val)
+                example[str(col)] = str(val) if val!=None else '?'
             dataset.append(example)
         return dataset
 
