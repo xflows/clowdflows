@@ -63,8 +63,8 @@ class DBContext:
                     if col.endswith('_id'):
                         ref_table = (col[:-4] + 'ies') if col[-4] == 'y' else (col[:-3] + 's')
                         if ref_table in self.tables:
-                            self.connected[(table, ref_table)] = (col, 'id')
-                            self.connected[(ref_table, table)] = ('id', col)
+                            self.connected[(table, ref_table)].append((col, 'id'))
+                            self.connected[(ref_table, table)].append(('id', col))
                             self.fkeys[table].add(col)
                     if col == 'id':
                         self.pkeys[table] = col

@@ -33,7 +33,7 @@
 					<tr><th>Table</th><th>Referenced table</th><th>Column</th><th>Referenced column</th></tr>
 				</thead>
 				<tbody>
-                {% for tables, cols in context.connected.items %}
+                {% for tables, cols in connections.items %}
                     {% for cols_inner in cols %}
                         <tr><td>{{tables.0}}</td><td>{{tables.1}}</td><td>{{cols_inner.0}}</td><td>{{cols_inner.1}}</td></tr>
                     {% endfor %}
