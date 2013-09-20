@@ -190,7 +190,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     #'workflows.latino',
     'workflows.decision_support',
     'workflows.segmine',
-    #'workflows.subgroup_discovery',
+    'workflows.subgroup_discovery',
     'workflows.nlp',
     'workflows.nl_toolkit',
     'workflows.ilp',
