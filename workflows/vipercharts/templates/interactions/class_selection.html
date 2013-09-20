@@ -1,0 +1,12 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}"  class="widgetinteractdialog" title="{{widget.name}} wants your input!">
+Select a class from the input dataset:
+<form>
+<table>
+{%for c in classes%}
+<tr><td><input type="radio" name="selected" value="{{c}}"></td><td><label>{{c}}</label></td></tr>
+{%endfor%}
+</table>
+<input type="hidden" name="widget_id" value="{{widget.pk}}">
+</form>
+</script>
+</div>

@@ -1,0 +1,390 @@
+[
+  {
+    "pk": 19, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99", 
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Orange"
+    }
+  }, 
+  {
+    "pk": 26, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "parent": 19, 
+      "workflow": null, 
+      "user": null, 
+      "order": 3, 
+      "name": "Utilities"
+    }
+  }, 
+  {
+    "pk": 212, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 26, 
+      "treeview_image": "", 
+      "name": "Select Class from ODT", 
+      "is_streaming": false, 
+      "uid": "14b90c25-47ae-4df1-8781-de2baad6cff3", 
+      "interaction_view": "class_from_odt_interactive", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "class_from_odt_selection", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "class_from_odt", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 448, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 212, 
+      "name": "Orange data table", 
+      "short_name": "odt", 
+      "uid": "660b5fa0-92dd-4462-83dd-75908e3d9d45", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 228, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 212, 
+      "name": "Selected Class", 
+      "short_name": "cls", 
+      "variable": "target", 
+      "uid": "dd95e10c-9746-4332-8273-0339cbe0e221", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "f2821411-7b06-46ea-b577-3a06fecd02de", 
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Vipercharts"
+    }
+  }, 
+  {
+    "pk": 206, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 38, 
+      "treeview_image": "", 
+      "name": "Create Integer List", 
+      "is_streaming": false, 
+      "uid": "52de92eb-a762-42ab-88c6-80b70a8bc604", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_create_integers", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 439, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 206, 
+      "name": "Integer List String", 
+      "short_name": "str", 
+      "uid": "ca2ca91a-448f-411a-8e35-e7fce21fad01", 
+      "default": "3\r\n2\r\n1\r\n4", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "intStr", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Comma or new-line separated list of integers"
+    }
+  }, 
+  {
+    "pk": 440, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 206, 
+      "name": "Sort list", 
+      "short_name": "bol", 
+      "uid": "a67f2073-9b5d-4c0d-a9bb-f04babedebaa", 
+      "default": "true", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sort", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Should the list be sorted"
+    }
+  }, 
+  {
+    "pk": 224, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 206, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "variable": "intList", 
+      "uid": "87b9d0f3-219f-4ebd-afdf-db66da53c182", 
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 210, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 38, 
+      "treeview_image": "", 
+      "name": "PR space chart", 
+      "is_streaming": false, 
+      "uid": "5dc72a81-347c-4a40-8658-2591961477e5", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_pr_space_view", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_pr_space", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 445, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 210, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "33e1ee25-2b74-49c9-99fb-30d9141f9119", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "perf", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 207, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 38, 
+      "treeview_image": "", 
+      "name": "Filter Integers", 
+      "is_streaming": false, 
+      "uid": "14ddceb7-987a-42c4-b72e-3e203026d8d9", 
+      "interaction_view": "vipercharts_filter_integers", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "vipercharts_post_filter_integers", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_pre_filter_integers", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "has_progress_bar": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 441, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 207, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "uid": "b69481cc-be4b-430a-b9b8-62c2805776ee", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "intList", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 225, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 207, 
+      "name": "Filtered Integer List", 
+      "short_name": "lst", 
+      "variable": "intList", 
+      "uid": "00bad29b-3ecf-4545-84f2-7fb79f52f856", 
+      "order": 1, 
+      "description": "Filtered list of integers"
+    }
+  }, 
+  {
+    "pk": 208, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 38, 
+      "treeview_image": "", 
+      "name": "Sum Integers", 
+      "is_streaming": false, 
+      "uid": "dd6946da-4cbe-454e-98de-69c89f7e831b", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_sum_integers", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 442, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 208, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "uid": "8e42ebf0-9f19-47f9-81f7-3bf0ef475d85", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "intList", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 226, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 208, 
+      "name": "Sum", 
+      "short_name": "int", 
+      "variable": "sum", 
+      "uid": "7a54ced2-2d92-48bd-9b2a-9327f42ffb8e", 
+      "order": 1, 
+      "description": "Sum of integer list"
+    }
+  }, 
+  {
+    "pk": 209, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 38, 
+      "treeview_image": "", 
+      "name": "Display Summation", 
+      "is_streaming": false, 
+      "uid": "bd990642-f04d-454a-9703-7fde35fb9cdb", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_display_summation", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_pre_display_summation", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 443, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 209, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "uid": "b518fe4a-d6e2-43fa-87be-3c0d845c0878", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "intList", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 444, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 209, 
+      "name": "Sum", 
+      "short_name": "int", 
+      "uid": "72dc1e14-9a56-4734-9d6e-54f84e8eb054", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "sum", 
+      "parameter": false, 
+      "order": 2, 
+      "description": "Sum (possibly correct) of integer list"
+    }
+  }
+]

@@ -1,0 +1,27 @@
+<div id="widgetvisualization-{{widget.pk}}" width="727" height="700" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} results">
+
+<div id="widget-column-chart-{{widget.pk}}" style="min-width: 400px; height: 400px; margin: 0 auto">
+<table class="embedded-table">
+	<thead>
+	<tr scope="col"><th>&nbsp;</th>
+	<th class = "tablecelltitle"> Area Under ROC Curve </th>
+	<th class = "tablecelltitle"> Area Under ROC Hull </th>
+	<th class = "tablecelltitle"> Area Under PR Curve </th>
+	<th class = "tablecelltitle"> Gini Coefficient </th>
+	<th class = "tablecelltitle"> Kendall's tau (&tau;<sub>b</sub>) coefficient</th>
+	</tr>
+	</thead>
+	<tbody>
+	{% for item in input_dict.performance %}
+	<tr class="tablerow" style="{% cycle 'background:#fafafa;' '' %}">
+        <th class="tablecellcenter"> {{ item.name }} </th>
+        <td class="tablecellcenter"> {{ item.AUC|floatformat:-2 }} </td>
+        <td class="tablecellcenter"> {{ item.AUCH|floatformat:-2 }} </td>
+		<td class="tablecellcenter"> {{ item.AUPR|floatformat:-2 }} </td>
+        <td class="tablecellcenter"> {{ item.Gini|floatformat:-2 }} </td>
+		<td class="tablecellcenter"> {{ item.KENtau|floatformat:-2 }} </td>
+    </tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>

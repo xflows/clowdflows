@@ -1,0 +1,324 @@
+<div id="widgetvisualization-{{widget.pk}}" width="627" height="700" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} results">
+
+<div id="widget-pr-curve-{{widget.pk}}" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+<script type="text/javascript">
+$(function () {
+	{% if fbeta %}
+		var beta = {% if fbeta != '1'%}{{fbeta}}{% else %}1{% endif %};
+	{% else %}{%if data.0.fbeta %}
+		var beta = {% if input_dict.0.fbeta != '1'%}{{input_dict.0.fbeta}}{% else %}1{% endif %};
+	{% else %}
+		var beta = 1;
+	{% endif %}{% endif %}
+	
+	var subtype = {%if input_dict.subtype %}'{{input_dict.subtype}}'{%else%}'-score'{%endif%};
+	
+	// Compute basic/grid F-isolines (0.1*i)
+	var fs = [];
+	var f = [];
+	for (var i = 1; i <= 9; i += 1){
+		f = [];
+		fc = 0.1*i;
+		x0 = Math.pow(beta,2) * fc *1/(-fc + 1 + Math.pow(beta,2)*1);
+		range = 1 - x0;
+		for (var j = 0; j <= 300; j += 1) {
+				x = x0+j*range/300;
+				f.push([x, fc*x/(Math.pow(beta,2)*(-fc+x) + x)]);
+		}
+		fs.push(f);
+	}
+	
+	// function for computing F-isolines for algorithm points
+	function makeSeries(r,p) {
+	f = [];
+	if (r < 0.01 || p < 0.01){
+		return [];
+	}
+	fc = (1+Math.pow(beta,2))*r*p/(Math.pow(beta,2)*p+r);
+	x0 = Math.pow(beta,2) * fc *1/(-fc + 1 + Math.pow(beta,2)*1);
+	range = 1 - x0;
+	delta = range/300;
+	for (var j = 0; j <= 300; j += 1) {
+		x = x0+j*delta;
+		f.push([x, fc*x/(Math.pow(beta,2)*(-fc+x) + x)]);
+	}
+	return f;
+	}
+
+	// Algorithm performance points and their corresponding F-isolines
+	var points = [
+		{% for item in data %}
+			[ {{ item.recall }}, {{ item.precision }}],
+		{% endfor %}
+	];
+	var npoints = points.length;
+	var pfs = [];
+	for (var i = 0; i<npoints; i++){
+		s = makeSeries(points[i][0], points[i][1]);
+		pfs.push(s);
+	}
+	// Epsilon proximity evaluation
+	/*var eps_pr = {{input_dict.eps}}; 
+	if (eps_pr > 0){
+		var precs = points.map(function(pair){return pair[1];});
+		var max_prec = Math.max.apply(Math, precs);
+		var mp_str = 70+(1-max_prec)*487+(eps_pr*100*5-20)/2//+'px';//eps_pr > 0.04 ? String(3+(1-max_prec)*497+(eps_pr*100*5-20)/2)+'px'// : String(3+(1-max_prec)*497-(eps_pr*100*5-20)/2)+'px' ;  *497
+	}*/
+	
+	//console.log(pfs);
+	var tempVisible = 0;
+
+	//var chart;
+	$(document).ready(function drawNewChart() {
+		chart = new Highcharts.Chart({
+			chart: {
+				renderTo: 'widget-pr-curve-{{widget.pk}}',
+				zoomType: 'xy',
+				type: 'line',
+				height: 600,
+				width: 600,
+				animation: false,
+				spacingRight: 30,
+				spacingLeft: 0,
+				//spacingTop:0,
+				//marginTop: 10,
+				spacingBottom: 15,
+			},
+			events: {
+				selection: function(event){
+					chart.labels.enable =  false;
+					return true;
+				}
+			},
+			title: {
+				text: '{{input_dict.title}}'
+			},
+			subtitle: {
+				text: ' '
+			},
+			xAxis: {
+				gridLineWidth: 1,
+				lineWidth: 1,
+				lineColor: 'black',
+				tickColor: 'black',
+				labels: {
+					style: {
+						color: 'black'
+					}
+				},
+				min: 0,
+				max: 1.,
+				title: {
+					text: 'Recall',
+					style:{ 
+						fontSize: '11pt',
+						color: 'black'
+					}
+				},
+				startOnTick: true,
+				endOnTick: true,
+				showLastLabel: true,
+				tickInterval: 0.1,
+			},
+			yAxis: {	
+				gridLineWidth: 1,
+				tickColor: 'black',
+				lineWidth: 1,
+				lineColor: 'black',
+				labels: {
+					style: {
+						color: 'black'
+					}
+				},
+				enabled: true,
+				min: 0,
+				max: 1.,
+				title: {
+					text: 'Precision',
+					style:{ 
+						fontSize: '12pt',
+						color: 'black'
+					}
+				},
+				tickWidth: 1,
+				tickInterval: 0.1,
+			},
+			tooltip: {
+				useHTML: true,
+				formatter: function() {
+					if (this.series.type == 'line'){
+						return '<b>'+this.series.name+'</b><br/>'+
+					'<table><tr>'+
+					'<td class="ttip">Recall:</td><td class="ttip">' + this.x.toFixed(2) +
+					'</td></tr><tr><td class="ttip">Precision:</td><td class="ttip">'+this.y.toFixed(2) +
+					'</td></tr><tr><td class="ttip"><i><span style="font-size:105%;">F</span></i><span style="vertical-align:-20%; font-size:70%;">'+
+						beta+'</span>:</td><td class="ttip">' +
+						((1+Math.pow(beta,2))*this.x*this.y/(Math.pow(beta,2)*this.y+this.x)).toFixed(2)+
+						'</td></tr><tr><td class="ttip">'+
+					((subtype == '-score') ? 'Threshold:</td><td class="ttip">'+ this.point.tr : 'Rank:</td><td class="ttip">'+ this.point.tr) +
+					'</td></tr></table>'
+					}
+					else{
+						return '<b>F-isoline</b><br/>'+
+						'<table><tr><td class="ttip">Recall:</td><td class="ttip">' + this.x.toFixed(2) +
+						'</td></tr><tr><td class="ttip">Precision:</td><td class="ttip">'+ this.y.toFixed(2)+
+						'</td></tr><tr><td class="ttip"><i><span style="font-size:105%;">F</span></i><span style="vertical-align:-20%; font-size:70%;">'+
+						beta+'</span>:</td><td class="ttip">' +
+						((1+Math.pow(beta,2))*this.x*this.y/(Math.pow(beta,2)*this.y+this.x)).toFixed(2)+
+						'</td></tr></table>';
+					}
+				}
+			},
+			legend: {
+				enabled: false,
+				layout: 'horizontal', // delete from here to end of legend
+				align: 'center',
+				verticalAlign: 'bottom',
+				x: 27,
+				//y: 580,
+				width: 500,
+				floating: false,
+				backgroundColor: '#FFFFFF',
+				borderWidth: 1,
+				itemWidth: 166,
+				maxHeight: 83
+			},
+			plotOptions: {
+				series:{
+					turboThreshold: 5000,
+				},
+				spline: {
+					lineWidth: 1,
+					lineColor: 'rgb(100,100,100)',
+					states: {
+						hover: {
+							enabled: true,
+							lineWidth: 2
+						}
+					},
+					marker: {
+						symbol: 'circle',
+						fillColor: 'rgb(100,100,100)',
+						enabled: false,
+						states: {
+							hover: {
+								enabled: true,
+								radius: 5,
+								lineWidth: 1
+							}
+						}
+					},
+					shadow: false,
+					color : 'rgb(100,100,100)',
+				},
+			},
+			credits: {
+				enabled: false
+			},
+			series: [
+			// F-isolines (0.1 * i)
+			{
+				type: 'spline',
+				name: 'F-isoline (F-score = 0.1)',
+				data: fs[0],
+				visible: false,
+				showInLegend: false,
+			}, {
+				type: 'spline',
+				name: 'F-isoline (F-score = 0.2)',
+				data: fs[1],
+				visible: false,
+				showInLegend: false,
+			}, {
+				type: 'spline',
+				name: 'F-isoline (F-score = 0.3)',
+				data: fs[2],
+				visible: false,
+				showInLegend: false,
+			}, {
+				type: 'spline',
+				name: 'F-isoline (F-score = 0.4)',
+				data: fs[3],
+				visible: false,
+				showInLegend: false,
+			}, {
+				type: 'spline',
+				name: 'F-isoline (F-score = 0.5)',
+				data: fs[4],
+				visible: false,
+				showInLegend: false,
+			}, {
+				type: 'spline',
+				name: 'F-isoline (F-score = 0.6)',
+				data: fs[5],
+				visible: false,
+				showInLegend: false,
+			}, {
+				type: 'spline',
+				name: 'F-isoline (F-score = 0.7)',
+				data: fs[6],
+				visible: false,
+				showInLegend: false,
+			}, {
+				type: 'spline',
+				name: 'F-isoline (F-score = 0.8)',
+				data: fs[7],
+				visible: false,
+				showInLegend: false,
+			}, {
+				type: 'spline',
+				name: 'F-isoline (F-score = 0.9)',
+				data: fs[8],
+				visible: false,
+				showInLegend: false,
+			},
+			
+			// POINTS
+			{% for item in input_dict.performance %}            
+			{
+				//type: 'scatter',
+				name: '{{ item.name }}',
+				data: [
+				{% for point in item.PRpoints %}
+				{ x:{{point.0}}, y:{{point.1}}, tr:'{{point.2}}' },
+				{% endfor %}
+				]
+			},
+			{% endfor %}             
+			]
+		}, function(chart){
+			// Hide grid lines
+			$.each($('#widget-pr-curve-{{widget.pk} .highcharts-grid path'), 
+			  function(i, elem) { 
+					$(elem).attr('stroke-width','0');
+			   });
+		
+			$('#fiso').click(function(){
+			//alert("was clicked")
+				for (var i = 0; i<9; i++){
+					var series = chart.series[i]
+					if (series.visible){
+						series.hide();
+						}
+					else{
+						series.show();
+					}
+				}
+				if (chart.series[0].visible){
+					$('#fisocheck').attr('checked', true);
+					$('#fiso').attr('class', 'btn');
+					
+				}
+				else{
+					$('#fisocheck').attr('checked', false);
+					$('#fiso').attr('class', 'btn btn-primary');
+					
+				}
+			});
+			}
+		);//});
+	});
+
+});
+</script>
+</div>

@@ -701,7 +701,7 @@ def uci_to_odt(input_dict):
     from mothra.settings import FILES_FOLDER
     import orange
     output_dict = {}
-    output_dict['data'] = orange.ExampleTable(FILES_FOLDER+"uci-datasets/"+input_dict['filename'])
+    output_dict['data'] = orange.ExampleTable(FILES_FOLDER+"uci-datasets\\"+input_dict['filename'])
     return output_dict
     
 def odt_to_arff(input_dict):
