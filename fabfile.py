@@ -24,6 +24,7 @@ def deploy():
             run('git checkout %s' % (env.branch,))
 
             puts(yellow("[Installing packages]"))
+
             run('pip install -qr requirements.txt')
 
             puts(yellow("[Migrating apps]"))
