@@ -12,22 +12,133 @@
     }
   }, 
   {
-    "pk": 26, 
+    "pk": 22, 
     "model": "workflows.category", 
     "fields": {
-      "uid": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "uid": "583debcb-5041-46b3-b464-e21875896710", 
       "parent": 19, 
       "workflow": null, 
       "user": null, 
+      "order": 2, 
+      "name": "Evaluation"
+    }
+  }, 
+  {
+    "pk": 213, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 22, 
+      "treeview_image": "", 
+      "name": "Compare actual and predicted class", 
+      "is_streaming": false, 
+      "uid": "fba38909-b392-4f6e-bff0-d6e321d646f9", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_compare_class_ActualPredicted_orange", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
       "order": 3, 
-      "name": "Utilities"
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 449, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 213, 
+      "name": "Actual dataset", 
+      "short_name": "oda", 
+      "uid": "2c7aa421-c8e7-405a-a761-578bc683dac0", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "actual", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 452, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 213, 
+      "name": "Name", 
+      "short_name": "nam", 
+      "uid": "76171f1b-e2f9-4bf5-a825-f8bec8d047d6", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "name", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 450, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 213, 
+      "name": "Predicted dataset", 
+      "short_name": "odp", 
+      "uid": "7a4682dc-a479-488b-a5c9-8c8576af48ec", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "predicted", 
+      "parameter": false, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 451, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 213, 
+      "name": "Target class", 
+      "short_name": "cls", 
+      "uid": "1c10f750-03f5-4640-8641-0059c7dc902f", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "target", 
+      "parameter": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 229, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 213, 
+      "name": "Actual and predicted values", 
+      "short_name": "apv", 
+      "variable": "apv", 
+      "uid": "f8630c10-e167-4b33-b5fc-16d833c000ec", 
+      "order": 1, 
+      "description": ""
     }
   }, 
   {
     "pk": 212, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 26, 
+      "category": 22, 
       "treeview_image": "", 
       "name": "Select Class from ODT", 
       "is_streaming": false, 
@@ -45,7 +156,7 @@
       "wsdl": "", 
       "interactive": true, 
       "has_progress_bar": false, 
-      "order": 1, 
+      "order": 4, 
       "description": ""
     }
   }, 
@@ -89,27 +200,39 @@
       "workflow": null, 
       "user": null, 
       "order": 1, 
-      "name": "Vipercharts"
+      "name": "Visual performance evaluation (ViperCharts)"
     }
   }, 
   {
-    "pk": 206, 
+    "pk": 41, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "77f6e581-c116-47d7-b838-f7850c797796", 
+      "parent": 38, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Column charts"
+    }
+  }, 
+  {
+    "pk": 222, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 38, 
+      "category": 41, 
       "treeview_image": "", 
-      "name": "Create Integer List", 
+      "name": "Column chart", 
       "is_streaming": false, 
-      "uid": "52de92eb-a762-42ab-88c6-80b70a8bc604", 
+      "uid": "9b03c323-da3e-4726-8c1b-86cb44387a3e", 
       "interaction_view": "", 
       "image": "", 
       "package": "vipercharts", 
-      "static_image": "construction_work .png", 
+      "static_image": "", 
       "post_interact_action": "", 
       "user": null, 
-      "visualization_view": "", 
+      "visualization_view": "vipercharts_column_chart_view", 
       "streaming_visualization_view": "", 
-      "action": "vipercharts_create_integers", 
+      "action": "vipercharts_column_chart", 
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
@@ -119,61 +242,576 @@
     }
   }, 
   {
-    "pk": 439, 
+    "pk": 461, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 206, 
-      "name": "Integer List String", 
-      "short_name": "str", 
-      "uid": "ca2ca91a-448f-411a-8e35-e7fce21fad01", 
-      "default": "3\r\n2\r\n1\r\n4", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "intStr", 
-      "parameter": true, 
-      "order": 1, 
-      "description": "Comma or new-line separated list of integers"
-    }
-  }, 
-  {
-    "pk": 440, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 206, 
-      "name": "Sort list", 
-      "short_name": "bol", 
-      "uid": "a67f2073-9b5d-4c0d-a9bb-f04babedebaa", 
-      "default": "true", 
+      "widget": 222, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "9d55a1cd-0546-40a8-94db-5d87f2385a73", 
+      "default": "", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "sort", 
-      "parameter": true, 
-      "order": 2, 
-      "description": "Should the list be sorted"
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
     }
   }, 
   {
-    "pk": 224, 
-    "model": "workflows.abstractoutput", 
+    "pk": 39, 
+    "model": "workflows.category", 
     "fields": {
-      "widget": 206, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "variable": "intList", 
-      "uid": "87b9d0f3-219f-4ebd-afdf-db66da53c182", 
+      "uid": "880198d8-b759-4a1c-a642-968b7a79887e", 
+      "parent": 38, 
+      "workflow": null, 
+      "user": null, 
       "order": 1, 
-      "description": "List of integers"
+      "name": "Curve charts"
+    }
+  }, 
+  {
+    "pk": 215, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 39, 
+      "treeview_image": "", 
+      "name": "Lift curves", 
+      "is_streaming": false, 
+      "uid": "a81db0a6-3f8b-4d9b-ba79-a8ad2f6c2a4d", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_lift_curve_view", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_lift_curve", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 454, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 215, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "f84aeba3-2d50-41c4-b613-22413b34b586", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 464, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 215, 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "uid": "76d078ee-c5e7-4a4c-9347-a7884305cbc8", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 214, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 39, 
+      "treeview_image": "", 
+      "name": "ROC curves", 
+      "is_streaming": false, 
+      "uid": "f8e7ead9-1ed0-43e1-9c93-01087fa1470a", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_roc_curve_view", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_roc_curve", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 453, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 214, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "a326316c-ca1b-4229-a80c-4256cf83c025", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 466, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 214, 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "uid": "72ab4bab-aeac-4530-b75e-8f86ca9e12c1", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 217, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 39, 
+      "treeview_image": "", 
+      "name": "ROC hull curves", 
+      "is_streaming": false, 
+      "uid": "cad2f550-d65b-4281-bdb2-fdf48193f669", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_roc_hull_view", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_roc_hull", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 456, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 217, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "87bd4472-1c53-4952-a174-61f1aa700486", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 467, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 217, 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "uid": "6827d783-52bf-466c-875d-9163cc23e3be", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 216, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 39, 
+      "treeview_image": "", 
+      "name": "PR curves", 
+      "is_streaming": false, 
+      "uid": "9d38dbab-1a07-46e8-b551-019a50a2d7f9", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_pr_curve_view", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_pr_curve", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 455, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 216, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "4e0be28c-9791-43fe-b72e-dd6a1d1e29f8", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 465, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 216, 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "uid": "e8b01dca-c94e-473e-b4ce-3f45a2ce1d10", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 218, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 39, 
+      "treeview_image": "", 
+      "name": "Cost curves", 
+      "is_streaming": false, 
+      "uid": "6204d7f1-185c-489b-a8c3-4c2188fa380a", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_cost_curve_view", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_cost_curve", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 5, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 457, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 218, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "5d1b1a32-42f6-48a9-b9b1-b3f68cc49bb3", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 462, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 218, 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "uid": "ee7d6063-1bd7-4cd5-98c3-605a1c4a10f3", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 219, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 39, 
+      "treeview_image": "", 
+      "name": "Kendall curves", 
+      "is_streaming": false, 
+      "uid": "88dfe77b-6289-4a9b-987b-e9a1fbdb08a7", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_kendall_curve_view", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_kendall_curve", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 6, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 458, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 219, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "c35e8f26-40a6-4cfd-98a7-bda65a3c513c", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 463, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 219, 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "uid": "1bfa000e-e224-424b-b602-8191dc705f8a", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 220, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 39, 
+      "treeview_image": "", 
+      "name": "Rate driven curves", 
+      "is_streaming": false, 
+      "uid": "a7996264-f373-44f6-ada2-6caec545eb88", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_rate_curve_view", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_rate_curve", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 7, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 459, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 220, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "81d5b567-844d-4c9a-a791-6593820fb8a7", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 468, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 220, 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "uid": "040a9932-a5d5-465c-889d-ddc45bc68c5b", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 223, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 39, 
+      "treeview_image": "", 
+      "name": "Related results table", 
+      "is_streaming": false, 
+      "uid": "a8754a8f-c83c-4fc2-95ee-6ebaef75d9bf", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_related_table_view", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_related_table", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 8, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 469, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 223, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "c928542f-f432-479b-83a2-fee070d2b4e4", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 40, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "1eee22f4-9235-4b0a-be2e-407494968f4e", 
+      "parent": 38, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Scatter charts"
+    }
+  }, 
+  {
+    "pk": 221, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 40, 
+      "treeview_image": "", 
+      "name": "ROC space", 
+      "is_streaming": false, 
+      "uid": "8c94168c-9260-453a-bcbd-96bee7bc1236", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "vipercharts", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "vipercharts_roc_space_view", 
+      "streaming_visualization_view": "", 
+      "action": "vipercharts_roc_space", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 460, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 221, 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "uid": "14b94fa7-3d72-4830-9c8f-9325c22399e8", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
     }
   }, 
   {
     "pk": 210, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 38, 
+      "category": 40, 
       "treeview_image": "", 
-      "name": "PR space chart", 
+      "name": "PR space", 
       "is_streaming": false, 
       "uid": "5dc72a81-347c-4a40-8658-2591961477e5", 
       "interaction_view": "", 
@@ -189,7 +827,7 @@
       "wsdl": "", 
       "interactive": false, 
       "has_progress_bar": false, 
-      "order": 1, 
+      "order": 7, 
       "description": ""
     }
   }, 
@@ -212,179 +850,110 @@
     }
   }, 
   {
-    "pk": 207, 
-    "model": "workflows.abstractwidget", 
+    "pk": 42, 
+    "model": "workflows.category", 
     "fields": {
-      "category": 38, 
-      "treeview_image": "", 
-      "name": "Filter Integers", 
-      "is_streaming": false, 
-      "uid": "14ddceb7-987a-42c4-b72e-3e203026d8d9", 
-      "interaction_view": "vipercharts_filter_integers", 
-      "image": "", 
-      "package": "vipercharts", 
-      "static_image": "construction_work .png", 
-      "post_interact_action": "vipercharts_post_filter_integers", 
+      "uid": "9e81a365-de58-4a38-9735-58678a0baf28", 
+      "parent": 38, 
+      "workflow": null, 
       "user": null, 
-      "visualization_view": "", 
-      "streaming_visualization_view": "", 
-      "action": "vipercharts_pre_filter_integers", 
-      "wsdl_method": "", 
-      "wsdl": "", 
-      "interactive": true, 
-      "has_progress_bar": false, 
-      "order": 2, 
-      "description": ""
-    }
-  }, 
-  {
-    "pk": 441, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 207, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "uid": "b69481cc-be4b-430a-b9b8-62c2805776ee", 
-      "default": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "intList", 
-      "parameter": false, 
       "order": 1, 
-      "description": "List of integers"
+      "name": "Utilities"
     }
   }, 
   {
-    "pk": 225, 
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": 207, 
-      "name": "Filtered Integer List", 
-      "short_name": "lst", 
-      "variable": "intList", 
-      "uid": "00bad29b-3ecf-4545-84f2-7fb79f52f856", 
-      "order": 1, 
-      "description": "Filtered list of integers"
-    }
-  }, 
-  {
-    "pk": 208, 
+    "pk": 211, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 38, 
+      "category": 42, 
       "treeview_image": "", 
-      "name": "Sum Integers", 
+      "name": "Prepare performance curve data", 
       "is_streaming": false, 
-      "uid": "dd6946da-4cbe-454e-98de-69c89f7e831b", 
+      "uid": "b69fff35-ae30-4708-a6ce-7b9cec28e2a9", 
       "interaction_view": "", 
       "image": "", 
       "package": "vipercharts", 
-      "static_image": "construction_work .png", 
+      "static_image": "", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
-      "action": "vipercharts_sum_integers", 
+      "action": "vipercharts_prepareCurveData", 
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
       "has_progress_bar": false, 
-      "order": 3, 
+      "order": 8, 
       "description": ""
     }
   }, 
   {
-    "pk": 442, 
+    "pk": 446, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 208, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "uid": "8e42ebf0-9f19-47f9-81f7-3bf0ef475d85", 
+      "widget": 211, 
+      "name": "Actual and Predicted values", 
+      "short_name": "apv", 
+      "uid": "3f6230f3-2a34-4d51-8dce-77b25f499516", 
       "default": "", 
       "required": true, 
-      "multi": false, 
+      "multi": true, 
       "parameter_type": null, 
-      "variable": "intList", 
+      "variable": "predictions", 
       "parameter": false, 
       "order": 1, 
-      "description": "List of integers"
-    }
-  }, 
-  {
-    "pk": 226, 
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": 208, 
-      "name": "Sum", 
-      "short_name": "int", 
-      "variable": "sum", 
-      "uid": "7a54ced2-2d92-48bd-9b2a-9327f42ffb8e", 
-      "order": 1, 
-      "description": "Sum of integer list"
-    }
-  }, 
-  {
-    "pk": 209, 
-    "model": "workflows.abstractwidget", 
-    "fields": {
-      "category": 38, 
-      "treeview_image": "", 
-      "name": "Display Summation", 
-      "is_streaming": false, 
-      "uid": "bd990642-f04d-454a-9703-7fde35fb9cdb", 
-      "interaction_view": "", 
-      "image": "", 
-      "package": "vipercharts", 
-      "static_image": "construction_work .png", 
-      "post_interact_action": "", 
-      "user": null, 
-      "visualization_view": "vipercharts_display_summation", 
-      "streaming_visualization_view": "", 
-      "action": "vipercharts_pre_display_summation", 
-      "wsdl_method": "", 
-      "wsdl": "", 
-      "interactive": false, 
-      "has_progress_bar": false, 
-      "order": 4, 
       "description": ""
     }
   }, 
   {
-    "pk": 443, 
+    "pk": 447, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 209, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "uid": "b518fe4a-d6e2-43fa-87be-3c0d845c0878", 
-      "default": "", 
-      "required": false, 
+      "widget": 211, 
+      "name": "Prediction Type", 
+      "short_name": "typ", 
+      "uid": "783b6e0b-ba48-4346-a8f2-94c7a719d85f", 
+      "default": "-score", 
+      "required": true, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "intList", 
-      "parameter": false, 
-      "order": 1, 
-      "description": "List of integers"
+      "parameter_type": "select", 
+      "variable": "subtype", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Prediction scores or ranks"
     }
   }, 
   {
-    "pk": 444, 
-    "model": "workflows.abstractinput", 
+    "pk": 136, 
+    "model": "workflows.abstractoption", 
     "fields": {
-      "widget": 209, 
-      "name": "Sum", 
-      "short_name": "int", 
-      "uid": "72dc1e14-9a56-4734-9d6e-54f84e8eb054", 
-      "default": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "sum", 
-      "parameter": false, 
-      "order": 2, 
-      "description": "Sum (possibly correct) of integer list"
+      "uid": "d33eed85-08ae-498e-8eb2-59b95b9d14ea", 
+      "abstract_input": 447, 
+      "value": "-rank", 
+      "name": "Ranks"
+    }
+  }, 
+  {
+    "pk": 135, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "f5e87515-71cd-4c84-ac5b-d9fa59bc3c3f", 
+      "abstract_input": 447, 
+      "value": "-score", 
+      "name": "Scores"
+    }
+  }, 
+  {
+    "pk": 227, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 211, 
+      "name": "Performance curve data", 
+      "short_name": "pcd", 
+      "variable": "performance", 
+      "uid": "26e3df43-342f-45ff-885c-02bd5770f234", 
+      "order": 1, 
+      "description": ""
     }
   }
 ]
