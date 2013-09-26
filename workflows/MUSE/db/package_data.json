@@ -1,0 +1,139 @@
+[
+  {
+    "pk": 44,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "1f5cbe19-0df7-44de-91d8-1ffdae9a1645",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "MUSE"
+    }
+  },
+  {
+    "pk": 45,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "cf46e990-42b6-4027-b2f4-a95acaaed210",
+      "parent": 44,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "NLP components"
+    }
+  },
+  {
+    "pk": 233,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 45,
+      "treeview_image": "",
+      "name": "Event extraction",
+      "is_streaming": false,
+      "uid": "5e5aa91e-090a-43c9-97c6-6064380b09eb",
+      "interaction_view": "",
+      "image": "",
+      "package": "MUSE",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "MUSE_annotate",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Calls the LIIR NLP annotation (TERENCE NLP service)"
+    }
+  },
+  {
+    "pk": 484,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 233,
+      "name": "Raw text",
+      "short_name": "txt",
+      "uid": "7e5b5533-d21c-4955-8fb8-417d5030793f",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "raw_text",
+      "parameter": false,
+      "order": 1,
+      "description": "Input document as raw text"
+    }
+  },
+  {
+    "pk": 240,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 233,
+      "name": "Annotated text",
+      "short_name": "xml",
+      "variable": "annotations_xml",
+      "uid": "c677e844-9f9b-4d09-8e08-9b9335895bac",
+      "order": 1,
+      "description": "XML document with all annotations"
+    }
+  },
+  {
+    "pk": 47,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "2ea309eb-3f82-45cb-8b33-9d00cf3f5a35",
+      "parent": 44,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Utilities"
+    }
+  },
+  {
+    "pk": 234,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 47,
+      "treeview_image": "",
+      "name": "View XML",
+      "is_streaming": false,
+      "uid": "ca337532-ab9d-4554-afca-b4d14216b156",
+      "interaction_view": "",
+      "image": "",
+      "package": "MUSE",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "MUSE_view_xml",
+      "streaming_visualization_view": "",
+      "action": "MUSE_view_xml",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Displays XML in a modal window"
+    }
+  },
+  {
+    "pk": 485,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 234,
+      "name": "XML document",
+      "short_name": "xml",
+      "uid": "2e451b23-c11d-4614-aa4f-57521a42ef83",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "xml_data",
+      "parameter": false,
+      "order": 1,
+      "description": "XML document as string"
+    }
+  }
+]

@@ -207,6 +207,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     'workflows.bio3graph',
     'workflows.noise',
     'workflows.vipercharts',
+    'workflows.MUSE',
     #WORKFLOWS_SUBAPP_PLACEHOLDER
     )
 
