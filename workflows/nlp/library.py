@@ -36,6 +36,6 @@ def load_corpus(input_dict):
     f = safeOpen(input_dict['file'])
     fname = os.path.basename(input_dict['file'])
     data = base64.b64encode(f.read())
-    ws = WebService('http://bodysnatcher.ijs.si:8092/totale?wsdl', 600)
+    ws = WebService('http://vihar.ijs.si:8095/totale?wsdl', 60000)
     response = ws.client.parseFile(fileName=fname, inFile=data)
     return {'corpus' : response['parsedFile']}
