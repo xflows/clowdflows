@@ -1,259 +1,1182 @@
 [
   {
-    "pk": 33,
-    "model": "workflows.category",
+    "pk": 1, 
+    "model": "workflows.category", 
     "fields": {
-      "uid": "15acb469-c510-44f0-8330-60bfe11a463c",
-      "parent": null,
-      "workflow": null,
-      "user": null,
-      "order": 1,
+      "uid": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
       "name": "NLP"
     }
-  },
+  }, 
   {
-    "pk": 225,
-    "model": "workflows.abstractwidget",
+    "pk": 1, 
+    "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 33,
-      "treeview_image": "treeview/nlp_3.png",
-      "name": "Load corpus",
-      "is_streaming": false,
-      "uid": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971",
-      "interaction_view": "",
-      "image": "images/nlp_9.png",
-      "package": "nlp",
-      "static_image": "nlp.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "load_corpus",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 1,
+      "category": 1, 
+      "treeview_image": "treeview/nlp_3.png", 
+      "name": "Load corpus", 
+      "is_streaming": false, 
+      "uid": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971", 
+      "interaction_view": "", 
+      "image": "images/nlp_9.png", 
+      "package": "nlp", 
+      "static_image": "nlp.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "load_corpus", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
       "description": ""
     }
-  },
+  }, 
   {
-    "pk": 647,
-    "model": "workflows.abstractinput",
+    "pk": 1, 
+    "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 225,
-      "name": "File",
-      "short_name": "fil",
-      "uid": "096159a3-ddc8-4a57-b769-dddfb2590065",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": "file",
-      "variable": "file",
-      "parameter": true,
-      "order": 1,
+      "widget": 1, 
+      "name": "File", 
+      "short_name": "fil", 
+      "uid": "096159a3-ddc8-4a57-b769-dddfb2590065", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 1, 
       "description": "File"
     }
-  },
+  }, 
   {
-    "pk": 234,
-    "model": "workflows.abstractoutput",
+    "pk": 413, 
+    "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 225,
-      "name": "Corpus",
-      "short_name": "cor",
-      "variable": "corpus",
-      "uid": "edcc6852-ba3b-4fd7-a46a-6988a7ff61ad",
-      "order": 1,
+      "widget": 1, 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "uid": "907565a7-4336-48c3-8989-9024aae0d7b1", 
+      "default": "http://vihar.ijs.si:8095/totale?wsdl", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Web service address"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 1, 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "variable": "corpus", 
+      "uid": "edcc6852-ba3b-4fd7-a46a-6988a7ff61ad", 
+      "order": 1, 
       "description": "corpus"
     }
-  },
+  }, 
   {
-    "pk": 187,
-    "model": "workflows.abstractwidget",
+    "pk": 4, 
+    "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 33,
-      "treeview_image": "treeview/nlp.png",
-      "name": "Merge Sentences",
-      "is_streaming": false,
-      "uid": "de403444-0ae6-470a-bd7e-f86ac289bf98",
-      "interaction_view": "",
-      "image": "images/nlp_6.png",
-      "package": "nlp",
-      "static_image": "nlp.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "action": "merge_sentences",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 1,
+      "category": 1, 
+      "treeview_image": "treeview/nlp_2.png", 
+      "name": "Term Candidates Viewer", 
+      "is_streaming": false, 
+      "uid": "af5ee96e-7307-46f9-8d8c-55cb7c36d111", 
+      "interaction_view": "", 
+      "image": "images/nlp_8.png", 
+      "package": "nlp", 
+      "static_image": "nlp.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "term_candidate_viewer", 
+      "streaming_visualization_view": "", 
+      "action": "term_candidates", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
       "description": ""
     }
-  },
+  }, 
   {
-    "pk": 501,
-    "model": "workflows.abstractinput",
+    "pk": 5, 
+    "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 187,
-      "name": "Sentences",
-      "short_name": "sen",
-      "uid": "15389d3e-d0b9-488e-9db8-038ff1b6e06a",
-      "default": "",
-      "required": true,
-      "multi": true,
-      "parameter_type": null,
-      "variable": "sentences",
-      "parameter": false,
-      "order": 1,
+      "widget": 4, 
+      "name": "candidates", 
+      "short_name": "can", 
+      "uid": "32536744-964e-4206-b582-be92ab355e8e", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "candidates", 
+      "parameter": false, 
+      "order": 1, 
       "description": ""
     }
-  },
+  }, 
   {
-    "pk": 502,
-    "model": "workflows.abstractinput",
+    "pk": 176, 
+    "model": "workflows.abstractwidget", 
     "fields": {
-      "widget": 187,
-      "name": "Join Method",
-      "short_name": "met",
-      "uid": "27c8cd4a-1016-4a88-b463-4713874fc87f",
-      "default": "union",
-      "required": true,
-      "multi": false,
-      "parameter_type": "select",
-      "variable": "method",
-      "parameter": true,
-      "order": 2,
+      "category": 1, 
+      "treeview_image": "", 
+      "name": "Term extraction", 
+      "is_streaming": false, 
+      "uid": "8a8f2aee-dc2e-4e1e-85d5-c977dc5c2867", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "nlp", 
+      "static_image": "nlp.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "nlp_term_extraction", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Term extraction from totrtale annotations."
+    }
+  }, 
+  {
+    "pk": 431, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 176, 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "uid": "73af8786-aff8-4e72-a2f4-84ac51b0f3cf", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "annotations", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "ToTrTaLe annotations"
+    }
+  }, 
+  {
+    "pk": 433, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 176, 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "uid": "717b9e76-f0df-4f77-8edb-846f09226503", 
+      "default": "http://vihar.ijs.si:8094", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Web service address"
+    }
+  }, 
+  {
+    "pk": 432, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 176, 
+      "name": "Language", 
+      "short_name": "lan", 
+      "uid": "fbc7162b-9e62-478c-bc59-518cf061470c", 
+      "default": "en", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "Language"
+    }
+  }, 
+  {
+    "pk": 102, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "c2824299-1dac-4db7-a59b-6d0ccf7d07f2", 
+      "abstract_input": 432, 
+      "value": "en", 
+      "name": "English"
+    }
+  }, 
+  {
+    "pk": 103, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "a41e7da2-cfcf-4cd1-b023-3b10909250f6", 
+      "abstract_input": 432, 
+      "value": "sl", 
+      "name": "Slovene"
+    }
+  }, 
+  {
+    "pk": 200, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 176, 
+      "name": "Candidates", 
+      "short_name": "can", 
+      "variable": "candidates", 
+      "uid": "25b7e811-a131-4f49-a022-b6fc4f75750a", 
+      "order": 1, 
+      "description": "Term candidates"
+    }
+  }, 
+  {
+    "pk": 174, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 1, 
+      "treeview_image": "", 
+      "name": "ToTrTaLe", 
+      "is_streaming": false, 
+      "uid": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "nlp", 
+      "static_image": "nlp.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "nlp_totrtale", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "A tool developed to process historical (Slovene) text, which annotates words in a TEI encoded corpus with their modern-day equivalents, morphosyntactic tags and lemmas. Such a tool is useful for developing historical corpora of highly-inflecting languages, enabling full text search in digital libraries of historical texts, for modernising such texts for today's readers and making it simpler to correct OCR transcriptions."
+    }
+  }, 
+  {
+    "pk": 420, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 174, 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "uid": "462305a9-d156-42d6-888e-b64da8c4de78", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Corpus"
+    }
+  }, 
+  {
+    "pk": 419, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 174, 
+      "name": "WSDL", 
+      "short_name": "ws", 
+      "uid": "c4b8b86a-13ac-4e87-8708-84cfb79cd24a", 
+      "default": "http://vihar.ijs.si:8095/totale?wsdl", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Web service address"
+    }
+  }, 
+  {
+    "pk": 415, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 174, 
+      "name": "Language", 
+      "short_name": "lng", 
+      "uid": "654779ff-54b8-460e-a543-c56a38a910a6", 
+      "default": "en", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "Language of the input corpus"
+    }
+  }, 
+  {
+    "pk": 98, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "4a78da69-2801-4a43-bd3e-60ba64036f08", 
+      "abstract_input": 415, 
+      "value": "en", 
+      "name": "English"
+    }
+  }, 
+  {
+    "pk": 99, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "558c7004-2edf-4910-985d-4bf89e5c2143", 
+      "abstract_input": 415, 
+      "value": "sl", 
+      "name": "Slovene"
+    }
+  }, 
+  {
+    "pk": 414, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 174, 
+      "name": "XML output", 
+      "short_name": "xml", 
+      "uid": "52b80a99-9302-4816-88ed-a5e1def8822d", 
+      "default": "false", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "xml", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "Output results as XML"
+    }
+  }, 
+  {
+    "pk": 416, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 174, 
+      "name": "Post-processing", 
+      "short_name": "pst", 
+      "uid": "4bd34d04-8dd4-4a66-8005-12aa7df88c92", 
+      "default": "false", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "postprocess", 
+      "parameter": true, 
+      "order": 5, 
+      "description": "Apply post processing"
+    }
+  }, 
+  {
+    "pk": 417, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 174, 
+      "name": "Bohoricica", 
+      "short_name": "boh", 
+      "uid": "10af1284-dba8-4bdb-9b81-a479f0ce07cb", 
+      "default": "false", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "bohoricica", 
+      "parameter": true, 
+      "order": 6, 
+      "description": "Bohoricica"
+    }
+  }, 
+  {
+    "pk": 418, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 174, 
+      "name": "Antique slovenian", 
+      "short_name": "atq", 
+      "uid": "57f45eb8-8fae-4ca1-ae36-178c364de2a7", 
+      "default": "false", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "antique", 
+      "parameter": true, 
+      "order": 7, 
+      "description": "Antique slovenian"
+    }
+  }, 
+  {
+    "pk": 198, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 174, 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "variable": "annotations", 
+      "uid": "4f497ae0-2268-4d38-8490-aa3e1d09c267", 
+      "order": 1, 
+      "description": "Annotations"
+    }
+  }, 
+  {
+    "pk": 35, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "9a30eafc-37b8-48f2-8a92-692c4b324dff", 
+      "parent": 1, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Definition extraction"
+    }
+  }, 
+  {
+    "pk": 177, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 35, 
+      "treeview_image": "", 
+      "name": "Definition Extraction by Patterns", 
+      "is_streaming": false, 
+      "uid": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "nlp", 
+      "static_image": "nlp.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "nlp_def_extraction_patterns", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
       "description": ""
     }
-  },
+  }, 
   {
-    "pk": 98,
-    "model": "workflows.abstractoption",
+    "pk": 437, 
+    "model": "workflows.abstractinput", 
     "fields": {
-      "uid": "de9d5d39-53dc-4791-8d1d-2298c678f5b6",
-      "abstract_input": 502,
-      "value": "intersection",
+      "widget": 177, 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "uid": "9d27304b-dc9f-4535-bd76-2996083f6fc7", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "annotations", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Totrtale annotations"
+    }
+  }, 
+  {
+    "pk": 436, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 177, 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "uid": "9d817240-a951-460e-84db-b46ae503cdfb", 
+      "default": "http://vihar.ijs.si:8094", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Web service address"
+    }
+  }, 
+  {
+    "pk": 438, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 177, 
+      "name": "Language", 
+      "short_name": "lan", 
+      "uid": "a509c622-a31e-4b51-8d11-7793ea923b71", 
+      "default": "en", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "Language"
+    }
+  }, 
+  {
+    "pk": 113, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "57c3afc3-623b-448c-90c8-f5056a847e67", 
+      "abstract_input": 438, 
+      "value": "en", 
+      "name": "English"
+    }
+  }, 
+  {
+    "pk": 114, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "deddbb96-e1d0-4f92-a0cd-d474444ded68", 
+      "abstract_input": 438, 
+      "value": "sl", 
+      "name": "Slovene"
+    }
+  }, 
+  {
+    "pk": 439, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 177, 
+      "name": "Pre-defined patterns", 
+      "short_name": "pat", 
+      "uid": "65d538aa-c277-4cb3-8f37-87d02ee5ede0", 
+      "default": "begin_novar", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "pattern", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "Pre-defined patterns"
+    }
+  }, 
+  {
+    "pk": 112, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "c3e0868f-5479-4490-9ff7-857ba4c2ca3e", 
+      "abstract_input": 439, 
+      "value": "begin_allvar", 
+      "name": "Begin allvar"
+    }
+  }, 
+  {
+    "pk": 110, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "dce0b5b5-e12e-4ffa-a758-2b1d4dc9b773", 
+      "abstract_input": 439, 
+      "value": "begin_novar", 
+      "name": "Begin novar"
+    }
+  }, 
+  {
+    "pk": 111, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "9dc667b6-3b60-4844-ac6c-3b24645d6e4f", 
+      "abstract_input": 439, 
+      "value": "no_begin", 
+      "name": "No begin"
+    }
+  }, 
+  {
+    "pk": 201, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 177, 
+      "name": "Sentences", 
+      "short_name": "sen", 
+      "variable": "sentences", 
+      "uid": "0fa73380-0ba2-47c6-be12-55c3a9a963c9", 
+      "order": 1, 
+      "description": "Definition sentences"
+    }
+  }, 
+  {
+    "pk": 175, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 35, 
+      "treeview_image": "", 
+      "name": "Definition Extraction by Terms", 
+      "is_streaming": false, 
+      "uid": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "nlp", 
+      "static_image": "nlp.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "nlp_def_extraction_terms", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 421, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Candidates", 
+      "short_name": "can", 
+      "uid": "521e1f25-6d61-4439-a494-2cd61c44244b", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "term_candidates", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Term candidates"
+    }
+  }, 
+  {
+    "pk": 434, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "uid": "d717986e-e906-4599-bc07-0c772078dc8d", 
+      "default": "http://vihar.ijs.si:8094", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Web service address"
+    }
+  }, 
+  {
+    "pk": 422, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "uid": "d8ee7029-f645-403c-94da-c5ea6f4f901a", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "annotations", 
+      "parameter": false, 
+      "order": 3, 
+      "description": "Totrtale annotations"
+    }
+  }, 
+  {
+    "pk": 423, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Language", 
+      "short_name": "lan", 
+      "uid": "30b3d767-220d-4de1-bbc8-3ea22abd9ec5", 
+      "default": "en", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "Language"
+    }
+  }, 
+  {
+    "pk": 100, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "c9bedd1d-d374-4e07-b2bd-3faf7f71c6ee", 
+      "abstract_input": 423, 
+      "value": "en", 
+      "name": "English"
+    }
+  }, 
+  {
+    "pk": 101, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "398791e4-dc7e-47e0-974c-01539ec31c48", 
+      "abstract_input": 423, 
+      "value": "sl", 
+      "name": "Slovene"
+    }
+  }, 
+  {
+    "pk": 424, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Terms per sentence", 
+      "short_name": "tps", 
+      "uid": "14b2d90f-4539-4c67-94ea-2636988adc86", 
+      "default": "3", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "terms_per_sentence", 
+      "parameter": true, 
+      "order": 5, 
+      "description": "Terms per sentence"
+    }
+  }, 
+  {
+    "pk": 425, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Nominatives (only for slovene)", 
+      "short_name": "nom", 
+      "uid": "eaf18ca7-b87c-4f78-90c1-a93837d0b525", 
+      "default": "0", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "nominatives", 
+      "parameter": true, 
+      "order": 6, 
+      "description": "Nominatives"
+    }
+  }, 
+  {
+    "pk": 105, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "b0cd42f1-6b88-4beb-a39b-7a20d3a780ca", 
+      "abstract_input": 425, 
+      "value": "0", 
+      "name": "0"
+    }
+  }, 
+  {
+    "pk": 106, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "7990dda4-6d8b-47ab-bb5b-3984b908e810", 
+      "abstract_input": 425, 
+      "value": "1", 
+      "name": "1"
+    }
+  }, 
+  {
+    "pk": 104, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "f829d7b9-e59d-491f-a37a-6c46057032b0", 
+      "abstract_input": 425, 
+      "value": "2", 
+      "name": "2"
+    }
+  }, 
+  {
+    "pk": 426, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Threshold top % terms", 
+      "short_name": "thr", 
+      "uid": "ba6fb908-5d5b-4af7-afc4-5adbe5fd5d97", 
+      "default": "2%", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "threshold", 
+      "parameter": true, 
+      "order": 7, 
+      "description": "Threshold"
+    }
+  }, 
+  {
+    "pk": 427, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Verb between two terms", 
+      "short_name": "vtt", 
+      "uid": "24ce3b81-ae6d-4976-84c2-5bc56977ee8b", 
+      "default": "None", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "verb_two_terms", 
+      "parameter": true, 
+      "order": 8, 
+      "description": "Verb between two terms"
+    }
+  }, 
+  {
+    "pk": 107, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "80ea1fcb-f72e-4bd9-abc5-f8672fb3fce4", 
+      "abstract_input": 427, 
+      "value": "all", 
+      "name": "Between all"
+    }
+  }, 
+  {
+    "pk": 108, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "93d1fd82-5cef-482c-ab5b-9d617472c7fc", 
+      "abstract_input": 427, 
+      "value": "none", 
+      "name": "None"
+    }
+  }, 
+  {
+    "pk": 109, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "645705b8-1154-48ed-9095-fb85416f836f", 
+      "abstract_input": 427, 
+      "value": "two", 
+      "name": "Only between first two terms"
+    }
+  }, 
+  {
+    "pk": 428, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "First term should be a multi-word term", 
+      "short_name": "mwt", 
+      "uid": "7b47a94d-c8c0-4264-98da-9e96d3580a1e", 
+      "default": "false", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "multiword_term", 
+      "parameter": true, 
+      "order": 9, 
+      "description": "First term should be a multi-word term"
+    }
+  }, 
+  {
+    "pk": 430, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Multi-terms in a sentence", 
+      "short_name": "mtn", 
+      "uid": "0343cf50-bacf-4e07-90d6-ecbeb19986d2", 
+      "default": "1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "num_multiterms", 
+      "parameter": true, 
+      "order": 10, 
+      "description": "Multi-terms in a sentence"
+    }
+  }, 
+  {
+    "pk": 429, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 175, 
+      "name": "One term should occur at the beginning of the sentence", 
+      "short_name": "tbs", 
+      "uid": "4eed193a-62b1-406f-8a6a-7d21fc02a2bd", 
+      "default": "false", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "term_beginning", 
+      "parameter": true, 
+      "order": 11, 
+      "description": "One term should occur at the beginning of the sentence"
+    }
+  }, 
+  {
+    "pk": 199, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 175, 
+      "name": "Sentences", 
+      "short_name": "sen", 
+      "variable": "sentences", 
+      "uid": "80dbe77b-ff9a-45cf-9a8f-1db77084c3f6", 
+      "order": 1, 
+      "description": "Definition sentences"
+    }
+  }, 
+  {
+    "pk": 178, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 35, 
+      "treeview_image": "", 
+      "name": "Definition Extraction by WordNet", 
+      "is_streaming": false, 
+      "uid": "27273666-764d-458d-9513-0715ba2e6b4d", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "nlp", 
+      "static_image": "nlp.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "nlp_def_extraction_wnet", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 440, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 178, 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "uid": "7342b75e-2e19-4bcf-b71e-fbd6d7a097f7", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "annotations", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Totrtale annotations"
+    }
+  }, 
+  {
+    "pk": 441, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 178, 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "uid": "a9fc6cb8-53fe-4977-8c34-29347b274548", 
+      "default": "http://vihar.ijs.si:8094", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Web service address"
+    }
+  }, 
+  {
+    "pk": 442, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 178, 
+      "name": "Language", 
+      "short_name": "lan", 
+      "uid": "ceb04ed2-a444-499e-b24f-db6cb28f7e2c", 
+      "default": "en", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "Language"
+    }
+  }, 
+  {
+    "pk": 115, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "eaf2ac7b-806b-444a-9ec3-5142b17f4ff7", 
+      "abstract_input": 442, 
+      "value": "en", 
+      "name": "English"
+    }
+  }, 
+  {
+    "pk": 116, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "36929744-b1be-4e76-88ef-2548378946ba", 
+      "abstract_input": 442, 
+      "value": "sl", 
+      "name": "Slovene"
+    }
+  }, 
+  {
+    "pk": 202, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 178, 
+      "name": "Sentences", 
+      "short_name": "sen", 
+      "variable": "sentences", 
+      "uid": "c9772bbc-3dcc-424b-b03b-c48c8ff6916f", 
+      "order": 1, 
+      "description": "Definition sentences"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 35, 
+      "treeview_image": "treeview/nlp.png", 
+      "name": "Merge Sentences", 
+      "is_streaming": false, 
+      "uid": "de403444-0ae6-470a-bd7e-f86ac289bf98", 
+      "interaction_view": "", 
+      "image": "images/nlp_6.png", 
+      "package": "nlp", 
+      "static_image": "nlp.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "merge_sentences", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 2, 
+      "name": "Sentences", 
+      "short_name": "sen", 
+      "uid": "15389d3e-d0b9-488e-9db8-038ff1b6e06a", 
+      "default": "", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "sentences", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 2, 
+      "name": "Join Method", 
+      "short_name": "met", 
+      "uid": "27c8cd4a-1016-4a88-b463-4713874fc87f", 
+      "default": "union", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "method", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "de9d5d39-53dc-4791-8d1d-2298c678f5b6", 
+      "abstract_input": 3, 
+      "value": "intersection", 
       "name": "Intersection"
     }
-  },
+  }, 
   {
-    "pk": 100,
-    "model": "workflows.abstractoption",
+    "pk": 2, 
+    "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "8a445f1f-44ad-481f-aa17-46e6222c82be",
-      "abstract_input": 502,
-      "value": "intersection_two",
+      "uid": "8a445f1f-44ad-481f-aa17-46e6222c82be", 
+      "abstract_input": 3, 
+      "value": "intersection_two", 
       "name": "Intersection by at least two"
     }
-  },
+  }, 
   {
-    "pk": 99,
-    "model": "workflows.abstractoption",
+    "pk": 3, 
+    "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "d0886005-a48a-415f-b767-e670211f6fe9",
-      "abstract_input": 502,
-      "value": "union",
+      "uid": "d0886005-a48a-415f-b767-e670211f6fe9", 
+      "abstract_input": 3, 
+      "value": "union", 
       "name": "Union"
     }
-  },
+  }, 
   {
-    "pk": 192,
-    "model": "workflows.abstractoutput",
+    "pk": 2, 
+    "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 187,
-      "name": "Merged Sentences",
-      "short_name": "sen",
-      "variable": "merged_sentences",
-      "uid": "b07f6501-4ce3-4f09-a8ec-1e79eb1652de",
-      "order": 1,
+      "widget": 2, 
+      "name": "Merged Sentences", 
+      "short_name": "sen", 
+      "variable": "merged_sentences", 
+      "uid": "b07f6501-4ce3-4f09-a8ec-1e79eb1652de", 
+      "order": 1, 
       "description": ""
     }
-  },
+  }, 
   {
-    "pk": 186,
-    "model": "workflows.abstractwidget",
+    "pk": 3, 
+    "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 33,
-      "treeview_image": "treeview/nlp_1.png",
-      "name": "Sentence Viewer",
-      "is_streaming": false,
-      "uid": "94485ea5-f1d6-46ae-abaf-fd78988692fd",
-      "interaction_view": "",
-      "image": "images/nlp_7.png",
-      "package": "nlp",
-      "static_image": "nlp.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "definition_sentences_viewer",
-      "action": "definition_sentences",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 1,
+      "category": 35, 
+      "treeview_image": "treeview/nlp_1.png", 
+      "name": "Sentence Viewer", 
+      "is_streaming": false, 
+      "uid": "94485ea5-f1d6-46ae-abaf-fd78988692fd", 
+      "interaction_view": "", 
+      "image": "images/nlp_7.png", 
+      "package": "nlp", 
+      "static_image": "nlp.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "definition_sentences_viewer", 
+      "streaming_visualization_view": "", 
+      "action": "definition_sentences", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
       "description": ""
     }
-  },
+  }, 
   {
-    "pk": 500,
-    "model": "workflows.abstractinput",
+    "pk": 4, 
+    "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 186,
-      "name": "candidates",
-      "short_name": "can",
-      "uid": "2ad6546b-5fae-42fa-97ab-e75e91838c19",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "candidates",
-      "parameter": false,
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
-    "pk": 185,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 33,
-      "treeview_image": "treeview/nlp_2.png",
-      "name": "Term Candidates Viewer",
-      "is_streaming": false,
-      "uid": "af5ee96e-7307-46f9-8d8c-55cb7c36d111",
-      "interaction_view": "",
-      "image": "images/nlp_8.png",
-      "package": "nlp",
-      "static_image": "nlp.png",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "term_candidate_viewer",
-      "action": "term_candidates",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
-    "pk": 499,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 185,
-      "name": "candidates",
-      "short_name": "can",
-      "uid": "32536744-964e-4206-b582-be92ab355e8e",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "candidates",
-      "parameter": false,
-      "order": 1,
+      "widget": 3, 
+      "name": "candidates", 
+      "short_name": "can", 
+      "uid": "2ad6546b-5fae-42fa-97ab-e75e91838c19", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "candidates", 
+      "parameter": false, 
+      "order": 1, 
       "description": ""
     }
   }
