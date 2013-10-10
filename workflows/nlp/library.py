@@ -77,8 +77,23 @@ def nlp_term_extraction(input_dict):
     lang = input_dict['lang']
     wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8095/totale?wsdl')
     ws = WebService(wsdl, 60000)
-    response = ws.client.TermExtraction(corpus=annotations, lang=lang, threshold=0)
+    response = ws.client.TermExtraction(corpus=annotations, lang=lang,
+                                        threshold=0)
     return {'candidates': response['candidates']}
+
+
+def nlp_def_extraction_patterns(input_dict):
+    '''
+    Definition extraction using pre-defined patterns.
+    '''
+    annotations = input_dict['annotations']
+    lang = input_dict['lang']
+    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8095/totale?wsdl')
+    ws = WebService(wsdl, 60000)
+    pattern = input_dict['pattern']
+    response = ws.client.GlossaryExtractionByWnet(corpus=annotations,
+                                                  lang=lang, pattern=pattern)
+    return {'sentences': response['candidates']}
 
 
 def nlp_def_extraction_terms(input_dict):
@@ -88,15 +103,13 @@ def nlp_def_extraction_terms(input_dict):
     pass
 
 
-def nlp_def_extraction_patterns(input_dict):
-    '''
-    Definition extraction using pre-defined patterns.
-    '''
-    pass
-
-
 def nlp_def_extraction_wnet(input_dict):
     '''
     Definition extraction using WordNet.
     '''
-    pass
+    annotations = input_dict['annotations']
+    lang = input_dict['lang']
+    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8095/totale?wsdl')
+    ws = WebService(wsdl, 60000)
+    response = ws.client.GlossaryExtractionByWnet(corpus=annotations, lang=lang)
+    return {'sentences': response['candidates']}
