@@ -88,7 +88,7 @@ def nlp_def_extraction_patterns(input_dict):
     '''
     annotations = input_dict['annotations']
     lang = input_dict['lang']
-    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8095/totale?wsdl')
+    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8094')
     ws = WebService(wsdl, 60000)
     pattern = input_dict['pattern']
     response = ws.client.GlossaryExtractionByWnet(corpus=annotations,
@@ -100,7 +100,24 @@ def nlp_def_extraction_terms(input_dict):
     '''
     Definition extraction using terms.
     '''
-    pass
+    annotations = input_dict['annotations']
+    term_candidates = input_dict['term_candidates']
+    lang = input_dict['lang']
+    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8094')
+    terms_per_sentence = input_dict['terms_per_sentence']
+    nominatives = input_dict['nominatives']
+    threshold = input_dict['threshold']
+    verb_two_terms = input_dict['verb_two_terms']
+    multiword_term = input_dict['multiword_term']
+    num_multiterms = input_dict['num_multiterms']
+    term_beginning = input_dict['term_beginning']
+    ws = WebService(wsdl, 60000)
+    response = ws.client.GlossaryExtractionByTerms(corpus=annotations,
+        candidates=term_candidates, lang=lang, nominatives=nominatives,
+        termsPerSent=terms_per_sentence, select=threshold, 
+        verb_two_terms=verb_two_terms, multiword_term=multiword_term,
+        num_multiterms=num_multiterms, term_beginning=term_beginning)
+    return {'sentences': response['candidates']}
 
 
 def nlp_def_extraction_wnet(input_dict):
@@ -109,7 +126,7 @@ def nlp_def_extraction_wnet(input_dict):
     '''
     annotations = input_dict['annotations']
     lang = input_dict['lang']
-    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8095/totale?wsdl')
+    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8094')
     ws = WebService(wsdl, 60000)
     response = ws.client.GlossaryExtractionByWnet(corpus=annotations, lang=lang)
     return {'sentences': response['candidates']}

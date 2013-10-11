@@ -38,24 +38,6 @@
     }
   }, 
   {
-    "pk": 1, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 1, 
-      "name": "File", 
-      "short_name": "fil", 
-      "uid": "096159a3-ddc8-4a57-b769-dddfb2590065", 
-      "default": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "file", 
-      "variable": "file", 
-      "parameter": true, 
-      "order": 1, 
-      "description": "File"
-    }
-  }, 
-  {
     "pk": 413, 
     "model": "workflows.abstractinput", 
     "fields": {
@@ -71,6 +53,24 @@
       "parameter": true, 
       "order": 1, 
       "description": "Web service address"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 1, 
+      "name": "File", 
+      "short_name": "fil", 
+      "uid": "096159a3-ddc8-4a57-b769-dddfb2590065", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "File"
     }
   }, 
   {
