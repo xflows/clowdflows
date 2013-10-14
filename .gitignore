@@ -26,3 +26,5 @@ build/
 # SQLite
 /mothra/mothra.db
 /mothra/mothra.db-journal
+
+celerybeat-schedule
