@@ -88,7 +88,7 @@ def nlp_def_extraction_patterns(input_dict):
     '''
     annotations = input_dict['annotations']
     lang = input_dict['lang']
-    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8094')
+    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8099')
     ws = WebService(wsdl, 60000)
     pattern = input_dict['pattern']
     response = ws.client.GlossaryExtractionByWnet(corpus=annotations,
@@ -103,7 +103,7 @@ def nlp_def_extraction_terms(input_dict):
     annotations = input_dict['annotations']
     term_candidates = input_dict['term_candidates']
     lang = input_dict['lang']
-    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8094')
+    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8099')
     terms_per_sentence = input_dict['terms_per_sentence']
     nominatives = input_dict['nominatives']
     threshold = input_dict['threshold']
@@ -126,7 +126,7 @@ def nlp_def_extraction_wnet(input_dict):
     '''
     annotations = input_dict['annotations']
     lang = input_dict['lang']
-    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8094')
+    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8099')
     ws = WebService(wsdl, 60000)
     response = ws.client.GlossaryExtractionByWnet(corpus=annotations, lang=lang)
     return {'sentences': response['candidates']}
