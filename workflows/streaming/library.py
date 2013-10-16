@@ -245,6 +245,52 @@ def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
 
     return output_dict
 
+def streaming_sentiment_analysis(input_dict,widget,stream=None):
+    import pickle
+    from pysimplesoap.client import SoapClient, SoapFault
+    import pysimplesoap
+
+    client = SoapClient(location = "http://batman.ijs.si:8008/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    pysimplesoap.client.TIMEOUT = 60
+
+    try:
+        input_dict['lang']
+    except:
+        input_dict['lang']="en"
+
+    #list_of_tweets = input_dict['ltw']
+
+    new_list_of_tweets = []
+
+    new_list_of_tweets.append({'id':0,'text':input_dict['text'],'language':input_dict['lang']})
+
+    #for tweet in list_of_tweets:
+    #    new_list_of_tweets.append({'id':tweet['id'],'text':tweet['text'],'language':tweet['lang']})
+
+    pickled_list_of_tweets = pickle.dumps(new_list_of_tweets)
+
+    response = client.TweetSentimentService(tweets=pickled_list_of_tweets)
+
+    new_ltw = pickle.loads(str(response.TweetSentimentResult))
+
+    output_dict = {}
+
+    #i=0
+    for new_tweet in new_ltw:
+        output_dict['sentiment']=new_tweet['sentiment']
+        output_dict['language']=new_tweet['language']
+        output_dict['reliability']=new_tweet['reliability']
+        #list_of_tweets[i]['sentiment']=new_tweet['sentiment']
+        #list_of_tweets[i]['lang']=new_tweet['language']
+        #list_of_tweets[i]['reliability']=new_tweet['reliability']
+        #i = i + 1
+
+    #output_dict = {}
+
+    #output_dict['ltw'] = list_of_tweets
+
+    return output_dict
+
 def streaming_twitter(input_dict,widget,stream=None):
     import tweepy
     from streams.models import StreamWidgetData
