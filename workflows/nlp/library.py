@@ -12,21 +12,25 @@ def merge_sentences(input_dict):
     method = input_dict['method']
     merged_sen, id_to_sent = set(), {}
     ids_list = []
-    for sentsXML in input_dict['sentences']:
+    for i, sentsXML in enumerate(input_dict['sentences']):
         sents = nlp.parse_def_sentences(sentsXML)
         ids = set(map(lambda x: x['id'], sents))
         ids_list.append(ids)
         # Save the map from id to sentence
         for sent in sents:
             id_to_sent[sent['id']] = sent
-        if len(merged_sen) == 0:
+        if i == 0 and method != 'intersection_two':
             merged_sen = ids
         if method == 'union':
             merged_sen = merged_sen | ids
         elif method == 'intersection':
             merged_sen = merged_sen & ids
         elif method == 'intersection_two':
-            for ids_alt in ids_list:
+            # Skip the current set of sentences
+            # and intersect it with the others.
+            for ids_alt in ids_list[:i] + ids_list[i+1:]:
+                # As long as (at least) two sets agree with a sentence it 
+                # will be in the resulting set.
                 merged_sen = merged_sen | (ids_alt & ids)
     return {'merged_sentences': nlp.sentences_to_xml([id_to_sent[sid] for sid in merged_sen])}
 
