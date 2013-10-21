@@ -28,8 +28,8 @@ def ilp_aleph(input_dict):
     for pl_script in [b, pos, neg]:
         check_input(pl_script)
     # Run aleph
-    theory = aleph.induce(mode, pos, neg, b)
-    return {'theory' : theory}
+    result = aleph.induce(mode, pos, neg, b)
+    return {'theory': result}
 
 def ilp_rsd(input_dict):
     rsd = RSD()
