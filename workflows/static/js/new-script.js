@@ -1289,14 +1289,14 @@ $(function(){
 
 	$(window).keydown(function(event) {
 		if (event.keyCode==46) {
-            var dialog_open = false;
+            var dialog_open = false,
+                search_focus = $('#searchBox').is(':focus');
             $(".ui-dialog").each(function() {
                 if ($(this).is(":visible")) {
                     dialog_open = true;
                 }
-
             });
-            if (!dialog_open) {
+            if (!dialog_open && !search_focus) {
                 deleteSelected();
             }
 		}
