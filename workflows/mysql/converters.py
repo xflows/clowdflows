@@ -52,13 +52,13 @@ class ILP_Converter(Converter):
             for col in self.db.cols[table]:
                 if col == pk:
                     col = var_table
-                elif col == fk:
+                elif col in fk:
                     col = var_ref_table
                 table_args.append(col.capitalize())
             for col in self.db.cols[ref_table]:
                 if col == ref_pk:
                     col = var_ref_table
-                if col == fk:
+                if col in fk:
                     col = var_table
                 ref_table_args.append(col.capitalize())
             result.extend(['has_%s(%s, %s) :-' % (ref_table, var_table.capitalize(), var_ref_table.capitalize()),
@@ -156,18 +156,21 @@ class Aleph_Converter(ILP_Converter):
         self.__pos_examples, self.__neg_examples = None, None
         self.target_predicate = re.sub('\s+', '_', self.target_att_val).lower()
 
+    def __target_predicate(self):
+        return 'target_%s' % self.target_predicate
+
     def __examples(self):
         if not (self.__pos_examples and self.__neg_examples):
             target, att, target_val = self.db.target_table, self.db.target_att, self.target_att_val
             rows = self.db.rows(target, [att, self.db.pkeys[target]])
             pos_rows, neg_rows = [], []
             for row in rows:
-                if row[0] == target_val:
+                if str(row[0]) == target_val:
                     pos_rows.append(row)
                 else:
                     neg_rows.append(row)
-            self.__pos_examples = '\n'.join(['%s(%s).' % (self.target_predicate, id) for _, id in pos_rows])
-            self.__neg_examples = '\n'.join(['%s(%s).' % (self.target_predicate, id) for _, id in neg_rows])
+            self.__pos_examples = '\n'.join(['%s(%s).' % (self.__target_predicate(), id) for _, id in pos_rows])
+            self.__neg_examples = '\n'.join(['%s(%s).' % (self.__target_predicate(), id) for _, id in neg_rows])
         return self.__pos_examples, self.__neg_examples
 
     def positive_examples(self):
@@ -177,13 +180,13 @@ class Aleph_Converter(ILP_Converter):
         return self.__examples()[1]
 
     def background_knowledge(self):
-        modeslist, getters = [self.mode(self.target_predicate, [('+', self.db.target_table)], head=True)], []
+        modeslist, getters = [self.mode(self.__target_predicate(), [('+', self.db.target_table)], head=True)], []
         determinations, types = [], []
         for (table, ref_table) in self.db.connected.keys():
             if ref_table == self.db.target_table:
                 continue # Skip backward connections
             modeslist.append(self.mode('has_%s' % ref_table, [('+', table), ('-', ref_table)], recall='*'))
-            determinations.append(':- determination(%s/1, has_%s/2).' % (self.target_predicate, ref_table))
+            determinations.append(':- determination(%s/1, has_%s/2).' % (self.__target_predicate(), ref_table))
             types.extend(self.concept_type_def(table))
             types.extend(self.concept_type_def(ref_table))
             getters.extend(self.connecting_clause(table, ref_table))
@@ -193,7 +196,7 @@ class Aleph_Converter(ILP_Converter):
                    att in self.db.fkeys[table] or att == self.db.pkeys[table]:
                     continue
                 modeslist.append(self.mode('%s_%s' % (table, att), [('+', table), ('#', att)], recall='*'))
-                determinations.append(':- determination(%s/1, %s_%s/2).' % (self.target_predicate, table, att))
+                determinations.append(':- determination(%s/1, %s_%s/2).' % (self.__target_predicate(), table, att))
                 types.extend(self.constant_type_def(table, att))
                 getters.extend(self.attribute_clause(table, att))
         local_copies = [self.local_copy(table) for table in self.db.tables]
@@ -303,18 +306,92 @@ class Orange_Converter(Converter):
         else:
             return 'string'
 
+
+class TreeLikerConverter(Converter):
+    '''
+    Converts a db context to the TreeLiker dataset format.
+    '''
+    def __init__(self, *args, **kwargs):
+        self.discr_intervals = kwargs.pop('discr_intervals', {}) if kwargs else {}
+        Converter.__init__(self, *args, **kwargs)
+
+    def __facts(self, pk, pk_att, target, visited=set()):
+        '''
+        Returns the facts for the given entity with pk in `table`.
+        '''
+        facts = []
+
+        if target != self.db.target_table:
+            cols = self.db.cols[target]
+            if self.db.target_att in cols: # Skip the class attribute
+                cols.remove(self.db.target_att)
+            attributes = self.db.fmt_cols(cols)
+            self.cursor.execute("SELECT %s FROM %s WHERE `%s`=%s" % (attributes, target, pk_att, pk))
+            for row in self.cursor:
+                values = []
+                for idx, col in enumerate(row):
+                    attr_name = cols[idx]
+                    if attr_name in self.db.fkeys[target]:
+                        col = '%s%s' % (self.db.reverse_fkeys[(target, attr_name)], str(col))
+                    elif attr_name == self.db.pkeys[target]:
+                        col = '%s%s' % (target, str(col))
+                    values.append(str(col))
+                facts.append('%s(%s)' % (target, ', '.join(values)))
+
+        for table in self.db.tables:
+            if (target, table) not in self.db.connected:
+                continue
+            for this_att, that_att in self.db.connected[(target, table)]:
+                if table not in visited:
+                    # pk_att is a fk in another table
+                    visited.add(target)
+                    if this_att == pk_att:
+                        facts.extend(self.__facts(pk,
+                                                  that_att,
+                                                  table, 
+                                                  visited=visited))
+                    # this_att is a fk of another entity
+                    else:
+                        attributes = self.db.fmt_cols([this_att])
+                        self.cursor.execute("SELECT %s FROM %s WHERE `%s`=%s" % (attributes, target, pk_att, pk))
+                        fk_list = [row[0] for row in self.cursor]
+                        for fk in fk_list:
+                            facts.extend(self.__facts(fk,
+                                                      that_att,
+                                                      table, 
+                                                      visited=visited))
+        return facts
+
+    def dataset(self):
+        target = self.db.target_table
+        db_examples = self.db.rows(target, [self.db.target_att, self.db.pkeys[target]])
+        examples = []
+        for cls, pk in sorted(db_examples, key=lambda ex: ex[0]):
+            facts = self.__facts(pk, self.db.pkeys[target], target)
+            examples.append('%s %s' % (cls, ', '.join(facts)))
+
+        return '\n'.join(examples)
+
+
 if __name__ == '__main__':
     from context import DBConnection, DBContext
 
-    context = DBContext(DBConnection('root','','localhost','test'))
+    context = DBContext(DBConnection('ilp','ilp123','ged.ijs.si','trains'))
     context.target_table = 'trains'
     context.target_att = 'direction'
-    intervals = {'cars': {'position' : [1, 3]}}
-    import cPickle
-    cPickle.dump(intervals, open('intervals.pkl','w'))
-    rsd = RSD_Converter(context, discr_intervals=intervals, dump=True)
-    aleph = Aleph_Converter(context, target_att_val='east', discr_intervals=intervals, dump=True)
-    print rsd.background_knowledge()
-    print aleph.background_knowledge()
+    # context = DBContext(DBConnection('ilp','ilp123','ged.ijs.si','muta_188'))
+    # context.target_table = 'drugs'
+    # context.target_att = 'active'
+    #intervals = {'cars': {'position' : [1, 3]}}
+    #import cPickle
+    #cPickle.dump(intervals, open('intervals.pkl','w'))
+    #rsd = RSD_Converter(context, discr_intervals=intervals, dump=True)
+    #aleph = Aleph_Converter(context, target_att_val='east', discr_intervals=intervals, dump=True)
+    treeliker = TreeLikerConverter(context, discr_intervals=[])
+
+    print treeliker.dataset()
+
+    #print rsd.background_knowledge()
+    #print aleph.background_knowledge()
     #orange = Orange_Converter(context)
     #orange.target_table()
