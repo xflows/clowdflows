@@ -7,6 +7,7 @@ from random import choice
 from aleph import Aleph
 from rsd import RSD
 from wordification import Wordification
+from treeliker import TreeLiker
 from security import check_input
 
 from services.webservice import WebService
@@ -91,5 +92,20 @@ def ilp_wordification(input_dict):
     context = input_dict.get('context', None)
     word_att_length = int(input_dict.get('f_ngram_size', 1))
     wordification = Wordification(target_table,other_tables,context,word_att_length)
-
     return {'corpus' : wordification.wordify()}
+
+
+def ilp_treeliker(input_dict):
+    template = input_dict['template']
+    dataset = input_dict['dataset']
+    settings = {
+        'algorithm': input_dict.get('algorithm'),
+        'minimum_frequency': input_dict.get('minimum_frequency'),
+        'covered_class': input_dict.get('covered_class'),
+        'maximum_size': input_dict.get('maximum_size'),
+        'use_sampling': input_dict.get('use_sampling'),
+        'sample_size': input_dict.get('sample_size'),
+        'max_degree': input_dict.get('max_degree')
+    }
+    arff = TreeLiker(dataset, template).run(settings=settings)
+    return {'arff': arff}

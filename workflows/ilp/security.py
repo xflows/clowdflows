@@ -40,7 +40,7 @@ allowed_mysql_predicates = [
     'db_import', 
     'db_open',
 ]
-default_timeout = 15 * 60
+default_timeout = 1200 * 60
 
 class SafePopen(threading.Thread):
     '''

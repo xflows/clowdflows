@@ -5,7 +5,7 @@ MySQL connectivity library.
 '''
 import mysql.connector as sql
 from context import DBConnection, DBContext
-from converters import RSD_Converter, Aleph_Converter, Orange_Converter
+from converters import RSD_Converter, Aleph_Converter, Orange_Converter, TreeLikerConverter
 
 def mysql_connect(input_dict):
     user = str(input_dict['user'])
@@ -34,6 +34,12 @@ def mysql_aleph_converter(input_dict):
     dump = input_dict['dump'] == 'true'
     aleph = Aleph_Converter(input_dict['context'], target_att_val=input_dict['target_att_val'], discr_intervals=input_dict['discr_intervals'] or {}, dump=dump)
     return {'pos_examples' : aleph.positive_examples(), 'neg_examples' : aleph.negative_examples(), 'bk' : aleph.background_knowledge()}
+
+def mysql_treeliker_converter(input_dict):
+    treeliker = TreeLikerConverter(input_dict['context'], 
+                                   discr_intervals=input_dict['discr_intervals'] or {})
+    return {'dataset': treeliker.dataset(), 
+            'template': treeliker.default_template()}
 
 def mysql_query_to_odt(input_dict):
     return {'dataset' : None}

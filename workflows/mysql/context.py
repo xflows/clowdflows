@@ -34,6 +34,7 @@ class DBContext:
             col_vals:         available values for each table/column 
             connected:        dict of table pairs and the connected columns
             fkeys:            foreign keys in a given table
+            reverse_fkeys:    fkey to table map
             pkeys:            private key for a given table
             target_table:     selected table for learning
             target_att:       selected column for learning
@@ -56,6 +57,7 @@ class DBContext:
             FROM information_schema.KEY_COLUMN_USAGE \
             WHERE referenced_table_name IS NOT NULL AND table_schema='%s'" % connection.database)
         self.fkeys = defaultdict(set)
+        self.reverse_fkeys = {}
         self.pkeys = {}
         if find_connections:
             for table in self.tables:
@@ -72,6 +74,7 @@ class DBContext:
             self.connected[(table, ref_table)].append((col, ref_col))
             self.connected[(ref_table, table)].append((ref_col, col))
             self.fkeys[table].add(col)
+            self.reverse_fkeys[(table, col)] = ref_table
 
 
         cursor.execute(
