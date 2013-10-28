@@ -79,21 +79,22 @@ class ILP_Converter(Converter):
         n_intervals = len(intervals)
         for i, value in enumerate(intervals):
             punct = '.' if i == n_intervals-1 else ';'
+            print value
             if i == 0:
                 # Condition: att =< value_i
-                label = '=< %.2%f' % value
-                condition = '%s =< %.2%f' % (att.capitalize(), value)
+                label = '=< %.2f' % value
+                condition = '%s =< %.2f' % (att.capitalize(), value)
                 discretize_goals.append('\t((%s = \'%s\', %s)%s' % (var_att, label, condition, punct))
             if i < n_intervals-1:
                 # Condition: att in (value_i, value_i+1]
                 value_next = intervals[i+1]
-                label = '(%.2%f, %.2%f]' % (value, value_next)
-                condition = '%s > %.2%f, %s =< %.2%f' % (att.capitalize(), value, att.capitalize(), value_next)
+                label = '(%.2f, %.2f]' % (value, value_next)
+                condition = '%s > %.2f, %s =< %.2f' % (att.capitalize(), value, att.capitalize(), value_next)
                 discretize_goals.append('\t(%s = \'%s\', %s)%s' % (var_att, label, condition, punct))
             else:
                 # Condition: att > value_i
-                label = '> %.2%f' % value
-                condition = '%s > %.2%f' % (att.capitalize(), value)
+                label = '> %.2f' % value
+                condition = '%s > %.2f' % (att.capitalize(), value)
                 discretize_goals.append('\t(%s = \'%s\', %s))%s' % (var_att, label, condition, punct))
         return ['%s_%s(%s, %s) :-' % (table, att, var_table, var_att),  
                 values_goal] + discretize_goals
