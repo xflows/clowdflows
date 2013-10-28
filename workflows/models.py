@@ -239,7 +239,7 @@ class Workflow(models.Model):
 class AbstractWidget(models.Model):
     name = models.CharField(max_length=200,help_text='Name is the name that will be displayed in the widget repository and under the actual widget itself.')
     action = models.CharField(max_length=200,help_text='Action is the name of a python function that will be called when the widget is executed.')
-    wsdl = models.URLField(verify_exists=False,max_length=200,blank=True,help_text='WSDL and WSDL method are used if the widget is a call of a Web Service. Web Service widgets are usually not entered in the admin panel, but in the application itself by importing a Web Service.')
+    wsdl = models.URLField(max_length=200,blank=True,help_text='WSDL and WSDL method are used if the widget is a call of a Web Service. Web Service widgets are usually not entered in the admin panel, but in the application itself by importing a Web Service.')
     wsdl_method = models.CharField(max_length=200,blank=True,default='')
     description = models.TextField(blank=True,help_text='Description is used for a human readable description of what a widget does. A user will see this when he right clicks the widget and clicks help.')
     category = models.ForeignKey(Category,related_name="widgets",help_text='Category determines to which category this widget belongs. Categories can be nested.')
