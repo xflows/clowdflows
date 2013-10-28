@@ -313,7 +313,10 @@ class TreeLikerConverter(Converter):
     '''
     def __init__(self, *args, **kwargs):
         self.discr_intervals = kwargs.pop('discr_intervals', {}) if kwargs else {}
+        self._template = []
+        self._predicates = set()
         Converter.__init__(self, *args, **kwargs)
+
 
     def _row_pk(self, target, cols, row):
         row_pk = None
@@ -322,6 +325,7 @@ class TreeLikerConverter(Converter):
                 row_pk = col
                 break
         return row_pk
+
 
     def _facts(self, pk, pk_att, target, visited=set()):
         '''
@@ -355,14 +359,27 @@ class TreeLikerConverter(Converter):
                         else:
                             continue
                     elif attr_name == self.db.pkeys[target]:
-                        facts.append('has_%s(%s)' % (target, row_pk_name))
+                        predicate = 'has_%s' % target
+                        facts.append('%s(%s)' % (predicate, row_pk_name))
+
+                        if predicate not in self._predicates:
+                            self._predicates.add(predicate)
+                            self._template.append('%s(-%s)' % (predicate,
+                                                               target))
 
                     # Constants
                     else:
+                        predicate = 'has_%s' % attr_name
                         col = self._discretize_check(target, attr_name, col)
-                        facts.append('has_%s(%s, %s)' % (attr_name, 
-                                                         row_pk_name,
-                                                         str(col)))
+                        facts.append('%s(%s, %s)' % (predicate, 
+                                                     row_pk_name,
+                                                     str(col)))
+
+                        if predicate not in self._predicates:
+                            self._predicates.add(predicate)
+                            self._template.append('%s(+%s, #%s)' % (predicate,
+                                                                    target,
+                                                                    attr_name))
 
         # Recursively follow links to other tables
         for table in self.db.tables:
@@ -392,6 +409,7 @@ class TreeLikerConverter(Converter):
                                                       visited=visited))
         return facts
 
+
     def _discretize_check(self, table, att, col):
         '''
         Replaces the value with an appropriate interval symbol, if available.
@@ -419,25 +437,6 @@ class TreeLikerConverter(Converter):
 
         return label
 
-        n_intervals = len(intervals)
-        for i, value in enumerate(intervals):
-            punct = '.' if i == n_intervals-1 else ';'
-            if i == 0:
-                # Condition: att =< value_i
-                label = '=< %.2%f' % value
-                condition = '%s =< %d' % (att.capitalize(), value)
-                discretize_goals.append('\t((%s = \'%s\', %s)%s' % (var_att, label, condition, punct))
-            if i < n_intervals-1:
-                # Condition: att in (value_i, value_i+1]
-                value_next = intervals[i+1]
-                label = '(%d, %d]' % (value, value_next)
-                condition = '%s > %d, %s =< %d' % (att.capitalize(), value, att.capitalize(), value_next)
-                discretize_goals.append('\t(%s = \'%s\', %s)%s' % (var_att, label, condition, punct))
-            else:
-                # Condition: att > value_i
-                label = '> %d' % value
-                condition = '%s > %d' % (att.capitalize(), value)
-                discretize_goals.append('\t(%s = \'%s\', %s))%s' % (var_att, label, condition, punct))
 
     def dataset(self):
         '''
@@ -454,8 +453,9 @@ class TreeLikerConverter(Converter):
 
         return '\n'.join(examples)
 
+
     def default_template(self):
-        pass
+        return '[%s]' % (', '.join(self._template))
 
 
 if __name__ == '__main__':
