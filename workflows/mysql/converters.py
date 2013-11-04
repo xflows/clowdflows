@@ -170,6 +170,10 @@ class Aleph_Converter(ILP_Converter):
                     pos_rows.append(row)
                 else:
                     neg_rows.append(row)
+
+            if not pos_rows:
+                raise Exception('No positive examples with the given target attribute value, please re-check.')
+
             self.__pos_examples = '\n'.join(['%s(%s).' % (self.__target_predicate(), id) for _, id in pos_rows])
             self.__neg_examples = '\n'.join(['%s(%s).' % (self.__target_predicate(), id) for _, id in neg_rows])
         return self.__pos_examples, self.__neg_examples
