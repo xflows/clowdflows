@@ -565,6 +565,26 @@ class Widget(models.Model):
         self.running = False
         self.save()
 
+    def reset_descendants(self):
+        #find all descendants and reset them as well
+        widgets = self.workflow.widgets.prefetch_related('inputs','outputs','inputs__connections','outputs__connections','outputs__connections__input','inputs__connections__output')
+        widgets_dict = {}
+        widgets_that_need_reset = set([self.pk,])
+        current_widgets_that_need_reset = set([self.pk,])
+        for w in widgets:
+            widgets_dict[w.pk]=w
+        while len(current_widgets_that_need_reset)>0:
+            new_widgets_that_need_reset = set()
+            for w_id in current_widgets_that_need_reset:
+                for o in widgets_dict[w_id].outputs.all():
+                    for c in o.connections.all():
+                        new_widgets_that_need_reset.add(c.input.widget_id)
+                        widgets_that_need_reset.add(c.input.widget_id)
+            current_widgets_that_need_reset = new_widgets_that_need_reset
+        for w in widgets_that_need_reset:
+            widgets_dict[w].reset(False)
+        return widgets_that_need_reset
+
     def run_post(self,request):
         if not self.ready_to_run():
             raise WidgetException("The prerequisites for running this widget have not been met.")

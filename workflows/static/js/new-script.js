@@ -460,12 +460,7 @@ function runTree(widgetId) {
         if(executed[widgetId])
         //first reset widget and then run tree
             $.post(url['reset-widget'], { 'widget_id':widgetId }, function(data) {
-                unfinishOne(widgetId)
-                for (c in connections) {
-                    if (connections[c].outputWidget==widgetId) {
-                        resetWidget(connections[c].inputWidget);
-                    }
-                }
+                unfinish(widgetId)
                 runTreeRec(widgetId);
             },'json');
         else
@@ -487,12 +482,12 @@ function runTreeRec(widgetId) {
 
 function resetWidget(widgetId) {
     $.post(url['reset-widget'], { 'widget_id':widgetId }, function(data) {
-        unfinishOne(widgetId)
-        for (c in connections) {
+        unfinish(widgetId)
+        /*for (c in connections) {
             if (connections[c].outputWidget==widgetId) {
                 resetWidget(connections[c].inputWidget);
             }
-        }
+        }*/
     },'json');
 }
 
