@@ -177,7 +177,7 @@ INSTALLED_APPS_DEFAULT = (
     'workflows',
     'picklefield',
     'streams',
-    'debug_toolbar',
+    #'debug_toolbar',
     )
 
 INSTALLED_APPS_CONCUR = (
