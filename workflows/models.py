@@ -383,22 +383,7 @@ class Widget(models.Model):
         return True
 
     def unfinish(self):
-        if self.finished or self.error:
-            self.finished=False
-            self.error=False
-            self.progress=0
-            self.save()
-            cons = Connection.objects.filter(output__widget=self)
-            for c in cons:
-                if c.input.widget.finished:
-                    c.input.widget.unfinish()
-        if self.type == 'subprocess':
-            for w in self.workflow_link.widgets.all():
-                w.finished=False
-                w.error=False
-                w.save()
-                if w.type=='subprocess':
-                    w.subunfinish()
+        self.reset_descendants()
 
     def subunfinish(self):
         if self.type == 'subprocess':
@@ -553,21 +538,23 @@ class Widget(models.Model):
         return None
 
     def reset(self,offline):
-        for i in self.inputs.defer("value").all():
-            if not i.parameter:
-                i.value = None
-                i.save()
-        for i in self.outputs.defer("value").all():
-            i.value = None
-            i.save()
+        #for i in self.inputs.all():
+        #    if not i.parameter:
+        #        i.value = None
+        #        i.save()
+        #for i in self.outputs.all():
+        #    i.value = None
+        #    i.save()
         self.finished = False
         self.error = False
         self.running = False
         self.save()
+        if self.type == 'subprocess':
+            self.subunfinish()
 
     def reset_descendants(self):
         #find all descendants and reset them as well
-        widgets = self.workflow.widgets.prefetch_related('inputs','outputs','inputs__connections','outputs__connections','outputs__connections__input','inputs__connections__output')
+        widgets = list(self.workflow.widgets.prefetch_related('inputs','outputs','inputs__connections','outputs__connections','outputs__connections__input','inputs__connections__output'))
         widgets_dict = {}
         widgets_that_need_reset = set([self.pk,])
         current_widgets_that_need_reset = set([self.pk,])
@@ -581,8 +568,11 @@ class Widget(models.Model):
                         new_widgets_that_need_reset.add(c.input.widget_id)
                         widgets_that_need_reset.add(c.input.widget_id)
             current_widgets_that_need_reset = new_widgets_that_need_reset
+        Widget.objects.filter(id__in=widgets_that_need_reset).update(finished=False,error=False,running=False)
         for w in widgets_that_need_reset:
-            widgets_dict[w].reset(False)
+            if widgets_dict[w].type == 'subprocess':
+                widgets_dict[w].subunfinish()
+        #    widgets_dict[w].reset(False)
         return widgets_that_need_reset
 
     def run_post(self,request):

@@ -1082,7 +1082,7 @@ def unfinish_visualizations(request):
         for w in workflow.widgets.all():
             if w.is_visualization():
                 w.unfinish()
-                w.save()
+                #w.save()
                 unfinished_list.append(w.pk)
         mimetype = 'application/javascript'
         data = simplejson.dumps({'unfinished':unfinished_list})
