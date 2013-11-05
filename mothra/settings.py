@@ -151,14 +151,7 @@ LOGGING = {
     }
 }
 
-
-try:
-    LOCAL_SETTINGS
-except NameError:
-    try:
-        from local_settings import *
-    except ImportError:
-        pass
+USE_CONCURRENCY = False   
 
 INSTALLED_APPS_DEFAULT = (
     'django.contrib.auth',
@@ -216,6 +209,14 @@ INSTALLED_APPS = \
     INSTALLED_APPS_DEFAULT +\
     INSTALLED_APPS_CONCUR +\
     INSTALLED_APPS_WORKFLOWS_SUB
+
+try:
+    LOCAL_SETTINGS
+except NameError:
+    try:
+        from local_settings import *
+    except ImportError:
+        pass     
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS
 
