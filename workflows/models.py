@@ -553,6 +553,34 @@ class Widget(models.Model):
             self.subunfinish()
 
     def reset_descendants(self):
+        pairs = []
+        for c in self.workflow.connections.select_related("output","input").defer("output__value","input__value").all():
+            if not (c.output.widget_id,c.input.widget_id) in pairs:
+                pairs.append((c.output.widget_id,c.input.widget_id))
+        next = {}                
+        for p in pairs:
+            if not next.has_key(p[0]):
+                next[p[0]]=set()
+            next[p[0]].add(p[1])
+        widgets_that_need_reset = set([self.pk,])
+        current_widgets_that_need_reset = set([self.pk,])
+        while len(current_widgets_that_need_reset)>0:
+            new_widgets_that_need_reset = set()
+            for w_id in current_widgets_that_need_reset:
+                try:
+                    for p in next.get(w_id):
+                        new_widgets_that_need_reset.add(p)
+                        widgets_that_need_reset.add(p)
+                except:
+                    pass
+            current_widgets_that_need_reset = new_widgets_that_need_reset
+        Widget.objects.filter(id__in=widgets_that_need_reset).update(finished=False,error=False,running=False)
+        subprocesses = Widget.objects.filter(id__in=widgets_that_need_reset,type='subprocess')
+        for w in subprocesses:
+            w.subunfinish()
+        return widgets_that_need_reset
+
+    def reset_descendants_slow(self):
         #find all descendants and reset them as well
         widgets = list(self.workflow.widgets.prefetch_related('inputs','outputs','inputs__connections','outputs__connections','outputs__connections__input','inputs__connections__output'))
         widgets_dict = {}
