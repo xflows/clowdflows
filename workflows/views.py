@@ -673,7 +673,11 @@ def get_configuration(request):
             inputs = w.inputs.filter(parameter=False);
             parameters = w.inputs.filter(parameter=True);
             outputs = w.outputs.all();
-            return render(request, 'configuration.html', {'widget':w,'inputs': inputs, 'parameters':parameters, 'outputs':outputs})
+            benchmark_exists = False
+            for o in outputs:
+                if o.variable=='clowdflows_elapsed':
+                    benchmark_exists = True
+            return render(request, 'configuration.html', {'widget':w,'inputs': inputs, 'parameters':parameters, 'outputs':outputs, 'benchmark_exists':benchmark_exists})
         else:
             return HttpResponse(status=400)
     else:
@@ -729,6 +733,23 @@ def save_configuration(request):
                     out.order = id
                     reordered = True
                     out.save()
+            if request.POST.get('benchmark')=='true':
+                if widget.outputs.filter(variable='clowdflows_elapsed').count()==0:
+                    new_o = Output()
+                    new_o.widget = widget
+                    new_o.variable = 'clowdflows_elapsed'
+                    new_o.name = 'Elapsed time'
+                    new_o.short_name = 'bmk'
+                    new_o.order=99
+                    new_o.save()
+                changed = True
+                reordered = True
+            if request.POST.get('benchmark')=='false':
+                o = widget.outputs.filter(variable='clowdflows_elapsed')
+                if len(o)>0:
+                    o.delete()
+                changed = True
+                reordered = True
             if (changed):
                 widget.unfinish()
 

@@ -446,6 +446,7 @@ class Widget(models.Model):
                         input_dict[i.variable]=[]
                     if not i.value==None:
                         input_dict[i.variable].append(i.value)
+            start = time.time()
             try:
                 if not self.abstract_widget is None:
                     if self.abstract_widget.wsdl != '':
@@ -469,9 +470,14 @@ class Widget(models.Model):
                 self.finished=False
                 self.save()
                 raise
+            elapsed = (time.time()-start)
+            outputs['clowdflows_elapsed']=elapsed
             for o in self.outputs.all():
                 if not self.abstract_widget is None:
-                    o.value = outputs[o.variable]
+                    try:
+                        o.value = outputs[o.variable]
+                    except:
+                        pass
                     o.save()
                 else:
                     #gremo v outpute pogledat

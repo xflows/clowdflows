@@ -675,10 +675,12 @@ function updateWidgetListeners() {
                 });
                 var widgetId = $(this).attr('id').replace("widgetconfiguration-","");
 
+                var benchmark = $("#benchmark-"+widgetId)[0].checked;
+
                 $.ajax({
                     url: url['save-configuration'],
                     type: "POST",
-                    data: { 'widgetId':widgetId, 'inputs':inputs, 'params':params, 'outputs':outputs },
+                    data: { 'widgetId':widgetId, 'inputs':inputs, 'params':params, 'outputs':outputs, 'benchmark':benchmark },
                     dataType: "json",
                     traditional: true,
                     success: function(data) {

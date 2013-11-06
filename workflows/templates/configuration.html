@@ -58,4 +58,11 @@
             </div>
         </div>
     </div>
+    <div class="clear"><!----></div>
+    <div style="font-size: 3px;"><hr style="border:0px; height:1px; margin-top: 10px;margin-bottom: 10px; color:lightgray;background-color:lightgray;"/></div>
+    You can also measure the time needed to execute this widget and have the elapsed time be an output of the widget itself. Tick the checkbox and you're good to go:
+    <br><br>
+    <div>
+    <label><input style="float:left;width:15px;display:inline;" type="checkbox" id="benchmark-{{widget.pk}}" {% if benchmark_exists %}checked="checked"{% endif %}> Include an output that returns the elapsed execution time</label>
+    </div>
 </div>
