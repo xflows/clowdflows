@@ -346,8 +346,10 @@ class TreeLikerConverter(Converter):
             attributes = self.db.fmt_cols(cols)
 
             # All rows matching `pk`
-            self.cursor.execute("SELECT %s FROM %s WHERE `%s`=%s" % (attributes, target, pk_att, pk))
+            #print "SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk)
+            self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
             for row in self.cursor:
+             #   print 'row'
                 values = []
                 row_pk = self._row_pk(target, cols, row)
                 row_pk_name = '%s%s' % (target, str(row_pk))
@@ -392,26 +394,26 @@ class TreeLikerConverter(Converter):
                 continue
 
             for this_att, that_att in self.db.connected[(target, table)]:
-                if table not in visited:
+                if (this_att, that_att) not in visited:
+                    visited.add((this_att, that_att))
                     
                     # Link case 1: pk_att is a fk in another table
-                    visited.add(target)
                     if this_att == pk_att:
                         facts.extend(self._facts(pk,
-                                                  that_att,
-                                                  table, 
-                                                  visited=visited))
+                                                 that_att,
+                                                 table, 
+                                                 visited=visited))
                     
                     # Link case 2: this_att is a fk of another table
                     else:
                         attributes = self.db.fmt_cols([this_att])
-                        self.cursor.execute("SELECT %s FROM %s WHERE `%s`=%s" % (attributes, target, pk_att, pk))
+                        self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
                         fk_list = [row[0] for row in self.cursor]
                         for fk in fk_list:
                             facts.extend(self._facts(fk,
-                                                      that_att,
-                                                      table, 
-                                                      visited=visited))
+                                                     that_att,
+                                                     table, 
+                                                     visited=visited))
         return facts
 
 
@@ -453,7 +455,7 @@ class TreeLikerConverter(Converter):
 
         examples = []
         for cls, pk in sorted(db_examples, key=lambda ex: ex[0]):
-            facts = self._facts(pk, self.db.pkeys[target], target)
+            facts = self._facts(pk, self.db.pkeys[target], target, visited=set())
             examples.append('%s %s' % (cls, ', '.join(facts)))
 
         return '\n'.join(examples)
@@ -466,19 +468,20 @@ class TreeLikerConverter(Converter):
 if __name__ == '__main__':
     from context import DBConnection, DBContext
 
-    context = DBContext(DBConnection('ilp','ilp123','ged.ijs.si','trains'))
-    context.target_table = 'trains'
-    context.target_att = 'direction'
-    # context = DBContext(DBConnection('ilp','ilp123','ged.ijs.si','muta_188'))
-    # context.target_table = 'drugs'
-    # context.target_att = 'active'
-    intervals = {'cars': {'position' : [1, 3]}}
+    # context = DBContext(DBConnection('ilp','ilp123','ged.ijs.si','trains'))
+    # context.target_table = 'trains'
+    # context.target_att = 'direction'
+    context = DBContext(DBConnection('ilp','ilp123','ged.ijs.si','muta_42'))
+    context.target_table = 'drugs'
+    context.target_att = 'active'
+    # intervals = {'cars': {'position' : [1, 3]}}
     #import cPickle
     #cPickle.dump(intervals, open('intervals.pkl','w'))
     #rsd = RSD_Converter(context, discr_intervals=intervals, dump=True)
     #aleph = Aleph_Converter(context, target_att_val='east', discr_intervals=intervals, dump=True)
-    treeliker = TreeLikerConverter(context, discr_intervals=intervals)
+    treeliker = TreeLikerConverter(context)
 
+    print treeliker.default_template()
     print treeliker.dataset()
 
     #print rsd.background_knowledge()
