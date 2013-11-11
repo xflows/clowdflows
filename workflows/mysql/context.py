@@ -68,6 +68,8 @@ class DBContext:
                             self.connected[(table, ref_table)].append((col, 'id'))
                             self.connected[(ref_table, table)].append(('id', col))
                             self.fkeys[table].add(col)
+                            self.reverse_fkeys[(table, col)] = ref_table
+
                     if col == 'id':
                         self.pkeys[table] = col
         for (table, col, ref_table, ref_col) in cursor:

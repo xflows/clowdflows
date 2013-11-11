@@ -14,7 +14,7 @@ def add_multiple(input_dict):
     output_dict = {}
     output_dict['sum'] = 0
     for i in input_dict['integer']:
-        output_dict['sum'] = int(i)+output_dict['sum']
+        output_dict['sum'] = float(i)+output_dict['sum']
     return output_dict
 
 def load_file(input_dict):
