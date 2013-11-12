@@ -172,10 +172,10 @@ class Wordification(object):
 
         indices = chunks (range(len(self.target_table)),num_of_processes)#)
 
-        #for ex_idxs in indices:
-        #    self.resulting_documents.extend(wordify_examples((self.name_to_table,self.connecting_tables,self.context,self.index_by_value,self.target_table.name,self.word_att_length,ex_idxs)))
+        for ex_idxs in indices:
+            self.resulting_documents.extend(wordify_examples((self.name_to_table,self.connecting_tables,self.context,self.index_by_value,self.target_table.name,self.word_att_length,ex_idxs)))
         #print p.map(wordify_examples, [(self.connecting_tables,self.context,self.cached_sentences,self.index_by_value,self.target_table,self.word_att_length,self.target_table,ex_idxs) for ex_idxs in indices])
-        self.resulting_documents=[item for sublist in p.map(wordify_examples, [(self.name_to_table,self.connecting_tables,self.context,self.index_by_value,self.target_table.name,self.word_att_length,ex_idxs) for ex_idxs in indices]) for item in sublist]
+        #self.resulting_documents=[item for sublist in p.map(wordify_examples, [(self.name_to_table,self.connecting_tables,self.context,self.index_by_value,self.target_table.name,self.word_att_length,ex_idxs) for ex_idxs in indices]) for item in sublist]
         p.close()
         p.join()
 

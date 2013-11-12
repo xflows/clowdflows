@@ -95,7 +95,7 @@ def ilp_wordification(input_dict):
     for _ in range(1):
         wordification = Wordification(target_table,other_tables,context,word_att_length)
         wordification.run(1)
-        wordification.calculate_tf_idfs(True)
+        wordification.calculate_tf_idfs(False)
         #wordification.prune(50)
         #wordification.to_arff()
     #from wordification import Wordification_features_test
