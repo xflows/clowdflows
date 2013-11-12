@@ -63,7 +63,7 @@ class DBContext:
             for table in self.tables:
                 for col in self.cols[table]:
                     if col.endswith('_id'):
-                        ref_table = (col[:-4] + 'ies') if col[-4] == 'y' else (col[:-3] + 's')
+                        ref_table = (col[:-4] + 'ies') if col[-4] == 'y' and col[-5] != 'e' else (col[:-3] + 's')
                         if ref_table in self.tables:
                             self.connected[(table, ref_table)].append((col, 'id'))
                             self.connected[(ref_table, table)].append(('id', col))
