@@ -141,3 +141,6 @@ def base_ravel_list(input_dict):
     ravel(ilist, result)
     return {'clean_list': result}
 #end
+
+def base_wordcloud(input_dict):
+    return {}
