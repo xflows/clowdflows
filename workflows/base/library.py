@@ -144,3 +144,14 @@ def base_ravel_list(input_dict):
 
 def base_wordcloud(input_dict):
     return {}
+
+def split_documents(input_dict):
+    output_dict = {}
+    documents = input_dict['string'].splitlines()
+    query = input_dict['class']
+    new_documents = []
+    for doc in documents:
+        if doc.split(' ',1)[0]==input_dict['class']:
+            new_documents.append(doc.split(" ",1)[1])
+    output_dict['string']="\n".join(new_documents)
+    return output_dict

@@ -1580,6 +1580,81 @@
     }
   }, 
   {
+    "pk": 238, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 34, 
+      "treeview_image": "", 
+      "name": "Filter documents", 
+      "is_streaming": false, 
+      "uid": "261a890d-3c77-4fbf-a462-b873ca3d400e", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "base", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "split_documents", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 521, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 238, 
+      "name": "String", 
+      "short_name": "str", 
+      "uid": "21652a75-6742-4330-9bc3-9683f30a5618", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "string", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 522, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 238, 
+      "name": "Filter", 
+      "short_name": "flt", 
+      "uid": "ccc080f1-e7e4-4bd7-9837-b59dc9037ae9", 
+      "default": "!classname", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "class", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 248, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 238, 
+      "name": "String", 
+      "short_name": "str", 
+      "variable": "string", 
+      "uid": "cc43f6b5-d012-46b7-9b28-e19d22410ed3", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
     "pk": 237, 
     "model": "workflows.abstractwidget", 
     "fields": {
