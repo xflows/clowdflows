@@ -61,7 +61,10 @@ class ILP_Converter(Converter):
                 if col in fk:
                     col = var_table
                 ref_table_args.append(col.capitalize())
-            result.extend(['has_%s(%s, %s) :-' % (ref_table, var_table.capitalize(), var_ref_table.capitalize()),
+            result.extend(['%s_has_%s(%s, %s) :-' % (var_table.lower(),
+                                                     ref_table, 
+                                                     var_table.capitalize(), 
+                                                     var_ref_table.capitalize()),
                             '\t%s(%s),' % (table, ','.join(table_args)),
                             '\t%s(%s).' % (ref_table, ','.join(ref_table_args))])
         return result
@@ -131,7 +134,7 @@ class RSD_Converter(ILP_Converter):
         for (table, ref_table) in self.db.connected.keys():
             if ref_table == self.db.target_table:
                 continue # Skip backward connections
-            modeslist.append(self.mode('has_%s' % ref_table, [('+', table), ('-', ref_table)]))
+            modeslist.append(self.mode('%s_has_%s' % (table.lower(), ref_table), [('+', table), ('-', ref_table)]))
             getters.extend(self.connecting_clause(table, ref_table))
         for table, atts in self.db.cols.items():
             for att in atts:
@@ -190,8 +193,8 @@ class Aleph_Converter(ILP_Converter):
         for (table, ref_table) in self.db.connected.keys():
             if ref_table == self.db.target_table:
                 continue # Skip backward connections
-            modeslist.append(self.mode('has_%s' % ref_table, [('+', table), ('-', ref_table)], recall='*'))
-            determinations.append(':- determination(%s/1, has_%s/2).' % (self.__target_predicate(), ref_table))
+            modeslist.append(self.mode('%s_has_%s' % (table.lower(), ref_table), [('+', table), ('-', ref_table)], recall='*'))
+            determinations.append(':- determination(%s/1, %s_has_%s/2).' % (self.__target_predicate(), table.lower(), ref_table))
             types.extend(self.concept_type_def(table))
             types.extend(self.concept_type_def(ref_table))
             getters.extend(self.connecting_clause(table, ref_table))
@@ -200,7 +203,7 @@ class Aleph_Converter(ILP_Converter):
                 if att == self.db.target_att and table == self.db.target_table or \
                    att in self.db.fkeys[table] or att == self.db.pkeys[table]:
                     continue
-                modeslist.append(self.mode('%s_%s' % (table, att), [('+', table), ('#', att)], recall='*'))
+                modeslist.append(self.mode('%s_%s' % (table, att), [('+', table), ('#', att.lower())], recall='*'))
                 determinations.append(':- determination(%s/1, %s_%s/2).' % (self.__target_predicate(), table, att))
                 types.extend(self.constant_type_def(table, att))
                 getters.extend(self.attribute_clause(table, att))
@@ -220,7 +223,7 @@ class Aleph_Converter(ILP_Converter):
     def constant_type_def(self, table, att):
         var_att = att.capitalize()
         variables = ','.join([var_att if col == att else '_' for col in self.db.cols[table]])
-        return ['%s(%s) :-' % (att, var_att), 
+        return ['%s(%s) :-' % (att.lower(), var_att), 
                 '\t%s(%s).' % (table, variables)]
 
     def db_connection(self):
