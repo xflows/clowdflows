@@ -932,6 +932,171 @@
     }
   }, 
   {
+    "pk": 239, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 33, 
+      "treeview_image": "", 
+      "name": "Extract results", 
+      "is_streaming": false, 
+      "uid": "3ddf7c0b-6b63-46f2-9a39-b1270c51b7c1", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "base", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "base_extract_results", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "This widget is useful for preparing results for visualization using the Viper widget."
+    }
+  }, 
+  {
+    "pk": 523, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 239, 
+      "name": "F score", 
+      "short_name": "f", 
+      "uid": "46771a73-77e1-40d1-9a53-1a4ffed49f21", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fscore", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 524, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 239, 
+      "name": "Precision", 
+      "short_name": "pre", 
+      "uid": "119a7253-5c19-468a-82b7-91b95fdecf36", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "precision", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 525, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 239, 
+      "name": "Recall", 
+      "short_name": "rec", 
+      "uid": "ed759223-3e5d-4f27-8fa3-26000808fda0", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "recall", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 526, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 239, 
+      "name": "Area under curve", 
+      "short_name": "auc", 
+      "uid": "9a580915-5bef-445b-9195-13711ee0080d", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "auc", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 527, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 239, 
+      "name": "Accuracy", 
+      "short_name": "acc", 
+      "uid": "af085bcc-39a0-4d04-b709-6fe6fd953920", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "accuracy", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 528, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 239, 
+      "name": "Runtime", 
+      "short_name": "bmk", 
+      "uid": "9d2b4fd5-e977-41c0-a857-ef9c00499c0f", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "runtime", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 529, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 239, 
+      "name": "Name", 
+      "short_name": "nam", 
+      "uid": "01af240a-0a52-4c7d-9c82-9ac1bd0982d8", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "name", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 249, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 239, 
+      "name": "Results", 
+      "short_name": "res", 
+      "variable": "results", 
+      "uid": "bb0d42b8-dc77-4b01-b6ad-480d52e917c2", 
+      "order": 1, 
+      "description": "results"
+    }
+  }, 
+  {
     "pk": 176, 
     "model": "workflows.abstractwidget", 
     "fields": {

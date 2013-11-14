@@ -155,3 +155,17 @@ def split_documents(input_dict):
             new_documents.append(doc.split(" ",1)[1])
     output_dict['string']="\n".join(new_documents)
     return output_dict
+
+def base_extract_results(input_dict):
+    fbeta = 1
+    fscore = input_dict['fscore']
+    precision = input_dict['precision']
+    recall = input_dict['recall']
+    auc = input_dict['auc']
+    accuracy = input_dict['accuracy']
+    runtime = input_dict['runtime']
+    name = input_dict['name']
+    results = {'fbeta':1,'fscore':fscore,'name': name,'precision': precision,'recall': recall,'auc': auc,'accuracy': accuracy,'runtime': runtime}
+    output_dict = {}
+    output_dict['results']=results
+    return output_dict
