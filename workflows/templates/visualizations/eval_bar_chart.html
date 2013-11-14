@@ -147,7 +147,7 @@ $(function () {
             },
 			{% endif %}
             {% if 'accuracy' in input_dict.eval_results.0 %}{
-                name: 'accuracy',
+                name: 'Accuracy',
                 data: [
                 {% for item in input_dict.eval_results %}
                     { y: {{ item.accuracy }}, index: {{forloop.counter0}} },
@@ -155,7 +155,18 @@ $(function () {
                 ],
                 visible: true,
                 showInLegend: true
-            }
+            },
+            {% endif %}
+            {% if 'auc' in input_dict.eval_results.0 %}{
+                name: 'AUC',
+                data: [
+                {% for item in input_dict.eval_results %}
+                    { y: {{ item.auc }}, index: {{forloop.counter0}} },
+                {% endfor %}
+                ],
+                visible: true,
+                showInLegend: true
+            },
             {% endif %}
 			]
         });
