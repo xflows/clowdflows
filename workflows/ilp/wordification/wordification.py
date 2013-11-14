@@ -247,11 +247,11 @@ class Wordification(object):
             arff_string+="\n"
 
 
-        f=open("a.arff",'w')
-        f.write(arff_string)
-        f.close
+        #f=open("a.arff",'w')
+        #f.write(arff_string)
+        #f.close
         #print arff_string
-        print "end to_arff"
+        #print "end to_arff"
 
         return arff_string
 
