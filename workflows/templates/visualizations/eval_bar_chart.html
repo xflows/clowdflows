@@ -150,7 +150,7 @@ $(function () {
                 name: 'accuracy',
                 data: [
                 {% for item in input_dict.eval_results %}
-                    {{ item.accuracy }},
+                    { y: {{ item.accuracy }}, index: {{forloop.counter0}} },
                 {% endfor %}
                 ],
                 visible: true,
