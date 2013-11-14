@@ -61,7 +61,10 @@ class ILP_Converter(Converter):
                 if col in fk:
                     col = var_table
                 ref_table_args.append(col.capitalize())
-            result.extend(['has_%s(%s, %s) :-' % (ref_table, var_table.capitalize(), var_ref_table.capitalize()),
+            result.extend(['%s_has_%s(%s, %s) :-' % (var_table.lower(),
+                                                     ref_table, 
+                                                     var_table.capitalize(), 
+                                                     var_ref_table.capitalize()),
                             '\t%s(%s),' % (table, ','.join(table_args)),
                             '\t%s(%s).' % (ref_table, ','.join(ref_table_args))])
         return result
@@ -131,7 +134,7 @@ class RSD_Converter(ILP_Converter):
         for (table, ref_table) in self.db.connected.keys():
             if ref_table == self.db.target_table:
                 continue # Skip backward connections
-            modeslist.append(self.mode('has_%s' % ref_table, [('+', table), ('-', ref_table)]))
+            modeslist.append(self.mode('%s_has_%s' % (table.lower(), ref_table), [('+', table), ('-', ref_table)]))
             getters.extend(self.connecting_clause(table, ref_table))
         for table, atts in self.db.cols.items():
             for att in atts:
@@ -190,8 +193,8 @@ class Aleph_Converter(ILP_Converter):
         for (table, ref_table) in self.db.connected.keys():
             if ref_table == self.db.target_table:
                 continue # Skip backward connections
-            modeslist.append(self.mode('has_%s' % ref_table, [('+', table), ('-', ref_table)], recall='*'))
-            determinations.append(':- determination(%s/1, has_%s/2).' % (self.__target_predicate(), ref_table))
+            modeslist.append(self.mode('%s_has_%s' % (table.lower(), ref_table), [('+', table), ('-', ref_table)], recall='*'))
+            determinations.append(':- determination(%s/1, %s_has_%s/2).' % (self.__target_predicate(), table.lower(), ref_table))
             types.extend(self.concept_type_def(table))
             types.extend(self.concept_type_def(ref_table))
             getters.extend(self.connecting_clause(table, ref_table))
@@ -200,7 +203,7 @@ class Aleph_Converter(ILP_Converter):
                 if att == self.db.target_att and table == self.db.target_table or \
                    att in self.db.fkeys[table] or att == self.db.pkeys[table]:
                     continue
-                modeslist.append(self.mode('%s_%s' % (table, att), [('+', table), ('#', att)], recall='*'))
+                modeslist.append(self.mode('%s_%s' % (table, att), [('+', table), ('#', att.lower())], recall='*'))
                 determinations.append(':- determination(%s/1, %s_%s/2).' % (self.__target_predicate(), table, att))
                 types.extend(self.constant_type_def(table, att))
                 getters.extend(self.attribute_clause(table, att))
@@ -220,7 +223,7 @@ class Aleph_Converter(ILP_Converter):
     def constant_type_def(self, table, att):
         var_att = att.capitalize()
         variables = ','.join([var_att if col == att else '_' for col in self.db.cols[table]])
-        return ['%s(%s) :-' % (att, var_att), 
+        return ['%s(%s) :-' % (att.lower(), var_att), 
                 '\t%s(%s).' % (table, variables)]
 
     def db_connection(self):
@@ -320,6 +323,7 @@ class TreeLikerConverter(Converter):
         self.discr_intervals = kwargs.pop('discr_intervals', {}) if kwargs else {}
         self._template = []
         self._predicates = set()
+        self._output_types = set()
         Converter.__init__(self, *args, **kwargs)
 
 
@@ -332,13 +336,13 @@ class TreeLikerConverter(Converter):
         return row_pk
 
 
-    def _facts(self, pk, pk_att, target, visited=set()):
+    def _facts(self, pk, pk_att, target, visited=set(), parent_table='', parent_pk=''):
         '''
-        Returns the facts for the given entity with pk in `table`.
+        Returns the facts for the given entity with pk in `target`.
         '''
         facts = []
+        cols = self.db.cols[target]
         if target != self.db.target_table:
-            cols = self.db.cols[target]
 
             # Skip the class attribute
             if self.db.target_att in cols:
@@ -350,9 +354,10 @@ class TreeLikerConverter(Converter):
             self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
             for row in self.cursor:
              #   print 'row'
-                values = []
+                #values = []
                 row_pk = self._row_pk(target, cols, row)
                 row_pk_name = '%s%s' % (target, str(row_pk))
+                parent_pk_name = '%s%s' % (parent_table, str(parent_pk))
 
                 # Each attr-value becomes one fact
                 for idx, col in enumerate(row):
@@ -366,13 +371,26 @@ class TreeLikerConverter(Converter):
                         else:
                             continue
                     elif attr_name == self.db.pkeys[target]:
-                        predicate = 'has_%s' % target
-                        facts.append('%s(%s)' % (predicate, row_pk_name))
+                        if parent_table and parent_table != self.db.target_table:
+                            predicate = '%s_has_%s' % (parent_table, target)
+                            predicate_template = '%s(+%s, -%s)' % (predicate,
+                                                                   parent_table,
+                                                                   target)
+                            facts.append('%s(%s, %s)' % (predicate, 
+                                                         parent_pk_name, 
+                                                         row_pk_name))
+                        else:
+                            predicate = 'has_%s' % (target)
+                            predicate_template = '%s(-%s)' % (predicate,
+                                                              target)
+                            facts.append('%s(%s)' % (predicate, row_pk_name))
 
-                        if predicate not in self._predicates:
-                            self._predicates.add(predicate)
-                            self._template.append('%s(-%s)' % (predicate,
-                                                               target))
+                        output_type = '-%s' % target
+                        if predicate_template not in self._predicates and \
+                           output_type not in self._output_types:
+                            self._output_types.add('-%s' % target)
+                            self._predicates.add(predicate_template)
+                            self._template.append(predicate_template)
 
                     # Constants
                     else:
@@ -381,12 +399,13 @@ class TreeLikerConverter(Converter):
                         facts.append('%s(%s, %s)' % (predicate, 
                                                      row_pk_name,
                                                      str(col)))
-
-                        if predicate not in self._predicates:
-                            self._predicates.add(predicate)
-                            self._template.append('%s(+%s, #%s)' % (predicate,
-                                                                    target,
-                                                                    attr_name))
+                        predicate_template = '%s(+%s, #%s)' % (predicate,
+                                                               target,
+                                                               attr_name)
+                    
+                        if predicate_template not in self._predicates:
+                            self._predicates.add(predicate_template)
+                            self._template.append(predicate_template)
 
         # Recursively follow links to other tables
         for table in self.db.tables:
@@ -394,26 +413,33 @@ class TreeLikerConverter(Converter):
                 continue
 
             for this_att, that_att in self.db.connected[(target, table)]:
-                if (this_att, that_att) not in visited:
-                    visited.add((this_att, that_att))
+                if (target, table, this_att, that_att) not in visited:
+                    visited.add((target, table, this_att, that_att))
                     
-                    # Link case 1: pk_att is a fk in another table
+                    # Link case 1: this_att = pk_att is a fk in another table
                     if this_att == pk_att:
                         facts.extend(self._facts(pk,
                                                  that_att,
                                                  table, 
-                                                 visited=visited))
+                                                 visited=visited,
+                                                 parent_table=target,
+                                                 parent_pk=pk))
                     
                     # Link case 2: this_att is a fk of another table
                     else:
-                        attributes = self.db.fmt_cols([this_att])
+                        attributes = self.db.fmt_cols([this_att]+cols)
                         self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
-                        fk_list = [row[0] for row in self.cursor]
-                        for fk in fk_list:
+                        fk_list = []
+                        for row in self.cursor:
+                            row_pk = self._row_pk(target, cols, row[1:])
+                            fk_list.append((row[0], row_pk))
+                        for fk, row_pk in fk_list:
                             facts.extend(self._facts(fk,
                                                      that_att,
                                                      table, 
-                                                     visited=visited))
+                                                     visited=visited,
+                                                     parent_table=target,
+                                                     parent_pk=row_pk))
         return facts
 
 
