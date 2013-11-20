@@ -19,6 +19,32 @@ USE_CONCURRENCY = False
 
 FILES_FOLDER = os.path.join(PUBLIC_DIR, 'files/')
 
+INSTALLED_APPS_WORKFLOWS_SUB = (
+    'workflows.base',
+    #'workflows.latino',
+    #'workflows.decision_support',
+    #'workflows.segmine',
+    #'workflows.subgroup_discovery',
+    #'workflows.nlp',
+    #'workflows.nl_toolkit',
+    #'workflows.ilp',
+    #'workflows.weka',
+    #'workflows.cforange',
+    #'workflows.perfeval',
+    #'workflows.mysql',
+    #'workflows.lemmagen',
+    #'workflows.crossbee',
+    #'workflows.scikitAlgorithms',
+    #'workflows.lemmagen',
+    #'workflows.crossbee',
+    #'workflows.streaming',
+    #'workflows.bio3graph',
+    #'workflows.noise',
+    #'workflows.vipercharts',
+    #'workflows.MUSE',
+    )
+
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '*f$)twxl*rdk*o@^j%^0f0r#z7=kkyw=-2v*rjdnon_j==1uw@'
 
