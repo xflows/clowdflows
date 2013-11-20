@@ -170,7 +170,13 @@ INSTALLED_APPS_DEFAULT = (
     'workflows',
     'picklefield',
     'streams',
+    'djcelery',
+    'kombu.transport.django',
     )
+
+CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
+
+CELERY_TASK_SERIALIZER='json'
 
 try:
     LOCAL_SETTINGS
