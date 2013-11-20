@@ -8,14 +8,4 @@ django-orderable-inlines==0.0.6
 django-picklefield==0.2.1
 httplib2==0.7.5
 wsgiref==0.1.2
-mysql-connector-python==1.0.12
-numpy==1.7.1
-pydot==1.0.28
-pyparsing==1.5.7
-scikit-learn==0.14.1
-scipy==0.13.0
-feedparser==5.1.2
-networkx==1.8.1
 unidecode==0.04.13
-nltk==2.0.4
-

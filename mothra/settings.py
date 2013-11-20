@@ -170,45 +170,7 @@ INSTALLED_APPS_DEFAULT = (
     'workflows',
     'picklefield',
     'streams',
-    #'debug_toolbar',
     )
-
-INSTALLED_APPS_CONCUR = (
-        'djcelery',
-    ) if USE_CONCURRENCY else (
-
-    )
-
-INSTALLED_APPS_WORKFLOWS_SUB = (
-    'workflows.base',
-    #'workflows.latino',
-    'workflows.decision_support',
-    'workflows.segmine',
-    'workflows.subgroup_discovery',
-    'workflows.nlp',
-    'workflows.nl_toolkit',
-    'workflows.ilp',
-    'workflows.weka',
-    'workflows.cforange',
-    'workflows.perfeval',
-    'workflows.mysql',
-    #'workflows.lemmagen',
-    #'workflows.crossbee',
-    'workflows.scikitAlgorithms',
-    #'workflows.lemmagen',
-    #'workflows.crossbee',
-    'workflows.streaming',
-    'workflows.bio3graph',
-    'workflows.noise',
-    'workflows.vipercharts',
-    'workflows.MUSE',
-    #WORKFLOWS_SUBAPP_PLACEHOLDER
-    )
-
-INSTALLED_APPS = \
-    INSTALLED_APPS_DEFAULT +\
-    INSTALLED_APPS_CONCUR +\
-    INSTALLED_APPS_WORKFLOWS_SUB
 
 try:
     LOCAL_SETTINGS
@@ -217,6 +179,10 @@ except NameError:
         from local_settings import *
     except ImportError:
         pass     
+
+INSTALLED_APPS = \
+    INSTALLED_APPS_DEFAULT +\
+    INSTALLED_APPS_WORKFLOWS_SUB
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS
 
