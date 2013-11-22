@@ -1,0 +1,95 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700");
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: #222222;
+  text-rendering: optimizeLegibility;
+  line-height: 1.4; }
+  h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+    font-size: 60%;
+    color: #6f6f6f;
+    line-height: 0; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+body {
+	padding-top:51px;
+	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	line-height:1.8;
+	font-size:16px;
+}
+
+header {
+	padding-top:60px;
+	padding-bottom:80px;
+	background-color:#016383;
+	text-align:center;
+}
+
+header h1, header h2, header h3, header h4, header h5 {
+	color:white;
+}
+
+header h1 {
+	font-size:64px;
+	margin-bottom:0px;
+}
+
+.cf-buttons {
+	margin-top:30px;
+}
+
+.cf-buttons button {
+	margin-left:6px;
+	margin-right:6px;
+	margin-bottom:10px;
+}
+
+.footer {
+	padding-top:20px;
+	padding-bottom:20px;
+	color:#ffffff;
+	background:gray;
+	margin-bottom:0px;
+	font-size:12px;
+	line-height:16px;
+}
+
+.footer a {
+	color:#dddddd;
+}
+
+.footer a:hover {
+	color:#ffffff;
+	text-decoration:underline;
+}
+
+.sponsors{
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+.btn-xlg {
+  padding: 14px 24px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 9px;
+}
+
+.btn-lg {
+	transition:0.5s;
+	-webkit-transition: 0.5s;
+}
+
+.btn-lg:hover {
+  padding: 14px 24px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 9px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}

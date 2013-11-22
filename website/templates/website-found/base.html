@@ -1,0 +1,98 @@
+{% load url from future %}
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClowdFlows - A Data Mining Workflow Platform</title>
+    <link rel="stylesheet" href="{{STATIC_URL}}foundation/css/foundation.css" />
+    <link rel="stylesheet" href="{{STATIC_URL}}foundation/css/custom.css" />
+    <script src="{{STATIC_URL}}foundation/js/modernizr.js"></script>
+  </head>
+  <body>
+    <div class="fixed">
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="{% url 'website index' %}">ClowdFlows</a></h1>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Workflow editor</a></li>
+        <li><a href="#">Your workflows</a></li>
+        <li><a href="#">Explore workflows</a></li>
+        <li><a href="#">Log in</a></li>
+      </ul>
+
+     <ul class="left">
+        <li><a href="#">Left Nav Button</a></li>
+      </ul>      
+    </section>
+  </nav>  
+  </div>
+
+  {% block "container" %} 
+  {% endblock %}
+    
+
+        <div class="row sponsors">
+
+            <div class="small-3 large-3 medium-3 columns text-center">
+
+        <a class="img" href="http://project-first.eu/">
+          <img alt="FIRST Logo" src="{{STATIC_URL}}website-images/FIRSTLogoSmall.gif" style="vertical-align: middle;">
+        </a>
+
+            </div>
+            <div class="small-3 large-3 medium-3 columns text-center">
+
+        <a class="img" href="http://www.ijs.si/">
+          <img alt="JSI Logo" src="{{STATIC_URL}}website-images/JSILogoSmall.gif">
+        </a>
+
+            </div>
+            <div class="small-3 large-3 medium-3 columns text-center">
+
+        <a class="img" href="http://www.focproject.net/">
+          <img alt="FOC Logo" src="{{STATIC_URL}}website-images/foc_logo_200x50.gif" width="200" height="50">
+        </a>
+
+            </div>
+            <div class="small-3 large-3 medium-3 columns text-center">
+
+
+        <a class="img" href="http://cordis.europa.eu/info-management/">
+          <img alt="EU Logo" src="{{STATIC_URL}}website-images/EULogoSmall.gif" style="vertical-align: middle;">
+        </a>
+
+            </div>
+
+        </div>
+  
+
+    <div class="footer">
+        <div class="row">
+          <div class="medium-6 large-6 columns text-small">
+            &copy; 2010-2013 <a href="http://kt.ijs.si">Department of Knowledge Techonologies</a>. <br>Co-funded by <a href="http://cordis.europa.eu/info-management/">the European Union</a>.
+          </div>
+          <div class="medium-6 large-6 columns text-right">
+            <a href="http://kt.ijs.si/janez_kranjc/">About the author</a>.
+          </div>          
+        </div>
+    </div>
+
+    <div id="myModal" class="reveal-modal medium" data-reveal> 
+       <a class="close-reveal-modal">&#215;</a> 
+    </div>    
+    
+    <script src="{{STATIC_URL}}foundation/js/jquery.js"></script>
+    <script src="{{STATIC_URL}}foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
