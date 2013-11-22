@@ -2,6 +2,8 @@
 {% block "exploreactive" %}class="active"{% endblock %}
 {% block "container" %}
 
+  <div class="container">
+
     {% for w in workflows %}
     <section>
       <div class="page-header">
@@ -11,8 +13,8 @@
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
           <h3>Try it out</h3>
           <p>By clicking the button below you will create a copy of this workflow and will be able to edit it, run it or just look at it without harming the original.</p>
-          <a href="{{w.get_copy_url}}" class="btn launch {% if not user.is_authenticated %}must_login{% endif %}">Launch workflow!{% if w.user == user %} (Create a copy){% endif %}</a><br><br>
-          {% if w.user == user %}<a href="{{w.get_absolute_url}}" class="btn launch {% if not user.is_authenticated %}must_login{% endif %}" onClick="$('.launch').hide();$('.ajax-loader').show()">Edit this version</a>{% endif %}
+          <a href="{{w.get_copy_url}}" class="btn btn-success launch {% if not user.is_authenticated %}must_login{% endif %}">Launch workflow!{% if w.user == user %} (Create a copy){% endif %}</a><br><br>
+          {% if w.user == user %}<a href="{{w.get_absolute_url}}" class="btn btn-default launch {% if not user.is_authenticated %}must_login{% endif %}" onClick="$('.launch').hide();$('.ajax-loader').show()">Edit this version</a>{% endif %}
         </div>
         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
           <h2>Description</h2>
@@ -34,11 +36,13 @@
           <p>By clicking on the button below you will launch the workflow and be able to run it or edit it.</p>
 
           <a href="{{w.get_copy_url}}" class="btn btn-primary btn-large launch {% if not user.is_authenticated %}must_login{% endif %}" onClick="$('.launch').hide();$('.ajax-loader').show()">Launch workflow!{% if w.user == user %} (Clicking this will create a new copy){% endif %}</a>
-          {% if w.user == user %}<a href="{{w.get_absolute_url}}" class="btn btn-large launch {% if not user.is_authenticated %}must_login{% endif %}" onClick="$('.launch').hide();$('.ajax-loader').show()">This is your workflow. Click here to edit it!</a>{% endif %}
+          {% if w.user == user %}<a href="{{w.get_absolute_url}}" class="btn btn-large btn-success launch {% if not user.is_authenticated %}must_login{% endif %}" onClick="$('.launch').hide();$('.ajax-loader').show()">This is your workflow. Click here to edit it!</a>{% endif %}
 
           <hr>
 
 
     </section>
     {% endfor %}
+
+  </div>
 {% endblock %}
