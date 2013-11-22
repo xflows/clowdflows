@@ -24,7 +24,7 @@ body {
 }
 
 header {
-	padding-top:60px;
+	padding-top:50px;
 	padding-bottom:80px;
 	background-color:#016383;
 	text-align:center;
@@ -41,6 +41,17 @@ header h1 {
 
 .cf-buttons {
 	margin-top:30px;
+}
+
+
+.cf-buttons button {
+	-webkit-transition: -webkit-transform 300ms ease;
+	  -moz-transition: -moz-transform 300ms ease;
+	  -ms-transition: -ms-transform 300ms ease;
+	  -o-transition: -o-transform 300ms ease;
+	  transition: transform 300ms ease;
+	transition:300ms ease;
+	border-radius:0px !important;
 }
 
 .cf-buttons button {
@@ -77,19 +88,13 @@ header h1 {
   padding: 14px 24px;
   font-size: 24px;
   line-height: 1.33;
-  border-radius: 9px;
 }
 
 .btn-lg {
-	transition:0.5s;
-	-webkit-transition: 0.5s;
 }
 
 .btn-lg:hover {
-  padding: 14px 24px;
+ /* padding: 14px 24px;
   font-size: 24px;
-  line-height: 1.33;
-  border-radius: 9px;
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
+  line-height: 1.33;*/
 }
