@@ -185,5 +185,9 @@ def workflows(request):
 
 @login_required
 def editor(request):
-    return render(request, 'website/editor.html')
+    if request.GET.get('tutorial','0')=='1':
+        tutorial = True
+    else:
+        tutorial = False
+    return render(request, 'website/editor.html', {'tutorial':tutorial})
 

@@ -48,6 +48,105 @@
   <iframe src="{% url 'the index' %}" style="border:none; position:relative;top:0px;left:0px;bottom:0px;padding:0px;margin:0px;overflow:hidden;" width="100%" height="100%"></iframe>
 </div>
 
+{% if tutorial %}
+
+<div class="alert alert-success tutorial-window tutorial step0">
+  <strong>ClowdFlows tutorial</strong>
+  <br>
+  Welcome to the ClowdFlows tutorial. By following simple instructions you will construct your very own working workflow.<br>
+  <button class="btn btn-success" onclick="goToStep(1);">Go to the first step &raquo;</button>
+</div>
+
+<div class="popover right popover-widgets tutorial step1">
+  <div class="arrow"></div>
+  <h3 class="popover-title">Step 1: Widget repository</h3>
+  <div class="popover-content">
+    <p>This is the widget repository. All the possible widgets that you can put on the canvas are found here.</p>
+    <p>Find the widget entitled "<strong>Create Integer</strong>" and and click on it.</p>
+    <p>Click the "Next" button once you've added the widget to the canvas.</p>
+    <button class="btn btn-warning" style="margin-bottom:10px;" onclick="goToStep(0);">&laquo; Back</button>
+    <button class="btn btn-success pull-right" style="margin-bottom:10px;" onclick="goToStep(2);">Next &raquo;</button>
+  </div>
+</div>
+
+<div class="popover right popover-step2 tutorial step2">
+  <div class="arrow"></div>
+  <h3 class="popover-title">Step 2: Your first widget</h3>
+  <div class="popover-content">
+    <p>Great! Now you have your first widget on the canvas.</p>
+    <p>Widgets are processing units that have <strong>inputs</strong>, <strong>outputs</strong>, and <strong>parameters</strong>.</p>
+    <p>This particular one doesn't have any inputs but it has a parameter. You can see what it is by <strong>double clicking the widget</strong>! Once you do, set it to a number. Let's say <strong>5</strong>. Then click "Apply".</p>
+    <button class="btn btn-warning" style="margin-bottom:10px;" onclick="goToStep(1);">&laquo; Back</button>
+    <button class="btn btn-success pull-right" style="margin-bottom:10px;" onclick="goToStep(3);">Next &raquo;</button>    
+  </div>
+</div>
+
+<div class="popover right popover-step3 tutorial step3">
+  <div class="arrow"></div>
+  <h3 class="popover-title">Step 3: Some more widgets</h3>
+  <div class="popover-content">
+  <div class="popover-textcontent3" style="display:none;">
+    <p>Click the button again to see instructions.</p>
+  </div>
+  <div class="popover-textcontent3">
+    <p>Ok now we're gonna add some more widgets to the canvas. Search the widget repository for the following widgets and add them to the canvas:</p>
+    <ul>
+      <li><strong>Add integers</strong></li>
+      <li><strong>Object viewer</strong></li>
+    </ul>
+    <p>If you're having trouble finding a widget you can use the search at the top of the widget repository.</p>
+    <p>Click the "Hide text" button to see more of the canvas.</p>
+    </div>
+    <button class="btn btn-warning" style="margin-bottom:10px;" onclick="goToStep(2);">&laquo; Back</button>
+    <button class="btn btn-info" style="margin-bottom:10px; margin-left:10px;" onClick="$('.popover-textcontent3').toggle();"><span class="popover-textcontent3">Hide text</span><span style="display:none;" class="popover-textcontent3">Show text</span></button>
+    <button class="btn btn-success pull-right" style="margin-bottom:10px;" onclick="goToStep(4);">Next &raquo;</button>    
+  </div>
+</div>
+
+<div class="popover bottom popover-step4 tutorial step4">
+  <div class="arrow"></div>
+  <h3 class="popover-title">Step 4: Arrange the widgets</h3>
+  <div class="popover-content">
+    <p>By dragging and dropping, you can arrange widgets on the canvas as you please.</p>
+    <p>Arrange the three widgets so that they look like this:</p>
+    <p><img src="{{STATIC_URL}}website-images/tutorial-step4.png"></p>
+    <button class="btn btn-warning" style="margin-bottom:10px;" onclick="goToStep(3);">&laquo; Back</button>
+    <button class="btn btn-success pull-right" style="margin-bottom:10px;" onclick="goToStep(5);">Next &raquo;</button>    
+  </div>
+</div>
+
+<div class="popover bottom popover-step5 tutorial step5">
+  <div class="arrow"></div>
+  <h3 class="popover-title">Step 5: Connect the widgets</h3>
+  <div class="popover-content" style="font-size:12px;">
+    <p>You can connect widget by clicking consecutively on outputs and then inputs. Try it and connect the widgets so that they look like on the picture:</p>
+    <p><img src="{{STATIC_URL}}website-images/tutorial-step5.png"></p>
+    <p>If you add an unwanted connection by mistake you can select it by clicking on it and hit the "Delete" button on your keyboard or click on the trashcan icon in the toolbar.</p>
+    <button class="btn btn-warning" style="margin-bottom:10px;" onclick="goToStep(4);">&laquo; Back</button>
+    <button class="btn btn-success pull-right" style="margin-bottom:10px;" onclick="goToStep(6);">Next &raquo;</button>    
+  </div>
+</div>
+
+<div class="popover bottom popover-step6 tutorial step6">
+  <div class="arrow" style="left:95px;"></div>
+  <h3 class="popover-title">Step 6: Execute the workflow</h3>
+  <div class="popover-content">
+    <p>Execute the workflow by clicking the icon that looks like the play button.</p>
+    <button class="btn btn-warning" style="margin-bottom:10px;" onclick="goToStep(5);">&laquo; Back</button>
+    <button class="btn btn-success pull-right" style="margin-bottom:10px;" onclick="goToStep(7);">Next &raquo;</button>    
+  </div>
+</div>
+
+<div class="alert alert-success tutorial-window tutorial step7" style="display:none;">
+  <strong>Congratulations!</strong>
+  <br>
+  You have now constructed a workflow that takes a number and multiplies it by two by adding it with itself. Hooray!<br>
+  This is it for now! We're gonna add other tutorials to do complex stuff very very soon!<br>
+  <button class="btn btn-success" onclick="goToStep(8);">Close this window &raquo;</button>
+</div>
+
+{% endif %}
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -56,5 +155,12 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{STATIC_URL}}bootstrap3/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  function goToStep(step) {
+    $(".tutorial").not($("step"+step)).fadeOut();
+    $(".step"+step).fadeIn();
+  }
+</script>    
   </body>
 </html>

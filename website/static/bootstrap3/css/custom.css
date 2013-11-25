@@ -98,3 +98,61 @@ header h1 {
   font-size: 24px;
   line-height: 1.33;*/
 }
+
+.tutorial-window {
+	position:absolute; 
+	width:300px;
+	bottom:30px;
+	right:30px;
+	margin:0px;
+}
+
+.popover-widgets {
+	position:absolute;
+	left:280px;
+	top:300px;
+}
+
+.popover-step2 {
+	position:absolute;
+	left:550px;
+	top:180px;
+}
+
+.popover-step3 {
+	position:absolute;
+	left:350px;
+	top:80px;
+}
+
+.popover-step4 {
+	position:absolute;
+	left:550px;
+	top:400px;
+}
+
+.popover-step5 {
+	position:absolute;
+	left:550px;
+	top:400px;
+}
+
+.popover-step6 {
+	position:absolute;
+	left:20px;
+	top:90px;
+}
+
+.popover-step6 .arrow {
+	left:95px;
+}
+
+
+
+.popover {
+	background-color:rgba(255,255,255,0.8);
+}
+
+.popover-title {
+	background-color:rgba(240,240,240,0.8);
+}

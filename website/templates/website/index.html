@@ -14,7 +14,7 @@
    </div>
    <div class="row cf-buttons">
       <div class="col-lg-12">
-         <button type="button" href="#" class="{% if not user.is_authenticated %}must_login{% else %}logged_in{% endif %} btn btn-primary btn-success btn-xlg">Try the tutorial</button>
+         <button type="button" href="{% url 'editor' %}?tutorial=1" class="{% if not user.is_authenticated %}must_login{% else %}logged_in{% endif %} btn btn-primary btn-success btn-xlg">Try the tutorial</button>
          <button type="button" href="{% url 'editor' %}" class="{% if not user.is_authenticated %}must_login{% else %}logged_in{% endif %} btn btn-primary btn-lg">Start working</button>
          <button type="button" href="{% url 'existing workflows' %}" class="logged_in btn btn-primary btn-lg">Explore existing workflows</button>
       </div>
