@@ -19,4 +19,6 @@ urlpatterns = patterns('',
 
     url(r'^workflow/(?P<workflow_id>[0-9]+)/$', 'website.views.workflow_information', name='workflow information'),
 
+    url(r'^editor/$', 'website.views.editor', name='editor'),
+
 )

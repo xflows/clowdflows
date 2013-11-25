@@ -182,3 +182,8 @@ def workflows(request):
             conn['y2'] = normalized_values[pair[1]][1]+15
             w.unique_connections.append(conn)
     return render(request, 'website/existing.html', {'workflows':wflows})
+
+@login_required
+def editor(request):
+    return render(request, 'website/editor.html')
+

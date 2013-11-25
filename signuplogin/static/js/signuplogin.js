@@ -66,6 +66,10 @@ $(function() {
         $.fancybox.proceed = $(this).attr('href');
     });
 
+    $(".logged_in").click(function() {
+        window.location=$(this).attr('href');
+    })
+
     function loginListener()
     {
             $("#login_form").submit(function(){
