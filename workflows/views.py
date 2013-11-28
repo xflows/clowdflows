@@ -61,7 +61,7 @@ def new_workflow(request):
     w.save()
     request.user.userprofile.active_workflow = w
     request.user.userprofile.save()
-    return redirect('the index')
+    return redirect('editor')
 
 @login_required
 def open_workflow(request,workflow_id):
@@ -71,7 +71,7 @@ def open_workflow(request,workflow_id):
         request.user.userprofile.save()
     else:
         return HttpResponse(status=400)
-    return redirect('the index')
+    return redirect('editor')
 
 @login_required
 def widget_progress(request):
@@ -1267,7 +1267,7 @@ def copy_workflow(request,workflow_id):
         request.user.userprofile.save()
     else:
         return HttpResponse(status=400)
-    return redirect('the index')
+    return redirect('editor')
 
 @login_required
 def workflow_url(request):
