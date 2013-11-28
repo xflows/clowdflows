@@ -1352,7 +1352,7 @@ $(function(){
 				reportOk("New workflow created");
 				jg = new jsGraphics("canvas");
 				*/
-				window.location = url['new-workflow'];
+			    top.location.href = url['new-workflow'];
 			},
 			"No": function() {
 				$(this).dialog("close");
