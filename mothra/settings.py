@@ -170,8 +170,8 @@ INSTALLED_APPS_DEFAULT = (
     'workflows',
     'picklefield',
     'streams',
-    'djcelery',
-    'kombu.transport.django',
+    #'djcelery',
+    #'kombu.transport.django',
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()
