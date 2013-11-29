@@ -11,6 +11,8 @@ import workflows.visualization_views
 import sys
 import traceback
 
+from jsonview.decorators import json_view
+
 # modeli
 from workflows.models import *
 from django.contrib.auth.models import User
@@ -1317,6 +1319,27 @@ def export_package(request, packages):
 
     response = HttpResponse(mimetype='text/plain',content=content)
     return response
+
+@json_view
+def widget_inputs(request, widget_id):
+    w = get_object_or_404(Widget, pk=widget_id)
+    input_dict = {}
+    for i in w.inputs.all():
+        if not i.parameter:
+            if i.connections.count() > 0:
+                i.value = i.connections.all()[0].output.value
+                #i.save()
+            else:
+                i.value = None
+                #i.save()
+        if i.multi_id == 0:
+            input_dict[i.variable]=i.value
+        else:
+            if not i.variable in input_dict:
+                input_dict[i.variable]=[]
+            if not i.value == None:
+                input_dict[i.variable].append(i.value)
+    return input_dict
 
 @login_required
 def widget_iframe(request, widget_id):

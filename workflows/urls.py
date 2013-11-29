@@ -69,4 +69,7 @@ urlpatterns += patterns('',
     url(r'^reset-workflow/', 'workflows.views.reset_workflow', name='reset workflow'),
 
     url(r'^export-package/(?P<packages>.+)/$', 'workflows.views.export_package', name='export_package'),
+
+    url(r'^widget-inputs/(?P<widget_id>[0-9]+)/$', 'workflows.views.widget_inputs', name='widget inputs'),
+
 )

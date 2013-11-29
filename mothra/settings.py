@@ -170,6 +170,7 @@ INSTALLED_APPS_DEFAULT = (
     'workflows',
     'picklefield',
     'streams',
+    #'rest_framework',
     #'djcelery',
     #'kombu.transport.django',
     )
@@ -191,6 +192,11 @@ except NameError:
 INSTALLED_APPS = \
     INSTALLED_APPS_DEFAULT +\
     INSTALLED_APPS_WORKFLOWS_SUB
+
+#REST_FRAMEWORK = {
+#    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+#    'PAGINATE_BY': 10
+#}    
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS
 
