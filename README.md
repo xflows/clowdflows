@@ -26,7 +26,7 @@ source bin/activate
 Obtain the url to your git repository.
 
 ```bash
-git clone git@source.ijs.si:mothra.git mothra
+git clone git@source.ijs.si:clowdflowsinterfaces/mothra.git mothra
 ```
 
 ### Install requirements ###
