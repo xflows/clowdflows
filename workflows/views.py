@@ -242,7 +242,7 @@ def add_widget(request):
                         j.widget = w
                         j.save()
                         output_conversion[i.pk]=j.pk
-                        workflows.models.copy_workflow(aw.workflow_link, request.user, widget_conversion,input_conversion,output_conversion,w)
+                    workflows.models.copy_workflow(aw.workflow_link, request.user, widget_conversion,input_conversion,output_conversion,w)
                     w.defered_outputs = w.outputs.defer("value").all()
                     w.defered_inputs = w.inputs.defer("value").all()
                     return render(request, 'widgets.html', {'widgets':[w,]})
