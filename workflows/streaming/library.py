@@ -248,17 +248,42 @@ def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
 def streaming_triplet_extraction(input_dict,widget,stream=None):
     from pysimplesoap.client import SoapClient, SoapFault
     import pysimplesoap
+    import re
     client = SoapClient(location = "http://95.87.154.167:8008/",action = 'http://95.87.154.167:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
     pysimplesoap.client.TIMEOUT = 36000
 
     text = input_dict['text']
     response = client.TripletExtraction(text=text)
+
+    triplets = str(response.TripletExtractionResult)
+    triplets = triplets.split("\n")
+
+    new_triplets = []
+
+    for triplet in triplets:
+        print triplet
+        t = re.sub(r'\([^)]*\)', "",triplet)
+        print t
+        triplet = []
+        words = t.strip().split(" ")
+        for word in words:
+            if len(word)>0:
+                triplet.append(word.lower())
+        if len(triplet)>0:
+            new_triplets.append(triplet)
+
+
     output_dict = {}
-    output_dict['triplets'] = str(response.TripletExtractionResult)
+    output_dict['triplets'] = new_triplets
 
     return output_dict
 
-
+def streaming_summarize_url(input_dict,widget,stream=None):
+    import pyteaser
+    summaries = pyteaser.SummarizeUrl(input_dict['url'])
+    output_dict = {}
+    output_dict['summary']=" ".join(summaries)
+    return output_dict
 
 def streaming_active_sentiment_analysis(input_dict,widget,stream=None):
     import pickle

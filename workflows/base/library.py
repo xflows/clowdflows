@@ -145,6 +145,9 @@ def base_ravel_list(input_dict):
 def base_wordcloud(input_dict):
     return {}
 
+def base_triplet_graph(input_dict):
+    return {}
+
 def split_documents(input_dict):
     output_dict = {}
     documents = input_dict['string'].splitlines()
