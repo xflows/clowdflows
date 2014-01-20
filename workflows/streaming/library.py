@@ -216,7 +216,7 @@ def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
     from pysimplesoap.client import SoapClient, SoapFault
     import pysimplesoap
 
-    client = SoapClient(location = "http://batman.ijs.si:8008/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    client = SoapClient(location = "http://95.87.154.167:8088/",action = 'http://95.87.154.167:8088/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
     pysimplesoap.client.TIMEOUT = 60
 
     list_of_tweets = input_dict['ltw']
@@ -245,11 +245,26 @@ def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
 
     return output_dict
 
+def streaming_triplet_extraction(input_dict,widget,stream=None):
+    from pysimplesoap.client import SoapClient, SoapFault
+    import pysimplesoap
+    client = SoapClient(location = "http://95.87.154.167:8008/",action = 'http://95.87.154.167:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    pysimplesoap.client.TIMEOUT = 36000
+
+    text = input_dict['text']
+    response = client.TripletExtraction(text=text)
+    output_dict = []
+    output_dict['triplets'] = str(reponse.TripletExtractionResult)
+
+    return output_dict
+
+
+
 def streaming_active_sentiment_analysis(input_dict,widget,stream=None):
     import pickle
     from pysimplesoap.client import SoapClient, SoapFault
     import pysimplesoap
-    client = SoapClient(location = "http://batman.ijs.si:8008/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    client = SoapClient(location = "http://95.87.154.167:8088/",action = 'http://95.87.154.167:8088/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
     pysimplesoap.client.TIMEOUT = 600
 
     list_of_tweets = input_dict['ltw']
@@ -287,7 +302,7 @@ def streaming_sentiment_analysis(input_dict,widget,stream=None):
     from pysimplesoap.client import SoapClient, SoapFault
     import pysimplesoap
 
-    client = SoapClient(location = "http://batman.ijs.si:8008/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    client = SoapClient(location = "http://95.87.154.167:8088/",action = 'http://95.87.154.167:8088/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
     pysimplesoap.client.TIMEOUT = 60
 
     try:
