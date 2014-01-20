@@ -253,8 +253,8 @@ def streaming_triplet_extraction(input_dict,widget,stream=None):
 
     text = input_dict['text']
     response = client.TripletExtraction(text=text)
-    output_dict = []
-    output_dict['triplets'] = str(reponse.TripletExtractionResult)
+    output_dict = {}
+    output_dict['triplets'] = str(response.TripletExtractionResult)
 
     return output_dict
 
