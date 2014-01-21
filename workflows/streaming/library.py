@@ -189,6 +189,24 @@ def streaming_display_tweets(input_dict,widget,stream=None):
             swd.save()
         return {}
 
+def streaming_triplet_graph(input_dict,widget,stream=None):
+    from streams.models import StreamWidgetData
+    if stream is None:
+        return {}
+    else:
+        try:
+            swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+            swd.value = input_dict['triplets']
+            swd.save()
+        except:
+            swd = StreamWidgetData()
+            swd.stream = stream
+            swd.widget = widget
+            data = input_dict['triplets']
+            swd.value = data
+            swd.save()
+        return {}
+
 def streaming_collect_and_display_tweets(input_dict,widget,stream=None):
     from streams.models import StreamWidgetData
     if stream is None:
@@ -245,6 +263,40 @@ def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
 
     return output_dict
 
+def streaming_triplet_porter_stemmer(input_dict,widget,stream=None):
+    import nltk
+    triplets = input_dict['triplets']
+    new_triplets = []
+    porter_stemmer = nltk.stem.PorterStemmer()
+    for triplet in triplets:
+        new_triplet = []
+        for word in triplet:
+            try:
+                new_triplet.append(porter_stemmer.stem(word))
+            except:
+                new_triplet.append(word)
+        new_triplets.append(new_triplet)
+    output_dict = {}
+    output_dict['triplets']=new_triplets
+    return output_dict
+
+def streaming_triplet_wordnet_lemmatizer(input_dict,widget,stream=None):
+    import nltk
+    triplets = input_dict['triplets']
+    new_triplets = []
+    lemmatizer = nltk.stem.WordNetLemmatizer()
+    for triplet in triplets:
+        new_triplet = []
+        for word in triplet:
+            try:
+                new_triplet.append(lemmatizer.lemmatize(word))
+            except:
+                new_triplet.append(word)
+        new_triplets.append(new_triplet)
+    output_dict = {}
+    output_dict['triplets']=new_triplets
+    return output_dict    
+
 def streaming_triplet_extraction(input_dict,widget,stream=None):
     from pysimplesoap.client import SoapClient, SoapFault
     import pysimplesoap
@@ -261,9 +313,7 @@ def streaming_triplet_extraction(input_dict,widget,stream=None):
     new_triplets = []
 
     for triplet in triplets:
-        print triplet
         t = re.sub(r'\([^)]*\)', "",triplet)
-        print t
         triplet = []
         words = t.strip().split(" ")
         for word in words:
@@ -283,6 +333,13 @@ def streaming_summarize_url(input_dict,widget,stream=None):
     summaries = pyteaser.SummarizeUrl(input_dict['url'])
     output_dict = {}
     output_dict['summary']=" ".join(summaries)
+    return output_dict
+
+def streaming_get_article_text(input_dict,widget,stream=None):
+    import pyteaser
+    text = pyteaser.grab_link(input_dict['url'])
+    output_dict = {}
+    output_dict['text']=text.cleaned_text
     return output_dict
 
 def streaming_active_sentiment_analysis(input_dict,widget,stream=None):

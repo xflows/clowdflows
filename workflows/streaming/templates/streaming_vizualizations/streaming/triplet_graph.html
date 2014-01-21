@@ -1,0 +1,136 @@
+{% extends "streams/base.html" %}
+{% block "container" %}
+
+<div class="container">
+<div class="col-xl-12 col-md-12 col-sm-12 col-sx-12">
+    <h1>Triplet graph</h1>
+
+    <div class="triplet_graph">
+    </div>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<style>
+
+.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+.node circle {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+</style>
+<script>
+
+// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
+var links = [
+  {% for triplet in triplets %}
+  {source: "{{triplet.0}}", target: "{{triplet.1}}", type: "link"},
+  {source: "{{triplet.1}}", target: "{{triplet.2}}", type: "link"},
+  {% endfor %}
+];
+var nodes = {};
+
+// Compute the distinct nodes from the links.
+links.forEach(function(link) {
+  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
+  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
+});
+
+var width = 1170,
+    height = 900;
+
+var force = d3.layout.force()
+    .nodes(d3.values(nodes))
+    .links(links)
+    .size([width, height])
+    .linkDistance(30)
+    .charge(-80)
+    .on("tick", tick)
+    .start();
+
+var svg = d3.select("div.triplet_graph").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var link = svg.selectAll(".link")
+    .data(force.links())
+  .enter().append("line")
+    .attr("class", "link");
+
+var node = svg.selectAll(".node")
+    .data(force.nodes())
+  .enter().append("g")
+    .attr("class", "node")
+    .on("mouseover", mouseover)
+    .on("mouseout", mouseout)
+    .call(force.drag);
+
+node.append("circle")
+    .attr("r", 6);
+
+node.append("text")
+    .attr("x", 12)
+    .attr("dy", ".35em")
+    .text(function(d) { return d.name; });
+
+function tick() {
+  link
+      .attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+  node
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+}
+
+function mouseover() {
+  d3.select(this).select("circle").transition()
+      .duration(750)
+      .attr("r", 8);
+}
+
+function mouseout() {
+  d3.select(this).select("circle").transition()
+      .duration(750)
+      .attr("r", 6);
+}
+
+/*setTimeout(function() {
+  var a = {id: "a"}, b = {id: "b"}, c = {id: "c"};
+  node.push(a, b, c);
+  link.push({source: a, target: b}, {source: a, target: c}, {source: b, target: c});
+  start();
+}, 0);
+
+function start() {
+  link = link.data(force.links(), function(d) { return d.source.id + "-" + d.target.id; });
+  link.enter().insert("line", ".node").attr("class", "link");
+  link.exit().remove();
+
+  node = node.data(force.nodes(), function(d) { return d.id;});
+  node.enter().append("circle").attr("class", function(d) { return "node " + d.id; }).attr("r", 8);
+  node.exit().remove();
+
+  force.start();
+}
+*/
+setTimeout(function() {
+    location.reload();
+},2000*{% if stream.period > 5 %}{{stream.period}}{% else %}5{% endif %})
+
+</script>
+</div>
+</div>
+
+{% endblock %}

@@ -219,6 +219,120 @@
     }
   }, 
   {
+    "pk": 243, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 43, 
+      "treeview_image": "", 
+      "name": "Get news article", 
+      "is_streaming": true, 
+      "uid": "96cc52ff-109a-48b3-ac54-e0a8e3d4f1fa", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_get_article_text", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 522, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 243, 
+      "name": "URL", 
+      "short_name": "url", 
+      "uid": "9cf13cf8-deb9-4175-8a71-d11da0984c99", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "url", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "URL of a news article"
+    }
+  }, 
+  {
+    "pk": 251, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 243, 
+      "name": "Text", 
+      "short_name": "txt", 
+      "variable": "text", 
+      "uid": "1ca48b0e-8d71-41f5-9754-61cbd1e2b9bc", 
+      "order": 1, 
+      "description": "Summary"
+    }
+  }, 
+  {
+    "pk": 242, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 43, 
+      "treeview_image": "", 
+      "name": "Porter stemmer on triplets", 
+      "is_streaming": true, 
+      "uid": "9dc49613-daa0-440f-bb2c-80909edee633", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_triplet_porter_stemmer", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 521, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 242, 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "uid": "4887ef25-3d11-47a7-97b3-6d225eddb38a", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 250, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 242, 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "variable": "triplets", 
+      "uid": "90738598-90c0-41ed-9039-d541a6c61133", 
+      "order": 1, 
+      "description": "Triplets"
+    }
+  }, 
+  {
     "pk": 225, 
     "model": "workflows.abstractwidget", 
     "fields": {
@@ -230,7 +344,7 @@
       "interaction_view": "", 
       "image": "", 
       "package": "streaming", 
-      "static_image": "", 
+      "static_image": "rss.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -610,6 +724,63 @@
     }
   }, 
   {
+    "pk": 240, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 43, 
+      "treeview_image": "", 
+      "name": "Summarize news article", 
+      "is_streaming": true, 
+      "uid": "90c0715f-36e0-4e06-a2ef-7fb88bf95943", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "summary.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_summarize_url", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Summarizes a news article retrieved by URL."
+    }
+  }, 
+  {
+    "pk": 519, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 240, 
+      "name": "URL", 
+      "short_name": "url", 
+      "uid": "e475bee2-b965-48fe-b027-4447bc0c6005", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "url", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "URL of a news article"
+    }
+  }, 
+  {
+    "pk": 249, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 240, 
+      "name": "Summary", 
+      "short_name": "txt", 
+      "variable": "summary", 
+      "uid": "64b1fc78-bd34-4fd1-8cbc-04fd17a94fbd", 
+      "order": 1, 
+      "description": "Summary"
+    }
+  }, 
+  {
     "pk": 231, 
     "model": "workflows.abstractwidget", 
     "fields": {
@@ -709,7 +880,7 @@
       "interaction_view": "", 
       "image": "", 
       "package": "streaming", 
-      "static_image": "", 
+      "static_image": "triplets.png", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -747,7 +918,7 @@
     "fields": {
       "widget": 239, 
       "name": "Triplets", 
-      "short_name": "str", 
+      "short_name": "tri", 
       "variable": "triplets", 
       "uid": "c9bffa1b-2a47-4353-a646-290b1a4640ad", 
       "order": 1, 
@@ -977,6 +1148,63 @@
     }
   }, 
   {
+    "pk": 244, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 43, 
+      "treeview_image": "", 
+      "name": "WordNet lemmatizer on triplets", 
+      "is_streaming": true, 
+      "uid": "10957b62-2dcb-4461-8146-70eecf27fcff", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "wordnet.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "streaming_triplet_wordnet_lemmatizer", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 523, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 244, 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "uid": "e9bc6945-54fb-4128-87ae-75aa1b7f9a79", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 252, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 244, 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "variable": "triplets", 
+      "uid": "0b0219b5-8b80-4e61-8cb1-f02123649d54", 
+      "order": 1, 
+      "description": "Triplets"
+    }
+  }, 
+  {
     "pk": 44, 
     "model": "workflows.category", 
     "fields": {
@@ -1118,6 +1346,50 @@
       "parameter": false, 
       "order": 1, 
       "description": "List of tweets (can be annotated or not)"
+    }
+  }, 
+  {
+    "pk": 245, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 44, 
+      "treeview_image": "", 
+      "name": "Streaming triplet graph", 
+      "is_streaming": true, 
+      "uid": "cf3f6218-1b21-4864-9ee1-c22069abe03d", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "streaming", 
+      "static_image": "BiomineVisualizer.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "streaming_triplet_graph_visualization", 
+      "action": "streaming_triplet_graph", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 524, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 245, 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "uid": "e9c4bd5a-0ea4-4739-bc7c-d95bb40d7e57", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Triplets"
     }
   }, 
   {
