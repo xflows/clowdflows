@@ -1,0 +1,677 @@
+[
+  {
+    "pk": 5,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "cf7b1d24-7c6d-4cd1-bcc9-16e43e1ab5a7",
+      "parent": null,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Big data"
+    }
+  },
+  {
+    "pk": 34,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 5,
+      "treeview_image": "",
+      "name": "File URL",
+      "is_streaming": false,
+      "uid": "189c6a1b-612a-4ca6-a7e3-c39349922781",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "file_url",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 51,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34,
+      "name": "URL",
+      "short_name": "url",
+      "uid": "e2883c3d-7b3a-46ec-8673-10da5f494ec9",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "url",
+      "parameter": true,
+      "order": 1,
+      "description": "URL of the dataset. "
+    }
+  },
+  {
+    "pk": 59,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34,
+      "name": "Gziped data",
+      "short_name": "zip",
+      "uid": "d62fc126-afda-4f0b-876d-5180cd409779",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "data_type",
+      "parameter": true,
+      "order": 2,
+      "description": "Check if data is in gziped form."
+    }
+  },
+  {
+    "pk": 57,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34,
+      "name": "Feature indices",
+      "short_name": "ind",
+      "uid": "e32184e0-f38a-466f-a991-82e084a1cd8b",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "X_indices",
+      "parameter": true,
+      "order": 3,
+      "description": "Define indices of features. Example: 1 - 10 for indices from 1 to 10 or 1,2 for indices 1 and 2."
+    }
+  },
+  {
+    "pk": 56,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34,
+      "name": "ID index",
+      "short_name": "id",
+      "uid": "f100a206-8fdd-4f8f-afa4-c7d3c3b6f0ca",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "id_index",
+      "parameter": true,
+      "order": 4,
+      "description": "Define index of id feature. It is used just with test data. If it is not defined, it will be ommited "
+    }
+  },
+  {
+    "pk": 58,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34,
+      "name": "Target index",
+      "short_name": "tar",
+      "uid": "69a3061b-9dcf-4c18-9f69-b5bc082dd65e",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "y_index",
+      "parameter": true,
+      "order": 5,
+      "description": "Define index of target label. If not defined, last feature will be used."
+    }
+  },
+  {
+    "pk": 60,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34,
+      "name": "Delimiter",
+      "short_name": "dlt",
+      "uid": "fd2eff8a-b2d0-4de6-9384-13ce5385e3fc",
+      "default": ",",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "delimiter",
+      "parameter": true,
+      "order": 6,
+      "description": "Define delimiter to parse the data."
+    }
+  },
+  {
+    "pk": 61,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34,
+      "name": "Missing values",
+      "short_name": "mv",
+      "uid": "f393261f-ba93-4ed5-bdfc-82f6027bb327",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "missing_vals",
+      "parameter": true,
+      "order": 7,
+      "description": "Lines that contains missing symbols will be skipped. Example: ? , - (comma is separator)"
+    }
+  },
+  {
+    "pk": 62,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34,
+      "name": "Target label transformation",
+      "short_name": "trn",
+      "uid": "04fb15c3-7d69-43e7-a009-0eb9a3c3a33e",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "y_tran",
+      "parameter": true,
+      "order": 8,
+      "description": "define transformation values for binary target variable. For example, if we use SVM, which requires 1 and -1 values for target variable, and our data contains some other values for target variable (Healthy, Sick), we can specify y_tran = [\"Healthy\", \"Sick\"]. Healthy is transformed to 1, Sick to -1."
+    }
+  },
+  {
+    "pk": 34,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 34,
+      "name": "Dataset",
+      "short_name": "dst",
+      "variable": "dataset",
+      "uid": "819161f8-dffa-4ad3-8952-11b9d14f0c40",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 6,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "0165a189-a6ea-4152-8b5c-f507d47bc0e6",
+      "parent": 5,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "Classification"
+    }
+  },
+  {
+    "pk": 37,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 6,
+      "treeview_image": "",
+      "name": "Gaussian Naive Bayes Fit",
+      "is_streaming": false,
+      "uid": "477a2f37-5015-4a46-a243-08c8e84256b7",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "gaussian_naive_bayes_fit",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 63,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 37,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "06ec10c3-e773-4a86-a91d-873af823c9f3",
+      "default": "",
+      "required": true,
+      "multi": true,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 35,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 37,
+      "name": "Fit model",
+      "short_name": "fit",
+      "variable": "fitmodel_url",
+      "uid": "ec9ad7fc-1788-46c4-bdb8-4d080b740b7f",
+      "order": 1,
+      "description": "Fit model URL"
+    }
+  },
+  {
+    "pk": 38,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 6,
+      "treeview_image": "",
+      "name": "Gaussian Naive Bayes Predict",
+      "is_streaming": false,
+      "uid": "672a3a70-1bd9-4c99-b55a-e5fe8fc5c264",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "gaussian_naive_bayes_predict",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 64,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 38,
+      "name": "Fit Model",
+      "short_name": "fit",
+      "uid": "4f190e78-d94e-4318-87c1-4fcd8625650d",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "fitmodel_url",
+      "parameter": false,
+      "order": 1,
+      "description": "Fit Model URL"
+    }
+  },
+  {
+    "pk": 65,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 38,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "08f26e43-9ceb-4081-b00c-265c567096b2",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 66,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 38,
+      "name": "Log probabilities",
+      "short_name": "log",
+      "uid": "ad2231df-eef5-44b4-8a60-50f855a28fcb",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "log_probs",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 36,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 38,
+      "name": "Prediction",
+      "short_name": "str",
+      "variable": "string",
+      "uid": "4759f850-a661-4414-89e9-6b7a5d4b3b8e",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 39,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 6,
+      "treeview_image": "",
+      "name": "Logistic regression fit",
+      "is_streaming": false,
+      "uid": "16042741-6834-43ab-9587-b64a1f460238",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "log_reg_fit",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 67,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 39,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "29dd4a35-7639-493f-9e7b-a64f54f0d06d",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 68,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 39,
+      "name": "Convergence",
+      "short_name": "con",
+      "uid": "104f5edc-6029-4ae8-8a83-29557fa901fd",
+      "default": "1e-8",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "alpha",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 69,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 39,
+      "name": "Iterations",
+      "short_name": "itr",
+      "uid": "73fbdb1a-8889-46d9-8eed-907156de7956",
+      "default": "10",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "itr",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 37,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 39,
+      "name": "Fit model",
+      "short_name": "fit",
+      "variable": "fitmodel_url",
+      "uid": "08ee7516-92b7-4096-8199-3fd5d397f1e1",
+      "order": 1,
+      "description": "Fit model URL"
+    }
+  },
+  {
+    "pk": 40,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 6,
+      "treeview_image": "",
+      "name": "Logistic regression predict",
+      "is_streaming": false,
+      "uid": "dd67df4e-7c84-4d0e-aa7f-6c94ebd0356a",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "log_reg_predict",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 70,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 40,
+      "name": "Fit model",
+      "short_name": "fit",
+      "uid": "ab0969e7-bed6-4381-926f-ac5a16a77c08",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "fitmodel_url",
+      "parameter": false,
+      "order": 1,
+      "description": "Fit model URL."
+    }
+  },
+  {
+    "pk": 71,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 40,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "ce059641-3abd-49e1-9c55-d3476e0db0ee",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 38,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 40,
+      "name": "Predictions",
+      "short_name": "str",
+      "variable": "string",
+      "uid": "ed188c69-7d64-4b52-9212-823283fc1665",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 35,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 6,
+      "treeview_image": "",
+      "name": "Multinomial Naive Bayes Fit",
+      "is_streaming": false,
+      "uid": "e8714044-edf0-4f04-906f-34775e5f6072",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "multinomail_naive_bayes_fit",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 52,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 35,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "fa45f814-8206-4256-9964-451c88607b9f",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 32,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 35,
+      "name": "Fit model",
+      "short_name": "fit",
+      "variable": "fitmodel_url",
+      "uid": "fb8e25c8-3a32-467e-a070-87c40392a260",
+      "order": 1,
+      "description": "Fit model URL"
+    }
+  },
+  {
+    "pk": 36,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 6,
+      "treeview_image": "",
+      "name": "Multinomial Naive Bayes predict",
+      "is_streaming": false,
+      "uid": "8c7d9b54-7535-441e-bc33-ea8e322f5bd7",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "multinomial_naive_bayes_predict",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 54,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 36,
+      "name": "Fit model",
+      "short_name": "fit",
+      "uid": "bbceed4d-4b34-4491-961c-daad03749524",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "fitmodel_url",
+      "parameter": false,
+      "order": 1,
+      "description": "Fit model URL."
+    }
+  },
+  {
+    "pk": 53,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 36,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "59fcf118-8d2d-4789-b91a-f31b2d62e141",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 55,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 36,
+      "name": "m",
+      "short_name": "m",
+      "uid": "48392fb5-a666-4d71-ae2d-21e663e05e0b",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "m",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 33,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 36,
+      "name": "Predictions",
+      "short_name": "str",
+      "variable": "string",
+      "uid": "bcc89e7e-2da1-4efc-80f1-8dc42ff433bb",
+      "order": 1,
+      "description": ""
+    }
+  }
+]
