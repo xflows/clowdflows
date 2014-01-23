@@ -1,7 +1,7 @@
 
 def file_url(input_dict):
     from discomll import dataset
-    
+
     X_indices_splited = input_dict["X_indices"].replace(" ","").split("-")
     if len(X_indices_splited) == 2:
         a, b = X_indices_splited
@@ -13,16 +13,17 @@ def file_url(input_dict):
     del(input_dict["X_indices"])
 
     input_dict["data_type"] = "gzip" if input_dict["data_type"] == "true" else ""
+    urls = [url.strip() for url in input_dict["url"].split("\n") if url != ""]
 
-    data = dataset.Data(data_tag = [input_dict["url"]],
+    data = dataset.Data(data_tag = urls,
                             X_indices = X_indices,
                             **input_dict)
-    #print input_dict
+
     return {"dataset" : data}
 
 def log_reg_fit(input_dict):
     from discomll.classification import logistic_regression
-    #print input_dict["dataset"].y_tran
+
     fit_model_url = logistic_regression.fit(input_dict["dataset"],
                                             alpha = input_dict["alpha"],
                                             max_iterations = input_dict["itr"])
@@ -53,15 +54,14 @@ def gaussian_naive_bayes_fit(input_dict):
 
 def gaussian_naive_bayes_predict(input_dict):
     from discomll.classification import naivebayes_gaussian
-    from disco.core import Disco
-    #ddfs = Disco().ddfs
+ 
+
 
     predictions_url = naivebayes_gaussian.predict(input = input_dict["dataset"], 
                                 fit_model_url = input_dict["fitmodel_url"],
                                 log_probs = True if input_dict["log_probs"] == "true" else False,
                                 save_results = True )
 
-    #print ddfs.get(predictions_url)["urls"]
     #results widget
     from disco.core import result_iterator    
     pred = "ID__Pred__Real__Probs\n"
@@ -83,20 +83,15 @@ def multinomail_naive_bayes_fit(input_dict):
 
 def multinomial_naive_bayes_predict(input_dict):
     from discomll.classification import naivebayes_multinomial
-    from disco.core import Disco
-    ddfs = Disco().ddfs
+
     
-    print list(ddfs.blobs(input_dict["fitmodel_url"]))
     m = 1 if input_dict["m"] == "" else input_dict["m"]
     predictions_url = naivebayes_multinomial.predict(input = input_dict["dataset"], 
                                 fit_model_url = input_dict["fitmodel_url"],
                                 m = m,
                                 save_results = True)
 
-    #print predictions_url
-    print list(ddfs.blobs(predictions_url))
     
-    #print ddfs.get(predictions_url)["urls"]
     #ta del gre v results
     from disco.core import result_iterator
     pred = "ID__Pred__Real__Probs\n"
