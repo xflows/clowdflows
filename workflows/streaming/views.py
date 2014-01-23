@@ -109,6 +109,14 @@ def streaming_collect_and_display_visualization(request,widget,stream):
     return render(request, 'streaming_vizualizations/streaming/display_tweets.html', {'tweets':tweets,'widget':widget,
         'stream':stream,'paged':tweets})
 
+def streaming_triplet_graph_visualization(request,widget,stream):
+    try:
+        triplets = StreamWidgetData.objects.get(widget=widget,stream=stream).value
+    except:
+        triplets = []
+    return render(request, 'streaming_vizualizations/streaming/triplet_graph.html', {'triplets':triplets,'widget':widget,'stream':stream})
+
+
 def streaming_sentiment_graph(request,widget,stream):
     zoomlevel = "day"
     if request.GET.has_key('zoomlevel'):

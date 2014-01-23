@@ -2,16 +2,13 @@
 {% load url from future %}
 
 {% block "streamnav" %}
-
-<div class="navbar">
-  <div class="navbar-inner">
-    <a class="brand">{{stream}}</a>
-    <ul class="nav">
-        {% for w in stream.stream_visualization_widgets %}
+<br>
+<nav class="navbar navbar-default" role="navigation">
+    <ul class="nav navbar-nav">
+    {% for w in stream.stream_visualization_widgets %}
         <li {% if widget.pk == w.pk %}class="active"{% endif %}><a href="{% url 'stream widget visualization' stream.pk w.pk %}">{{w}}</a></li>
       {% endfor %}
     </ul>
-  </div>
-</div>
+</nav>
 
 {% endblock %}

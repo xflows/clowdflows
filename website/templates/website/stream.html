@@ -36,7 +36,7 @@
   {% else %}
   <a href="{% url 'activate stream' stream.pk %}" class="btn btn-success btn-large">Activate</a>
   {% endif %}
-  <a href="javascript:;" class="reset-stream btn btn-warning btn-danger btn-large">Reset</a>
+  <a href="{% url 'reset stream' stream.pk %}" class="reset-stream btn btn-warning btn-danger btn-large">Reset</a>
   </div>
 </div>
 <hr>
@@ -54,7 +54,7 @@
   {% for w in stream.stream_visualization_widgets %}
   <tr>
     <td class="name">{{w}}</td>
-    <td><a href="{% url 'stream widget visualization' stream.pk w.pk %}" class="btn btn-mini">View results</a></td>
+    <td><a href="{% url 'stream widget visualization' stream.pk w.pk %}" class="btn btn-sm btn-default">View results</a></td>
   </tr>
   {% endfor %}
 </tbody>

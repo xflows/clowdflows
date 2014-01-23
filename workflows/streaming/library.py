@@ -189,6 +189,24 @@ def streaming_display_tweets(input_dict,widget,stream=None):
             swd.save()
         return {}
 
+def streaming_triplet_graph(input_dict,widget,stream=None):
+    from streams.models import StreamWidgetData
+    if stream is None:
+        return {}
+    else:
+        try:
+            swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+            swd.value = input_dict['triplets']
+            swd.save()
+        except:
+            swd = StreamWidgetData()
+            swd.stream = stream
+            swd.widget = widget
+            data = input_dict['triplets']
+            swd.value = data
+            swd.save()
+        return {}
+
 def streaming_collect_and_display_tweets(input_dict,widget,stream=None):
     from streams.models import StreamWidgetData
     if stream is None:
@@ -216,7 +234,7 @@ def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
     from pysimplesoap.client import SoapClient, SoapFault
     import pysimplesoap
 
-    client = SoapClient(location = "http://batman.ijs.si:8008/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    client = SoapClient(location = "http://95.87.154.167:8088/",action = 'http://95.87.154.167:8088/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
     pysimplesoap.client.TIMEOUT = 60
 
     list_of_tweets = input_dict['ltw']
@@ -245,11 +263,90 @@ def streaming_tweet_sentiment_service(input_dict,widget,stream=None):
 
     return output_dict
 
+def streaming_triplet_porter_stemmer(input_dict,widget,stream=None):
+    import nltk
+    triplets = input_dict['triplets']
+    new_triplets = []
+    porter_stemmer = nltk.stem.PorterStemmer()
+    for triplet in triplets:
+        new_triplet = []
+        for word in triplet:
+            try:
+                new_triplet.append(porter_stemmer.stem(word))
+            except:
+                new_triplet.append(word)
+        new_triplets.append(new_triplet)
+    output_dict = {}
+    output_dict['triplets']=new_triplets
+    return output_dict
+
+def streaming_triplet_wordnet_lemmatizer(input_dict,widget,stream=None):
+    import nltk
+    triplets = input_dict['triplets']
+    new_triplets = []
+    lemmatizer = nltk.stem.WordNetLemmatizer()
+    for triplet in triplets:
+        new_triplet = []
+        for word in triplet:
+            try:
+                new_triplet.append(lemmatizer.lemmatize(word))
+            except:
+                new_triplet.append(word)
+        new_triplets.append(new_triplet)
+    output_dict = {}
+    output_dict['triplets']=new_triplets
+    return output_dict    
+
+def streaming_triplet_extraction(input_dict,widget,stream=None):
+    from pysimplesoap.client import SoapClient, SoapFault
+    import pysimplesoap
+    import re
+    client = SoapClient(location = "http://95.87.154.167:8008/",action = 'http://95.87.154.167:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    pysimplesoap.client.TIMEOUT = 36000
+
+    text = input_dict['text']
+    response = client.TripletExtraction(text=text)
+
+    triplets = str(response.TripletExtractionResult)
+    triplets = triplets.split("\n")
+
+    new_triplets = []
+
+    for triplet in triplets:
+        t = re.sub(r'\([^)]*\)', "",triplet)
+        triplet = []
+        words = t.strip().split(" ")
+        for word in words:
+            if len(word)>0:
+                triplet.append(word.lower())
+        if len(triplet)>0:
+            new_triplets.append(triplet)
+
+
+    output_dict = {}
+    output_dict['triplets'] = new_triplets
+
+    return output_dict
+
+def streaming_summarize_url(input_dict,widget,stream=None):
+    import pyteaser
+    summaries = pyteaser.SummarizeUrl(input_dict['url'])
+    output_dict = {}
+    output_dict['summary']=" ".join(summaries)
+    return output_dict
+
+def streaming_get_article_text(input_dict,widget,stream=None):
+    import pyteaser
+    text = pyteaser.grab_link(input_dict['url'])
+    output_dict = {}
+    output_dict['text']=text.cleaned_text
+    return output_dict
+
 def streaming_active_sentiment_analysis(input_dict,widget,stream=None):
     import pickle
     from pysimplesoap.client import SoapClient, SoapFault
     import pysimplesoap
-    client = SoapClient(location = "http://batman.ijs.si:8008/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    client = SoapClient(location = "http://95.87.154.167:8088/",action = 'http://95.87.154.167:8088/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
     pysimplesoap.client.TIMEOUT = 600
 
     list_of_tweets = input_dict['ltw']
@@ -287,7 +384,7 @@ def streaming_sentiment_analysis(input_dict,widget,stream=None):
     from pysimplesoap.client import SoapClient, SoapFault
     import pysimplesoap
 
-    client = SoapClient(location = "http://batman.ijs.si:8008/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    client = SoapClient(location = "http://95.87.154.167:8088/",action = 'http://95.87.154.167:8088/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
     pysimplesoap.client.TIMEOUT = 60
 
     try:

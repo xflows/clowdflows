@@ -10,4 +10,5 @@ httplib2==0.7.5
 wsgiref==0.1.2
 unidecode==0.04.13
 django-jsonview==0.3.0
-
+feedparser==5.1.3
+pyteaser==1.0

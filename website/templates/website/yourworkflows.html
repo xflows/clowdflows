@@ -23,8 +23,8 @@
     <td>
       {% if w.can_be_streaming %}
         {% if w.stream %}
-          {% if w.stream.active %}<span class="label label-success"><span class="glyphicon glyphicon-ok"></span> Active</span> <a href="{{w.stream.get_absolute_url}}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-wrench"></span></a>
-          {% else %}<span class="label label-warning"><span class="glyphicon glyphicon-remove"></span> Inactive</span> <a href="{{w.stream.get_absolute_url}}" class="btn btn-mini"><i class="icon-wrench"></i></a>{% endif %}
+          {% if w.stream.active %}<span class="label label-success"><span class="glyphicon glyphicon-ok"></span> Active</span> <a href="{{w.stream.get_absolute_url}}" class="btn btn-default btn-xs btn-default"><span class="glyphicon glyphicon-wrench"></span></a>
+          {% else %}<span class="label label-warning"><span class="glyphicon glyphicon-remove"></span> Inactive</span> <a href="{{w.stream.get_absolute_url}}" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-wrench"></span></a>{% endif %}
         {% else %}<a href="{% url 'start stream' w.pk %}" class="btn btn-info btn-xs">Start stream mining</a>{% endif %}
       {% else %}<span class="label label-default"><span class="glyphicon glyphicon-remove"></span> No streaming widgets</span>{% endif %}
     </td>
