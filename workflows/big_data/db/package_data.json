@@ -42,7 +42,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 34,
-      "name": "URL",
+      "name": "URLs",
       "short_name": "url",
       "uid": "e2883c3d-7b3a-46ec-8673-10da5f494ec9",
       "default": "",
@@ -52,7 +52,25 @@
       "variable": "url",
       "parameter": true,
       "order": 1,
-      "description": "URL of the dataset. "
+      "description": "Multiple URLs can be specified, where the number of URLs defines a number of map task that will process the data in parallel. An URL should be accessible via HTTP and not HTTPS. "
+    }
+  },
+  {
+    "pk": 72,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34,
+      "name": "Range",
+      "short_name": "rng",
+      "uid": "992a24e0-0365-46ef-8dd2-37fa19563bd5",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "range",
+      "parameter": true,
+      "order": 2,
+      "description": "The range parameter is used with URLs that points to file chunks, named as xaaaa to xzzzz. This naming is provided by the unix split command. The first and last URL should be defined in the URLs text box. Intermediate URLs will be automatically generated."
     }
   },
   {
@@ -60,7 +78,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 34,
-      "name": "Gziped data",
+      "name": "Gzipped data",
       "short_name": "zip",
       "uid": "d62fc126-afda-4f0b-876d-5180cd409779",
       "default": "",
@@ -69,8 +87,8 @@
       "parameter_type": "checkbox",
       "variable": "data_type",
       "parameter": true,
-      "order": 2,
-      "description": "Check if data is in gziped form."
+      "order": 3,
+      "description": "Select if specified URLs point to data in gzipped format."
     }
   },
   {
@@ -87,8 +105,8 @@
       "parameter_type": "text",
       "variable": "X_indices",
       "parameter": true,
-      "order": 3,
-      "description": "Define indices of features. Example: 1 - 10 for indices from 1 to 10 or 1,2 for indices 1 and 2."
+      "order": 4,
+      "description": "Define indices of features to processed. \r\n\r\nExample: 1 - 10 for indices in the range from 1 to 10 or 1,2 for indices 1 and 2."
     }
   },
   {
@@ -105,8 +123,8 @@
       "parameter_type": "text",
       "variable": "id_index",
       "parameter": true,
-      "order": 4,
-      "description": "Define index of id feature. It is used just with test data. If it is not defined, it will be ommited "
+      "order": 5,
+      "description": "Define the index of the ID feature in the data. The ID index should be defined with test data."
     }
   },
   {
@@ -114,7 +132,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 34,
-      "name": "Target index",
+      "name": "Target label index",
       "short_name": "tar",
       "uid": "69a3061b-9dcf-4c18-9f69-b5bc082dd65e",
       "default": "",
@@ -123,8 +141,8 @@
       "parameter_type": "text",
       "variable": "y_index",
       "parameter": true,
-      "order": 5,
-      "description": "Define index of target label. If not defined, last feature will be used."
+      "order": 6,
+      "description": "Define the index of the target label feature in the data. If it is not defined, last feature will be used as the target label in the fit phase.\r\nIf the index is defined in the predict phase, target labels will be output with predicted target labels."
     }
   },
   {
@@ -141,7 +159,7 @@
       "parameter_type": "text",
       "variable": "delimiter",
       "parameter": true,
-      "order": 6,
+      "order": 7,
       "description": "Define delimiter to parse the data."
     }
   },
@@ -159,8 +177,8 @@
       "parameter_type": "text",
       "variable": "missing_vals",
       "parameter": true,
-      "order": 7,
-      "description": "Lines that contains missing symbols will be skipped. Example: ? , - (comma is separator)"
+      "order": 8,
+      "description": "Lines that contains missing symbols will be skipped. Define symbols and separate them with comma , .\r\n\r\nExample: ?, x"
     }
   },
   {
@@ -168,17 +186,17 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 34,
-      "name": "Target label transformation",
-      "short_name": "trn",
+      "name": "Target label mapping",
+      "short_name": "map",
       "uid": "04fb15c3-7d69-43e7-a009-0eb9a3c3a33e",
       "default": "",
       "required": false,
       "multi": false,
       "parameter_type": "text",
-      "variable": "y_tran",
+      "variable": "y_map",
       "parameter": true,
-      "order": 8,
-      "description": "define transformation values for binary target variable. For example, if we use SVM, which requires 1 and -1 values for target variable, and our data contains some other values for target variable (Healthy, Sick), we can specify y_tran = [\"Healthy\", \"Sick\"]. Healthy is transformed to 1, Sick to -1."
+      "order": 9,
+      "description": "The target label mapping parameter defines a mapping of values for a binary target label. It is used with Logistic regression and Linear proximal SVM.\r\n\r\nFor example, the Logistic regression classifier uses 0 and 1 as a target label. If the data contains discrete target labels (e.g. healthy, sick), a mapping should be defined, where healthy is mapped to 1 and sick to 0. The target label mapping is used only for binary target labels.\r\nTarget label mapping: healthy, sick"
     }
   },
   {
@@ -212,7 +230,7 @@
     "fields": {
       "category": 6,
       "treeview_image": "",
-      "name": "Gaussian Naive Bayes Fit",
+      "name": "Gaussian Naive Bayes fit",
       "is_streaming": false,
       "uid": "477a2f37-5015-4a46-a243-08c8e84256b7",
       "interaction_view": "",
@@ -269,7 +287,7 @@
     "fields": {
       "category": 6,
       "treeview_image": "",
-      "name": "Gaussian Naive Bayes Predict",
+      "name": "Gaussian Naive Bayes predict",
       "is_streaming": false,
       "uid": "672a3a70-1bd9-4c99-b55a-e5fe8fc5c264",
       "interaction_view": "",
@@ -285,7 +303,7 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 1,
+      "order": 2,
       "description": ""
     }
   },
@@ -340,7 +358,7 @@
       "variable": "log_probs",
       "parameter": true,
       "order": 3,
-      "description": ""
+      "description": "Calculate logarithm probabilities."
     }
   },
   {
@@ -352,6 +370,156 @@
       "short_name": "str",
       "variable": "string",
       "uid": "4759f850-a661-4414-89e9-6b7a5d4b3b8e",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 45,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 6,
+      "treeview_image": "",
+      "name": "Linear proximal SVM fit",
+      "is_streaming": false,
+      "uid": "4fddd2e5-f253-4854-a246-389ce6cce36c",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "lpsvm_fit",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 81,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 45,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "66d60bda-e24c-4e40-898a-0627800fe022",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 82,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 45,
+      "name": "The weighting factor",
+      "short_name": "nu",
+      "uid": "e9b6cbcd-fc02-478b-a993-3b42ee730857",
+      "default": "0.01",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "nu",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 43,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 45,
+      "name": "Fit model",
+      "short_name": "fit",
+      "variable": "fitmodel_url",
+      "uid": "52ac4c1a-c595-4d8a-8f7a-5f54f1bce318",
+      "order": 1,
+      "description": "Fit model URL"
+    }
+  },
+  {
+    "pk": 46,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 6,
+      "treeview_image": "",
+      "name": "Linear proximal SVM predict",
+      "is_streaming": false,
+      "uid": "6d84bb32-e028-428c-ba2b-63218f800172",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "lpsvm_predict",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 4,
+      "description": ""
+    }
+  },
+  {
+    "pk": 83,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 46,
+      "name": "Fit model",
+      "short_name": "fit",
+      "uid": "c76297b2-e519-4c5b-b3eb-7a7f5f2835af",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "fitmodel_url",
+      "parameter": false,
+      "order": 1,
+      "description": "Fit model URL."
+    }
+  },
+  {
+    "pk": 84,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 46,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "42897594-631a-415e-b71a-d92668c9e1cb",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 44,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 46,
+      "name": "Predictions",
+      "short_name": "str",
+      "variable": "string",
+      "uid": "c986b79c-8eb7-483f-8dfd-d38ed5a4750e",
       "order": 1,
       "description": ""
     }
@@ -378,8 +546,8 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 1,
-      "description": ""
+      "order": 5,
+      "description": "The logistic regression classifier is a binary classifier that uses numeric features. The classifier learns by fitting theta parameters to the training data using Newton-Raphson method to update theta parameters."
     }
   },
   {
@@ -415,7 +583,7 @@
       "variable": "alpha",
       "parameter": true,
       "order": 2,
-      "description": ""
+      "description": "The value defines the convergence of the logistic regression."
     }
   },
   {
@@ -423,7 +591,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 39,
-      "name": "Iterations",
+      "name": "Max. number of iterations",
       "short_name": "itr",
       "uid": "73fbdb1a-8889-46d9-8eed-907156de7956",
       "default": "10",
@@ -433,7 +601,7 @@
       "variable": "itr",
       "parameter": true,
       "order": 3,
-      "description": ""
+      "description": "Define a maximum number of iterations. If the cost function converges it will stop sooner."
     }
   },
   {
@@ -471,8 +639,8 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 1,
-      "description": ""
+      "order": 6,
+      "description": "The logistic regression classifier is a binary classifier that uses numeric features. The classifier learns by fitting theta parameters to the training data using Newton-Raphson method to update theta parameters."
     }
   },
   {
@@ -530,7 +698,7 @@
     "fields": {
       "category": 6,
       "treeview_image": "",
-      "name": "Multinomial Naive Bayes Fit",
+      "name": "Multinomial Naive Bayes fit",
       "is_streaming": false,
       "uid": "e8714044-edf0-4f04-906f-34775e5f6072",
       "interaction_view": "",
@@ -546,8 +714,8 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 1,
-      "description": ""
+      "order": 7,
+      "description": "The NB classifier uses discrete features. The NB estimates conditional probabilities P(x_j = k|y = c) and prior probabilities P(y) from the training data, where k denotes the value of discrete feature x_j and c denotes a training label. "
     }
   },
   {
@@ -603,8 +771,8 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 1,
-      "description": ""
+      "order": 8,
+      "description": "The NB classifier uses discrete features. The NB estimates conditional probabilities P(x_j = k|y = c) and prior probabilities P(y) from the training data, where k denotes the value of discrete feature x_j and c denotes a training label. "
     }
   },
   {
@@ -651,14 +819,14 @@
       "name": "m",
       "short_name": "m",
       "uid": "48392fb5-a666-4d71-ae2d-21e663e05e0b",
-      "default": "",
+      "default": "0",
       "required": false,
       "multi": false,
       "parameter_type": "text",
       "variable": "m",
       "parameter": true,
       "order": 3,
-      "description": ""
+      "description": "Laplace Smoothing parameter."
     }
   },
   {
@@ -670,6 +838,330 @@
       "short_name": "str",
       "variable": "string",
       "uid": "bcc89e7e-2da1-4efc-80f1-8dc42ff433bb",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 7,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "a6ce3f5e-a0fa-4faa-8be4-5657fcd10b4e",
+      "parent": 5,
+      "workflow": null,
+      "user": null,
+      "order": 2,
+      "name": "Clustering"
+    }
+  },
+  {
+    "pk": 41,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 7,
+      "treeview_image": "",
+      "name": "k-Means fit",
+      "is_streaming": false,
+      "uid": "83c90b6f-9fc1-43d5-a144-6d539497351e",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "kmeans_fit",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "The k-means is a partitional clustering technique that attempts to find a user-specified number of clusters k represented by their centroids."
+    }
+  },
+  {
+    "pk": 73,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 41,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "f840ac50-5422-492f-9ba9-b0e2195fef04",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 74,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 41,
+      "name": "Number of clusters",
+      "short_name": "cls",
+      "uid": "48f3025a-1bcc-41a1-985f-f2b3ae9633e7",
+      "default": "3",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "clusters",
+      "parameter": true,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 75,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 41,
+      "name": "Max. number of iterations",
+      "short_name": "itr",
+      "uid": "a8ec22c5-199b-43ff-9c72-780a49d57ea4",
+      "default": "10",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "itr",
+      "parameter": true,
+      "order": 3,
+      "description": ""
+    }
+  },
+  {
+    "pk": 39,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 41,
+      "name": "Fit model",
+      "short_name": "fit",
+      "variable": "fitmodel_url",
+      "uid": "5bde14bf-9012-4ee2-9f32-f439c19d8981",
+      "order": 1,
+      "description": "Fit model URL"
+    }
+  },
+  {
+    "pk": 42,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 7,
+      "treeview_image": "",
+      "name": "k-Means predict",
+      "is_streaming": false,
+      "uid": "6a9edb17-374a-4435-b2b5-85de73714537",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "kmeans_predict",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 76,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Fit model",
+      "short_name": "fit",
+      "uid": "f14da637-1699-4278-9dd6-912d4db15eca",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "fitmodel_url",
+      "parameter": false,
+      "order": 1,
+      "description": "Fit Model URL"
+    }
+  },
+  {
+    "pk": 77,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 42,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "f3f54b2d-ba4b-440d-8600-c3630deec970",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 40,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 42,
+      "name": "Prediction",
+      "short_name": "str",
+      "variable": "string",
+      "uid": "92f87c76-e078-49dc-a9f3-79a148ae30c8",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 8,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "0f139640-cca3-4b0c-91f9-dbd42f47e73c",
+      "parent": 5,
+      "workflow": null,
+      "user": null,
+      "order": 3,
+      "name": "Regression"
+    }
+  },
+  {
+    "pk": 43,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 8,
+      "treeview_image": "",
+      "name": "Linear regression fit",
+      "is_streaming": false,
+      "uid": "f8074c26-f066-4004-bf6e-6a453953e1ad",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "lin_reg_fit",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "The linear regression fits theta parameters to training data."
+    }
+  },
+  {
+    "pk": 78,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 43,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "d7e7f211-c4ec-4e2c-905c-81f18791e534",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 41,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 43,
+      "name": "Fit model",
+      "short_name": "fit",
+      "variable": "fitmodel_url",
+      "uid": "11afdd34-208f-4d47-be0c-88eece6d3ec4",
+      "order": 1,
+      "description": "Fit model URL"
+    }
+  },
+  {
+    "pk": 44,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 8,
+      "treeview_image": "",
+      "name": "Linear regression predict",
+      "is_streaming": false,
+      "uid": "00eda159-3033-44b2-9e25-563c37e56166",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "lin_reg_predict",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "The linear regression fits theta parameters to training data."
+    }
+  },
+  {
+    "pk": 79,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 44,
+      "name": "Fit model",
+      "short_name": "fit",
+      "uid": "31f6fb25-87b9-421f-907b-4123f33cbd60",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "fitmodel_url",
+      "parameter": false,
+      "order": 1,
+      "description": "Fit model URL."
+    }
+  },
+  {
+    "pk": 80,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 44,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "5b9aba72-163c-4862-af26-173b3b2cda7a",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 42,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 44,
+      "name": "Predictions",
+      "short_name": "str",
+      "variable": "string",
+      "uid": "97f43f2b-9277-48d6-aa60-50b00ca90556",
       "order": 1,
       "description": ""
     }
