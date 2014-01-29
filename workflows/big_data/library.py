@@ -16,17 +16,26 @@ def file_url(input_dict):
         url_end = urls[1].split("/")
             
         url_base = "/".join(url_start[:-1])
-        split_index = url_start[-1].index("a")
-        file_name = url_start[-1][0:split_index]
+        start_index = url_start[-1].index("a")
+        file_name = url_start[-1][0:start_index]
         url_base += "/" + file_name
-        repeat = url_start[-1][split_index:]
-        finish = url_end[-1][split_index:]
         
+        start = url_start[-1][start_index:]
+        finish = url_end[-1][start_index:]
+        file_extension = ""
+        if start.count(".") == 1 and finish.count(".") == 1:
+            start,file_extension = start.split(".")
+            finish, _  = finish.split(".")
+            file_extension = "."+ file_extension
+        else:
+            raise Exception("URLs does not have the same pattern.")
+
         alphabet = "abcdefghijklmnopqrstuvwxyz"
-        product = itertools.product(alphabet, repeat=len(repeat))
+        product = itertools.product(alphabet, repeat=len(start))
+
         urls = []
         for p in product:
-            urls.append(url_base + "".join(p))
+            urls.append(url_base + "".join(p) + file_extension)
             if "".join(p) == finish:
                 break
 
