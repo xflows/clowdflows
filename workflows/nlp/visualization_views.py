@@ -30,7 +30,7 @@ def term_candidate_viewer(request, input_dict, output_dict, widget):
             continue
         terms.append({'score' : score, 
                       'cand' : cand.replace('[', '').replace(']',''),
-                      #'lemma' : lemma.replace('<<', '').replace('>>','')
+                      'lemma' : lemma.replace('<<', '').replace('>>','')
                       })
     terms = sorted(terms, key = lambda x: x['score'], reverse=True)
     return render(request, 'visualizations/terms.html', {'widget' : widget, 'terms' : terms})
