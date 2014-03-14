@@ -1346,10 +1346,8 @@ def workflow_results(request,workflow_id):
     w = get_object_or_404(Workflow, pk=workflow_id)
     from streams.models import Stream
     s = Stream()
-    try:
-        return s.execute(workflow=w)
-    except:
-        return {"result":"done!"}
+    #return s.execute(workflow=w)
+    return {"result":"done!"}
 
 @login_required
 def widget_iframe(request, widget_id):
