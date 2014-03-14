@@ -1341,6 +1341,13 @@ def widget_inputs(request, widget_id):
                 input_dict[i.variable].append(i.value)
     return input_dict
 
+@json_view
+def workflow_results(request,workflow_id):
+    w = get_object_or_404(Workflow, pk=workflow_id)
+    from streams.models import Stream
+    s = Stream()
+    return s.execute(workflow=w)
+
 @login_required
 def widget_iframe(request, widget_id):
     w = get_object_or_404(Widget, pk=widget_id)
