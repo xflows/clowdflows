@@ -1345,7 +1345,10 @@ def widget_inputs(request, widget_id):
 def workflow_results(request,workflow_id):
     w = get_object_or_404(Workflow, pk=workflow_id)
     from streams.models import Stream
+    from workflows.tasks import runTest
     s = Stream()
+    a = runTest.delay(s,w)
+    a.wait()
     #return s.execute(workflow=w)
     return {"result":"done!"}
 

@@ -39,3 +39,8 @@ def runWidget(widget,offline):
 @task()
 def runWidgetAsync(widget):
     widget.run(True)
+
+@task()
+def runTest(stream,workflow):
+    stream.execute(workflow=w)
+    return
