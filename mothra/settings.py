@@ -180,8 +180,6 @@ INSTALLED_APPS_WORKFLOWS_SUB = ()
 import djcelery
 djcelery.setup_loader()
 
-BROKER_URL = 'django://'
-
 try:
     LOCAL_SETTINGS
 except NameError:
