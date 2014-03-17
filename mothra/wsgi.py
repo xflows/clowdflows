@@ -17,6 +17,9 @@ import os
 import sys
 import site
 
+import djcelery
+djcelery.setup_loader()
+
 project_path = '/srv/django-projects/mothra'
 if project_path not in sys.path:
         sys.path.append(project_path)

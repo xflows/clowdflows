@@ -171,15 +171,18 @@ INSTALLED_APPS_DEFAULT = (
     'picklefield',
     'streams',
     #'rest_framework',
-    #'djcelery',
-    #'kombu.transport.django',
+    'djcelery',
+    'kombu.transport.django',
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()
 
 CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
 
-CELERY_TASK_SERIALIZER='json'
+import djcelery
+djcelery.setup_loader()
+
+BROKER_URL = 'django://'
 
 try:
     LOCAL_SETTINGS

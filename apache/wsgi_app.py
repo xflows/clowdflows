@@ -17,6 +17,9 @@ import os
 import sys
 import site
 
+import djcelery
+djcelery.setup_loader()
+
 site.addsitedir('/srv/django-envs/mothra/lib/python2.7/site-packages')
 
 project_path = '/srv/django-projects/mothra'

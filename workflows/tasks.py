@@ -1,14 +1,37 @@
 from celery.task import task
+import workflows.library
+
+@task()
+def add(a,b):
+    import time
+    time.sleep(10)
+    raise Exception("test")
+    return a+b
 
 @task()
 def runForLoopIteration(workflow,iteration):
     pass
 
+@task()
+def executeWidgetFunction(widget,input_dict):
+    function_to_call = getattr(workflows.library,widget.abstract_widget.action)
+    return function_to_call(input_dict)
+
+@task()
+def executeWidgetProgressBar(widget,input_dict):
+    function_to_call = getattr(workflows.library,widget.abstract_widget.action)
+    return function_to_call(input_dict,widget)
+
+@task()
+def executeWidgetStreaming(widget,input_dict):
+    function_to_call = getattr(workflows.library,widget.abstract_widget.action)
+    return function_to_call(input_dict,widget,None)
+
+@task()
+def executeWidgetWithRequest(widget,input_dict,output_dict,request):
+    function_to_call = getattr(workflows.library,widget.abstract_widget.action)
+    return function_to_call(request,input_dict,output_dict)
 
 @task()
 def runWidgetAsync(widget):
     widget.run(True)
-
-@task()
-def add(x, y):
-    return x + y
