@@ -212,3 +212,5 @@ LOGIN_REDIRECT_URL = '/'
 
 STATIC_DOC_ROOT = os.path.join(os.getcwd(), 'mothra/public/media')
 
+CELERY_RESULT_BACKEND = 'amqp'
+CELERY_TASK_RESULT_EXPIRES = 18000
