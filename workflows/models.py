@@ -15,7 +15,7 @@ from mothra.settings import USE_CONCURRENCY
 if USE_CONCURRENCY:
     from workflows.tasks import runWidgetAsync, runForLoopIteration
 
-from workflows.tasks import executeWidgetFunction, executeWidgetProgressBar, executeWidgetStreaming, executeWidgetWithRequest
+from workflows.tasks import executeWidgetFunction, executeWidgetProgressBar, executeWidgetStreaming, executeWidgetWithRequest, runWidget
 
 class WidgetException(Exception):
     pass
@@ -425,6 +425,13 @@ class Widget(models.Model):
             pass
 
     def run(self,offline):
+        if self.abstract_widget.windows_queue:
+            t = runWidget.apply_async([self,offline],queue="windows")
+            t.wait()
+        else:
+            self.proper_run(offline)
+
+    def proper_run(self,offline):
         if not self.ready_to_run():
             raise WidgetException("The prerequisites for running this widget have not been met.")
         self.running=True
@@ -457,23 +464,11 @@ class Widget(models.Model):
                         input_dict['wsdl']=self.abstract_widget.wsdl
                         input_dict['wsdl_method']=self.abstract_widget.wsdl_method
                     if self.abstract_widget.has_progress_bar:
-                        if self.abstract_widget.windows_queue:
-                            t = executeWidgetProgressBar.apply_async([self,input_dict],queue="windows")
-                            outputs = t.wait()
-                        else:
-                            outputs = executeWidgetProgressBar(self,input_dict)
+                        outputs = function_to_call(input_dict,self)
                     elif self.abstract_widget.is_streaming:
-                        if self.abstract_widget.windows_queue:
-                            t = executeWidgetStreaming.apply_async([self,input_dict],queue="windows")
-                            outputs = t.wait()
-                        else:
-                            outputs = executeWidgetStreaming(self,input_dict)
+                        outputs = function_to_call(input_dict,self,None)
                     else:
-                        if self.abstract_widget.windows_queue:
-                            t = executeWidgetFunction.apply_async([self,input_dict],queue="windows")
-                            outputs = t.wait()
-                        else:
-                            outputs = executeWidgetFunction(self,input_dict)
+                        outputs = function_to_call(input_dict)
                 else:
                     if self.workflow_link.is_for_loop():
                         self.workflow_link.run_for_loop()

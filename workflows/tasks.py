@@ -5,7 +5,6 @@ import workflows.library
 def add(a,b):
     import time
     time.sleep(10)
-    raise Exception("test")
     return a+b
 
 @task()
@@ -31,6 +30,11 @@ def executeWidgetStreaming(widget,input_dict):
 def executeWidgetWithRequest(widget,input_dict,output_dict,request):
     function_to_call = getattr(workflows.library,widget.abstract_widget.action)
     return function_to_call(request,input_dict,output_dict)
+
+
+@task()
+def runWidget(widget,offline):
+    widget.proper_run(offline)
 
 @task()
 def runWidgetAsync(widget):
