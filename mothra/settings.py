@@ -172,7 +172,7 @@ INSTALLED_APPS_DEFAULT = (
     'streams',
     #'rest_framework',
     'djcelery',
-    'kombu.transport.django',
+    #'kombu.transport.django',
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()
