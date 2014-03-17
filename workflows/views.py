@@ -1348,9 +1348,9 @@ def workflow_results(request,workflow_id):
     from workflows.tasks import runTest
     s = Stream()
     a = runTest.delay(s,w)
-    a.wait()
+    r = a.wait()
     #return s.execute(workflow=w)
-    return {"result":"done!"}
+    return {"result":r}
 
 @login_required
 def widget_iframe(request, widget_id):

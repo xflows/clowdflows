@@ -43,4 +43,4 @@ def runWidgetAsync(widget):
 @task()
 def runTest(stream,workflow):
     stream.execute(workflow=workflow)
-    return
+    return "Done!"
