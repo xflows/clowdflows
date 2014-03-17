@@ -177,8 +177,6 @@ INSTALLED_APPS_DEFAULT = (
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()
 
-CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
-
 import djcelery
 djcelery.setup_loader()
 
