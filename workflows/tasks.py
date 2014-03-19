@@ -42,6 +42,6 @@ def runWidgetAsync(widget):
 
 @task()
 def runTest(stream,workflow):
-    for i in range(0,10):
+    for i in range(0,100):
         stream.execute(workflow=workflow)
     return "Done!"
