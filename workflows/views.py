@@ -1346,10 +1346,9 @@ def widget_inputs(request, widget_id):
 @never_cache
 def workflow_results(request,workflow_id):
     w = get_object_or_404(Workflow, pk=workflow_id)
-    from streams.models import Stream
-    from workflows.tasks import runTest
+    return_string = request.GET.get('result')
     s = Stream()
-    a = runTest.delay(s,w)
+    a = runTest.delay(return_string)
     r = a.wait()
     #return s.execute(workflow=w)
     return {"result":r}

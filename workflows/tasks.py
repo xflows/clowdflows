@@ -41,7 +41,7 @@ def runWidgetAsync(widget):
     widget.run(True)
 
 @task()
-def runTest(stream,workflow):
+def runTest(return_string):
     import time
     time.sleep(3.2)
-    return "Done!"
+    return return_string
