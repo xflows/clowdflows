@@ -42,6 +42,6 @@ def runWidgetAsync(widget):
 
 @task()
 def runTest(stream,workflow):
-    for i in range(0,10):
-        stream.execute(workflow=workflow)
+    import time
+    time.sleep(3.2)
     return "Done!"
