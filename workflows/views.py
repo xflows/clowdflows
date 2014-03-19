@@ -1342,7 +1342,6 @@ def widget_inputs(request, widget_id):
                 input_dict[i.variable].append(i.value)
     return input_dict
 
-@json_view
 @never_cache
 def workflow_results(request,workflow_id):
     from workflows.tasks import runTest
@@ -1352,7 +1351,7 @@ def workflow_results(request,workflow_id):
     a = runTest.delay(return_string)
     r = a.wait()
     #return s.execute(workflow=w)
-    return {"result":r}
+    return HttpResponse(str(r))
 
 @login_required
 def widget_iframe(request, widget_id):
