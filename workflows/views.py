@@ -1345,6 +1345,7 @@ def widget_inputs(request, widget_id):
 @json_view
 @never_cache
 def workflow_results(request,workflow_id):
+    from workflows.tasks import runTest
     w = get_object_or_404(Workflow, pk=workflow_id)
     return_string = request.GET.get('result')
     s = Stream()
