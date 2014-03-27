@@ -490,7 +490,9 @@ def segmine_read_microarray_data(input_dict):
             logFCs[geneID] = mean(data_array) - mean(control_array)
     #end
 
-    sortedLogFCs = [(elt[1], elt[0]) for elt in sorted([(logFCs[geneID], geneID) for geneID in data.keys()], reverse=True)]
+    # print dataGroupNames
+    # print controlGroupNames
+    sortedLogFCs = [(elt[1], elt[0]) for elt in sorted([(logFCs[geneID], geneID) for geneID in logFCs.keys()], reverse=True)] #data.keys()], reverse=True)]
 
     return {'table': table, 'fold_change': sortedLogFCs}
 #end
