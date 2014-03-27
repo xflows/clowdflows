@@ -10,6 +10,7 @@ import workflows.interaction_views
 import workflows.visualization_views
 import sys
 import traceback
+from django.views.decorators.cache import never_cache
 
 from jsonview.decorators import json_view
 
@@ -1341,12 +1342,16 @@ def widget_inputs(request, widget_id):
                 input_dict[i.variable].append(i.value)
     return input_dict
 
-@json_view
+@never_cache
 def workflow_results(request,workflow_id):
+    from workflows.tasks import runTest
     w = get_object_or_404(Workflow, pk=workflow_id)
-    from streams.models import Stream
+    return_string = request.GET.get('result')
     s = Stream()
-    return s.execute(workflow=w)
+    a = runTest.delay(return_string)
+    r = a.wait()
+    #return s.execute(workflow=w)
+    return HttpResponse(str(r))
 
 @login_required
 def widget_iframe(request, widget_id):

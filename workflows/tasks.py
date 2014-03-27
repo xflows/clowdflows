@@ -39,3 +39,9 @@ def runWidget(widget,offline):
 @task()
 def runWidgetAsync(widget):
     widget.run(True)
+
+@task()
+def runTest(return_string):
+    import time
+    time.sleep(3.2)
+    return return_string

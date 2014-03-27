@@ -89,9 +89,9 @@ def new_package_from_template(writeFunc, package, verbosity):
             if verbosity>2:
                 writeFunc("    .%s => .%s\n"%(f[len(wfDir):],fNew[len(wfDir):]))
 
-    if verbosity>1:
-        writeFunc("Adding package to INSTALLED_APPS variable in .%s\n"%settFile[len(PROJECT_DIR):])
-    content = open(settFile, 'r').read()
-    place = content.find(subappPlaceholder)
-    contentNew = content[:place] + subapp + content[place:]
-    open(settFile, 'w').write(contentNew)
+    #if verbosity>1:
+    #    writeFunc("Adding package to INSTALLED_APPS variable in .%s\n"%settFile[len(PROJECT_DIR):])
+    #content = open(settFile, 'r').read()
+    #place = content.find(subappPlaceholder)
+    #contentNew = content[:place] + subapp + content[place:]
+    #open(settFile, 'w').write(contentNew)

@@ -172,17 +172,13 @@ INSTALLED_APPS_DEFAULT = (
     'streams',
     #'rest_framework',
     'djcelery',
-    'kombu.transport.django',
+    #'kombu.transport.django',
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()
 
-CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
-
 import djcelery
 djcelery.setup_loader()
-
-BROKER_URL = 'django://'
 
 try:
     LOCAL_SETTINGS
@@ -216,3 +212,5 @@ LOGIN_REDIRECT_URL = '/'
 
 STATIC_DOC_ROOT = os.path.join(os.getcwd(), 'mothra/public/media')
 
+CELERY_RESULT_BACKEND = 'amqp'
+CELERY_TASK_RESULT_EXPIRES = 18000
