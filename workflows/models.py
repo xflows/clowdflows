@@ -425,10 +425,13 @@ class Widget(models.Model):
             pass
 
     def run(self,offline):
-        if self.abstract_widget.windows_queue:
-            t = runWidget.apply_async([self,offline],queue="windows")
-            t.wait()
-        else:
+        try: 
+            if self.abstract_widget.windows_queue:
+                t = runWidget.apply_async([self,offline],queue="windows")
+                t.wait()
+            else:
+                self.proper_run(offline)
+        except AttributeError:
             self.proper_run(offline)
 
     def proper_run(self,offline):
