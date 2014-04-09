@@ -425,10 +425,13 @@ class Widget(models.Model):
             pass
 
     def run(self,offline):
-        if self.abstract_widget.windows_queue:
-            t = runWidget.apply_async([self,offline],queue="windows")
-            t.wait()
-        else:
+        try: 
+            if self.abstract_widget.windows_queue:
+                t = runWidget.apply_async([self,offline],queue="windows")
+                t.wait()
+            else:
+                self.proper_run(offline)
+        except AttributeError:
             self.proper_run(offline)
 
     def proper_run(self,offline):
@@ -650,10 +653,10 @@ class Widget(models.Model):
         try:
             if not self.abstract_widget is None:
                 if self.abstract_widget.windows_queue:
-                    t = executeWidgetWithRequest.apply_async([widget,input_dict,output_dict,request],queue="windows")
+                    t = executeWidgetWithRequest.apply_async([self,input_dict,output_dict,request],queue="windows")
                     outputs = t.wait()
                 else:
-                    outputs = executeWidgetWithRequest(widget,input_dict,output_dict,request)
+                    outputs = executeWidgetWithRequest(self,input_dict,output_dict,request)
             else:
                 self.workflow_link.run()
         except:
