@@ -15,7 +15,7 @@ from mothra.settings import USE_CONCURRENCY
 if USE_CONCURRENCY:
     from workflows.tasks import runWidgetAsync, runForLoopIteration
 
-from workflows.tasks import executeWidgetFunction, executeWidgetProgressBar, executeWidgetStreaming, executeWidgetWithRequest, runWidget
+from workflows.tasks import *
 
 class WidgetException(Exception):
     pass
