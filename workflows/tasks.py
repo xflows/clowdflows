@@ -31,6 +31,9 @@ def executeWidgetWithRequest(widget,input_dict,output_dict,request):
     function_to_call = getattr(workflows.library,widget.abstract_widget.action)
     return function_to_call(request,input_dict,output_dict)
 
+@task()
+def executeWidgetPostInteract(widget,input_dict,output_dict,request):
+    function_to_call = getattr(workflows.library,widget.abstract_widget.post_interact_action)
 
 @task()
 def runWidget(widget,offline):
