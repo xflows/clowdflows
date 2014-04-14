@@ -50,3 +50,10 @@ def MUSE_semantic_role_labeling(input_dict):
     srl, txt = result.response_dict['result']
 
     return {'xml': srl, 'txt': txt}
+
+
+def MUSE_virtual_environment_visualization(input_dict):
+    NLP_data = input_dict.get('NLP_data', None)
+    unitylink = input_dict.get('unitylink', 'https://ive.scm.tees.ac.uk/muse/tukdemo/')
+    return {'NLP_data' : NLP_data,
+            'unitylink': unitylink}
