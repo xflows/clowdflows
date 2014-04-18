@@ -36,7 +36,7 @@ def MUSE_mapping_to_KR_precomputed(input_dict):
     data = input_dict['input_data']
 
     cli = JSONWSPClient(url)
-    result = cli.mapping_to_KR_fake(SRL=data)
+    result = cli.mapping_to_KR_precomputed(SRL=data)
 
     return {'mapping': result.response_dict['result']}
 
