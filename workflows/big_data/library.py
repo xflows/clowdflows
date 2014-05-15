@@ -54,57 +54,39 @@ def file_url(input_dict):
     data = dataset.Data(data_tag = urls,
                             X_indices = X_indices,
                             **input_dict)
-
     return {"dataset" : data}
+
+def results_to_file(input_dict):
+    return {}
+
 
 def lpsvm_fit(input_dict):
     from discomll.classification import linear_proximal_svm
-
     fitmodel_url = linear_proximal_svm.fit(input_dict["dataset"],
                                             nu = input_dict["nu"],
                                             save_results = True)
-    
     return {"fitmodel_url" : fitmodel_url}    
 
 def lpsvm_predict(input_dict):
     from discomll.classification import linear_proximal_svm
 
     predictions_url = linear_proximal_svm.predict(input_dict["dataset"],
-                                    fitmodel_url = input_dict["fitmodel_url"],
-                                    save_results = True)
-
-    from disco.core import result_iterator    
-    pred = "ID__predicted__real__\n"
-    for X_id, (predicted, real) in result_iterator(predictions_url):
-        pred +=  str(X_id) + " " + str(predicted) + " " + str(real) + "\n"
-    
-    return {"string" : pred}
-
+                                  fitmodel_url = input_dict["fitmodel_url"],
+                                  save_results = True)
+    return {"string": predictions_url}
 
 def lin_reg_fit(input_dict):
     from discomll.regression import linear_regression
     fitmodel_url = linear_regression.fit(input_dict["dataset"],
                     save_results = True)
-
     return {"fitmodel_url" : fitmodel_url}
 
 def lin_reg_predict(input_dict):
     from discomll.regression import linear_regression
-
     predictions_url = linear_regression.predict(input_dict["dataset"],
                                     fitmodel_url = input_dict["fitmodel_url"],
                                     save_results = True)
-
-    from disco.core import result_iterator    
-    pred = "ID__predicted__real__\n"
-    for X_id, (predicted, real) in result_iterator(predictions_url):
-        pred +=  str(X_id) + " " + str(predicted) + " " + str(real) + "\n"
-    
-    return {"string" : pred}
-
-
-
-
+    return {"string": predictions_url}
 
 def kmeans_fit(input_dict):
     from discomll.clustering import kmeans
@@ -118,19 +100,10 @@ def kmeans_fit(input_dict):
 
 def kmeans_predict(input_dict):
     from discomll.clustering import kmeans
-
     predictions_url = kmeans.predict(input_dict["dataset"],
                                         fitmodel_url = input_dict["fitmodel_url"],
                                         save_results = True)
-
-  
-    from disco.core import result_iterator    
-    pred = "ID__cluster__real__distance\n"
-    for X_id, (cluster, real, distance) in result_iterator(predictions_url):
-        pred +=  str(X_id) + " " + str(cluster) + " " + str(real) + " " + str(distance) + "\n"
-    
-    return {"string" : pred}
-
+    return {"string": predictions_url}
 
 def log_reg_fit(input_dict):
     from discomll.classification import logistic_regression
@@ -143,20 +116,11 @@ def log_reg_fit(input_dict):
 
 def log_reg_predict(input_dict):
     from discomll.classification import logistic_regression
+    
     predictions_url = logistic_regression.predict(input_dict["dataset"],
                                                 fitmodel_url = input_dict["fitmodel_url"],
-                                                save_results =True)
-
-    from disco.core import result_iterator    
-    pred = "ID__Pred__Real__Probs\n"
-    for X_id, (y_predicted, y_real, probs) in result_iterator(predictions_url):
-        probs = [round(p, 4) for p in probs]
-        pred +=  str(X_id) + " " + str(y_predicted) + " " + str(y_real) + " " + str(probs) + "\n"
-    
-    return {"string" : pred}
-
-
-
+                                                save_results = True)
+    return {"string": predictions_url}
 
 def gaussian_naive_bayes_fit(input_dict):
     from discomll.classification import naivebayes_gaussian
@@ -167,23 +131,12 @@ def gaussian_naive_bayes_fit(input_dict):
 
 def gaussian_naive_bayes_predict(input_dict):
     from discomll.classification import naivebayes_gaussian
-
+    
     predictions_url = naivebayes_gaussian.predict(input = input_dict["dataset"], 
                                 fitmodel_url = input_dict["fitmodel_url"],
                                 log_probs = True if input_dict["log_probs"] == "true" else False,
                                 save_results = True )
-
-    #results widget
-    from disco.core import result_iterator    
-    pred = "ID__Pred__Real__Probs\n"
-    
-    for X_id, (y_predicted, y_real, probs) in result_iterator(predictions_url):
-        probs = [round(p, 4) for p in probs]
-        pred +=  str(X_id) + " " + str(y_predicted) + " " + str(y_real) + " " + str(probs) + "\n"
-    
-    return {"string" : pred}
-
-
+    return {"string": predictions_url}
 
 def multinomail_naive_bayes_fit(input_dict):
     from discomll.classification import naivebayes_multinomial
@@ -201,13 +154,5 @@ def multinomial_naive_bayes_predict(input_dict):
                                 fitmodel_url = input_dict["fitmodel_url"],
                                 m = m,
                                 save_results = True)
+    return {"string": predictions_url}
 
-    
-    #ta del gre v results
-    from disco.core import result_iterator
-    pred = "ID__Pred__Real__Probs\n"
-    for X_id, (y_predicted, y_real, probs) in result_iterator(predictions_url):
-        probs = [round(p, 4) for p in probs]
-        pred +=  str(X_id) + " " + str(y_predicted) + " " + str(y_real) + " " + str(probs) + "\n"
-   
-    return {"string" : pred}
