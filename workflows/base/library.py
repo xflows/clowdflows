@@ -9,6 +9,15 @@ def base_concatenate_lists(input_dict):
     output_dict['list']=new_list
     return output_dict
 
+def base_merge_dictionaries(input_dict):
+    dicts = input_dict['dicts']
+    items = []
+    for d in dicts:
+        items = items+d.items()
+    output_dict = {}
+    output_dict['dict']=dict(items)
+    return output_dict
+
 def create_list(input_dict):
     return input_dict
 
