@@ -3121,6 +3121,19 @@
     }
   }, 
   {
+    "pk": 365, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 80, 
+      "name": "Discretization intervals", 
+      "short_name": "itr", 
+      "variable": "discr_intervals", 
+      "uid": "78154f38-95f1-47b9-bf82-b64858d8010a", 
+      "order": 1, 
+      "description": "Discretization intervals"
+    }
+  }, 
+  {
     "pk": 81, 
     "model": "workflows.abstractwidget", 
     "fields": {
