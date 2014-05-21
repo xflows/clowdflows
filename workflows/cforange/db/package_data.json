@@ -1,6 +1,6 @@
 [
   {
-    "pk": 5, 
+    "pk": 9, 
     "model": "workflows.category", 
     "fields": {
       "uid": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99", 
@@ -12,11 +12,12 @@
     }
   }, 
   {
-    "pk": 22, 
+    "pk": 42, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 5, 
+      "category": 9, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Prepare Results for PR Visualization", 
       "is_streaming": false, 
       "uid": "b16da039-f997-4d78-baa0-26d5ad8661eb", 
@@ -27,6 +28,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_prepare_results", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -37,10 +39,10 @@
     }
   }, 
   {
-    "pk": 70, 
+    "pk": 104, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 22, 
+      "widget": 42, 
       "name": "List of learners", 
       "short_name": "lrn", 
       "uid": "8a484294-ded6-4ed9-8d4c-043fd8cb3eb7", 
@@ -55,10 +57,10 @@
     }
   }, 
   {
-    "pk": 71, 
+    "pk": 105, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 22, 
+      "widget": 42, 
       "name": "List of precisions", 
       "short_name": "pre", 
       "uid": "91b5674a-88e7-4954-9117-46c1fbeb2d4c", 
@@ -73,10 +75,10 @@
     }
   }, 
   {
-    "pk": 72, 
+    "pk": 106, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 22, 
+      "widget": 42, 
       "name": "List of recalls", 
       "short_name": "rec", 
       "uid": "b1f16202-0bf3-4002-b534-3523c615d26f", 
@@ -91,10 +93,10 @@
     }
   }, 
   {
-    "pk": 73, 
+    "pk": 107, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 22, 
+      "widget": 42, 
       "name": "List of F-measures", 
       "short_name": "f", 
       "uid": "706ba66d-3425-4093-815f-8c62cc034e5b", 
@@ -109,10 +111,10 @@
     }
   }, 
   {
-    "pk": 32, 
+    "pk": 44, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 22, 
+      "widget": 42, 
       "name": "Algorithm performance", 
       "short_name": "alp", 
       "variable": "alp", 
@@ -122,11 +124,11 @@
     }
   }, 
   {
-    "pk": 6, 
+    "pk": 10, 
     "model": "workflows.category", 
     "fields": {
       "uid": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
-      "parent": 5, 
+      "parent": 9, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -134,11 +136,12 @@
     }
   }, 
   {
-    "pk": 23, 
+    "pk": 43, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-C45.png", 
+      "windows_queue": false, 
       "name": "C4.5 Tree Learner", 
       "is_streaming": false, 
       "uid": "0e3f39fd-3807-49d5-aab5-4ae441cd9f75", 
@@ -149,6 +152,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "c45_tree", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -159,10 +163,10 @@
     }
   }, 
   {
-    "pk": 33, 
+    "pk": 45, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 23, 
+      "widget": 43, 
       "name": "C4.5 Tree Learner", 
       "short_name": "lrn", 
       "variable": "c45out", 
@@ -172,11 +176,12 @@
     }
   }, 
   {
-    "pk": 24, 
+    "pk": 44, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-CN2-small.png", 
+      "windows_queue": false, 
       "name": "CN2 Rule Learner", 
       "is_streaming": false, 
       "uid": "766ef980-6622-4168-b4c5-60c5001dba8b", 
@@ -187,6 +192,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cn2", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -197,10 +203,10 @@
     }
   }, 
   {
-    "pk": 34, 
+    "pk": 46, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 24, 
+      "widget": 44, 
       "name": "CN2 Rule Learner", 
       "short_name": "lrn", 
       "variable": "cn2out", 
@@ -210,11 +216,12 @@
     }
   }, 
   {
-    "pk": 25, 
+    "pk": 45, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-ClassificationTree.png", 
+      "windows_queue": false, 
       "name": "Classification Tree", 
       "is_streaming": false, 
       "uid": "29b5871f-1829-4af6-8463-c6515e2010c6", 
@@ -225,6 +232,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "class_tree", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -235,10 +243,10 @@
     }
   }, 
   {
-    "pk": 35, 
+    "pk": 47, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 25, 
+      "widget": 45, 
       "name": "Classification Tree Learner", 
       "short_name": "lrn", 
       "variable": "treeout", 
@@ -248,11 +256,12 @@
     }
   }, 
   {
-    "pk": 26, 
+    "pk": 46, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-LogisticRegression.png", 
+      "windows_queue": false, 
       "name": "Logistic Regression", 
       "is_streaming": false, 
       "uid": "bb9cbb4e-516d-4856-9ad3-614a7a01cba1", 
@@ -263,6 +272,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "logreg", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -273,10 +283,10 @@
     }
   }, 
   {
-    "pk": 36, 
+    "pk": 48, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 26, 
+      "widget": 46, 
       "name": "Logistic Regresion Learner", 
       "short_name": "lrn", 
       "variable": "logregout", 
@@ -286,11 +296,12 @@
     }
   }, 
   {
-    "pk": 27, 
+    "pk": 47, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/lookup.png", 
+      "windows_queue": false, 
       "name": "Lookup Learner", 
       "is_streaming": false, 
       "uid": "1781ee2a-f353-42b4-96d4-3379329c984e", 
@@ -301,6 +312,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "lookup_learner", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -311,10 +323,10 @@
     }
   }, 
   {
-    "pk": 37, 
+    "pk": 49, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 27, 
+      "widget": 47, 
       "name": "Lookup Learner", 
       "short_name": "lrn", 
       "variable": "lookupout", 
@@ -324,11 +336,12 @@
     }
   }, 
   {
-    "pk": 28, 
+    "pk": 48, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-Majority.png", 
+      "windows_queue": false, 
       "name": "Majority Learner", 
       "is_streaming": false, 
       "uid": "f11eaa13-d94b-40e1-adfb-a811ae36bc2d", 
@@ -339,6 +352,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "majority_learner", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -349,10 +363,10 @@
     }
   }, 
   {
-    "pk": 38, 
+    "pk": 50, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 28, 
+      "widget": 48, 
       "name": "Majority Learner", 
       "short_name": "lrn", 
       "variable": "majorout", 
@@ -362,11 +376,12 @@
     }
   }, 
   {
-    "pk": 29, 
+    "pk": 49, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-NaiveBayes.png", 
+      "windows_queue": false, 
       "name": "Naive Bayes", 
       "is_streaming": false, 
       "uid": "bf4a4479-b2c3-47b3-b900-be8d39871ecd", 
@@ -377,6 +392,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "bayes", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -387,10 +403,10 @@
     }
   }, 
   {
-    "pk": 39, 
+    "pk": 51, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 29, 
+      "widget": 49, 
       "name": "Bayes Learner", 
       "short_name": "lrn", 
       "variable": "bayesout", 
@@ -400,11 +416,12 @@
     }
   }, 
   {
-    "pk": 30, 
+    "pk": 50, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-RandomForest.png", 
+      "windows_queue": false, 
       "name": "Random Forest", 
       "is_streaming": false, 
       "uid": "8ac403eb-cf44-41cb-b9a1-84dede03a1d4", 
@@ -415,6 +432,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "random_forest", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -425,10 +443,10 @@
     }
   }, 
   {
-    "pk": 74, 
+    "pk": 108, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 30, 
+      "widget": 50, 
       "name": "Number of decision trees", 
       "short_name": "ndt", 
       "uid": "d8f62393-dda8-48a0-93c1-ac5bc3c5667f", 
@@ -443,10 +461,10 @@
     }
   }, 
   {
-    "pk": 40, 
+    "pk": 52, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 30, 
+      "widget": 50, 
       "name": "Random Forest Learner", 
       "short_name": "lrn", 
       "variable": "rfout", 
@@ -456,11 +474,12 @@
     }
   }, 
   {
-    "pk": 31, 
+    "pk": 51, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-Rule-Learner.png", 
+      "windows_queue": false, 
       "name": "Rule Induction", 
       "is_streaming": false, 
       "uid": "0ce778a2-b40c-45f1-8383-9327b18fc661", 
@@ -471,6 +490,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "rules", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -481,10 +501,10 @@
     }
   }, 
   {
-    "pk": 41, 
+    "pk": 53, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 31, 
+      "widget": 51, 
       "name": "Rule Learner", 
       "short_name": "lrn", 
       "variable": "rulesout", 
@@ -494,11 +514,12 @@
     }
   }, 
   {
-    "pk": 32, 
+    "pk": 52, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-SVM_1.png", 
+      "windows_queue": false, 
       "name": "Support Vector Machine", 
       "is_streaming": false, 
       "uid": "6b40b000-3e93-4fe4-bb95-f7ea4822eebf", 
@@ -509,6 +530,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "svm", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -519,10 +541,10 @@
     }
   }, 
   {
-    "pk": 42, 
+    "pk": 54, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 32, 
+      "widget": 52, 
       "name": "Support Vector Machine Learner", 
       "short_name": "lrn", 
       "variable": "svmout", 
@@ -532,11 +554,12 @@
     }
   }, 
   {
-    "pk": 33, 
+    "pk": 53, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-SVMEasy-new.png", 
+      "windows_queue": false, 
       "name": "Support Vector Machine Easy", 
       "is_streaming": false, 
       "uid": "d54a6cee-76d0-4ec6-9aab-556e233be366", 
@@ -547,6 +570,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "svmeasy", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -557,10 +581,10 @@
     }
   }, 
   {
-    "pk": 43, 
+    "pk": 55, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 33, 
+      "widget": 53, 
       "name": "Support Vector Machine Easy Learner", 
       "short_name": "lrn", 
       "variable": "svmeasyout", 
@@ -570,11 +594,12 @@
     }
   }, 
   {
-    "pk": 34, 
+    "pk": 54, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 6, 
+      "category": 10, 
       "treeview_image": "treeview/orange-kNN.png", 
+      "windows_queue": false, 
       "name": "k-Nearest Neighbours", 
       "is_streaming": false, 
       "uid": "f669618e-108c-4636-8ce5-ec04b26f4642", 
@@ -585,6 +610,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "knn", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -595,10 +621,10 @@
     }
   }, 
   {
-    "pk": 44, 
+    "pk": 56, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 34, 
+      "widget": 54, 
       "name": "kNN Learner", 
       "short_name": "lrn", 
       "variable": "knnout", 
@@ -608,11 +634,11 @@
     }
   }, 
   {
-    "pk": 19, 
+    "pk": 11, 
     "model": "workflows.category", 
     "fields": {
       "uid": "5723a5b8-8c18-4b1f-9398-e93828556c3c", 
-      "parent": 5, 
+      "parent": 9, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -620,11 +646,12 @@
     }
   }, 
   {
-    "pk": 101, 
+    "pk": 55, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 19, 
+      "category": 11, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Attribute distance", 
       "is_streaming": false, 
       "uid": "b10997be-0f5f-43e5-9483-3c6575461c73", 
@@ -635,6 +662,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_attribute_distance", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -645,10 +673,10 @@
     }
   }, 
   {
-    "pk": 191, 
+    "pk": 109, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 101, 
+      "widget": 55, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "b7706775-ed85-4094-b116-555043a1ebca", 
@@ -663,10 +691,10 @@
     }
   }, 
   {
-    "pk": 192, 
+    "pk": 110, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 101, 
+      "widget": 55, 
       "name": "Measures for attributes", 
       "short_name": "mat", 
       "uid": "cc42fca8-68a7-4874-b369-49e4bb4fa85f", 
@@ -681,60 +709,60 @@
     }
   }, 
   {
-    "pk": 52, 
+    "pk": 15, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "fe39a54a-3b27-42eb-97eb-4c53b0d775ee", 
-      "abstract_input": 192, 
+      "abstract_input": 110, 
       "value": "1", 
       "name": "2-way interactions - I(A;B)/H(A,B)"
     }
   }, 
   {
-    "pk": 53, 
+    "pk": 16, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "5f77005a-d387-4550-afc9-d333c114ed00", 
-      "abstract_input": 192, 
+      "abstract_input": 110, 
       "value": "2", 
       "name": "3-way interactions - I(A;B;C)"
     }
   }, 
   {
-    "pk": 54, 
+    "pk": 17, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "103b7429-09b3-434f-a70b-40a6cc97326e", 
-      "abstract_input": 192, 
+      "abstract_input": 110, 
       "value": "0", 
       "name": "Pearson's chi-square"
     }
   }, 
   {
-    "pk": 55, 
+    "pk": 18, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "279e0d29-ca9a-4409-bf44-a34247125804", 
-      "abstract_input": 192, 
+      "abstract_input": 110, 
       "value": "3", 
       "name": "Pearson's correlation"
     }
   }, 
   {
-    "pk": 56, 
+    "pk": 19, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "9740ed3e-036c-4972-890d-b8f9d05d995b", 
-      "abstract_input": 192, 
+      "abstract_input": 110, 
       "value": "4", 
       "name": "Spearman's correlation"
     }
   }, 
   {
-    "pk": 112, 
+    "pk": 57, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 101, 
+      "widget": 55, 
       "name": "Distance matrix", 
       "short_name": "dm", 
       "variable": "dm", 
@@ -744,11 +772,12 @@
     }
   }, 
   {
-    "pk": 102, 
+    "pk": 56, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 19, 
+      "category": 11, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Example Distance", 
       "is_streaming": false, 
       "uid": "9fb92534-94bf-4a07-a020-c01b20eaa00a", 
@@ -759,6 +788,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_example_distance", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -769,10 +799,10 @@
     }
   }, 
   {
-    "pk": 193, 
+    "pk": 111, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 56, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "44a7c33e-5da8-4676-9ca7-e3188ad7b5c3", 
@@ -787,10 +817,10 @@
     }
   }, 
   {
-    "pk": 194, 
+    "pk": 112, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 56, 
       "name": "Distance Metrics", 
       "short_name": "dm", 
       "uid": "df5d4372-6365-4285-9c8b-261bb620ca39", 
@@ -805,70 +835,70 @@
     }
   }, 
   {
-    "pk": 57, 
+    "pk": 20, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "b0b46bdb-c632-4559-8d1d-e450b41405d2", 
-      "abstract_input": 194, 
+      "abstract_input": 112, 
       "value": "0", 
       "name": "Euclidean"
     }
   }, 
   {
-    "pk": 58, 
+    "pk": 21, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "69e12fe0-281d-4a67-8144-5a52d9d23140", 
-      "abstract_input": 194, 
+      "abstract_input": 112, 
       "value": "4", 
       "name": "Hamming"
     }
   }, 
   {
-    "pk": 59, 
+    "pk": 22, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "7d01bf53-798d-4656-aca5-701c00136ae6", 
-      "abstract_input": 194, 
+      "abstract_input": 112, 
       "value": "3", 
       "name": "Manhattan"
     }
   }, 
   {
-    "pk": 60, 
+    "pk": 23, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "2de2a685-cb40-499a-908a-8e669c7881b9", 
-      "abstract_input": 194, 
+      "abstract_input": 112, 
       "value": "1", 
       "name": "Pearson Correlation"
     }
   }, 
   {
-    "pk": 61, 
+    "pk": 24, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "213dba49-9471-4b03-9a1e-928de961b54b", 
-      "abstract_input": 194, 
+      "abstract_input": 112, 
       "value": "5", 
       "name": "Relief"
     }
   }, 
   {
-    "pk": 62, 
+    "pk": 25, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "43f56e1e-56d5-4fd5-9dd8-ba27b8a1b6fa", 
-      "abstract_input": 194, 
+      "abstract_input": 112, 
       "value": "2", 
       "name": "Spearman Rank Correlation"
     }
   }, 
   {
-    "pk": 195, 
+    "pk": 113, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 56, 
       "name": "Normalization", 
       "short_name": "nor", 
       "uid": "88835ea7-91d0-4bc7-8de0-8bba3734ef01", 
@@ -883,10 +913,10 @@
     }
   }, 
   {
-    "pk": 113, 
+    "pk": 58, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 102, 
+      "widget": 56, 
       "name": "Distance matrix", 
       "short_name": "dm", 
       "variable": "dm", 
@@ -896,11 +926,12 @@
     }
   }, 
   {
-    "pk": 103, 
+    "pk": 57, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 19, 
+      "category": 11, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Hierarchical clustering", 
       "is_streaming": false, 
       "uid": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
@@ -911,6 +942,7 @@
       "post_interact_action": "cforange_hierarchical_clustering_finished", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_hierarchical_clustering", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -921,10 +953,10 @@
     }
   }, 
   {
-    "pk": 196, 
+    "pk": 114, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 57, 
       "name": "Distance Matrix", 
       "short_name": "dm", 
       "uid": "bc238f40-be7b-48c4-a526-f17d461a1e10", 
@@ -939,10 +971,10 @@
     }
   }, 
   {
-    "pk": 197, 
+    "pk": 115, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 57, 
       "name": "Linkage", 
       "short_name": "lin", 
       "uid": "9804f098-f6b6-4858-9d83-df2a45e6174a", 
@@ -957,50 +989,50 @@
     }
   }, 
   {
-    "pk": 63, 
+    "pk": 26, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "e5a0e0cd-aefe-4d2f-b2dd-26c54aecda41", 
-      "abstract_input": 197, 
+      "abstract_input": 115, 
       "value": "1", 
       "name": "Average linkage"
     }
   }, 
   {
-    "pk": 64, 
+    "pk": 27, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "e7ab085c-59a2-469b-b4e0-aeef40685a1f", 
-      "abstract_input": 197, 
+      "abstract_input": 115, 
       "value": "3", 
       "name": "Complete linkage"
     }
   }, 
   {
-    "pk": 65, 
+    "pk": 28, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "e751309c-0f24-409e-b21e-94692c3fa5cf", 
-      "abstract_input": 197, 
+      "abstract_input": 115, 
       "value": "0", 
       "name": "Single linkage"
     }
   }, 
   {
-    "pk": 66, 
+    "pk": 29, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "16d7b4ca-b14d-4a93-bda3-ca3478efd316", 
-      "abstract_input": 197, 
+      "abstract_input": 115, 
       "value": "2", 
       "name": "Ward's linkage"
     }
   }, 
   {
-    "pk": 198, 
+    "pk": 116, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 57, 
       "name": "Visualization type", 
       "short_name": "viz", 
       "uid": "f0c1c618-f7c4-4b9c-8780-d03e1ab29834", 
@@ -1015,30 +1047,30 @@
     }
   }, 
   {
-    "pk": 67, 
+    "pk": 30, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "ea7c03eb-b596-4b7f-82ea-840ca44daaad", 
-      "abstract_input": 198, 
+      "abstract_input": 116, 
       "value": "circle", 
       "name": "Circle"
     }
   }, 
   {
-    "pk": 68, 
+    "pk": 31, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "4bd2311e-3051-451e-8c47-5bb526a885e6", 
-      "abstract_input": 198, 
+      "abstract_input": 116, 
       "value": "tree", 
       "name": "Tree"
     }
   }, 
   {
-    "pk": 114, 
+    "pk": 59, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 103, 
+      "widget": 57, 
       "name": "Centroids", 
       "short_name": "ctr", 
       "variable": "centroids", 
@@ -1048,10 +1080,10 @@
     }
   }, 
   {
-    "pk": 115, 
+    "pk": 60, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 103, 
+      "widget": 57, 
       "name": "Selected examples", 
       "short_name": "sel", 
       "variable": "selected_examples", 
@@ -1061,10 +1093,10 @@
     }
   }, 
   {
-    "pk": 116, 
+    "pk": 61, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 103, 
+      "widget": 57, 
       "name": "Unselected examples", 
       "short_name": "uns", 
       "variable": "unselected_examples", 
@@ -1074,11 +1106,11 @@
     }
   }, 
   {
-    "pk": 7, 
+    "pk": 12, 
     "model": "workflows.category", 
     "fields": {
       "uid": "583debcb-5041-46b3-b464-e21875896710", 
-      "parent": 5, 
+      "parent": 9, 
       "workflow": null, 
       "user": null, 
       "order": 2, 
@@ -1086,11 +1118,12 @@
     }
   }, 
   {
-    "pk": 35, 
+    "pk": 58, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 7, 
+      "category": 12, 
       "treeview_image": "treeview/Orange-ApplyClassifier5.png", 
+      "windows_queue": false, 
       "name": "Apply Classifier", 
       "is_streaming": false, 
       "uid": "00e860b0-d62d-4e1d-8f58-0a1755c0f0e1", 
@@ -1101,6 +1134,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "apply_classifier", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1111,10 +1145,10 @@
     }
   }, 
   {
-    "pk": 75, 
+    "pk": 117, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 35, 
+      "widget": 58, 
       "name": "Classifier", 
       "short_name": "clf", 
       "uid": "fd103975-883d-4501-9fe3-9ebadb01ae4f", 
@@ -1129,10 +1163,10 @@
     }
   }, 
   {
-    "pk": 76, 
+    "pk": 118, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 35, 
+      "widget": 58, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "7c16a50f-c548-4104-afd2-0f3be086fc9e", 
@@ -1147,10 +1181,10 @@
     }
   }, 
   {
-    "pk": 45, 
+    "pk": 62, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 35, 
+      "widget": 58, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "data", 
@@ -1160,11 +1194,12 @@
     }
   }, 
   {
-    "pk": 36, 
+    "pk": 59, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 7, 
+      "category": 12, 
       "treeview_image": "treeview/Orange-BuildClassifier.png", 
+      "windows_queue": false, 
       "name": "Build Classifier", 
       "is_streaming": false, 
       "uid": "39809f9a-3742-4ca0-908a-1d8a041261af", 
@@ -1175,6 +1210,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "build_classifier", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1185,10 +1221,10 @@
     }
   }, 
   {
-    "pk": 77, 
+    "pk": 119, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 36, 
+      "widget": 59, 
       "name": "learner", 
       "short_name": "lrn", 
       "uid": "24b03594-14c8-4534-98de-b4bf703fef63", 
@@ -1203,10 +1239,10 @@
     }
   }, 
   {
-    "pk": 78, 
+    "pk": 120, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 36, 
+      "widget": 59, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "3de89884-15aa-40dd-a514-cb7e7d5298c5", 
@@ -1221,10 +1257,10 @@
     }
   }, 
   {
-    "pk": 46, 
+    "pk": 63, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 36, 
+      "widget": 59, 
       "name": "classifier", 
       "short_name": "clf", 
       "variable": "classifier", 
@@ -1234,11 +1270,11 @@
     }
   }, 
   {
-    "pk": 8, 
+    "pk": 13, 
     "model": "workflows.category", 
     "fields": {
       "uid": "2c4c8f68-33db-411c-a8ce-176096349eba", 
-      "parent": 7, 
+      "parent": 12, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -1246,11 +1282,12 @@
     }
   }, 
   {
-    "pk": 37, 
+    "pk": 60, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 8, 
+      "category": 13, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Area under curve (ROC analysis)", 
       "is_streaming": false, 
       "uid": "cc2877f0-65d2-4bc2-9868-261546be1447", 
@@ -1261,6 +1298,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_auc", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1271,10 +1309,10 @@
     }
   }, 
   {
-    "pk": 79, 
+    "pk": 121, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 37, 
+      "widget": 60, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "51a10241-e26e-4fab-831b-4295ac82081a", 
@@ -1289,10 +1327,10 @@
     }
   }, 
   {
-    "pk": 80, 
+    "pk": 122, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 37, 
+      "widget": 60, 
       "name": "Method", 
       "short_name": "met", 
       "uid": "538f7e3a-8650-4c33-ad49-d00221d86145", 
@@ -1307,50 +1345,50 @@
     }
   }, 
   {
-    "pk": 1, 
+    "pk": 32, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "cde2a234-f9be-461a-9298-d3f0698cea8b", 
-      "abstract_input": 80, 
+      "abstract_input": 122, 
       "value": "1", 
       "name": "By Pairs"
     }
   }, 
   {
-    "pk": 2, 
+    "pk": 33, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "ad6a3d61-5be9-45f7-b9d6-9826dde0986c", 
-      "abstract_input": 80, 
+      "abstract_input": 122, 
       "value": "0", 
       "name": "By Weighted Pairs"
     }
   }, 
   {
-    "pk": 3, 
+    "pk": 34, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "64e1c620-ce14-4c78-9aed-199bf803b6b7", 
-      "abstract_input": 80, 
+      "abstract_input": 122, 
       "value": "3", 
       "name": "One Against All"
     }
   }, 
   {
-    "pk": 4, 
+    "pk": 35, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "8f39364a-2698-430e-912e-dd8c547ca0a7", 
-      "abstract_input": 80, 
+      "abstract_input": 122, 
       "value": "2", 
       "name": "Weighted One Against All"
     }
   }, 
   {
-    "pk": 47, 
+    "pk": 64, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 37, 
+      "widget": 60, 
       "name": "Area Under Curve", 
       "short_name": "auc", 
       "variable": "AUC", 
@@ -1360,11 +1398,12 @@
     }
   }, 
   {
-    "pk": 38, 
+    "pk": 61, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 8, 
+      "category": 13, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Brier Score", 
       "is_streaming": false, 
       "uid": "a8e19b70-c295-484c-acca-8ce12c489793", 
@@ -1375,6 +1414,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_brier_score", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1385,10 +1425,10 @@
     }
   }, 
   {
-    "pk": 81, 
+    "pk": 123, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 38, 
+      "widget": 61, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "dc37ebf6-0148-4aee-945a-857ea3e8e4fb", 
@@ -1403,10 +1443,10 @@
     }
   }, 
   {
-    "pk": 82, 
+    "pk": 124, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 38, 
+      "widget": 61, 
       "name": "Report Standard Error", 
       "short_name": "rse", 
       "uid": "49a8722a-74b9-4cd6-a9bf-aec25ff05120", 
@@ -1421,10 +1461,10 @@
     }
   }, 
   {
-    "pk": 48, 
+    "pk": 65, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 38, 
+      "widget": 61, 
       "name": "Brier Score", 
       "short_name": "bs", 
       "variable": "bs", 
@@ -1434,11 +1474,12 @@
     }
   }, 
   {
-    "pk": 39, 
+    "pk": 62, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 8, 
+      "category": 13, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Classification Accuracy", 
       "is_streaming": false, 
       "uid": "c3554695-87ec-43a7-8bac-f6738f462a09", 
@@ -1449,6 +1490,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_classification_accuracy", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1459,10 +1501,10 @@
     }
   }, 
   {
-    "pk": 83, 
+    "pk": 125, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 39, 
+      "widget": 62, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "844835a9-5473-4eba-ad40-162ec8712088", 
@@ -1477,10 +1519,10 @@
     }
   }, 
   {
-    "pk": 84, 
+    "pk": 126, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 39, 
+      "widget": 62, 
       "name": "Report Standard Error", 
       "short_name": "rse", 
       "uid": "322d1975-8cff-423c-b73a-e7f5a1488e2e", 
@@ -1495,10 +1537,10 @@
     }
   }, 
   {
-    "pk": 49, 
+    "pk": 66, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 39, 
+      "widget": 62, 
       "name": "Classification Accuracy", 
       "short_name": "ca", 
       "variable": "ca", 
@@ -1508,11 +1550,12 @@
     }
   }, 
   {
-    "pk": 40, 
+    "pk": 63, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 8, 
+      "category": 13, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Confusion Matrix", 
       "is_streaming": false, 
       "uid": "5cab835b-82f8-4146-a4d0-ff3b3f923395", 
@@ -1523,6 +1566,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_confusion_matrix", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1533,10 +1577,10 @@
     }
   }, 
   {
-    "pk": 85, 
+    "pk": 127, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 40, 
+      "widget": 63, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "cbce1aeb-69f9-44ab-9ba1-58e7f7c7edd2", 
@@ -1551,10 +1595,10 @@
     }
   }, 
   {
-    "pk": 86, 
+    "pk": 128, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 40, 
+      "widget": 63, 
       "name": "Cutoff", 
       "short_name": "ctf", 
       "uid": "c6fa462e-df86-424e-8803-3ded38ee6f73", 
@@ -1569,10 +1613,10 @@
     }
   }, 
   {
-    "pk": 87, 
+    "pk": 129, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 40, 
+      "widget": 63, 
       "name": "Class Index", 
       "short_name": "cli", 
       "uid": "93b12c97-c01a-42a9-a934-b9c0a220f67a", 
@@ -1587,10 +1631,10 @@
     }
   }, 
   {
-    "pk": 50, 
+    "pk": 67, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 40, 
+      "widget": 63, 
       "name": "Confusion Matrix", 
       "short_name": "cm", 
       "variable": "cm", 
@@ -1600,11 +1644,12 @@
     }
   }, 
   {
-    "pk": 41, 
+    "pk": 64, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 8, 
+      "category": 13, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Confusion Matrix Computations", 
       "is_streaming": false, 
       "uid": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
@@ -1615,6 +1660,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_confusion_matrix_computations", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1625,10 +1671,10 @@
     }
   }, 
   {
-    "pk": 88, 
+    "pk": 130, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "Confusion Matrix", 
       "short_name": "cm", 
       "uid": "5bbce817-42f9-4454-ade9-c6b73a8b4f56", 
@@ -1643,10 +1689,10 @@
     }
   }, 
   {
-    "pk": 89, 
+    "pk": 131, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "alpha", 
       "short_name": "alp", 
       "uid": "26e4f697-0231-4cf8-8cbd-2cb325441ba7", 
@@ -1661,10 +1707,10 @@
     }
   }, 
   {
-    "pk": 51, 
+    "pk": 68, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "Sensitiviry", 
       "short_name": "sen", 
       "variable": "sens", 
@@ -1674,10 +1720,10 @@
     }
   }, 
   {
-    "pk": 52, 
+    "pk": 69, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "Specificity", 
       "short_name": "spe", 
       "variable": "spec", 
@@ -1687,10 +1733,10 @@
     }
   }, 
   {
-    "pk": 53, 
+    "pk": 70, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "Positive Predictive Value", 
       "short_name": "ppv", 
       "variable": "PPV", 
@@ -1700,10 +1746,10 @@
     }
   }, 
   {
-    "pk": 54, 
+    "pk": 71, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "Negative Predictive Value", 
       "short_name": "npv", 
       "variable": "NPV", 
@@ -1713,10 +1759,10 @@
     }
   }, 
   {
-    "pk": 55, 
+    "pk": 72, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "Precision", 
       "short_name": "pre", 
       "variable": "precision", 
@@ -1726,10 +1772,10 @@
     }
   }, 
   {
-    "pk": 56, 
+    "pk": 73, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "Recall", 
       "short_name": "rec", 
       "variable": "recall", 
@@ -1739,10 +1785,10 @@
     }
   }, 
   {
-    "pk": 57, 
+    "pk": 74, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "F1", 
       "short_name": "f1", 
       "variable": "F1", 
@@ -1752,10 +1798,10 @@
     }
   }, 
   {
-    "pk": 58, 
+    "pk": 75, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "Falpha", 
       "short_name": "fal", 
       "variable": "Falpha", 
@@ -1765,10 +1811,10 @@
     }
   }, 
   {
-    "pk": 59, 
+    "pk": 76, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 41, 
+      "widget": 64, 
       "name": "MCC", 
       "short_name": "mcc", 
       "variable": "MCC", 
@@ -1778,11 +1824,12 @@
     }
   }, 
   {
-    "pk": 42, 
+    "pk": 65, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 8, 
+      "category": 13, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Correct Class Average Probability", 
       "is_streaming": false, 
       "uid": "e21925ad-fdc3-487d-944e-5eb03caa2350", 
@@ -1793,6 +1840,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_average_probability", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1803,10 +1851,10 @@
     }
   }, 
   {
-    "pk": 90, 
+    "pk": 132, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 42, 
+      "widget": 65, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "2b1e7d82-9c60-47be-8d27-d88d56de0c5d", 
@@ -1821,10 +1869,10 @@
     }
   }, 
   {
-    "pk": 91, 
+    "pk": 133, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 42, 
+      "widget": 65, 
       "name": "Report Standard Error", 
       "short_name": "rse", 
       "uid": "3dfeb6f5-fe7a-461a-b965-de7daa0b61eb", 
@@ -1839,10 +1887,10 @@
     }
   }, 
   {
-    "pk": 60, 
+    "pk": 77, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 42, 
+      "widget": 65, 
       "name": "Average Probability", 
       "short_name": "ap", 
       "variable": "ap", 
@@ -1852,11 +1900,12 @@
     }
   }, 
   {
-    "pk": 43, 
+    "pk": 66, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 8, 
+      "category": 13, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Information Score", 
       "is_streaming": false, 
       "uid": "5fed0e33-c267-4522-a4ff-faf745e80be6", 
@@ -1867,6 +1916,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_information_score", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1877,10 +1927,10 @@
     }
   }, 
   {
-    "pk": 92, 
+    "pk": 134, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 43, 
+      "widget": 66, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "d85b2f09-ae60-49b7-9b07-b73e4f2f37f9", 
@@ -1895,10 +1945,10 @@
     }
   }, 
   {
-    "pk": 93, 
+    "pk": 135, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 43, 
+      "widget": 66, 
       "name": "Report Standard Error", 
       "short_name": "rse", 
       "uid": "34afe990-c3e7-40ac-93c9-15283b3e12fc", 
@@ -1913,10 +1963,10 @@
     }
   }, 
   {
-    "pk": 61, 
+    "pk": 78, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 43, 
+      "widget": 66, 
       "name": "Information Score", 
       "short_name": "is", 
       "variable": "is", 
@@ -1926,11 +1976,11 @@
     }
   }, 
   {
-    "pk": 9, 
+    "pk": 14, 
     "model": "workflows.category", 
     "fields": {
       "uid": "d13c01e6-675f-4c48-a211-b24af72229b0", 
-      "parent": 7, 
+      "parent": 12, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -1938,11 +1988,12 @@
     }
   }, 
   {
-    "pk": 45, 
+    "pk": 67, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 14, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Mean Absolute Error", 
       "is_streaming": false, 
       "uid": "feffec1f-247b-4740-9ddc-df549c5fbaf6", 
@@ -1953,6 +2004,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_MAE", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -1963,10 +2015,10 @@
     }
   }, 
   {
-    "pk": 95, 
+    "pk": 136, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 45, 
+      "widget": 67, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "b8b260d7-3497-42f5-93a0-09a411a03852", 
@@ -1981,10 +2033,10 @@
     }
   }, 
   {
-    "pk": 63, 
+    "pk": 79, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 45, 
+      "widget": 67, 
       "name": "Mean Absolute Error", 
       "short_name": "mse", 
       "variable": "MSE", 
@@ -1994,11 +2046,12 @@
     }
   }, 
   {
-    "pk": 44, 
+    "pk": 68, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 14, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Mean Squared Error", 
       "is_streaming": false, 
       "uid": "c527ea0f-336b-4334-8288-bce4e742e043", 
@@ -2009,6 +2062,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_MSE", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2019,10 +2073,10 @@
     }
   }, 
   {
-    "pk": 94, 
+    "pk": 137, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 44, 
+      "widget": 68, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "1f40bcbb-e919-4078-8f11-fc2462bba84b", 
@@ -2037,10 +2091,10 @@
     }
   }, 
   {
-    "pk": 62, 
+    "pk": 80, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 44, 
+      "widget": 68, 
       "name": "Mean Squared Error", 
       "short_name": "mse", 
       "variable": "MSE", 
@@ -2050,11 +2104,12 @@
     }
   }, 
   {
-    "pk": 46, 
+    "pk": 69, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 14, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "R-squared", 
       "is_streaming": false, 
       "uid": "2299e615-4d72-4db7-9b32-3566b903c749", 
@@ -2065,6 +2120,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_R2", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2075,10 +2131,10 @@
     }
   }, 
   {
-    "pk": 96, 
+    "pk": 138, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 46, 
+      "widget": 69, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "e06248e9-dd6d-4746-8972-1cbf6e6f116f", 
@@ -2093,10 +2149,10 @@
     }
   }, 
   {
-    "pk": 64, 
+    "pk": 81, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 46, 
+      "widget": 69, 
       "name": "R-Squared", 
       "short_name": "r2", 
       "variable": "R2", 
@@ -2106,11 +2162,12 @@
     }
   }, 
   {
-    "pk": 47, 
+    "pk": 70, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 14, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Relative Squared Error", 
       "is_streaming": false, 
       "uid": "0d32c3a7-1f94-4414-92f0-bb81a9152636", 
@@ -2121,6 +2178,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_RSE", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2131,10 +2189,10 @@
     }
   }, 
   {
-    "pk": 97, 
+    "pk": 139, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 47, 
+      "widget": 70, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "64ff64b7-5878-4c9f-8a43-908d3d9b187a", 
@@ -2149,10 +2207,10 @@
     }
   }, 
   {
-    "pk": 65, 
+    "pk": 82, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 47, 
+      "widget": 70, 
       "name": "Relative Squared Error", 
       "short_name": "rse", 
       "variable": "RSE", 
@@ -2162,11 +2220,12 @@
     }
   }, 
   {
-    "pk": 49, 
+    "pk": 71, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 14, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Root Mean-squared Error", 
       "is_streaming": false, 
       "uid": "dc66f264-14a6-491b-9c39-36bded8f95d0", 
@@ -2177,6 +2236,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_RMSE", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2187,10 +2247,10 @@
     }
   }, 
   {
-    "pk": 99, 
+    "pk": 140, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 49, 
+      "widget": 71, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "588d6e48-4365-43e7-8388-09da5fe660ea", 
@@ -2205,10 +2265,10 @@
     }
   }, 
   {
-    "pk": 67, 
+    "pk": 83, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 49, 
+      "widget": 71, 
       "name": "Root Mean Squared Error", 
       "short_name": "rms", 
       "variable": "RMSE", 
@@ -2218,11 +2278,12 @@
     }
   }, 
   {
-    "pk": 48, 
+    "pk": 72, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 9, 
+      "category": 14, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Root Relative Squared Error", 
       "is_streaming": false, 
       "uid": "c9ecd12e-eaff-41b6-b104-dff7fb60b124", 
@@ -2233,6 +2294,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_RRSE", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2243,10 +2305,10 @@
     }
   }, 
   {
-    "pk": 98, 
+    "pk": 141, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 48, 
+      "widget": 72, 
       "name": "Evaluation Results", 
       "short_name": "res", 
       "uid": "44ac11fb-201e-4d8f-b0b2-4d7668ea49a2", 
@@ -2261,10 +2323,10 @@
     }
   }, 
   {
-    "pk": 66, 
+    "pk": 84, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 48, 
+      "widget": 72, 
       "name": "Root Relative Squared Error", 
       "short_name": "rrs", 
       "variable": "RRSE", 
@@ -2274,11 +2336,11 @@
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 15, 
     "model": "workflows.category", 
     "fields": {
       "uid": "8b90267f-c82d-4b62-bee3-66184f4db931", 
-      "parent": 7, 
+      "parent": 12, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -2286,11 +2348,12 @@
     }
   }, 
   {
-    "pk": 50, 
+    "pk": 73, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 10, 
+      "category": 15, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Cross Validation", 
       "is_streaming": false, 
       "uid": "51906007-2471-4869-89f9-f3f805358d13", 
@@ -2301,6 +2364,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_cross_validation", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2311,10 +2375,10 @@
     }
   }, 
   {
-    "pk": 100, 
+    "pk": 142, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 50, 
+      "widget": 73, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "70f67094-39bb-4dad-b567-049002dabdac", 
@@ -2329,10 +2393,10 @@
     }
   }, 
   {
-    "pk": 101, 
+    "pk": 143, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 50, 
+      "widget": 73, 
       "name": "Learner", 
       "short_name": "lrn", 
       "uid": "a7f392fe-55f7-48df-9afb-1d0044562a2a", 
@@ -2347,10 +2411,10 @@
     }
   }, 
   {
-    "pk": 102, 
+    "pk": 144, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 50, 
+      "widget": 73, 
       "name": "Folds", 
       "short_name": "fld", 
       "uid": "2e4561d0-99fd-44fd-99a5-7ac32457aa58", 
@@ -2365,10 +2429,10 @@
     }
   }, 
   {
-    "pk": 68, 
+    "pk": 85, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 50, 
+      "widget": 73, 
       "name": "Results", 
       "short_name": "res", 
       "variable": "results", 
@@ -2378,11 +2442,12 @@
     }
   }, 
   {
-    "pk": 51, 
+    "pk": 74, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 10, 
+      "category": 15, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Cross Validation (multiple learners)", 
       "is_streaming": false, 
       "uid": "6c168f2e-e47f-409a-97c1-58d50fbbec4d", 
@@ -2393,6 +2458,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_multiple_cross_validation", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2403,10 +2469,10 @@
     }
   }, 
   {
-    "pk": 103, 
+    "pk": 145, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 51, 
+      "widget": 74, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "16d1fe96-ce53-4a94-8c3e-90ac444b45f8", 
@@ -2421,10 +2487,10 @@
     }
   }, 
   {
-    "pk": 104, 
+    "pk": 146, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 51, 
+      "widget": 74, 
       "name": "Learners", 
       "short_name": "lrn", 
       "uid": "499f4007-55c3-431c-93ca-5f493a9e592c", 
@@ -2439,10 +2505,10 @@
     }
   }, 
   {
-    "pk": 105, 
+    "pk": 147, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 51, 
+      "widget": 74, 
       "name": "Folds", 
       "short_name": "fld", 
       "uid": "2b7ef618-6f7a-4f0c-ad5f-50000aa5ec0b", 
@@ -2457,10 +2523,10 @@
     }
   }, 
   {
-    "pk": 69, 
+    "pk": 86, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 51, 
+      "widget": 74, 
       "name": "Results", 
       "short_name": "res", 
       "variable": "results", 
@@ -2470,11 +2536,12 @@
     }
   }, 
   {
-    "pk": 52, 
+    "pk": 75, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 10, 
+      "category": 15, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Leave One Out", 
       "is_streaming": false, 
       "uid": "0e9514ce-914a-4dd0-9952-9cd14877c427", 
@@ -2485,6 +2552,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_leave_one_out", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2495,10 +2563,10 @@
     }
   }, 
   {
-    "pk": 106, 
+    "pk": 148, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 52, 
+      "widget": 75, 
       "name": "learners", 
       "short_name": "lrn", 
       "uid": "153d8297-ab47-4c51-a540-ed5cf907173f", 
@@ -2513,10 +2581,10 @@
     }
   }, 
   {
-    "pk": 107, 
+    "pk": 149, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 52, 
+      "widget": 75, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "51ffb874-f2b3-431c-a38b-16177631fd6f", 
@@ -2531,10 +2599,10 @@
     }
   }, 
   {
-    "pk": 70, 
+    "pk": 87, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 52, 
+      "widget": 75, 
       "name": "Results", 
       "short_name": "res", 
       "variable": "results", 
@@ -2544,11 +2612,12 @@
     }
   }, 
   {
-    "pk": 53, 
+    "pk": 76, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 10, 
+      "category": 15, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Proportion Test", 
       "is_streaming": false, 
       "uid": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
@@ -2559,6 +2628,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_proportion_test", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2569,10 +2639,10 @@
     }
   }, 
   {
-    "pk": 108, 
+    "pk": 150, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 53, 
+      "widget": 76, 
       "name": "learners", 
       "short_name": "lrn", 
       "uid": "b77f51b3-6c21-4d6a-922a-bbbb4679155d", 
@@ -2587,10 +2657,10 @@
     }
   }, 
   {
-    "pk": 109, 
+    "pk": 151, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 53, 
+      "widget": 76, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "2b2037f4-b240-4b26-81e5-8ca01a215193", 
@@ -2605,10 +2675,10 @@
     }
   }, 
   {
-    "pk": 110, 
+    "pk": 152, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 53, 
+      "widget": 76, 
       "name": "Proportion", 
       "short_name": "prp", 
       "uid": "ff523b52-e08b-4da5-bb2c-7050731dcf16", 
@@ -2623,10 +2693,10 @@
     }
   }, 
   {
-    "pk": 111, 
+    "pk": 153, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 53, 
+      "widget": 76, 
       "name": "Number of repetitions", 
       "short_name": "rep", 
       "uid": "da5ab14e-9e1c-4395-b6ce-8ff0d53de4c9", 
@@ -2641,10 +2711,10 @@
     }
   }, 
   {
-    "pk": 71, 
+    "pk": 88, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 53, 
+      "widget": 76, 
       "name": "Results", 
       "short_name": "res", 
       "variable": "results", 
@@ -2654,11 +2724,11 @@
     }
   }, 
   {
-    "pk": 11, 
+    "pk": 16, 
     "model": "workflows.category", 
     "fields": {
       "uid": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
-      "parent": 5, 
+      "parent": 9, 
       "workflow": null, 
       "user": null, 
       "order": 3, 
@@ -2666,11 +2736,12 @@
     }
   }, 
   {
-    "pk": 104, 
+    "pk": 77, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "ARFF string to Orange Data Table", 
       "is_streaming": false, 
       "uid": "d978d9ba-40dc-427e-b16f-066f13ada8e5", 
@@ -2681,6 +2752,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "load_dataset_from_arff_string", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2691,10 +2763,10 @@
     }
   }, 
   {
-    "pk": 199, 
+    "pk": 154, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 104, 
+      "widget": 77, 
       "name": "Arff string", 
       "short_name": "arf", 
       "uid": "f05fee52-61fe-4f93-81a1-59fd9976fd3b", 
@@ -2709,10 +2781,10 @@
     }
   }, 
   {
-    "pk": 117, 
+    "pk": 89, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 104, 
+      "widget": 77, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "dataset", 
@@ -2722,11 +2794,12 @@
     }
   }, 
   {
-    "pk": 54, 
+    "pk": 78, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "treeview/add_noise3.png", 
+      "windows_queue": false, 
       "name": "Add Class Noise", 
       "is_streaming": false, 
       "uid": "4c603285-3aa7-4b55-8d57-cc8285e212c2", 
@@ -2737,6 +2810,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "add_class_noise", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2747,10 +2821,10 @@
     }
   }, 
   {
-    "pk": 112, 
+    "pk": 155, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 54, 
+      "widget": 78, 
       "name": "Random Seed", 
       "short_name": "rns", 
       "uid": "89c20239-c4e0-4368-9828-ab73155e2457", 
@@ -2765,10 +2839,10 @@
     }
   }, 
   {
-    "pk": 113, 
+    "pk": 156, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 54, 
+      "widget": 78, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "aa5d2630-534f-4662-8da5-342b2e87995b", 
@@ -2783,10 +2857,10 @@
     }
   }, 
   {
-    "pk": 114, 
+    "pk": 157, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 54, 
+      "widget": 78, 
       "name": "Noise Level (%)", 
       "short_name": "nlv", 
       "uid": "9c5ec335-76a0-4208-81a0-76b4a0457d5d", 
@@ -2801,10 +2875,10 @@
     }
   }, 
   {
-    "pk": 72, 
+    "pk": 90, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 54, 
+      "widget": 78, 
       "name": "Noisy Dataset", 
       "short_name": "nds", 
       "variable": "noisy_data", 
@@ -2814,10 +2888,10 @@
     }
   }, 
   {
-    "pk": 73, 
+    "pk": 91, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 54, 
+      "widget": 78, 
       "name": "Noise Indices", 
       "short_name": "nid", 
       "variable": "noise_inds", 
@@ -2827,11 +2901,12 @@
     }
   }, 
   {
-    "pk": 55, 
+    "pk": 79, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Alter table", 
       "is_streaming": false, 
       "uid": "6f73d7a0-ed32-4ff8-9743-6a5d0867c693", 
@@ -2842,6 +2917,7 @@
       "post_interact_action": "alter_table_finished", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "alter_table", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2852,10 +2928,10 @@
     }
   }, 
   {
-    "pk": 115, 
+    "pk": 158, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 55, 
+      "widget": 79, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "1aff9f6a-6d0b-4cf2-ae5c-6de3301dc931", 
@@ -2870,10 +2946,10 @@
     }
   }, 
   {
-    "pk": 74, 
+    "pk": 92, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 55, 
+      "widget": 79, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "altered_data", 
@@ -2883,11 +2959,12 @@
     }
   }, 
   {
-    "pk": 105, 
+    "pk": 80, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Dataset Discretization", 
       "is_streaming": false, 
       "uid": "ef274f5b-65ed-492f-a127-d32213be23ed", 
@@ -2898,6 +2975,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_discretize", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2908,10 +2986,10 @@
     }
   }, 
   {
-    "pk": 200, 
+    "pk": 159, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 105, 
+      "widget": 80, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "6172ffda-8582-42ee-b8c3-6e47e1e5aba2", 
@@ -2926,10 +3004,10 @@
     }
   }, 
   {
-    "pk": 201, 
+    "pk": 160, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 105, 
+      "widget": 80, 
       "name": "Discretizators", 
       "short_name": "dis", 
       "uid": "6facdb69-d2e9-4625-bfaf-0b498adba715", 
@@ -2944,60 +3022,60 @@
     }
   }, 
   {
-    "pk": 69, 
+    "pk": 36, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "2c59cad9-6515-49d2-80e2-3e6638040521", 
-      "abstract_input": 201, 
+      "abstract_input": 160, 
       "value": "3", 
       "name": "Bi-modal discretization"
     }
   }, 
   {
-    "pk": 70, 
+    "pk": 37, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "80b0bca8-a4b3-4edb-9b79-1be959c4069c", 
-      "abstract_input": 201, 
+      "abstract_input": 160, 
       "value": "2", 
       "name": "Entropy-based discretization"
     }
   }, 
   {
-    "pk": 71, 
+    "pk": 38, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "cf6d0204-e2ef-4be4-b953-96ca63ff35c8", 
-      "abstract_input": 201, 
+      "abstract_input": 160, 
       "value": "0", 
       "name": "Equi-distant discretization"
     }
   }, 
   {
-    "pk": 72, 
+    "pk": 39, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "d99c4046-34f4-422b-b294-50753e6f75f6", 
-      "abstract_input": 201, 
+      "abstract_input": 160, 
       "value": "4", 
       "name": "Fixed discretization"
     }
   }, 
   {
-    "pk": 73, 
+    "pk": 40, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "da697eb2-853d-4ad1-a15a-f5afb04dfae9", 
-      "abstract_input": 201, 
+      "abstract_input": 160, 
       "value": "1", 
       "name": "Quantile-based discretization"
     }
   }, 
   {
-    "pk": 202, 
+    "pk": 161, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 105, 
+      "widget": 80, 
       "name": "Number of intervals", 
       "short_name": "nor", 
       "uid": "a51a20f2-b336-4c4b-a818-30922a4e83d1", 
@@ -3012,10 +3090,10 @@
     }
   }, 
   {
-    "pk": 203, 
+    "pk": 162, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 105, 
+      "widget": 80, 
       "name": "Cut-off points", 
       "short_name": "cp", 
       "uid": "43b2e055-65c1-4cc3-ae94-926b71911c0e", 
@@ -3030,10 +3108,10 @@
     }
   }, 
   {
-    "pk": 118, 
+    "pk": 93, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 105, 
+      "widget": 80, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "odt", 
@@ -3043,11 +3121,12 @@
     }
   }, 
   {
-    "pk": 56, 
+    "pk": 81, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "treeview/Load-ODT.png", 
+      "windows_queue": false, 
       "name": "Load Dataset to Orange Data Table", 
       "is_streaming": false, 
       "uid": "776564a9-74ae-4651-8340-c52c055cecbc", 
@@ -3058,6 +3137,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "load_dataset", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3068,10 +3148,10 @@
     }
   }, 
   {
-    "pk": 116, 
+    "pk": 163, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 56, 
+      "widget": 81, 
       "name": "File", 
       "short_name": "fil", 
       "uid": "748e5dff-6c21-4feb-af71-aaf955f73893", 
@@ -3086,10 +3166,10 @@
     }
   }, 
   {
-    "pk": 75, 
+    "pk": 94, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 56, 
+      "widget": 81, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "dataset", 
@@ -3099,11 +3179,12 @@
     }
   }, 
   {
-    "pk": 58, 
+    "pk": 82, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Orange Data Table to ARFF File", 
       "is_streaming": false, 
       "uid": "c5a545bb-e0ac-4b73-aa76-4add863e3252", 
@@ -3114,6 +3195,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "odt_to_arff", 
+      "streaming_visualization_view": "", 
       "action": "string_to_file", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3124,10 +3206,10 @@
     }
   }, 
   {
-    "pk": 118, 
+    "pk": 164, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 58, 
+      "widget": 82, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "1eb8eb33-61d6-4b77-93ef-abfe6fd2c15f", 
@@ -3142,11 +3224,12 @@
     }
   }, 
   {
-    "pk": 57, 
+    "pk": 83, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "treeview/ODT-to-ARFF-string.png", 
+      "windows_queue": false, 
       "name": "Orange Data Table to ARFF String", 
       "is_streaming": false, 
       "uid": "e85e8eee-a6c1-464c-ab11-fecf4240fdd0", 
@@ -3157,6 +3240,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "odt_to_arff", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3167,10 +3251,10 @@
     }
   }, 
   {
-    "pk": 117, 
+    "pk": 165, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 57, 
+      "widget": 83, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "052788be-6a3d-4c8f-be34-b957ff445c04", 
@@ -3185,10 +3269,10 @@
     }
   }, 
   {
-    "pk": 76, 
+    "pk": 95, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 57, 
+      "widget": 83, 
       "name": "ARFF", 
       "short_name": "arf", 
       "variable": "arff", 
@@ -3198,11 +3282,12 @@
     }
   }, 
   {
-    "pk": 59, 
+    "pk": 84, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Orange Data Table to CSV File", 
       "is_streaming": false, 
       "uid": "dae920fc-c301-4285-9707-9aa8dbb9b9f7", 
@@ -3213,6 +3298,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "odt_to_csv", 
+      "streaming_visualization_view": "", 
       "action": "string_to_file", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3223,10 +3309,10 @@
     }
   }, 
   {
-    "pk": 119, 
+    "pk": 166, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 59, 
+      "widget": 84, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "a9f98093-9488-483a-bfd2-4e484b1c1ccb", 
@@ -3241,11 +3327,12 @@
     }
   }, 
   {
-    "pk": 60, 
+    "pk": 85, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Orange Data Table to TAB File", 
       "is_streaming": false, 
       "uid": "6f475ead-0c0e-4b77-bc1a-ccfa7614962c", 
@@ -3256,6 +3343,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "odt_to_tab", 
+      "streaming_visualization_view": "", 
       "action": "string_to_file", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3266,10 +3354,10 @@
     }
   }, 
   {
-    "pk": 120, 
+    "pk": 167, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 60, 
+      "widget": 85, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "1b6f9c59-36f1-4deb-bec7-c9633f6c7fd8", 
@@ -3284,11 +3372,12 @@
     }
   }, 
   {
-    "pk": 61, 
+    "pk": 86, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "treeview/Orange-SelectAttributes_60.png", 
+      "windows_queue": false, 
       "name": "Select Attributes", 
       "is_streaming": false, 
       "uid": "7b3455ff-5b2a-4c51-aa09-38dab4dfc2dc", 
@@ -3299,6 +3388,7 @@
       "post_interact_action": "select_attrs_post", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "select_attrs", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3309,10 +3399,10 @@
     }
   }, 
   {
-    "pk": 121, 
+    "pk": 168, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 61, 
+      "widget": 86, 
       "name": "Orange Data tTble", 
       "short_name": "odt", 
       "uid": "d0f1d1e2-b3e8-4f79-bb88-50c2f3812e79", 
@@ -3327,10 +3417,10 @@
     }
   }, 
   {
-    "pk": 77, 
+    "pk": 96, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 61, 
+      "widget": 86, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "data", 
@@ -3340,11 +3430,12 @@
     }
   }, 
   {
-    "pk": 62, 
+    "pk": 87, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "treeview/orange-SelectData.png", 
+      "windows_queue": false, 
       "name": "Select Data", 
       "is_streaming": false, 
       "uid": "2039c5fe-48a1-426c-b418-f0a16fdf1b18", 
@@ -3355,6 +3446,7 @@
       "post_interact_action": "select_data_post", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "select_data", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3365,10 +3457,10 @@
     }
   }, 
   {
-    "pk": 122, 
+    "pk": 169, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 62, 
+      "widget": 87, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "042b574e-c08a-43ad-87db-9030a8a74cb8", 
@@ -3383,10 +3475,10 @@
     }
   }, 
   {
-    "pk": 78, 
+    "pk": 97, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 62, 
+      "widget": 87, 
       "name": "Matching Data", 
       "short_name": "odt", 
       "variable": "data", 
@@ -3396,11 +3488,12 @@
     }
   }, 
   {
-    "pk": 63, 
+    "pk": 88, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Split dataset", 
       "is_streaming": false, 
       "uid": "af4010a8-836c-41c7-adf6-50118295cf8e", 
@@ -3411,6 +3504,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_split_dataset", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3421,10 +3515,10 @@
     }
   }, 
   {
-    "pk": 123, 
+    "pk": 170, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 63, 
+      "widget": 88, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "fe354f76-d6ed-4907-9ab6-d8784b3c7620", 
@@ -3439,10 +3533,10 @@
     }
   }, 
   {
-    "pk": 124, 
+    "pk": 171, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 63, 
+      "widget": 88, 
       "name": "Split factor", 
       "short_name": "p", 
       "uid": "6a637f14-7ba4-4c33-90e0-6cc260587260", 
@@ -3457,10 +3551,10 @@
     }
   }, 
   {
-    "pk": 79, 
+    "pk": 98, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 63, 
+      "widget": 88, 
       "name": "Train data", 
       "short_name": "tra", 
       "variable": "train_data", 
@@ -3470,10 +3564,10 @@
     }
   }, 
   {
-    "pk": 80, 
+    "pk": 99, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 63, 
+      "widget": 88, 
       "name": "Test data", 
       "short_name": "tes", 
       "variable": "test_data", 
@@ -3483,11 +3577,12 @@
     }
   }, 
   {
-    "pk": 64, 
+    "pk": 89, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Table Viewer", 
       "is_streaming": false, 
       "uid": "5becb9ab-93a8-4811-aa37-66ca85a7c0f3", 
@@ -3498,6 +3593,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "table_viewer", 
+      "streaming_visualization_view": "", 
       "action": "table_viewer", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3508,10 +3604,10 @@
     }
   }, 
   {
-    "pk": 125, 
+    "pk": 172, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 64, 
+      "widget": 89, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "8b1571c3-dc4d-401b-a634-560236572496", 
@@ -3526,11 +3622,12 @@
     }
   }, 
   {
-    "pk": 99, 
+    "pk": 90, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Tree Visualization", 
       "is_streaming": false, 
       "uid": "39e85968-5f6e-4ac7-802b-5260b406e123", 
@@ -3541,6 +3638,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "tree_visualization", 
+      "streaming_visualization_view": "", 
       "action": "tree_visualization", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3551,10 +3649,10 @@
     }
   }, 
   {
-    "pk": 189, 
+    "pk": 173, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 99, 
+      "widget": 90, 
       "name": "Classification Tree", 
       "short_name": "clf", 
       "uid": "ae24ffde-8868-4646-86c8-f209c62e98bb", 
@@ -3569,11 +3667,12 @@
     }
   }, 
   {
-    "pk": 65, 
+    "pk": 91, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 11, 
+      "category": 16, 
       "treeview_image": "treeview/UCI-2-ODT.png", 
+      "windows_queue": false, 
       "name": "UCI Dataset to Orange Data Table", 
       "is_streaming": false, 
       "uid": "4e8683ae-c571-413c-a592-2093de96e8d1", 
@@ -3584,6 +3683,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "uci_to_odt", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3594,10 +3694,10 @@
     }
   }, 
   {
-    "pk": 126, 
+    "pk": 174, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 65, 
+      "widget": 91, 
       "name": "Dataset", 
       "short_name": "ds", 
       "uid": "268452b1-6016-404d-bdb8-01f03df4890f", 
@@ -3612,280 +3712,280 @@
     }
   }, 
   {
-    "pk": 5, 
+    "pk": 41, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "0808be1d-5602-4277-9571-96ecb1faf58b", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "adult_sample.tab", 
       "name": "Adult (sample)"
     }
   }, 
   {
-    "pk": 6, 
+    "pk": 42, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "46fca181-b956-47c6-8281-eb60b69052d8", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "balance-scale.tab", 
       "name": "Balance Scale"
     }
   }, 
   {
-    "pk": 7, 
+    "pk": 43, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "84129065-b876-4ce7-ac3a-09d5dd19989b", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "breast-cancer.tab", 
       "name": "Breast Cancer"
     }
   }, 
   {
-    "pk": 8, 
+    "pk": 44, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "dd097a8f-01c7-4ec6-b00e-22efe6aeeb61", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "breast-cancer-wisconsin.tab", 
       "name": "Breast Cancer Wisconsin"
     }
   }, 
   {
-    "pk": 9, 
+    "pk": 45, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "45898880-5a9e-4b8f-9a04-d04c77a0ab28", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "car.tab", 
       "name": "Car Evaluation"
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 46, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "2b7b385d-b1c5-4242-86eb-ce77602f2c8b", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "voting.tab", 
       "name": "Congressional Voting Records"
     }
   }, 
   {
-    "pk": 11, 
+    "pk": 47, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "e2e36bac-e538-4783-9821-81d57a5eba58", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "crx.tab", 
       "name": "Credit Approval"
     }
   }, 
   {
-    "pk": 12, 
+    "pk": 48, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "33892420-6b22-4262-93d8-45f8c0fb05f8", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "glass.tab", 
       "name": "Glass Identification"
     }
   }, 
   {
-    "pk": 13, 
+    "pk": 49, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "346d63f4-53ec-40d1-8080-e97e1f8b7663", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "heart_disease.tab", 
       "name": "Heart Disease"
     }
   }, 
   {
-    "pk": 14, 
+    "pk": 50, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "6edc1a09-369f-4465-8b0e-0c6f192f0d82", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "horse-colic.tab", 
       "name": "Horse Colic"
     }
   }, 
   {
-    "pk": 15, 
+    "pk": 51, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "1e765b4f-0c6f-43d6-a4c8-630faa528030", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "housing.tab", 
       "name": "Housing"
     }
   }, 
   {
-    "pk": 16, 
+    "pk": 52, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "e14dbdbb-5849-4a56-b8be-8fc2d75d280d", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "ionosphere.tab", 
       "name": "Ionosphere"
     }
   }, 
   {
-    "pk": 17, 
+    "pk": 53, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "bfd3ffc2-f47c-487f-bfa1-4331a1c5aa3c", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "iris.tab", 
       "name": "Iris"
     }
   }, 
   {
-    "pk": 18, 
+    "pk": 54, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "695fadad-4433-4d51-88d9-c6ca9ccf0730", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "kr-vs-kp.tab", 
       "name": "King Rook vs. King Pawn"
     }
   }, 
   {
-    "pk": 19, 
+    "pk": 55, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "27f607c8-651a-4637-a4ab-4f7f12a0a37f", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "lenses.tab", 
       "name": "Lenses"
     }
   }, 
   {
-    "pk": 20, 
+    "pk": 56, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "66a974be-f910-4710-a18a-87a98136ae7d", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "bupa.tab", 
       "name": "Liver Disorder (BUPA)"
     }
   }, 
   {
-    "pk": 21, 
+    "pk": 57, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "338f8871-e237-4c35-a34c-03228248deac", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "lung-cancer.tab", 
       "name": "Lung Cancer"
     }
   }, 
   {
-    "pk": 22, 
+    "pk": 58, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "b0a9f5aa-1b16-4dba-981d-eb9145883700", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "promoters.tab", 
       "name": "Molecular Biology (Promoter Gene Sequences)"
     }
   }, 
   {
-    "pk": 23, 
+    "pk": 59, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "a316eaf4-053b-4b02-9c96-c5f80f06d02f", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "monks-1_test.tab", 
       "name": "Monks 1 Test"
     }
   }, 
   {
-    "pk": 24, 
+    "pk": 60, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "9ab37819-cdd4-4dba-8a38-21bf7d3076f0", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "monks-2_test.tab", 
       "name": "Monks 2 Test"
     }
   }, 
   {
-    "pk": 25, 
+    "pk": 61, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "0d832f9c-6fa6-4af9-bbb5-b6bfdabbbe5e", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "monks-3_test.tab", 
       "name": "Monks 3 Test"
     }
   }, 
   {
-    "pk": 26, 
+    "pk": 62, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "f498f469-904c-4e36-88d1-9748495e6cf3", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "mushroom.tab", 
       "name": "Mushroom"
     }
   }, 
   {
-    "pk": 27, 
+    "pk": 63, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "136a2c2e-a3b6-4abb-88f1-641ca837804b", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "post-operative.tab", 
       "name": "Post-Operative Patient"
     }
   }, 
   {
-    "pk": 28, 
+    "pk": 64, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "8ecb78b9-17d4-48d7-8bdf-09c09445a569", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "tic_tac_toe.tab", 
       "name": "Tic Tac Toe"
     }
   }, 
   {
-    "pk": 29, 
+    "pk": 65, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "d7033002-c7de-4295-84ff-c9a9b2e32cb6", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "wine.tab", 
       "name": "Wine"
     }
   }, 
   {
-    "pk": 30, 
+    "pk": 66, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "1b451375-329b-46f2-b471-9e4d7d0bc6ca", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "yeast.tab", 
       "name": "Yeast"
     }
   }, 
   {
-    "pk": 31, 
+    "pk": 67, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "d1464e56-53fc-47fd-b1b4-43d635159c45", 
-      "abstract_input": 126, 
+      "abstract_input": 174, 
       "value": "zoo.tab", 
       "name": "Zoo"
     }
   }, 
   {
-    "pk": 81, 
+    "pk": 100, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 65, 
+      "widget": 91, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "data", 
@@ -3895,11 +3995,11 @@
     }
   }, 
   {
-    "pk": 12, 
+    "pk": 17, 
     "model": "workflows.category", 
     "fields": {
       "uid": "81efce93-b6c5-4270-bde9-ec946a394b10", 
-      "parent": 5, 
+      "parent": 9, 
       "workflow": null, 
       "user": null, 
       "order": 4, 
@@ -3907,11 +4007,12 @@
     }
   }, 
   {
-    "pk": 66, 
+    "pk": 92, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 17, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Filter ReliefF", 
       "is_streaming": false, 
       "uid": "7547eb6d-e83d-4033-b0cb-1e8319c2508f", 
@@ -3922,6 +4023,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_filter_relieff", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -3932,10 +4034,10 @@
     }
   }, 
   {
-    "pk": 127, 
+    "pk": 175, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 66, 
+      "widget": 92, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "2dc5a9e7-06c8-494f-9f4b-80b3c5eb31ff", 
@@ -3950,10 +4052,10 @@
     }
   }, 
   {
-    "pk": 128, 
+    "pk": 176, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 66, 
+      "widget": 92, 
       "name": "k", 
       "short_name": "k", 
       "uid": "3ef628d4-03af-4d46-b90b-6c4475054d31", 
@@ -3968,10 +4070,10 @@
     }
   }, 
   {
-    "pk": 129, 
+    "pk": 177, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 66, 
+      "widget": 92, 
       "name": "m", 
       "short_name": "m", 
       "uid": "9b3082b4-5903-41cb-a4c0-63d471f80f57", 
@@ -3986,10 +4088,10 @@
     }
   }, 
   {
-    "pk": 130, 
+    "pk": 178, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 66, 
+      "widget": 92, 
       "name": "margin", 
       "short_name": "mrg", 
       "uid": "1cce36a4-167d-4a23-83ee-eae626a3b492", 
@@ -4004,10 +4106,10 @@
     }
   }, 
   {
-    "pk": 82, 
+    "pk": 101, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 66, 
+      "widget": 92, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "variable": "new_dataset", 
@@ -4017,11 +4119,12 @@
     }
   }, 
   {
-    "pk": 67, 
+    "pk": 93, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 17, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Score estimation (Relief)", 
       "is_streaming": false, 
       "uid": "d7f0e9b0-aa2a-4cdb-b4a8-cfb3b0bafa43", 
@@ -4032,6 +4135,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_score_estimation", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -4042,10 +4146,10 @@
     }
   }, 
   {
-    "pk": 131, 
+    "pk": 179, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 67, 
+      "widget": 93, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "964fbb76-a749-4775-a665-ff0242b7dc2c", 
@@ -4060,10 +4164,10 @@
     }
   }, 
   {
-    "pk": 132, 
+    "pk": 180, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 67, 
+      "widget": 93, 
       "name": "k", 
       "short_name": "k", 
       "uid": "d6f4067c-39c3-4ea5-80f8-77759db7b2dc", 
@@ -4078,10 +4182,10 @@
     }
   }, 
   {
-    "pk": 133, 
+    "pk": 181, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 67, 
+      "widget": 93, 
       "name": "m", 
       "short_name": "m", 
       "uid": "cc9cff1e-75d7-474c-8408-dc39aec692af", 
@@ -4096,10 +4200,10 @@
     }
   }, 
   {
-    "pk": 83, 
+    "pk": 102, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 67, 
+      "widget": 93, 
       "name": "Scores", 
       "short_name": "sco", 
       "variable": "results", 
@@ -4109,11 +4213,12 @@
     }
   }, 
   {
-    "pk": 68, 
+    "pk": 94, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 17, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Select Attributes Above Threshold", 
       "is_streaming": false, 
       "uid": "660c49cb-21ca-4e06-97ca-893946340b7f", 
@@ -4124,6 +4229,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_atts_above_thresh", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -4134,10 +4240,10 @@
     }
   }, 
   {
-    "pk": 134, 
+    "pk": 182, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 68, 
+      "widget": 94, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "ca1fcc61-3c66-4908-a381-0974fecda1a1", 
@@ -4152,10 +4258,10 @@
     }
   }, 
   {
-    "pk": 135, 
+    "pk": 183, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 68, 
+      "widget": 94, 
       "name": "Scores", 
       "short_name": "sco", 
       "uid": "2e60fc2e-3470-46d3-a64f-ab1e7c75487b", 
@@ -4170,10 +4276,10 @@
     }
   }, 
   {
-    "pk": 136, 
+    "pk": 184, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 68, 
+      "widget": 94, 
       "name": "Threshold", 
       "short_name": "thr", 
       "uid": "2ee5a729-2e13-49c0-805b-120833d80909", 
@@ -4188,10 +4294,10 @@
     }
   }, 
   {
-    "pk": 84, 
+    "pk": 103, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 68, 
+      "widget": 94, 
       "name": "New Orange Data Table", 
       "short_name": "odt", 
       "variable": "new_dataset", 
@@ -4201,11 +4307,12 @@
     }
   }, 
   {
-    "pk": 69, 
+    "pk": 95, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 12, 
+      "category": 17, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Select best N attributes", 
       "is_streaming": false, 
       "uid": "68ce4c2e-baf7-4a2e-843b-3b5622c20448", 
@@ -4216,6 +4323,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "cforange_best_natts", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -4226,10 +4334,10 @@
     }
   }, 
   {
-    "pk": 137, 
+    "pk": 185, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 69, 
+      "widget": 95, 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "uid": "b41c9bbf-7405-451d-8dda-794ce850d452", 
@@ -4244,10 +4352,10 @@
     }
   }, 
   {
-    "pk": 138, 
+    "pk": 186, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 69, 
+      "widget": 95, 
       "name": "Scores", 
       "short_name": "sco", 
       "uid": "a19e140e-4aab-4491-9536-992152a3d56f", 
@@ -4262,10 +4370,10 @@
     }
   }, 
   {
-    "pk": 139, 
+    "pk": 187, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 69, 
+      "widget": 95, 
       "name": "N", 
       "short_name": "n", 
       "uid": "af3d33a6-674f-42c6-a092-abfd65196617", 
@@ -4280,10 +4388,10 @@
     }
   }, 
   {
-    "pk": 85, 
+    "pk": 104, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 69, 
+      "widget": 95, 
       "name": "New Orange Data Table", 
       "short_name": "odt", 
       "variable": "new_dataset", 
