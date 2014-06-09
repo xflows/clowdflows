@@ -140,7 +140,7 @@ class NCBI_Extractor(object):
         return doc
     #end
 
-    def extractArticleText(self, root, did):
+    def extractArticleText(self, root, did,only_sections=None):
         try:
             titleNode = root.getElementsByTagName('article-title')[0]
         except Exception:
@@ -164,7 +164,7 @@ class NCBI_Extractor(object):
             body = ''
             print 'Warning: no body found, document %s' % str(did)
         else:
-            body = self.list2text(self.recursiveCollect(bodyNode, []))
+            body = self.list2text(self.recursiveCollect(bodyNode, [],only_sections))
             body = re.sub('(\[)[ ,-:;]*(\])', '', body)
 
         ytags = root.getElementsByTagName('pub-date')
@@ -185,18 +185,35 @@ class NCBI_Extractor(object):
     #end
 
     #
-    def recursiveCollect(self, node, result, skipTags=['title', 'xref', 'table', 'graphic', 'ext-link',
+    def recursiveCollect(self, node, result, only_sections=None,skipTags=['title', 'xref', 'table', 'graphic', 'ext-link',
                                                        'media', 'inline-formula', 'disp-formula']):
         for child in node.childNodes:
             if child.nodeType == dom.Node.ELEMENT_NODE:
                 if child.tagName not in skipTags:
-                    self.recursiveCollect(child, result)
+                    print child.getAttribute("sec-type"), child.tagName
+                    if not only_sections or child.tagName!='sec' or not child.hasAttribute('sec-type') or child.getAttribute('sec-type') in only_sections:
+                        self.recursiveCollect(child, result,only_sections)
             elif child.nodeType == dom.Node.TEXT_NODE:
                 result.append(child.data)
         #endfor
 
         return result
     #end
+
+    def recursiveCollectET(self, node, result, only_sections=None,skipTags=['title', 'xref', 'table', 'graphic', 'ext-link',
+                                                       'media', 'inline-formula', 'disp-formula']):
+        if node.tag not in skipTags:
+            #print node.attrib["sec-type"], node.tagName
+            if not only_sections or node.tag!='sec' or not node.attrib['sec-type'] or node.attrib['sec-type'] in only_sections:
+                if node.text and node.text.strip()!="":
+                    result.append(node.text.replace('\n', ''))
+                if node.tail and node.tail.strip()!="":
+                    result.append(node.tail.replace('\n', ''))
+                a=list(node)
+            for child in list(node):
+                self.recursiveCollectET(child, result,only_sections)
+        return result
+
 
     def list2text(self, lst):
         result = ''

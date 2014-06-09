@@ -1,6 +1,6 @@
 [
   {
-    "pk": 49, 
+    "pk": 45, 
     "model": "workflows.category", 
     "fields": {
       "uid": "62a3ddb8-ff28-4e54-8144-3a7af70d235a", 
@@ -12,11 +12,222 @@
     }
   }, 
   {
-    "pk": 50, 
+    "pk": 240, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 45, 
+      "treeview_image": "", 
+      "name": "Construct CrossBee dataset", 
+      "is_streaming": false, 
+      "uid": "f7783ae4-2b4d-4067-8ee5-a3d1fddf0081", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "crossbee", 
+      "static_image": "", 
+      "windows_queue": false, 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "construct_crossbee_dataset", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 521, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 240, 
+      "name": "Domain A abbreviation", 
+      "short_name": "str", 
+      "uid": "c5774635-5d44-4cb1-a6d9-cc3dd471544a", 
+      "default": "domainA", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "domainA_abbr", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 522, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 240, 
+      "name": "Domain A string, corpus of documents", 
+      "short_name": "str", 
+      "uid": "3a6d42a5-78c7-497d-908d-04a11d00d21b", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "domainA_corpus", 
+      "parameter": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 523, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 240, 
+      "name": "Domain C abbreviation", 
+      "short_name": "str", 
+      "uid": "455f4e2a-8bf7-440a-862d-0a4e2ad5a7a7", 
+      "default": "domainC", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "domainC_abbr", 
+      "parameter": true, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 524, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 240, 
+      "name": "Domain C string, corpus of documents", 
+      "short_name": "str", 
+      "uid": "8edcdcbf-debb-4c00-93c4-34d6f4fe8f32", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "domainC_corpus", 
+      "parameter": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 250, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 240, 
+      "name": "Crossbee dataset string", 
+      "short_name": "cds", 
+      "variable": "crossbee_dataset", 
+      "uid": "e58d1f55-5767-42f0-be41-0550a98ef00f", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 241, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 45, 
+      "treeview_image": "", 
+      "name": "Open data in CrossBee", 
+      "is_streaming": false, 
+      "uid": "5a3a0229-7e10-40d8-8c2b-e3ce8011e7f0", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "crossbee", 
+      "static_image": "", 
+      "windows_queue": false, 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "open_data_in_crossbee", 
+      "streaming_visualization_view": "", 
+      "action": "open_data_in_crossbee", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 525, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 241, 
+      "name": "Domain A name", 
+      "short_name": "dAn", 
+      "uid": "85ac39f7-b5dc-44f3-9d14-0edc48cc4041", 
+      "default": "domain A", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "domainA", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 526, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 241, 
+      "name": "CrossBee dataset", 
+      "short_name": "cds", 
+      "uid": "67436927-c32b-4629-b3ab-f7f87715a863", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 527, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 241, 
+      "name": "Domain C name", 
+      "short_name": "dCn", 
+      "uid": "3c08d617-7a38-4663-894f-4c8d44640a85", 
+      "default": "domain C", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "domainC", 
+      "parameter": true, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 528, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 241, 
+      "name": "Bterms", 
+      "short_name": "btr", 
+      "uid": "a838659f-fdc9-4f8a-91b7-902b8b37f924", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "bterms", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "Each line represents one bterm"
+    }
+  }, 
+  {
+    "pk": 46, 
     "model": "workflows.category", 
     "fields": {
       "uid": "5d55b2bf-c5f6-4fff-bfd3-9d6ad83ba9f9", 
-      "parent": 49, 
+      "parent": 45, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -24,10 +235,10 @@
     }
   }, 
   {
-    "pk": 249, 
+    "pk": 242, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 50, 
+      "category": 46, 
       "treeview_image": "", 
       "name": "Load Outlier Heuristics", 
       "is_streaming": false, 
@@ -36,8 +247,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -51,10 +262,10 @@
     }
   }, 
   {
-    "pk": 530, 
+    "pk": 529, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 249, 
+      "widget": 242, 
       "name": "Heurisic Name Prefix", 
       "short_name": "str", 
       "uid": "d6055ed0-f08d-555b-4cd3-5355a117f07d", 
@@ -69,10 +280,10 @@
     }
   }, 
   {
-    "pk": 531, 
+    "pk": 530, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 249, 
+      "widget": 242, 
       "name": "Specification", 
       "short_name": "str", 
       "uid": "1fe24622-a12a-679f-dc93-702ff6c39a6b", 
@@ -87,10 +298,10 @@
     }
   }, 
   {
-    "pk": 532, 
+    "pk": 531, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 249, 
+      "widget": 242, 
       "name": "Relative", 
       "short_name": "clc", 
       "uid": "7f42ad6d-0593-5433-df7f-a482dd977c28", 
@@ -105,10 +316,10 @@
     }
   }, 
   {
-    "pk": 256, 
+    "pk": 251, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 249, 
+      "widget": 242, 
       "name": "Ensemble Heuristics", 
       "short_name": "heu", 
       "variable": "newHeurisitcs", 
@@ -118,10 +329,10 @@
     }
   }, 
   {
-    "pk": 250, 
+    "pk": 243, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 50, 
+      "category": 46, 
       "treeview_image": "", 
       "name": "Outlier Heuristics Specification", 
       "is_streaming": false, 
@@ -130,8 +341,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -145,10 +356,10 @@
     }
   }, 
   {
-    "pk": 533, 
+    "pk": 532, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 250, 
+      "widget": 243, 
       "name": "Outlier Heurisitc(s)", 
       "short_name": "heu", 
       "uid": "4e27297b-5056-076c-f30b-c7075a320556", 
@@ -163,10 +374,10 @@
     }
   }, 
   {
-    "pk": 257, 
+    "pk": 252, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 250, 
+      "widget": 243, 
       "name": "Heuristics Specification", 
       "short_name": "str", 
       "variable": "specification", 
@@ -176,10 +387,10 @@
     }
   }, 
   {
-    "pk": 251, 
+    "pk": 244, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 50, 
+      "category": 46, 
       "treeview_image": "", 
       "name": "Document Outlier Detection", 
       "is_streaming": false, 
@@ -188,8 +399,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -203,10 +414,10 @@
     }
   }, 
   {
-    "pk": 534, 
+    "pk": 533, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 251, 
+      "widget": 244, 
       "name": "Classifier", 
       "short_name": "csf", 
       "uid": "ce140d06-8399-9f9e-73d4-1d62f6d048aa", 
@@ -221,10 +432,10 @@
     }
   }, 
   {
-    "pk": 535, 
+    "pk": 534, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 251, 
+      "widget": 244, 
       "name": "Dataset", 
       "short_name": "ds", 
       "uid": "7951cba0-726f-c289-80a9-6071170fc934", 
@@ -239,10 +450,10 @@
     }
   }, 
   {
-    "pk": 536, 
+    "pk": 535, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 251, 
+      "widget": 244, 
       "name": "Corss-Validation Repetitions", 
       "short_name": "int", 
       "uid": "ffa6f21f-bab4-ec85-564d-3c97ce7f1575", 
@@ -257,10 +468,10 @@
     }
   }, 
   {
-    "pk": 537, 
+    "pk": 536, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 251, 
+      "widget": 244, 
       "name": "Outlier Score Threshold", 
       "short_name": "int", 
       "uid": "ad206ea1-4158-620d-3ea8-7a1ad7f87cc8", 
@@ -275,10 +486,10 @@
     }
   }, 
   {
-    "pk": 538, 
+    "pk": 537, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 251, 
+      "widget": 244, 
       "name": "Num of Cross Validation Sets/Splits", 
       "short_name": "int", 
       "uid": "70f37618-6173-b6de-1581-333303025651", 
@@ -293,10 +504,10 @@
     }
   }, 
   {
-    "pk": 539, 
+    "pk": 538, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 251, 
+      "widget": 244, 
       "name": "Assign Sets Randomly", 
       "short_name": "bol", 
       "uid": "0275f3ce-d1a3-fb1c-d241-fdd9198ba7c3", 
@@ -311,10 +522,10 @@
     }
   }, 
   {
-    "pk": 540, 
+    "pk": 539, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 251, 
+      "widget": 244, 
       "name": "Use Specified Seed for Random", 
       "short_name": "bol", 
       "uid": "b732736e-8c7f-d8f7-e9f0-7becd4a6bdcc", 
@@ -329,10 +540,10 @@
     }
   }, 
   {
-    "pk": 541, 
+    "pk": 540, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 251, 
+      "widget": 244, 
       "name": "Random Seed", 
       "short_name": "int", 
       "uid": "e7228b95-f0d5-346a-697c-6225bfc98db2", 
@@ -347,10 +558,10 @@
     }
   }, 
   {
-    "pk": 542, 
+    "pk": 541, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 251, 
+      "widget": 244, 
       "name": "Outlier Weighting", 
       "short_name": "wgh", 
       "uid": "d656fe12-2f4c-efb5-6687-013fb8c4b1e0", 
@@ -365,21 +576,21 @@
     }
   }, 
   {
-    "pk": 163, 
+    "pk": 162, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "4f477fa7-7768-c376-c588-1f3eb74a9355", 
-      "abstract_input": 542, 
+      "abstract_input": 541, 
       "value": "AbsoluteNumber", 
       "name": "Absolute: weight is absolute number of time a document was labeld outlier through all repetitions"
     }
   }, 
   {
-    "pk": 162, 
+    "pk": 163, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "5fc5ec58-403c-5d07-6a7e-46d8619545e5", 
-      "abstract_input": 542, 
+      "abstract_input": 541, 
       "value": "NoWeighting", 
       "name": "No weighting: output is list of indexes of outlier documents"
     }
@@ -389,16 +600,16 @@
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "1a6722dd-f1ed-4ba2-702c-13b4c0688d65", 
-      "abstract_input": 542, 
+      "abstract_input": 541, 
       "value": "RelativePercentage", 
       "name": "Relative: weight is relative percentage how many times a document was labeled outlier through all repetitions"
     }
   }, 
   {
-    "pk": 258, 
+    "pk": 253, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 251, 
+      "widget": 244, 
       "name": "List of Outlier Indexes (with Weights)", 
       "short_name": "lst", 
       "variable": "out", 
@@ -408,11 +619,11 @@
     }
   }, 
   {
-    "pk": 51, 
+    "pk": 47, 
     "model": "workflows.category", 
     "fields": {
       "uid": "d8fee140-c280-4d6b-b0b9-7c02fd857b50", 
-      "parent": 49, 
+      "parent": 45, 
       "workflow": null, 
       "user": null, 
       "order": 2, 
@@ -420,10 +631,10 @@
     }
   }, 
   {
-    "pk": 252, 
+    "pk": 245, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 51, 
+      "category": 47, 
       "treeview_image": "", 
       "name": "Standard Heuristic", 
       "is_streaming": false, 
@@ -432,8 +643,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -447,10 +658,10 @@
     }
   }, 
   {
-    "pk": 543, 
+    "pk": 542, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 252, 
+      "widget": 245, 
       "name": "Name", 
       "short_name": "str", 
       "uid": "a90bdc28-ff1b-24c8-56ce-7f3e574961a2", 
@@ -465,10 +676,10 @@
     }
   }, 
   {
-    "pk": 544, 
+    "pk": 543, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 252, 
+      "widget": 245, 
       "name": "Heurisitc Specification", 
       "short_name": "hsp", 
       "uid": "ea0732f6-cc42-4b44-54cc-6ebc0062af17", 
@@ -483,160 +694,160 @@
     }
   }, 
   {
-    "pk": 166, 
+    "pk": 165, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "baa0c2ee-cf9e-95c4-8512-a4f3f8a2afa0", 
-      "abstract_input": 544, 
+      "abstract_input": 543, 
       "value": "appearInAllDomn", 
       "name": "appearInAllDomn: better baseline heuristic which can separate two classes of terms - the ones that appear in both domains and the ones that appear only in one"
     }
   }, 
   {
-    "pk": 168, 
+    "pk": 166, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "515a4987-5332-bc92-9bf5-eb89ed885ae2", 
-      "abstract_input": 544, 
+      "abstract_input": 543, 
       "value": "freqDoc", 
       "name": "freqDoc: document frequency across both domains"
-    }
-  }, 
-  {
-    "pk": 171, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "6111af42-a16f-2bbb-d29c-2a2facc47368", 
-      "abstract_input": 544, 
-      "value": "freqDomnProd", 
-      "name": "freqDomnProd: product of term frequencies in both domains"
-    }
-  }, 
-  {
-    "pk": 172, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "d650ea43-9e99-d228-3093-7b912391e8b3", 
-      "abstract_input": 544, 
-      "value": "freqDomnProdRel", 
-      "name": "freqDomnProdRel: product of term frequencies in both domains relative to the term frequency in all domains"
-    }
-  }, 
-  {
-    "pk": 170, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "a9a43380-128e-c1d4-f5e0-1c9061ea4d4f", 
-      "abstract_input": 544, 
-      "value": "freqDomnRatioMin", 
-      "name": "freqDomnRatioMin: minimum of term frequencies ratio between both domains"
-    }
-  }, 
-  {
-    "pk": 169, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "e85317e8-2193-ee9a-90b1-6320c5d301ee", 
-      "abstract_input": 544, 
-      "value": "freqRatio", 
-      "name": "freqRatio: term to document frequency ratio"
     }
   }, 
   {
     "pk": 167, 
     "model": "workflows.abstractoption", 
     "fields": {
+      "uid": "6111af42-a16f-2bbb-d29c-2a2facc47368", 
+      "abstract_input": 543, 
+      "value": "freqDomnProd", 
+      "name": "freqDomnProd: product of term frequencies in both domains"
+    }
+  }, 
+  {
+    "pk": 168, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "d650ea43-9e99-d228-3093-7b912391e8b3", 
+      "abstract_input": 543, 
+      "value": "freqDomnProdRel", 
+      "name": "freqDomnProdRel: product of term frequencies in both domains relative to the term frequency in all domains"
+    }
+  }, 
+  {
+    "pk": 169, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "a9a43380-128e-c1d4-f5e0-1c9061ea4d4f", 
+      "abstract_input": 543, 
+      "value": "freqDomnRatioMin", 
+      "name": "freqDomnRatioMin: minimum of term frequencies ratio between both domains"
+    }
+  }, 
+  {
+    "pk": 170, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "e85317e8-2193-ee9a-90b1-6320c5d301ee", 
+      "abstract_input": 543, 
+      "value": "freqRatio", 
+      "name": "freqRatio: term to document frequency ratio"
+    }
+  }, 
+  {
+    "pk": 171, 
+    "model": "workflows.abstractoption", 
+    "fields": {
       "uid": "66c8c1be-9678-5564-8722-62018610a66a", 
-      "abstract_input": 544, 
+      "abstract_input": 543, 
       "value": "freqTerm", 
       "name": "freqTerm: term frequency across both domains"
     }
   }, 
   {
-    "pk": 165, 
+    "pk": 172, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "cc5decfa-9ed4-60e7-691e-c8f59bb9ca8a", 
-      "abstract_input": 544, 
+      "abstract_input": 543, 
       "value": "random", 
       "name": "random: random baseline heuristic"
-    }
-  }, 
-  {
-    "pk": 177, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "9704c8d8-bc29-9286-08f9-5c6191235203", 
-      "abstract_input": 544, 
-      "value": "simAvgTerm", 
-      "name": "simAvgTerm: similarity to an average term – the distance from the center of the cluster of all terms"
-    }
-  }, 
-  {
-    "pk": 178, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "913318ee-6bb5-b7a4-31c4-93f379b48bb5", 
-      "abstract_input": 544, 
-      "value": "simDomnProd", 
-      "name": "simDomnProd: product of a term’s similarity to the centroids of both domains"
-    }
-  }, 
-  {
-    "pk": 179, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "a2521b2a-a074-d279-eb27-073ddd2ebe46", 
-      "abstract_input": 544, 
-      "value": "simDomnRatioMin", 
-      "name": "simDomnRatioMin: minimum of a term‘s frequencies ratio between both domains"
-    }
-  }, 
-  {
-    "pk": 174, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "3f1621d3-7bc0-5e28-abc1-814bf77c0bd4", 
-      "abstract_input": 544, 
-      "value": "tfidfAvg", 
-      "name": "tfidfAvg: average tf idf of a term"
-    }
-  }, 
-  {
-    "pk": 175, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "e3e72432-6cf2-47fb-50ef-f9cf73864874", 
-      "abstract_input": 544, 
-      "value": "tfidfDomnProd", 
-      "name": "tfidfDomnProd: product of a term’s importance in both domains"
-    }
-  }, 
-  {
-    "pk": 176, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "40d62620-22c5-84a6-79e3-9657e62eda10", 
-      "abstract_input": 544, 
-      "value": "tfidfDomnSum", 
-      "name": "tfidfDomnSum: sum of a term’s importance in both domains"
     }
   }, 
   {
     "pk": 173, 
     "model": "workflows.abstractoption", 
     "fields": {
+      "uid": "9704c8d8-bc29-9286-08f9-5c6191235203", 
+      "abstract_input": 543, 
+      "value": "simAvgTerm", 
+      "name": "simAvgTerm: similarity to an average term – the distance from the center of the cluster of all terms"
+    }
+  }, 
+  {
+    "pk": 174, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "913318ee-6bb5-b7a4-31c4-93f379b48bb5", 
+      "abstract_input": 543, 
+      "value": "simDomnProd", 
+      "name": "simDomnProd: product of a term’s similarity to the centroids of both domains"
+    }
+  }, 
+  {
+    "pk": 175, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "a2521b2a-a074-d279-eb27-073ddd2ebe46", 
+      "abstract_input": 543, 
+      "value": "simDomnRatioMin", 
+      "name": "simDomnRatioMin: minimum of a term‘s frequencies ratio between both domains"
+    }
+  }, 
+  {
+    "pk": 176, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "3f1621d3-7bc0-5e28-abc1-814bf77c0bd4", 
+      "abstract_input": 543, 
+      "value": "tfidfAvg", 
+      "name": "tfidfAvg: average tf idf of a term"
+    }
+  }, 
+  {
+    "pk": 177, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "e3e72432-6cf2-47fb-50ef-f9cf73864874", 
+      "abstract_input": 543, 
+      "value": "tfidfDomnProd", 
+      "name": "tfidfDomnProd: product of a term’s importance in both domains"
+    }
+  }, 
+  {
+    "pk": 178, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "40d62620-22c5-84a6-79e3-9657e62eda10", 
+      "abstract_input": 543, 
+      "value": "tfidfDomnSum", 
+      "name": "tfidfDomnSum: sum of a term’s importance in both domains"
+    }
+  }, 
+  {
+    "pk": 179, 
+    "model": "workflows.abstractoption", 
+    "fields": {
       "uid": "b8be1a09-27a9-80c5-55c4-2fe2ff2e9937", 
-      "abstract_input": 544, 
+      "abstract_input": 543, 
       "value": "tfidfSum", 
       "name": "tfidfSum: sum of all tf idf weights of a term across both domains"
     }
   }, 
   {
-    "pk": 259, 
+    "pk": 254, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 252, 
+      "widget": 245, 
       "name": "Heuristic", 
       "short_name": "heu", 
       "variable": "heurisitc", 
@@ -646,10 +857,10 @@
     }
   }, 
   {
-    "pk": 253, 
+    "pk": 246, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 51, 
+      "category": 47, 
       "treeview_image": "", 
       "name": "All Standard Heuristics", 
       "is_streaming": false, 
@@ -658,8 +869,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -673,10 +884,10 @@
     }
   }, 
   {
-    "pk": 260, 
+    "pk": 255, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 253, 
+      "widget": 246, 
       "name": "Heuristics", 
       "short_name": "heu", 
       "variable": "heurisitcs", 
@@ -686,10 +897,10 @@
     }
   }, 
   {
-    "pk": 255, 
+    "pk": 247, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 51, 
+      "category": 47, 
       "treeview_image": "", 
       "name": "Calculated Heuristic", 
       "is_streaming": false, 
@@ -698,8 +909,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -713,10 +924,10 @@
     }
   }, 
   {
-    "pk": 548, 
+    "pk": 544, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 255, 
+      "widget": 247, 
       "name": "Name", 
       "short_name": "str", 
       "uid": "bac420b2-4a79-b5d3-4699-3c6c5dd22a6e", 
@@ -731,10 +942,10 @@
     }
   }, 
   {
-    "pk": 549, 
+    "pk": 545, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 255, 
+      "widget": 247, 
       "name": "Calculation", 
       "short_name": "clc", 
       "uid": "8ba9e687-f07d-84af-35b4-8969200b5ced", 
@@ -749,51 +960,51 @@
     }
   }, 
   {
-    "pk": 187, 
+    "pk": 180, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "0fa9a446-51d6-159b-8965-da960aca34f9", 
-      "abstract_input": 549, 
+      "abstract_input": 545, 
       "value": "Abs", 
       "name": "Abs"
     }
   }, 
   {
-    "pk": 189, 
+    "pk": 181, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "58e21428-22b0-1b32-1f34-2e9ff9289dd8", 
-      "abstract_input": 549, 
+      "abstract_input": 545, 
       "value": "Cos", 
       "name": "Cos"
+    }
+  }, 
+  {
+    "pk": 182, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "1dbaadd9-502c-2c66-cac4-ff85db24af8d", 
+      "abstract_input": 545, 
+      "value": "Div", 
+      "name": "Div"
     }
   }, 
   {
     "pk": 183, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "1dbaadd9-502c-2c66-cac4-ff85db24af8d", 
-      "abstract_input": 549, 
-      "value": "Div", 
-      "name": "Div"
-    }
-  }, 
-  {
-    "pk": 190, 
-    "model": "workflows.abstractoption", 
-    "fields": {
       "uid": "9d9eacda-1cf2-aa94-2a0d-3574dde61294", 
-      "abstract_input": 549, 
+      "abstract_input": 545, 
       "value": "Log", 
       "name": "Log"
     }
   }, 
   {
-    "pk": 186, 
+    "pk": 184, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "78eb2f10-e09b-16dc-b74e-a85567fecdfc", 
-      "abstract_input": 549, 
+      "abstract_input": 545, 
       "value": "Max", 
       "name": "Max"
     }
@@ -803,27 +1014,27 @@
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "49306557-b83a-cae4-07cc-0703f9f3b5ad", 
-      "abstract_input": 549, 
+      "abstract_input": 545, 
       "value": "Min", 
       "name": "Min"
     }
   }, 
   {
-    "pk": 184, 
+    "pk": 186, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "ef4dfb77-de2a-305f-9d32-66615737cfb1", 
-      "abstract_input": 549, 
+      "abstract_input": 545, 
       "value": "Norm", 
       "name": "Norm"
     }
   }, 
   {
-    "pk": 182, 
+    "pk": 187, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "976452e4-d989-8180-2f90-5d2878829570", 
-      "abstract_input": 549, 
+      "abstract_input": 545, 
       "value": "Prod", 
       "name": "Prod"
     }
@@ -833,36 +1044,36 @@
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "20eb84a9-6c36-fa84-f34c-0500e1c2583c", 
-      "abstract_input": 549, 
+      "abstract_input": 545, 
       "value": "Sin", 
       "name": "Sin"
     }
   }, 
   {
-    "pk": 181, 
+    "pk": 189, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "a3bc7d12-0d55-062b-96e6-91df5756c228", 
-      "abstract_input": 549, 
+      "abstract_input": 545, 
       "value": "Subt", 
       "name": "Subt"
     }
   }, 
   {
-    "pk": 180, 
+    "pk": 190, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "6db0f285-39a9-ef1f-d1f5-aa9b102f3c11", 
-      "abstract_input": 549, 
+      "abstract_input": 545, 
       "value": "Sum", 
       "name": "Sum"
     }
   }, 
   {
-    "pk": 550, 
+    "pk": 546, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 255, 
+      "widget": 247, 
       "name": "Heurisitc(s)", 
       "short_name": "heu", 
       "uid": "2a9150da-560d-ce9b-987a-f2492c315c12", 
@@ -877,10 +1088,10 @@
     }
   }, 
   {
-    "pk": 262, 
+    "pk": 256, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 255, 
+      "widget": 247, 
       "name": "Ensemble Heuristics", 
       "short_name": "heu", 
       "variable": "newHeurisitcs", 
@@ -890,10 +1101,10 @@
     }
   }, 
   {
-    "pk": 254, 
+    "pk": 248, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 51, 
+      "category": 47, 
       "treeview_image": "", 
       "name": "Outlier Heuristic", 
       "is_streaming": false, 
@@ -902,8 +1113,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -917,10 +1128,10 @@
     }
   }, 
   {
-    "pk": 545, 
+    "pk": 547, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 254, 
+      "widget": 248, 
       "name": "Name", 
       "short_name": "str", 
       "uid": "e8143732-511e-1627-b661-71f579c4dbdb", 
@@ -935,10 +1146,10 @@
     }
   }, 
   {
-    "pk": 546, 
+    "pk": 548, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 254, 
+      "widget": 248, 
       "name": "Relative", 
       "short_name": "clc", 
       "uid": "7d742dd5-7417-0461-32c1-34b2ea7daf55", 
@@ -953,10 +1164,10 @@
     }
   }, 
   {
-    "pk": 547, 
+    "pk": 549, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 254, 
+      "widget": 248, 
       "name": "Outlier Document Indexes", 
       "short_name": "lst", 
       "uid": "1cf73158-780a-857f-fde4-4fbdda0553e8", 
@@ -971,10 +1182,10 @@
     }
   }, 
   {
-    "pk": 261, 
+    "pk": 257, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 254, 
+      "widget": 248, 
       "name": "Ensemble Heuristics", 
       "short_name": "heu", 
       "variable": "newHeurisitcs", 
@@ -984,10 +1195,10 @@
     }
   }, 
   {
-    "pk": 256, 
+    "pk": 249, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 51, 
+      "category": 47, 
       "treeview_image": "", 
       "name": "Ensemble Heuristic", 
       "is_streaming": false, 
@@ -996,8 +1207,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1011,10 +1222,10 @@
     }
   }, 
   {
-    "pk": 551, 
+    "pk": 550, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 256, 
+      "widget": 249, 
       "name": "Name", 
       "short_name": "str", 
       "uid": "c7bb9b8c-4b9a-ff1e-b68f-83c7869087bd", 
@@ -1029,10 +1240,10 @@
     }
   }, 
   {
-    "pk": 552, 
+    "pk": 551, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 256, 
+      "widget": 249, 
       "name": "Heurisitc(s)", 
       "short_name": "heu", 
       "uid": "9657dc70-a421-567e-b2fa-fb549d79e9d5", 
@@ -1047,10 +1258,10 @@
     }
   }, 
   {
-    "pk": 263, 
+    "pk": 258, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 256, 
+      "widget": 249, 
       "name": "Ensemble Heuristics", 
       "short_name": "heu", 
       "variable": "newHeurisitcs", 
@@ -1060,10 +1271,10 @@
     }
   }, 
   {
-    "pk": 257, 
+    "pk": 250, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 51, 
+      "category": 47, 
       "treeview_image": "", 
       "name": "Heuristics List", 
       "is_streaming": false, 
@@ -1072,8 +1283,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1087,10 +1298,10 @@
     }
   }, 
   {
-    "pk": 553, 
+    "pk": 552, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 257, 
+      "widget": 250, 
       "name": "Heurisitc(s)", 
       "short_name": "heu", 
       "uid": "35b7d943-8fed-0a70-bf9e-11e9d539c223", 
@@ -1105,10 +1316,10 @@
     }
   }, 
   {
-    "pk": 264, 
+    "pk": 259, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 257, 
+      "widget": 250, 
       "name": "Heuristics", 
       "short_name": "heu", 
       "variable": "newHeurisitcs", 
@@ -1118,10 +1329,10 @@
     }
   }, 
   {
-    "pk": 258, 
+    "pk": 251, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 51, 
+      "category": 47, 
       "treeview_image": "", 
       "name": "Get Heuristic Names", 
       "is_streaming": false, 
@@ -1130,8 +1341,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1145,10 +1356,10 @@
     }
   }, 
   {
-    "pk": 554, 
+    "pk": 553, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 258, 
+      "widget": 251, 
       "name": "Heurisitc(s)", 
       "short_name": "heu", 
       "uid": "2fa7cd37-afbd-509c-d326-2baf11182b47", 
@@ -1163,10 +1374,10 @@
     }
   }, 
   {
-    "pk": 265, 
+    "pk": 260, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 258, 
+      "widget": 251, 
       "name": "Name(s) of Heuristic(s)", 
       "short_name": "lst", 
       "variable": "names", 
@@ -1176,10 +1387,10 @@
     }
   }, 
   {
-    "pk": 259, 
+    "pk": 252, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 51, 
+      "category": 47, 
       "treeview_image": "", 
       "name": "Get Heuristic Structure", 
       "is_streaming": false, 
@@ -1188,8 +1399,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1203,10 +1414,10 @@
     }
   }, 
   {
-    "pk": 555, 
+    "pk": 554, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 259, 
+      "widget": 252, 
       "name": "Heurisitc(s)", 
       "short_name": "heu", 
       "uid": "b6985a06-7bb7-b410-062f-e6ac08629c37", 
@@ -1221,10 +1432,10 @@
     }
   }, 
   {
-    "pk": 266, 
+    "pk": 261, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 259, 
+      "widget": 252, 
       "name": "Structure of Heuristic(s)", 
       "short_name": "obj", 
       "variable": "structure", 
@@ -1234,11 +1445,11 @@
     }
   }, 
   {
-    "pk": 52, 
+    "pk": 48, 
     "model": "workflows.category", 
     "fields": {
       "uid": "b92a6a5d-36cd-4be6-add3-9786ff26b60c", 
-      "parent": 49, 
+      "parent": 45, 
       "workflow": null, 
       "user": null, 
       "order": 3, 
@@ -1246,10 +1457,10 @@
     }
   }, 
   {
-    "pk": 260, 
+    "pk": 253, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 52, 
+      "category": 48, 
       "treeview_image": "", 
       "name": "Calculate Terms Heuristic Scores", 
       "is_streaming": false, 
@@ -1258,8 +1469,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1273,10 +1484,10 @@
     }
   }, 
   {
-    "pk": 556, 
+    "pk": 555, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 260, 
+      "widget": 253, 
       "name": "Term Dataset", 
       "short_name": "tds", 
       "uid": "814b5a30-ba68-f7cc-cd5a-a258723c9b42", 
@@ -1291,10 +1502,10 @@
     }
   }, 
   {
-    "pk": 557, 
+    "pk": 556, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 260, 
+      "widget": 253, 
       "name": "Heuristics", 
       "short_name": "heu", 
       "uid": "c940978b-e4fb-6922-fb99-9469d9f06489", 
@@ -1309,10 +1520,10 @@
     }
   }, 
   {
-    "pk": 267, 
+    "pk": 262, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 260, 
+      "widget": 253, 
       "name": "Applied Heuristics", 
       "short_name": "heu", 
       "variable": "heur", 
@@ -1322,11 +1533,11 @@
     }
   }, 
   {
-    "pk": 53, 
+    "pk": 49, 
     "model": "workflows.category", 
     "fields": {
       "uid": "7b1fb3c2-3dd7-4754-9a3e-ccf71a43e7c6", 
-      "parent": 49, 
+      "parent": 45, 
       "workflow": null, 
       "user": null, 
       "order": 4, 
@@ -1334,10 +1545,10 @@
     }
   }, 
   {
-    "pk": 261, 
+    "pk": 254, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 53, 
+      "category": 49, 
       "treeview_image": "", 
       "name": "Select Prime Heuristic", 
       "is_streaming": false, 
@@ -1346,8 +1557,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1361,10 +1572,10 @@
     }
   }, 
   {
-    "pk": 558, 
+    "pk": 557, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 261, 
+      "widget": 254, 
       "name": "Heuristics", 
       "short_name": "heu", 
       "uid": "7383e91d-67f8-ce08-be47-40eae1b65395", 
@@ -1379,10 +1590,10 @@
     }
   }, 
   {
-    "pk": 268, 
+    "pk": 263, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 261, 
+      "widget": 254, 
       "name": "Heuristics", 
       "short_name": "heu", 
       "variable": "heuristics", 
@@ -1392,10 +1603,10 @@
     }
   }, 
   {
-    "pk": 262, 
+    "pk": 255, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 53, 
+      "category": 49, 
       "treeview_image": "", 
       "name": "Rank Terms", 
       "is_streaming": false, 
@@ -1404,8 +1615,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1419,10 +1630,10 @@
     }
   }, 
   {
-    "pk": 559, 
+    "pk": 558, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 262, 
+      "widget": 255, 
       "name": "Heuristics", 
       "short_name": "heu", 
       "uid": "f1836042-3fcd-8ad9-7750-78ededd252d2", 
@@ -1437,10 +1648,10 @@
     }
   }, 
   {
-    "pk": 269, 
+    "pk": 264, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 262, 
+      "widget": 255, 
       "name": "Table", 
       "short_name": "tbl", 
       "variable": "table", 
@@ -1450,10 +1661,10 @@
     }
   }, 
   {
-    "pk": 263, 
+    "pk": 256, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 53, 
+      "category": 49, 
       "treeview_image": "", 
       "name": "Explore in CrossBee", 
       "is_streaming": false, 
@@ -1462,8 +1673,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1477,10 +1688,10 @@
     }
   }, 
   {
-    "pk": 560, 
+    "pk": 559, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 263, 
+      "widget": 256, 
       "name": "Parsed Document Corpus", 
       "short_name": "pdc", 
       "uid": "d6295874-04fd-26be-0bc1-48218f9b1aef", 
@@ -1495,10 +1706,10 @@
     }
   }, 
   {
-    "pk": 561, 
+    "pk": 560, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 263, 
+      "widget": 256, 
       "name": "Heuristics", 
       "short_name": "heu", 
       "uid": "95a6b25d-4382-b994-a744-48bc5fdf4c46", 
@@ -1513,10 +1724,10 @@
     }
   }, 
   {
-    "pk": 562, 
+    "pk": 561, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 263, 
+      "widget": 256, 
       "name": "List of B-terms", 
       "short_name": "str", 
       "uid": "72bc9488-3469-ae90-155f-788b0f935a74", 
@@ -1531,11 +1742,11 @@
     }
   }, 
   {
-    "pk": 54, 
+    "pk": 50, 
     "model": "workflows.category", 
     "fields": {
       "uid": "e47e7821-f8b2-40d5-9bbc-c3508367aed7", 
-      "parent": 49, 
+      "parent": 45, 
       "workflow": null, 
       "user": null, 
       "order": 5, 
@@ -1543,10 +1754,10 @@
     }
   }, 
   {
-    "pk": 264, 
+    "pk": 257, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 54, 
+      "category": 50, 
       "treeview_image": "", 
       "name": "ROC Curves", 
       "is_streaming": false, 
@@ -1555,8 +1766,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1570,10 +1781,10 @@
     }
   }, 
   {
-    "pk": 563, 
+    "pk": 562, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 264, 
+      "widget": 257, 
       "name": "Heuristics", 
       "short_name": "heu", 
       "uid": "4125ea1b-0d90-433d-8236-f5bb662656e0", 
@@ -1588,10 +1799,10 @@
     }
   }, 
   {
-    "pk": 564, 
+    "pk": 563, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 264, 
+      "widget": 257, 
       "name": "List of B-terms", 
       "short_name": "str", 
       "uid": "1c567211-d5f9-d0d0-bc21-3642d78dd2b9", 
@@ -1606,10 +1817,10 @@
     }
   }, 
   {
-    "pk": 270, 
+    "pk": 265, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 264, 
+      "widget": 257, 
       "name": "ROC curves", 
       "short_name": "roc", 
       "variable": "roc", 
@@ -1619,10 +1830,10 @@
     }
   }, 
   {
-    "pk": 265, 
+    "pk": 258, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 54, 
+      "category": 50, 
       "treeview_image": "", 
       "name": "Display ROC Curves", 
       "is_streaming": false, 
@@ -1631,8 +1842,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1646,10 +1857,10 @@
     }
   }, 
   {
-    "pk": 565, 
+    "pk": 564, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 265, 
+      "widget": 258, 
       "name": "ROC Curves", 
       "short_name": "roc", 
       "uid": "ce10343f-5cff-eb61-b85a-349163f62a19", 
@@ -1664,10 +1875,10 @@
     }
   }, 
   {
-    "pk": 266, 
+    "pk": 259, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 54, 
+      "category": 50, 
       "treeview_image": "", 
       "name": "Performance Measures", 
       "is_streaming": false, 
@@ -1676,8 +1887,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1691,10 +1902,10 @@
     }
   }, 
   {
-    "pk": 566, 
+    "pk": 565, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 266, 
+      "widget": 259, 
       "name": "Heuristics", 
       "short_name": "heu", 
       "uid": "255641f0-4ea6-ae90-85fb-603e5283ed33", 
@@ -1709,10 +1920,10 @@
     }
   }, 
   {
-    "pk": 567, 
+    "pk": 566, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 266, 
+      "widget": 259, 
       "name": "List of B-terms", 
       "short_name": "str", 
       "uid": "27b2094b-e8ec-d5fc-bb29-f9ebc4dcbb42", 
@@ -1727,10 +1938,10 @@
     }
   }, 
   {
-    "pk": 271, 
+    "pk": 266, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 266, 
+      "widget": 259, 
       "name": "Performance Measures", 
       "short_name": "prf", 
       "variable": "perf", 
@@ -1740,10 +1951,10 @@
     }
   }, 
   {
-    "pk": 267, 
+    "pk": 260, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 54, 
+      "category": 50, 
       "treeview_image": "", 
       "name": "VIPER Measures", 
       "is_streaming": false, 
@@ -1752,8 +1963,8 @@
       "image": "", 
       "package": "crossbee", 
       "static_image": "crossbee_widget.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
-      "windows_queue": true, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -1767,10 +1978,10 @@
     }
   }, 
   {
-    "pk": 568, 
+    "pk": 567, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 267, 
+      "widget": 260, 
       "name": "Heuristics", 
       "short_name": "heu", 
       "uid": "ea076699-4fcf-be9f-6bfd-0ac49774c101", 
@@ -1785,10 +1996,10 @@
     }
   }, 
   {
-    "pk": 569, 
+    "pk": 568, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 267, 
+      "widget": 260, 
       "name": "List of B-terms", 
       "short_name": "str", 
       "uid": "ecd7f618-9469-c27f-bcc1-11fef779ba1f", 
@@ -1803,10 +2014,10 @@
     }
   }, 
   {
-    "pk": 272, 
+    "pk": 267, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 267, 
+      "widget": 260, 
       "name": "Performance Measures", 
       "short_name": "prf", 
       "variable": "perf", 

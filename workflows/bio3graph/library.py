@@ -233,7 +233,6 @@ def bio3graph_get_xmls(input_dict):
         result.append(a.getXML(did))
     return {'xmls': result}
 
-
 def bio3graph_get_fulltexts(input_dict):
     from NCBI import NCBI_Extractor
 
@@ -248,6 +247,112 @@ def bio3graph_get_fulltexts(input_dict):
         ft = '%s\n%s\n%s\n' % (doc.title, doc.abstract, doc.body)
         result.append(ft)
     return {'fulltexts': result}
+
+
+def bio3graph_xml_to_fulltext(input_dict):
+
+
+    return {}
+
+def bio3graph_xml_to_fulltext_finished(postdata, input_dict, output_dict):
+    file_name = input_dict['xml_file']
+    output_file_name=file_name+".new"
+    #if not isinstance(xmls, list):
+    #    xmls = [xmls]
+
+    num_of_all_articles=postdata.get('num_of_all_articles')[0]
+    article_count=0
+    from NCBI import NCBI_Extractor
+    a = NCBI_Extractor()
+
+    widget_id = postdata.get('widget_id')[0]
+    sections = postdata.get('section_names%s' % widget_id)
+    sections=[s.replace("figure captions","fig").replace("table captions","table-wrap").replace("article title","title-group").split("::")[0] for s in sections]
+
+    def get_title(elem):
+        txt=''
+        if elem.text:
+            txt+=elem.text.strip()
+        for child in elem._children: #only one level
+            if child.text:
+                txt+=child.text.strip()
+            if child.tail:
+                txt+=child.tail.strip()
+        if elem.tail:
+            txt+=elem.tail.strip()
+        return txt.lower()
+
+    def write_to_results(elem_tag,text,results,path,write_from_level,block_from_level):
+        if len(path)>=write_from_level and not len(path)>=block_from_level:
+            if text and text.replace('\n', '').strip()!="":
+                results.append(text.replace('\n', ''))
+                if not elem_tag in ['bold','underline','italic','sub','sup']:
+                    results.append(" ")
+        return None
+
+    import xml.etree.ElementTree as ET
+    import re
+
+    def writing_element(elem,sections):
+        if elem.tag=='sec':
+            return 'sec-type' in elem.attrib and elem.attrib['sec-type'] in sections
+        else:
+            return elem.tag in sections
+
+    results=[]
+    skipTags=['title','xref', 'table', 'graphic', 'ext-link', 'media', 'inline-formula', 'disp-formula','label']
+    with open(file_name) as f:
+        with open(output_file_name,"w") as output_file:
+    #with open("D:/diagonalization/glio_aml/domain1/1062151.xml") as f:
+            path=[]
+            tails=[]
+            write_from_level=100
+            block_from_level=100
+            for event, elem in ET.iterparse(f,events=("start","end")):
+                if event=="start":
+                    path.append(elem.tag)
+                    tails.append(elem.tail)
+                    #ancestors.add(elem)
+                    if elem.tag == "article":
+                        write_from_level=100
+                        block_from_level=100
+                    else:
+                        if elem.tag in skipTags:
+                            block_from_level=min([block_from_level,len(path)])
+                        if elem.tag=='sec' and 'sec-type' in elem.attrib and elem.attrib['sec-type'] in sections:
+                            write_from_level=min([len(path)+1,write_from_level])
+                        elif elem.tag in sections: #abstract
+                            write_from_level=min([len(path),write_from_level])
+                        elif elem.tag=="title" and get_title(elem) in sections:
+                            write_from_level=min([len(path)-1,write_from_level])
+                    if elem.tag=="underline":
+                        stop=True
+                    #res=""
+                    write_to_results(elem.tag,elem.text,results,path,write_from_level,block_from_level)
+
+                elif event=="end":
+                    tail=tails.pop()
+                    path.pop()
+
+                    write_to_results(elem.tag,tail,results,path,write_from_level,block_from_level)
+
+                    if len(path)<write_from_level:
+                        write_from_level=100
+                    if len(path)<block_from_level:
+                        block_from_level=100
+                    if elem.tag=="article":
+                        body = ''.join(results) #
+                        #a.list2text(results)
+                        body = re.sub('(\[)[ ,-:;]*(\])', '', body)
+                        body=body.replace("  "," ").replace(" ( )","").replace(" .",".").replace(" ,",",")+"\n"
+                        output_file.write(body)
+                        results=[]
+                        article_count+=1
+                        print article_count,"/",num_of_all_articles
+                elem.clear()
+
+
+    return {'output_file' : output_file_name}
 
 
 def bio3graph_map_entrez_to_ncbi_symbol(input_dict):
@@ -291,10 +396,31 @@ def bio3graph_construct_compounds_from_gene_synonyms(input_dict):
 
 
 
+def mesh_filter(input_dict):
+    return {'output_file':'svoboden kot pticek na veji'}
 
+def mesh_filter_finished(postdata, input_dict, output_dict):
+    import cPickle
+    from os.path import normpath, join, dirname
 
+    widget_id = postdata.get('widget_id')[0]
+    selected_categories=postdata.get('selected[]')
+    terms_per_category=cPickle.load(open(normpath(join(dirname(__file__),'data/terms_per_category.pickle'))))
 
+    terms=set()
+    for category in selected_categories:
+        if not category in selected_categories:
+            print "aaa"
+        terms |= terms_per_category[category]
 
+    import time
+    unique_filename=time.strftime("%Y-%m-%d-%H-%M-%S")
+    output_file_name="C:/Users/matic/workspace/iClowdFlow/mothra/public/files/1/terms_"+str(unique_filename)+".txt"
+    with open(output_file_name,'w') as of:
+        for term in terms:
+            of.write("%s\n" % term)
+
+    return {'output_file':output_file_name}
 
 
 
