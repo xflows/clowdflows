@@ -171,15 +171,14 @@ INSTALLED_APPS_DEFAULT = (
     'picklefield',
     'streams',
     #'rest_framework',
-    #'djcelery',
+    'djcelery',
     #'kombu.transport.django',
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()
 
-CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
-
-CELERY_TASK_SERIALIZER='json'
+import djcelery
+djcelery.setup_loader()
 
 try:
     LOCAL_SETTINGS
@@ -213,3 +212,5 @@ LOGIN_REDIRECT_URL = '/'
 
 STATIC_DOC_ROOT = os.path.join(os.getcwd(), 'mothra/public/media')
 
+CELERY_RESULT_BACKEND = 'amqp'
+CELERY_TASK_RESULT_EXPIRES = 18000

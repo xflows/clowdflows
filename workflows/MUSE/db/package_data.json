@@ -1,6 +1,6 @@
 [
   {
-    "pk": 44,
+    "pk": 45,
     "model": "workflows.category",
     "fields": {
       "uid": "1f5cbe19-0df7-44de-91d8-1ffdae9a1645",
@@ -12,11 +12,86 @@
     }
   },
   {
-    "pk": 45,
+    "pk": 48,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "e8574599-994c-4cff-a94d-453d6c5e2dfd",
+      "parent": 45,
+      "workflow": null,
+      "user": null,
+      "order": 1,
+      "name": "3D virtual environment"
+    }
+  },
+  {
+    "pk": 261,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 48,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Virtual environment visualization",
+      "is_streaming": false,
+      "uid": "05317f75-cc6b-4257-bc71-21f080776bfc",
+      "interaction_view": "",
+      "image": "",
+      "package": "MUSE",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "MUSE_virtual_environment_visualization",
+      "streaming_visualization_view": "",
+      "action": "MUSE_virtual_environment_visualization",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 556,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 261,
+      "name": "NLP data",
+      "short_name": "nlp",
+      "uid": "6e5ebc4b-cdbe-4ca6-8f5d-bcde21f5319a",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "NLP_data",
+      "parameter": false,
+      "order": 1,
+      "description": "Results of NLP processing"
+    }
+  },
+  {
+    "pk": 557,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 261,
+      "name": "Server link",
+      "short_name": "url",
+      "uid": "585e80d1-e5fb-49c9-92a7-7af16d4070f6",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "unitylink",
+      "parameter": false,
+      "order": 2,
+      "description": "Link to the Unity3D server"
+    }
+  },
+  {
+    "pk": 46,
     "model": "workflows.category",
     "fields": {
       "uid": "cf46e990-42b6-4027-b2f4-a95acaaed210",
-      "parent": 44,
+      "parent": 45,
       "workflow": null,
       "user": null,
       "order": 1,
@@ -24,12 +99,312 @@
     }
   },
   {
-    "pk": 233,
+    "pk": 243,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 45,
+      "category": 46,
       "treeview_image": "",
+      "windows_queue": false,
       "name": "Event extraction",
+      "is_streaming": false,
+      "uid": "5e5aa91e-090a-43c9-97c6-fixbyjanez",
+      "interaction_view": "",
+      "image": "",
+      "package": "MUSE",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "MUSE_annotate",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Calls the LIIR NLP annotation (TERENCE NLP service)"
+    }
+  },
+  {
+    "pk": 526,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 243,
+      "name": "Raw text",
+      "short_name": "txt",
+      "uid": "7e5b5533-d21c-4955-8fb8-janezfix",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "raw_text",
+      "parameter": false,
+      "order": 1,
+      "description": "Input document as raw text"
+    }
+  },
+  {
+    "pk": 255,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 243,
+      "name": "Annotated text",
+      "short_name": "xml",
+      "variable": "annotations_xml",
+      "uid": "c677e844-9f9b-4d09-8e08-janezfix",
+      "order": 1,
+      "description": "XML document with all annotations"
+    }
+  },
+  {
+    "pk": 257,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 46,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Mapping to Knowledge representation",
+      "is_streaming": false,
+      "uid": "57f7621d-0045-45ed-80b7-28700108e610",
+      "interaction_view": "",
+      "image": "",
+      "package": "MUSE",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "MUSE_mapping_to_KR",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Calls the mapping to knowledge representation service"
+    }
+  },
+  {
+    "pk": 549,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 257,
+      "name": "Input data",
+      "short_name": "str",
+      "uid": "3c0b4bbe-9ff2-428c-992e-dd9d93f6d564",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "input_data",
+      "parameter": false,
+      "order": 1,
+      "description": "Plain text file with special annotations"
+    }
+  },
+  {
+    "pk": 550,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 257,
+      "name": "Service url",
+      "short_name": "url",
+      "uid": "cbc553ec-1650-459d-bcdd-cf41636b6a56",
+      "default": "http://vihar.ijs.si:8001/MUSE_services/jsonwsp/description",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "url",
+      "parameter": true,
+      "order": 2,
+      "description": "URL of the MUSE service"
+    }
+  },
+  {
+    "pk": 267,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 257,
+      "name": "Instantiated event templates",
+      "short_name": "tpl",
+      "variable": "mapping",
+      "uid": "664a8451-01d5-4570-976d-cc7437221a1d",
+      "order": 1,
+      "description": "Instantiated event-templates with argument roles as defined in the domain.\r\n"
+    }
+  },
+  {
+    "pk": 258,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 46,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Mapping to Knowledge representation (Tuk, precomputed)",
+      "is_streaming": false,
+      "uid": "f4345a84-11ff-4976-aeb0-519e48b385a8",
+      "interaction_view": "",
+      "image": "",
+      "package": "MUSE",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "MUSE_mapping_to_KR_precomputed",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Returns the precomputed mapping to knowledge representation for Tuk story"
+    }
+  },
+  {
+    "pk": 551,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 258,
+      "name": "Input data",
+      "short_name": "str",
+      "uid": "544e5ae0-e3a7-489d-b593-bb811ca148d7",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "input_data",
+      "parameter": false,
+      "order": 1,
+      "description": "Plain text file with special annotations"
+    }
+  },
+  {
+    "pk": 552,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 258,
+      "name": "Service url",
+      "short_name": "url",
+      "uid": "63156d94-df63-495e-96dd-17bb7cf78b35",
+      "default": "http://vihar.ijs.si:8001/MUSE_services/jsonwsp/description",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "url",
+      "parameter": true,
+      "order": 2,
+      "description": "URL of the MUSE service"
+    }
+  },
+  {
+    "pk": 268,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 258,
+      "name": "Instantiated event templates",
+      "short_name": "tpl",
+      "variable": "mapping",
+      "uid": "d17bb657-2ff8-48e0-a6ae-f88143d8c6a0",
+      "order": 1,
+      "description": "Instantiated event-templates with argument roles as defined in the domain.\r\n"
+    }
+  },
+  {
+    "pk": 259,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 46,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Semantic role labeling",
+      "is_streaming": false,
+      "uid": "3fa29425-16dc-4c11-a51c-323da6dd30c6",
+      "interaction_view": "",
+      "image": "",
+      "package": "MUSE",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "MUSE_semantic_role_labeling",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Calls the semantic role labeling service"
+    }
+  },
+  {
+    "pk": 553,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 259,
+      "name": "Input XML",
+      "short_name": "xml",
+      "uid": "dab8f94f-b362-41fd-ba71-93c24d740409",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "xml",
+      "parameter": false,
+      "order": 1,
+      "description": "MUSE XML file"
+    }
+  },
+  {
+    "pk": 554,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 259,
+      "name": "Service url",
+      "short_name": "url",
+      "uid": "814c5076-50b6-40de-a0d8-1b81aceb4f9f",
+      "default": "http://vihar.ijs.si:8001/MUSE_services/jsonwsp/description",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "url",
+      "parameter": true,
+      "order": 2,
+      "description": "URL of the MUSE service"
+    }
+  },
+  {
+    "pk": 269,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 259,
+      "name": "Output XML",
+      "short_name": "xml",
+      "variable": "xml",
+      "uid": "bfc299c1-d31f-4843-adf7-37066972e91c",
+      "order": 1,
+      "description": "XML with semantic roles added"
+    }
+  },
+  {
+    "pk": 270,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 259,
+      "name": "Input for KR",
+      "short_name": "str",
+      "variable": "txt",
+      "uid": "f390bfa5-36f2-4cf4-92b5-804ac301da4f",
+      "order": 2,
+      "description": "Input text file for mapping to knowledge representation"
+    }
+  },
+  {
+    "pk": 260,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 46,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Syntactic and semantic processing",
       "is_streaming": false,
       "uid": "5e5aa91e-090a-43c9-97c6-6064380b09eb",
       "interaction_view": "",
@@ -50,10 +425,10 @@
     }
   },
   {
-    "pk": 484,
+    "pk": 555,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 233,
+      "widget": 260,
       "name": "Raw text",
       "short_name": "txt",
       "uid": "7e5b5533-d21c-4955-8fb8-417d5030793f",
@@ -68,10 +443,10 @@
     }
   },
   {
-    "pk": 240,
+    "pk": 271,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 233,
+      "widget": 260,
       "name": "Annotated text",
       "short_name": "xml",
       "variable": "annotations_xml",
@@ -85,7 +460,7 @@
     "model": "workflows.category",
     "fields": {
       "uid": "2ea309eb-3f82-45cb-8b33-9d00cf3f5a35",
-      "parent": 44,
+      "parent": 45,
       "workflow": null,
       "user": null,
       "order": 1,
@@ -93,11 +468,12 @@
     }
   },
   {
-    "pk": 234,
+    "pk": 244,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 47,
       "treeview_image": "",
+      "windows_queue": false,
       "name": "View XML",
       "is_streaming": false,
       "uid": "ca337532-ab9d-4554-afca-b4d14216b156",
@@ -119,10 +495,10 @@
     }
   },
   {
-    "pk": 485,
+    "pk": 527,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 234,
+      "widget": 244,
       "name": "XML document",
       "short_name": "xml",
       "uid": "2e451b23-c11d-4614-aa4f-57521a42ef83",

@@ -72,4 +72,6 @@ urlpatterns += patterns('',
 
     url(r'^widget-inputs/(?P<widget_id>[0-9]+)/$', 'workflows.views.widget_inputs', name='widget inputs'),
 
+    url(r'^workflow_results/(?P<workflow_id>[0-9]+)/$', 'workflows.views.workflow_results', name='workflow_results'),
+
 )

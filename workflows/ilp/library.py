@@ -89,18 +89,21 @@ def ilp_sdmaleph(input_dict):
 def ilp_wordification(input_dict):
     target_table = input_dict.get('target_table',None)
     other_tables = input_dict.get('other_tables', None)
+    measure = input_dict.get('measure', None)
     context = input_dict.get('context', None)
     word_att_length = int(input_dict.get('f_ngram_size', 1))
 
     for _ in range(1):
         wordification = Wordification(target_table,other_tables,context,word_att_length)
         wordification.run(1)
-        wordification.calculate_tf_idfs(False)
+        wordification.calculate_tf_idfs(measure)
         #wordification.prune(50)
         #wordification.to_arff()
-    #from wordification import Wordification_features_test
-    #wft=Wordification_features_test(target_table,other_tables,context)
-    #wft.print_results()
+
+    if 1==0:
+        from wordification import Wordification_features_test
+        wft=Wordification_features_test(target_table,other_tables,context)
+        wft.print_results()
     return {'arff' : wordification.to_arff(),'corpus': wordification.wordify()}
 
 

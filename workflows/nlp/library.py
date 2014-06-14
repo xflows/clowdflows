@@ -95,8 +95,8 @@ def nlp_def_extraction_patterns(input_dict):
     wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8099')
     ws = WebService(wsdl, 60000)
     pattern = input_dict['pattern']
-    response = ws.client.GlossaryExtractionByWnet(corpus=annotations,
-                                                  lang=lang, pattern=pattern)
+    response = ws.client.GlossaryExtractionByPatterns(corpus=annotations,
+                                                      lang=lang, pattern=pattern)
     return {'sentences': response['candidates']}
 
 

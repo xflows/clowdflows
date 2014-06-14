@@ -28,3 +28,20 @@ def MUSE_view_xml(request, input_dict, output_dict, widget):
 
     return render(request, 'visualizations/MUSE_view_xml.html',
                   {'widget': widget, 'filename': filename})
+
+
+def MUSE_virtual_environment_visualization(request, input_dict, output_dict, widget):
+    from mothra.settings import MEDIA_ROOT
+    from workflows.helpers import ensure_dir
+    filename = os.path.join(str(request.user.id), str(widget.id) + '.txt')
+    destination = os.path.join(MEDIA_ROOT, filename)
+    ensure_dir(destination)
+    f = open(destination, 'w')
+    f.write(str(input_dict['NLP_data']))
+    f.close()
+    return render(request,
+                  'visualizations/MUSE_view_3D_environment.html',
+                  {'widget': widget,
+                   'filename': filename,
+                   'unitylink': input_dict['unitylink']
+                   })

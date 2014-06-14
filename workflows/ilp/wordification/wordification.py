@@ -188,7 +188,7 @@ class Wordification(object):
             #self.resulting_documents.append(self.wordify_example(self.target_table,ex,set([])))
 
 
-    def calculate_tf_idfs(self,tf_only=False):
+    def calculate_tf_idfs(self,measure):
         """
         Counts word frequency and calculates tf-idf values for words in every document.
         """
@@ -215,7 +215,7 @@ class Wordification(object):
 
             for word in document:
                 tf=train_word_count[word]
-                idf = 1 if tf_only else log(no_of_documents / float(self.word_in_how_many_documents[word]))
+                idf = 1 if measure=="tf" else log(no_of_documents / float(self.word_in_how_many_documents[word]))
 
                 self.tf_idfs[doc_idx][word] = tf * idf
 
@@ -234,7 +234,7 @@ class Wordification(object):
         arff_string+="@ATTRIBUTE\tclass\t{"+string.join(set([str(a) for a in self.resulting_classes]),",")+"}\n\n@DATA\n"
 
         for doc_idx in range(len(self.resulting_documents)):
-            print doc_idx
+            #print doc_idx
             features=[]
             for word in words:
                 if word in self.tf_idfs[doc_idx]:

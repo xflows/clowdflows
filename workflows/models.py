@@ -15,6 +15,8 @@ from mothra.settings import USE_CONCURRENCY
 if USE_CONCURRENCY:
     from workflows.tasks import runWidgetAsync, runForLoopIteration
 
+from workflows.tasks import *
+
 class WidgetException(Exception):
     pass
 
@@ -264,6 +266,8 @@ class AbstractWidget(models.Model):
 
     package = models.CharField(max_length=150,blank=True,default='',help_text='Package is the package name. You are encouraged to use packages.')
 
+    windows_queue = models.BooleanField(default=False,help_text="This is used for Matjaz Jursic's widgets.")
+
     class Meta:
         ordering = ('order','name',)
 
@@ -421,6 +425,16 @@ class Widget(models.Model):
             pass
 
     def run(self,offline):
+        try: 
+            if self.abstract_widget.windows_queue:
+                t = runWidget.apply_async([self,offline],queue="windows")
+                t.wait()
+            else:
+                self.proper_run(offline)
+        except AttributeError:
+            self.proper_run(offline)
+
+    def proper_run(self,offline):
         if not self.ready_to_run():
             raise WidgetException("The prerequisites for running this widget have not been met.")
         self.running=True
@@ -638,7 +652,11 @@ class Widget(models.Model):
                     input_dict[i.variable].append(i.value)
         try:
             if not self.abstract_widget is None:
-                outputs = function_to_call(request,input_dict, output_dict)
+                if self.abstract_widget.windows_queue:
+                    t = executeWidgetPostInteract.apply_async([self,input_dict,output_dict,request],queue="windows")
+                    outputs = t.wait()
+                else:
+                    outputs = executeWidgetPostInteract(self,input_dict,output_dict,request)
             else:
                 self.workflow_link.run()
         except:
