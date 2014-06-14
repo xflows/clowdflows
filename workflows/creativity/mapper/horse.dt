@@ -1,0 +1,18 @@
+:-multifile r/4, neg/4, arc/5, rule/6, frame/6, integrity/3.
+
+
+r(horse, horse, isa, equines).
+r(horse, horse, taxonomicq, creature).
+r(horse, horse, strength,4).
+r(horse, horse, defense, 2).
+r(horse, horse, food_consumption, 4).
+r(horse, horse, team_color, green).
+r(horse, horse, color, brown).
+r(horse, horse, made_of, flesh).
+r(horse, horse_head, pw, horse).
+r(horse, horse_left_front_leg, pw, horse).
+r(horse, horse_right_front_leg, pw, horse).
+r(horse, horse_torso, pw, horse).
+r(horse, horse_left_back_leg, pw, horse).
+r(horse, horse_right_back_leg, pw, horse).
+r(horse, horse_tail, pw, horse).

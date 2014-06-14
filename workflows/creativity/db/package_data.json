@@ -1,0 +1,90 @@
+[
+  {
+    "pk": 5, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "169bd219-5d73-4ddc-abe7-026fd9c96514", 
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Creativity"
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 5, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Mapper", 
+      "is_streaming": false, 
+      "uid": "041ec25f-5f18-448f-9ea4-e6c45a01c5a8", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "creativity", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "creativity_mapper", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 51, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 34, 
+      "name": "Domain 1", 
+      "short_name": "dom", 
+      "uid": "bf7b0c8b-5c2c-40d3-ac26-e6e1dd64035d", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "domain1", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 52, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 34, 
+      "name": "Domain 2", 
+      "short_name": "dom", 
+      "uid": "eb79c927-b864-4db9-82a4-aa68764a7208", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "domain2", 
+      "parameter": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 31, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 34, 
+      "name": "relations", 
+      "short_name": "rel", 
+      "variable": "relations", 
+      "uid": "3362133c-ae67-4459-838d-76c95f9de590", 
+      "order": 1, 
+      "description": ""
+    }
+  }
+]
