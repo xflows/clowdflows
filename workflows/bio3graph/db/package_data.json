@@ -1,6 +1,6 @@
 [
   {
-    "pk": 26, 
+    "pk": 8, 
     "model": "workflows.category", 
     "fields": {
       "uid": "472a416b-b56a-4f6e-aae9-0ffb9cef240d", 
@@ -12,11 +12,11 @@
     }
   }, 
   {
-    "pk": 32, 
+    "pk": 9, 
     "model": "workflows.category", 
     "fields": {
       "uid": "e28eda39-1f18-4efe-9b7c-0d5f652f208f", 
-      "parent": 26, 
+      "parent": 8, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -24,10 +24,10 @@
     }
   }, 
   {
-    "pk": 165, 
+    "pk": 37, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 32, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Biomine graph visualizer", 
       "is_streaming": false, 
@@ -36,6 +36,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "BiomineVisualizer.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "bio3graph_biomine_visualizer", 
@@ -50,10 +51,10 @@
     }
   }, 
   {
-    "pk": 380, 
+    "pk": 115, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 165, 
+      "widget": 37, 
       "name": "Biomine graph", 
       "short_name": "bmg", 
       "uid": "61d98ab2-512e-4a04-888b-5998378948a8", 
@@ -68,10 +69,10 @@
     }
   }, 
   {
-    "pk": 169, 
+    "pk": 38, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 32, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Colour relations", 
       "is_streaming": false, 
@@ -80,6 +81,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -94,10 +96,10 @@
     }
   }, 
   {
-    "pk": 387, 
+    "pk": 116, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 169, 
+      "widget": 38, 
       "name": "Network", 
       "short_name": "nwx", 
       "uid": "7f63339c-031a-4957-8340-10326b6812d2", 
@@ -112,10 +114,10 @@
     }
   }, 
   {
-    "pk": 388, 
+    "pk": 117, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 169, 
+      "widget": 38, 
       "name": "Relations", 
       "short_name": "rls", 
       "uid": "93cb1318-763a-435d-9304-a33e3bf20299", 
@@ -130,10 +132,10 @@
     }
   }, 
   {
-    "pk": 189, 
+    "pk": 42, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 169, 
+      "widget": 38, 
       "name": "Network", 
       "short_name": "nwx", 
       "variable": "network", 
@@ -143,10 +145,10 @@
     }
   }, 
   {
-    "pk": 161, 
+    "pk": 39, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 32, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Construct triplet network", 
       "is_streaming": false, 
@@ -155,6 +157,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -169,10 +172,10 @@
     }
   }, 
   {
-    "pk": 377, 
+    "pk": 118, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 161, 
+      "widget": 39, 
       "name": "Triplets", 
       "short_name": "trs", 
       "uid": "7ee93f9a-f18e-45fa-a163-e2e1a92b9607", 
@@ -187,10 +190,10 @@
     }
   }, 
   {
-    "pk": 182, 
+    "pk": 43, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 161, 
+      "widget": 39, 
       "name": "NetworkX structure", 
       "short_name": "nwx", 
       "variable": "network_object", 
@@ -200,10 +203,10 @@
     }
   }, 
   {
-    "pk": 166, 
+    "pk": 40, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 32, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Find transitive relations", 
       "is_streaming": false, 
@@ -212,6 +215,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -226,10 +230,10 @@
     }
   }, 
   {
-    "pk": 381, 
+    "pk": 119, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 166, 
+      "widget": 40, 
       "name": "Initial network", 
       "short_name": "inw", 
       "uid": "c58c938f-e283-4900-8c66-589d9f470a1a", 
@@ -244,10 +248,10 @@
     }
   }, 
   {
-    "pk": 382, 
+    "pk": 120, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 166, 
+      "widget": 40, 
       "name": "New network", 
       "short_name": "nnw", 
       "uid": "0c36aec5-7df4-4406-8d3c-d2c10cd876ed", 
@@ -262,10 +266,10 @@
     }
   }, 
   {
-    "pk": 186, 
+    "pk": 44, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 166, 
+      "widget": 40, 
       "name": "Transitive relations", 
       "short_name": "trl", 
       "variable": "transitive_relations", 
@@ -275,10 +279,10 @@
     }
   }, 
   {
-    "pk": 168, 
+    "pk": 41, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 32, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Incremental merge of networks", 
       "is_streaming": false, 
@@ -287,6 +291,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -301,10 +306,10 @@
     }
   }, 
   {
-    "pk": 385, 
+    "pk": 121, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 168, 
+      "widget": 41, 
       "name": "Old network", 
       "short_name": "nwx", 
       "uid": "01213d24-dd22-425c-b52c-2ce051a5be4a", 
@@ -319,10 +324,10 @@
     }
   }, 
   {
-    "pk": 386, 
+    "pk": 122, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 168, 
+      "widget": 41, 
       "name": "New network", 
       "short_name": "nwx", 
       "uid": "2359acc6-7680-4a8f-aa75-34f1a216dd4d", 
@@ -337,10 +342,10 @@
     }
   }, 
   {
-    "pk": 188, 
+    "pk": 45, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 168, 
+      "widget": 41, 
       "name": "Merged network", 
       "short_name": "nwx", 
       "variable": "merged_network", 
@@ -350,10 +355,10 @@
     }
   }, 
   {
-    "pk": 167, 
+    "pk": 42, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 32, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Remove relations", 
       "is_streaming": false, 
@@ -362,6 +367,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -376,10 +382,10 @@
     }
   }, 
   {
-    "pk": 383, 
+    "pk": 123, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 167, 
+      "widget": 42, 
       "name": "NetworkX network", 
       "short_name": "nwx", 
       "uid": "a492ce92-d5bd-4428-b4b9-558b4dd25adf", 
@@ -394,10 +400,10 @@
     }
   }, 
   {
-    "pk": 384, 
+    "pk": 124, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 167, 
+      "widget": 42, 
       "name": "Relations", 
       "short_name": "rls", 
       "uid": "b42536ae-979b-441f-ad6d-e7a76e22db5e", 
@@ -412,10 +418,10 @@
     }
   }, 
   {
-    "pk": 187, 
+    "pk": 46, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 167, 
+      "widget": 42, 
       "name": "NetworkX network", 
       "short_name": "nwx", 
       "variable": "pruned_graph", 
@@ -425,10 +431,10 @@
     }
   }, 
   {
-    "pk": 170, 
+    "pk": 43, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 32, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Reset colours", 
       "is_streaming": false, 
@@ -437,6 +443,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -451,10 +458,10 @@
     }
   }, 
   {
-    "pk": 389, 
+    "pk": 125, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 170, 
+      "widget": 43, 
       "name": "Network", 
       "short_name": "nwx", 
       "uid": "5466b94f-9f1c-4121-88e5-3c5f15911684", 
@@ -469,10 +476,10 @@
     }
   }, 
   {
-    "pk": 190, 
+    "pk": 47, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 170, 
+      "widget": 43, 
       "name": "Network", 
       "short_name": "nwx", 
       "variable": "network", 
@@ -482,10 +489,10 @@
     }
   }, 
   {
-    "pk": 164, 
+    "pk": 44, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 32, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Transform Biomine to NetworkX", 
       "is_streaming": false, 
@@ -494,6 +501,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -508,10 +516,10 @@
     }
   }, 
   {
-    "pk": 379, 
+    "pk": 126, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 164, 
+      "widget": 44, 
       "name": "Biomine graph", 
       "short_name": "bmg", 
       "uid": "ba70777c-5132-4bc8-acbf-5e6d76e6ef2c", 
@@ -526,10 +534,10 @@
     }
   }, 
   {
-    "pk": 185, 
+    "pk": 48, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 164, 
+      "widget": 44, 
       "name": "NetworkX network", 
       "short_name": "nwx", 
       "variable": "network_object", 
@@ -539,10 +547,10 @@
     }
   }, 
   {
-    "pk": 163, 
+    "pk": 45, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 32, 
+      "category": 9, 
       "treeview_image": "", 
       "name": "Transform NetworkX to Biomine ", 
       "is_streaming": false, 
@@ -551,6 +559,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -565,10 +574,10 @@
     }
   }, 
   {
-    "pk": 378, 
+    "pk": 127, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 163, 
+      "widget": 45, 
       "name": "NetworkX network", 
       "short_name": "nwx", 
       "uid": "1d882a63-116b-4cc4-9ed2-31fe067feb35", 
@@ -583,10 +592,10 @@
     }
   }, 
   {
-    "pk": 184, 
+    "pk": 49, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 163, 
+      "widget": 45, 
       "name": "Biomine graph", 
       "short_name": "bmg", 
       "variable": "biomine_graph", 
@@ -596,11 +605,11 @@
     }
   }, 
   {
-    "pk": 35, 
+    "pk": 10, 
     "model": "workflows.category", 
     "fields": {
       "uid": "9744d60c-c755-448a-930c-0c40236a4a05", 
-      "parent": 26, 
+      "parent": 8, 
       "workflow": null, 
       "user": null, 
       "order": 2, 
@@ -608,10 +617,10 @@
     }
   }, 
   {
-    "pk": 203, 
+    "pk": 46, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 35, 
+      "category": 10, 
       "treeview_image": "", 
       "name": "Construct compounds csv file from gene synonyms", 
       "is_streaming": false, 
@@ -620,6 +629,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -634,10 +644,10 @@
     }
   }, 
   {
-    "pk": 431, 
+    "pk": 128, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 203, 
+      "widget": 46, 
       "name": "gene synonyms", 
       "short_name": "syn", 
       "uid": "2c2ed635-93eb-4e91-932d-1dc383048023", 
@@ -652,10 +662,10 @@
     }
   }, 
   {
-    "pk": 222, 
+    "pk": 50, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 203, 
+      "widget": 46, 
       "name": "compoiunds csv", 
       "short_name": "csv", 
       "variable": "compounds_csv", 
@@ -665,10 +675,10 @@
     }
   }, 
   {
-    "pk": 202, 
+    "pk": 47, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 35, 
+      "category": 10, 
       "treeview_image": "", 
       "name": "Get gene synonyms from GPSDB", 
       "is_streaming": false, 
@@ -677,6 +687,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -691,10 +702,10 @@
     }
   }, 
   {
-    "pk": 430, 
+    "pk": 129, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 202, 
+      "widget": 47, 
       "name": "gene symbol list", 
       "short_name": "lst", 
       "uid": "976df41a-5099-417f-8641-3e83390ca963", 
@@ -709,10 +720,10 @@
     }
   }, 
   {
-    "pk": 221, 
+    "pk": 51, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 202, 
+      "widget": 47, 
       "name": "gene synonyms", 
       "short_name": "syn", 
       "variable": "gene_synonyms", 
@@ -722,10 +733,10 @@
     }
   }, 
   {
-    "pk": 201, 
+    "pk": 48, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 35, 
+      "category": 10, 
       "treeview_image": "", 
       "name": "Map Entrez ID to NCBI symbol", 
       "is_streaming": false, 
@@ -734,6 +745,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -748,10 +760,10 @@
     }
   }, 
   {
-    "pk": 429, 
+    "pk": 130, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 201, 
+      "widget": 48, 
       "name": "gene list", 
       "short_name": "lst", 
       "uid": "4c6f85bb-34d3-4330-8171-c84de7b84e1d", 
@@ -766,10 +778,10 @@
     }
   }, 
   {
-    "pk": 220, 
+    "pk": 52, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 201, 
+      "widget": 48, 
       "name": "gene symbol list", 
       "short_name": "lst", 
       "variable": "gene_symbols", 
@@ -779,11 +791,11 @@
     }
   }, 
   {
-    "pk": 34, 
+    "pk": 11, 
     "model": "workflows.category", 
     "fields": {
       "uid": "bc5a8211-0cdd-4c1e-82cc-5251672bfba3", 
-      "parent": 26, 
+      "parent": 8, 
       "workflow": null, 
       "user": null, 
       "order": 3, 
@@ -791,10 +803,10 @@
     }
   }, 
   {
-    "pk": 162, 
+    "pk": 49, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 34, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Build default vocabulary", 
       "is_streaming": false, 
@@ -803,6 +815,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -817,10 +830,10 @@
     }
   }, 
   {
-    "pk": 183, 
+    "pk": 53, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 162, 
+      "widget": 49, 
       "name": "Vocabulary", 
       "short_name": "voc", 
       "variable": "vocabulary", 
@@ -830,10 +843,10 @@
     }
   }, 
   {
-    "pk": 207, 
+    "pk": 50, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 34, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Export triplets to text", 
       "is_streaming": false, 
@@ -842,6 +855,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -856,10 +870,10 @@
     }
   }, 
   {
-    "pk": 435, 
+    "pk": 131, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 207, 
+      "widget": 50, 
       "name": "Triplets", 
       "short_name": "trs", 
       "uid": "0dadb3ad-f28f-42b6-9f52-b21b1a90bd74", 
@@ -874,10 +888,10 @@
     }
   }, 
   {
-    "pk": 226, 
+    "pk": 54, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 207, 
+      "widget": 50, 
       "name": "Triplet text", 
       "short_name": "ttx", 
       "variable": "triplets_as_text", 
@@ -887,10 +901,10 @@
     }
   }, 
   {
-    "pk": 204, 
+    "pk": 51, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 34, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Build default vocabulary with custom compounds", 
       "is_streaming": false, 
@@ -899,6 +913,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -913,10 +928,10 @@
     }
   }, 
   {
-    "pk": 432, 
+    "pk": 132, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 204, 
+      "widget": 51, 
       "name": "Compounds", 
       "short_name": "csv", 
       "uid": "bc2ce3d2-25d0-41ef-abf3-5de5f1eaaad9", 
@@ -931,10 +946,10 @@
     }
   }, 
   {
-    "pk": 223, 
+    "pk": 55, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 204, 
+      "widget": 51, 
       "name": "Vocabulary", 
       "short_name": "voc", 
       "variable": "vocabulary", 
@@ -944,10 +959,10 @@
     }
   }, 
   {
-    "pk": 158, 
+    "pk": 52, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 34, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Build vocabulary", 
       "is_streaming": false, 
@@ -956,6 +971,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -970,10 +986,10 @@
     }
   }, 
   {
-    "pk": 365, 
+    "pk": 133, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 158, 
+      "widget": 52, 
       "name": "Compounds", 
       "short_name": "cmp", 
       "uid": "88451abf-b4c0-4468-b58b-562b1c812225", 
@@ -988,10 +1004,10 @@
     }
   }, 
   {
-    "pk": 366, 
+    "pk": 134, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 158, 
+      "widget": 52, 
       "name": "Activation", 
       "short_name": "act", 
       "uid": "913b8b8b-9d99-4f24-ae48-db25f3490187", 
@@ -1006,10 +1022,10 @@
     }
   }, 
   {
-    "pk": 367, 
+    "pk": 135, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 158, 
+      "widget": 52, 
       "name": "Activation rotate", 
       "short_name": "acr", 
       "uid": "b0cc0191-6202-431f-87a8-7c3ff39911d0", 
@@ -1024,10 +1040,10 @@
     }
   }, 
   {
-    "pk": 368, 
+    "pk": 136, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 158, 
+      "widget": 52, 
       "name": "Inhibition", 
       "short_name": "inh", 
       "uid": "17545bf5-42d0-44ec-8c20-734031a85dc4", 
@@ -1042,10 +1058,10 @@
     }
   }, 
   {
-    "pk": 369, 
+    "pk": 137, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 158, 
+      "widget": 52, 
       "name": "Binding", 
       "short_name": "bnd", 
       "uid": "eac8c9d4-a0ab-414e-a083-54a5f860e031", 
@@ -1060,10 +1076,10 @@
     }
   }, 
   {
-    "pk": 370, 
+    "pk": 138, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 158, 
+      "widget": 52, 
       "name": "Activation passive", 
       "short_name": "acp", 
       "uid": "e59a900a-1796-43ba-a229-e0b82c4ef964", 
@@ -1078,10 +1094,10 @@
     }
   }, 
   {
-    "pk": 371, 
+    "pk": 139, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 158, 
+      "widget": 52, 
       "name": "Inhibition passive", 
       "short_name": "inp", 
       "uid": "29aeb4f1-d4e9-4506-b62a-6dfd2db8e029", 
@@ -1096,10 +1112,10 @@
     }
   }, 
   {
-    "pk": 372, 
+    "pk": 140, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 158, 
+      "widget": 52, 
       "name": "Binding passive", 
       "short_name": "bnp", 
       "uid": "f448d9b8-d646-4eda-9306-899942073800", 
@@ -1114,10 +1130,10 @@
     }
   }, 
   {
-    "pk": 178, 
+    "pk": 56, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 158, 
+      "widget": 52, 
       "name": "Vocabulary", 
       "short_name": "voc", 
       "variable": "vocabulary", 
@@ -1127,10 +1143,10 @@
     }
   }, 
   {
-    "pk": 205, 
+    "pk": 53, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 34, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Create document from file", 
       "is_streaming": false, 
@@ -1139,6 +1155,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1153,10 +1170,10 @@
     }
   }, 
   {
-    "pk": 433, 
+    "pk": 141, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 205, 
+      "widget": 53, 
       "name": "Document file", 
       "short_name": "fil", 
       "uid": "361bbbee-b8cf-4334-8f32-ddc4dd27a6cd", 
@@ -1171,10 +1188,10 @@
     }
   }, 
   {
-    "pk": 224, 
+    "pk": 57, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 205, 
+      "widget": 53, 
       "name": "Document object", 
       "short_name": "obj", 
       "variable": "document", 
@@ -1184,10 +1201,10 @@
     }
   }, 
   {
-    "pk": 155, 
+    "pk": 54, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 34, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Create document from string", 
       "is_streaming": false, 
@@ -1196,6 +1213,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1210,10 +1228,10 @@
     }
   }, 
   {
-    "pk": 362, 
+    "pk": 142, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 155, 
+      "widget": 54, 
       "name": "Document string", 
       "short_name": "str", 
       "uid": "a7d505ec-cfc9-495c-83fa-d3a47f79b5a4", 
@@ -1228,10 +1246,10 @@
     }
   }, 
   {
-    "pk": 175, 
+    "pk": 58, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 155, 
+      "widget": 54, 
       "name": "Document object", 
       "short_name": "obj", 
       "variable": "document", 
@@ -1241,10 +1259,10 @@
     }
   }, 
   {
-    "pk": 159, 
+    "pk": 55, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 34, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Extract triplets", 
       "is_streaming": false, 
@@ -1253,6 +1271,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1267,10 +1286,10 @@
     }
   }, 
   {
-    "pk": 373, 
+    "pk": 143, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 159, 
+      "widget": 55, 
       "name": "Document", 
       "short_name": "doc", 
       "uid": "3b98a51e-f098-4c58-9750-0fea42c6b333", 
@@ -1285,10 +1304,10 @@
     }
   }, 
   {
-    "pk": 374, 
+    "pk": 144, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 159, 
+      "widget": 55, 
       "name": "Vocabulary", 
       "short_name": "voc", 
       "uid": "9f71a834-c06d-410f-a9a3-cbd9db28a0bb", 
@@ -1303,10 +1322,10 @@
     }
   }, 
   {
-    "pk": 179, 
+    "pk": 59, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 159, 
+      "widget": 55, 
       "name": "Triplets", 
       "short_name": "trs", 
       "variable": "triplets", 
@@ -1316,10 +1335,10 @@
     }
   }, 
   {
-    "pk": 160, 
+    "pk": 56, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 34, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Normalise triplets", 
       "is_streaming": false, 
@@ -1328,6 +1347,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1342,10 +1362,10 @@
     }
   }, 
   {
-    "pk": 375, 
+    "pk": 145, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 160, 
+      "widget": 56, 
       "name": "Triplets", 
       "short_name": "trs", 
       "uid": "48a96bb2-73d7-433f-8d7a-4f4a27d467d0", 
@@ -1360,10 +1380,10 @@
     }
   }, 
   {
-    "pk": 376, 
+    "pk": 146, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 160, 
+      "widget": 56, 
       "name": "Vocabulary", 
       "short_name": "voc", 
       "uid": "c22ffaaf-ea30-4298-a83f-226276cb9097", 
@@ -1378,10 +1398,10 @@
     }
   }, 
   {
-    "pk": 180, 
+    "pk": 60, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 160, 
+      "widget": 56, 
       "name": "Normalised triplets", 
       "short_name": "ntr", 
       "variable": "normalised_triplets", 
@@ -1391,10 +1411,10 @@
     }
   }, 
   {
-    "pk": 157, 
+    "pk": 57, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 34, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Parse sentences", 
       "is_streaming": false, 
@@ -1403,6 +1423,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1417,10 +1438,10 @@
     }
   }, 
   {
-    "pk": 364, 
+    "pk": 147, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 157, 
+      "widget": 57, 
       "name": "Document", 
       "short_name": "doc", 
       "uid": "5f523026-ac69-463b-abec-41000c0ad5b5", 
@@ -1435,10 +1456,10 @@
     }
   }, 
   {
-    "pk": 177, 
+    "pk": 61, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 157, 
+      "widget": 57, 
       "name": "Document", 
       "short_name": "doc", 
       "variable": "document", 
@@ -1448,10 +1469,10 @@
     }
   }, 
   {
-    "pk": 156, 
+    "pk": 58, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 34, 
+      "category": 11, 
       "treeview_image": "", 
       "name": "Split sentences", 
       "is_streaming": false, 
@@ -1460,6 +1481,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1474,10 +1496,10 @@
     }
   }, 
   {
-    "pk": 363, 
+    "pk": 148, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 156, 
+      "widget": 58, 
       "name": "Document", 
       "short_name": "doc", 
       "uid": "c408f224-ce05-4937-bba2-d81593824af2", 
@@ -1492,10 +1514,10 @@
     }
   }, 
   {
-    "pk": 176, 
+    "pk": 62, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 156, 
+      "widget": 58, 
       "name": "Document", 
       "short_name": "doc", 
       "variable": "document", 
@@ -1505,11 +1527,11 @@
     }
   }, 
   {
-    "pk": 33, 
+    "pk": 12, 
     "model": "workflows.category", 
     "fields": {
       "uid": "eebdd845-fbff-48f4-ab8f-509a10f53f12", 
-      "parent": 26, 
+      "parent": 8, 
       "workflow": null, 
       "user": null, 
       "order": 4, 
@@ -1517,10 +1539,10 @@
     }
   }, 
   {
-    "pk": 198, 
+    "pk": 59, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 33, 
+      "category": 12, 
       "treeview_image": "", 
       "name": "Filter non-OA PMC publications", 
       "is_streaming": false, 
@@ -1529,6 +1551,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1543,10 +1566,10 @@
     }
   }, 
   {
-    "pk": 426, 
+    "pk": 149, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 198, 
+      "widget": 59, 
       "name": "id list", 
       "short_name": "ids", 
       "uid": "e7eeb8d0-dd0f-4369-8d17-6b34aff84621", 
@@ -1561,10 +1584,10 @@
     }
   }, 
   {
-    "pk": 217, 
+    "pk": 63, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 198, 
+      "widget": 59, 
       "name": "id list", 
       "short_name": "ids", 
       "variable": "oa_ids", 
@@ -1574,10 +1597,10 @@
     }
   }, 
   {
-    "pk": 199, 
+    "pk": 60, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 33, 
+      "category": 12, 
       "treeview_image": "", 
       "name": "Get XML of PMC article", 
       "is_streaming": false, 
@@ -1586,6 +1609,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1600,10 +1624,10 @@
     }
   }, 
   {
-    "pk": 427, 
+    "pk": 150, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 199, 
+      "widget": 60, 
       "name": "id list", 
       "short_name": "ids", 
       "uid": "bc0365c3-298e-45a9-91fd-f293829b9bc0", 
@@ -1618,10 +1642,10 @@
     }
   }, 
   {
-    "pk": 218, 
+    "pk": 64, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 199, 
+      "widget": 60, 
       "name": "list of XMLs", 
       "short_name": "xml", 
       "variable": "xmls", 
@@ -1631,10 +1655,10 @@
     }
   }, 
   {
-    "pk": 200, 
+    "pk": 61, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 33, 
+      "category": 12, 
       "treeview_image": "", 
       "name": "Get fulltext of PMC article", 
       "is_streaming": false, 
@@ -1643,6 +1667,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1657,10 +1682,10 @@
     }
   }, 
   {
-    "pk": 428, 
+    "pk": 151, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 200, 
+      "widget": 61, 
       "name": "id list", 
       "short_name": "ids", 
       "uid": "5849b4c2-bc39-49b6-afda-8f138448ffe3", 
@@ -1675,10 +1700,10 @@
     }
   }, 
   {
-    "pk": 219, 
+    "pk": 65, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 200, 
+      "widget": 61, 
       "name": "fulltexts", 
       "short_name": "txt", 
       "variable": "fulltexts", 
@@ -1688,10 +1713,108 @@
     }
   }, 
   {
-    "pk": 197, 
+    "pk": 261, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 33, 
+      "category": 12, 
+      "treeview_image": "", 
+      "name": "XML to Fulltext", 
+      "is_streaming": false, 
+      "uid": "df886b89-84db-4196-9f9f-464318b89245", 
+      "interaction_view": "bio3graph_xml_to_fulltext", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "windows_queue": false, 
+      "post_interact_action": "bio3graph_xml_to_fulltext_finished", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "bio3graph_xml_to_fulltext", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "has_progress_bar": false, 
+      "order": 12, 
+      "description": "Create full texts of the given PMC article XMLs."
+    }
+  }, 
+  {
+    "pk": 596, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 261, 
+      "name": "xml list", 
+      "short_name": "xml", 
+      "uid": "814bb140-7040-457e-9d1b-8684582520bb", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "xml_list", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of document xmls"
+    }
+  }, 
+  {
+    "pk": 268, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 261, 
+      "name": "fulltexts", 
+      "short_name": "txt", 
+      "variable": "fulltexts", 
+      "uid": "b1bc856c-a1b7-4a36-b9ab-1301e4a5a400", 
+      "order": 1, 
+      "description": "List of fulltexts"
+    }
+  }, 
+  {
+    "pk": 239, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 12, 
+      "treeview_image": "", 
+      "name": "Mesh filter", 
+      "is_streaming": false, 
+      "uid": "02dd276c-1751-41fb-9af4-775b4a0dc256", 
+      "interaction_view": "mesh_filter", 
+      "image": "", 
+      "package": "bio3graph", 
+      "static_image": "", 
+      "windows_queue": false, 
+      "post_interact_action": "mesh_filter_finished", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "mesh_filter", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "has_progress_bar": false, 
+      "order": 14, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 249, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 239, 
+      "name": "Term Filter file", 
+      "short_name": "fil", 
+      "variable": "output_file", 
+      "uid": "0fb1f543-386d-49ca-b8f4-a3b767a5ff3d", 
+      "order": 1, 
+      "description": "Text file with all mesh terms"
+    }
+  }, 
+  {
+    "pk": 62, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 12, 
       "treeview_image": "", 
       "name": "Search PubMed Central", 
       "is_streaming": false, 
@@ -1700,6 +1823,7 @@
       "image": "", 
       "package": "bio3graph", 
       "static_image": "", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -1714,10 +1838,10 @@
     }
   }, 
   {
-    "pk": 424, 
+    "pk": 152, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 197, 
+      "widget": 62, 
       "name": "maxHits", 
       "short_name": "mh", 
       "uid": "7a13cece-f90d-434e-9e4b-d7d42a36635a", 
@@ -1732,10 +1856,10 @@
     }
   }, 
   {
-    "pk": 425, 
+    "pk": 153, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 197, 
+      "widget": 62, 
       "name": "query", 
       "short_name": "q", 
       "uid": "67b45d4f-32a5-415f-ad53-8a2caf1cd3d1", 
@@ -1750,10 +1874,10 @@
     }
   }, 
   {
-    "pk": 216, 
+    "pk": 66, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 197, 
+      "widget": 62, 
       "name": "id list", 
       "short_name": "ids", 
       "variable": "pmids", 
