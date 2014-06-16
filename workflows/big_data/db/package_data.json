@@ -213,6 +213,50 @@
     }
   },
   {
+    "pk": 47,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 5,
+      "treeview_image": "",
+      "name": "Results to a File",
+      "is_streaming": false,
+      "uid": "437156da-ad2c-41d0-b20b-a10e746e35c2",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "results_to_file",
+      "streaming_visualization_view": "",
+      "action": "results_to_file",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 85,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 47,
+      "name": "Results",
+      "short_name": "rst",
+      "uid": "795a676a-e380-4565-9170-be7e9b621377",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "string",
+      "parameter": false,
+      "order": 1,
+      "description": "Results URL"
+    }
+  },
+  {
     "pk": 6,
     "model": "workflows.category",
     "fields": {
@@ -366,8 +410,8 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 38,
-      "name": "Prediction",
-      "short_name": "str",
+      "name": "Results",
+      "short_name": "rst",
       "variable": "string",
       "uid": "4759f850-a661-4414-89e9-6b7a5d4b3b8e",
       "order": 1,
@@ -507,7 +551,7 @@
       "parameter_type": null,
       "variable": "dataset",
       "parameter": false,
-      "order": 1,
+      "order": 2,
       "description": ""
     }
   },
@@ -516,10 +560,10 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 46,
-      "name": "Predictions",
-      "short_name": "str",
+      "name": "Results",
+      "short_name": "rst",
       "variable": "string",
-      "uid": "c986b79c-8eb7-483f-8dfd-d38ed5a4750e",
+      "uid": "b4408e13-5950-4b13-b15e-7f6c1bcf8a00",
       "order": 1,
       "description": ""
     }
@@ -684,8 +728,8 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 40,
-      "name": "Predictions",
-      "short_name": "str",
+      "name": "Results",
+      "short_name": "rst",
       "variable": "string",
       "uid": "ed188c69-7d64-4b52-9212-823283fc1665",
       "order": 1,
@@ -834,8 +878,8 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 36,
-      "name": "Predictions",
-      "short_name": "str",
+      "name": "Results",
+      "short_name": "rst",
       "variable": "string",
       "uid": "bcc89e7e-2da1-4efc-80f1-8dc42ff433bb",
       "order": 1,
@@ -1005,7 +1049,7 @@
       "parameter_type": null,
       "variable": "dataset",
       "parameter": false,
-      "order": 1,
+      "order": 2,
       "description": ""
     }
   },
@@ -1014,8 +1058,8 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 42,
-      "name": "Prediction",
-      "short_name": "str",
+      "name": "Results",
+      "short_name": "rst",
       "variable": "string",
       "uid": "92f87c76-e078-49dc-a9f3-79a148ae30c8",
       "order": 1,
@@ -1158,8 +1202,8 @@
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 44,
-      "name": "Predictions",
-      "short_name": "str",
+      "name": "Results",
+      "short_name": "rst",
       "variable": "string",
       "uid": "97f43f2b-9277-48d6-aa60-50b00ca90556",
       "order": 1,
