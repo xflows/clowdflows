@@ -48,83 +48,107 @@ path.selectedarc {
 
 </style>
 <script type="text/javascript">
+//document.write('<div>bllaaaaaaa1000</div>');
 var hierarchy = {{hierarchy|safe}};
+//document.write('<div>'+hierarchy|safe+'</div>');
 draw(1000, 600, hierarchy, "#clustering_canvas{{widget.pk}}");
 function draw(w, h, hierarchy, target) {
-
+    //console.log("drawiiiiiing")
+    //document.write('<div>bllaaaaaaa</div>');
     var vizualization = '{{vizualization}}';
 
     var colors = ['red','blue','yellow','green','magenta','cyan','black'];
 
+    // we put attributes in an array
     var attributes = [];
     {% for attribute in attributes %}
     attributes.push('{{attribute}}');
     {% endfor %}
+    //document.write('<div>'+target+'</div>');
 
+    // we calculate the radious.
     var rx = w/2,
       ry = h/2,
       m0,
       rotate = 0,
       delta = 30;
 
+    //get the center 
     var root = [rx, ry];
     var width = ry - delta;
+
+    //if tree than change parameters
     if (vizualization == "tree") {
       width=w-100;
       height=width*2;
       ry=1000;
     }
+    //document.write('<div>bllaaaaaaa8</div>');
 
+    // if circle get different layout than tree
     if (vizualization == "circle") {
-    var cluster = d3.layout.cluster()
-      .size([360, ry - delta])
-      .sort(null);
+      var cluster = d3.layout.cluster()
+        .size([360, ry - delta])
+        .sort(null);
     } else {
-    var cluster = d3.layout.cluster()
-      .size([h-50, ry - delta])
-      .sort(null);      
+      var cluster = d3.layout.cluster()
+        .size([h-50, ry - delta])
+        .sort(null);      
+    }
+    //document.write('<div>bllaaaaaaa7</div>');
+    //document.write('<div>'+cluster+'</div>');
+
+    //if visualization is circle put a different scalable vector graphic
+    if (vizualization=="circle") {
+      var diagonal = d3.svg.diagonal.radial()
+        .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+    } else {
+      var diagonal = d3.svg.diagonal()
+        .projection(function(d) { return [d.y, d.x]; });     
     }
 
-
-if (vizualization=="circle") {
-
-    var diagonal = d3.svg.diagonal.radial()
-      .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
-
-    } else {
-
- var diagonal = d3.svg.diagonal()
-    .projection(function(d) { return [d.y, d.x]; });     
-    }
-
+    // put a onclick listener on a div element, uses function select_clusters
     var svg = d3.select(target).append("div")
     //  .style("width", w + "px")
     //  .style("height", (h+50) + "px")
-      .on("click", select_clusters);
+      .on("click", select_clusters_new_structure);
+    //document.write('<div>bllaaaaaaa6</div>');
 
-      if (vizualization=="circle") {
-    var vis = svg.append("svg:svg")
-      .attr("width", w)
-      .attr("height", h+50)
-    .append("svg:g")
-      .attr("transform", "translate(" + rx + "," + ry + ")");
-
+    // change parameters for every svg
+    if (vizualization=="circle") {
+      var vis = svg.append("svg:svg")
+        .attr("width", w)
+        .attr("height", h+50)
+        .append("svg:g")
+        .attr("transform", "translate(" + rx + "," + ry + ")");
     } else {
-     var vis = svg.append("svg:svg")
-      .attr("width", w)
-      .attr("height", h)
-    .append("svg:g")
-    .attr("transform", "translate(40,10)");   
+      var vis = svg.append("svg:svg")
+        .attr("width", w)
+        .attr("height", h)
+        .append("svg:g")
+        .attr("transform", "translate(40,10)");   
     }
 
-      if (vizualization=="circle") {
+    // if circle put an onclick listener mousedown on the graphic
+    if (vizualization=="circle") {
       vis.append("svg:path")
         .attr("class", "arc")
         .attr("d", d3.svg.arc().innerRadius(ry - delta).outerRadius(ry).startAngle(0).endAngle(2 * Math.PI))
         .on("mousedown", mousedown);
     }
 
+    //document.write('<div>bllaaaaaaa5</div>');
+    // get nodes from hierarchy
     var nodes = cluster.nodes(hierarchy);
+    nodes = nodes[0]; // to rabis samo v popravljeni verziji
+
+    /*for(var propertyName in nodes[0]) {
+        alert('propertyName: '+ propertyName);
+        alert('value: '+nodes[0][propertyName])
+        alert('length : ' + nodes[0][propertyName].length)
+    } */
+
+    // get maximum height node
     var max_height = 0;
     for (node in nodes) {
         if (nodes[node].height>max_height) {
@@ -132,42 +156,44 @@ if (vizualization=="circle") {
         }
     }
 
+    // change node heights
     for (node in nodes) {
         nodes[node].y = width-(nodes[node].height/max_height) * width;
     }
 
     var link = vis.selectAll("path.link")
       .data(cluster.links(nodes))
-    .enter().append("svg:path")
+      .enter().append("svg:path")
       .attr("class", "link")
       .attr("d", diagonal);
 
+    if (vizualization=="circle") {
+      var node = vis.selectAll("g.node")
+        .data(nodes)
+      .enter().append("svg:g")
+        .attr("class", "node")
+        .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; });
 
-if (vizualization=="circle") {
-    var node = vis.selectAll("g.node")
-      .data(nodes)
-    .enter().append("svg:g")
-      .attr("class", "node")
-      .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; });
-
-    node.append("svg:circle")
-      .attr("r", 3);
-
+      node.append("svg:circle")
+        .attr("r", 3);
     } else {
-    var node = vis.selectAll("g.node")
-      .data(nodes)
-    .enter().append("svg:g")
-      .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+      var node = vis.selectAll("g.node")
+        .data(nodes)
+      .enter().append("svg:g")
+        .attr("class", "node")
+        .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
 
-    node.append("svg:circle")
-      .attr("r", 3);      
+      node.append("svg:circle")
+        .attr("r", 3);      
     }
-
+    
+    
+    //  just show a toast
     $(".node").mouseenter(function() {
       alert("test");
     });
 
+    // do something with attributes
     if (vizualization=="circle") {
       for (a in attributes) {
         node.append("svg:text")
@@ -183,7 +209,8 @@ if (vizualization=="circle") {
         node.append("svg:text")
           .attr("dx", -10)
           .attr("dy", 3)
-          .style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+          //.style("text-anchor", function(d) { return d.children ? "end" : "start"; })
+          .style("text-anchor", function(d) { return d.leaf ? "end" : "start"; })
           .attr("class", "attribute"+a+" attributes")
           .text(function(d) { return d.values[attributes[a]]; });
       }     
@@ -225,6 +252,37 @@ if (vizualization=="circle") {
         }
 
     }
+
+    function color_nodes_new_struct(nodes,idx,treshold,cluster) {
+        var node = nodes[idx];
+        descendants = [];
+        if (node.children[0] != undefined) {
+            descendants.push(nodes[node.children[0]]);
+        } 
+        if (node.children[1] != undefined) {
+            descendants.push(nodes[node.children[1]]); 
+        }
+      //for i in len(nodes){}
+        if (node.height<treshold||node.height==0) {
+            node.cluster = cluster;
+            if (clusters.indexOf(cluster)==-1) {
+               clusters.push(cluster);
+               counters.push(0);
+               selected_clusters.push(true);
+            }
+            for (n in descendants) {
+                color_nodes_new_struct(nodes,node.children[n],treshold,cluster);
+            }
+        } else {
+            node.cluster = -1;
+            for (n in descendants) {
+                color_nodes_new_struct(nodes,node.children[n],treshold,++cluster_index);
+            }
+        }
+
+    }
+    //color_nodes_non_recursive(nodes[0],r_height,0);
+
 
     hsv2rgb = function(h,s,v) {
       var rgb, i, data = [];
@@ -303,6 +361,46 @@ if (vizualization=="circle") {
           $(".selected_nodes{{widget.pk}}").val(JSON.stringify(return_nodes));
       }
 
+    function display_nodes_new_structure() {
+      return_nodes = [];
+      node.selectAll("circle")
+          .style('fill', function(d) {
+            if (d.cluster==-1) {
+              return 'white';
+            } else {
+              if (d.children.length==0) {
+                counters[clusters.indexOf(d.cluster)]++;
+              } 
+              var sat = 1;               
+              if (!selected_clusters[clusters.indexOf(d.cluster)]) {
+                d.selected = false;
+                sat=0.15
+              } else {
+                d.selected = true;
+              }
+              return hsv2rgb(((clusters.indexOf(d.cluster)*1.0)/(clusters.length))*360,sat,1);
+            }
+          })
+          .style('stroke', function(d) {
+              if (d.cluster==-1) {
+                return 'black';
+              } else {
+              var sat = 1;               
+              if (!selected_clusters[clusters.indexOf(d.cluster)]) {
+                sat=0.15
+              }
+
+              if (d.leaf) {
+                return_nodes.push([d.id,d.selected,clusters.indexOf(d.cluster)]);
+              }
+
+              return hsv2rgb(((clusters.indexOf(d.cluster)*1.0)/(clusters.length))*360,sat,0.8);
+              }
+
+          });
+          $(".selected_nodes{{widget.pk}}").val(JSON.stringify(return_nodes));
+    }
+
     function select_clusters() {
         var click_pos = d3.mouse(this);
         if (vizualization=="circle") {
@@ -346,6 +444,75 @@ if (vizualization=="circle") {
         selected_clusters = [];
         color_nodes(nodes[0],r_height,0);
 
+        //clusters.sort(function() { return 0.5 - Math.random();});
+
+        display_nodes();
+
+          var legend = $("#legend{{widget.pk}}");
+          legend.html("");
+          for (c in counters) {
+
+            legend.append('<span style="display:inline; color:'+hsv2rgb((c*1.0/counters.length)*360,1,1)+'"><input type="checkbox" class="clusterselect" checked="checked" style="display:inline !important; width:20px;" rel="'+c+'" />'+counters[c]+"</span> ");
+          }
+
+          $(".clusterselect").change(function() {
+
+            var current_cluster = parseInt($(this).attr('rel'));
+
+            if ($(this).attr('checked')=='checked') {
+              selected_clusters[current_cluster]=true;
+            } else {
+              selected_clusters[current_cluster]=false;
+            }
+
+            display_nodes();
+
+          });
+
+    }
+
+    function select_clusters_new_structure() {
+        var click_pos = d3.mouse(this);
+        if (vizualization=="circle") {
+          var r = Math.min(distance(click_pos, root), ry-delta);
+          var r_dist = distance(click_pos,root)
+          if (r_dist > ry-delta) {
+            return false;
+          }
+          var r_height = max_height-((distance(click_pos,root)/(ry-delta))*max_height);
+
+          if (threshold_arc) {
+              threshold_arc.remove();
+          }
+          threshold_arc = vis.append("svg:path")
+            .attr("class", "selectedarc")
+            .attr("d", d3.svg.arc().innerRadius(r).outerRadius(r+1).startAngle(0).endAngle(2 * Math.PI));
+
+        } else {
+          var x = click_pos[0];
+          x = x-40;
+          if (x<0) {
+            x=0;
+          }
+          var r_height = max_height-(x/width)*max_height;
+
+          if (threshold_arc) {
+              threshold_arc.remove();
+          }
+          threshold_arc = vis.append("svg:line")
+            .attr("class", "selectedarc")
+            .attr("x1",x)
+            .attr("y1","0")
+            .attr("x2",x)
+            .attr("y2","1000")
+            .attr("stroke-width","2")
+            .attr("stroke","red");
+        }
+        cluster_index = 0;
+        clusters = [];
+        counters = [];
+        selected_clusters = [];
+        color_nodes_new_struct(nodes,0,r_height,0);
         //clusters.sort(function() { return 0.5 - Math.random();});
 
         display_nodes();
