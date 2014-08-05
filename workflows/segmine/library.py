@@ -130,6 +130,7 @@ def segmine_gene_ranker(input_dict, widget):
     sortedTScores = sorted(tScores.items(), reverse=True, key=lambda x: x[1])
     return {'geneRanks':geneRanks,'tScores':sortedTScores}
 
+
 def segmine_segs(input_dict, widget):
     segs = Segs(input_dict['wsdl'])
     results = segs.run(input_dict, widget=widget)
@@ -137,6 +138,25 @@ def segmine_segs(input_dict, widget):
             'rules_PAGE' : results.get('rules_PAGE', None),
             'rules_GSEA' : results.get('rules_GSEA', None),
             'rules_combined' : results.get('rules_combined', None)}
+
+
+def segmine_segs_stu(input_dict, widget):
+    segs = Segs(input_dict['wsdl'])
+    results = segs.run_STU(input_dict, widget=widget)
+    return {'rules_fisher': results.get('rules_fisher', None),
+            'rules_PAGE': results.get('rules_PAGE', None),
+            'rules_GSEA': results.get('rules_GSEA', None),
+            'rules_combined': results.get('rules_combined', None)}
+
+
+def segmine_segs_ath(input_dict, widget):
+    segs = Segs(input_dict['wsdl'])
+    results = segs.run_ATH(input_dict, widget=widget)
+    return {'rules_fisher': results.get('rules_fisher', None),
+            'rules_PAGE': results.get('rules_PAGE', None),
+            'rules_GSEA': results.get('rules_GSEA', None),
+            'rules_combined': results.get('rules_combined', None)}
+
 
 def segmine_resolve_gene_synonyms(input_dict):
     from .data import mappings
