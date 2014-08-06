@@ -5,6 +5,8 @@ Segmine library.
 '''
 from biomine import BiomineSearch
 from segs import Segs
+import logging
+
 
 #
 # Visualization widgets:
@@ -128,7 +130,7 @@ def segmine_gene_ranker(input_dict, widget):
     widget.progress = 100
     widget.save()
     sortedTScores = sorted(tScores.items(), reverse=True, key=lambda x: x[1])
-    return {'geneRanks':geneRanks,'tScores':sortedTScores}
+    return {'geneRanks': geneRanks, 'tScores': sortedTScores}
 
 
 def segmine_segs(input_dict, widget):
@@ -662,4 +664,48 @@ def segmine_rules_as_table(input_dict):
     geneTable = __make_rule_gene_example_table(tableDict, sorted(list(allGenesDE)))
     termTable = __make_rule_term_example_table(tableDict, sorted(list(allTerms)))
     return {'gene_table': geneTable, 'term_table': termTable}
+#end
+
+
+def filter_unknown_genes_stu(input_dict):
+    import cPickle
+    from os.path import normpath, join, dirname
+
+    ranks = input_dict['gene_ranks']
+    genes = cPickle.load(open(normpath(join(dirname(__file__), 'data/genes_stu.pickle')), 'rb'))
+
+    result = []
+    unknown = 0
+    for pair in ranks:
+        gene = pair[0]
+        if gene in genes:
+            result.append(pair)
+        else:
+            unknown += 1
+    if unknown:
+        logging.warning('There were %d unknown STU genes.' % unknown)
+
+    return {'filtered_ranks': result}
+#end
+
+
+def filter_unknown_genes_ath(input_dict):
+    import cPickle
+    from os.path import normpath, join, dirname
+
+    ranks = input_dict['gene_ranks']
+    genes = cPickle.load(open(normpath(join(dirname(__file__), 'data/genes_ath.pickle')), 'rb'))
+
+    result = []
+    unknown = 0
+    for pair in ranks:
+        gene = pair[0]
+        if gene in genes:
+            result.append(pair)
+        else:
+            unknown += 1
+    if unknown:
+        logging.warning('There were %d unknown ATH genes.' % unknown)
+
+    return {'filtered_ranks': result}
 #end
