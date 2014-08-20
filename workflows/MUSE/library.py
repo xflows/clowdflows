@@ -31,6 +31,17 @@ def MUSE_mapping_to_KR(input_dict):
     return {'mapping': result.response_dict['result']}
 
 
+def MUSE_mapping_to_KR_latest(input_dict):
+    url = input_dict['url']
+    data = input_dict['input_data']
+
+    cli = JSONWSPClient(url)
+    result, xml = cli.mapping_to_KR_latest(SRL=data)
+    mapping, xml = result.response_dict['result']
+
+    return {'mapping': mapping, 'xml': xml}
+
+
 def MUSE_mapping_to_KR_precomputed(input_dict):
     url = input_dict['url']
     data = input_dict['input_data']
@@ -41,12 +52,34 @@ def MUSE_mapping_to_KR_precomputed(input_dict):
     return {'mapping': result.response_dict['result']}
 
 
+def MUSE_mapping_to_KR_precomputed_latest(input_dict):
+    url = input_dict['url']
+    data = input_dict['input_data']
+
+    cli = JSONWSPClient(url)
+    result = cli.mapping_to_KR_precomputed_latest(SRL=data)
+    mapping, xml = result.response_dict['result']
+
+    return {'mapping': mapping, 'xml': xml}
+
+
 def MUSE_semantic_role_labeling(input_dict):
     url = input_dict['url']
     data = input_dict['xml']
 
     cli = JSONWSPClient(url)
     result = cli.semantic_role_labeling(xml=data)
+    srl, txt = result.response_dict['result']
+
+    return {'xml': srl, 'txt': txt}
+
+
+def MUSE_semantic_role_labeling_tuk(input_dict):
+    url = input_dict['url']
+    data = input_dict['xml']
+
+    cli = JSONWSPClient(url)
+    result = cli.semantic_role_labeling_tuk(xml=data)
     srl, txt = result.response_dict['result']
 
     return {'xml': srl, 'txt': txt}

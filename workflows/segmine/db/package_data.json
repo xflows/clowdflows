@@ -29,6 +29,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Biomine connection search", 
       "is_streaming": false, 
       "uid": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
@@ -207,6 +208,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Biomine medoid search", 
       "is_streaming": false, 
       "uid": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
@@ -349,6 +351,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Biomine neighbourhood search", 
       "is_streaming": false, 
       "uid": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
@@ -509,6 +512,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Biomine visualizer", 
       "is_streaming": false, 
       "uid": "b58b379b-e662-4789-9202-3745baa8e750", 
@@ -561,11 +565,128 @@
     }
   }, 
   {
+    "pk": 268, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 18, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Filter unknown ATH genes", 
+      "is_streaming": false, 
+      "uid": "820af75a-12bc-4b22-aaf5-ea7b8f505929", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "filter_unknown_genes_ath", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 599, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 268, 
+      "name": "Gene ranks", 
+      "short_name": "rnk", 
+      "uid": "ef46b1e3-82a3-4355-9385-0b53df4d4f07", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "gene_ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "list of pairs (gene, rank)"
+    }
+  }, 
+  {
+    "pk": 287, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 268, 
+      "name": "Filtered gene ranks", 
+      "short_name": "rnk", 
+      "variable": "filtered_ranks", 
+      "uid": "fe02fbd3-7127-4233-bdc3-235f546edd19", 
+      "order": 1, 
+      "description": "filtered list of pairs (gene, rank)"
+    }
+  }, 
+  {
+    "pk": 267, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 18, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Filter unknown STU genes", 
+      "is_streaming": false, 
+      "uid": "a645e106-79dd-465a-8912-0b869a06878e", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "filter_unknown_genes_stu", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 598, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 267, 
+      "name": "Gene ranks", 
+      "short_name": "rnk", 
+      "uid": "a5bd6f15-c3a7-4c67-8df2-07c33dba4065", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "gene_ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "list of pairs (gene, rank)"
+    }
+  }, 
+  {
+    "pk": 286, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 267, 
+      "name": "Filtered gene ranks", 
+      "short_name": "rnk", 
+      "variable": "filtered_ranks", 
+      "uid": "27b4bfaa-2679-4b9e-b6dc-5c37d3e275f2", 
+      "order": 1, 
+      "description": "filtered list of pairs (gene, rank)"
+    }
+  }, 
+  {
     "pk": 100, 
     "model": "workflows.abstractwidget", 
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Fold change gene filter", 
       "is_streaming": false, 
       "uid": "a074c2b7-b93e-4e81-b54d-d5d88d8bc483", 
@@ -623,6 +744,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Gene Ranker", 
       "is_streaming": false, 
       "uid": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
@@ -729,6 +851,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Map miRNA to gene (tarbase)", 
       "is_streaming": false, 
       "uid": "309b79f4-0761-4ced-b754-5844bbad14d9", 
@@ -786,6 +909,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Map miRNA to gene (targetscan)", 
       "is_streaming": false, 
       "uid": "bcc04bde-485f-4ca3-ace1-28161ff281e4", 
@@ -843,6 +967,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Rank plotter", 
       "is_streaming": false, 
       "uid": "ca7934af-8583-47ab-8c68-ca6e45405bcc", 
@@ -887,6 +1012,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Read microarray data from file", 
       "is_streaming": false, 
       "uid": "01aad79e-9991-412c-b619-cb87a956b65a", 
@@ -1033,6 +1159,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Resolve gene synonyms", 
       "is_streaming": false, 
       "uid": "533f57dc-a21d-4e02-9405-023620fcc39b", 
@@ -1090,6 +1217,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "SEGS", 
       "is_streaming": false, 
       "uid": "b947b5fc-e992-43c9-9c99-7f47f4b0537c", 
@@ -1469,11 +1597,397 @@
     }
   }, 
   {
+    "pk": 266, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 18, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "SEGS ATH", 
+      "is_streaming": false, 
+      "uid": "32045302-43ae-4881-9414-d04fe844843e", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "SEGS_HMR.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_segs_ath", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 581, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Input data", 
+      "short_name": "rnk", 
+      "uid": "2c579d38-1546-4fbb-9182-40cb6b9fca04", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "inputData", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of pairs (geneID, rank)"
+    }
+  }, 
+  {
+    "pk": 582, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Service wsdl location", 
+      "short_name": "loc", 
+      "uid": "c749b077-fe34-440a-9f75-fde1326957d9", 
+      "default": "http://segs.ijs.si:8091/PlantSEGS?wsdl", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Sevice wsdl location"
+    }
+  }, 
+  {
+    "pk": 583, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "GSEA test weight", 
+      "short_name": "wgs", 
+      "uid": "e6ecb0af-f861-4a9f-8db6-eb52a7514b0e", 
+      "default": "1.0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weightGSEA", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "GSEA test weight"
+    }
+  }, 
+  {
+    "pk": 584, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "PAGE test weight", 
+      "short_name": "wpa", 
+      "uid": "c6a45b3a-5e84-453a-ac4a-e18898a5218f", 
+      "default": "1.0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weightPAGE", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "PAGE test weight"
+    }
+  }, 
+  {
+    "pk": 585, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Fisher test weight", 
+      "short_name": "wfi", 
+      "uid": "236ba7db-5f80-4a25-ab08-3a7b81a501b9", 
+      "default": "0.0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weightFisher", 
+      "parameter": true, 
+      "order": 5, 
+      "description": "Fisher test weight"
+    }
+  }, 
+  {
+    "pk": 586, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Use molecular functions ontology", 
+      "short_name": "mol", 
+      "uid": "d391bdf5-38b5-4e3e-8a6d-ad8ceabefcea", 
+      "default": "true", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useMolecularFunctions", 
+      "parameter": true, 
+      "order": 6, 
+      "description": "Use molecular functions ontology"
+    }
+  }, 
+  {
+    "pk": 587, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Summarize descriptions", 
+      "short_name": "sde", 
+      "uid": "ba4f3848-3f51-4bf8-afc5-9c6687b099ca", 
+      "default": "true", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "summarizeDescriptions", 
+      "parameter": true, 
+      "order": 7, 
+      "description": "Summarize descriptions"
+    }
+  }, 
+  {
+    "pk": 588, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Use biological processes ontology", 
+      "short_name": "bio", 
+      "uid": "6215c1dc-2b3c-4691-9a36-e215ed15f385", 
+      "default": "true", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useBiologicalProcesses", 
+      "parameter": true, 
+      "order": 8, 
+      "description": "Use biological processes ontology"
+    }
+  }, 
+  {
+    "pk": 589, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Random seed", 
+      "short_name": "rnd", 
+      "uid": "4924c08a-adc1-41d1-bf91-c3e2b8c0f786", 
+      "default": "-1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "rndGenSeed", 
+      "parameter": true, 
+      "order": 9, 
+      "description": "Random seed (-1 uses current time)"
+    }
+  }, 
+  {
+    "pk": 590, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Use cellular components ontology", 
+      "short_name": "cel", 
+      "uid": "0d604ef5-498d-4df4-be1a-a9465263fded", 
+      "default": "true", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useCellularComponents", 
+      "parameter": true, 
+      "order": 10, 
+      "description": "Use cellular components ontology"
+    }
+  }, 
+  {
+    "pk": 591, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Max reported rules", 
+      "short_name": "mrr", 
+      "uid": "bdf88e4b-432c-4495-bf00-1b5e3267ce01", 
+      "default": "100", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxReported", 
+      "parameter": true, 
+      "order": 11, 
+      "description": "Max reported rules"
+    }
+  }, 
+  {
+    "pk": 592, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Use KEGG ontology", 
+      "short_name": "keg", 
+      "uid": "c9504bec-4315-4272-a68e-2a050fce653d", 
+      "default": "true", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useKEGG", 
+      "parameter": true, 
+      "order": 12, 
+      "description": "Use KEGG ontology"
+    }
+  }, 
+  {
+    "pk": 593, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "maximalPvalue", 
+      "short_name": "mxp", 
+      "uid": "ee629b94-7897-45dc-949c-158f1cd6fab4", 
+      "default": "0.05", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maximalPvalue", 
+      "parameter": true, 
+      "order": 13, 
+      "description": "Maximal p-value"
+    }
+  }, 
+  {
+    "pk": 594, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Minimal set size", 
+      "short_name": "mss", 
+      "uid": "ae0e77ed-0838-45ec-9f49-45dbcda7bd20", 
+      "default": "20", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minimalSetSize", 
+      "parameter": true, 
+      "order": 14, 
+      "description": "Minimal set size"
+    }
+  }, 
+  {
+    "pk": 595, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Maximum number of terms", 
+      "short_name": "mnt", 
+      "uid": "28a94f0b-3a02-4b6c-b076-54db4479cd98", 
+      "default": "3", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxNumTerms", 
+      "parameter": true, 
+      "order": 15, 
+      "description": "Maximum number of terms"
+    }
+  }, 
+  {
+    "pk": 596, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Number of interacting terms", 
+      "short_name": "int", 
+      "uid": "e77d5b03-07b6-4b77-9041-630123d107b8", 
+      "default": "1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "useGeneInteractions", 
+      "parameter": true, 
+      "order": 16, 
+      "description": "Number of interacting terms (gene interactions)"
+    }
+  }, 
+  {
+    "pk": 597, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Cutoff", 
+      "short_name": "cut", 
+      "uid": "276dd4f1-be21-4427-b76d-cbc0b8a66edd", 
+      "default": "300", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cutoff", 
+      "parameter": true, 
+      "order": 17, 
+      "description": "Cutoff threshold for DE/ non-DE genes"
+    }
+  }, 
+  {
+    "pk": 282, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Best rules according to fisher", 
+      "short_name": "fis", 
+      "variable": "rules_fisher", 
+      "uid": "41cb25b4-824f-4756-874b-b74bddf76860", 
+      "order": 1, 
+      "description": "Set of rules "
+    }
+  }, 
+  {
+    "pk": 283, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Best rules according to PAGE", 
+      "short_name": "pag", 
+      "variable": "rules_PAGE", 
+      "uid": "274f0e1f-9f05-4475-aad6-432f9fce46a8", 
+      "order": 2, 
+      "description": "Set of rules "
+    }
+  }, 
+  {
+    "pk": 284, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Best rules according to GSEA", 
+      "short_name": "gse", 
+      "variable": "rules_GSEA", 
+      "uid": "f37610fa-c956-4112-bf91-159076908da7", 
+      "order": 3, 
+      "description": "Set of rules "
+    }
+  }, 
+  {
+    "pk": 285, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 266, 
+      "name": "Best rules with combined metrics", 
+      "short_name": "com", 
+      "variable": "rules_combined", 
+      "uid": "298a0b8a-71bb-46e7-8d78-52d383dfdf55", 
+      "order": 4, 
+      "description": "Set of rules "
+    }
+  }, 
+  {
     "pk": 107, 
     "model": "workflows.abstractwidget", 
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "SEGS Rule browser", 
       "is_streaming": false, 
       "uid": "1118c133-0113-4df8-b240-8690c4b62e07", 
@@ -1526,11 +2040,397 @@
     }
   }, 
   {
-    "pk": 154, 
+    "pk": 265, 
     "model": "workflows.abstractwidget", 
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "SEGS STU", 
+      "is_streaming": false, 
+      "uid": "2bc9b86c-5c99-4ac8-afbc-d20fd34c3ca1", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "SEGS_HMR.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_segs_stu", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 564, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Input data", 
+      "short_name": "rnk", 
+      "uid": "b1ec20d6-2740-4de5-9e9a-598d00f25e24", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "inputData", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of pairs (geneID, rank)"
+    }
+  }, 
+  {
+    "pk": 565, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Service wsdl location", 
+      "short_name": "loc", 
+      "uid": "3e20cd76-1532-48fe-9f01-841a8a8067f2", 
+      "default": "http://segs.ijs.si:8091/PlantSEGS?wsdl", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Sevice wsdl location"
+    }
+  }, 
+  {
+    "pk": 566, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "GSEA test weight", 
+      "short_name": "wgs", 
+      "uid": "ae23e1d3-dd0b-492b-9786-107738f2892e", 
+      "default": "1.0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weightGSEA", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "GSEA test weight"
+    }
+  }, 
+  {
+    "pk": 567, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "PAGE test weight", 
+      "short_name": "wpa", 
+      "uid": "34611127-924e-4f1d-a079-8dc29519793d", 
+      "default": "1.0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weightPAGE", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "PAGE test weight"
+    }
+  }, 
+  {
+    "pk": 568, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Fisher test weight", 
+      "short_name": "wfi", 
+      "uid": "bbf0e48b-2d0c-460a-bb91-c4fa3efc6576", 
+      "default": "0.0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weightFisher", 
+      "parameter": true, 
+      "order": 5, 
+      "description": "Fisher test weight"
+    }
+  }, 
+  {
+    "pk": 569, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Use molecular functions ontology", 
+      "short_name": "mol", 
+      "uid": "33818966-bd90-4694-99bb-c6ccd4d5d96c", 
+      "default": "true", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useMolecularFunctions", 
+      "parameter": true, 
+      "order": 6, 
+      "description": "Use molecular functions ontology"
+    }
+  }, 
+  {
+    "pk": 570, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Summarize descriptions", 
+      "short_name": "sde", 
+      "uid": "d0c36c9f-d6b7-480b-b6e0-965050b0bb3a", 
+      "default": "true", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "summarizeDescriptions", 
+      "parameter": true, 
+      "order": 7, 
+      "description": "Summarize descriptions"
+    }
+  }, 
+  {
+    "pk": 571, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Use biological processes ontology", 
+      "short_name": "bio", 
+      "uid": "b3089e70-9196-42a5-beea-e0f89e480694", 
+      "default": "true", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useBiologicalProcesses", 
+      "parameter": true, 
+      "order": 8, 
+      "description": "Use biological processes ontology"
+    }
+  }, 
+  {
+    "pk": 572, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Random seed", 
+      "short_name": "rnd", 
+      "uid": "8c2bd0fd-08ec-42cc-8b99-4f580e6ee1a3", 
+      "default": "-1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "rndGenSeed", 
+      "parameter": true, 
+      "order": 9, 
+      "description": "Random seed (-1 uses current time)"
+    }
+  }, 
+  {
+    "pk": 573, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Use cellular components ontology", 
+      "short_name": "cel", 
+      "uid": "e7d498a1-042b-4d52-b8a0-0c7941867bc5", 
+      "default": "true", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useCellularComponents", 
+      "parameter": true, 
+      "order": 10, 
+      "description": "Use cellular components ontology"
+    }
+  }, 
+  {
+    "pk": 574, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Max reported rules", 
+      "short_name": "mrr", 
+      "uid": "30c599b6-d51b-4ec2-b49d-5724abae1e63", 
+      "default": "100", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxReported", 
+      "parameter": true, 
+      "order": 11, 
+      "description": "Max reported rules"
+    }
+  }, 
+  {
+    "pk": 575, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Use KEGG ontology", 
+      "short_name": "keg", 
+      "uid": "1d39bace-eeb6-4364-97f4-24fad14ae32c", 
+      "default": "true", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useKEGG", 
+      "parameter": true, 
+      "order": 12, 
+      "description": "Use KEGG ontology"
+    }
+  }, 
+  {
+    "pk": 576, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "maximalPvalue", 
+      "short_name": "mxp", 
+      "uid": "c937aa5b-87e6-4105-bea8-20ccbd1bd488", 
+      "default": "0.05", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maximalPvalue", 
+      "parameter": true, 
+      "order": 13, 
+      "description": "Maximal p-value"
+    }
+  }, 
+  {
+    "pk": 577, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Minimal set size", 
+      "short_name": "mss", 
+      "uid": "c3d26859-c452-44ea-a1fb-6bdc02d50090", 
+      "default": "20", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minimalSetSize", 
+      "parameter": true, 
+      "order": 14, 
+      "description": "Minimal set size"
+    }
+  }, 
+  {
+    "pk": 578, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Maximum number of terms", 
+      "short_name": "mnt", 
+      "uid": "da6f4408-ab85-4b47-85ef-f3f99cef1a12", 
+      "default": "3", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxNumTerms", 
+      "parameter": true, 
+      "order": 15, 
+      "description": "Maximum number of terms"
+    }
+  }, 
+  {
+    "pk": 579, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Number of interacting terms", 
+      "short_name": "int", 
+      "uid": "9f5b8755-e940-4062-99d3-80f7e3a5d786", 
+      "default": "1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "useGeneInteractions", 
+      "parameter": true, 
+      "order": 16, 
+      "description": "Number of interacting terms (gene interactions)"
+    }
+  }, 
+  {
+    "pk": 580, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Cutoff", 
+      "short_name": "cut", 
+      "uid": "ae744b17-1354-45a3-a46e-3067810df8df", 
+      "default": "300", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cutoff", 
+      "parameter": true, 
+      "order": 17, 
+      "description": "Cutoff threshold for DE/ non-DE genes"
+    }
+  }, 
+  {
+    "pk": 278, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Best rules according to fisher", 
+      "short_name": "fis", 
+      "variable": "rules_fisher", 
+      "uid": "0437d3a4-7197-44a1-9571-c7b4aa521f28", 
+      "order": 1, 
+      "description": "Set of rules "
+    }
+  }, 
+  {
+    "pk": 279, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Best rules according to PAGE", 
+      "short_name": "pag", 
+      "variable": "rules_PAGE", 
+      "uid": "fb3bbb6e-52f5-4c08-b59e-6153be27a5b7", 
+      "order": 2, 
+      "description": "Set of rules "
+    }
+  }, 
+  {
+    "pk": 280, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Best rules according to GSEA", 
+      "short_name": "gse", 
+      "variable": "rules_GSEA", 
+      "uid": "0d0f0b1d-6f13-45cf-bb78-af404fd73d75", 
+      "order": 3, 
+      "description": "Set of rules "
+    }
+  }, 
+  {
+    "pk": 281, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 265, 
+      "name": "Best rules with combined metrics", 
+      "short_name": "com", 
+      "variable": "rules_combined", 
+      "uid": "5fa854c3-4977-4f91-93ad-5e578e97b674", 
+      "order": 4, 
+      "description": "Set of rules "
+    }
+  }, 
+  {
+    "pk": 192, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 18, 
+      "treeview_image": "", 
+      "windows_queue": false, 
       "name": "SEGS rules as Orange table", 
       "is_streaming": false, 
       "uid": "9ab3236a-efc3-480d-accf-7877a4e7f4e4", 
@@ -1552,10 +2452,10 @@
     }
   }, 
   {
-    "pk": 361, 
+    "pk": 417, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 154, 
+      "widget": 192, 
       "name": "SEGS rules", 
       "short_name": "rls", 
       "uid": "9cfb8ad9-5a55-4e4d-8efc-63d7318ca42d", 
@@ -1570,10 +2470,10 @@
     }
   }, 
   {
-    "pk": 173, 
+    "pk": 210, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 154, 
+      "widget": 192, 
       "name": "Gene table", 
       "short_name": "odt", 
       "variable": "gene_table", 
@@ -1583,10 +2483,10 @@
     }
   }, 
   {
-    "pk": 174, 
+    "pk": 211, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 154, 
+      "widget": 192, 
       "name": "Term table", 
       "short_name": "odt", 
       "variable": "term_table", 
@@ -1601,6 +2501,7 @@
     "fields": {
       "category": 18, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "T-test gene filter", 
       "is_streaming": false, 
       "uid": "6593a40f-1280-4d20-b399-7d182ebcdbf3", 

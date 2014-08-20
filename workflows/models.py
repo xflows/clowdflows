@@ -15,7 +15,7 @@ from mothra.settings import USE_CONCURRENCY
 if USE_CONCURRENCY:
     from workflows.tasks import runWidgetAsync, runForLoopIteration
 
-from workflows.tasks import *
+from workflows.tasks import executeWidgetFunction, executeWidgetProgressBar, executeWidgetStreaming, executeWidgetWithRequest, runWidget
 
 class WidgetException(Exception):
     pass
@@ -47,34 +47,49 @@ class Category(models.Model):
             return unicode(unicode(self.parent)+" :: "+self.name)
 
 class Workflow(models.Model):
-    name = models.CharField(max_length=200,default='Untitled workflow')
-    user = models.ForeignKey(User,related_name="workflows")
-    public = models.BooleanField(default=False)
-    description = models.TextField(blank=True,default='')
+    name = models.CharField(max_length=200,default='Untitled workflow') # a field
+    user = models.ForeignKey(User,related_name="workflows") # django relationship (ForeignKey), each Workflow is related to a single User
+    public = models.BooleanField(default=False) # a field
+    description = models.TextField(blank=True,default='') # a field
     widget = models.OneToOneField('Widget',related_name="workflow_link",blank=True,null=True)
     template_parent = models.ForeignKey('Workflow',blank=True,null=True,default=None,on_delete=models.SET_NULL)
 
     def can_be_streaming(self):
+        """ Method checks if workflow can be streamed. Check if there is at least one widget with
+        the flag abstract_widget__is_streaming on True.  """
         if self.widgets.filter(abstract_widget__is_streaming=True).count()>0:
             return True
         else:
             return False
 
     def is_for_loop(self):
+        """ Method checks if workflow is a for loop. Checks if at least one widget is 
+        type for_input. """
         if self.widgets.filter(type='for_input').count()>0:
             return True
         else:
             return False
 
+    def is_cross_validation(self):
+        """ Method checks if workflow is a for loop. Checks if at least one widget is 
+        type cv input. """
+        if self.widgets.filter(type='cv_input').count()>0:
+            return True
+        else:
+            return False
+
     def get_ready_to_run(self):
+        """ Method prepares this workflows widgets. Returns a list of widget id-s. """
         widgets = self.widgets.all()
         unfinished_list = []
         for w in widgets:
             if not w.finished and not w.running:
+                """ if widget isn't finished and is not running than true"""
                 ready_to_run = True
                 connections = self.connections.filter(input__widget=w)
                 for c in connections:
                     if not c.output.widget.finished:
+                        """ if widget not finished than true """
                         ready_to_run = False
                         break
                 if ready_to_run:
@@ -82,10 +97,13 @@ class Workflow(models.Model):
         return unfinished_list
 
     def get_runnable_widgets(self):
+        """ Method is the same as get_ready_to_run method. The difference is only that this method
+        returns a list widgets as objects (and not only id-s).  """
         widgets = self.widgets.all()
         unfinished_list = []
         for w in widgets:
             if not w.finished and not w.running:
+                """ if widget isn't finished and is not running than true"""
                 ready_to_run = True
                 connections = self.connections.filter(input__widget=w)
                 for c in connections:
@@ -97,30 +115,36 @@ class Workflow(models.Model):
         return unfinished_list
 
     def run_for_loop(self):
+        """ Method runs the workflow for loop. The use of [0] at the end of lines is because
+        there can be only one for loop in one workflow. This way we take the first one. """
         #clear for_input and for_output
+        print("run_for_loop")
         fi = self.widgets.filter(type='for_input')[0]
         fo = self.widgets.filter(type='for_output')[0]
         outer_output = fo.inputs.all()[0].outer_output
         outer_output.value=[]
         outer_output.save()
 
-        input_list = fi.outputs.all()[0].outer_input.value
-        progress_total = len(input_list)
+        input_list = fi.outputs.all()[0].outer_input.value # get all inputs from outer part
+        progress_total = len(input_list) # for progress bar
         current_iteration = 0
         for i in input_list:
-            fi.unfinish()
-            fo.unfinish()
-            proper_output = fi.outputs.all()[0]
+            print(i);
+            """ Different parameters on which the widgets are going to be run"""
+            fi.unfinish() # resets widgets, (read all widgets.finished=false)
+            fo.unfinish() # resets widgets, (read all widgets.finished=false)
+            proper_output = fi.outputs.all()[0] # inner output
             proper_output.value = i
             proper_output.save()
-            fi.finished=True
+            fi.finished=True # set the input widget as finished
             fi.save()
             if not USE_CONCURRENCY or 1==1:
+                """ This if statement is always true. """
                 unfinished_list = self.get_runnable_widgets()
                 try:
                     while len(unfinished_list)>0:
                         for w in unfinished_list:
-                            w.run(True)
+                            w.run(True) # run the widget
                             total = self.widgets.count()
                             completed = self.widgets.filter(finished=True).count()
                             self.widget.progress = (int)((current_iteration*100.0/progress_total)+(((completed*1.0)/total)*(100/progress_total)))
@@ -129,6 +153,7 @@ class Workflow(models.Model):
                 except:
                     raise
             else:
+                """ This part is never executed  """
                 unfinished_list = self.get_runnable_widgets()
                 try:
                     statuses = {}
@@ -163,6 +188,88 @@ class Workflow(models.Model):
                 except:
                     raise
             current_iteration = current_iteration+1
+
+    def run_cross_validation(self):
+        """ Method runs cross_validation. """
+        #clear for_input and for_output
+        print("run_cross_validation")
+        import random as rand
+        fi = self.widgets.filter(type='cv_input')[0]
+        fo = self.widgets.filter(type='cv_output')[0]
+        outer_output = fo.inputs.all()[0].outer_output
+        outer_output.value=[]
+        outer_output.save()
+
+        # get all inputs from outer part
+        input_list = fi.outputs.all()[0].outer_input.value 
+        input_fold = fi.outputs.all()[1].outer_input.value
+        input_seed = fi.outputs.all()[2].outer_input.value
+
+        if input_fold != None:
+            #check if we have an input
+            input_fold = int(fi.outputs.all()[1].outer_input.value)
+        else:
+            input_fold = 10
+        
+        if input_seed != None:
+            #check if we have an input
+            input_seed = int(fi.outputs.all()[2].outer_input.value)
+        else:
+            input_seed = rand.randint(1, 100000000)
+
+        progress_total = len(input_list) # for progress bar
+        current_iteration = 0
+        #print(input_list, input_fold, input_seed);
+
+        # create folds
+        rand.seed(input_seed);
+        rand.shuffle(input_list)
+        folds = [input_list[i::input_fold] for i in range(input_fold)];
+
+        # pass forward the seed
+        proper_output = fi.outputs.all()[2] # inner output
+        proper_output.value = input_seed
+        proper_output.save()
+
+        # this for loop delets all previous results
+        for i in fo.inputs.all():
+            if not i.parameter:
+                if i.connections.count() > 0:
+                    i.value = [];
+                    i.save();
+
+        for i in range(len(folds)):
+            #print(folds[i])
+            """ Different parameters on which the widgets are going to be run"""
+            fi.unfinish() # resets widgets, (read all widgets.finished=false)
+            fo.unfinish() # resets widgets, (read all widgets.finished=false)
+            proper_output = fi.outputs.all()[0] # inner output
+            proper_output.value = folds[:i] + folds[i+1:];
+            #print(folds[:i] + folds[i+1:]);
+            proper_output.save()
+            proper_output = fi.outputs.all()[1] # inner output
+            proper_output.value = folds[i]
+            #print(folds[i]);
+            proper_output.save()
+            fi.finished=True # set the input widget as finished
+            fi.save()
+            if not USE_CONCURRENCY or 1==1:
+                """ This if statement is always true. """
+                unfinished_list = self.get_runnable_widgets()
+                try:
+                    while len(unfinished_list)>0:
+                        for w in unfinished_list:
+                            w.run(True) # run the widget
+                            total = self.widgets.count()
+                            completed = self.widgets.filter(finished=True).count()
+                            self.widget.progress = (int)((current_iteration*100.0/progress_total)+(((completed*1.0)/total)*(100/progress_total)))
+                            self.widget.save()
+                        unfinished_list = self.get_runnable_widgets()
+                except:
+                    raise
+            current_iteration = current_iteration+1
+        
+        #input_list.value = []
 
     def run(self):
         if not USE_CONCURRENCY or not self.widget:
@@ -353,15 +460,18 @@ class AbstractOutput(models.Model):
         return unicode(self.name)
 
 class Widget(models.Model):
+    """ Widget """
+    # django relationship (ForeignKey), each widget is related to a single workflow
     workflow = models.ForeignKey(Workflow,related_name="widgets")
-    x = models.IntegerField()
-    y = models.IntegerField()
-    name = models.CharField(max_length=200)
+    x = models.IntegerField() # a field
+    y = models.IntegerField() # a field
+    name = models.CharField(max_length=200) # a field
     abstract_widget = models.ForeignKey(AbstractWidget,related_name="instances",blank=True,null=True)
-    finished = models.BooleanField(default=False)
-    error = models.BooleanField(default=False)
-    running = models.BooleanField(default=False)
-    interaction_waiting = models.BooleanField(default=False)
+    finished = models.BooleanField(default=False) # a field
+    error = models.BooleanField(default=False) # a field
+    running = models.BooleanField(default=False) # a field
+    interaction_waiting = models.BooleanField(default=False) # a field
+    """ type of widgets """
     WIDGET_CHOICES = (
         ('regular','Regular widget'),
         ('subprocess','Subprocess widget'),
@@ -425,6 +535,7 @@ class Widget(models.Model):
             pass
 
     def run(self,offline):
+        """ This is only a hack, to make this work on windows """
         try: 
             if self.abstract_widget.windows_queue:
                 t = runWidget.apply_async([self,offline],queue="windows")
@@ -435,18 +546,24 @@ class Widget(models.Model):
             self.proper_run(offline)
 
     def proper_run(self,offline):
+        """ This is the real start. """
+        print("proper_run_widget")
         if not self.ready_to_run():
             raise WidgetException("The prerequisites for running this widget have not been met.")
         self.running=True
         self.save()
         if self.type == 'regular' or self.type == 'subprocess':
+            """ if this is a subprocess or a regular widget than true."""
             if not self.abstract_widget is None:
+                """if this is an abstract widget than true; we save the widget function in a variable """
                 function_to_call = getattr(workflows.library,self.abstract_widget.action)
             input_dict = {}
             outputs = {}
             for i in self.inputs.all():
+                """ we walk through all the inputs """
                 #gremo pogledat ce obstaja povezava in ce obstaja gremo value prebrat iz outputa
                 if not i.parameter:
+                    """ if there is a connection than true and read the output value """
                     if i.connections.count() > 0:
                         i.value = i.connections.all()[0].output.value
                         i.save()
@@ -463,19 +580,30 @@ class Widget(models.Model):
             start = time.time()
             try:
                 if not self.abstract_widget is None:
+                    """ again, if this objects is an abstract widget than true and check certain parameters,
+                    else check if is_for_loop"""
                     if self.abstract_widget.wsdl != '':
+                        """ if abstrac widget is a web service """
                         input_dict['wsdl']=self.abstract_widget.wsdl
                         input_dict['wsdl_method']=self.abstract_widget.wsdl_method
                     if self.abstract_widget.has_progress_bar:
+                        """ if abstrac widget has a progress bar """
                         outputs = function_to_call(input_dict,self)
                     elif self.abstract_widget.is_streaming:
+                        """ if abstrac widget is a stream """
                         outputs = function_to_call(input_dict,self,None)
                     else:
+                        """ else run abstract widget function """
                         outputs = function_to_call(input_dict)
                 else:
                     if self.workflow_link.is_for_loop():
+                        """ if this is object is a for loop than true and run;
+                        else false and run workflow """
+                        print("proper_run_is_for_loop")
                         self.workflow_link.run_for_loop()
                         #print self.outputs.all()[0].value
+                    elif self.workflow_link.is_cross_validation():
+                        self.workflow_link.run_cross_validation()
                     else:
                         self.workflow_link.run()
             except:
@@ -487,7 +615,10 @@ class Widget(models.Model):
             elapsed = (time.time()-start)
             outputs['clowdflows_elapsed']=elapsed
             for o in self.outputs.all():
+                """ we walk through all the outputs """
                 if not self.abstract_widget is None:
+                    """ if this object is an abstract widget than true and save output
+                    else look for outputs in workflow """
                     try:
                         o.value = outputs[o.variable]
                     except:
@@ -499,6 +630,7 @@ class Widget(models.Model):
                         o.value = o.inner_input.value
                         o.save()
             if self.abstract_widget is None:
+                """ if object is widget than true and configure parameters """
                 self.finished=True
                 self.running=False
                 self.error=False
@@ -514,16 +646,23 @@ class Widget(models.Model):
                 c.input.widget.unfinish()
             return outputs
         elif self.type == 'for_input':
+            """ if object is an input widget for for loop than read all input values and finish """
+            #print("for_input")
             for o in self.outputs.all():
                 o.value=o.outer_input.value
+                #print(o.outer_input.value)
                 o.save()
             self.finished=True
             self.running=False
             self.error=False
             self.save()
         elif self.type == 'for_output':
+            """ if object is an output widget for for loop, then read output values and 
+            configure parameters"""
+            #print("for_output")
             for i in self.inputs.all():
                 if not i.parameter:
+                    """ if there is a connection than true and read the output value """
                     if i.connections.count() > 0:
                         i.value = i.connections.all()[0].output.value
                         i.save()
@@ -534,7 +673,39 @@ class Widget(models.Model):
             self.running=False
             self.error=False
             self.save()
+        elif self.type == 'cv_input':
+            """ if object is an input widget for cross validation 
+            than read all input values and finish """
+            for o in self.outputs.all():
+                #print('cv_input')
+                o.value=o.outer_input.value
+                o.save()
+            self.finished=True
+            self.running=False
+            self.error=False
+            self.save()
+        elif self.type == 'cv_output':
+            """ if object is an output widget for cross validation, 
+            then read output values and configure parameters"""
+            for i in self.inputs.all():
+                if not i.parameter:
+                    """ if there is a connection than true and read the output value """
+                    if i.connections.count() > 0:
+                        if i.value is None:
+                            i.value = [i.connections.all()[0].output.value]
+                        else:
+                            i.value = [i.connections.all()[0].output.value] + i.value
+                        #print i.value
+                        i.save()
+                        i.outer_output.value.append(i.value)
+                        i.outer_output.save()
+                        self.finished=True
+            self.finished=True
+            self.running=False
+            self.error=False
+            self.save()
         elif self.type == 'input':
+            """ if object is an input widget for for loop than read all input values and finish """
             for o in self.outputs.all():
                 o.value=o.outer_input.value
                 o.save()
@@ -543,8 +714,11 @@ class Widget(models.Model):
             self.error=False
             self.save()
         elif self.type == 'output':
+            """ if object is an output widget, then read output values and 
+            configure parameters"""
             for i in self.inputs.all():
                 if not i.parameter:
+                    """ if there is a connection than true and read the output value """
                     if i.connections.count() > 0:
                         i.value = i.connections.all()[0].output.value
                         i.save()
@@ -554,7 +728,6 @@ class Widget(models.Model):
             self.finished=True
             self.running=False
             self.error=False
-            self.save()
         return None
 
     def reset(self,offline):
@@ -573,6 +746,7 @@ class Widget(models.Model):
             self.subunfinish()
 
     def reset_descendants(self):
+        """ Method resets all the widget connections/descendants. """
         pairs = []
         for c in self.workflow.connections.select_related("output","input").defer("output__value","input__value").all():
             if not (c.output.widget_id,c.input.widget_id) in pairs:
@@ -653,10 +827,10 @@ class Widget(models.Model):
         try:
             if not self.abstract_widget is None:
                 if self.abstract_widget.windows_queue:
-                    t = executeWidgetPostInteract.apply_async([self,input_dict,output_dict,request],queue="windows")
+                    t = executeWidgetWithRequest.apply_async([widget,input_dict,output_dict,request],queue="windows")
                     outputs = t.wait()
                 else:
-                    outputs = executeWidgetPostInteract(self,input_dict,output_dict,request)
+                    outputs = executeWidgetWithRequest(widget,input_dict,output_dict,request)
             else:
                 self.workflow_link.run()
         except:
@@ -706,6 +880,50 @@ class Input(models.Model):
 
     def __unicode__(self):
         return unicode(self.name)
+
+"""class InputCrossValidation(models.Model):
+    name = models.CharField(max_length=200)
+    short_name = models.CharField(max_length=3)
+    description = models.TextField(blank=True,null=True)
+    variable = models.CharField(max_length=50)
+    widget = models.ForeignKey(Widget,related_name="inputs2")
+    required = models.BooleanField()
+    parameter = models.BooleanField()
+    value = PickledObjectField(null=True)
+    multi_id = models.IntegerField(default=0)
+    inner_output1 = models.ForeignKey('OutputCrossValidation',related_name="outer_input_rel",blank=True,null=True) #za subprocess
+    #inner_output2 = models.ForeignKey('OutputCrossValidation',related_name="outer_input_rel",blank=True,null=True) #za subprocess
+    outer_output = models.ForeignKey('OutputCrossValidation',related_name="inner_input_rel",blank=True,null=True) #za subprocess
+    PARAMETER_CHOICES = (
+        ('text','Single line'),
+        ('textarea','Multi line text'),
+        ('select', 'Select box'),
+    )
+    parameter_type = models.CharField(max_length=50,choices=PARAMETER_CHOICES,blank=True,null=True)
+    order = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        ordering = ('order',)
+
+    def __unicode__(self):
+        return unicode(self.name)
+
+class OutputCrossValidation(models.Model):
+    name = models.CharField(max_length=200)
+    short_name = models.CharField(max_length=5)
+    description = models.TextField(blank=True)
+    variable = models.CharField(max_length=50)
+    widget = models.ForeignKey(Widget,related_name="outputs")
+    value = PickledObjectField(null=True)
+    inner_input = models.ForeignKey(InputCrossValidation,related_name="outer_output_rel",blank=True,null=True) #za subprocess
+    outer_input = models.ForeignKey(InputCrossValidation,related_name="inner_output_rel",blank=True,null=True) #za subprocess
+    order = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        ordering = ('order',)
+
+    def __unicode__(self):
+        return unicode(self.name)"""
 
 class Option(models.Model):
     input = models.ForeignKey(Input,related_name="options")
