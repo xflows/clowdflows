@@ -107,7 +107,7 @@
       "windows_queue": false, 
       "name": "Event extraction", 
       "is_streaming": false, 
-      "uid": "5e5aa91e-090a-43c9-97c6-6064380b09eb", 
+      "uid": "5e5aa91e-090a-43c9-97c6-fixbyjanez", 
       "interaction_view": "", 
       "image": "", 
       "package": "MUSE", 
@@ -132,7 +132,7 @@
       "widget": 243, 
       "name": "Raw text", 
       "short_name": "txt", 
-      "uid": "7e5b5533-d21c-4955-8fb8-417d5030793f", 
+      "uid": "7e5b5533-d21c-4955-8fb8-janezfix", 
       "default": "", 
       "required": true, 
       "multi": false, 
@@ -151,7 +151,7 @@
       "name": "Annotated text", 
       "short_name": "xml", 
       "variable": "annotations_xml", 
-      "uid": "c677e844-9f9b-4d09-8e08-9b9335895bac", 
+      "uid": "c677e844-9f9b-4d09-8e08-janezfix", 
       "order": 1, 
       "description": "XML document with all annotations"
     }
