@@ -1329,10 +1329,6 @@
 		return d3.rebind(t, n, "sort", "children", "value"), t.nodes = t, t.links = mr, t
 	}
 
-	function hrNew(t, n) {
-		return d3.rebind(t, n, "sort", "children", "value"), t.nodes = t, t.links = mrNew, t
-	}
-
 	function dr(t) {
 		return t.children
 	}
@@ -1351,17 +1347,6 @@
 				return {
 					source: t,
 					target: n
-				}
-			})
-		}))
-	}
-
-	function mrNew(t) {
-		return d3.merge(t.map(function(t, idx, nodes) {
-			return (t.children || []).map(function(n) {
-				return {
-					source: t,
-					target: nodes[n]
 				}
 			})
 		}))
@@ -1464,35 +1449,9 @@
 		return n && n.length ? Nr(n[0]) : t
 	}
 
-	function NrNew(tt, idx) {
-		var t = tt[idx];
-		var n = [];
-		if (t.children[0] != undefined) {
-			n.push(tt[t.children[0]]);
-		} 
-		if (t.children[1] != undefined) {
-			n.push(tt[t.children[1]]); 
-		}
-		return n && n.length ? NrNew(tt, t.children[0]) : t
-	}
-
 	function Tr(t) {
 		var n, e = t.children;
 		return e && (n = e.length) ? Tr(e[n - 1]) : t
-	}
-
-	function TrNew(tt, idx) {
-		var t = tt[idx];
-		var n, e = [];
-		if (t.children[0] != undefined) {
-			e.push(tt[t.children[0]]);
-		} 
-		if (t.children[1] != undefined) {
-			e.push(tt[t.children[1]]); 
-		}
-		//alert('e.length =?= t.children' + e.length+' '+t.children.length);
-		// prepricaj se da klicem tapravega otroka v t.children
-		return e && (n = e.length) ? TrNew(tt,t.children[n - 1]) : t
 	}
 
 	function qr(t, n) {
@@ -1532,33 +1491,10 @@
 		function e(t, r) {
 			var i = t.children;
 			if (i && (a = i.length))
-				for (var u, a, o = null, c = -1; a > ++c;){
-				 u = i[c], e(u, o), o = u; 
-				}
+				for (var u, a, o = null, c = -1; a > ++c;) u = i[c], e(u, o), o = u;
 			n(t, r)
 		}
 		e(t, null)
-	}
-
-	function RrNew(t, n) {
-		function e(t, r, idx) {
-			var i = [t[t[idx].children[0]], t[t[idx].children[1]]];
-			//alert('i: '+t[idx].leaf);
-			//alert('t: '+t[idx].values);
-			//alert('idx: '+idx);
-			//alert('i: '+i);
-			//alert('n: '+n);
-			//var i = [t.children[0], t.children[1]];
-			if ((i && (a = i.length)) && (!t[idx].leaf))
-				for (var u, a, o = null, c = -1; a > ++c;){
-				 u = i[c], e(t, o, t[idx].children[c]), o = u; 
-				 //alert('c: '+c+', u: '+u+', i: '+i+', o: '+o);
-				}
-			if (t)
-			//alert('Rr fun n starting '+ r + ' Idx: '+ idx);
-			n(t, idx, r)
-		}
-		e(t, null, 0)
 	}
 
 	function Pr(t) {
@@ -5323,26 +5259,15 @@
 			var u, a = n.call(this, t, i),
 				o = a[0],
 				c = 0;
-			RrNew(o, function(tt, idx) {
-				var t = tt[idx];
-				//alert('t: '+ t);
-				n = [];
-				if (tt[idx].children[0] != undefined) {
-					n.push(tt[tt[idx].children[0]]);
-				} 
-				if (tt[idx].children[1] != undefined) {
-					n.push(tt[tt[idx].children[1]]); 
-				}
+			Rr(o, function(t) {
+				var n = t.children;
 				n && n.length ? (t.x = Ar(n), t.y = Er(n)) : (t.x = u ? c += e(t, u) : 0, t.y = 0, u = t)
 			});
-			//alert('done1: ');
-			var l = NrNew(o, 0),
-				s = TrNew(o, 0),
+			var l = Nr(o),
+				s = Tr(o),
 				f = l.x - e(l, s) / 2,
 				h = s.x + e(s, l) / 2;
-
-			return RrNew(o, function(tt, idx) {
-				var t = tt[idx];
+			return Rr(o, function(t) {
 				t.x = (t.x - f) / (h - f) * r[0], t.y = (1 - (o.y ? t.y / o.y : 1)) * r[1]
 			}), a
 		}
@@ -5353,8 +5278,7 @@
 			return arguments.length ? (e = n, t) : e
 		}, t.size = function(n) {
 			return arguments.length ? (r = n, t) : r
-		}, hrNew(t, n)
-
+		}, hr(t, n)
 	}, d3.layout.tree = function() {
 		function t(t, i) {
 			function u(t, n) {

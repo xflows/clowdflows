@@ -107,6 +107,8 @@ def add_widget(request):
                 inputOrder = 0
                 paramOrder = 0
                 for i in aw.inputs.all():
+                    print(i.short_name)
+                    print(aw.inputs.all())
                     j = Input()
                     j.name = i.name
                     j.short_name = i.short_name
@@ -448,6 +450,7 @@ def add_for(request):
                 data = simplejson.dumps({'message':message,'success':success})
                 return HttpResponse(data,mimetype)
             else:
+                print(workflow)
                 for_input = Widget()
                 for_input.workflow = workflow
                 for_input.x=int(request.POST['scrollLeft'])+50
@@ -459,14 +462,14 @@ def add_for(request):
                 for_input.type = 'for_input'
                 for_input.save()
                 output = Output()
-                output.name = 'For input'
+                output.name = 'For input' # subproces inner input
                 output.short_name = 'for'
                 output.variable = 'For'
                 output.widget = for_input
                 output.save()
                 input = Input()
                 input.widget = workflow.widget
-                input.name = 'For input'
+                input.name = 'For input' # subproces input
                 input.short_name = 'for'
                 input.variable = 'For'
                 input.inner_output = output
@@ -506,6 +509,144 @@ def add_for(request):
     else:
         return HttpResponse(status=400)
 
+@login_required
+def add_cv(request):
+    success = False
+    mimetype = 'application/javascript'
+    message = ""
+    if request.is_ajax() or DEBUG:
+        workflow = get_object_or_404(Workflow, pk=request.POST['active_workflow'])
+        if (workflow.user==request.user):
+            """Check if the workflow is from the user that has send the request"""
+            if workflow.widget==None:
+                message = 'The for widgets can only be put in a subprocess.'
+                data = simplejson.dumps({'message':message,'success':success})
+                return HttpResponse(data,mimetype)
+            elif workflow.widgets.filter(type='for_input').count()>0:
+                message = 'This subprocess already has a for loop. Try deleting it and adding it again.'
+                data = simplejson.dumps({'message':message,'success':success})
+                return HttpResponse(data,mimetype)
+            elif workflow.widgets.filter(type='cv_input').count()>0:
+                message = 'This subprocess already has cross validation. Try deleting it and adding it again.'
+                data = simplejson.dumps({'message':message,'success':success})
+                return HttpResponse(data,mimetype)
+            else:
+                # input: data
+                cv_input_data = Widget()
+                cv_input_data.workflow = workflow
+                cv_input_data.x=int(request.POST['scrollLeft'])+50
+                y=int(request.POST['scrollTop'])+50
+                while workflow.widgets.filter(y=y,x=cv_input_data.x).count()>0:
+                    y = y + 100
+                cv_input_data.y=y
+                cv_input_data.name = 'cv input'
+                cv_input_data.type = 'cv_input'
+                cv_input_data.save()
+
+                output = Output()
+                output.name = 'cv input data'
+                output.short_name = 'trn' # subproces inner input
+                output.variable = 'CVD'
+                output.widget = cv_input_data
+                output.save()
+                input = Input()
+                input.widget = workflow.widget
+                input.name = 'cv input data'
+                input.short_name = 'dat'  # subproces input
+                input.variable = 'CVD'
+                input.inner_output = output
+                input.save()
+                output.outer_input = input
+                output.save()
+
+                # input: number of folds 
+                cv_input_fold = Widget()
+                cv_input_fold.workflow = workflow
+                cv_input_fold.x=int(request.POST['scrollLeft'])+50
+                y=int(request.POST['scrollTop'])+50
+                while workflow.widgets.filter(y=y,x=cv_input_fold.x).count()>0:
+                    y = y + 100
+                cv_input_fold.y=y
+                cv_input_fold.name = 'cv input2'
+                cv_input_fold.type = 'cv_input2'
+                cv_input_fold.save()
+
+                output = Output()
+                output.name = 'cv input data'
+                output.short_name = 'tst' # subproces inner input
+                output.variable = 'CVF'
+                output.widget = cv_input_data
+                output.save()
+                input = Input()
+                input.widget = workflow.widget
+                input.name = 'cv input folds'
+                input.short_name = 'cvf'
+                input.variable = 'CVF'
+                input.inner_output = output
+                input.save()
+                output.outer_input = input
+                output.save()
+
+                # input: seed
+                cv_input_fold = Widget()
+                cv_input_fold.workflow = workflow
+                cv_input_fold.x=int(request.POST['scrollLeft'])+50
+                y=int(request.POST['scrollTop'])+50
+                while workflow.widgets.filter(y=y,x=cv_input_fold.x).count()>0:
+                    y = y + 100
+                cv_input_fold.y=y
+                cv_input_fold.name = 'cv input3'
+                cv_input_fold.type = 'cv_input3'
+                cv_input_fold.save()
+
+                output = Output()
+                output.name = 'cv input data'
+                output.short_name = 'sed' # subproces inner input
+                output.variable = 'CVS'
+                output.widget = cv_input_data
+                output.save()
+                input = Input()
+                input.widget = workflow.widget
+                input.name = 'cv input seed'
+                input.short_name = 'sed'
+                input.variable = 'CVS'
+                input.inner_output = output
+                input.save()
+                output.outer_input = input
+                output.save()
+
+                # output
+                widget = Widget()
+                widget.workflow = workflow
+                widget.x=int(request.POST['scrollLeft'])+200
+                widget.y=int(request.POST['scrollTop'])+50
+                widget.name = 'cv output'
+                widget.type = 'cv_output'
+                widget.save()
+                input = Input()
+                input.name = 'cv output'
+                input.short_name = 'res'
+                input.variable = 'Res'
+                input.widget = widget
+                input.save()
+                output = Output()
+                output.widget = workflow.widget
+                output.name = 'cv output'
+                output.short_name = 'res'
+                output.variable = 'Res'
+                output.inner_input = input
+                output.save()
+                input.outer_output = output
+                input.save()
+                cv_input_data.defered_outputs = cv_input_data.outputs.defer("value").all()
+                cv_input_data.defered_inputs = cv_input_data.inputs.defer("value").all()
+                widget.defered_outputs = widget.outputs.defer("value").all()
+                widget.defered_inputs = widget.inputs.defer("value").all()
+                return render(request, 'widgets.html', {'widgets':[cv_input_data,widget]})
+        else:
+            return HttpResponse(status=400)
+    else:
+        return HttpResponse(status=400)
 
 @login_required
 def add_input(request):

@@ -455,19 +455,27 @@ def cforange_hierarchical_clustering(input_dict):
 class Clustering:
     @staticmethod
     def hierarchical_clustering(linkage, distance_matrix):
-        import orange
+        import Orange, orange, sys
         linkages = [("Single linkage", orange.HierarchicalClustering.Single),
                     ("Average linkage", orange.HierarchicalClustering.Average),
                     ("Ward's linkage", orange.HierarchicalClustering.Ward),
                     ("Complete linkage", orange.HierarchicalClustering.Complete)]
-        return orange.HierarchicalClustering(distance_matrix, linkage=linkages[linkage][1])
+        try:
+            return orange.HierarchicalClustering(distance_matrix, linkage=linkages[linkage][1])
+        except TypeError as e:
+            print "hierarchical_clustering:", sys.exc_info()[0]
+            print e
+            #raise
 
 def cforange_hierarchical_clustering_finished(postdata, input_dict, output_dict):
+    print "cforange_hierarchical_clustering_finished"
     import json
-    import orange
+    import Orange, orange
+    
     matrix = input_dict['dm']
     linkage = int(input_dict['linkage'])
     widget_pk = postdata['widget_id'][0]
+
     try:
         selected_nodes = json.loads(postdata.get('selected_nodes')[0])
     except:

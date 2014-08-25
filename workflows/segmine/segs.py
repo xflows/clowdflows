@@ -54,6 +54,20 @@ class Segs:
         rules = self.client.service.getResult(jobID=jobID)
         return recursive_asdict(rules)
 
+    def run_STU(self, inputs, widget=None):
+        inputs = self.build_inputs(inputs)
+        jobID = self.client.service.runSEGS_STU(**inputs)
+        self.wait_for_job(widget, jobID)
+        rules = self.client.service.getResult(jobID=jobID)
+        return recursive_asdict(rules)
+
+    def run_ATH(self, inputs, widget=None):
+        inputs = self.build_inputs(inputs)
+        jobID = self.client.service.runSEGS_ATH(**inputs)
+        self.wait_for_job(widget, jobID)
+        rules = self.client.service.getResult(jobID=jobID)
+        return recursive_asdict(rules)
+
     def wait_for_job(self, widget, jobID):
         if widget:
             widget.progress = 0
