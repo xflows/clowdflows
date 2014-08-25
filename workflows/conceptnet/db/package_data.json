@@ -12,258 +12,343 @@
     }
   }, 
   {
-    "pk": 203, 
+    "pk": 200, 
     "model": "workflows.abstractwidget", 
     "fields": {
       "category": 40, 
       "treeview_image": "", 
       "windows_queue": false, 
-      "name": "Create Integer List", 
+      "name": "Create Conceptnet Query", 
       "is_streaming": false, 
-      "uid": "d6fdecbc-f55b-4518-9da7-8bd4b53b32d7", 
+      "uid": "388e290b-f2db-4906-b1ed-ba75feefbf9a", 
       "interaction_view": "", 
       "image": "", 
       "package": "conceptnet", 
-      "static_image": "construction_work .png", 
+      "static_image": "", 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
-      "action": "conceptnet_create_integers", 
+      "action": "create_conceptnet_query", 
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "The widget returns a query for the method \"Query to Json\"."
     }
   }, 
   {
-    "pk": 377, 
+    "pk": 368, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 203, 
-      "name": "Integer List String", 
-      "short_name": "str", 
-      "uid": "283df61a-5c79-4a6f-99ec-633e4db22870", 
-      "default": "3\r\n2\r\n1\r\n4", 
+      "widget": 200, 
+      "name": "Command", 
+      "short_name": "cmd", 
+      "uid": "63b9a445-168e-42fc-aa75-0a6a1727d946", 
+      "default": "0", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "intStr", 
+      "parameter_type": "select", 
+      "variable": "command", 
       "parameter": true, 
       "order": 1, 
-      "description": "Comma or new-line separated list of integers"
+      "description": "Select what kind of command should this widget produce. "
     }
   }, 
   {
-    "pk": 378, 
+    "pk": 369, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 203, 
-      "name": "Sort list", 
-      "short_name": "bol", 
-      "uid": "fef1b48f-4c4a-43ea-a4e5-671eba24bffe", 
-      "default": "true", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "sort", 
-      "parameter": true, 
-      "order": 2, 
-      "description": "Should the list be sorted"
-    }
-  }, 
-  {
-    "pk": 211, 
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": 203, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "variable": "intList", 
-      "uid": "95953a8b-f165-4976-91ff-321c05ae443e", 
-      "order": 1, 
-      "description": "List of integers"
-    }
-  }, 
-  {
-    "pk": 204, 
-    "model": "workflows.abstractwidget", 
-    "fields": {
-      "category": 40, 
-      "treeview_image": "", 
-      "windows_queue": false, 
-      "name": "Filter Integers", 
-      "is_streaming": false, 
-      "uid": "b622cb07-61dc-406c-8e5c-975d5ff14fdf", 
-      "interaction_view": "conceptnet_filter_integers", 
-      "image": "", 
-      "package": "conceptnet", 
-      "static_image": "construction_work .png", 
-      "post_interact_action": "conceptnet_post_filter_integers", 
-      "user": null, 
-      "visualization_view": "", 
-      "streaming_visualization_view": "", 
-      "action": "conceptnet_pre_filter_integers", 
-      "wsdl_method": "", 
-      "wsdl": "", 
-      "interactive": true, 
-      "has_progress_bar": false, 
-      "order": 2, 
-      "description": ""
-    }
-  }, 
-  {
-    "pk": 379, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 204, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "uid": "79e4bcff-41f7-4e95-b036-b6daa851479e", 
+      "widget": 200, 
+      "name": "Limit", 
+      "short_name": "lmt", 
+      "uid": "f2f57d32-f073-45f0-8ae5-4af444b3baa2", 
       "default": "", 
-      "required": true, 
+      "required": false, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "intList", 
-      "parameter": false, 
-      "order": 1, 
-      "description": "List of integers"
+      "parameter_type": "text", 
+      "variable": "limit", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "This input influences how much results we want returned."
     }
   }, 
   {
-    "pk": 212, 
-    "model": "workflows.abstractoutput", 
+    "pk": 370, 
+    "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 204, 
-      "name": "Filtered Integer List", 
-      "short_name": "lst", 
-      "variable": "intList", 
-      "uid": "4ed978f9-5872-405f-ad9c-d5ab93e5aa3f", 
-      "order": 1, 
-      "description": "Filtered list of integers"
-    }
-  }, 
-  {
-    "pk": 205, 
-    "model": "workflows.abstractwidget", 
-    "fields": {
-      "category": 40, 
-      "treeview_image": "", 
-      "windows_queue": false, 
-      "name": "Sum Integers", 
-      "is_streaming": false, 
-      "uid": "bc9a73e7-c843-4638-8386-a1d3b31ad973", 
-      "interaction_view": "", 
-      "image": "", 
-      "package": "conceptnet", 
-      "static_image": "construction_work .png", 
-      "post_interact_action": "", 
-      "user": null, 
-      "visualization_view": "", 
-      "streaming_visualization_view": "", 
-      "action": "conceptnet_sum_integers", 
-      "wsdl_method": "", 
-      "wsdl": "", 
-      "interactive": false, 
-      "has_progress_bar": false, 
+      "widget": 200, 
+      "name": "Offset", 
+      "short_name": "off", 
+      "uid": "0fc7dac3-4953-4b21-82e5-b43e81ed2c1e", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "offset", 
+      "parameter": true, 
       "order": 3, 
-      "description": ""
+      "description": "This input influences how many inputs we should skip in the beginning."
     }
   }, 
   {
-    "pk": 380, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 205, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "uid": "a0a5fa3b-db12-4b77-96c9-8c0a2ade6e63", 
-      "default": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "intList", 
-      "parameter": false, 
-      "order": 1, 
-      "description": "List of integers"
-    }
-  }, 
-  {
-    "pk": 213, 
+    "pk": 208, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 205, 
-      "name": "Sum", 
-      "short_name": "int", 
-      "variable": "sum", 
-      "uid": "1354fc44-5143-433d-a2f2-94fb29e14569", 
+      "widget": 200, 
+      "name": "Query", 
+      "short_name": "que", 
+      "variable": "query", 
+      "uid": "b16f8846-f296-4400-9bbe-670679dd6ff3", 
       "order": 1, 
-      "description": "Sum of integer list"
+      "description": "Query that you can input in widget \"Query to JSON\""
     }
   }, 
   {
-    "pk": 206, 
+    "pk": 201, 
     "model": "workflows.abstractwidget", 
     "fields": {
       "category": 40, 
       "treeview_image": "", 
       "windows_queue": false, 
-      "name": "Display Summation", 
+      "name": "Create Lookup Query", 
       "is_streaming": false, 
-      "uid": "17599236-59bd-4269-97ac-f68c71717859", 
+      "uid": "003fb477-4a50-4083-a7f6-f8dcdfb726dc", 
       "interaction_view": "", 
       "image": "", 
       "package": "conceptnet", 
-      "static_image": "construction_work .png", 
+      "static_image": "", 
       "post_interact_action": "", 
       "user": null, 
-      "visualization_view": "conceptnet_display_summation", 
+      "visualization_view": "", 
       "streaming_visualization_view": "", 
-      "action": "conceptnet_pre_display_summation", 
+      "action": "create_lookup_query", 
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
       "has_progress_bar": false, 
-      "order": 4, 
+      "order": 1, 
       "description": ""
     }
   }, 
   {
-    "pk": 381, 
+    "pk": 371, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 206, 
-      "name": "Integer List", 
-      "short_name": "lst", 
-      "uid": "e54ffeb3-8fab-43c2-9044-77e887a746ab", 
+      "widget": 201, 
+      "name": "Limit", 
+      "short_name": "lmt", 
+      "uid": "ab419ad5-bdd8-46e5-ae4f-be26a94a5cc7", 
       "default": "", 
       "required": false, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "intList", 
-      "parameter": false, 
+      "parameter_type": "text", 
+      "variable": "limit", 
+      "parameter": true, 
       "order": 1, 
-      "description": "List of integers"
+      "description": "This input influences how much results we want returned."
     }
   }, 
   {
-    "pk": 382, 
+    "pk": 372, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 206, 
-      "name": "Sum", 
-      "short_name": "int", 
-      "uid": "085ba738-d426-4430-830b-24cd9f410272", 
+      "widget": 201, 
+      "name": "Offset", 
+      "short_name": "off", 
+      "uid": "c8fcd7e0-f4bf-4b85-84ea-4914ce95b411", 
       "default": "", 
       "required": false, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "sum", 
-      "parameter": false, 
+      "parameter_type": "text", 
+      "variable": "offset", 
+      "parameter": true, 
       "order": 2, 
-      "description": "Sum (possibly correct) of integer list"
+      "description": "This input influences how many inputs we should skip in the beginning."
+    }
+  }, 
+  {
+    "pk": 209, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 201, 
+      "name": "Query", 
+      "short_name": "que", 
+      "variable": "query", 
+      "uid": "8356b05d-cca7-41db-a0b2-432b4cd0f515", 
+      "order": 1, 
+      "description": "Query that you can input in widget \"Query to JSON\""
+    }
+  }, 
+  {
+    "pk": 202, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 40, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Create Search Query", 
+      "is_streaming": false, 
+      "uid": "e2359c29-f2bc-4cc5-92b2-5d32f9a26de3", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "conceptnet", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "create_search_query", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 373, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 202, 
+      "name": "Limit", 
+      "short_name": "lmt", 
+      "uid": "594b1488-dadb-4c9e-9a73-4c2ebed10a9d", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "limit", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Input must be a number. This input influences how much results we want returned."
+    }
+  }, 
+  {
+    "pk": 374, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 202, 
+      "name": "Offset", 
+      "short_name": "off", 
+      "uid": "6fef5306-e341-4794-a1c0-57c6a74c15e0", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "offset", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Input must be a number. This input influences how many inputs we should skip in the beginning."
+    }
+  }, 
+  {
+    "pk": 375, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 202, 
+      "name": "Text", 
+      "short_name": "txt", 
+      "uid": "29a4d41b-1361-4b20-b3b2-9ecbab156ca4", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "text", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "Searches for data that contain this word in this field. Do not use sentences, write only a single word."
+    }
+  }, 
+  {
+    "pk": 376, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 202, 
+      "name": "MinWeight", 
+      "short_name": "wgt", 
+      "uid": "2d591bb7-6838-4f0b-8cdc-1d6ed5bfd0d7", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minweight", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "Input must be an integer or double. Filters for edges whose weight is at least weight."
+    }
+  }, 
+  {
+    "pk": 210, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 202, 
+      "name": "Query", 
+      "short_name": "que", 
+      "variable": "query", 
+      "uid": "7f4009fb-96c5-498c-9604-3c91a75e1322", 
+      "order": 1, 
+      "description": "Query that you can input in widget \"Query to JSON\""
+    }
+  }, 
+  {
+    "pk": 38, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 40, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Query to JSON", 
+      "is_streaming": false, 
+      "uid": "1baeaa93-6b32-4fbb-89c0-98a04c381328", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "conceptnet", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "query_to_json", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 55, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 38, 
+      "name": "query", 
+      "short_name": "str", 
+      "uid": "c7f7da84-266c-4fe2-8e08-84ffe7e7a126", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "query", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 34, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 38, 
+      "name": "json", 
+      "short_name": "str", 
+      "variable": "json", 
+      "uid": "b62150ba-c796-46cd-988b-d4bfd3b1d0a2", 
+      "order": 1, 
+      "description": ""
     }
   }
 ]
