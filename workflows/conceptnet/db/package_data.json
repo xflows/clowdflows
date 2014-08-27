@@ -1,6 +1,6 @@
 [
   {
-    "pk": 40, 
+    "pk": 63, 
     "model": "workflows.category", 
     "fields": {
       "uid": "aa1a52a7-66ee-483d-b24a-e543140fc476", 
@@ -12,183 +12,13 @@
     }
   }, 
   {
-    "pk": 200, 
+    "pk": 341, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 40, 
+      "category": 63, 
       "treeview_image": "", 
       "windows_queue": false, 
-      "name": "Create Conceptnet Query", 
-      "is_streaming": false, 
-      "uid": "388e290b-f2db-4906-b1ed-ba75feefbf9a", 
-      "interaction_view": "", 
-      "image": "", 
-      "package": "conceptnet", 
-      "static_image": "", 
-      "post_interact_action": "", 
-      "user": null, 
-      "visualization_view": "", 
-      "streaming_visualization_view": "", 
-      "action": "create_conceptnet_query", 
-      "wsdl_method": "", 
-      "wsdl": "", 
-      "interactive": false, 
-      "has_progress_bar": false, 
-      "order": 1, 
-      "description": "The widget returns a query for the method \"Query to Json\"."
-    }
-  }, 
-  {
-    "pk": 368, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 200, 
-      "name": "Command", 
-      "short_name": "cmd", 
-      "uid": "63b9a445-168e-42fc-aa75-0a6a1727d946", 
-      "default": "0", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "command", 
-      "parameter": true, 
-      "order": 1, 
-      "description": "Select what kind of command should this widget produce. "
-    }
-  }, 
-  {
-    "pk": 369, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 200, 
-      "name": "Limit", 
-      "short_name": "lmt", 
-      "uid": "f2f57d32-f073-45f0-8ae5-4af444b3baa2", 
-      "default": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "limit", 
-      "parameter": true, 
-      "order": 2, 
-      "description": "This input influences how much results we want returned."
-    }
-  }, 
-  {
-    "pk": 370, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 200, 
-      "name": "Offset", 
-      "short_name": "off", 
-      "uid": "0fc7dac3-4953-4b21-82e5-b43e81ed2c1e", 
-      "default": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "offset", 
-      "parameter": true, 
-      "order": 3, 
-      "description": "This input influences how many inputs we should skip in the beginning."
-    }
-  }, 
-  {
-    "pk": 208, 
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": 200, 
-      "name": "Query", 
-      "short_name": "que", 
-      "variable": "query", 
-      "uid": "b16f8846-f296-4400-9bbe-670679dd6ff3", 
-      "order": 1, 
-      "description": "Query that you can input in widget \"Query to JSON\""
-    }
-  }, 
-  {
-    "pk": 201, 
-    "model": "workflows.abstractwidget", 
-    "fields": {
-      "category": 40, 
-      "treeview_image": "", 
-      "windows_queue": false, 
-      "name": "Create Lookup Query", 
-      "is_streaming": false, 
-      "uid": "003fb477-4a50-4083-a7f6-f8dcdfb726dc", 
-      "interaction_view": "", 
-      "image": "", 
-      "package": "conceptnet", 
-      "static_image": "", 
-      "post_interact_action": "", 
-      "user": null, 
-      "visualization_view": "", 
-      "streaming_visualization_view": "", 
-      "action": "create_lookup_query", 
-      "wsdl_method": "", 
-      "wsdl": "", 
-      "interactive": false, 
-      "has_progress_bar": false, 
-      "order": 1, 
-      "description": ""
-    }
-  }, 
-  {
-    "pk": 371, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 201, 
-      "name": "Limit", 
-      "short_name": "lmt", 
-      "uid": "ab419ad5-bdd8-46e5-ae4f-be26a94a5cc7", 
-      "default": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "limit", 
-      "parameter": true, 
-      "order": 1, 
-      "description": "This input influences how much results we want returned."
-    }
-  }, 
-  {
-    "pk": 372, 
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": 201, 
-      "name": "Offset", 
-      "short_name": "off", 
-      "uid": "c8fcd7e0-f4bf-4b85-84ea-4914ce95b411", 
-      "default": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "offset", 
-      "parameter": true, 
-      "order": 2, 
-      "description": "This input influences how many inputs we should skip in the beginning."
-    }
-  }, 
-  {
-    "pk": 209, 
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": 201, 
-      "name": "Query", 
-      "short_name": "que", 
-      "variable": "query", 
-      "uid": "8356b05d-cca7-41db-a0b2-432b4cd0f515", 
-      "order": 1, 
-      "description": "Query that you can input in widget \"Query to JSON\""
-    }
-  }, 
-  {
-    "pk": 202, 
-    "model": "workflows.abstractwidget", 
-    "fields": {
-      "category": 40, 
-      "treeview_image": "", 
-      "windows_queue": false, 
-      "name": "Create Search Query", 
+      "name": "Conceptnet Create Search Query", 
       "is_streaming": false, 
       "uid": "e2359c29-f2bc-4cc5-92b2-5d32f9a26de3", 
       "interaction_view": "", 
@@ -199,7 +29,7 @@
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
-      "action": "create_search_query", 
+      "action": "conceptnet_create_search_query", 
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
@@ -209,10 +39,10 @@
     }
   }, 
   {
-    "pk": 373, 
+    "pk": 856, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 202, 
+      "widget": 341, 
       "name": "Limit", 
       "short_name": "lmt", 
       "uid": "594b1488-dadb-4c9e-9a73-4c2ebed10a9d", 
@@ -227,10 +57,10 @@
     }
   }, 
   {
-    "pk": 374, 
+    "pk": 857, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 202, 
+      "widget": 341, 
       "name": "Offset", 
       "short_name": "off", 
       "uid": "6fef5306-e341-4794-a1c0-57c6a74c15e0", 
@@ -245,10 +75,10 @@
     }
   }, 
   {
-    "pk": 375, 
+    "pk": 858, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 202, 
+      "widget": 341, 
       "name": "Text", 
       "short_name": "txt", 
       "uid": "29a4d41b-1361-4b20-b3b2-9ecbab156ca4", 
@@ -263,10 +93,10 @@
     }
   }, 
   {
-    "pk": 376, 
+    "pk": 859, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 202, 
+      "widget": 341, 
       "name": "MinWeight", 
       "short_name": "wgt", 
       "uid": "2d591bb7-6838-4f0b-8cdc-1d6ed5bfd0d7", 
@@ -281,10 +111,10 @@
     }
   }, 
   {
-    "pk": 210, 
+    "pk": 368, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 202, 
+      "widget": 341, 
       "name": "Query", 
       "short_name": "que", 
       "variable": "query", 
@@ -294,13 +124,13 @@
     }
   }, 
   {
-    "pk": 38, 
+    "pk": 342, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 40, 
+      "category": 63, 
       "treeview_image": "", 
       "windows_queue": false, 
-      "name": "Query to JSON", 
+      "name": "Conceptnet Execute Query", 
       "is_streaming": false, 
       "uid": "1baeaa93-6b32-4fbb-89c0-98a04c381328", 
       "interaction_view": "", 
@@ -311,7 +141,7 @@
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
-      "action": "query_to_json", 
+      "action": "conceptnet_execute_query", 
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
@@ -321,10 +151,10 @@
     }
   }, 
   {
-    "pk": 55, 
+    "pk": 860, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 38, 
+      "widget": 342, 
       "name": "query", 
       "short_name": "str", 
       "uid": "c7f7da84-266c-4fe2-8e08-84ffe7e7a126", 
@@ -339,16 +169,87 @@
     }
   }, 
   {
-    "pk": 34, 
+    "pk": 369, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 38, 
+      "widget": 342, 
       "name": "json", 
       "short_name": "str", 
       "variable": "json", 
       "uid": "b62150ba-c796-46cd-988b-d4bfd3b1d0a2", 
       "order": 1, 
       "description": ""
+    }
+  }, 
+  {
+    "pk": 343, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 63, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Conceptnet Get Triplets", 
+      "is_streaming": false, 
+      "uid": "bec0c1ac-59d4-4b1d-95d3-5e826f896b0e", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "conceptnet", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "concept_net_triplets", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 861, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 343, 
+      "name": "concept_net_json_response", 
+      "short_name": "jsn", 
+      "uid": "fc379a4b-e1d7-4a71-9d5d-7d7879ba6fc8", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "concept_net_json_response", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Conceptnet JSON response"
+    }
+  }, 
+  {
+    "pk": 370, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 343, 
+      "name": "triplets", 
+      "short_name": "tri", 
+      "variable": "triplets", 
+      "uid": "6fbf2ad3-8c9e-4b99-baa4-1a8519533454", 
+      "order": 1, 
+      "description": "Triplets: subject, predicate, object"
+    }
+  }, 
+  {
+    "pk": 371, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 343, 
+      "name": "triplets without prefixes", 
+      "short_name": "trc", 
+      "variable": "basename_triplets", 
+      "uid": "f62999b0-9420-4fe6-a1dd-8e18c9ac4aed", 
+      "order": 1, 
+      "description": "Triplets: subject, predicate, object without conceptnet prefixes"
     }
   }
 ]
