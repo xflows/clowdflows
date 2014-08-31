@@ -25,7 +25,9 @@ def MUSE_mapping_to_KR(input_dict):
     url = input_dict['url']
     data = input_dict['input_data']
 
+    import socket
     cli = JSONWSPClient(url)
+    socket.setdefaulttimeout(None)
     result = cli.mapping_to_KR(SRL=data)
 
     return {'mapping': result.response_dict['result']}
@@ -35,12 +37,13 @@ def MUSE_mapping_to_KR_latest(input_dict):
     url = input_dict['url']
     data = input_dict['input_data']
 
+    import socket
     cli = JSONWSPClient(url)
+    socket.setdefaulttimeout(None)
     result, xml = cli.mapping_to_KR_latest(SRL=data)
     mapping, xml = result.response_dict['result']
 
     return {'mapping': mapping, 'xml': xml}
-
 
 def MUSE_mapping_to_KR_precomputed(input_dict):
     url = input_dict['url']
