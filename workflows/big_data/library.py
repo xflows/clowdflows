@@ -1,43 +1,16 @@
 
 def file_url(input_dict):
     from discomll import dataset
-    import itertools
-
-    urls = [url.strip() for url in input_dict["url"].split("\n") if url != ""]
-    for url in urls:
-        if url.split("/")[0].lower().startswith("https"):
-            raise Exception("URLs should be accessible via HTTP and not HTTPS.")
-
+    
     if input_dict["range"] == "true":
-        if len(urls) != 2:
-            raise Exception("A first and last URL should be specified if the Range parameter is checked.")
-        
-        url_start = urls[0].split("/")
-        url_end = urls[1].split("/")
-            
-        url_base = "/".join(url_start[:-1])
-        start_index = url_start[-1].index("a")
-        file_name = url_start[-1][0:start_index]
-        url_base += "/" + file_name
-        
-        start = url_start[-1][start_index:]
-        finish = url_end[-1][start_index:]
-        file_extension = ""
-        if start.count(".") == 1 and finish.count(".") == 1:
-            start,file_extension = start.split(".")
-            finish, _  = finish.split(".")
-            file_extension = "."+ file_extension
-        else:
-            raise Exception("URLs does not have the same pattern.")
+        urls = [url.strip() for url in input_dict["url"].split("\n") if url != ""]
+    else:
+        urls = [[url.strip()] for url in input_dict["url"].split("\n") if url != ""] 
+        for url in urls:
+            if url[0].split("://")[0] == "https":
+                raise Exception("Dataset should be accessible over HTTP.")
+    del(input_dict["url"])
 
-        alphabet = "abcdefghijklmnopqrstuvwxyz"
-        product = itertools.product(alphabet, repeat=len(start))
-
-        urls = []
-        for p in product:
-            urls.append(url_base + "".join(p) + file_extension)
-            if "".join(p) == finish:
-                break
 
     X_indices_splited = input_dict["X_indices"].replace(" ","").split("-")
     if len(X_indices_splited) == 2:
@@ -50,62 +23,178 @@ def file_url(input_dict):
     del(input_dict["X_indices"])
 
     input_dict["data_type"] = "gzip" if input_dict["data_type"] == "true" else ""
-    
+
+    if input_dict["meta"] == "numeric":
+        X_meta = ["c" for i in range(len(X_indices))]
+    elif input_dict["meta"] == "discrete":
+        X_meta = ["d" for i in range(len(X_indices))]
+    else:
+        X_meta = input_dict["meta"]        
+
     data = dataset.Data(data_tag = urls,
                             X_indices = X_indices,
+                            X_meta = X_meta,
+                            generate_urls = True if input_dict["range"] == "true" else False,
                             **input_dict)
+    
     return {"dataset" : data}
 
-def results_to_file(input_dict):
-    return {}
+def big_data_apply_classifier(input_dict):
+    
+    if "naivebayes_fitmodel" in input_dict["fitmodel_url"]:
+        return naivebayes_predict(input_dict)
+    elif "logreg_fitmodel" in input_dict["fitmodel_url"]:
+        return logreg_predict(input_dict)
+    elif "linsvm_fitmodel" in input_dict["fitmodel_url"]:
+        return linsvm_predict(input_dict)
+    elif "kmeans_fitmodel" in input_dict["fitmodel_url"]:
+        return kmeans_predict(input_dict)
+    elif "dt_fitmodel" in input_dict["fitmodel_url"]:
+        return dt_predict(input_dict)
+    elif "rf_fitmodel" in input_dict["fitmodel_url"]:
+        return rf_predict(input_dict)
+    elif "wrf_fitmodel" in input_dict["fitmodel_url"]:
+        return wrf_predict(input_dict)
+    elif "linreg_fitmodel" in input_dict["fitmodel_url"]:
+        return linreg_predict(input_dict)
 
+def lwlr_fit_predict(input_dict):
+    from discomll.regression import locally_weighted_linear_regression
 
-def lpsvm_fit(input_dict):
-    from discomll.classification import linear_proximal_svm
-    fitmodel_url = linear_proximal_svm.fit(input_dict["dataset"],
+    predictions_url = locally_weighted_linear_regression.fit_predict(
+                                                    fitting_data = input_dict["fitting_dataset"],
+                                                    training_data = input_dict["training_dataset"],
+                                                    tau = input_dict["tau"],
+                                                    save_results = True)
+    return {"string": predictions_url}
+
+def dt_fit(input_dict):
+    from discomll.ensemble import decision_trees
+
+    fitmodel_url = decision_trees.fit(input = input_dict["dataset"],
+                                       max_tree_nodes = input_dict["tree_nodes"],
+                                       leaf_min_inst = input_dict["leaf_min_inst"],
+                                       class_majority = input_dict["majority"],
+                                        measure = input_dict["measure"],
+                                        split_fun = input_dict["split_fun"],
+                                        save_results = True)
+    return {"fitmodel_url" : fitmodel_url}
+
+def dt_predict(input_dict):
+    from discomll.ensemble import decision_trees
+
+    predictions_url = decision_trees.predict(input_dict["dataset"],
+                                            fitmodel_url = input_dict["fitmodel_url"],
+                                            save_results = True)
+    return {"string": predictions_url}
+
+def rf_fit(input_dict):
+    from discomll.ensemble import random_forest
+
+    random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
+
+    fitmodel_url = random_forest.fit(input = input_dict["dataset"],
+                                        trees_per_chunk = input_dict["trees_per_subset"],
+                                       max_tree_nodes = input_dict["tree_nodes"],
+                                       leaf_min_inst = input_dict["leaf_min_inst"],
+                                       class_majority = input_dict["majority"],
+                                        measure = input_dict["measure"],
+                                        split_fun = input_dict["split_fun"],
+                                        random_state = random_state,
+                                        save_results = True)
+
+    return {"fitmodel_url" : fitmodel_url}
+
+def rf_predict(input_dict):
+    from discomll.ensemble import random_forest
+    
+    random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
+
+    predictions_url = random_forest.predict(input = input_dict["dataset"],
+                                            fitmodel_url = input_dict["fitmodel_url"],
+                                            diff = input_dict["diff"],
+                                            random_state = random_state,
+                                            save_results = True)
+    return {"string": predictions_url}
+
+def wrf_fit(input_dict):
+    from discomll.ensemble import weighted_forest
+    
+    random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
+    
+    fitmodel_url = weighted_forest.fit(input = input_dict["dataset"],
+                                        trees_per_chunk = input_dict["trees_per_subset"],
+                                       max_tree_nodes = input_dict["tree_nodes"],
+                                       leaf_min_inst = input_dict["leaf_min_inst"],
+                                       class_majority = input_dict["majority"],
+                                        measure = input_dict["measure"],
+                                        split_fun = input_dict["split_fun"],
+                                        save_results = True,
+                                        random_state = random_state)
+    return {"fitmodel_url" : fitmodel_url}
+
+def wrf_predict(input_dict):
+    from discomll.ensemble import weighted_forest
+
+    predictions_url = weighted_forest.predict(input = input_dict["dataset"],
+                                            fitmodel_url = input_dict["fitmodel_url"],
+                                            save_results = True)
+    return {"string": predictions_url}
+
+def linsvm_fit(input_dict):
+    from discomll.classification import linear_svm
+    fitmodel_url = linear_svm.fit(input_dict["dataset"],
                                             nu = input_dict["nu"],
                                             save_results = True)
     return {"fitmodel_url" : fitmodel_url}    
 
-def lpsvm_predict(input_dict):
-    from discomll.classification import linear_proximal_svm
+def linsvm_predict(input_dict):
+    from discomll.classification import linear_svm
 
-    predictions_url = linear_proximal_svm.predict(input_dict["dataset"],
+    predictions_url = linear_svm.predict(input_dict["dataset"],
                                   fitmodel_url = input_dict["fitmodel_url"],
                                   save_results = True)
     return {"string": predictions_url}
 
-def lin_reg_fit(input_dict):
+def linreg_fit(input_dict):
     from discomll.regression import linear_regression
+
     fitmodel_url = linear_regression.fit(input_dict["dataset"],
                     save_results = True)
+    
     return {"fitmodel_url" : fitmodel_url}
 
-def lin_reg_predict(input_dict):
+def linreg_predict(input_dict):
     from discomll.regression import linear_regression
+    
     predictions_url = linear_regression.predict(input_dict["dataset"],
                                     fitmodel_url = input_dict["fitmodel_url"],
                                     save_results = True)
+
     return {"string": predictions_url}
 
 def kmeans_fit(input_dict):
     from discomll.clustering import kmeans
 
+    random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
+    
     fitmodel_url = kmeans.fit(input_dict["dataset"],
                                 n_clusters = input_dict["clusters"],
                                  max_iterations = input_dict["itr"],
+                                 random_state = random_state,
                                  save_results = True)
 
     return {"fitmodel_url" : fitmodel_url}
 
 def kmeans_predict(input_dict):
     from discomll.clustering import kmeans
+
     predictions_url = kmeans.predict(input_dict["dataset"],
                                         fitmodel_url = input_dict["fitmodel_url"],
                                         save_results = True)
     return {"string": predictions_url}
 
-def log_reg_fit(input_dict):
+def logreg_fit(input_dict):
     from discomll.classification import logistic_regression
 
     fitmodel_url = logistic_regression.fit(input_dict["dataset"],
@@ -114,7 +203,7 @@ def log_reg_fit(input_dict):
                                             save_results = True)
     return {"fitmodel_url" : fitmodel_url}
 
-def log_reg_predict(input_dict):
+def logreg_predict(input_dict):
     from discomll.classification import logistic_regression
     
     predictions_url = logistic_regression.predict(input_dict["dataset"],
@@ -122,37 +211,41 @@ def log_reg_predict(input_dict):
                                                 save_results = True)
     return {"string": predictions_url}
 
-def gaussian_naive_bayes_fit(input_dict):
-    from discomll.classification import naivebayes_gaussian
+def naivebayes_fit(input_dict):
+    from discomll.classification import naivebayes
 
-    fitmodel_url = naivebayes_gaussian.fit(input_dict["dataset"],
-                                                save_results = True)
+    fitmodel_url = naivebayes.fit(input_dict["dataset"], save_results = True)
+    
     return {"fitmodel_url" : fitmodel_url}
 
-def gaussian_naive_bayes_predict(input_dict):
-    from discomll.classification import naivebayes_gaussian
-    
-    predictions_url = naivebayes_gaussian.predict(input = input_dict["dataset"], 
-                                fitmodel_url = input_dict["fitmodel_url"],
-                                log_probs = True if input_dict["log_probs"] == "true" else False,
-                                save_results = True )
-    return {"string": predictions_url}
-
-def multinomail_naive_bayes_fit(input_dict):
-    from discomll.classification import naivebayes_multinomial
-
-    fitmodel_url = naivebayes_multinomial.fit(input_dict["dataset"],
-                                                save_results = True)
-    return {"fitmodel_url" : fitmodel_url}
-
-
-def multinomial_naive_bayes_predict(input_dict):
-    from discomll.classification import naivebayes_multinomial
-    
+def naivebayes_predict(input_dict):
+    from discomll.classification import naivebayes
     m = 1 if input_dict["m"] == "" else input_dict["m"]
-    predictions_url = naivebayes_multinomial.predict(input = input_dict["dataset"], 
+    
+    predictions_url = naivebayes.predict(input = input_dict["dataset"], 
                                 fitmodel_url = input_dict["fitmodel_url"],
-                                m = m,
-                                save_results = True)
+                                 m = input_dict["m"],
+                                save_results = True )
+    
     return {"string": predictions_url}
+
+def results_to_file(input_dict):
+    #implementation is in visualization_views.py
+    return {} 
+
+def measure_distribution(input_dict):
+    #implementation is in visualization_views.py
+    return {}
+
+def model_view(input_dict):
+    #implementation is in visualization_views.py
+    return {}
+
+def bigdata_ca(input_dict):
+    #implementation is in visualization_views.py
+    return {}
+
+def bigdata_mse(input_dict):
+    #implementation is in visualization_views.py
+    return {}
 
