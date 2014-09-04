@@ -1,0 +1,255 @@
+[
+  {
+    "pk": 63, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "aa1a52a7-66ee-483d-b24a-e543140fc476", 
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "Conceptnet"
+    }
+  }, 
+  {
+    "pk": 341, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 63, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Conceptnet Create Search Query", 
+      "is_streaming": false, 
+      "uid": "e2359c29-f2bc-4cc5-92b2-5d32f9a26de3", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "conceptnet", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "conceptnet_create_search_query", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 856, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 341, 
+      "name": "Limit", 
+      "short_name": "lmt", 
+      "uid": "594b1488-dadb-4c9e-9a73-4c2ebed10a9d", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "limit", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Input must be a number. This input influences how much results we want returned."
+    }
+  }, 
+  {
+    "pk": 857, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 341, 
+      "name": "Offset", 
+      "short_name": "off", 
+      "uid": "6fef5306-e341-4794-a1c0-57c6a74c15e0", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "offset", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Input must be a number. This input influences how many inputs we should skip in the beginning."
+    }
+  }, 
+  {
+    "pk": 858, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 341, 
+      "name": "Text", 
+      "short_name": "txt", 
+      "uid": "29a4d41b-1361-4b20-b3b2-9ecbab156ca4", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "text", 
+      "parameter": true, 
+      "order": 3, 
+      "description": "Searches for data that contain this word in this field. Do not use sentences, write only a single word."
+    }
+  }, 
+  {
+    "pk": 859, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 341, 
+      "name": "MinWeight", 
+      "short_name": "wgt", 
+      "uid": "2d591bb7-6838-4f0b-8cdc-1d6ed5bfd0d7", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minweight", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "Input must be an integer or double. Filters for edges whose weight is at least weight."
+    }
+  }, 
+  {
+    "pk": 368, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 341, 
+      "name": "Query", 
+      "short_name": "que", 
+      "variable": "query", 
+      "uid": "7f4009fb-96c5-498c-9604-3c91a75e1322", 
+      "order": 1, 
+      "description": "Query that you can input in widget \"Query to JSON\""
+    }
+  }, 
+  {
+    "pk": 342, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 63, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Conceptnet Execute Query", 
+      "is_streaming": false, 
+      "uid": "1baeaa93-6b32-4fbb-89c0-98a04c381328", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "conceptnet", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "conceptnet_execute_query", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 860, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 342, 
+      "name": "query", 
+      "short_name": "str", 
+      "uid": "c7f7da84-266c-4fe2-8e08-84ffe7e7a126", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "query", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 369, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 342, 
+      "name": "json", 
+      "short_name": "str", 
+      "variable": "json", 
+      "uid": "b62150ba-c796-46cd-988b-d4bfd3b1d0a2", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 343, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 63, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Conceptnet Get Triplets", 
+      "is_streaming": false, 
+      "uid": "bec0c1ac-59d4-4b1d-95d3-5e826f896b0e", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "conceptnet", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "concept_net_triplets", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 861, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 343, 
+      "name": "concept_net_json_response", 
+      "short_name": "jsn", 
+      "uid": "fc379a4b-e1d7-4a71-9d5d-7d7879ba6fc8", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "concept_net_json_response", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Conceptnet JSON response"
+    }
+  }, 
+  {
+    "pk": 370, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 343, 
+      "name": "triplets", 
+      "short_name": "tri", 
+      "variable": "triplets", 
+      "uid": "6fbf2ad3-8c9e-4b99-baa4-1a8519533454", 
+      "order": 1, 
+      "description": "Triplets: subject, predicate, object"
+    }
+  }, 
+  {
+    "pk": 371, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 343, 
+      "name": "triplets without prefixes", 
+      "short_name": "trc", 
+      "variable": "basename_triplets", 
+      "uid": "f62999b0-9420-4fe6-a1dd-8e18c9ac4aed", 
+      "order": 1, 
+      "description": "Triplets: subject, predicate, object without conceptnet prefixes"
+    }
+  }
+]

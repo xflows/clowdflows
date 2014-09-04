@@ -1,0 +1,28 @@
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization">
+<div style="width:400px;font-family:monospace;">
+
+<table style="width:auto; border-collapse:collapse;">
+    {% for i in input_dict.intList %}
+        <tr style="width:auto">
+            <td style="text-align: right; width:auto; line-height: 0.5em;  padding: 2px; padding-bottom: 4px; padding-top: 0; margin:2px;">
+                {% if forloop.first %} {% else %}+{% endif %}
+            </td>
+            <td style="text-align: right; width:auto; line-height: 0.5em;  padding: 2px; padding-bottom: 4px; padding-top: 0; margin:2px;">
+                {{ i }}
+            </td>
+        </tr>
+    {% endfor %}
+    <tr style="width:auto">
+        <td style="text-align: right; width:auto; line-height: 0.5em; border-top: 1px solid black; padding: 2px; padding-top: 4px; margin:2px;">
+            =
+        </td>
+        <td style="text-align: right; width:auto; line-height: 0.5em; border-top: 1px solid black; padding: 2px;margin:2px;">
+            {{ input_dict.sum }}
+        </td>
+    </tr>
+</table>
+<br/>
+{{ check }}
+
+</div>
+</div>
