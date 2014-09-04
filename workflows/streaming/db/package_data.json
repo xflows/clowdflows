@@ -128,7 +128,7 @@
       "parameter_type": "text", 
       "variable": "b_size", 
       "parameter": true, 
-      "order": 1, 
+      "order": 2, 
       "description": "Number of tweets for hand-labeling chosen with the \"Closest to the neutral zone\""
     }
   }, 
@@ -137,7 +137,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 395, 
-      "name": "Strategy: number of tweets closest to hyperplane", 
+      "name": "Number of tweets for hand-labeling chosen with the \"Closest to the neutral zone\" query strategy.", 
       "short_name": "q1", 
       "uid": "0b684a5d-528e-41c4-adb7-59a09bc1a39b", 
       "default": "8", 
@@ -146,7 +146,7 @@
       "parameter_type": "text", 
       "variable": "q_strategy_closest", 
       "parameter": true, 
-      "order": 1, 
+      "order": 3, 
       "description": "Number of tweets for hand-labeling that are closest to the hyperplane."
     }
   }, 
@@ -155,7 +155,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 395, 
-      "name": "Strategy: number of random tweets", 
+      "name": "Number of tweets for hand-labeling chosen with the random query strategy.", 
       "short_name": "q2", 
       "uid": "216ae867-a808-47f4-a233-052d62f09dd8", 
       "default": "2", 
@@ -164,7 +164,7 @@
       "parameter_type": "text", 
       "variable": "q_strategy_random", 
       "parameter": true, 
-      "order": 1, 
+      "order": 4, 
       "description": "Number of tweets for hand-labeling chosen with the random query strategy"
     }
   }, 
