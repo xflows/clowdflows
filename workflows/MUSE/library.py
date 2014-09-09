@@ -93,3 +93,13 @@ def MUSE_virtual_environment_visualization(input_dict):
     unitylink = input_dict.get('unitylink', 'https://ive.scm.tees.ac.uk/muse/tukdemo/')
     return {'NLP_data' : NLP_data,
             'unitylink': unitylink}
+
+
+def MUSE_string_to_file(input_dict):
+    return {}
+
+
+def MUSE_string_to_file_finished(postdata, input_dict, output_dict):
+    fileURL = postdata.get('fileURL')[0]
+    return {'fileURL': fileURL}
+
