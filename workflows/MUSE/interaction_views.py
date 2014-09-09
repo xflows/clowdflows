@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
 
-def MUSE_filter_integers(request,input_dict,output_dict,widget):
-    return render(request, 'interactions/MUSE_filter_integers.html',{'widget':widget,'intList':input_dict['intList']})
+def MUSE_filter_integers(request, input_dict, output_dict, widget):
+    return render(request, 'interactions/MUSE_filter_integers.html',
+                  {'widget': widget, 'intList': input_dict['intList']})
 
 
 def MUSE_string_to_file(request, input_dict, output_dict, widget):
@@ -14,5 +15,5 @@ def MUSE_string_to_file(request, input_dict, output_dict, widget):
     ensure_dir(destination)
     with open(destination, 'w') as f:
         f.write(str(input_dict['data']))
-    return render(request, 'visualizations/MUSE_string_to_file.html', {'widget':widget,'fileURL': basename})
+    return render(request, 'visualizations/MUSE_string_to_file.html', {'widget': widget, 'fileURL': basename})
 

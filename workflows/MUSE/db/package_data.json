@@ -24,6 +24,69 @@
     }
   }, 
   {
+    "pk": 421, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 36, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Tuk the Hunter 3D demonstrator", 
+      "is_streaming": false, 
+      "uid": "ec3279bc-9a20-4e06-84c0-ae0cd1c79a56", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "MUSE", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "MUSE_virtual_environment_demonstrator_tuk", 
+      "streaming_visualization_view": "", 
+      "action": "MUSE_virtual_environment_demonstrator_tuk", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "3D demonstrator for the Tuk the Hunter children story"
+    }
+  }, 
+  {
+    "pk": 1060, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 421, 
+      "name": "mapping file URL", 
+      "short_name": "lnk", 
+      "uid": "6f99be99-50d7-4f2b-a1f0-2ab2aa8c69b9", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "mappingLink", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "A link to the XML file contating mapping to knowledge representation"
+    }
+  }, 
+  {
+    "pk": 1061, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 421, 
+      "name": "Unity3D app link", 
+      "short_name": "lnk", 
+      "uid": "adfdaa7d-4e2e-4d98-aaa0-a33df67c381e", 
+      "default": "https://ive.scm.tees.ac.uk/muse/tuk-text/Tuk-Text-Workflow-Web.html", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "unityLink", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "A link to the Tuk Unity3D web app"
+    }
+  }, 
+  {
     "pk": 166, 
     "model": "workflows.abstractwidget", 
     "fields": {
@@ -154,6 +217,46 @@
       "uid": "c677e844-9f9b-4d09-8e08-janezfix", 
       "order": 1, 
       "description": "XML document with all annotations"
+    }
+  }, 
+  {
+    "pk": 422, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 37, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Mapping to KR golden standard", 
+      "is_streaming": false, 
+      "uid": "32cab8ef-ef16-41bd-b14e-fff54ad1e411", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "MUSE", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "MUSE_mapping_to_KR_golden_standard", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "A link to the golden standard XML file for mapping to KR"
+    }
+  }, 
+  {
+    "pk": 454, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 422, 
+      "name": "Link", 
+      "short_name": "lnk", 
+      "variable": "goldenLink", 
+      "uid": "f130683f-435e-4199-be4d-c420acb29886", 
+      "order": 1, 
+      "description": "Link to the golden standard for mapping to KR"
     }
   }, 
   {
