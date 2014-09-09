@@ -55,6 +55,6 @@ def MUSE_virtual_environment_demonstrator_tuk(request, input_dict, output_dict, 
     return render(request,
                   'visualizations/MUSE_Tuk_demonstrator.html',
                   {'widget': widget,
-                   'unityLink': str(input_dict['unityLink'])
-                   })
+                   'unityLink': unityLink}
+				   )
 
