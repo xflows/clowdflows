@@ -111,21 +111,69 @@
     }
   },
   {
-    "pk": 85,
+    "pk": 207,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 33,
       "name": "Attribute metadata",
       "short_name": "mta",
-      "uid": "491eab89-b3f1-4503-864b-7cad9a01dda7",
+      "uid": "705b4459-6f05-4fd3-a230-33e0ddd784b3",
       "default": "numeric",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "atr_meta",
+      "parameter": true,
+      "order": 5,
+      "description": "Select numeric, if all attributes are numeric or discrete, if all attributes are discrete. \r\n"
+    }
+  },
+  {
+    "pk": 36,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "c1d13a93-1572-415c-8988-12affdbff7fc",
+      "abstract_input": 207,
+      "value": "discrete",
+      "name": "discrete"
+    }
+  },
+  {
+    "pk": 37,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "26ec18bf-771f-4aa4-957f-301df41cfa4e",
+      "abstract_input": 207,
+      "value": "metadata url",
+      "name": "metadata url"
+    }
+  },
+  {
+    "pk": 35,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "6fb7a9a5-29ed-47c9-a260-301f34ffcf52",
+      "abstract_input": 207,
+      "value": "numeric",
+      "name": "numeric"
+    }
+  },
+  {
+    "pk": 85,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 33,
+      "name": "Metadata URL",
+      "short_name": "cmt",
+      "uid": "491eab89-b3f1-4503-864b-7cad9a01dda7",
+      "default": "",
       "required": false,
       "multi": false,
       "parameter_type": "text",
-      "variable": "meta",
+      "variable": "custom",
       "parameter": true,
-      "order": 5,
-      "description": "Select numeric, if all attributes are numeric or discrete, if all attributes are discrete. \r\n\r\nIf dataset contains mixed features, specify url of attribute metadata. File should contain c for continuous attributes and d for discrete attributes, separated by the same delimiter as used in the dataset."
+      "order": 6,
+      "description": "Define an URL of a file with attribute metadata.\r\n\r\nExample of a file with 3 attributes, where first and second are continous and third is discrete:\r\natr1, atr2, atr3\r\nc,c,d "
     }
   },
   {
@@ -142,7 +190,7 @@
       "parameter_type": "text",
       "variable": "id_index",
       "parameter": true,
-      "order": 6,
+      "order": 7,
       "description": "Define identifier index in the data."
     }
   },
@@ -160,7 +208,7 @@
       "parameter_type": "text",
       "variable": "y_index",
       "parameter": true,
-      "order": 7,
+      "order": 8,
       "description": "Define the class index in the dataset. If it is not defined, last attribute is used as the class."
     }
   },
@@ -178,7 +226,7 @@
       "parameter_type": "text",
       "variable": "delimiter",
       "parameter": true,
-      "order": 8,
+      "order": 9,
       "description": "Define delimiter to parse the data."
     }
   },
@@ -196,7 +244,7 @@
       "parameter_type": "text",
       "variable": "missing_vals",
       "parameter": true,
-      "order": 9,
+      "order": 10,
       "description": "Missing data values are skipped.\r\n\r\nExample: ?,"
     }
   },
@@ -214,7 +262,7 @@
       "parameter_type": "text",
       "variable": "y_map",
       "parameter": true,
-      "order": 10,
+      "order": 11,
       "description": "The class mapping defines a mapping for a binary class. It is used with Logistic regression and Linear SVM.\r\n\r\nThe Logistic regression classifier uses 0 and 1 as class. If the dataset contains discrete classes  (e.g. healthy, sick), a mapping should be defined, where healthy is mapped to 1 and sick to 0. The class mapping is used only with binary target labels.\r\nExample: healthy, sick"
     }
   },
@@ -605,7 +653,7 @@
       "parameter_type": "text",
       "variable": "tree_nodes",
       "parameter": true,
-      "order": 2,
+      "order": 3,
       "description": "Max. number of decision tree nodes."
     }
   },
@@ -623,7 +671,7 @@
       "parameter_type": "text",
       "variable": "leaf_min_inst",
       "parameter": true,
-      "order": 3,
+      "order": 4,
       "description": "Min. number of samples to split the node"
     }
   },
@@ -641,44 +689,84 @@
       "parameter_type": "text",
       "variable": "majority",
       "parameter": true,
-      "order": 4,
+      "order": 5,
       "description": "Purity of a subset."
     }
   },
   {
-    "pk": 163,
+    "pk": 211,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 55,
       "name": "Measure",
       "short_name": "msr",
-      "uid": "4063d2d6-7ac3-4526-a783-3f22b0d5d64c",
+      "uid": "28f53666-76b0-4d44-acab-0824e603a848",
       "default": "info_gain",
       "required": true,
       "multi": false,
-      "parameter_type": "text",
+      "parameter_type": "select",
       "variable": "measure",
       "parameter": true,
-      "order": 5,
-      "description": "Select measure for estimation of attributes: Information gain or MDL."
+      "order": 6,
+      "description": "Select measure for estimation of attributes."
     }
   },
   {
-    "pk": 198,
+    "pk": 44,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "26d43f05-9008-48c1-bdaf-486c9e4f3213",
+      "abstract_input": 211,
+      "value": "info_gain",
+      "name": "Information gain"
+    }
+  },
+  {
+    "pk": 45,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "c633baf4-1a77-458c-8bd3-8f4fdb65e856",
+      "abstract_input": 211,
+      "value": "mdl",
+      "name": "Minimum description length"
+    }
+  },
+  {
+    "pk": 208,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 55,
-      "name": "Split function",
+      "name": "Discretization",
       "short_name": "spf",
-      "uid": "ba078c4e-954d-4371-a337-ba7ed44627ff",
+      "uid": "8b88d56c-6cbb-451f-a618-4a1a27993a90",
       "default": "equal_freq",
       "required": true,
       "multi": false,
-      "parameter_type": "text",
+      "parameter_type": "select",
       "variable": "split_fun",
       "parameter": true,
-      "order": 6,
-      "description": "Select equal width split function or random split function for numeric attributes"
+      "order": 7,
+      "description": "Select equal frequency discretization or random discretization for numeric attributes"
+    }
+  },
+  {
+    "pk": 38,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "dac3dd38-3a6c-408b-9135-77cb4380d543",
+      "abstract_input": 208,
+      "value": "equal_freq",
+      "name": "Equal frequency discretization"
+    }
+  },
+  {
+    "pk": 39,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "dafe6b7c-48e7-4cfb-a0aa-2b22788fceec",
+      "abstract_input": 208,
+      "value": "random",
+      "name": "Random discretization"
     }
   },
   {
@@ -753,7 +841,7 @@
       "parameter_type": "text",
       "variable": "trees_per_subset",
       "parameter": true,
-      "order": 2,
+      "order": 3,
       "description": "Number of trees per subset of data"
     }
   },
@@ -771,7 +859,7 @@
       "parameter_type": "text",
       "variable": "tree_nodes",
       "parameter": true,
-      "order": 3,
+      "order": 4,
       "description": "Max. number of decision tree nodes"
     }
   },
@@ -789,7 +877,7 @@
       "parameter_type": "text",
       "variable": "leaf_min_inst",
       "parameter": true,
-      "order": 4,
+      "order": 5,
       "description": "Min. number of samples to split the node"
     }
   },
@@ -807,44 +895,84 @@
       "parameter_type": "text",
       "variable": "majority",
       "parameter": true,
-      "order": 5,
+      "order": 6,
       "description": "Purity of a subset."
     }
   },
   {
-    "pk": 170,
+    "pk": 213,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 57,
       "name": "Measure",
       "short_name": "msr",
-      "uid": "3d5d3c56-9c41-4326-a17a-5024e4bc95a8",
+      "uid": "68cbccf9-7469-4b55-b96e-4f7c6a3c9cde",
       "default": "info_gain",
       "required": true,
       "multi": false,
-      "parameter_type": "text",
+      "parameter_type": "select",
       "variable": "measure",
       "parameter": true,
-      "order": 6,
-      "description": "Select measure for estimation of attributes: Information gain or MDL."
+      "order": 7,
+      "description": "Select measure for estimation of attributes."
     }
   },
   {
-    "pk": 199,
+    "pk": 48,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "95331a01-dbfa-4f31-966a-759d65d3a556",
+      "abstract_input": 213,
+      "value": "info_gain",
+      "name": "Information gain"
+    }
+  },
+  {
+    "pk": 49,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "53059d4e-4375-488f-b2b2-0e9567f499d7",
+      "abstract_input": 213,
+      "value": "mdl",
+      "name": "Minimum description length"
+    }
+  },
+  {
+    "pk": 209,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 57,
-      "name": "Split function",
+      "name": "Discretization",
       "short_name": "spf",
-      "uid": "75aac5eb-0423-4a58-b8fa-1b282db42aa5",
+      "uid": "00758cdf-2eb5-43c5-bedf-bd3b8b9c29d6",
       "default": "equal_freq",
       "required": true,
       "multi": false,
-      "parameter_type": "text",
+      "parameter_type": "select",
       "variable": "split_fun",
       "parameter": true,
-      "order": 7,
-      "description": "Select equal width split function or random split function for numeric attributes"
+      "order": 8,
+      "description": "Select equal frequency discretization or random discretization for numeric attributes"
+    }
+  },
+  {
+    "pk": 40,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "02b0bf99-232c-4529-b1a7-701bba646450",
+      "abstract_input": 209,
+      "value": "equal_freq",
+      "name": "Equal frequency discretization"
+    }
+  },
+  {
+    "pk": 41,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "ef11b2d3-301f-4440-be3c-24089b7f234f",
+      "abstract_input": 209,
+      "value": "random",
+      "name": "Random discretization"
     }
   },
   {
@@ -937,7 +1065,7 @@
       "parameter_type": "text",
       "variable": "trees_per_subset",
       "parameter": true,
-      "order": 2,
+      "order": 3,
       "description": "Number of trees per subset of data"
     }
   },
@@ -955,7 +1083,7 @@
       "parameter_type": "text",
       "variable": "tree_nodes",
       "parameter": true,
-      "order": 3,
+      "order": 4,
       "description": "Max. number of decision tree nodes"
     }
   },
@@ -973,7 +1101,7 @@
       "parameter_type": "text",
       "variable": "leaf_min_inst",
       "parameter": true,
-      "order": 4,
+      "order": 5,
       "description": "Min. number of samples to split the node"
     }
   },
@@ -991,44 +1119,84 @@
       "parameter_type": "text",
       "variable": "majority",
       "parameter": true,
-      "order": 5,
+      "order": 6,
       "description": "Purity of a subset."
     }
   },
   {
-    "pk": 180,
+    "pk": 212,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 59,
       "name": "Measure",
       "short_name": "msr",
-      "uid": "535d8274-9423-42bf-897f-471a16af8a0c",
+      "uid": "9a8f3c2c-265c-4b37-93c1-d58fee9dd7af",
       "default": "info_gain",
       "required": true,
       "multi": false,
-      "parameter_type": "text",
+      "parameter_type": "select",
       "variable": "measure",
       "parameter": true,
-      "order": 6,
-      "description": "Select measure for estimation of attributes: Information gain or MDL."
+      "order": 7,
+      "description": "Select measure for estimation of attributes."
     }
   },
   {
-    "pk": 200,
+    "pk": 46,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "364fbb94-f200-4acc-a801-d29339f0d4c5",
+      "abstract_input": 212,
+      "value": "info_gain",
+      "name": "Information gain"
+    }
+  },
+  {
+    "pk": 47,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "293fb2f7-de3f-4133-8e3a-22701245c55d",
+      "abstract_input": 212,
+      "value": "mdl",
+      "name": "Minimum description length"
+    }
+  },
+  {
+    "pk": 210,
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 59,
-      "name": "Split function",
+      "name": "Discretization",
       "short_name": "spf",
-      "uid": "b613ab81-383b-470a-9fe7-ed7159d6d6cc",
+      "uid": "c43bfc92-e1af-42fc-8d73-f7348ebdaf40",
       "default": "equal_freq",
       "required": true,
       "multi": false,
-      "parameter_type": "text",
+      "parameter_type": "select",
       "variable": "split_fun",
       "parameter": true,
-      "order": 7,
-      "description": "Select equal width split function or random split function for numeric attributes"
+      "order": 8,
+      "description": "Select equal frequency discretization or random discretization for numeric attributes"
+    }
+  },
+  {
+    "pk": 42,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "4ea5c55a-92a8-4541-a1cc-9aabb0fd82c0",
+      "abstract_input": 210,
+      "value": "equal_freq",
+      "name": "Equal frequency discretization"
+    }
+  },
+  {
+    "pk": 43,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "838f798d-e00e-4216-8990-ebc3c1929c0e",
+      "abstract_input": 210,
+      "value": "random",
+      "name": "Random discretization"
     }
   },
   {
@@ -1045,7 +1213,7 @@
       "parameter_type": "text",
       "variable": "seed",
       "parameter": true,
-      "order": 8,
+      "order": 9,
       "description": "Define a random state"
     }
   },
@@ -1142,7 +1310,7 @@
     "model": "workflows.abstractinput",
     "fields": {
       "widget": 43,
-      "name": "Max. number of iterations",
+      "name": "Max number of iterations",
       "short_name": "itr",
       "uid": "a8ec22c5-199b-43ff-9c72-780a49d57ea4",
       "default": "10",
@@ -1421,7 +1589,7 @@
       "parameter_type": "text",
       "variable": "m",
       "parameter": true,
-      "order": 1,
+      "order": 2,
       "description": "m estimate"
     }
   },
@@ -1439,7 +1607,7 @@
       "parameter_type": "text",
       "variable": "diff",
       "parameter": true,
-      "order": 2,
+      "order": 3,
       "description": "Random forest calculates difference in probability between most and second most probable prediction. If difference is greater than parameter diff, it outputs prediction. If a test sample is hard to predict (difference is never higher than diff), it queries whole ensemble to make a prediction."
     }
   },
@@ -1457,7 +1625,7 @@
       "parameter_type": "text",
       "variable": "seed",
       "parameter": true,
-      "order": 3,
+      "order": 4,
       "description": "Define a random state for predict phase."
     }
   },
@@ -1475,7 +1643,7 @@
       "parameter_type": null,
       "variable": "dataset",
       "parameter": false,
-      "order": 4,
+      "order": 5,
       "description": "dataset"
     }
   },
