@@ -186,7 +186,8 @@ def segmine_resolve_gene_synonyms(input_dict):
         else:
             mapped.append((str(entrezID), rank))
             genes[entrezID] = None
-    return {'gene_ranks' : mapped}
+    return {'gene_ranks': mapped}
+
 
 def segmine_biomine_neighbourhood(input_dict):
     groupNodes = input_dict.get('groupNodes', False)
@@ -637,8 +638,13 @@ def segmine_rules_as_table(input_dict):
     allTerms = set()
 
     for (i, rule) in enumerate(rules):
-        TERMids = [x[const.TERMID_KEY] for x in rule[const.DESCRIPTION_KEY][const.RULETERMS_STR_KEY]]
-        TERMnames = [x[const.TERMNAME_KEY] for x in rule[const.DESCRIPTION_KEY][const.RULETERMS_STR_KEY]]
+        # beware, there can be also rules with only interacting terms...wtf...
+        if const.RULETERMS_STR_KEY in rule[const.DESCRIPTION_KEY]:
+            TERMids = [x[const.TERMID_KEY] for x in rule[const.DESCRIPTION_KEY][const.RULETERMS_STR_KEY]]
+            TERMnames = [x[const.TERMNAME_KEY] for x in rule[const.DESCRIPTION_KEY][const.RULETERMS_STR_KEY]]
+        else:
+            TERMids = []
+            TERMnames = []
         INTids = []
         INTnames = []
         if const.INTTERMS_KEY in rule[const.DESCRIPTION_KEY]:
@@ -676,10 +682,10 @@ def filter_unknown_genes_stu(input_dict):
 
     result = []
     unknown = 0
-    for pair in ranks:
-        gene = pair[0]
+    for gene, rank in ranks:
+        gene = gene.lower()
         if gene in genes:
-            result.append(pair)
+            result.append((gene, rank))
         else:
             unknown += 1
     if unknown:
@@ -698,10 +704,10 @@ def filter_unknown_genes_ath(input_dict):
 
     result = []
     unknown = 0
-    for pair in ranks:
-        gene = pair[0]
+    for gene, rank in ranks:
+        gene = gene.lower()
         if gene in genes:
-            result.append(pair)
+            result.append((gene, rank))
         else:
             unknown += 1
     if unknown:
@@ -720,7 +726,6 @@ def segmine_cutoff(input_dict):
     logfcs = input_dict['logfcs']
     takeAbs = True if input_dict['absolute'].lower() == 'true' else False
 
-
     if ub and lb and ub <= lb:
         raise Exception('Invalid bounds')
 
@@ -731,27 +736,51 @@ def segmine_cutoff(input_dict):
     logfcsarr = array([float(elt[1]) for elt in logfcs])
     if takeAbs:
         logfcsarr = abs(logfcsarr)
-    UB = max(logfcsarr)  if ub==None  else  ub
-    LB = min(logfcsarr)  if lb==None  else  lb
+    UB = max(logfcsarr) if ub == None  else  ub
+    LB = min(logfcsarr) if lb == None  else  lb
 
     resultRanks = []
     resultLogFCs = []
     errors = []
     for (ID, value) in logfcs:
-        tmp = abs(value)  if  takeAbs  else  value
+        tmp = abs(value) if takeAbs  else  value
         if tmp <= UB and tmp >= LB:
             if ID not in ranksDict:
                 errors.append(ID)
             else:
                 resultRanks.append((ranksDict[ID], ID))
                 resultLogFCs.append((value, ID))
-    #end
+    # end
 
     resultRanks.sort(reverse=True)
-    resultRanks = [(elt[1],elt[0]) for elt in resultRanks]
+    resultRanks = [(elt[1], elt[0]) for elt in resultRanks]
     resultLogFCs.sort(reverse=True)
-    resultLogFCs = [(elt[1],elt[0]) for elt in resultLogFCs]
+    resultLogFCs = [(elt[1], elt[0]) for elt in resultLogFCs]
     if errors:
         logging.warning('%d genes ignored because ranks were not present' % len(errors))
 
-    return {'filtered_ranks': resultRanks, 'filtered_logfcs':resultLogFCs}
+    return {'filtered_ranks': resultRanks, 'filtered_logfcs': resultLogFCs}
+
+
+def resolve_gene_names_STU(input_dict):
+    import cPickle
+    from os.path import normpath, join, dirname
+
+    ranks = input_dict['gene_ranks']
+    mapping = cPickle.load(open(normpath(join(dirname(__file__), 'data/probe2rep_STU.pickle')), 'rb'))
+
+    result = []
+    unknown = 0
+    for (gene, rank) in ranks:
+        if gene in mapping:
+            result.append((mapping[gene], rank))
+        else:
+            #result.append((gene, rank))
+            unknown += 1
+    if unknown:
+        logging.warning('There were %d unknown STU probe names.' % unknown)
+
+    # remove duplicates and sort again
+    result = list(set(result))
+    result = [(x[1], x[0]) for x in sorted([(x[1], x[0]) for x in result], reverse=True)]
+    return {'mapped_ranks': result}
