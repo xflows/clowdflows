@@ -1297,6 +1297,64 @@
     }
   }, 
   {
+    "pk": 423, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 44, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Resolve STU gene names", 
+      "is_streaming": false, 
+      "uid": "a3575a7a-770e-4200-b4b4-97c2d993c1b5", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "resolve_gene_names_STU", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Maps known probe STU gene names into GoMapMan/rep names"
+    }
+  }, 
+  {
+    "pk": 1062, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 423, 
+      "name": "Gene ranks", 
+      "short_name": "rnk", 
+      "uid": "0d32ea8e-ef29-49dc-9132-ff34d2f878ce", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "gene_ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "list of pairs (gene, rank)"
+    }
+  }, 
+  {
+    "pk": 455, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 423, 
+      "name": "Mapped gene ranks", 
+      "short_name": "rnk", 
+      "variable": "mapped_ranks", 
+      "uid": "1edbfdec-f23a-4be6-8cfe-93e3de5d8c05", 
+      "order": 1, 
+      "description": "mapped list of pairs (gene, rank)"
+    }
+  }, 
+  {
     "pk": 202, 
     "model": "workflows.abstractwidget", 
     "fields": {
