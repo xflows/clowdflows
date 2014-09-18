@@ -50,7 +50,7 @@ def streaming_active_annotation(request,widget,stream):
     import pickle
     from pysimplesoap.client import SoapClient, SoapFault
     import pysimplesoap
-    client = SoapClient(location = "http://batman.ijs.si:8008/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    client = SoapClient(location = "http://95.87.154.167:8088/",action = 'http://batman.ijs.si:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
     pysimplesoap.client.TIMEOUT = 600
     tweets = []
     pickled = pickle.dumps(str(widget.id))

@@ -54,6 +54,9 @@ def import_package_string(writeFunc, string, replace, verbosity=1):
                   ' assign them random UIDs then use the "-n" option when exporting models with the "export_package"'
                   ' command. Afterwards, you will be able to import them.\n' % len(objsFileNoUid))
     if len(Counter([x.object.uid for x in objsFile])) != len(objsFile):
+        a = sorted([x.object.uid for x in objsFile])
+        for x in a:
+            print x
         raise CommandError('Input process terminated without any changes to the database. There were multiple equal '
                            'UIDs defined on different models in the given input file. The input procedure can not continue '
                            'from safety reasons. Please resolve manually!')

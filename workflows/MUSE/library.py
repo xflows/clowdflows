@@ -66,6 +66,10 @@ def MUSE_mapping_to_KR_precomputed_latest(input_dict):
     return {'mapping': mapping, 'xml': xml}
 
 
+def MUSE_mapping_to_KR_golden_standard(input_dict):
+    return {'goldenLink': 'https://ive.scm.tees.ac.uk/muse/tuk-text/gold_standard.xml'}
+
+
 def MUSE_semantic_role_labeling(input_dict):
     url = input_dict['url']
     data = input_dict['xml']
@@ -88,8 +92,28 @@ def MUSE_semantic_role_labeling_tuk(input_dict):
     return {'xml': srl, 'txt': txt}
 
 
+def MUSE_string_to_file(input_dict):
+    return {}
+
+
+def MUSE_string_to_file_finished(postdata, input_dict, output_dict):
+    from socket import getfqdn
+    import sys
+
+    DEVSERVER = (sys.argv[1].startswith('runserver'))
+    fqdn = '127.0.0.1:8000' if DEVSERVER else getfqdn()
+
+    fileURL = fqdn + postdata.get('fileURL')[0]
+    return {'fileURL': fileURL}
+
+
 def MUSE_virtual_environment_visualization(input_dict):
     NLP_data = input_dict.get('NLP_data', None)
     unitylink = input_dict.get('unitylink', 'https://ive.scm.tees.ac.uk/muse/tukdemo/')
-    return {'NLP_data' : NLP_data,
+    return {'NLP_data': NLP_data,
             'unitylink': unitylink}
+
+
+def MUSE_virtual_environment_demonstrator_tuk(input_dict):
+    return {'mappingLink': str(input_dict['mappingLink']), 'unityLink': input_dict['unityLink']}
+

@@ -45,3 +45,16 @@ def MUSE_virtual_environment_visualization(request, input_dict, output_dict, wid
                    'filename': filename,
                    'unitylink': input_dict['unitylink']
                    })
+
+
+def MUSE_virtual_environment_demonstrator_tuk(request, input_dict, output_dict, widget):
+    from urllib import urlencode
+    params = urlencode({'filename': str(input_dict['mappingLink'])})
+    unityLink = '%s?%s' % (str(input_dict['unityLink']), params)
+    # print unityLink
+    return render(request,
+                  'visualizations/MUSE_Tuk_demonstrator.html',
+                  {'widget': widget,
+                   'unityLink': unityLink}
+				   )
+

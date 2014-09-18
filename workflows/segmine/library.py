@@ -709,3 +709,49 @@ def filter_unknown_genes_ath(input_dict):
 
     return {'filtered_ranks': result}
 #end
+
+
+def segmine_cutoff(input_dict):
+    from numpy import array
+
+    ub = float(input_dict['upper']) if input_dict['upper'].strip() else None
+    lb = float(input_dict['lower']) if input_dict['lower'].strip() else None
+    ranks = input_dict['ranks']
+    logfcs = input_dict['logfcs']
+    takeAbs = True if input_dict['absolute'].lower() == 'true' else False
+
+
+    if ub and lb and ub <= lb:
+        raise Exception('Invalid bounds')
+
+    ranksDict = {}
+    for pair in ranks:
+        ranksDict[pair[0]] = pair[1]
+
+    logfcsarr = array([float(elt[1]) for elt in logfcs])
+    if takeAbs:
+        logfcsarr = abs(logfcsarr)
+    UB = max(logfcsarr)  if ub==None  else  ub
+    LB = min(logfcsarr)  if lb==None  else  lb
+
+    resultRanks = []
+    resultLogFCs = []
+    errors = []
+    for (ID, value) in logfcs:
+        tmp = abs(value)  if  takeAbs  else  value
+        if tmp <= UB and tmp >= LB:
+            if ID not in ranksDict:
+                errors.append(ID)
+            else:
+                resultRanks.append((ranksDict[ID], ID))
+                resultLogFCs.append((value, ID))
+    #end
+
+    resultRanks.sort(reverse=True)
+    resultRanks = [(elt[1],elt[0]) for elt in resultRanks]
+    resultLogFCs.sort(reverse=True)
+    resultLogFCs = [(elt[1],elt[0]) for elt in resultLogFCs]
+    if errors:
+        logging.warning('%d genes ignored because ranks were not present' % len(errors))
+
+    return {'filtered_ranks': resultRanks, 'filtered_logfcs':resultLogFCs}

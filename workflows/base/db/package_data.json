@@ -1202,14 +1202,32 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": 380, 
-      "name": "Dictionaries", 
+      "name": "Dictionary 1", 
       "short_name": "dct", 
       "uid": "7d53195e-49f3-4873-989d-e096563f84ed", 
       "default": "", 
       "required": false, 
-      "multi": true, 
+      "multi": false, 
       "parameter_type": null, 
-      "variable": "dicts", 
+      "variable": "dict1", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 908, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 380, 
+      "name": "Dictionary 2", 
+      "short_name": "dct", 
+      "uid": "53efae34-3906-4732-818c-78f44e6bceea", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dict2", 
       "parameter": false, 
       "order": 1, 
       "description": ""

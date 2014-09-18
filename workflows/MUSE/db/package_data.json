@@ -1,6 +1,6 @@
 [
   {
-    "pk": 45, 
+    "pk": 35, 
     "model": "workflows.category", 
     "fields": {
       "uid": "1f5cbe19-0df7-44de-91d8-1ffdae9a1645", 
@@ -12,11 +12,11 @@
     }
   }, 
   {
-    "pk": 48, 
+    "pk": 36, 
     "model": "workflows.category", 
     "fields": {
       "uid": "e8574599-994c-4cff-a94d-453d6c5e2dfd", 
-      "parent": 45, 
+      "parent": 35, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -24,10 +24,73 @@
     }
   }, 
   {
-    "pk": 261, 
+    "pk": 421, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 48, 
+      "category": 36, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Tuk the Hunter 3D demonstrator", 
+      "is_streaming": false, 
+      "uid": "ec3279bc-9a20-4e06-84c0-ae0cd1c79a56", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "MUSE", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "MUSE_virtual_environment_demonstrator_tuk", 
+      "streaming_visualization_view": "", 
+      "action": "MUSE_virtual_environment_demonstrator_tuk", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "3D demonstrator for the Tuk the Hunter children story"
+    }
+  }, 
+  {
+    "pk": 1060, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 421, 
+      "name": "mapping file URL", 
+      "short_name": "lnk", 
+      "uid": "6f99be99-50d7-4f2b-a1f0-2ab2aa8c69b9", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "mappingLink", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "A link to the XML file contating mapping to knowledge representation"
+    }
+  }, 
+  {
+    "pk": 1061, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 421, 
+      "name": "Unity3D app link", 
+      "short_name": "lnk", 
+      "uid": "adfdaa7d-4e2e-4d98-aaa0-a33df67c381e", 
+      "default": "https://ive.scm.tees.ac.uk/muse/tuk-text/Tuk-Text-Workflow-Web.html", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "unityLink", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "A link to the Tuk Unity3D web app"
+    }
+  }, 
+  {
+    "pk": 166, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 36, 
       "treeview_image": "", 
       "windows_queue": false, 
       "name": "Virtual environment visualization", 
@@ -51,10 +114,10 @@
     }
   }, 
   {
-    "pk": 556, 
+    "pk": 322, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 261, 
+      "widget": 166, 
       "name": "NLP data", 
       "short_name": "nlp", 
       "uid": "6e5ebc4b-cdbe-4ca6-8f5d-bcde21f5319a", 
@@ -69,10 +132,10 @@
     }
   }, 
   {
-    "pk": 557, 
+    "pk": 323, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 261, 
+      "widget": 166, 
       "name": "Server link", 
       "short_name": "url", 
       "uid": "585e80d1-e5fb-49c9-92a7-7af16d4070f6", 
@@ -87,11 +150,11 @@
     }
   }, 
   {
-    "pk": 46, 
+    "pk": 37, 
     "model": "workflows.category", 
     "fields": {
       "uid": "cf46e990-42b6-4027-b2f4-a95acaaed210", 
-      "parent": 45, 
+      "parent": 35, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -99,15 +162,15 @@
     }
   }, 
   {
-    "pk": 243, 
+    "pk": 167, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 46, 
+      "category": 37, 
       "treeview_image": "", 
       "windows_queue": false, 
       "name": "Event extraction", 
       "is_streaming": false, 
-      "uid": "5e5aa91e-090a-43c9-97c6-6064380b09eb", 
+      "uid": "5e5aa91e-090a-43c9-97c6-fixbyjanez", 
       "interaction_view": "", 
       "image": "", 
       "package": "MUSE", 
@@ -126,13 +189,13 @@
     }
   }, 
   {
-    "pk": 526, 
+    "pk": 324, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 243, 
+      "widget": 167, 
       "name": "Raw text", 
       "short_name": "txt", 
-      "uid": "7e5b5533-d21c-4955-8fb8-417d5030793f", 
+      "uid": "7e5b5533-d21c-4955-8fb8-janezfix", 
       "default": "", 
       "required": true, 
       "multi": false, 
@@ -144,23 +207,63 @@
     }
   }, 
   {
-    "pk": 255, 
+    "pk": 178, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 243, 
+      "widget": 167, 
       "name": "Annotated text", 
       "short_name": "xml", 
       "variable": "annotations_xml", 
-      "uid": "c677e844-9f9b-4d09-8e08-9b9335895bac", 
+      "uid": "c677e844-9f9b-4d09-8e08-janezfix", 
       "order": 1, 
       "description": "XML document with all annotations"
     }
   }, 
   {
-    "pk": 257, 
+    "pk": 422, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 46, 
+      "category": 37, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Mapping to KR golden standard", 
+      "is_streaming": false, 
+      "uid": "32cab8ef-ef16-41bd-b14e-fff54ad1e411", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "MUSE", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "MUSE_mapping_to_KR_golden_standard", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "A link to the golden standard XML file for mapping to KR"
+    }
+  }, 
+  {
+    "pk": 454, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 422, 
+      "name": "Link", 
+      "short_name": "lnk", 
+      "variable": "goldenLink", 
+      "uid": "f130683f-435e-4199-be4d-c420acb29886", 
+      "order": 1, 
+      "description": "Link to the golden standard for mapping to KR"
+    }
+  }, 
+  {
+    "pk": 168, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 37, 
       "treeview_image": "", 
       "windows_queue": false, 
       "name": "Mapping to Knowledge representation", 
@@ -184,10 +287,10 @@
     }
   }, 
   {
-    "pk": 549, 
+    "pk": 325, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 257, 
+      "widget": 168, 
       "name": "Input data", 
       "short_name": "str", 
       "uid": "472a4149-0115-4f63-bf9b-1494fd0468b9", 
@@ -202,10 +305,10 @@
     }
   }, 
   {
-    "pk": 550, 
+    "pk": 326, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 257, 
+      "widget": 168, 
       "name": "Service url", 
       "short_name": "url", 
       "uid": "2b6b393c-97c7-4827-94a5-042944382939", 
@@ -220,10 +323,10 @@
     }
   }, 
   {
-    "pk": 267, 
+    "pk": 179, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 257, 
+      "widget": 168, 
       "name": "Instantiated event templates", 
       "short_name": "tpl", 
       "variable": "mapping", 
@@ -233,10 +336,10 @@
     }
   }, 
   {
-    "pk": 263, 
+    "pk": 169, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 46, 
+      "category": 37, 
       "treeview_image": "", 
       "windows_queue": false, 
       "name": "Mapping to Knowledge representation (latest)", 
@@ -260,10 +363,10 @@
     }
   }, 
   {
-    "pk": 560, 
+    "pk": 327, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 263, 
+      "widget": 169, 
       "name": "Input data", 
       "short_name": "str", 
       "uid": "fd659d24-6367-442a-8e9a-871a66122f35", 
@@ -278,10 +381,10 @@
     }
   }, 
   {
-    "pk": 561, 
+    "pk": 328, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 263, 
+      "widget": 169, 
       "name": "Service url", 
       "short_name": "url", 
       "uid": "fd076e47-1432-4678-8353-aeb4ec286ecf", 
@@ -296,10 +399,10 @@
     }
   }, 
   {
-    "pk": 274, 
+    "pk": 180, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 263, 
+      "widget": 169, 
       "name": "Instantiated event templates", 
       "short_name": "tpl", 
       "variable": "mapping", 
@@ -309,10 +412,10 @@
     }
   }, 
   {
-    "pk": 275, 
+    "pk": 181, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 263, 
+      "widget": 169, 
       "name": "XML with results", 
       "short_name": "xml", 
       "variable": "xml", 
@@ -322,10 +425,10 @@
     }
   }, 
   {
-    "pk": 258, 
+    "pk": 170, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 46, 
+      "category": 37, 
       "treeview_image": "", 
       "windows_queue": false, 
       "name": "Mapping to Knowledge representation (precomputed)", 
@@ -349,10 +452,10 @@
     }
   }, 
   {
-    "pk": 551, 
+    "pk": 329, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 258, 
+      "widget": 170, 
       "name": "Input data", 
       "short_name": "str", 
       "uid": "928407bb-a711-4d0f-84d3-9954618c9f3d", 
@@ -367,10 +470,10 @@
     }
   }, 
   {
-    "pk": 552, 
+    "pk": 330, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 258, 
+      "widget": 170, 
       "name": "Service url", 
       "short_name": "url", 
       "uid": "c47d762d-b3a7-46b8-9bfd-7579bf0dcc56", 
@@ -385,10 +488,10 @@
     }
   }, 
   {
-    "pk": 268, 
+    "pk": 182, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 258, 
+      "widget": 170, 
       "name": "Instantiated event templates", 
       "short_name": "tpl", 
       "variable": "mapping", 
@@ -398,10 +501,10 @@
     }
   }, 
   {
-    "pk": 264, 
+    "pk": 171, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 46, 
+      "category": 37, 
       "treeview_image": "", 
       "windows_queue": false, 
       "name": "Mapping to Knowledge representation (precomputed, latest)", 
@@ -425,10 +528,10 @@
     }
   }, 
   {
-    "pk": 562, 
+    "pk": 331, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 264, 
+      "widget": 171, 
       "name": "Input data", 
       "short_name": "str", 
       "uid": "9768b671-1d81-4156-990f-b7fdff39be63", 
@@ -443,10 +546,10 @@
     }
   }, 
   {
-    "pk": 563, 
+    "pk": 332, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 264, 
+      "widget": 171, 
       "name": "Service url", 
       "short_name": "url", 
       "uid": "2a896528-9e04-41e3-ba36-1d005c965db9", 
@@ -461,10 +564,10 @@
     }
   }, 
   {
-    "pk": 276, 
+    "pk": 183, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 264, 
+      "widget": 171, 
       "name": "Instantiated event templates", 
       "short_name": "tpl", 
       "variable": "mapping", 
@@ -474,10 +577,10 @@
     }
   }, 
   {
-    "pk": 277, 
+    "pk": 184, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 264, 
+      "widget": 171, 
       "name": "XML with results", 
       "short_name": "xml", 
       "variable": "xml", 
@@ -487,10 +590,10 @@
     }
   }, 
   {
-    "pk": 259, 
+    "pk": 172, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 46, 
+      "category": 37, 
       "treeview_image": "", 
       "windows_queue": false, 
       "name": "Semantic role labeling", 
@@ -514,10 +617,10 @@
     }
   }, 
   {
-    "pk": 553, 
+    "pk": 333, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 259, 
+      "widget": 172, 
       "name": "Input XML", 
       "short_name": "xml", 
       "uid": "dab8f94f-b362-41fd-ba71-93c24d740409", 
@@ -532,10 +635,10 @@
     }
   }, 
   {
-    "pk": 554, 
+    "pk": 334, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 259, 
+      "widget": 172, 
       "name": "Service url", 
       "short_name": "url", 
       "uid": "814c5076-50b6-40de-a0d8-1b81aceb4f9f", 
@@ -550,10 +653,10 @@
     }
   }, 
   {
-    "pk": 269, 
+    "pk": 185, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 259, 
+      "widget": 172, 
       "name": "Output XML", 
       "short_name": "xml", 
       "variable": "xml", 
@@ -563,10 +666,10 @@
     }
   }, 
   {
-    "pk": 270, 
+    "pk": 186, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 259, 
+      "widget": 172, 
       "name": "Input for KR", 
       "short_name": "str", 
       "variable": "txt", 
@@ -576,10 +679,10 @@
     }
   }, 
   {
-    "pk": 262, 
+    "pk": 173, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 46, 
+      "category": 37, 
       "treeview_image": "", 
       "windows_queue": false, 
       "name": "Semantic role labeling (Tuk specific)", 
@@ -603,10 +706,10 @@
     }
   }, 
   {
-    "pk": 558, 
+    "pk": 335, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 262, 
+      "widget": 173, 
       "name": "Input XML", 
       "short_name": "xml", 
       "uid": "29ffdc81-3172-4998-b2f0-ec216fcc3618", 
@@ -621,10 +724,10 @@
     }
   }, 
   {
-    "pk": 559, 
+    "pk": 336, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 262, 
+      "widget": 173, 
       "name": "Service url", 
       "short_name": "url", 
       "uid": "a9e1d01c-af14-4826-bac3-1f8fbd37b595", 
@@ -639,10 +742,10 @@
     }
   }, 
   {
-    "pk": 272, 
+    "pk": 187, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 262, 
+      "widget": 173, 
       "name": "Output XML", 
       "short_name": "xml", 
       "variable": "xml", 
@@ -652,10 +755,10 @@
     }
   }, 
   {
-    "pk": 273, 
+    "pk": 188, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 262, 
+      "widget": 173, 
       "name": "Input for KR", 
       "short_name": "str", 
       "variable": "txt", 
@@ -665,10 +768,10 @@
     }
   }, 
   {
-    "pk": 260, 
+    "pk": 174, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 46, 
+      "category": 37, 
       "treeview_image": "", 
       "windows_queue": false, 
       "name": "Syntactic and semantic processing", 
@@ -692,10 +795,10 @@
     }
   }, 
   {
-    "pk": 555, 
+    "pk": 337, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 260, 
+      "widget": 174, 
       "name": "Raw text", 
       "short_name": "txt", 
       "uid": "7e5b5533-d21c-4955-8fb8-417d5030793f", 
@@ -710,10 +813,10 @@
     }
   }, 
   {
-    "pk": 271, 
+    "pk": 189, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 260, 
+      "widget": 174, 
       "name": "Annotated text", 
       "short_name": "xml", 
       "variable": "annotations_xml", 
@@ -723,11 +826,11 @@
     }
   }, 
   {
-    "pk": 47, 
+    "pk": 38, 
     "model": "workflows.category", 
     "fields": {
       "uid": "2ea309eb-3f82-45cb-8b33-9d00cf3f5a35", 
-      "parent": 45, 
+      "parent": 35, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -735,10 +838,86 @@
     }
   }, 
   {
-    "pk": 244, 
+    "pk": 420, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 47, 
+      "category": 38, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "String to statically hosted file", 
+      "is_streaming": false, 
+      "uid": "6f800e52-4d42-44aa-a981-ef554a29fb3a", 
+      "interaction_view": "MUSE_string_to_file", 
+      "image": "", 
+      "package": "MUSE", 
+      "static_image": "", 
+      "post_interact_action": "MUSE_string_to_file_finished", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "MUSE_string_to_file", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Creates a statically served file from the given (text) content."
+    }
+  }, 
+  {
+    "pk": 1058, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 420, 
+      "name": "Input data", 
+      "short_name": "str", 
+      "uid": "948f82ac-f8a3-4fd7-b7ed-3faeaa4d0a94", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Input data as string"
+    }
+  }, 
+  {
+    "pk": 1059, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 420, 
+      "name": "File extension", 
+      "short_name": "typ", 
+      "uid": "a948226a-881f-4b8d-9739-6c99a57a8837", 
+      "default": ".xml", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "fending", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Extension of the static file"
+    }
+  }, 
+  {
+    "pk": 453, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 420, 
+      "name": "Link", 
+      "short_name": "url", 
+      "variable": "fileURL", 
+      "uid": "280a6753-6e16-435c-80f4-85992b224000", 
+      "order": 1, 
+      "description": "Link to the statically hosted file"
+    }
+  }, 
+  {
+    "pk": 175, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 38, 
       "treeview_image": "", 
       "windows_queue": false, 
       "name": "View XML", 
@@ -762,10 +941,10 @@
     }
   }, 
   {
-    "pk": 527, 
+    "pk": 338, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 244, 
+      "widget": 175, 
       "name": "XML document", 
       "short_name": "xml", 
       "uid": "2e451b23-c11d-4614-aa4f-57521a42ef83", 
