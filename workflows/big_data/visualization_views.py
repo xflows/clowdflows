@@ -93,7 +93,8 @@ def results_to_file(request,input_dict,output_dict,widget):
 
     tag = input_dict["string"]
     folder = 'discomll_results'
-    destination = MEDIA_ROOT+'/'+folder+"/"+tag[0][6:]+'.txt'
+    add = "add" if input_dict["add_params"] == "true" else ""
+    destination = MEDIA_ROOT+'/'+folder+"/"+tag[0][6:]+add+'.txt'
     ensure_dir(destination)
     
     if not os.path.isfile(destination): #file doesnt exists

@@ -27,7 +27,8 @@ def cforange_hierarchical_clustering(request,input_dict,output_dict,widget):
 
     
     try:
-        attributes = [x.name for x in matrix.items.domain]
+        #attributes = [x.name for x in matrix.items.domain]
+        attributes = [x.name for x in matrix.items.domain] + [m.name for m in matrix.items.domain.getmetas().values()]
     except:
         attributes = ['attribute']
         dm_examples = False

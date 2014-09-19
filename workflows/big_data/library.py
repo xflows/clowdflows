@@ -24,19 +24,19 @@ def file_url(input_dict):
 
     input_dict["data_type"] = "gzip" if input_dict["data_type"] == "true" else ""
 
-    if input_dict["meta"] == "numeric":
+    if input_dict["atr_meta"] == "numeric":
         X_meta = ["c" for i in range(len(X_indices))]
-    elif input_dict["meta"] == "discrete":
+    elif input_dict["atr_meta"] == "discrete":
         X_meta = ["d" for i in range(len(X_indices))]
     else:
-        X_meta = input_dict["meta"]        
+        X_meta = input_dict["custom"]        
 
     data = dataset.Data(data_tag = urls,
                             X_indices = X_indices,
                             X_meta = X_meta,
                             generate_urls = True if input_dict["range"] == "true" else False,
                             **input_dict)
-    
+    print data.params
     return {"dataset" : data}
 
 def big_data_apply_classifier(input_dict):
@@ -70,6 +70,7 @@ def lwlr_fit_predict(input_dict):
 
 def dt_fit(input_dict):
     from discomll.ensemble import decision_trees
+    print input_dict
 
     fitmodel_url = decision_trees.fit(input = input_dict["dataset"],
                                        max_tree_nodes = input_dict["tree_nodes"],
