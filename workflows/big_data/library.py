@@ -36,7 +36,7 @@ def file_url(input_dict):
                             X_meta = X_meta,
                             generate_urls = True if input_dict["range"] == "true" else False,
                             **input_dict)
-    print data.params
+    
     return {"dataset" : data}
 
 def big_data_apply_classifier(input_dict):
@@ -70,7 +70,7 @@ def lwlr_fit_predict(input_dict):
 
 def dt_fit(input_dict):
     from discomll.ensemble import decision_trees
-    print input_dict
+    
 
     fitmodel_url = decision_trees.fit(input = input_dict["dataset"],
                                        max_tree_nodes = input_dict["tree_nodes"],

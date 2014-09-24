@@ -94,7 +94,9 @@ def results_to_file(request,input_dict,output_dict,widget):
     tag = input_dict["string"]
     folder = 'discomll_results'
     add = "add" if input_dict["add_params"] == "true" else ""
+    
     destination = MEDIA_ROOT+'/'+folder+"/"+tag[0][6:]+add+'.txt'
+    
     ensure_dir(destination)
     
     if not os.path.isfile(destination): #file doesnt exists
@@ -107,7 +109,7 @@ def results_to_file(request,input_dict,output_dict,widget):
             for k, v in result_iterator(tag):
                 f.writelines(str(k) + " " + str(v[0]) + "\n")
         f.close()
-    filename = folder+"/"+tag[0][6:]+'.txt'
+    filename = folder+"/"+tag[0][6:]+add+'.txt'
 
     output_dict['filename'] = filename
     return render(request, 'visualizations/string_to_file.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})

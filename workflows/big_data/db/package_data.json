@@ -1452,6 +1452,24 @@
     }
   },
   {
+    "pk": 184,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 61,
+      "name": "Training dataset",
+      "short_name": "dst",
+      "uid": "15644754-4c1d-4367-a0a3-5d442b51ff89",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "training_dataset",
+      "parameter": false,
+      "order": 1,
+      "description": "Define training dataset"
+    }
+  },
+  {
     "pk": 183,
     "model": "workflows.abstractinput",
     "fields": {
@@ -1465,7 +1483,7 @@
       "parameter_type": null,
       "variable": "fitting_dataset",
       "parameter": false,
-      "order": 1,
+      "order": 2,
       "description": "Define a dataset that will be fitted to training dataset."
     }
   },
@@ -1483,26 +1501,8 @@
       "parameter_type": "text",
       "variable": "tau",
       "parameter": true,
-      "order": 2,
-      "description": "Parameter Tau controls how quickly the weight of a training example falls off with distance of its x(i) from the query point x"
-    }
-  },
-  {
-    "pk": 184,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 61,
-      "name": "Training dataset",
-      "short_name": "dst",
-      "uid": "15644754-4c1d-4367-a0a3-5d442b51ff89",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "training_dataset",
-      "parameter": false,
       "order": 3,
-      "description": "Define training dataset"
+      "description": "Parameter Tau controls how quickly the weight of a training example falls off with distance of its x(i) from the query point x"
     }
   },
   {
