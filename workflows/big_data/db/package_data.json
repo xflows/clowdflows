@@ -12,12 +12,13 @@
     }
   },
   {
-    "pk": 34,
+    "pk": 33,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 5,
       "treeview_image": "",
-      "name": "File URLs",
+      "windows_queue": false,
+      "name": "Input Dataset",
       "is_streaming": false,
       "uid": "189c6a1b-612a-4ca6-a7e3-c39349922781",
       "interaction_view": "",
@@ -38,11 +39,11 @@
     }
   },
   {
-    "pk": 51,
+    "pk": 49,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34,
-      "name": "URLs",
+      "widget": 33,
+      "name": "Input URLs",
       "short_name": "url",
       "uid": "e2883c3d-7b3a-46ec-8673-10da5f494ec9",
       "default": "",
@@ -52,15 +53,15 @@
       "variable": "url",
       "parameter": true,
       "order": 1,
-      "description": "Multiple URLs can be specified, where the number of URLs defines a number of map task that will process the data in parallel. An URL should be accessible via HTTP and not HTTPS. "
+      "description": "Multiple URLs can be specified. An URL should be accessible via HTTP and not HTTPS. "
     }
   },
   {
-    "pk": 72,
+    "pk": 50,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34,
-      "name": "Range",
+      "widget": 33,
+      "name": "URL range",
       "short_name": "rng",
       "uid": "992a24e0-0365-46ef-8dd2-37fa19563bd5",
       "default": "",
@@ -70,14 +71,14 @@
       "variable": "range",
       "parameter": true,
       "order": 2,
-      "description": "The range parameter is used with URLs that points to file chunks, named as xaaaa to xzzzz. This naming is provided by the unix split command. The first and last URL should be defined in the URLs text box. Intermediate URLs will be automatically generated."
+      "description": "The URL range parameter is used with URLs that point to file chunks, named as xaaaa to xzzzz. This naming is provided by the unix split command. The first and last URL should be defined in the URLs text box. Intermediate URLs will be automatically generated."
     }
   },
   {
-    "pk": 59,
+    "pk": 51,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34,
+      "widget": 33,
       "name": "Gzipped data",
       "short_name": "zip",
       "uid": "d62fc126-afda-4f0b-876d-5180cd409779",
@@ -92,11 +93,11 @@
     }
   },
   {
-    "pk": 57,
+    "pk": 52,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34,
-      "name": "Feature indices",
+      "widget": 33,
+      "name": "Attribute selection",
       "short_name": "ind",
       "uid": "e32184e0-f38a-466f-a991-82e084a1cd8b",
       "default": "",
@@ -106,14 +107,80 @@
       "variable": "X_indices",
       "parameter": true,
       "order": 4,
-      "description": "Define indices of features to processed. \r\n\r\nExample: 1 - 10 for indices in the range from 1 to 10 or 1,2 for indices 1 and 2."
+      "description": "Select attributes that will processed. \r\n\r\nExample: 1 - 10 for indices in the range from 1 to 10 or 1,2 for indices 1 and 2."
     }
   },
   {
-    "pk": 56,
+    "pk": 207,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34,
+      "widget": 33,
+      "name": "Attribute metadata",
+      "short_name": "mta",
+      "uid": "705b4459-6f05-4fd3-a230-33e0ddd784b3",
+      "default": "numeric",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "atr_meta",
+      "parameter": true,
+      "order": 5,
+      "description": "Select numeric, if all attributes are numeric or discrete, if all attributes are discrete. \r\n"
+    }
+  },
+  {
+    "pk": 36,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "c1d13a93-1572-415c-8988-12affdbff7fc",
+      "abstract_input": 207,
+      "value": "discrete",
+      "name": "discrete"
+    }
+  },
+  {
+    "pk": 37,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "26ec18bf-771f-4aa4-957f-301df41cfa4e",
+      "abstract_input": 207,
+      "value": "metadata url",
+      "name": "metadata url"
+    }
+  },
+  {
+    "pk": 35,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "6fb7a9a5-29ed-47c9-a260-301f34ffcf52",
+      "abstract_input": 207,
+      "value": "numeric",
+      "name": "numeric"
+    }
+  },
+  {
+    "pk": 85,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 33,
+      "name": "Metadata URL",
+      "short_name": "cmt",
+      "uid": "491eab89-b3f1-4503-864b-7cad9a01dda7",
+      "default": "",
+      "required": false,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "custom",
+      "parameter": true,
+      "order": 6,
+      "description": "Define an URL of a file with attribute metadata.\r\n\r\nExample of a file with 3 attributes, where first and second are continous and third is discrete:\r\natr1, atr2, atr3\r\nc,c,d "
+    }
+  },
+  {
+    "pk": 53,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 33,
       "name": "ID index",
       "short_name": "id",
       "uid": "f100a206-8fdd-4f8f-afa4-c7d3c3b6f0ca",
@@ -123,16 +190,16 @@
       "parameter_type": "text",
       "variable": "id_index",
       "parameter": true,
-      "order": 5,
-      "description": "Define the index of the ID feature in the data. The ID index should be defined with test data."
+      "order": 7,
+      "description": "Define identifier index in the data."
     }
   },
   {
-    "pk": 58,
+    "pk": 54,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34,
-      "name": "Target label index",
+      "widget": 33,
+      "name": "Class index",
       "short_name": "tar",
       "uid": "69a3061b-9dcf-4c18-9f69-b5bc082dd65e",
       "default": "",
@@ -141,15 +208,15 @@
       "parameter_type": "text",
       "variable": "y_index",
       "parameter": true,
-      "order": 6,
-      "description": "Define the index of the target label feature in the data. If it is not defined, last feature will be used as the target label in the fit phase.\r\nIf the index is defined in the predict phase, target labels will be output with predicted target labels."
+      "order": 8,
+      "description": "Define the class index in the dataset. If it is not defined, last attribute is used as the class."
     }
   },
   {
-    "pk": 60,
+    "pk": 55,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34,
+      "widget": 33,
       "name": "Delimiter",
       "short_name": "dlt",
       "uid": "fd2eff8a-b2d0-4de6-9384-13ce5385e3fc",
@@ -159,15 +226,15 @@
       "parameter_type": "text",
       "variable": "delimiter",
       "parameter": true,
-      "order": 7,
+      "order": 9,
       "description": "Define delimiter to parse the data."
     }
   },
   {
-    "pk": 61,
+    "pk": 56,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34,
+      "widget": 33,
       "name": "Missing values",
       "short_name": "mv",
       "uid": "f393261f-ba93-4ed5-bdfc-82f6027bb327",
@@ -177,16 +244,16 @@
       "parameter_type": "text",
       "variable": "missing_vals",
       "parameter": true,
-      "order": 8,
-      "description": "Lines that contains missing symbols will be skipped. Define symbols and separate them with comma , .\r\n\r\nExample: ?, x"
+      "order": 10,
+      "description": "Missing data values are skipped.\r\n\r\nExample: ?,"
     }
   },
   {
-    "pk": 62,
+    "pk": 57,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 34,
-      "name": "Target label mapping",
+      "widget": 33,
+      "name": "Class mapping",
       "short_name": "map",
       "uid": "04fb15c3-7d69-43e7-a009-0eb9a3c3a33e",
       "default": "",
@@ -195,15 +262,15 @@
       "parameter_type": "text",
       "variable": "y_map",
       "parameter": true,
-      "order": 9,
-      "description": "The target label mapping parameter defines a mapping of values for a binary target label. It is used with Logistic regression and Linear proximal SVM.\r\n\r\nFor example, the Logistic regression classifier uses 0 and 1 as a target label. If the data contains discrete target labels (e.g. healthy, sick), a mapping should be defined, where healthy is mapped to 1 and sick to 0. The target label mapping is used only for binary target labels.\r\nTarget label mapping: healthy, sick"
+      "order": 11,
+      "description": "The class mapping defines a mapping for a binary class. It is used with Logistic regression and Linear SVM.\r\n\r\nThe Logistic regression classifier uses 0 and 1 as class. If the dataset contains discrete classes  (e.g. healthy, sick), a mapping should be defined, where healthy is mapped to 1 and sick to 0. The class mapping is used only with binary target labels.\r\nExample: healthy, sick"
     }
   },
   {
-    "pk": 34,
+    "pk": 30,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 34,
+      "widget": 33,
       "name": "Dataset",
       "short_name": "dst",
       "variable": "dataset",
@@ -213,12 +280,13 @@
     }
   },
   {
-    "pk": 47,
+    "pk": 34,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 5,
       "treeview_image": "",
-      "name": "Results to a File",
+      "windows_queue": false,
+      "name": "Results View",
       "is_streaming": false,
       "uid": "437156da-ad2c-41d0-b20b-a10e746e35c2",
       "interaction_view": "",
@@ -234,15 +302,15 @@
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 1,
+      "order": 2,
       "description": ""
     }
   },
   {
-    "pk": 85,
+    "pk": 58,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 47,
+      "widget": 34,
       "name": "Results",
       "short_name": "rst",
       "uid": "795a676a-e380-4565-9170-be7e9b621377",
@@ -254,6 +322,24 @@
       "parameter": false,
       "order": 1,
       "description": "Results URL"
+    }
+  },
+  {
+    "pk": 197,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 34,
+      "name": "Additional parameters",
+      "short_name": "adp",
+      "uid": "a194ac52-5e13-46c2-be48-a9b531da4d33",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": "checkbox",
+      "variable": "add_params",
+      "parameter": true,
+      "order": 2,
+      "description": ""
     }
   },
   {
@@ -269,12 +355,13 @@
     }
   },
   {
-    "pk": 37,
+    "pk": 35,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 6,
       "treeview_image": "",
-      "name": "Gaussian Naive Bayes fit",
+      "windows_queue": false,
+      "name": "Naive Bayes",
       "is_streaming": false,
       "uid": "477a2f37-5015-4a46-a243-08c8e84256b7",
       "interaction_view": "",
@@ -285,20 +372,20 @@
       "user": null,
       "visualization_view": "",
       "streaming_visualization_view": "",
-      "action": "gaussian_naive_bayes_fit",
+      "action": "naivebayes_fit",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
       "order": 1,
-      "description": ""
+      "description": "Naive Bayes with MapReduce\r\n\r\nAlgorithm calculates multinomial distribution for discrete features and Gaussian distribution for numerical features. The output of algorithm is consistent with implementation of Naive Bayes classifier in Orange and scikit-learn.\r\n\r\nReference:\r\nMapReduce version of algorithm is proposed by Cheng-Tao Chu; Sang Kyun Kim, Yi-An Lin, YuanYuan Yu, Gary Bradski, Andrew Ng, and Kunle Olukotun. \"Map-Reduce for Machine Learning on Multicore\". NIPS 2006. "
     }
   },
   {
-    "pk": 63,
+    "pk": 59,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 37,
+      "widget": 35,
       "name": "Dataset",
       "short_name": "dst",
       "uid": "06ec10c3-e773-4a86-a91d-873af823c9f3",
@@ -313,10 +400,10 @@
     }
   },
   {
-    "pk": 35,
+    "pk": 31,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 37,
+      "widget": 35,
       "name": "Fit model",
       "short_name": "fit",
       "variable": "fitmodel_url",
@@ -326,105 +413,13 @@
     }
   },
   {
-    "pk": 38,
+    "pk": 37,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 6,
       "treeview_image": "",
-      "name": "Gaussian Naive Bayes predict",
-      "is_streaming": false,
-      "uid": "672a3a70-1bd9-4c99-b55a-e5fe8fc5c264",
-      "interaction_view": "",
-      "image": "",
-      "package": "big_data",
-      "static_image": "",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "streaming_visualization_view": "",
-      "action": "gaussian_naive_bayes_predict",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 2,
-      "description": ""
-    }
-  },
-  {
-    "pk": 64,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 38,
-      "name": "Fit Model",
-      "short_name": "fit",
-      "uid": "4f190e78-d94e-4318-87c1-4fcd8625650d",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "fitmodel_url",
-      "parameter": false,
-      "order": 1,
-      "description": "Fit Model URL"
-    }
-  },
-  {
-    "pk": 65,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 38,
-      "name": "Dataset",
-      "short_name": "dst",
-      "uid": "08f26e43-9ceb-4081-b00c-265c567096b2",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "dataset",
-      "parameter": false,
-      "order": 2,
-      "description": ""
-    }
-  },
-  {
-    "pk": 66,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 38,
-      "name": "Log probabilities",
-      "short_name": "log",
-      "uid": "ad2231df-eef5-44b4-8a60-50f855a28fcb",
-      "default": "",
-      "required": false,
-      "multi": false,
-      "parameter_type": "checkbox",
-      "variable": "log_probs",
-      "parameter": true,
-      "order": 3,
-      "description": "Calculate logarithm probabilities."
-    }
-  },
-  {
-    "pk": 36,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 38,
-      "name": "Results",
-      "short_name": "rst",
-      "variable": "string",
-      "uid": "4759f850-a661-4414-89e9-6b7a5d4b3b8e",
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
-    "pk": 45,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 6,
-      "treeview_image": "",
-      "name": "Linear proximal SVM fit",
+      "windows_queue": false,
+      "name": "Linear SVM",
       "is_streaming": false,
       "uid": "4fddd2e5-f253-4854-a246-389ce6cce36c",
       "interaction_view": "",
@@ -435,20 +430,20 @@
       "user": null,
       "visualization_view": "",
       "streaming_visualization_view": "",
-      "action": "lpsvm_fit",
+      "action": "linsvm_fit",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
       "order": 3,
-      "description": ""
+      "description": "Linear proximal SVM with MapReduce\r\n\r\nAlgorithm builds a model with continuous features and predicts binary target label (-1, 1). \r\n\r\nReference\r\nAlgorithm is proposed by Glenn Fung, O. L. Mangasarian. Incremental Support Vector Machine Classification. Description of algorithm can be found at ftp://ftp.cs.wisc.edu/pub/dmi/tech-reports/01-08.pdf. "
     }
   },
   {
-    "pk": 81,
+    "pk": 63,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 45,
+      "widget": 37,
       "name": "Dataset",
       "short_name": "dst",
       "uid": "66d60bda-e24c-4e40-898a-0627800fe022",
@@ -463,15 +458,15 @@
     }
   },
   {
-    "pk": 82,
+    "pk": 64,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 45,
+      "widget": 37,
       "name": "The weighting factor",
       "short_name": "nu",
       "uid": "e9b6cbcd-fc02-478b-a993-3b42ee730857",
-      "default": "0.01",
-      "required": false,
+      "default": "0.1",
+      "required": true,
       "multi": false,
       "parameter_type": "text",
       "variable": "nu",
@@ -481,10 +476,10 @@
     }
   },
   {
-    "pk": 43,
+    "pk": 33,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 45,
+      "widget": 37,
       "name": "Fit model",
       "short_name": "fit",
       "variable": "fitmodel_url",
@@ -494,87 +489,13 @@
     }
   },
   {
-    "pk": 46,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 6,
-      "treeview_image": "",
-      "name": "Linear proximal SVM predict",
-      "is_streaming": false,
-      "uid": "6d84bb32-e028-428c-ba2b-63218f800172",
-      "interaction_view": "",
-      "image": "",
-      "package": "big_data",
-      "static_image": "",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "streaming_visualization_view": "",
-      "action": "lpsvm_predict",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 4,
-      "description": ""
-    }
-  },
-  {
-    "pk": 83,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 46,
-      "name": "Fit model",
-      "short_name": "fit",
-      "uid": "c76297b2-e519-4c5b-b3eb-7a7f5f2835af",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "fitmodel_url",
-      "parameter": false,
-      "order": 1,
-      "description": "Fit model URL."
-    }
-  },
-  {
-    "pk": 84,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 46,
-      "name": "Dataset",
-      "short_name": "dst",
-      "uid": "42897594-631a-415e-b71a-d92668c9e1cb",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "dataset",
-      "parameter": false,
-      "order": 2,
-      "description": ""
-    }
-  },
-  {
-    "pk": 44,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 46,
-      "name": "Results",
-      "short_name": "rst",
-      "variable": "string",
-      "uid": "b4408e13-5950-4b13-b15e-7f6c1bcf8a00",
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
     "pk": 39,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 6,
       "treeview_image": "",
-      "name": "Logistic regression fit",
+      "windows_queue": false,
+      "name": "Logistic regression",
       "is_streaming": false,
       "uid": "16042741-6834-43ab-9587-b64a1f460238",
       "interaction_view": "",
@@ -585,13 +506,13 @@
       "user": null,
       "visualization_view": "",
       "streaming_visualization_view": "",
-      "action": "log_reg_fit",
+      "action": "logreg_fit",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
       "order": 5,
-      "description": "The logistic regression classifier is a binary classifier that uses numeric features. The classifier learns by fitting theta parameters to the training data using Newton-Raphson method to update theta parameters."
+      "description": "Logistic regression with MapReduce\r\n\r\nAlgorithm builds a model with continuous features and predicts binary target variable (1, 0). Learning is done by fitting theta parameters to the training data where the likelihood function is optimized by using Newton-Raphson to update theta parameters. The output of algorithm is consistent with implementation of logistic regression classifier in Orange.\r\n\r\nReference:\r\nMapReduce version of algorithm is proposed by Cheng-Tao Chu; Sang Kyun Kim, Yi-An Lin, YuanYuan Yu, Gary Bradski, Andrew Ng, and Kunle Olukotun. \"Map-Reduce for Machine Learning on Multicore\". NIPS 2006. "
     }
   },
   {
@@ -649,7 +570,7 @@
     }
   },
   {
-    "pk": 37,
+    "pk": 35,
     "model": "workflows.abstractoutput",
     "fields": {
       "widget": 39,
@@ -662,14 +583,27 @@
     }
   },
   {
-    "pk": 40,
+    "pk": 10,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "1be7b5eb-c1b2-485a-8dbe-56abce63fc73",
+      "parent": 5,
+      "workflow": null,
+      "user": null,
+      "order": 3,
+      "name": "Ensembles"
+    }
+  },
+  {
+    "pk": 55,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 6,
+      "category": 10,
       "treeview_image": "",
-      "name": "Logistic regression predict",
+      "windows_queue": false,
+      "name": "Decision trees",
       "is_streaming": false,
-      "uid": "dd67df4e-7c84-4d0e-aa7f-6c94ebd0356a",
+      "uid": "74df0d6e-684f-46ae-975d-ba1ce5425066",
       "interaction_view": "",
       "image": "",
       "package": "big_data",
@@ -678,130 +612,186 @@
       "user": null,
       "visualization_view": "",
       "streaming_visualization_view": "",
-      "action": "log_reg_predict",
+      "action": "dt_fit",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 6,
-      "description": "The logistic regression classifier is a binary classifier that uses numeric features. The classifier learns by fitting theta parameters to the training data using Newton-Raphson method to update theta parameters."
-    }
-  },
-  {
-    "pk": 70,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 40,
-      "name": "Fit model",
-      "short_name": "fit",
-      "uid": "ab0969e7-bed6-4381-926f-ac5a16a77c08",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "fitmodel_url",
-      "parameter": false,
       "order": 1,
-      "description": "Fit model URL."
+      "description": "Decision trees with MapReduce\r\n\r\nFit phase\r\nDecision trees algorithm builds one decision tree on a subset of data and it estimates all attributes in every tree node.\r\n\r\nPredict phase\r\nEach tree votes and algorithm selects prediction with most votes.\r\n\r\nReference\r\nSimilar algorithm is proposed in Gongqing Wu, Haiguang Li, Xuegang Hu, Yuanjun Bi, Jing Zhang, and Xindong Wu. MRec4.5: C4. 5 ensemble classification with mapreduce."
     }
   },
   {
-    "pk": 71,
+    "pk": 159,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 40,
+      "widget": 55,
       "name": "Dataset",
       "short_name": "dst",
-      "uid": "ce059641-3abd-49e1-9c55-d3476e0db0ee",
+      "uid": "0351b517-61f1-4856-8ee4-1acd7d04d599",
       "default": "",
       "required": true,
       "multi": false,
       "parameter_type": null,
       "variable": "dataset",
       "parameter": false,
-      "order": 2,
+      "order": 1,
       "description": ""
+    }
+  },
+  {
+    "pk": 160,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 55,
+      "name": "Max tree nodes",
+      "short_name": "mtn",
+      "uid": "a91f5676-5c91-420a-b731-5cf60afd601b",
+      "default": "20",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "tree_nodes",
+      "parameter": true,
+      "order": 3,
+      "description": "Max. number of decision tree nodes."
+    }
+  },
+  {
+    "pk": 161,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 55,
+      "name": "Min samples split",
+      "short_name": "lmi",
+      "uid": "cde1d8a0-c312-4497-a07b-43f7cd7f95e2",
+      "default": "5",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "leaf_min_inst",
+      "parameter": true,
+      "order": 4,
+      "description": "Min. number of samples to split the node"
+    }
+  },
+  {
+    "pk": 162,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 55,
+      "name": "Class majority",
+      "short_name": "csm",
+      "uid": "f31f0f86-238b-4ce1-b7e7-1ad6e88f55b0",
+      "default": "1",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "majority",
+      "parameter": true,
+      "order": 5,
+      "description": "Purity of a subset."
+    }
+  },
+  {
+    "pk": 211,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 55,
+      "name": "Measure",
+      "short_name": "msr",
+      "uid": "28f53666-76b0-4d44-acab-0824e603a848",
+      "default": "info_gain",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "measure",
+      "parameter": true,
+      "order": 6,
+      "description": "Select measure for estimation of attributes."
+    }
+  },
+  {
+    "pk": 44,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "26d43f05-9008-48c1-bdaf-486c9e4f3213",
+      "abstract_input": 211,
+      "value": "info_gain",
+      "name": "Information gain"
+    }
+  },
+  {
+    "pk": 45,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "c633baf4-1a77-458c-8bd3-8f4fdb65e856",
+      "abstract_input": 211,
+      "value": "mdl",
+      "name": "Minimum description length"
+    }
+  },
+  {
+    "pk": 208,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 55,
+      "name": "Discretization",
+      "short_name": "spf",
+      "uid": "8b88d56c-6cbb-451f-a618-4a1a27993a90",
+      "default": "equal_freq",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "split_fun",
+      "parameter": true,
+      "order": 7,
+      "description": "Select equal frequency discretization or random discretization for numeric attributes"
     }
   },
   {
     "pk": 38,
-    "model": "workflows.abstractoutput",
+    "model": "workflows.abstractoption",
     "fields": {
-      "widget": 40,
-      "name": "Results",
-      "short_name": "rst",
-      "variable": "string",
-      "uid": "ed188c69-7d64-4b52-9212-823283fc1665",
-      "order": 1,
-      "description": ""
+      "uid": "dac3dd38-3a6c-408b-9135-77cb4380d543",
+      "abstract_input": 208,
+      "value": "equal_freq",
+      "name": "Equal frequency discretization"
     }
   },
   {
-    "pk": 35,
-    "model": "workflows.abstractwidget",
+    "pk": 39,
+    "model": "workflows.abstractoption",
     "fields": {
-      "category": 6,
-      "treeview_image": "",
-      "name": "Multinomial Naive Bayes fit",
-      "is_streaming": false,
-      "uid": "e8714044-edf0-4f04-906f-34775e5f6072",
-      "interaction_view": "",
-      "image": "",
-      "package": "big_data",
-      "static_image": "",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "streaming_visualization_view": "",
-      "action": "multinomail_naive_bayes_fit",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 7,
-      "description": "The NB classifier uses discrete features. The NB estimates conditional probabilities P(x_j = k|y = c) and prior probabilities P(y) from the training data, where k denotes the value of discrete feature x_j and c denotes a training label. "
+      "uid": "dafe6b7c-48e7-4cfb-a0aa-2b22788fceec",
+      "abstract_input": 208,
+      "value": "random",
+      "name": "Random discretization"
     }
   },
   {
     "pk": 52,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 35,
-      "name": "Dataset",
-      "short_name": "dst",
-      "uid": "fa45f814-8206-4256-9964-451c88607b9f",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "dataset",
-      "parameter": false,
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
-    "pk": 32,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 35,
+      "widget": 55,
       "name": "Fit model",
       "short_name": "fit",
       "variable": "fitmodel_url",
-      "uid": "fb8e25c8-3a32-467e-a070-87c40392a260",
+      "uid": "495262a9-980d-4648-b04f-b49862804937",
       "order": 1,
       "description": "Fit model URL"
     }
   },
   {
-    "pk": 36,
+    "pk": 57,
     "model": "workflows.abstractwidget",
     "fields": {
-      "category": 6,
+      "category": 10,
       "treeview_image": "",
-      "name": "Multinomial Naive Bayes predict",
+      "windows_queue": false,
+      "name": "Random forest",
       "is_streaming": false,
-      "uid": "8c7d9b54-7535-441e-bc33-ea8e322f5bd7",
+      "uid": "4f2ce923-62e6-4be1-a394-72ac52988386",
       "interaction_view": "",
       "image": "",
       "package": "big_data",
@@ -810,80 +800,434 @@
       "user": null,
       "visualization_view": "",
       "streaming_visualization_view": "",
-      "action": "multinomial_naive_bayes_predict",
+      "action": "rf_fit",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
-      "order": 8,
-      "description": "The NB classifier uses discrete features. The NB estimates conditional probabilities P(x_j = k|y = c) and prior probabilities P(y) from the training data, where k denotes the value of discrete feature x_j and c denotes a training label. "
-    }
-  },
-  {
-    "pk": 54,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 36,
-      "name": "Fit model",
-      "short_name": "fit",
-      "uid": "bbceed4d-4b34-4491-961c-daad03749524",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "fitmodel_url",
-      "parameter": false,
       "order": 1,
-      "description": "Fit model URL."
+      "description": "Random forest with MapReduce\r\n\r\nFit phase\r\nRandom forest algorithm builds multiple decision trees with a bootstrap method on a subset of data. \r\nIn each tree node, it estimates sqrt(num. of attributes)+1 randomly selected attributes (without replacement).\r\nAll decision trees are merged in large ensemble.  \r\n\r\nPredict phase\r\nAlgorithm queries as many trees as needed for reliable prediction.\r\nFirstly, it randomly chooses without replacement 15 trees. If all trees vote for the same class, it outputs prediction. If there are multiple classes predicted, it chooses 15 trees again. Algorithm calculates difference in probability between most and second most probable prediction. If difference is greater than parameter diff, it outputs prediction. If a test sample is hard to predict (difference is never higher than diff), it queries whole ensemble to make a prediction.\r\n\r\nReference\r\nSimilar algorithm is proposed in: Justin D Basilico, M Arthur Munson, Tamara G Kolda, Kevin R Dixon, and W Philip Kegelmeyer. Comet: A recipe for learning and using large ensembles on massive data. \r\n"
     }
   },
   {
-    "pk": 53,
+    "pk": 166,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 36,
+      "widget": 57,
       "name": "Dataset",
       "short_name": "dst",
-      "uid": "59fcf118-8d2d-4789-b91a-f31b2d62e141",
+      "uid": "5b9a6e22-130c-48d5-9b78-06ac2bd2c32a",
       "default": "",
       "required": true,
       "multi": false,
       "parameter_type": null,
       "variable": "dataset",
       "parameter": false,
-      "order": 2,
-      "description": ""
-    }
-  },
-  {
-    "pk": 55,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 36,
-      "name": "m",
-      "short_name": "m",
-      "uid": "48392fb5-a666-4d71-ae2d-21e663e05e0b",
-      "default": "0",
-      "required": false,
-      "multi": false,
-      "parameter_type": "text",
-      "variable": "m",
-      "parameter": true,
-      "order": 3,
-      "description": "Laplace Smoothing parameter."
-    }
-  },
-  {
-    "pk": 33,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 36,
-      "name": "Results",
-      "short_name": "rst",
-      "variable": "string",
-      "uid": "bcc89e7e-2da1-4efc-80f1-8dc42ff433bb",
       "order": 1,
       "description": ""
+    }
+  },
+  {
+    "pk": 167,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 57,
+      "name": "Trees per subset",
+      "short_name": "tps",
+      "uid": "a0b28dbe-1cb8-4987-958e-e4d379c8d2ff",
+      "default": "20",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "trees_per_subset",
+      "parameter": true,
+      "order": 3,
+      "description": "Number of trees per subset of data"
+    }
+  },
+  {
+    "pk": 168,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 57,
+      "name": "Max tree nodes",
+      "short_name": "mnt",
+      "uid": "5a915d8b-2c99-4661-aa20-325709b61b6b",
+      "default": "20",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "tree_nodes",
+      "parameter": true,
+      "order": 4,
+      "description": "Max. number of decision tree nodes"
+    }
+  },
+  {
+    "pk": 171,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 57,
+      "name": "Min samples split",
+      "short_name": "lmi",
+      "uid": "a2f366a9-af74-4b3f-90ed-33c1fcad4c3a",
+      "default": "5",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "leaf_min_inst",
+      "parameter": true,
+      "order": 5,
+      "description": "Min. number of samples to split the node"
+    }
+  },
+  {
+    "pk": 169,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 57,
+      "name": "Class majority",
+      "short_name": "csm",
+      "uid": "fe7f5d5a-c2e2-4ae9-b138-18b1de7c4e93",
+      "default": "1",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "majority",
+      "parameter": true,
+      "order": 6,
+      "description": "Purity of a subset."
+    }
+  },
+  {
+    "pk": 213,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 57,
+      "name": "Measure",
+      "short_name": "msr",
+      "uid": "68cbccf9-7469-4b55-b96e-4f7c6a3c9cde",
+      "default": "info_gain",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "measure",
+      "parameter": true,
+      "order": 7,
+      "description": "Select measure for estimation of attributes."
+    }
+  },
+  {
+    "pk": 48,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "95331a01-dbfa-4f31-966a-759d65d3a556",
+      "abstract_input": 213,
+      "value": "info_gain",
+      "name": "Information gain"
+    }
+  },
+  {
+    "pk": 49,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "53059d4e-4375-488f-b2b2-0e9567f499d7",
+      "abstract_input": 213,
+      "value": "mdl",
+      "name": "Minimum description length"
+    }
+  },
+  {
+    "pk": 209,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 57,
+      "name": "Discretization",
+      "short_name": "spf",
+      "uid": "00758cdf-2eb5-43c5-bedf-bd3b8b9c29d6",
+      "default": "equal_freq",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "split_fun",
+      "parameter": true,
+      "order": 8,
+      "description": "Select equal frequency discretization or random discretization for numeric attributes"
+    }
+  },
+  {
+    "pk": 40,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "02b0bf99-232c-4529-b1a7-701bba646450",
+      "abstract_input": 209,
+      "value": "equal_freq",
+      "name": "Equal frequency discretization"
+    }
+  },
+  {
+    "pk": 41,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "ef11b2d3-301f-4440-be3c-24089b7f234f",
+      "abstract_input": 209,
+      "value": "random",
+      "name": "Random discretization"
+    }
+  },
+  {
+    "pk": 203,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 57,
+      "name": "Random state",
+      "short_name": "rsd",
+      "uid": "8e6e2d96-3457-4b23-ac93-ab90b083920f",
+      "default": "None",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "seed",
+      "parameter": true,
+      "order": 9,
+      "description": "Define a random state"
+    }
+  },
+  {
+    "pk": 54,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 57,
+      "name": "Fit model",
+      "short_name": "fit",
+      "variable": "fitmodel_url",
+      "uid": "0adadf0c-a93a-4e47-9df0-344d2cdadbf9",
+      "order": 1,
+      "description": "Fit model URL"
+    }
+  },
+  {
+    "pk": 59,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 10,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Weighted forest",
+      "is_streaming": false,
+      "uid": "72a39fab-5433-493f-ae22-12a264075356",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "wrf_fit",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Weighted forest with MapReduce\r\n\r\nWeighted forest is a novel ensemble algorithm. \r\n\r\nFit phase\r\nWeighted forest algorithm builds multiple decision trees with a bootstrap method on a subset of data. In each tree node, it estimates sqrt(num. of attributes)+1 randomly selected attributes (without replacement). It uses decision tree to predict out-of-bag samples. For each prediction of an out-of-bag sample, it measures margin (classifier confidence in prediction) and leaf identifier that outputs prediction. Algorithm uses similarity matrix, where it stores similarities for each out-of-bag sample that was predicted with the same leaf. We assume that samples are similar, if the same leaf predicts them multiple times in multiple decision trees. \r\nAfter algorithm builds all decision trees, it passes similarity matrix to k-medoids algorithm. Similarity matrix presents distances between test samples. We set parameter k as sqrt(num. of attributes)+1. k-medoids algorithm outputs medoids, which are test samples in the cluster centers of the dataset. Medoids are actual samples in a dataset, unlike centroids which are centers of clusters. Algorithm measures average margin for all samples that are in the cluster of certain medoid. It saves the average margin of a decision tree in its model. Algorithm uses this scores as weights of decision trees in predict phase.\r\nAlgorithm builds a forest on each subset of the data and it merges them in large ensemble. Each forest has its own medoids.\r\n\r\nPredict phase \r\nAlgorithm selects a forest (or more, if it finds equal similarities with medoids in multiple forests), that contain most similar medoid with a test sample. Then it uses the same procedure like with small data. Algorithm calculates Gower similarity coefficient with a test sample and every medoid. Only decision trees with high margin on similar test samples output prediction and algorithm stores decision tree margin for each prediction. Algorithm calculates final values for each prediction: (number of margins) * avg(margins) and it selects prediction with highest value."
+    }
+  },
+  {
+    "pk": 175,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 59,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "37879268-0aa9-4458-afb2-71a521acb299",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 176,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 59,
+      "name": "Trees per subset",
+      "short_name": "tps",
+      "uid": "8770ace6-4968-47cf-b7cc-4ad8bfff303c",
+      "default": "20",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "trees_per_subset",
+      "parameter": true,
+      "order": 3,
+      "description": "Number of trees per subset of data"
+    }
+  },
+  {
+    "pk": 177,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 59,
+      "name": "Max tree nodes",
+      "short_name": "mnt",
+      "uid": "3d48b0d0-a304-45d5-9d18-3ca17e8fcf05",
+      "default": "20",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "tree_nodes",
+      "parameter": true,
+      "order": 4,
+      "description": "Max. number of decision tree nodes"
+    }
+  },
+  {
+    "pk": 178,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 59,
+      "name": "Min samples split",
+      "short_name": "lmi",
+      "uid": "ac032f38-f4a4-44ea-8c02-96506d4f8e86",
+      "default": "5",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "leaf_min_inst",
+      "parameter": true,
+      "order": 5,
+      "description": "Min. number of samples to split the node"
+    }
+  },
+  {
+    "pk": 179,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 59,
+      "name": "Class majority",
+      "short_name": "csm",
+      "uid": "1b23ead1-b104-4d27-a6fd-b23de6efa28f",
+      "default": "1",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "majority",
+      "parameter": true,
+      "order": 6,
+      "description": "Purity of a subset."
+    }
+  },
+  {
+    "pk": 212,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 59,
+      "name": "Measure",
+      "short_name": "msr",
+      "uid": "9a8f3c2c-265c-4b37-93c1-d58fee9dd7af",
+      "default": "info_gain",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "measure",
+      "parameter": true,
+      "order": 7,
+      "description": "Select measure for estimation of attributes."
+    }
+  },
+  {
+    "pk": 46,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "364fbb94-f200-4acc-a801-d29339f0d4c5",
+      "abstract_input": 212,
+      "value": "info_gain",
+      "name": "Information gain"
+    }
+  },
+  {
+    "pk": 47,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "293fb2f7-de3f-4133-8e3a-22701245c55d",
+      "abstract_input": 212,
+      "value": "mdl",
+      "name": "Minimum description length"
+    }
+  },
+  {
+    "pk": 210,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 59,
+      "name": "Discretization",
+      "short_name": "spf",
+      "uid": "c43bfc92-e1af-42fc-8d73-f7348ebdaf40",
+      "default": "equal_freq",
+      "required": true,
+      "multi": false,
+      "parameter_type": "select",
+      "variable": "split_fun",
+      "parameter": true,
+      "order": 8,
+      "description": "Select equal frequency discretization or random discretization for numeric attributes"
+    }
+  },
+  {
+    "pk": 42,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "4ea5c55a-92a8-4541-a1cc-9aabb0fd82c0",
+      "abstract_input": 210,
+      "value": "equal_freq",
+      "name": "Equal frequency discretization"
+    }
+  },
+  {
+    "pk": 43,
+    "model": "workflows.abstractoption",
+    "fields": {
+      "uid": "838f798d-e00e-4216-8990-ebc3c1929c0e",
+      "abstract_input": 210,
+      "value": "random",
+      "name": "Random discretization"
+    }
+  },
+  {
+    "pk": 202,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 59,
+      "name": "Random state",
+      "short_name": "rsd",
+      "uid": "31c68e34-3bff-41bb-bf77-925c6171a6f6",
+      "default": "None",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "seed",
+      "parameter": true,
+      "order": 9,
+      "description": "Define a random state"
+    }
+  },
+  {
+    "pk": 56,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 59,
+      "name": "Fit model",
+      "short_name": "fit",
+      "variable": "fitmodel_url",
+      "uid": "a862dff5-a324-4d45-977c-abda633714c3",
+      "order": 1,
+      "description": "Fit model URL"
     }
   },
   {
@@ -894,17 +1238,18 @@
       "parent": 5,
       "workflow": null,
       "user": null,
-      "order": 2,
+      "order": 4,
       "name": "Clustering"
     }
   },
   {
-    "pk": 41,
+    "pk": 43,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 7,
       "treeview_image": "",
-      "name": "k-Means fit",
+      "windows_queue": false,
+      "name": "k-means",
       "is_streaming": false,
       "uid": "83c90b6f-9fc1-43d5-a144-6d539497351e",
       "interaction_view": "",
@@ -921,14 +1266,14 @@
       "interactive": false,
       "has_progress_bar": false,
       "order": 1,
-      "description": "The k-means is a partitional clustering technique that attempts to find a user-specified number of clusters k represented by their centroids."
+      "description": "kmeans with MapReduce\r\n\r\nThe k-means is a partitional clustering technique that attempts to find a user-specified number of clusters k represented by their centroids."
     }
   },
   {
-    "pk": 73,
+    "pk": 76,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 41,
+      "widget": 43,
       "name": "Dataset",
       "short_name": "dst",
       "uid": "f840ac50-5422-492f-9ba9-b0e2195fef04",
@@ -943,15 +1288,15 @@
     }
   },
   {
-    "pk": 74,
+    "pk": 77,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 41,
+      "widget": 43,
       "name": "Number of clusters",
       "short_name": "cls",
       "uid": "48f3025a-1bcc-41a1-985f-f2b3ae9633e7",
       "default": "3",
-      "required": false,
+      "required": true,
       "multi": false,
       "parameter_type": "text",
       "variable": "clusters",
@@ -961,15 +1306,15 @@
     }
   },
   {
-    "pk": 75,
+    "pk": 78,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 41,
-      "name": "Max. number of iterations",
+      "widget": 43,
+      "name": "Max number of iterations",
       "short_name": "itr",
       "uid": "a8ec22c5-199b-43ff-9c72-780a49d57ea4",
       "default": "10",
-      "required": false,
+      "required": true,
       "multi": false,
       "parameter_type": "text",
       "variable": "itr",
@@ -979,91 +1324,34 @@
     }
   },
   {
+    "pk": 201,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 43,
+      "name": "Random state",
+      "short_name": "rsd",
+      "uid": "47bb296e-f481-432f-a381-63c6df4c6950",
+      "default": "None",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "seed",
+      "parameter": true,
+      "order": 4,
+      "description": "Define a random state"
+    }
+  },
+  {
     "pk": 39,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 41,
+      "widget": 43,
       "name": "Fit model",
       "short_name": "fit",
       "variable": "fitmodel_url",
       "uid": "5bde14bf-9012-4ee2-9f32-f439c19d8981",
       "order": 1,
       "description": "Fit model URL"
-    }
-  },
-  {
-    "pk": 42,
-    "model": "workflows.abstractwidget",
-    "fields": {
-      "category": 7,
-      "treeview_image": "",
-      "name": "k-Means predict",
-      "is_streaming": false,
-      "uid": "6a9edb17-374a-4435-b2b5-85de73714537",
-      "interaction_view": "",
-      "image": "",
-      "package": "big_data",
-      "static_image": "",
-      "post_interact_action": "",
-      "user": null,
-      "visualization_view": "",
-      "streaming_visualization_view": "",
-      "action": "kmeans_predict",
-      "wsdl_method": "",
-      "wsdl": "",
-      "interactive": false,
-      "has_progress_bar": false,
-      "order": 1,
-      "description": ""
-    }
-  },
-  {
-    "pk": 76,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Fit model",
-      "short_name": "fit",
-      "uid": "f14da637-1699-4278-9dd6-912d4db15eca",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "fitmodel_url",
-      "parameter": false,
-      "order": 1,
-      "description": "Fit Model URL"
-    }
-  },
-  {
-    "pk": 77,
-    "model": "workflows.abstractinput",
-    "fields": {
-      "widget": 42,
-      "name": "Dataset",
-      "short_name": "dst",
-      "uid": "f3f54b2d-ba4b-440d-8600-c3630deec970",
-      "default": "",
-      "required": true,
-      "multi": false,
-      "parameter_type": null,
-      "variable": "dataset",
-      "parameter": false,
-      "order": 2,
-      "description": ""
-    }
-  },
-  {
-    "pk": 40,
-    "model": "workflows.abstractoutput",
-    "fields": {
-      "widget": 42,
-      "name": "Results",
-      "short_name": "rst",
-      "variable": "string",
-      "uid": "92f87c76-e078-49dc-a9f3-79a148ae30c8",
-      "order": 1,
-      "description": ""
     }
   },
   {
@@ -1074,17 +1362,18 @@
       "parent": 5,
       "workflow": null,
       "user": null,
-      "order": 3,
+      "order": 5,
       "name": "Regression"
     }
   },
   {
-    "pk": 43,
+    "pk": 45,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 8,
       "treeview_image": "",
-      "name": "Linear regression fit",
+      "windows_queue": false,
+      "name": "Linear regression",
       "is_streaming": false,
       "uid": "f8074c26-f066-4004-bf6e-6a453953e1ad",
       "interaction_view": "",
@@ -1095,20 +1384,20 @@
       "user": null,
       "visualization_view": "",
       "streaming_visualization_view": "",
-      "action": "lin_reg_fit",
+      "action": "linreg_fit",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
       "order": 1,
-      "description": "The linear regression fits theta parameters to training data."
+      "description": "Linear regression with MapReduce\r\n\r\nThe linear regression fits theta parameters to training data.\r\n\r\nReference:\r\nMapReduce version of algorithm is proposed by Cheng-Tao Chu; Sang Kyun Kim, Yi-An Lin, YuanYuan Yu, Gary Bradski, Andrew Ng, and Kunle Olukotun. \"Map-Reduce for Machine Learning on Multicore\". NIPS 2006.   \r\n\r\n"
     }
   },
   {
-    "pk": 78,
+    "pk": 81,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 43,
+      "widget": 45,
       "name": "Dataset",
       "short_name": "dst",
       "uid": "d7e7f211-c4ec-4e2c-905c-81f18791e534",
@@ -1126,7 +1415,7 @@
     "pk": 41,
     "model": "workflows.abstractoutput",
     "fields": {
-      "widget": 43,
+      "widget": 45,
       "name": "Fit model",
       "short_name": "fit",
       "variable": "fitmodel_url",
@@ -1136,14 +1425,15 @@
     }
   },
   {
-    "pk": 44,
+    "pk": 61,
     "model": "workflows.abstractwidget",
     "fields": {
       "category": 8,
       "treeview_image": "",
-      "name": "Linear regression predict",
+      "windows_queue": false,
+      "name": "Locally weighted regression",
       "is_streaming": false,
-      "uid": "00eda159-3033-44b2-9e25-563c37e56166",
+      "uid": "83d65059-1ce9-4eb7-a2cf-abb4a9d41d5f",
       "interaction_view": "",
       "image": "",
       "package": "big_data",
@@ -1152,23 +1442,129 @@
       "user": null,
       "visualization_view": "",
       "streaming_visualization_view": "",
-      "action": "lin_reg_predict",
+      "action": "lwlr_fit_predict",
       "wsdl_method": "",
       "wsdl": "",
       "interactive": false,
       "has_progress_bar": false,
       "order": 1,
-      "description": "The linear regression fits theta parameters to training data."
+      "description": "Locally weighted linear regression with MapReduce\r\n\r\nReference:\r\nMapReduce version of algorithm is proposed by Cheng-Tao Chu; Sang Kyun Kim, Yi-An Lin, YuanYuan Yu, Gary Bradski, Andrew Ng, and Kunle Olukotun. \"Map-Reduce for Machine Learning on Multicore\". NIPS 2006.   \r\n"
     }
   },
   {
-    "pk": 79,
+    "pk": 184,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 44,
-      "name": "Fit model",
+      "widget": 61,
+      "name": "Training dataset",
+      "short_name": "dst",
+      "uid": "15644754-4c1d-4367-a0a3-5d442b51ff89",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "training_dataset",
+      "parameter": false,
+      "order": 1,
+      "description": "Define training dataset"
+    }
+  },
+  {
+    "pk": 183,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 61,
+      "name": "Fitting dataset",
+      "short_name": "dst",
+      "uid": "104d08df-fe2a-4c11-8432-e33389017f9e",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "fitting_dataset",
+      "parameter": false,
+      "order": 2,
+      "description": "Define a dataset that will be fitted to training dataset."
+    }
+  },
+  {
+    "pk": 185,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 61,
+      "name": "Tau",
+      "short_name": "tau",
+      "uid": "ec1391de-af20-4921-876c-d304a6a4e721",
+      "default": "1",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "tau",
+      "parameter": true,
+      "order": 3,
+      "description": "Parameter Tau controls how quickly the weight of a training example falls off with distance of its x(i) from the query point x"
+    }
+  },
+  {
+    "pk": 58,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 61,
+      "name": "Results",
+      "short_name": "rst",
+      "variable": "string",
+      "uid": "23922bd7-a70c-440a-b90f-9452a850af18",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 12,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "08c90036-fd13-4ff3-ac20-01982262a782",
+      "parent": 5,
+      "workflow": null,
+      "user": null,
+      "order": 6,
+      "name": "Evaluation"
+    }
+  },
+  {
+    "pk": 63,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 12,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Apply Classifier",
+      "is_streaming": false,
+      "uid": "d9de579e-fdd9-47da-948e-69183f24340f",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "",
+      "streaming_visualization_view": "",
+      "action": "big_data_apply_classifier",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Widget takes a model on input and applies it on test data"
+    }
+  },
+  {
+    "pk": 189,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 63,
+      "name": "Fit Model",
       "short_name": "fit",
-      "uid": "31f6fb25-87b9-421f-907b-4123f33cbd60",
+      "uid": "46e9a02d-a613-4a01-a8ee-51d578a32fea",
       "default": "",
       "required": true,
       "multi": false,
@@ -1176,17 +1572,147 @@
       "variable": "fitmodel_url",
       "parameter": false,
       "order": 1,
-      "description": "Fit model URL."
+      "description": "Fit Model URL"
     }
   },
   {
-    "pk": 80,
+    "pk": 190,
     "model": "workflows.abstractinput",
     "fields": {
-      "widget": 44,
+      "widget": 63,
+      "name": "Naive Bayes - m estimate",
+      "short_name": "m",
+      "uid": "a247302f-c63d-4473-9869-c93e330b0c48",
+      "default": "1",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "m",
+      "parameter": true,
+      "order": 2,
+      "description": "m estimate"
+    }
+  },
+  {
+    "pk": 205,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 63,
+      "name": "Random forest - difference",
+      "short_name": "dff",
+      "uid": "d979ff23-eb11-40cf-9d81-2a71ddf5d790",
+      "default": "0.3",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "diff",
+      "parameter": true,
+      "order": 3,
+      "description": "Random forest calculates difference in probability between most and second most probable prediction. If difference is greater than parameter diff, it outputs prediction. If a test sample is hard to predict (difference is never higher than diff), it queries whole ensemble to make a prediction."
+    }
+  },
+  {
+    "pk": 206,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 63,
+      "name": "Random forest  - random state",
+      "short_name": "rds",
+      "uid": "8ec2b906-2b9e-4cda-9455-09ccd7d134fb",
+      "default": "None",
+      "required": true,
+      "multi": false,
+      "parameter_type": "text",
+      "variable": "seed",
+      "parameter": true,
+      "order": 4,
+      "description": "Define a random state for predict phase."
+    }
+  },
+  {
+    "pk": 191,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 63,
       "name": "Dataset",
       "short_name": "dst",
-      "uid": "5b9aba72-163c-4862-af26-173b3b2cda7a",
+      "uid": "0c174cfd-0d61-44ff-8ce2-9c32f8791293",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 5,
+      "description": "dataset"
+    }
+  },
+  {
+    "pk": 59,
+    "model": "workflows.abstractoutput",
+    "fields": {
+      "widget": 63,
+      "name": "Results",
+      "short_name": "rst",
+      "variable": "string",
+      "uid": "601a2f3c-92b7-48e7-bcf2-297180d0fc25",
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 62,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 12,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Classification Accuracy",
+      "is_streaming": false,
+      "uid": "7615fc12-a575-4911-84d4-db498fc9fa98",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "bigdata_ca",
+      "streaming_visualization_view": "",
+      "action": "bigdata_ca",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 187,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 62,
+      "name": "Results",
+      "short_name": "rst",
+      "uid": "222215ac-e31f-46b3-bca9-eddb63fc0450",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "predictions",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 186,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 62,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "1a7bab82-8d0f-4372-93ce-6abe6cba1779",
       "default": "",
       "required": true,
       "multi": false,
@@ -1198,14 +1724,166 @@
     }
   },
   {
-    "pk": 42,
-    "model": "workflows.abstractoutput",
+    "pk": 64,
+    "model": "workflows.abstractwidget",
     "fields": {
-      "widget": 44,
+      "category": 12,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Mean squared error",
+      "is_streaming": false,
+      "uid": "19afbba4-6c29-4594-bda6-d86e344cbf15",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "bigdata_mse",
+      "streaming_visualization_view": "",
+      "action": "bigdata_mse",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 194,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 64,
       "name": "Results",
       "short_name": "rst",
-      "variable": "string",
-      "uid": "97f43f2b-9277-48d6-aa60-50b00ca90556",
+      "uid": "92e97624-fa25-4889-b7d6-fd9ce2823e5f",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "predictions",
+      "parameter": false,
+      "order": 1,
+      "description": ""
+    }
+  },
+  {
+    "pk": 195,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 64,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "ae2aaa2e-93d8-427c-9631-d053581ad888",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
+      "order": 2,
+      "description": ""
+    }
+  },
+  {
+    "pk": 11,
+    "model": "workflows.category",
+    "fields": {
+      "uid": "d97dbb5a-b0a6-42c4-b9a2-ae1cacef8b76",
+      "parent": 5,
+      "workflow": null,
+      "user": null,
+      "order": 6,
+      "name": "Utilities"
+    }
+  },
+  {
+    "pk": 65,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Model View",
+      "is_streaming": false,
+      "uid": "e39156a0-07fb-4547-a952-ce77a772363f",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "model_view",
+      "streaming_visualization_view": "",
+      "action": "model_view",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 1,
+      "description": "Widget takes a model on input and saves to a file that user can review. "
+    }
+  },
+  {
+    "pk": 196,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 65,
+      "name": "Fit Model",
+      "short_name": "fit",
+      "uid": "f1c72ba9-b59b-4fef-9fb8-ea2803f2c69c",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "fitmodel_url",
+      "parameter": false,
+      "order": 1,
+      "description": "Fit Model URL"
+    }
+  },
+  {
+    "pk": 54,
+    "model": "workflows.abstractwidget",
+    "fields": {
+      "category": 11,
+      "treeview_image": "",
+      "windows_queue": false,
+      "name": "Class distribution",
+      "is_streaming": false,
+      "uid": "cfd5aaa6-fce4-4f8a-aab7-820041ffec25",
+      "interaction_view": "",
+      "image": "",
+      "package": "big_data",
+      "static_image": "",
+      "post_interact_action": "",
+      "user": null,
+      "visualization_view": "measure_distribution",
+      "streaming_visualization_view": "",
+      "action": "measure_distribution",
+      "wsdl_method": "",
+      "wsdl": "",
+      "interactive": false,
+      "has_progress_bar": false,
+      "order": 2,
+      "description": "Widget measures distribution of classes in subsets of data."
+    }
+  },
+  {
+    "pk": 158,
+    "model": "workflows.abstractinput",
+    "fields": {
+      "widget": 54,
+      "name": "Dataset",
+      "short_name": "dst",
+      "uid": "8618f799-6bfd-4852-8a2b-db34e4441235",
+      "default": "",
+      "required": true,
+      "multi": false,
+      "parameter_type": null,
+      "variable": "dataset",
+      "parameter": false,
       "order": 1,
       "description": ""
     }

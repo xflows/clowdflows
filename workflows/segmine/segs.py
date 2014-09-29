@@ -3,6 +3,7 @@
 # anze.vavpetic@ijs.si, 2013
 import time
 import json
+import time
 
 def recursive_asdict(d):
     from suds.sudsobject import asdict
@@ -58,6 +59,7 @@ class Segs:
         inputs = self.build_inputs(inputs)
         jobID = self.client.service.runSEGS_STU(**inputs)
         self.wait_for_job(widget, jobID)
+        time.sleep(5)
         rules = self.client.service.getResult(jobID=jobID)
         return recursive_asdict(rules)
 

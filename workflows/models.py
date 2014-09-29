@@ -15,7 +15,7 @@ from mothra.settings import USE_CONCURRENCY
 if USE_CONCURRENCY:
     from workflows.tasks import runWidgetAsync, runForLoopIteration
 
-from workflows.tasks import executeWidgetFunction, executeWidgetProgressBar, executeWidgetStreaming, executeWidgetWithRequest, runWidget
+from workflows.tasks import executeWidgetFunction, executeWidgetProgressBar, executeWidgetStreaming, executeWidgetWithRequest, runWidget, executeWidgetPostInteract
 
 class WidgetException(Exception):
     pass
@@ -827,10 +827,10 @@ class Widget(models.Model):
         try:
             if not self.abstract_widget is None:
                 if self.abstract_widget.windows_queue:
-                    t = executeWidgetWithRequest.apply_async([widget,input_dict,output_dict,request],queue="windows")
+                    t = executeWidgetPostInteract.apply_async([self,input_dict,output_dict,request],queue="windows")
                     outputs = t.wait()
                 else:
-                    outputs = executeWidgetWithRequest(widget,input_dict,output_dict,request)
+                    outputs = executeWidgetPostInteract(self,input_dict,output_dict,request)
             else:
                 self.workflow_link.run()
         except:

@@ -1,4 +1,4 @@
-Django==1.4.1
+Django==1.4.15
 Pillow==2.2.1
 PySimpleSOAP==1.05a
 South==0.7.6

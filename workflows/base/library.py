@@ -10,10 +10,9 @@ def base_concatenate_lists(input_dict):
     return output_dict
 
 def base_merge_dictionaries(input_dict):
-    dicts = input_dict['dicts']
-    items = []
-    for d in dicts:
-        items = items+d.items()
+    dict1 = input_dict['dict1']
+    dict2 = input_dict['dict2']
+    items = dict1.items()+dict2.items()
     output_dict = {}
     output_dict['dict']=dict(items)
     return output_dict
