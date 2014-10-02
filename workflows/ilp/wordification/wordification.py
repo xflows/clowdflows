@@ -14,11 +14,6 @@ def chunks(l, n):
 import time
 def wordify_examples((name_to_table,connecting_tables,context,index_by_value,target_table_name,word_att_length,ex_idxs)):
     cached_sentences=defaultdict(dict)
-    #import sys
-    #print "b",time.time()
-    #sys.stdout.flush()
-    #name_to_table[target_table_name]
-    #name_to_table[target_table_name].getitemsref(ex_idxs)
 
     return [wordify_example(name_to_table,connecting_tables,context,cached_sentences,index_by_value,target_table_name,word_att_length,target_table_name,ex,set([])) for ex in name_to_table[target_table_name].getitemsref(ex_idxs)]
 
@@ -35,9 +30,7 @@ def wordify_example(name_to_table,connecting_tables,context,cached_sentences,ind
     #    print "cc",cached_sentences
     debug=False
     data_name=str(data_name)
-    #ex=data[ex_idx]
-    #if data_name=="ring_strucs":
-    #    print data_name
+
     if debug:
         print "======================================"
         print "example:",ex
@@ -160,15 +153,6 @@ class Wordification(object):
         #class + wordification on every example of the main table
 
         p = multiprocessing.Pool(num_of_processes)
-        import pickle
-        #test=pickle.loads(pickle.dumps(self))
-        # test=pickle.loads(pickle.dumps(self.connecting_tables))
-        # test=pickle.loads(pickle.dumps(self.context))
-        # test=pickle.loads(pickle.dumps(self.cached_sentences))
-        # test=pickle.loads(pickle.dumps(self.index_by_value))
-        # #test=pickle.loads(pickle.dumps(self.target_table[0]))
-        # print test
-
 
         indices = chunks (range(len(self.target_table)),num_of_processes)#)
 
@@ -245,13 +229,6 @@ class Wordification(object):
 
             arff_string+=string.join(features,',')
             arff_string+="\n"
-
-
-        #f=open("a.arff",'w')
-        #f.write(arff_string)
-        #f.close
-        #print arff_string
-        #print "end to_arff"
 
         return arff_string
 

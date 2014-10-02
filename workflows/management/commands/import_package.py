@@ -87,10 +87,22 @@ def import_package_string(writeFunc, string, replace, verbosity=1):
 
     #check for DB UID duplicates
     objsdbDict = dict((x.uid,x) for x in objsDb if len(x.uid) != 0)
+
     if len([x for x in objsDb if len(x.uid) != 0]) != len(objsdbDict):
-        raise CommandError('Input process terminated without any changes to the database. There were multiple equal '
-                           'UIDs defined on different models in the database. The input procedure can not continue '
-                           'from safety reasons. Please resolve manually!')
+        error_txt=  'Input process terminated without any changes to the database. There were multiple equal ' \
+                    'UIDs defined on different models in the database. The input procedure can not continue ' \
+                    'from safety reasons. Please resolve manually! UIDs with multiple models:'
+        #count objects per uid
+        from collections import defaultdict
+        objs_per_uid=defaultdict(list)
+        for x in objsDb:
+            if x.uid:
+                objs_per_uid[x.uid].append(x)
+
+        for uid,objs in objs_per_uid.items():
+            if len(objs)>1:
+                error_txt+="\n\nUID:     "+str(uid)+"\nobjects: "+str(objs)
+        raise CommandError(error_txt)
 
     #create new to existing id mapping and check for type match
     idMappingDict = dict()
