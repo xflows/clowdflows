@@ -149,10 +149,29 @@ class DBContext:
         if self.orng_tables:
             data = []
             for ex in self.orng_tables[table]:
-                data.append([ex[col] for col in cols])
+                print cols
+                print self.orng_tables[table].domain
+                data.append([ex[str(col)] for col in cols])
             return data
         else:
             return self.fetch(table, cols)
+
+    def select_where(self, table, cols, pk_att, pk):
+        '''
+        SELECT with WHERE clause.
+        '''
+        if self.orng_tables:
+            data = []
+            for ex in self.orng_tables[table]:
+                data.append([ex[str(col)] for col in cols if ex[str(pk_att)] == pk])
+            return data
+        else:
+            con = self.connection.connect()
+            cursor = con.cursor() 
+            attributes = self.db.fmt_cols(cols)
+            cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, table, pk_att, pk))
+            con.close()
+            return [cols for cols in cursor]
 
     def fetch_types(self, table, cols):
         '''

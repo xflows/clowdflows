@@ -321,12 +321,13 @@ class TreeLikerConverter(Converter):
             # Skip the class attribute
             if self.db.target_att in cols:
                 cols.remove(self.db.target_att)
-            attributes = self.db.fmt_cols(cols)
+            #attributes = self.db.fmt_cols(cols)
 
             # All rows matching `pk`
             #print "SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk)
-            self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
-            for row in self.cursor:
+            #self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
+            #for row in self.cursor:
+            for row in self.db.select_where(target, cols, pk_att, pk):
              #   print 'row'
                 #values = []
                 row_pk = self._row_pk(target, cols, row)
@@ -401,10 +402,13 @@ class TreeLikerConverter(Converter):
                     
                     # Link case 2: this_att is a fk of another table
                     else:
-                        attributes = self.db.fmt_cols([this_att]+cols)
-                        self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
-                        fk_list = []
-                        for row in self.cursor:
+                        # attributes = self.db.fmt_cols([this_att]+cols)
+                        # self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
+                        # fk_list = []
+                        # for row in self.cursor:
+                        #     row_pk = self._row_pk(target, cols, row[1:])
+                        #     fk_list.append((row[0], row_pk))
+                        for row in self.db.select_where(target, [this_att]+cols, pk_att, pk):
                             row_pk = self._row_pk(target, cols, row[1:])
                             fk_list.append((row[0], row_pk))
                         for fk, row_pk in fk_list:
