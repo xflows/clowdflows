@@ -1552,6 +1552,28 @@ $(function(){
 
     });
 
+    $("#widgets a.crossvalidation").click(function() {
+         $.post(url['add-cv'], {'active_workflow' : activeCanvasId, 'scrollTop':   activeCanvas.scrollTop(), 'scrollLeft':activeCanvas.scrollLeft()}, function(data) {
+            try {
+                jsonData = $.parseJSON(data)
+                if (jsonData.success==false) {
+                    reportError(jsonData.message)
+                }
+            }
+            catch (err)
+            {
+                activeCanvas.append(data);
+                var outer_widget_id = $(data).find(".outer-widget-link").attr('rel');
+                var outer_widget_workflow_id = $(data).find(".outer-widget-workflow").attr('rel');
+                $("#widget"+outer_widget_id).remove();
+                refreshWidget(outer_widget_id,outer_widget_workflow_id);
+                updateWidgetListeners();
+                resizeWidgets();
+            }
+        },'html');
+
+    });
+
     $("#widgets a.input").click(function() {
          $.post(url['add-input'], {'active_workflow' : activeCanvasId, 'scrollTop':	activeCanvas.scrollTop(), 'scrollLeft':activeCanvas.scrollLeft()}, function(data) {
             try {
