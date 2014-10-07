@@ -36,13 +36,6 @@ class ILP_Converter(Converter):
     def mode(self, predicate, args, recall=1, head=False):
         return ':- mode%s(%s, %s(%s)).' % ('h' if head else 'b', str(recall), predicate, ','.join([t+arg for t,arg in args]))
 
-    def db_connection(self):
-        con = self.db.connection
-        host, db, user, pwd = con.host, con.database, con.user, con.password
-        return [':- use_module(library(myddas)).', \
-                ':- db_open(mysql, \'%s\'/\'%s\', \'%s\', \'%s\').' % (host, db, user, pwd)] + \
-               [':- db_import(%s, %s).' % (table, table) for table in self.db.tables]
-
     def connecting_clause(self, table, ref_table):
         var_table, var_ref_table = table.capitalize(), ref_table.capitalize()
         result=[]
@@ -144,11 +137,8 @@ class RSD_Converter(ILP_Converter):
                 modeslist.append(self.mode('%s_%s' % (table, att), [('+', table), ('-', att)]))
                 modeslist.append(self.mode('instantiate', [('+', att)]))
                 getters.extend(self.attribute_clause(table, att))
-        if not self.dump:
-            b = '\n'.join(self.db_connection() + modeslist + getters + self.user_settings())
-        else:
-            b = '\n'.join(modeslist + getters + self.user_settings() + self.dump_tables())
-        return b
+
+        return '\n'.join(modeslist + getters + self.user_settings() + self.dump_tables())
 
 class Aleph_Converter(ILP_Converter):
     '''
@@ -207,12 +197,7 @@ class Aleph_Converter(ILP_Converter):
                 determinations.append(':- determination(%s/1, %s_%s/2).' % (self.__target_predicate(), table, att))
                 types.extend(self.constant_type_def(table, att))
                 getters.extend(self.attribute_clause(table, att))
-        local_copies = [self.local_copy(table) for table in self.db.tables]
-        if not self.dump:
-            b = '\n'.join(self.db_connection() + local_copies + self.user_settings() + modeslist + determinations + types + getters)
-        else:
-            b = '\n'.join(self.user_settings() + modeslist + determinations + types + getters + self.dump_tables())
-        return b
+        return '\n'.join(self.user_settings() + modeslist + determinations + types + getters + self.dump_tables())
 
     def concept_type_def(self, table):
         var_pk = self.db.pkeys[table].capitalize()
@@ -225,17 +210,6 @@ class Aleph_Converter(ILP_Converter):
         variables = ','.join([var_att if col == att else '_' for col in self.db.cols[table]])
         return ['%s(%s) :-' % (att.lower(), var_att), 
                 '\t%s(%s).' % (table, variables)]
-
-    def db_connection(self):
-        con = self.db.connection
-        host, db, user, pwd = con.host, con.database, con.user, con.password
-        return [':- use_module(library(myddas)).', \
-                ':- db_open(mysql, \'%s\'/\'%s\', \'%s\', \'%s\').' % (host, db, user, pwd)] + \
-               [':- db_import(%s, tmp_%s).' % (table, table) for table in self.db.tables]
-
-    def local_copy(self, table):
-        cols = ','.join([col.capitalize() for col in self.db.cols[table]])
-        return ':- repeat, tmp_%s(%s), (%s(%s), !, fail ; assertz(%s(%s)), fail).' % (table, cols, table, cols, table, cols)
 
 
 class Orange_Converter(Converter):
@@ -347,12 +321,13 @@ class TreeLikerConverter(Converter):
             # Skip the class attribute
             if self.db.target_att in cols:
                 cols.remove(self.db.target_att)
-            attributes = self.db.fmt_cols(cols)
+            #attributes = self.db.fmt_cols(cols)
 
             # All rows matching `pk`
             #print "SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk)
-            self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
-            for row in self.cursor:
+            #self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
+            #for row in self.cursor:
+            for row in self.db.select_where(target, cols, pk_att, pk):
              #   print 'row'
                 #values = []
                 row_pk = self._row_pk(target, cols, row)
@@ -427,10 +402,13 @@ class TreeLikerConverter(Converter):
                     
                     # Link case 2: this_att is a fk of another table
                     else:
-                        attributes = self.db.fmt_cols([this_att]+cols)
-                        self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
-                        fk_list = []
-                        for row in self.cursor:
+                        # attributes = self.db.fmt_cols([this_att]+cols)
+                        # self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
+                        # fk_list = []
+                        # for row in self.cursor:
+                        #     row_pk = self._row_pk(target, cols, row[1:])
+                        #     fk_list.append((row[0], row_pk))
+                        for row in self.db.select_where(target, [this_att]+cols, pk_att, pk):
                             row_pk = self._row_pk(target, cols, row[1:])
                             fk_list.append((row[0], row_pk))
                         for fk, row_pk in fk_list:
@@ -493,24 +471,10 @@ class TreeLikerConverter(Converter):
 
 if __name__ == '__main__':
     from context import DBConnection, DBContext
-
-    # context = DBContext(DBConnection('ilp','ilp123','ged.ijs.si','trains'))
-    # context.target_table = 'trains'
-    # context.target_att = 'direction'
     context = DBContext(DBConnection('ilp','ilp123','ged.ijs.si','muta_42'))
     context.target_table = 'drugs'
     context.target_att = 'active'
-    # intervals = {'cars': {'position' : [1, 3]}}
-    #import cPickle
-    #cPickle.dump(intervals, open('intervals.pkl','w'))
-    #rsd = RSD_Converter(context, discr_intervals=intervals, dump=True)
-    #aleph = Aleph_Converter(context, target_att_val='east', discr_intervals=intervals, dump=True)
     treeliker = TreeLikerConverter(context)
 
     print treeliker.default_template()
     print treeliker.dataset()
-
-    #print rsd.background_knowledge()
-    #print aleph.background_knowledge()
-    #orange = Orange_Converter(context)
-    #orange.target_table()

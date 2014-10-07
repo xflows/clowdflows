@@ -1,7 +1,11 @@
 from collections import defaultdict
 import pprint
+import copy
+
 from django import forms
 import mysql.connector as sql
+import converters
+
 
 class DBConnection:
     '''
@@ -24,8 +28,9 @@ class DBConnection:
     def connect(self):
         return sql.connect(user=self.user, password=self.password, host=self.host, database=self.database)
 
+
 class DBContext:
-    def __init__(self, connection, find_connections=False):
+    def __init__(self, connection, find_connections=False, in_memory=True):
         '''
         Initializes the fields:
             tables:           list of selected tables
@@ -78,7 +83,6 @@ class DBContext:
             self.fkeys[table].add(col)
             self.reverse_fkeys[(table, col)] = ref_table
 
-
         cursor.execute(
             "SELECT table_name, column_name \
              FROM information_schema.KEY_COLUMN_USAGE \
@@ -88,6 +92,18 @@ class DBContext:
         self.target_table = self.tables[0]
         self.target_att = None
         con.close()
+
+        self.orng_tables = None
+        if in_memory:
+            self.orng_tables = self.read_into_orange()
+
+    def read_into_orange(self):
+        conv = converters.Orange_Converter(self)
+        tables = {
+            self.target_table: conv.target_Orange_table()
+        }
+        tables.update(zip(self.tables[1:], conv.other_Orange_tables()))
+        return tables
 
     def update(self, postdata):
         '''
@@ -116,12 +132,46 @@ class DBContext:
     def fmt_cols(self, cols):
         return ','.join(["`%s`" % col for col in cols])
 
-    def rows(self, table, cols):
+    def fetch(self, table, cols):
+        '''
+        Fetches rows from the db.
+        '''
         con = self.connection.connect()
         cursor = con.cursor() 
         cursor.execute("SELECT %s FROM %s" % (self.fmt_cols(cols), table))
         con.close()
         return [cols for cols in cursor]
+
+    def rows(self, table, cols):
+        '''
+        Fetches rows from the local cache or from the db if there's no cache.
+        '''
+        if self.orng_tables:
+            data = []
+            for ex in self.orng_tables[table]:
+                print cols
+                print self.orng_tables[table].domain
+                data.append([ex[str(col)] for col in cols])
+            return data
+        else:
+            return self.fetch(table, cols)
+
+    def select_where(self, table, cols, pk_att, pk):
+        '''
+        SELECT with WHERE clause.
+        '''
+        if self.orng_tables:
+            data = []
+            for ex in self.orng_tables[table]:
+                data.append([ex[str(col)] for col in cols if ex[str(pk_att)] == pk])
+            return data
+        else:
+            con = self.connection.connect()
+            cursor = con.cursor() 
+            attributes = self.db.fmt_cols(cols)
+            cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, table, pk_att, pk))
+            con.close()
+            return [cols for cols in cursor]
 
     def fetch_types(self, table, cols):
         '''
@@ -148,6 +198,9 @@ class DBContext:
                 self.col_vals[table][col] = [val for (_,val) in cursor]
         con.close()
 
+    def copy(self):
+        return copy.copy(self)
+
     def __repr__(self):
         return pprint.pformat({
             'target_table' : self.target_table, 
@@ -156,6 +209,7 @@ class DBContext:
             'cols' : self.cols, 
             'connected' : self.connected, 
             'pkeys' : self.pkeys, 
-            'fkeys' : self.fkeys 
+            'fkeys' : self.fkeys,
+            'orng_tables': [(name, len(table)) for name, table in self.orng_tables.items()] if self.orng_tables else 'not in memory'
         })
 

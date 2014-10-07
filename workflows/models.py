@@ -217,14 +217,33 @@ class Workflow(models.Model):
         else:
             input_seed = rand.randint(1, 100000000)
 
+        # Special case when reading from a DB
+        input_type = input_list.__class__.__name__
+        context = None
+        if input_type == 'DBContext':
+            context = input_list
+            input_list = context.orng_tables.get(context.target_table, None)
+
+        if not input_list:
+            raise Exception('CrossValidation: Empty input list!')
+
         progress_total = len(input_list) # for progress bar
         current_iteration = 0
-        #print(input_list, input_fold, input_seed);
 
         # create folds
-        rand.seed(input_seed);
+        rand.seed(input_seed)
         rand.shuffle(input_list)
-        folds = [input_list[i::input_fold] for i in range(input_fold)];
+
+        folds = []
+        if hasattr(input_list, "get_items_ref"):
+            # Orange table on input, so we cannot do slices
+            indices = range(len(input_list))
+            folds_indices = [indices[i::input_fold] for i in range(input_fold)]
+            folds = []
+            for fold_indices in folds_indices:
+                folds.append(input_list.get_items_ref(fold_indices))
+        else:
+            folds = [input_list[i::input_fold] for i in range(input_fold)]
 
         # pass forward the seed
         proper_output = fi.outputs.all()[2] # inner output
@@ -235,21 +254,28 @@ class Workflow(models.Model):
         for i in fo.inputs.all():
             if not i.parameter:
                 if i.connections.count() > 0:
-                    i.value = [];
-                    i.save();
+                    i.value = []
+                    i.save()
 
         for i in range(len(folds)):
-            #print(folds[i])
+            output_train = folds[:i] + folds[i+1:]
+            output_test = folds[i]
+            if input_type == 'DBContext':
+                output_train_obj = context.copy()
+                output_train_obj.orng_tables[context.target_table] = output_train
+                output_test_obj = context.copy()
+                output_test_obj.orng_tables[context.target_table] = output_test
+                output_train = output_train_obj
+                output_test = output_test_obj
+
             """ Different parameters on which the widgets are going to be run"""
             fi.unfinish() # resets widgets, (read all widgets.finished=false)
             fo.unfinish() # resets widgets, (read all widgets.finished=false)
             proper_output = fi.outputs.all()[0] # inner output
-            proper_output.value = folds[:i] + folds[i+1:];
-            #print(folds[:i] + folds[i+1:]);
+            proper_output.value = output_train
             proper_output.save()
             proper_output = fi.outputs.all()[1] # inner output
-            proper_output.value = folds[i]
-            #print(folds[i]);
+            proper_output.value = output_test
             proper_output.save()
             fi.finished=True # set the input widget as finished
             fi.save()
@@ -268,8 +294,6 @@ class Workflow(models.Model):
                 except:
                     raise
             current_iteration = current_iteration+1
-        
-        #input_list.value = []
 
     def run(self):
         if not USE_CONCURRENCY or not self.widget:
@@ -555,7 +579,7 @@ class Widget(models.Model):
         if self.type == 'regular' or self.type == 'subprocess':
             """ if this is a subprocess or a regular widget than true."""
             if not self.abstract_widget is None:
-                """if this is an abstract widget than true; we save the widget function in a variable """
+                """if this is an abstract widget than true we save the widget function in a variable """
                 function_to_call = getattr(workflows.library,self.abstract_widget.action)
             input_dict = {}
             outputs = {}
