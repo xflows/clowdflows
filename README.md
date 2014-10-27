@@ -1,9 +1,10 @@
-# Mothra Django Project #
+# Local installation of the Mothra project #
 ## Prerequisites ##
 
 - python >= 2.5
 - pip
 - virtualenv/wrapper (optional)
+- python headers if you're compiling Pillow from source: you need the `python-dev` package on debian systems
 
 ## Installation ##
 ### Creating the environment ###
@@ -26,7 +27,7 @@ source bin/activate
 Obtain the url to your git repository.
 
 ```bash
-git clone git@source.ijs.si:clowdflowsinterfaces/mothra.git mothra
+git clone git@source.ijs.si:kt/mothra.git
 ```
 
 ### Install requirements ###
@@ -41,7 +42,12 @@ cp mothra/__local_settings.py mothra/local_settings.py
 vi mothra/local_settings.py
 ```
 
+### Enable workflow packages ###
+Uncomment the packages that you need in `mothra/local_settings.py` in the `INSTALLED_APPS_WORKFLOWS_SUB` tuple.
+
 ### Sync database ###
+Say "no" to creating a super-user when prompted. You'll create the user after migrations.
+
 ```bash
 python manage.py syncdb
 ```
@@ -49,6 +55,16 @@ python manage.py syncdb
 ### Migrate database ###
 ```bash
 python manage.py migrate
+```
+
+### Create super-user ###
+```bash
+python manage.py createsuperuser
+```
+
+### Import packages ###
+```bash
+python manage.py auto_import_packages -n
 ```
 
 ## Running ##
