@@ -7,6 +7,9 @@ from django.shortcuts import render
 import json
 import colorsys
 from SubgroupDiscovery.calcHull import calcRates
+from SubgroupDiscovery.SDRule import SDRules
+import measures
+
 
 def subgroup_roc_visualization(request, input_dict, output_dict, widget):
     '''
@@ -47,4 +50,27 @@ def subgroup_bar_visualization(request, input_dict, output_dict, widget):
         'tpr' : json.dumps(tpr),
         'subgroups' : json.dumps(subgroups),
         'rules' : [(i, descr) for i, descr in enumerate(subgroups)]
+        })
+
+def subgroup_measures(request, input_dict, output_dict, widget):
+    '''
+    Subgroup measures calculated for sets of rules.
+        
+    @author: Anze Vavpetic, 2014
+    '''
+    header = ['Rule Set'] + [name for name, _ in measures.DISCRETE_TARGET_MEASURES]
+    rs_evaluations = []
+    for sdrules in input_dict.get('rules', []):
+        if isinstance(sdrules, SDRules):
+            posEx = len(sdrules.targetClassRule.TP)
+            negEx = len(sdrules.targetClassRule.examples) - posEx
+            rs_name = sdrules.algorithmName
+        else:
+            rs_name = rules.get('name', 'No name')
+            posEx, negEx = rules['posEx'], rules['negEx']
+        rs_evaluations.append([rs_name] + measures.evaluate(posEx, negEx, sdrules.rules))
+    return render(request, 'visualizations/subgroup_measures_visualization.html', {
+        'widget' : widget,
+        'header': header,
+        'rs_evaluations': rs_evaluations
         })

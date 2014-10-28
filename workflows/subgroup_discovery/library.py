@@ -47,6 +47,9 @@ def build_subgroups_finished(postdata, input_dict, output_dict):
     widget_id = postdata['widget_id'][0]
     alg = postdata['algorithm'+widget_id][0]
     classValue = str(postdata['class'+widget_id][0])
+    ruleset_name = postdata['ruleset_name'+widget_id][0]
+    if not ruleset_name:
+        ruleset_name = '%s rule set' % alg
     params = {'name' : alg, 'algorithm' : alg}
     for param in SubgroupDiscovery.algorithms[alg]:
         value = postdata[param+widget_id][0]
@@ -55,16 +58,20 @@ def build_subgroups_finished(postdata, input_dict, output_dict):
     learner = SD_learner(**params)
     classifier = learner(data)
     rules = classifier.getRules(classValue)
+    rules.algorithmName = ruleset_name
     # add id's
     for i, rule in enumerate(rules.rules):
         rule.id = i
-    return {'rules' : rules, 'classifier' : learner}
+    return {'rules' : rules, 'classifier' : None}
 
 def subgroup_bar_visualization(input_dict):
     return {'rules' : None}
 
 def subgroup_roc_visualization(input_dict):
     return {'rules' : []}
+
+def subgroup_measures(input_dict):
+    return {'rules': []}
 
 def select_subgroups(input_dict):
     return {'sel_rules' : []}

@@ -1,4 +1,4 @@
-<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction" width="700" height="500">
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction" width="450" height="500">
 <form>
     <label for="algorithm{{widget.pk}}">Algorithm</label>
     <select id="algorithm{{widget.pk}}" name="algorithm{{widget.pk}}">
@@ -15,6 +15,8 @@
         <option value="{{class}}">{{class}}</option>
     {% endfor %}
     </select>
+    <label for="ruleset_name{{widget.pk}}">Rule set name (optional, used for displaying evaluations)</label>
+    <input type="text" id="ruleset_name{{widget.pk}}" name="ruleset_name{{widget.pk}}" value=""/>
     <input type="hidden" name="widget_id" value="{{widget.pk}}">
 </form>
 <script type="text/javascript">

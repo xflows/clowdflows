@@ -1,0 +1,37 @@
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization" width="700px" height="670px">
+    <div style="width:620px; margin: 0 auto;">
+        <table id="subgroupMeasures{{widget.pk}}" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                {% for head in header %}
+                    <th> {{ head }} </th>
+                {% empty %}
+                <th>No header!</th>
+                {% endfor %}      
+                </tr>
+            </thead>
+            <tbody>
+            {% for rs in rs_evaluations %}
+            <tr>
+                {% for val in rs %}
+                    {% if forloop.first %}
+                <td> {{ val }} </td>
+                    {% else %}
+                <td> {{ val|floatformat:2 }} </td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#subgroupMeasures{{widget.pk}}').dataTable({
+        "bSortCellsTop" : true,
+        "bJQueryUI": true,
+        "sPaginationType": "full_numbers"
+    });
+});
+</script>
+</div>

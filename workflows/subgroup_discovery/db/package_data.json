@@ -1,6 +1,6 @@
 [
   {
-    "pk": 20, 
+    "pk": 9, 
     "model": "workflows.category", 
     "fields": {
       "uid": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99", 
@@ -12,11 +12,11 @@
     }
   }, 
   {
-    "pk": 29, 
+    "pk": 43, 
     "model": "workflows.category", 
     "fields": {
       "uid": "b01ed61e-31e6-4f6f-87b1-f93285801d1b", 
-      "parent": 20, 
+      "parent": 9, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -24,11 +24,12 @@
     }
   }, 
   {
-    "pk": 142, 
+    "pk": 211, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 43, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Build subgroups", 
       "is_streaming": false, 
       "uid": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
@@ -50,10 +51,10 @@
     }
   }, 
   {
-    "pk": 274, 
+    "pk": 518, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 142, 
+      "widget": 211, 
       "name": "Data table", 
       "short_name": "dat", 
       "uid": "3f631385-f579-431d-9b00-887fdfcfe39c", 
@@ -68,10 +69,10 @@
     }
   }, 
   {
-    "pk": 152, 
+    "pk": 236, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 142, 
+      "widget": 211, 
       "name": "SD rules", 
       "short_name": "rul", 
       "variable": "rules", 
@@ -81,10 +82,10 @@
     }
   }, 
   {
-    "pk": 153, 
+    "pk": 237, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 142, 
+      "widget": 211, 
       "name": "SD classifier", 
       "short_name": "cls", 
       "variable": "classifier", 
@@ -94,11 +95,12 @@
     }
   }, 
   {
-    "pk": 238, 
+    "pk": 345, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 43, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "RelSets", 
       "is_streaming": false, 
       "uid": "e7f36086-20d2-4b8f-b4e1-4eec195e786b", 
@@ -120,10 +122,10 @@
     }
   }, 
   {
-    "pk": 517, 
+    "pk": 863, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 238, 
+      "widget": 345, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "50362ef5-42b7-4f71-a8c8-ac48ad8cc79f", 
@@ -138,10 +140,10 @@
     }
   }, 
   {
-    "pk": 518, 
+    "pk": 864, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 238, 
+      "widget": 345, 
       "name": "Input Table", 
       "short_name": "tab", 
       "uid": "07f782ce-6ad4-4eaa-bc4c-58a82e627335", 
@@ -156,10 +158,10 @@
     }
   }, 
   {
-    "pk": 519, 
+    "pk": 865, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 238, 
+      "widget": 345, 
       "name": "Minimal TP Rate", 
       "short_name": "tpr", 
       "uid": "84eaef35-dab6-4b5b-92fd-b75c2d9f139c", 
@@ -174,10 +176,10 @@
     }
   }, 
   {
-    "pk": 247, 
+    "pk": 372, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 238, 
+      "widget": 345, 
       "name": "Rules As String", 
       "short_name": "str", 
       "variable": "rulesAsString", 
@@ -187,10 +189,10 @@
     }
   }, 
   {
-    "pk": 248, 
+    "pk": 373, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 238, 
+      "widget": 345, 
       "name": "Rules As PMML", 
       "short_name": "pml", 
       "variable": "rulesAsPMML", 
@@ -200,11 +202,12 @@
     }
   }, 
   {
-    "pk": 143, 
+    "pk": 212, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 43, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Query data with subgroups", 
       "is_streaming": false, 
       "uid": "920cd259-b727-4f88-b4a6-bea0c3ea60b1", 
@@ -226,10 +229,10 @@
     }
   }, 
   {
-    "pk": 275, 
+    "pk": 519, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 143, 
+      "widget": 212, 
       "name": "Data table", 
       "short_name": "dat", 
       "uid": "df3a0ac5-ca5f-483a-91c1-d5a32a404de9", 
@@ -244,10 +247,10 @@
     }
   }, 
   {
-    "pk": 276, 
+    "pk": 520, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 143, 
+      "widget": 212, 
       "name": "SD Rules", 
       "short_name": "rul", 
       "uid": "ca5c3d62-8f8b-4cfd-9be2-200e5c5fd6fc", 
@@ -262,10 +265,10 @@
     }
   }, 
   {
-    "pk": 154, 
+    "pk": 238, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 143, 
+      "widget": 212, 
       "name": "Data table", 
       "short_name": "dat", 
       "variable": "data", 
@@ -275,10 +278,10 @@
     }
   }, 
   {
-    "pk": 155, 
+    "pk": 239, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 143, 
+      "widget": 212, 
       "name": "Data table", 
       "short_name": "rem", 
       "variable": "remaining_data", 
@@ -288,11 +291,12 @@
     }
   }, 
   {
-    "pk": 144, 
+    "pk": 213, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 43, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Select subgroups", 
       "is_streaming": false, 
       "uid": "6e02a8d4-fe84-4430-8a74-beb1e4c51964", 
@@ -314,10 +318,10 @@
     }
   }, 
   {
-    "pk": 277, 
+    "pk": 521, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 144, 
+      "widget": 213, 
       "name": "SD rules", 
       "short_name": "rul", 
       "uid": "a9f87b37-1b21-47d3-80fa-687d68f2a5c3", 
@@ -332,10 +336,10 @@
     }
   }, 
   {
-    "pk": 156, 
+    "pk": 240, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 144, 
+      "widget": 213, 
       "name": "SD rules", 
       "short_name": "rul", 
       "variable": "sel_rules", 
@@ -345,11 +349,12 @@
     }
   }, 
   {
-    "pk": 145, 
+    "pk": 214, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 43, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Subgroup ROC visualization", 
       "is_streaming": false, 
       "uid": "b05c5df4-d3fb-44e6-b647-b4c5f78c05cf", 
@@ -371,10 +376,10 @@
     }
   }, 
   {
-    "pk": 278, 
+    "pk": 522, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 145, 
+      "widget": 214, 
       "name": "SD rules", 
       "short_name": "rul", 
       "uid": "8ceb4772-878e-45c1-b43c-c3ab8605abd0", 
@@ -389,11 +394,57 @@
     }
   }, 
   {
-    "pk": 146, 
+    "pk": 344, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 29, 
+      "category": 43, 
       "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Subgroup measures", 
+      "is_streaming": false, 
+      "uid": "2df99021-b221-4dae-a264-5139918c3920", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "subgroup_discovery", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "subgroup_measures", 
+      "streaming_visualization_view": "", 
+      "action": "subgroup_measures", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 862, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 344, 
+      "name": "SD rules", 
+      "short_name": "rul", 
+      "uid": "14096762-1d88-498e-93ad-dff63a5491ce", 
+      "default": "", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "rules", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "rules"
+    }
+  }, 
+  {
+    "pk": 215, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 43, 
+      "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Subgroup bar visualization", 
       "is_streaming": false, 
       "uid": "b3cb0462-6bae-4922-a67d-504e93fc0fc6", 
@@ -415,10 +466,10 @@
     }
   }, 
   {
-    "pk": 279, 
+    "pk": 523, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 146, 
+      "widget": 215, 
       "name": "SD rules", 
       "short_name": "rul", 
       "uid": "1c212c77-bc15-437c-a69a-1a9e153a35d1", 
@@ -433,11 +484,11 @@
     }
   }, 
   {
-    "pk": 27, 
+    "pk": 16, 
     "model": "workflows.category", 
     "fields": {
       "uid": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
-      "parent": 20, 
+      "parent": 9, 
       "workflow": null, 
       "user": null, 
       "order": 3, 
@@ -445,11 +496,12 @@
     }
   }, 
   {
-    "pk": 147, 
+    "pk": 216, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 27, 
+      "category": 16, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Table from sets of examples", 
       "is_streaming": false, 
       "uid": "13af5c58-1384-417e-9cc6-11e1853c19eb", 
@@ -471,10 +523,10 @@
     }
   }, 
   {
-    "pk": 280, 
+    "pk": 524, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 147, 
+      "widget": 216, 
       "name": "Data table", 
       "short_name": "dat", 
       "uid": "183384b7-3c8a-41e4-becf-25c852689b0a", 
@@ -489,10 +541,10 @@
     }
   }, 
   {
-    "pk": 157, 
+    "pk": 241, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 147, 
+      "widget": 216, 
       "name": "Data table", 
       "short_name": "dat", 
       "variable": "merged_data", 
