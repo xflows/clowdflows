@@ -989,6 +989,220 @@
     }
   }, 
   {
+    "pk": 425, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 44, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Hierarchical clustering", 
+      "is_streaming": false, 
+      "uid": "03d64d6e-843e-4dac-941c-ab4f0a29c5e0", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_do_hclustering", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Performs hierarchical clustering using the selected linkage."
+    }
+  }, 
+  {
+    "pk": 1064, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 425, 
+      "name": "Data table", 
+      "short_name": "odt", 
+      "uid": "f3424ab8-e105-4887-885d-68144fc59e13", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "table", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Orange data table with examples"
+    }
+  }, 
+  {
+    "pk": 1066, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 425, 
+      "name": "Distance metric", 
+      "short_name": "dm", 
+      "uid": "e04bd4bb-a2d2-4e56-b986-5d4e605c8786", 
+      "default": "1", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "metric", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Distance metric"
+    }
+  }, 
+  {
+    "pk": 297, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "771c3395-8fba-41f1-abbf-03f316b78de2", 
+      "abstract_input": 1066, 
+      "value": "1", 
+      "name": "Euclidean"
+    }
+  }, 
+  {
+    "pk": 298, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "28c5cd5f-6a30-4463-a34a-be2b1cb2cb8c", 
+      "abstract_input": 1066, 
+      "value": "2", 
+      "name": "Hamming"
+    }
+  }, 
+  {
+    "pk": 304, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "9e892884-14be-4426-b11c-0c078d6b5ef4", 
+      "abstract_input": 1066, 
+      "value": "8", 
+      "name": "Mahalanobis"
+    }
+  }, 
+  {
+    "pk": 300, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "efa9d187-ce62-4cff-818c-d659786eeeaf", 
+      "abstract_input": 1066, 
+      "value": "4", 
+      "name": "Manhattan"
+    }
+  }, 
+  {
+    "pk": 299, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "e167209d-d284-49e4-983b-ccfc09afd5b3", 
+      "abstract_input": 1066, 
+      "value": "3", 
+      "name": "Maximal"
+    }
+  }, 
+  {
+    "pk": 302, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "e6ec8edd-0bc1-498b-8004-eac5a5679b10", 
+      "abstract_input": 1066, 
+      "value": "6", 
+      "name": "Pearson"
+    }
+  }, 
+  {
+    "pk": 301, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "d479c184-c543-43cb-8b56-413142c1f2d0", 
+      "abstract_input": 1066, 
+      "value": "5", 
+      "name": "Relief"
+    }
+  }, 
+  {
+    "pk": 303, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "31cde594-d060-4e92-a715-2d667e9ed059", 
+      "abstract_input": 1066, 
+      "value": "7", 
+      "name": "Spearman"
+    }
+  }, 
+  {
+    "pk": 1065, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 425, 
+      "name": "Linkage", 
+      "short_name": "lin", 
+      "uid": "a08686eb-acef-47c1-8fca-6693ac142754", 
+      "default": "4", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "linkage", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Type of linkage"
+    }
+  }, 
+  {
+    "pk": 294, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "eecdc5f2-5653-4792-99d9-cecf8dec5eb8", 
+      "abstract_input": 1065, 
+      "value": "2", 
+      "name": "average"
+    }
+  }, 
+  {
+    "pk": 295, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "0ac1a67c-e7ab-4605-a34a-97d57e69c76c", 
+      "abstract_input": 1065, 
+      "value": "3", 
+      "name": "complete"
+    }
+  }, 
+  {
+    "pk": 293, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "151310a4-6f9c-4940-b461-9ab4b43f872e", 
+      "abstract_input": 1065, 
+      "value": "1", 
+      "name": "single"
+    }
+  }, 
+  {
+    "pk": 296, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "e1ee195d-707c-4d89-8f3f-eda86e6f047a", 
+      "abstract_input": 1065, 
+      "value": "4", 
+      "name": "ward"
+    }
+  }, 
+  {
+    "pk": 457, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 425, 
+      "name": "Hierarchical clustering", 
+      "short_name": "hcl", 
+      "variable": "hcluster", 
+      "uid": "892c1e63-65d3-4ea2-89bd-123f967b6357", 
+      "order": 1, 
+      "description": "Orange hierarchical clustering data structure"
+    }
+  }, 
+  {
     "pk": 198, 
     "model": "workflows.abstractwidget", 
     "fields": {
@@ -2697,6 +2911,64 @@
     }
   }, 
   {
+    "pk": 424, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 44, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Select hierarchical cluster", 
+      "is_streaming": false, 
+      "uid": "0462eba5-248e-43be-a40d-0ec96530d09b", 
+      "interaction_view": "segmine_hclustering", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "segmine_hclustering_finished", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_hclustering", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "A non-interactive variant of Hierarchical clustering for SegMine."
+    }
+  }, 
+  {
+    "pk": 1063, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 424, 
+      "name": "Hierarchical clustering", 
+      "short_name": "hcl", 
+      "uid": "0ae6fa4f-9032-42f0-a65c-067b221036c6", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "hclustering", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Orange hierarchical clustering object"
+    }
+  }, 
+  {
+    "pk": 456, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 424, 
+      "name": "Selected examples", 
+      "short_name": "sel", 
+      "variable": "selected_examples", 
+      "uid": "5bd9d37d-f9da-4d38-a70f-fe6e8a19778e", 
+      "order": 1, 
+      "description": "Examples from the selected cluster"
+    }
+  }, 
+  {
     "pk": 208, 
     "model": "workflows.abstractwidget", 
     "fields": {
@@ -2752,6 +3024,77 @@
       "uid": "67ebb338-9765-4805-b7c7-3ed78098cdc3", 
       "order": 1, 
       "description": "Orange dataset with filtered genes"
+    }
+  }, 
+  {
+    "pk": 426, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 44, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Union and intersection of attributes for SegMine rule table", 
+      "is_streaming": false, 
+      "uid": "2e3c0b5c-5bcb-4c8c-950f-a4c92a5d6c7d", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_ruletable2attribute_union_intersection", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Returns a set of strings computed as a union and intersection of all attributes of a SegMine rule table (genes or terms)."
+    }
+  }, 
+  {
+    "pk": 1067, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 426, 
+      "name": "Data table", 
+      "short_name": "odt", 
+      "uid": "2e913773-e48c-4401-b058-e75869eed9b6", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ruletable", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Orange data table"
+    }
+  }, 
+  {
+    "pk": 458, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 426, 
+      "name": "Attribute union", 
+      "short_name": "atu", 
+      "variable": "atrUnion", 
+      "uid": "64b2edae-31f7-4b97-93f5-144a03097852", 
+      "order": 1, 
+      "description": "Union of attributes of rules"
+    }
+  }, 
+  {
+    "pk": 459, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 426, 
+      "name": "Attribute intersection", 
+      "short_name": "ati", 
+      "variable": "atrInter", 
+      "uid": "06e8a9b6-901b-4e16-8d02-fded307a12c1", 
+      "order": 2, 
+      "description": "Intersection of atributes of rules"
     }
   }
 ]

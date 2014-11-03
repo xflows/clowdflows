@@ -1,7 +1,9 @@
 IGNORE_MISSING = 'ignore'
 IMPUTE_MISSING = 'impute row'
 
-ENTREZ_GENE_PREFIX = 'Entrez_Gene'
+ENTREZ_GENE_PREFIX = 'EntrezGene'
+GO_PREFIX = 'GO'
+KEGG_PREFIX = 'KEGG'
 DEFAULT_CONTROL_GROUP_ID = '1'
 
 CONTROL_GROUP_KEY = 'control group'

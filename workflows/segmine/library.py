@@ -784,3 +784,97 @@ def resolve_gene_names_STU(input_dict):
     result = list(set(result))
     result = [(x[1], x[0]) for x in sorted([(x[1], x[0]) for x in result], reverse=True)]
     return {'mapped_ranks': result}
+
+
+def segmine_do_hclustering(input_dict):
+    import Orange
+
+    table = input_dict['table']
+    linkage = int(input_dict['linkage'])
+    metric = int(input_dict['metric'])
+    linkages = {1: Orange.clustering.hierarchical.SINGLE,
+                2: Orange.clustering.hierarchical.AVERAGE,
+                3: Orange.clustering.hierarchical.COMPLETE,
+                4: Orange.clustering.hierarchical.WARD}
+    dmetrices = {1: Orange.distance.Euclidean,
+                 2: Orange.distance.Hamming,
+                 3: Orange.distance.Maximal,
+                 4: Orange.distance.Manhattan,
+                 5: Orange.distance.Relief,
+                 6: Orange.distance.PearsonR,
+                 7: Orange.distance.SpearmanR,
+                 8: Orange.distance.Mahalanobis}
+
+    dmatrix = Orange.distance.distance_matrix(table, dmetrices[metric])
+    clustering = Orange.clustering.hierarchical.HierarchicalClustering()
+    clustering.linkage = linkages[linkage]
+    hcl = clustering(dmatrix)
+    hcl.mapping.objects = table
+    return {'hcluster': hcl}
+
+
+def segmine_hclustering(input_dict):
+    return {'selected_examples': None}
+
+
+def segmine_hclustering_finished(postdata, input_dict, output_dict):
+    import Orange
+
+    def assign_numbers(root):
+        nodes = Orange.clustering.hierarchical.preorder(root)
+        for (i, node) in enumerate(nodes):
+            node.setattr('idx', i)
+
+    try:
+        cid = int(postdata['selected_cluster'][0])
+    except ValueError:
+        raise SyntaxError("Invalid cluster number! Please enter a valid number.")
+    widget_pk = postdata['widget_id'][0]
+    cluster = input_dict['hclustering']
+
+    assign_numbers(cluster)
+    clusters = Orange.clustering.hierarchical.cluster_to_list(cluster)
+    selected = [x for x in clusters if x.idx == cid][0]
+    table = Orange.data.Table(selected[0].domain)
+    table.extend([x for x in selected])
+    return {'selected_examples': table}
+
+
+def segmine_ruletable2attribute_union_intersection(input_dict):
+    import Orange
+    import constants
+    table = input_dict['ruletable']
+
+    def allGenes(names):
+        for name in names:
+            try:
+                gid = int(name)
+            except ValueError:
+                return False
+        return True
+    #end
+
+    def allGOKEGG(names):
+        for name in names:
+            if not name.startswith(constants.GO_PREFIX) and not name.startswith(constants.KEGG_PREFIX):
+                return False
+        return True
+    #end
+
+    names = [x.name for x in table.domain.attributes]
+    allgenes = allGenes(names)
+    allgokegg = allGOKEGG(names)
+    if not allgenes and not allgokegg:
+        raise ValueError('This widget only accepts SegMine rule table.')
+
+    union = names
+    intersection = []
+    for name in names:
+        if all([bool(int(example[name])) for example in table]):
+            intersection.append(name)
+
+    if allgenes:
+        union = [constants.ENTREZ_GENE_PREFIX + ':' + x for x in union]
+        intersection = [constants.ENTREZ_GENE_PREFIX + ':' + x for x in intersection]
+
+    return {'atrUnion': union, 'atrInter': intersection}
