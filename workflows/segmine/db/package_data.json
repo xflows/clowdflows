@@ -507,6 +507,100 @@
     }
   }, 
   {
+    "pk": 427, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 44, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Biomine search (plants)", 
+      "is_streaming": false, 
+      "uid": "f4955e19-df67-4092-9bf3-8a76987755bd", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_biomine_search_plants", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Calls the Biomine search engine (for plant data, updated version at JSI)."
+    }
+  }, 
+  {
+    "pk": 1068, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 427, 
+      "name": "Query nodes", 
+      "short_name": "que", 
+      "uid": "54934b0c-9ef7-456d-bfa6-37dab60a863a", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "qterms", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "A list of query nodes"
+    }
+  }, 
+  {
+    "pk": 1069, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 427, 
+      "name": "Max nodes", 
+      "short_name": "mxn", 
+      "uid": "0fe196ff-1e7b-4047-917a-2d828f52f3ae", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxnodes", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Search parameter maxnodes"
+    }
+  }, 
+  {
+    "pk": 1070, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 427, 
+      "name": "Database", 
+      "short_name": "dbs", 
+      "uid": "cbdafcda-e0a8-4e8d-9684-f65023ec5b5b", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "dbname", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Name of the database to use"
+    }
+  }, 
+  {
+    "pk": 460, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 427, 
+      "name": "Biomine graph", 
+      "short_name": "bmg", 
+      "variable": "bmgraph", 
+      "uid": "7f87c504-dcad-469b-84b7-67f3b1de2322", 
+      "order": 1, 
+      "description": "A graph in .bmg format"
+    }
+  }, 
+  {
     "pk": 193, 
     "model": "workflows.abstractwidget", 
     "fields": {

@@ -879,3 +879,27 @@ def segmine_ruletable2attribute_union_intersection(input_dict):
         intersection = [constants.ENTREZ_GENE_PREFIX + ':' + x for x in intersection]
 
     return {'atrUnion': union, 'atrInter': intersection}
+
+
+def segmine_biomine_search_plants(input_dict):
+    import urllib
+    import urllib2
+    import json
+    url = 'http://biomine.ijs.si/api'
+
+    qterms = input_dict['qterms']
+    maxnodes = input_dict['maxnodes'].strip()
+    dbname = input_dict['dbname'].strip()
+
+    qdict = {'query': ' '.join(qterms)}
+    if maxnodes:
+        qdict['maxnodes'] = int(maxnodes)
+    if dbname:
+        qdict['database'] = str(dbname)
+
+    params = urllib.urlencode(qdict)
+    result = json.loads(urllib2.urlopen(url, params).read())
+    if 'error' in result:
+        raise Exception(result['error'])
+
+    return {'bmgraph': result['graph']}
