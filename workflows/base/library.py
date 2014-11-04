@@ -127,8 +127,10 @@ def base_safe_eval_string(input_dict):
     sdata = str(input_dict['data'])
     try:
         result = ast.literal_eval(sdata)
-    except Exception:
+    except ValueError:
         raise Exception('Cannot evaluate string (remember, for safety reasons only literal structures can be evaluated: strings, numbers, tuples, lists, dicts, booleans, and None)')
+    except SyntaxError:
+        raise Exception('Invalid string! Please check all quotes, commas, ...')
     else:
         return {'evaluation_result': result}
 #end
