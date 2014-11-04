@@ -854,16 +854,17 @@ def segmine_ruletable2attribute_union_intersection(input_dict):
         return True
     #end
 
-    def allGOKEGG(names):
+    def allOntology(names):
         for name in names:
-            if not name.startswith(constants.GO_PREFIX) and not name.startswith(constants.KEGG_PREFIX):
+            if not name.startswith(constants.GO_PREFIX) and not name.startswith(constants.KEGG_PREFIX) and not \
+                    name.startswith(constants.GOMAPMAN_PREFIX):
                 return False
         return True
     #end
 
     names = [x.name for x in table.domain.attributes]
     allgenes = allGenes(names)
-    allgokegg = allGOKEGG(names)
+    allgokegg = allOntology(names)
     if not allgenes and not allgokegg:
         raise ValueError('This widget only accepts SegMine rule table.')
 
