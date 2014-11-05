@@ -82,14 +82,15 @@ class SD_learner(orange.Learner):
 #________________________________________________________________________________________
 
 class SD_Classifier(orange.Classifier):
-    def __init__(self, data):
-        if type(data) is not orange.ExampleTable:
-            raise TypeError('Data is not an orange.ExampleTable')
-        if data.domain.classVar.varType != orange.VarTypes.Discrete:
-            raise TypeError('Data should have a discrete target variable.')
+    def __init__(self, data=None):
+        if data:
+            if type(data) is not orange.ExampleTable:
+                raise TypeError('Data is not an orange.ExampleTable')
+            if data.domain.classVar.varType != orange.VarTypes.Discrete:
+                raise TypeError('Data should have a discrete target variable.')
 
         self.data = data
-        self.majorityClassifier = orange.MajorityLearner(self.data)
+        self.majorityClassifier = data and orange.MajorityLearner(self.data)
         self.rulesClass = []             # list of istances SDRules
         self.algorithm = "Subgroup discovery algorithm"
 
@@ -125,12 +126,10 @@ class SD_Classifier(orange.Classifier):
         else :
             return dist
 
-
     def addRulesForClass(self, listOfRules, targetClass):
         targetClassRule = SDRule(self.data, targetClass, conditions=[], g =1)
         tmp = SDRules(listOfRules, targetClassRule )
         self.rulesClass.append( tmp)
-
 
     def printAll(self):
         rulesList = []
