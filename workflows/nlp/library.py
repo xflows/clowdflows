@@ -1,9 +1,9 @@
 import nlp
 import os.path
 import base64
+from services.webservice import WebService
 from workflows.security import safeOpen
-import requests
-import json
+
 
 def merge_sentences(input_dict):
     """
@@ -41,20 +41,11 @@ def load_corpus(input_dict):
     '''
     f = safeOpen(input_dict['file'])
     fname = os.path.basename(input_dict['file'])
+    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8095/totale?wsdl')
     data = base64.b64encode(f.read())
-    
-    #define web service
-    webservice_url = 'http://192.168.57.110:8080/parseFile'
-    params = {"fileName": fname, "text":data} #set params
-    
-    #call web service
-    resp = requests.post(webservice_url, params=params)
-    content = json.loads(resp.content)[u'parseFileResponse'][u'parseFileResult']
-    
-    if content[u"error"] != "":
-        raise Exception(content[u"error"])
-    else:
-        return {'corpus': content[u"resp"]}
+    ws = WebService(wsdl, 60000)
+    response = ws.client.parseFile(fileName=fname, inFile=data)
+    return {'corpus': response['parsedFile']}
 
 
 def nlp_totrtale(input_dict):
@@ -63,22 +54,23 @@ def nlp_totrtale(input_dict):
     '''
     corpus = input_dict['corpus']
     lang = input_dict['lang']
-    xml = input_dict['xml']
-    postprocess = input_dict['postprocess']
-    bohoricica = input_dict['bohoricica']
-    antique = input_dict['antique']
-
-
-    #define web service
-    webservice_url = 'http://192.168.57.110:8080/runToTrTaLe'
-    params = {"text":corpus, "language": lang, "postProcessing":postprocess, "bohoricica":bohoricica, "antique": antique, "outputAsXML":xml}
-
-    response = requests.post(webservice_url, params = params)
-    content = json.loads(response.content)[u'runToTrTaLeResponse'][u'runToTrTaLeResult']
-    if content[u"error"] != "":
-        print "error in nlp_totrtale", content[u"error"]
-
-    return {'annotations': content[u'resp']}
+    wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8095/totale?wsdl')
+    xml = input_dict['xml'] == 'true'
+    postprocess = input_dict['postprocess'] == 'true'
+    bohoricica = input_dict['bohoricica'] == 'true'
+    antique = input_dict['antique'] == 'true'
+    print lang, wsdl, xml, postprocess, bohoricica, antique
+    ws = WebService(wsdl, 60000)
+    response = ws.client.runTotale(inFile=corpus, language=lang,
+                                   postProcessing=postprocess,
+                                   bohoricica=bohoricica,
+                                   antiqueSlovenian=antique,
+                                   outputAsXML=xml)
+    errors = response['error']
+    if errors:
+        # todo report this as warning
+        print errors
+    return {'annotations': response['annotatedFile']}
 
 
 def nlp_term_extraction(input_dict):
