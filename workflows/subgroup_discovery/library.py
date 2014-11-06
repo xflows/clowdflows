@@ -62,7 +62,7 @@ def build_subgroups_finished(postdata, input_dict, output_dict):
     # add id's
     for i, rule in enumerate(rules.rules):
         rule.id = i
-    return {'rules' : rules, 'classifier' : classifier}
+    return {'rules' : rules, 'classifier' : classifier, 'learner': learner}
 
 def subgroup_bar_visualization(input_dict):
     return {'rules' : None}

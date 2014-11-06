@@ -78,7 +78,20 @@
       "variable": "rules", 
       "uid": "81a5d62c-9725-4ec1-a352-d18ef75e0a74", 
       "order": 1, 
-      "description": ""
+      "description": "rule set"
+    }
+  }, 
+  {
+    "pk": 374, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 211, 
+      "name": "SD learner", 
+      "short_name": "lrn", 
+      "variable": "learner", 
+      "uid": "0276e508-2822-4387-84ef-2c48243bf5c1", 
+      "order": 1, 
+      "description": "learner"
     }
   }, 
   {
