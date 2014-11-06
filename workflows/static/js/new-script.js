@@ -61,6 +61,8 @@ selectedInput = -1;
 selectedOutput = -1;
 selectedConnection = -1;
 
+selectedWidgets = new Set([]);
+
 connections = {};
 
 executed = {};
@@ -234,6 +236,7 @@ function deleteSelected() {
 		$("#widget"+newSelected).remove();
         $("#widgetpreferences-"+newSelected).remove();
         selectedWidget=-1;
+        selectedWidgets = new Set([]);
         for (conId in connections) {
             if (connections[conId].inputWidget==newSelected||connections[conId].outputWidget==newSelected) {
                 $("#drawingcanvas"+conId).remove();
@@ -1051,6 +1054,7 @@ function updateWidgetListeners() {
     });
 
     $(".canvas div.widget").draggable({
+        multiple: true,
         handle: "div.widgetcenter, img.widgetimage",
         drag: function() {
             // this function exectues every time the mouse moves and the user is holding down the left mouse button
@@ -1094,17 +1098,36 @@ function updateWidgetListeners() {
 
                 //alert($(this).attr('rel'));
 
+               //get all selected widgets and save positions
+               $(".ui-selected").each(function () {
+                var y = parseInt($(this).css('top'));
+                var x = parseInt($(this).css('left'));
                $.post(url['save-position'], { "widget_id": $(this).attr('rel'), "x": x, "y": y } );
+
+                
+               })
+
 
                 redrawLines();
 
         }}
     );
 
-    $(".canvas div.widget").click(function() {
+    $(".canvas div.widget").click(function(e) {
         selectedWidget = $(this).attr('rel');
-        $(".widgetcenter").removeClass("ui-state-highlight");
+        if (!(e.ctrlKey || e.metaKey || e.shiftKey))
+        {
+            $(".widgetcenter").removeClass("ui-state-highlight");
+            $(".widget").removeClass("ui-selected");
+        } else {
+            if ($(this).hasClass("ui-selected")) {
+                $(this).removeClass("ui-selected");
+                $(this).find(".widgetcenter").removeClass("ui-state-highlight");
+                return;
+            }
+        }
         $(this).find(".widgetcenter").addClass("ui-state-highlight");
+        $(this).addClass("ui-selected");
         selectedConnection=-1;
 
         //clicking on a widget selects it and deselects any connection
