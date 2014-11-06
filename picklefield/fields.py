@@ -58,9 +58,9 @@ def dbsafe_encode(value, compress_object=False, pickle_protocol=DEFAULT_PROTOCOL
     #import traceback
     #traceback.print_stack()
     if not compress_object:
-        value = b64encode(dumps(deepcopy(value), pickle_protocol))
+        value = b64encode(dumps(value, pickle_protocol))
     else:
-        value = b64encode(compress(dumps(deepcopy(value), pickle_protocol)))
+        value = b64encode(compress(dumps(value, pickle_protocol)))
     return PickledObject(value)
 
 
