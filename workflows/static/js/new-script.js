@@ -61,8 +61,6 @@ selectedInput = -1;
 selectedOutput = -1;
 selectedConnection = -1;
 
-selectedWidgets = new Set([]);
-
 connections = {};
 
 executed = {};
@@ -236,7 +234,6 @@ function deleteSelected() {
 		$("#widget"+newSelected).remove();
         $("#widgetpreferences-"+newSelected).remove();
         selectedWidget=-1;
-        selectedWidgets = new Set([]);
         for (conId in connections) {
             if (connections[conId].inputWidget==newSelected||connections[conId].outputWidget==newSelected) {
                 $("#drawingcanvas"+conId).remove();
