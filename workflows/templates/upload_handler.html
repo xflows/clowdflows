@@ -4,6 +4,6 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-    top.stopUpload('{% if error %}{{error}}{% else %}<strong>File uploaded!</strong>{% endif %}',{{input_id}});
+    parent.stopUpload('{% if error %}{{error}}{% else %}<strong>File uploaded!</strong>{% endif %}',{{input_id}});
 });
 </script>
