@@ -100,7 +100,7 @@ def MUSE_string_to_file_finished(postdata, input_dict, output_dict):
     from socket import getfqdn
     import sys
 
-    if len(sys.argv > 1):
+    if len(sys.argv) > 1:
         DEVSERVER = sys.argv[1].startswith('runserver')
     else:
         DEVSERVER = False
