@@ -100,7 +100,10 @@ def MUSE_string_to_file_finished(postdata, input_dict, output_dict):
     from socket import getfqdn
     import sys
 
-    DEVSERVER = (sys.argv[1].startswith('runserver'))
+    if len(sys.argv > 1):
+        DEVSERVER = sys.argv[1].startswith('runserver')
+    else:
+        DEVSERVER = False
     fqdn = '127.0.0.1:8000' if DEVSERVER else getfqdn()
 
     fileURL = fqdn + postdata.get('fileURL')[0]
