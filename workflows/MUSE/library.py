@@ -74,6 +74,9 @@ def MUSE_semantic_role_labeling(input_dict):
     url = input_dict['url']
     data = input_dict['xml']
 
+    import socket
+    socket.setdefaulttimeout(None)
+
     cli = JSONWSPClient(url)
     result = cli.semantic_role_labeling(xml=data)
     srl, txt = result.response_dict['result']
@@ -84,6 +87,9 @@ def MUSE_semantic_role_labeling(input_dict):
 def MUSE_semantic_role_labeling_tuk(input_dict):
     url = input_dict['url']
     data = input_dict['xml']
+
+    import socket
+    socket.setdefaulttimeout(None)
 
     cli = JSONWSPClient(url)
     result = cli.semantic_role_labeling_tuk(xml=data)
