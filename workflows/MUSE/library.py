@@ -126,3 +126,6 @@ def MUSE_virtual_environment_visualization(input_dict):
 def MUSE_virtual_environment_demonstrator_tuk(input_dict):
     return {'mappingLink': str(input_dict['mappingLink']), 'unityLink': input_dict['unityLink']}
 
+
+def MUSE_virtual_environment_demonstrator_tuk_local(input_dict):
+    return {'mappingLink': str(input_dict['mappingLink']), 'unityLink': input_dict['unityLink']}
