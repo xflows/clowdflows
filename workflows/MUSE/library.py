@@ -40,10 +40,10 @@ def MUSE_mapping_to_KR_latest(input_dict):
     import socket
     cli = JSONWSPClient(url)
     socket.setdefaulttimeout(None)
-    result, xml = cli.mapping_to_KR_latest(SRL=data)
+    result = cli.mapping_to_KR_latest(SRL=data)
     mapping, xml = result.response_dict['result']
-
     return {'mapping': mapping, 'xml': xml}
+
 
 def MUSE_mapping_to_KR_precomputed(input_dict):
     url = input_dict['url']
