@@ -107,10 +107,14 @@ def MUSE_string_to_file_finished(postdata, input_dict, output_dict):
     import sys
 
     if len(sys.argv) > 1:
+        if len(sys.argv > 2) and '.' in sys.argv[2] and ':' in sys.argv[2]:
+            port = sys.argv[2].split(':')[1]
+        else:
+            port = 8000
         DEVSERVER = sys.argv[1].startswith('runserver')
     else:
         DEVSERVER = False
-    fqdn = '127.0.0.1:8000' if DEVSERVER else getfqdn()
+    fqdn = '127.0.0.1:' + port if DEVSERVER else getfqdn()
 
     fileURL = fqdn + postdata.get('fileURL')[0]
     return {'fileURL': fileURL}
