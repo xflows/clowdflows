@@ -107,7 +107,7 @@ def MUSE_string_to_file_finished(postdata, input_dict, output_dict):
     import sys
 
     if len(sys.argv) > 1:
-        if len(sys.argv > 2) and '.' in sys.argv[2] and ':' in sys.argv[2]:
+        if len(sys.argv) > 2 and '.' in sys.argv[2] and ':' in sys.argv[2]:
             port = sys.argv[2].split(':')[1]
         else:
             port = 8000
