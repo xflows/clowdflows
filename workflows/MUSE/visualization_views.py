@@ -19,8 +19,9 @@ def MUSE_view_xmlOLD(request, input_dict, output_dict, widget):
 def MUSE_view_xml(request, input_dict, output_dict, widget):
     from mothra.settings import MEDIA_ROOT
     from workflows.helpers import ensure_dir
-    filename = os.path.join(str(request.user.id), str(widget.id) + '.xml')
-    destination = os.path.join(MEDIA_ROOT, filename)
+
+    filename = '/'.join([str(request.user.id), str(widget.id) + '.xml'])
+    destination = '/'.join([MEDIA_ROOT, filename])
     ensure_dir(destination)
     f = open(destination, 'w')
     f.write(str(input_dict['xml_data']))
