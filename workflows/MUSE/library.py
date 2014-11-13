@@ -116,6 +116,8 @@ def MUSE_string_to_file_finished(postdata, input_dict, output_dict):
         DEVSERVER = False
     fqdn = '127.0.0.1:' + port if DEVSERVER else getfqdn()
 
+    fqdn = 'http://' + fqdn
+
     fileURL = fqdn + postdata.get('fileURL')[0]
     return {'fileURL': fileURL}
 
