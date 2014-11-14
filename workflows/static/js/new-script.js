@@ -1090,8 +1090,6 @@ function updateWidgetListeners() {
                     $(this).css('top','0px');
                 }
 
-                var y = parseInt($(this).css('top'));
-                var x = parseInt($(this).css('left'));
 
                 //alert($(this).attr('rel'));
 
@@ -1099,12 +1097,18 @@ function updateWidgetListeners() {
                $(".ui-selected").each(function () {
                 var y = parseInt($(this).css('top'));
                 var x = parseInt($(this).css('left'));
-               $.post(url['save-position'], { "widget_id": $(this).attr('rel'), "x": x, "y": y } );
+                $.post(url['save-position'], { "widget_id": $(this).attr('rel'), "x": x, "y": y } );
 
                 
                })
 
 
+               if ($(".ui-selected").size()==0) {
+                var y = parseInt($(this).css('top'));
+                var x = parseInt($(this).css('left'));
+                $.post(url['save-position'], { "widget_id": $(this).attr('rel'), "x": x, "y": y } );
+               }
+               
                 redrawLines();
 
         }}
