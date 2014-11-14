@@ -173,9 +173,12 @@ INSTALLED_APPS_DEFAULT = (
     #'rest_framework',
     'djcelery',
     #'kombu.transport.django',
+    'discover_runner',
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()
+
+TEST_RUNNER = 'discover_runner.DiscoverRunner'
 
 import djcelery
 djcelery.setup_loader()

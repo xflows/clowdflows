@@ -87,6 +87,69 @@
     }
   }, 
   {
+    "pk": 428, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 36, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Tuk the Hunter 3D demonstrator (local)", 
+      "is_streaming": false, 
+      "uid": "ac330214-79fe-497e-b7e3-c10ac0af1e1d", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "MUSE", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "MUSE_virtual_environment_demonstrator_tuk_local", 
+      "streaming_visualization_view": "", 
+      "action": "MUSE_virtual_environment_demonstrator_tuk_local", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Local copyt of the 3D demonstrator for the Tuk the Hunter children story"
+    }
+  }, 
+  {
+    "pk": 1071, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 428, 
+      "name": "mapping file URL", 
+      "short_name": "lnk", 
+      "uid": "a5036fb4-926d-4da1-8443-e5f960391b07", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "mappingLink", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "A link to the XML file contating mapping to knowledge representation"
+    }
+  }, 
+  {
+    "pk": 1072, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 428, 
+      "name": "Unity3D app link", 
+      "short_name": "lnk", 
+      "uid": "102b6795-a255-4256-a407-643e45c3afaf", 
+      "default": "Tuk-Text-Workflow-Web.html", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "unityLink", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "A link to the Tuk Unity3D web app"
+    }
+  }, 
+  {
     "pk": 166, 
     "model": "workflows.abstractwidget", 
     "fields": {

@@ -40,10 +40,10 @@ def MUSE_mapping_to_KR_latest(input_dict):
     import socket
     cli = JSONWSPClient(url)
     socket.setdefaulttimeout(None)
-    result, xml = cli.mapping_to_KR_latest(SRL=data)
+    result = cli.mapping_to_KR_latest(SRL=data)
     mapping, xml = result.response_dict['result']
-
     return {'mapping': mapping, 'xml': xml}
+
 
 def MUSE_mapping_to_KR_precomputed(input_dict):
     url = input_dict['url']
@@ -74,6 +74,9 @@ def MUSE_semantic_role_labeling(input_dict):
     url = input_dict['url']
     data = input_dict['xml']
 
+    import socket
+    socket.setdefaulttimeout(None)
+
     cli = JSONWSPClient(url)
     result = cli.semantic_role_labeling(xml=data)
     srl, txt = result.response_dict['result']
@@ -84,6 +87,9 @@ def MUSE_semantic_role_labeling(input_dict):
 def MUSE_semantic_role_labeling_tuk(input_dict):
     url = input_dict['url']
     data = input_dict['xml']
+
+    import socket
+    socket.setdefaulttimeout(None)
 
     cli = JSONWSPClient(url)
     result = cli.semantic_role_labeling_tuk(xml=data)
@@ -100,8 +106,17 @@ def MUSE_string_to_file_finished(postdata, input_dict, output_dict):
     from socket import getfqdn
     import sys
 
-    DEVSERVER = (sys.argv[1].startswith('runserver'))
-    fqdn = '127.0.0.1:8000' if DEVSERVER else getfqdn()
+    if len(sys.argv) > 1:
+        if len(sys.argv) > 2 and '.' in sys.argv[2] and ':' in sys.argv[2]:
+            port = sys.argv[2].split(':')[1]
+        else:
+            port = 8000
+        DEVSERVER = sys.argv[1].startswith('runserver')
+    else:
+        DEVSERVER = False
+    fqdn = '127.0.0.1:' + port if DEVSERVER else getfqdn()
+
+    fqdn = 'http://' + fqdn
 
     fileURL = fqdn + postdata.get('fileURL')[0]
     return {'fileURL': fileURL}
@@ -117,3 +132,6 @@ def MUSE_virtual_environment_visualization(input_dict):
 def MUSE_virtual_environment_demonstrator_tuk(input_dict):
     return {'mappingLink': str(input_dict['mappingLink']), 'unityLink': input_dict['unityLink']}
 
+
+def MUSE_virtual_environment_demonstrator_tuk_local(input_dict):
+    return {'mappingLink': str(input_dict['mappingLink']), 'unityLink': input_dict['unityLink']}
