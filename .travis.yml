@@ -5,7 +5,11 @@ notifications:
   email: false
 install:
   - pip install -r requirements.txt
+  - pip install coveralls  
 before_script:
   - cp mothra/__local_settings.py mothra/local_settings.py
 script:
-  - python manage.py test
+  - coverage run --source=mothra manage.py test
+after_success:
+  - coveralls
+  
