@@ -9,7 +9,6 @@ install:
 before_script:
   - cp mothra/__local_settings.py mothra/local_settings.py
 script:
-  - coverage run --source=mothra manage.py test
+  - coverage run manage.py test
 after_success:
   - coveralls
-  
