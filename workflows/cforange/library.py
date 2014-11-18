@@ -466,6 +466,7 @@ class Clustering:
             #raise
 
 def cforange_hierarchical_clustering_finished(postdata, input_dict, output_dict):
+    postdata = postdata.GET
     print "cforange_hierarchical_clustering_finished"
     import json
     import Orange, orange
