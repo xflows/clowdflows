@@ -1,6 +1,6 @@
 [
   {
-    "pk": 1, 
+    "pk": 3, 
     "model": "workflows.category", 
     "fields": {
       "uid": "fe5d5a78-ee52-4434-8a90-1fcfeb0ea63e", 
@@ -12,11 +12,11 @@
     }
   }, 
   {
-    "pk": 2, 
+    "pk": 4, 
     "model": "workflows.category", 
     "fields": {
       "uid": "74a7063e-9e7f-4305-8b5e-d5f1a4c40250", 
-      "parent": 1, 
+      "parent": 3, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -24,11 +24,12 @@
     }
   }, 
   {
-    "pk": 1, 
+    "pk": 11, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "IBk", 
       "is_streaming": false, 
       "uid": "a6125102-c2b4-4206-842b-8d0c510f7e86", 
@@ -39,6 +40,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "IBk", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -49,10 +51,10 @@
     }
   }, 
   {
-    "pk": 1, 
+    "pk": 17, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 1, 
+      "widget": 11, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "ca7a572b-2662-460b-a788-42e3b82824ac", 
@@ -67,10 +69,10 @@
     }
   }, 
   {
-    "pk": 2, 
+    "pk": 18, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 1, 
+      "widget": 11, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "7ac0ea58-70b3-4e75-a146-2abcd9ff81a0", 
@@ -85,10 +87,10 @@
     }
   }, 
   {
-    "pk": 3, 
+    "pk": 19, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 1, 
+      "widget": 11, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "34b5d0f6-a72f-4d16-a338-1b1da6597c21", 
@@ -103,10 +105,10 @@
     }
   }, 
   {
-    "pk": 1, 
+    "pk": 6, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 1, 
+      "widget": 11, 
       "name": "IBk Learner", 
       "short_name": "lrn", 
       "variable": "IBk_learner", 
@@ -116,11 +118,12 @@
     }
   }, 
   {
-    "pk": 2, 
+    "pk": 12, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "J48", 
       "is_streaming": false, 
       "uid": "dc8980c2-df3c-4797-a0b9-297e10e188e4", 
@@ -131,6 +134,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "J48", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -141,10 +145,10 @@
     }
   }, 
   {
-    "pk": 4, 
+    "pk": 20, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 2, 
+      "widget": 12, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "166f1dc1-6cf7-4ddb-9480-e4ec9cad8613", 
@@ -159,10 +163,10 @@
     }
   }, 
   {
-    "pk": 5, 
+    "pk": 21, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 2, 
+      "widget": 12, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "44995999-b169-4672-94b4-832cc5afc25f", 
@@ -177,10 +181,10 @@
     }
   }, 
   {
-    "pk": 6, 
+    "pk": 22, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 2, 
+      "widget": 12, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "d9b876f1-5346-43e4-b6f9-183ba17d04ac", 
@@ -195,10 +199,10 @@
     }
   }, 
   {
-    "pk": 2, 
+    "pk": 7, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 2, 
+      "widget": 12, 
       "name": "J48 Learner", 
       "short_name": "lrn", 
       "variable": "J48_learner", 
@@ -208,11 +212,12 @@
     }
   }, 
   {
-    "pk": 3, 
+    "pk": 13, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "JRip", 
       "is_streaming": false, 
       "uid": "49e693c9-1ca5-40d0-af31-9d84c0bc4151", 
@@ -223,6 +228,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "JRip", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -233,10 +239,10 @@
     }
   }, 
   {
-    "pk": 7, 
+    "pk": 23, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 3, 
+      "widget": 13, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "abddf5f0-d80d-4595-bda1-a7708831704f", 
@@ -251,10 +257,10 @@
     }
   }, 
   {
-    "pk": 8, 
+    "pk": 24, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 3, 
+      "widget": 13, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "7f11ab99-79a8-417c-93ce-022159e4bd8b", 
@@ -269,10 +275,10 @@
     }
   }, 
   {
-    "pk": 9, 
+    "pk": 25, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 3, 
+      "widget": 13, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "30e65c8c-04a3-4cea-a503-fa836c8f8222", 
@@ -287,10 +293,10 @@
     }
   }, 
   {
-    "pk": 3, 
+    "pk": 8, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 3, 
+      "widget": 13, 
       "name": "JRip Learner", 
       "short_name": "lrn", 
       "variable": "JRip_learner", 
@@ -300,11 +306,12 @@
     }
   }, 
   {
-    "pk": 4, 
+    "pk": 14, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "KStar", 
       "is_streaming": false, 
       "uid": "353f931b-fc5f-40b7-9e26-9364990c56eb", 
@@ -315,6 +322,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "KStar", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -325,10 +333,10 @@
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 26, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 4, 
+      "widget": 14, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "72ccc121-19fd-4501-95b1-f66662970c21", 
@@ -343,10 +351,10 @@
     }
   }, 
   {
-    "pk": 11, 
+    "pk": 27, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 4, 
+      "widget": 14, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "527e1e1a-3ff7-40c1-add6-f08b84b82a2b", 
@@ -361,10 +369,10 @@
     }
   }, 
   {
-    "pk": 12, 
+    "pk": 28, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 4, 
+      "widget": 14, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "26fe9a12-9917-4a3f-822e-7f9c64260e9c", 
@@ -379,10 +387,10 @@
     }
   }, 
   {
-    "pk": 4, 
+    "pk": 9, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 4, 
+      "widget": 14, 
       "name": "KStar Learner", 
       "short_name": "lrn", 
       "variable": "KStar_learner", 
@@ -392,11 +400,12 @@
     }
   }, 
   {
-    "pk": 5, 
+    "pk": 15, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "LibSVM", 
       "is_streaming": false, 
       "uid": "dc1efcee-56bc-40b0-a699-b3750d4651ac", 
@@ -407,6 +416,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "LibSVM", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -417,10 +427,10 @@
     }
   }, 
   {
-    "pk": 13, 
+    "pk": 29, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 5, 
+      "widget": 15, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "72e6a74a-6213-4821-b114-9eedcb0d3556", 
@@ -435,10 +445,10 @@
     }
   }, 
   {
-    "pk": 14, 
+    "pk": 30, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 5, 
+      "widget": 15, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "80a185a0-919e-41ef-9f6d-5696a04508c5", 
@@ -453,10 +463,10 @@
     }
   }, 
   {
-    "pk": 15, 
+    "pk": 31, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 5, 
+      "widget": 15, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "399e84ce-3ff0-4c15-a367-c9848d3cbb93", 
@@ -471,10 +481,10 @@
     }
   }, 
   {
-    "pk": 5, 
+    "pk": 10, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 5, 
+      "widget": 15, 
       "name": "LibSVM Learner", 
       "short_name": "lrn", 
       "variable": "LibSVM_learner", 
@@ -484,11 +494,12 @@
     }
   }, 
   {
-    "pk": 6, 
+    "pk": 16, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Multilayer Perceptron", 
       "is_streaming": false, 
       "uid": "fa4f24ac-1055-408a-852f-1ce4d90ef3ce", 
@@ -499,6 +510,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "Multilayer_Perceptron", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -509,10 +521,10 @@
     }
   }, 
   {
-    "pk": 16, 
+    "pk": 32, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 6, 
+      "widget": 16, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "b4ffb057-67de-4df8-ad9c-1fe44fd491bd", 
@@ -527,10 +539,10 @@
     }
   }, 
   {
-    "pk": 17, 
+    "pk": 33, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 6, 
+      "widget": 16, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "a084b7c4-cbc1-44eb-b9ae-8265f800d999", 
@@ -545,10 +557,10 @@
     }
   }, 
   {
-    "pk": 18, 
+    "pk": 34, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 6, 
+      "widget": 16, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "f1f2a5e7-40c7-485f-a592-0d7a13bafa30", 
@@ -563,10 +575,10 @@
     }
   }, 
   {
-    "pk": 6, 
+    "pk": 11, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 6, 
+      "widget": 16, 
       "name": "Multilayer Perceptron Learner", 
       "short_name": "lrn", 
       "variable": "Multilayer_Perceptron_learner", 
@@ -576,11 +588,12 @@
     }
   }, 
   {
-    "pk": 7, 
+    "pk": 17, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Naive Bayes", 
       "is_streaming": false, 
       "uid": "8283f38a-33dc-4d0d-812d-1c58c7209469", 
@@ -591,6 +604,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "Naive_Bayes", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -601,10 +615,10 @@
     }
   }, 
   {
-    "pk": 19, 
+    "pk": 35, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 7, 
+      "widget": 17, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "0d9e4fd6-aae2-42d1-9dc8-8c905cbea8ab", 
@@ -619,10 +633,10 @@
     }
   }, 
   {
-    "pk": 20, 
+    "pk": 36, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 7, 
+      "widget": 17, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "9d4e54cc-013a-4997-8804-bc6329901226", 
@@ -637,10 +651,10 @@
     }
   }, 
   {
-    "pk": 21, 
+    "pk": 37, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 7, 
+      "widget": 17, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "4c034605-af49-4af3-b1b5-ba3feb4fe5f7", 
@@ -655,10 +669,10 @@
     }
   }, 
   {
-    "pk": 7, 
+    "pk": 12, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 7, 
+      "widget": 17, 
       "name": "Naive Bayes Learner", 
       "short_name": "lrn", 
       "variable": "Naive_Bayes_learner", 
@@ -668,11 +682,12 @@
     }
   }, 
   {
-    "pk": 8, 
+    "pk": 18, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "REP Tree", 
       "is_streaming": false, 
       "uid": "77f625ba-46fd-4c7c-bcc1-ab279682a02c", 
@@ -683,6 +698,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "REPTree", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -693,10 +709,10 @@
     }
   }, 
   {
-    "pk": 22, 
+    "pk": 38, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 8, 
+      "widget": 18, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "1f6b1b09-1319-45a8-a785-83afa47649fb", 
@@ -711,10 +727,10 @@
     }
   }, 
   {
-    "pk": 23, 
+    "pk": 39, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 8, 
+      "widget": 18, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "48127408-7f94-47bc-93d7-723787cccbe9", 
@@ -729,10 +745,10 @@
     }
   }, 
   {
-    "pk": 24, 
+    "pk": 40, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 8, 
+      "widget": 18, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "0cd58b20-a46d-42ba-b1ea-e63f77bce087", 
@@ -747,10 +763,10 @@
     }
   }, 
   {
-    "pk": 8, 
+    "pk": 13, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 8, 
+      "widget": 18, 
       "name": "REPTree Learner", 
       "short_name": "lrn", 
       "variable": "REPTree_learner", 
@@ -760,11 +776,12 @@
     }
   }, 
   {
-    "pk": 9, 
+    "pk": 19, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "treeview/Toolbar_-_Loop.png", 
+      "windows_queue": false, 
       "name": "Random Tree", 
       "is_streaming": false, 
       "uid": "0adcbc66-4b1a-475b-b82f-42682050c8f4", 
@@ -775,6 +792,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "RandomTree", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -785,10 +803,10 @@
     }
   }, 
   {
-    "pk": 25, 
+    "pk": 41, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 9, 
+      "widget": 19, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "ba293824-883c-463c-aefc-b7f3d6617dec", 
@@ -803,10 +821,10 @@
     }
   }, 
   {
-    "pk": 26, 
+    "pk": 42, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 9, 
+      "widget": 19, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "4061b687-c92d-4eca-9e2a-b420bb2b8611", 
@@ -821,10 +839,10 @@
     }
   }, 
   {
-    "pk": 27, 
+    "pk": 43, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 9, 
+      "widget": 19, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "b38f475d-34b7-4892-9ae2-2f1c0fbcd753", 
@@ -839,10 +857,10 @@
     }
   }, 
   {
-    "pk": 9, 
+    "pk": 14, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 9, 
+      "widget": 19, 
       "name": "RandomTree Learner", 
       "short_name": "lrn", 
       "variable": "RandomTree_learner", 
@@ -852,11 +870,12 @@
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 20, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "treeview/120px-Gears_icon.png", 
+      "windows_queue": false, 
       "name": "RandomForest", 
       "is_streaming": false, 
       "uid": "a86057ba-aa1f-40fe-a548-e6c3259b7a6e", 
@@ -867,6 +886,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "RandomForest", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -877,10 +897,10 @@
     }
   }, 
   {
-    "pk": 28, 
+    "pk": 44, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 10, 
+      "widget": 20, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "d88bcf23-9d76-4ac7-9335-1a480ba93db7", 
@@ -895,10 +915,10 @@
     }
   }, 
   {
-    "pk": 29, 
+    "pk": 45, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 10, 
+      "widget": 20, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "e91780de-4643-4e7d-86a7-6fe3f4d81324", 
@@ -913,10 +933,10 @@
     }
   }, 
   {
-    "pk": 30, 
+    "pk": 46, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 10, 
+      "widget": 20, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "7e7e0abe-932b-48e0-937b-cc6285f08ac7", 
@@ -931,10 +951,10 @@
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 15, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 10, 
+      "widget": 20, 
       "name": "RandomForest Learner", 
       "short_name": "lrn", 
       "variable": "RandomForest_learner", 
@@ -944,11 +964,12 @@
     }
   }, 
   {
-    "pk": 11, 
+    "pk": 21, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 2, 
+      "category": 4, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "SMO", 
       "is_streaming": false, 
       "uid": "9fa88a17-5a6a-4173-88bf-8458dc24baea", 
@@ -959,6 +980,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "SMO", 
       "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
@@ -969,10 +991,10 @@
     }
   }, 
   {
-    "pk": 31, 
+    "pk": 47, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 11, 
+      "widget": 21, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "88f3ce4a-fd3e-45a3-bacf-94bb6ae183e1", 
@@ -987,10 +1009,10 @@
     }
   }, 
   {
-    "pk": 32, 
+    "pk": 48, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 11, 
+      "widget": 21, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "69e8a087-14b7-4539-bea2-07450fb40cdd", 
@@ -1005,10 +1027,10 @@
     }
   }, 
   {
-    "pk": 33, 
+    "pk": 49, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 11, 
+      "widget": 21, 
       "name": "Params", 
       "short_name": "par", 
       "uid": "fbd439ac-767f-4923-b9d9-7be4c61e2c4a", 
@@ -1023,10 +1045,10 @@
     }
   }, 
   {
-    "pk": 11, 
+    "pk": 16, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 11, 
+      "widget": 21, 
       "name": "SMO Learner", 
       "short_name": "lrn", 
       "variable": "SMO_learner", 
@@ -1036,11 +1058,11 @@
     }
   }, 
   {
-    "pk": 3, 
+    "pk": 5, 
     "model": "workflows.category", 
     "fields": {
       "uid": "6d75faa7-c547-475c-8b96-04b78d4ff402", 
-      "parent": 1, 
+      "parent": 3, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -1048,11 +1070,12 @@
     }
   }, 
   {
-    "pk": 12, 
+    "pk": 22, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 5, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Apply Classifier", 
       "is_streaming": false, 
       "uid": "86315b53-900f-4844-b41e-019f91afd955", 
@@ -1063,6 +1086,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "apply_classifier", 
       "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
@@ -1073,10 +1097,10 @@
     }
   }, 
   {
-    "pk": 34, 
+    "pk": 50, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 12, 
+      "widget": 22, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "542b8e26-bc86-4e7c-8595-01911478f235", 
@@ -1091,10 +1115,10 @@
     }
   }, 
   {
-    "pk": 35, 
+    "pk": 51, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 12, 
+      "widget": 22, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "80e54d5f-d86f-4681-8bad-8b37cc1ec2c3", 
@@ -1109,10 +1133,10 @@
     }
   }, 
   {
-    "pk": 36, 
+    "pk": 52, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 12, 
+      "widget": 22, 
       "name": "Classifier", 
       "short_name": "cla", 
       "uid": "09c54f59-0beb-4300-b682-47ebd63b71c9", 
@@ -1127,10 +1151,10 @@
     }
   }, 
   {
-    "pk": 37, 
+    "pk": 53, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 12, 
+      "widget": 22, 
       "name": "Instances", 
       "short_name": "ins", 
       "uid": "c22197af-f60b-4b76-b40e-516c17c9e1ab", 
@@ -1145,10 +1169,10 @@
     }
   }, 
   {
-    "pk": 12, 
+    "pk": 17, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 12, 
+      "widget": 22, 
       "name": "Classes", 
       "short_name": "cls", 
       "variable": "classes", 
@@ -1158,11 +1182,12 @@
     }
   }, 
   {
-    "pk": 13, 
+    "pk": 23, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 5, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Apply Clusterer", 
       "is_streaming": false, 
       "uid": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
@@ -1173,6 +1198,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "apply_clusterer", 
       "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
@@ -1183,10 +1209,10 @@
     }
   }, 
   {
-    "pk": 38, 
+    "pk": 54, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 13, 
+      "widget": 23, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "09b6a103-7879-469c-bf8b-712f80de4b52", 
@@ -1201,10 +1227,10 @@
     }
   }, 
   {
-    "pk": 39, 
+    "pk": 55, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 13, 
+      "widget": 23, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "416696a5-40bf-41bb-afd6-dd9f89c4246f", 
@@ -1219,10 +1245,10 @@
     }
   }, 
   {
-    "pk": 40, 
+    "pk": 56, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 13, 
+      "widget": 23, 
       "name": "Clusterer", 
       "short_name": "clu", 
       "uid": "5b14518d-51a9-4638-9231-dd73d19b6b3c", 
@@ -1237,10 +1263,10 @@
     }
   }, 
   {
-    "pk": 41, 
+    "pk": 57, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 13, 
+      "widget": 23, 
       "name": "Instances", 
       "short_name": "ins", 
       "uid": "278891e3-2530-4c9b-9871-57e6b6ad4070", 
@@ -1255,10 +1281,10 @@
     }
   }, 
   {
-    "pk": 13, 
+    "pk": 18, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 13, 
+      "widget": 23, 
       "name": "Clusters", 
       "short_name": "clu", 
       "variable": "clusters", 
@@ -1268,10 +1294,10 @@
     }
   }, 
   {
-    "pk": 14, 
+    "pk": 19, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 13, 
+      "widget": 23, 
       "name": "Number of Clusters", 
       "short_name": "num", 
       "variable": "number_of_clusters", 
@@ -1281,10 +1307,10 @@
     }
   }, 
   {
-    "pk": 15, 
+    "pk": 20, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 13, 
+      "widget": 23, 
       "name": "Centroids", 
       "short_name": "cen", 
       "variable": "centroids", 
@@ -1294,11 +1320,124 @@
     }
   }, 
   {
-    "pk": 14, 
+    "pk": 349, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 5, 
       "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Apply classifier and get instances", 
+      "is_streaming": false, 
+      "uid": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "weka", 
+      "static_image": "WEKA_ApplyClassifier.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "call_webservice", 
+      "wsdl_method": "apply_classifier_get_instances", 
+      "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 881, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 349, 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "uid": "f706b0cf-0361-4bb6-b7d5-190d184802db", 
+      "default": "60", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 882, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 349, 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "uid": "ee7f6b67-f6ef-4801-afdc-e7aab6656dd7", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 883, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 349, 
+      "name": "classifier", 
+      "short_name": "cla", 
+      "uid": "ddfb91ef-af1f-4f69-b169-1765166b99ee", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 884, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 349, 
+      "name": "instances", 
+      "short_name": "ins", 
+      "uid": "5d68936c-6cfc-446e-95e7-2c3173a6232c", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 383, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 349, 
+      "name": "instances", 
+      "short_name": "ins", 
+      "variable": "instances", 
+      "uid": "0426dbe9-6d92-4b6d-8449-d40f6a7f23c5", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 24, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 5, 
+      "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Build Classifier", 
       "is_streaming": false, 
       "uid": "904dbc2d-1de8-4b97-a48f-e6ea84753f6a", 
@@ -1309,6 +1448,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "build_classifier", 
       "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
@@ -1319,10 +1459,10 @@
     }
   }, 
   {
-    "pk": 42, 
+    "pk": 58, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 14, 
+      "widget": 24, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "e3d4fe8d-8b9d-45ff-a3a4-de7ce9a29327", 
@@ -1337,10 +1477,10 @@
     }
   }, 
   {
-    "pk": 43, 
+    "pk": 59, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 14, 
+      "widget": 24, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "8b63a66a-2a37-41d0-8c55-8b92f98fc79f", 
@@ -1355,10 +1495,10 @@
     }
   }, 
   {
-    "pk": 44, 
+    "pk": 60, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 14, 
+      "widget": 24, 
       "name": "Learner", 
       "short_name": "lea", 
       "uid": "17b77977-c7fd-4a1e-8bdd-e57dda0495d9", 
@@ -1373,10 +1513,10 @@
     }
   }, 
   {
-    "pk": 45, 
+    "pk": 61, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 14, 
+      "widget": 24, 
       "name": "Instances", 
       "short_name": "ins", 
       "uid": "1c36937f-7127-48a5-b086-ab3356e8db7d", 
@@ -1391,10 +1531,10 @@
     }
   }, 
   {
-    "pk": 16, 
+    "pk": 21, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 14, 
+      "widget": 24, 
       "name": "Classifier", 
       "short_name": "cla", 
       "variable": "classifier", 
@@ -1404,11 +1544,12 @@
     }
   }, 
   {
-    "pk": 15, 
+    "pk": 25, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 5, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Build Clusterer", 
       "is_streaming": false, 
       "uid": "533bec7f-539a-4a95-b883-a841bf3b0118", 
@@ -1419,6 +1560,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "build_clusterer", 
       "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
@@ -1429,10 +1571,10 @@
     }
   }, 
   {
-    "pk": 46, 
+    "pk": 62, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 15, 
+      "widget": 25, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "db17d2bf-4d1e-49cd-863c-2055246de11c", 
@@ -1447,10 +1589,10 @@
     }
   }, 
   {
-    "pk": 47, 
+    "pk": 63, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 15, 
+      "widget": 25, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "21155ff6-e3dc-4b73-99be-7070bc16a7ac", 
@@ -1465,10 +1607,10 @@
     }
   }, 
   {
-    "pk": 48, 
+    "pk": 64, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 15, 
+      "widget": 25, 
       "name": "Learner", 
       "short_name": "lea", 
       "uid": "eec2f308-1c5e-4de3-b60d-59b4f19d7aa6", 
@@ -1483,10 +1625,10 @@
     }
   }, 
   {
-    "pk": 49, 
+    "pk": 65, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 15, 
+      "widget": 25, 
       "name": "Instances", 
       "short_name": "ins", 
       "uid": "da953155-8ed2-416b-b739-bed4fd748dda", 
@@ -1501,10 +1643,10 @@
     }
   }, 
   {
-    "pk": 17, 
+    "pk": 22, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 15, 
+      "widget": 25, 
       "name": "Clusterer", 
       "short_name": "clu", 
       "variable": "clusterer", 
@@ -1514,11 +1656,12 @@
     }
   }, 
   {
-    "pk": 16, 
+    "pk": 26, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 5, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Cross Validate", 
       "is_streaming": false, 
       "uid": "272f5485-8081-4483-8321-118599817882", 
@@ -1529,6 +1672,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "cross_validate", 
       "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
@@ -1539,10 +1683,10 @@
     }
   }, 
   {
-    "pk": 50, 
+    "pk": 66, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 16, 
+      "widget": 26, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "db8ea5c9-738b-44c1-bcd9-9b704a8798c6", 
@@ -1557,10 +1701,10 @@
     }
   }, 
   {
-    "pk": 51, 
+    "pk": 67, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 16, 
+      "widget": 26, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "f5f83294-4688-4244-8b8a-95df71859fb0", 
@@ -1575,10 +1719,10 @@
     }
   }, 
   {
-    "pk": 52, 
+    "pk": 68, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 16, 
+      "widget": 26, 
       "name": "Learner", 
       "short_name": "lrn", 
       "uid": "5ddb24a4-f7ad-4d31-9a3d-8c18da1361a2", 
@@ -1593,10 +1737,10 @@
     }
   }, 
   {
-    "pk": 53, 
+    "pk": 69, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 16, 
+      "widget": 26, 
       "name": "Instances", 
       "short_name": "ins", 
       "uid": "91c0ad22-1d1b-4f0b-8ea9-be94be1ade29", 
@@ -1611,10 +1755,10 @@
     }
   }, 
   {
-    "pk": 54, 
+    "pk": 70, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 16, 
+      "widget": 26, 
       "name": "Folds", 
       "short_name": "fol", 
       "uid": "1a99446a-c3bd-40b4-996a-eb1af12fbf65", 
@@ -1629,10 +1773,10 @@
     }
   }, 
   {
-    "pk": 18, 
+    "pk": 23, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 16, 
+      "widget": 26, 
       "name": "Accuracy", 
       "short_name": "acc", 
       "variable": "accuracy", 
@@ -1642,10 +1786,10 @@
     }
   }, 
   {
-    "pk": 19, 
+    "pk": 24, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 16, 
+      "widget": 26, 
       "name": "Confusion matrix", 
       "short_name": "con", 
       "variable": "confusion_matrix", 
@@ -1655,10 +1799,10 @@
     }
   }, 
   {
-    "pk": 20, 
+    "pk": 25, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 16, 
+      "widget": 26, 
       "name": "Accuracy by class", 
       "short_name": "acc", 
       "variable": "accuracy_by_class", 
@@ -1668,10 +1812,10 @@
     }
   }, 
   {
-    "pk": 21, 
+    "pk": 26, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 16, 
+      "widget": 26, 
       "name": "Summary", 
       "short_name": "sum", 
       "variable": "summary", 
@@ -1681,11 +1825,11 @@
     }
   }, 
   {
-    "pk": 4, 
+    "pk": 6, 
     "model": "workflows.category", 
     "fields": {
       "uid": "0ae049f7-6040-4992-bb03-f9134b8e63c7", 
-      "parent": 1, 
+      "parent": 3, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -1693,11 +1837,12 @@
     }
   }, 
   {
-    "pk": 17, 
+    "pk": 27, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 4, 
+      "category": 6, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Arff to Weka Instances", 
       "is_streaming": false, 
       "uid": "3a141e99-a804-4b73-b06b-c75032325aa3", 
@@ -1708,6 +1853,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "arff_to_weka_instances", 
       "wsdl": "http://vihar.ijs.si:8092/Utilities?wsdl", 
@@ -1718,10 +1864,10 @@
     }
   }, 
   {
-    "pk": 55, 
+    "pk": 71, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 17, 
+      "widget": 27, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "2ec43e59-25e0-40da-a96f-7deb05ad063e", 
@@ -1736,10 +1882,10 @@
     }
   }, 
   {
-    "pk": 56, 
+    "pk": 72, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 17, 
+      "widget": 27, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "0161f92d-e191-4d60-979f-f0a7d69f40cb", 
@@ -1754,10 +1900,10 @@
     }
   }, 
   {
-    "pk": 57, 
+    "pk": 73, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 17, 
+      "widget": 27, 
       "name": "arff file", 
       "short_name": "arf", 
       "uid": "b027ab99-adb6-44fb-96ab-08deb7db7f5d", 
@@ -1772,10 +1918,10 @@
     }
   }, 
   {
-    "pk": 58, 
+    "pk": 74, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 17, 
+      "widget": 27, 
       "name": "Class index", 
       "short_name": "cla", 
       "uid": "1e067896-7006-4b44-82af-b03a61727080", 
@@ -1790,10 +1936,10 @@
     }
   }, 
   {
-    "pk": 22, 
+    "pk": 27, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 17, 
+      "widget": 27, 
       "name": "Instances", 
       "short_name": "ins", 
       "variable": "instances", 
@@ -1803,11 +1949,12 @@
     }
   }, 
   {
-    "pk": 18, 
+    "pk": 28, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 4, 
+      "category": 6, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Print Model", 
       "is_streaming": false, 
       "uid": "5ac9aced-9520-4ea4-ac0d-bc58c8be2aef", 
@@ -1818,6 +1965,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "print_model", 
       "wsdl": "http://vihar.ijs.si:8092/Utilities?wsdl", 
@@ -1828,10 +1976,10 @@
     }
   }, 
   {
-    "pk": 59, 
+    "pk": 75, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 18, 
+      "widget": 28, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "2a81aa2c-58af-44e1-8b03-c2dc72225c5c", 
@@ -1846,10 +1994,10 @@
     }
   }, 
   {
-    "pk": 60, 
+    "pk": 76, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 18, 
+      "widget": 28, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "00fdd694-785f-4e96-a616-5feea30eec49", 
@@ -1864,10 +2012,10 @@
     }
   }, 
   {
-    "pk": 61, 
+    "pk": 77, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 18, 
+      "widget": 28, 
       "name": "Model", 
       "short_name": "mod", 
       "uid": "df7c8785-4e7f-4e74-b123-c86b7f380516", 
@@ -1882,10 +2030,10 @@
     }
   }, 
   {
-    "pk": 23, 
+    "pk": 28, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 18, 
+      "widget": 28, 
       "name": "Model as String", 
       "short_name": "mod", 
       "variable": "model_as_string", 
@@ -1895,11 +2043,12 @@
     }
   }, 
   {
-    "pk": 19, 
+    "pk": 29, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 4, 
+      "category": 6, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Print Tree", 
       "is_streaming": false, 
       "uid": "bc3756b6-7f76-48ed-ae71-8bdae8870b23", 
@@ -1910,6 +2059,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "print_tree", 
       "wsdl": "http://vihar.ijs.si:8092/Utilities?wsdl", 
@@ -1920,10 +2070,10 @@
     }
   }, 
   {
-    "pk": 62, 
+    "pk": 78, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 19, 
+      "widget": 29, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "b0aa8640-b529-4433-b795-f1f022939fc3", 
@@ -1938,10 +2088,10 @@
     }
   }, 
   {
-    "pk": 63, 
+    "pk": 79, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 19, 
+      "widget": 29, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "3ce46037-9612-4b55-8297-1a604d545a64", 
@@ -1956,10 +2106,10 @@
     }
   }, 
   {
-    "pk": 64, 
+    "pk": 80, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 19, 
+      "widget": 29, 
       "name": "Tree model", 
       "short_name": "tre", 
       "uid": "2910d5a9-1735-416f-8ec4-cc2afbd5e977", 
@@ -1974,10 +2124,10 @@
     }
   }, 
   {
-    "pk": 24, 
+    "pk": 29, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 19, 
+      "widget": 29, 
       "name": "Tree", 
       "short_name": "tre", 
       "variable": "tree", 
@@ -1987,11 +2137,88 @@
     }
   }, 
   {
-    "pk": 20, 
+    "pk": 352, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 4, 
+      "category": 6, 
       "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Weka Get Attribute List", 
+      "is_streaming": false, 
+      "uid": "27b03964-8802-40e5-a7e4-4bed62c305eb", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "weka", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": 1, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "weka_get_attr_list", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Returns attribute values for a single attribute from the dataset. Defaults to the last attribute. E.g., useful for calculating classification statistics.\r\n"
+    }
+  }, 
+  {
+    "pk": 895, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 352, 
+      "name": "Arff dataset", 
+      "short_name": "arf", 
+      "uid": "cb2a88ea-8ffa-4776-b91e-6e6a608e1cbd", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "arff_file", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Arff dataset"
+    }
+  }, 
+  {
+    "pk": 896, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 352, 
+      "name": "Attribute name", 
+      "short_name": "atr", 
+      "uid": "cbc6708b-6932-4858-8522-a7fa705af1fd", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "attr_name", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Attribute name to extract as list"
+    }
+  }, 
+  {
+    "pk": 386, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 352, 
+      "name": "List of attr-values", 
+      "short_name": "lst", 
+      "variable": "attr_list", 
+      "uid": "6c4e0b43-fd91-422b-a01b-3cbbd2c387c2", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 30, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 6, 
+      "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Weka Instances To Arff", 
       "is_streaming": false, 
       "uid": "4d855dc4-0544-484a-914e-79487e8bb982", 
@@ -2002,6 +2229,7 @@
       "post_interact_action": "", 
       "user": 1, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "call_webservice", 
       "wsdl_method": "weka_instances_to_arff", 
       "wsdl": "http://vihar.ijs.si:8092/Utilities?wsdl", 
@@ -2012,10 +2240,10 @@
     }
   }, 
   {
-    "pk": 65, 
+    "pk": 81, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 20, 
+      "widget": 30, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "8bb6803e-eb93-4809-8b1b-a8d9f74e1910", 
@@ -2030,10 +2258,10 @@
     }
   }, 
   {
-    "pk": 66, 
+    "pk": 82, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 20, 
+      "widget": 30, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "306aa32b-0c75-41e7-8a12-1dbad868124c", 
@@ -2048,10 +2276,10 @@
     }
   }, 
   {
-    "pk": 67, 
+    "pk": 83, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 20, 
+      "widget": 30, 
       "name": "Instances", 
       "short_name": "ins", 
       "uid": "0ba276f9-f0c5-4d1e-ada8-7398e3ea3d72", 
@@ -2066,10 +2294,10 @@
     }
   }, 
   {
-    "pk": 25, 
+    "pk": 30, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 20, 
+      "widget": 30, 
       "name": "arff file", 
       "short_name": "arf", 
       "variable": "arff", 
@@ -2079,11 +2307,12 @@
     }
   }, 
   {
-    "pk": 21, 
+    "pk": 31, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 4, 
+      "category": 6, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Weka confusion matrix computations", 
       "is_streaming": false, 
       "uid": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
@@ -2094,6 +2323,7 @@
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
+      "streaming_visualization_view": "", 
       "action": "weka_statistics", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -2104,10 +2334,10 @@
     }
   }, 
   {
-    "pk": 68, 
+    "pk": 84, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 21, 
+      "widget": 31, 
       "name": "Summary", 
       "short_name": "sum", 
       "uid": "173d8ec1-24ce-48bf-a77b-ce948f20b32f", 
@@ -2122,10 +2352,10 @@
     }
   }, 
   {
-    "pk": 69, 
+    "pk": 85, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 21, 
+      "widget": 31, 
       "name": "Class Index", 
       "short_name": "ci", 
       "uid": "ef5fbfe5-72dc-4e3d-9d88-239caeeed56e", 
@@ -2140,10 +2370,10 @@
     }
   }, 
   {
-    "pk": 26, 
+    "pk": 31, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 21, 
+      "widget": 31, 
       "name": "Precision", 
       "short_name": "pre", 
       "variable": "precision", 
@@ -2153,10 +2383,10 @@
     }
   }, 
   {
-    "pk": 27, 
+    "pk": 32, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 21, 
+      "widget": 31, 
       "name": "Recall", 
       "short_name": "rec", 
       "variable": "recall", 
@@ -2166,10 +2396,10 @@
     }
   }, 
   {
-    "pk": 28, 
+    "pk": 33, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 21, 
+      "widget": 31, 
       "name": "F-score", 
       "short_name": "f", 
       "variable": "f", 
@@ -2179,10 +2409,10 @@
     }
   }, 
   {
-    "pk": 29, 
+    "pk": 34, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 21, 
+      "widget": 31, 
       "name": "ROC area", 
       "short_name": "auc", 
       "variable": "auc", 
@@ -2192,10 +2422,10 @@
     }
   }, 
   {
-    "pk": 30, 
+    "pk": 35, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 21, 
+      "widget": 31, 
       "name": "TP rate", 
       "short_name": "tp", 
       "variable": "tp_rate", 
@@ -2205,10 +2435,10 @@
     }
   }, 
   {
-    "pk": 31, 
+    "pk": 36, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 21, 
+      "widget": 31, 
       "name": "FP rate", 
       "short_name": "fp", 
       "variable": "fp_rate", 
