@@ -1,6 +1,6 @@
 [
   {
-    "pk": 3, 
+    "pk": 2, 
     "model": "workflows.category", 
     "fields": {
       "uid": "ed2728bc-3fd5-4244-9876-f6a757d1b922", 
@@ -12,20 +12,20 @@
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 5, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 2, 
       "treeview_image": "treeview/aggregate-icon.png", 
+      "windows_queue": false, 
       "name": "Aggregate Detection Results", 
       "is_streaming": false, 
       "uid": "17cf3814-1edd-4c0c-84dd-e1198c033584", 
       "interaction_view": "", 
       "image": "images/aggregate-icon.png", 
       "package": "perfeval", 
-      "static_image": "aggregate-icon.png", 
+      "static_image": "", 
       "post_interact_action": "", 
-      "windows_queue": false, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -39,10 +39,10 @@
     }
   }, 
   {
-    "pk": 35, 
+    "pk": 6, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 10, 
+      "widget": 5, 
       "name": "Positive Indices", 
       "short_name": "psi", 
       "uid": "91cfd170-b37a-457e-9077-285c6e88a408", 
@@ -57,10 +57,10 @@
     }
   }, 
   {
-    "pk": 36, 
+    "pk": 7, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 10, 
+      "widget": 5, 
       "name": "Detected Instances", 
       "short_name": "dti", 
       "uid": "da95100a-ec91-46d7-9244-b642aab9bf0d", 
@@ -75,10 +75,10 @@
     }
   }, 
   {
-    "pk": 8, 
+    "pk": 3, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 10, 
+      "widget": 5, 
       "name": "Aggregated Detection Results", 
       "short_name": "adr", 
       "variable": "aggr_dict", 
@@ -88,20 +88,143 @@
     }
   }, 
   {
-    "pk": 11, 
+    "pk": 353, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 2, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Classification statistics", 
+      "is_streaming": false, 
+      "uid": "3564589a-1dea-4743-8a56-d04992d569e8", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "perfeval", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": 1, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "perfeval_classification_statistics", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Calculates various classification statistics from true and predicted labels. Labels can be provided in two ways:\r\n\r\na) [y_true, y_predicted]\r\n\r\nor for folds:\r\n\r\nb) [[y_true_1, y_predicted_1], [y_true_2, y_predicted_2], ...]\r\n"
+    }
+  }, 
+  {
+    "pk": 897, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 353, 
+      "name": "True and predicted labels", 
+      "short_name": "lbl", 
+      "uid": "26c549c6-5ea1-4f1d-91c8-b9ced19f8aff", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "true_and_predicted_labels", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of true and predicted labels (see help for details)"
+    }
+  }, 
+  {
+    "pk": 387, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 353, 
+      "name": "Classification accuracy", 
+      "short_name": "ca", 
+      "variable": "accuracy", 
+      "uid": "afd2ad97-8fd4-40db-8767-df69824bb0a2", 
+      "order": 1, 
+      "description": "Classification accuracy"
+    }
+  }, 
+  {
+    "pk": 388, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 353, 
+      "name": "Precision", 
+      "short_name": "prc", 
+      "variable": "precision", 
+      "uid": "529feda2-fbc5-42e9-980f-f8bf82f5d1ef", 
+      "order": 2, 
+      "description": "Precision"
+    }
+  }, 
+  {
+    "pk": 389, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 353, 
+      "name": "Recall", 
+      "short_name": "rec", 
+      "variable": "recall", 
+      "uid": "3f5e14ad-e8de-44ea-b4a3-a3f395400a28", 
+      "order": 3, 
+      "description": "Recall"
+    }
+  }, 
+  {
+    "pk": 390, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 353, 
+      "name": "F1", 
+      "short_name": "f1", 
+      "variable": "f1", 
+      "uid": "37cba070-0b06-4e6e-bf03-04895c956467", 
+      "order": 4, 
+      "description": "F1 measure"
+    }
+  }, 
+  {
+    "pk": 391, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 353, 
+      "name": "AUC", 
+      "short_name": "auc", 
+      "variable": "auc", 
+      "uid": "bc72c5a9-f057-43a7-8dbe-4e654846f1ae", 
+      "order": 5, 
+      "description": "AUC"
+    }
+  }, 
+  {
+    "pk": 392, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 353, 
+      "name": "Confusion matrix", 
+      "short_name": "cm", 
+      "variable": "confusion_matrix", 
+      "uid": "bea68107-f4c2-4aac-ab99-4b466c41b704", 
+      "order": 6, 
+      "description": "Confusion matrix"
+    }
+  }, 
+  {
+    "pk": 6, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 2, 
       "treeview_image": "treeview/Evaluate.png", 
+      "windows_queue": false, 
       "name": "Evaluate Detection Algorithms", 
       "is_streaming": false, 
       "uid": "0b604a1d-f188-4e74-bcda-188829c507c0", 
       "interaction_view": "", 
       "image": "images/Evaluate.png", 
       "package": "perfeval", 
-      "static_image": "Evaluate.png", 
+      "static_image": "", 
       "post_interact_action": "", 
-      "windows_queue": false, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -115,10 +238,10 @@
     }
   }, 
   {
-    "pk": 37, 
+    "pk": 8, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 11, 
+      "widget": 6, 
       "name": "Noisy Instances", 
       "short_name": "nid", 
       "uid": "a386be60-c5ad-4565-bbab-3fb41266d233", 
@@ -133,10 +256,10 @@
     }
   }, 
   {
-    "pk": 38, 
+    "pk": 9, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 11, 
+      "widget": 6, 
       "name": "Detected Noise", 
       "short_name": "dni", 
       "uid": "345a8672-386a-4bc5-b7ff-d7a3a9ee4b0c", 
@@ -151,10 +274,10 @@
     }
   }, 
   {
-    "pk": 39, 
+    "pk": 10, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 11, 
+      "widget": 6, 
       "name": "Beta parameter for F-mesure ", 
       "short_name": "bfm", 
       "uid": "d6d32949-4eb8-47b5-86fc-2d4026ef54b1", 
@@ -169,10 +292,10 @@
     }
   }, 
   {
-    "pk": 9, 
+    "pk": 4, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 11, 
+      "widget": 6, 
       "name": "Noise Detection Performance", 
       "short_name": "ndp", 
       "variable": "nd_eval", 
@@ -182,20 +305,20 @@
     }
   }, 
   {
-    "pk": 12, 
+    "pk": 7, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 2, 
       "treeview_image": "treeview/EvaluateRepeated.png", 
+      "windows_queue": false, 
       "name": "Evaluate Repeated Detection", 
       "is_streaming": false, 
       "uid": "5b52c563-3302-429f-9232-4f003e8c11f0", 
       "interaction_view": "", 
       "image": "images/EvaluateRepeated.png", 
       "package": "perfeval", 
-      "static_image": "EvaluateRepeated.png", 
+      "static_image": "", 
       "post_interact_action": "", 
-      "windows_queue": false, 
       "user": null, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -209,10 +332,10 @@
     }
   }, 
   {
-    "pk": 40, 
+    "pk": 11, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 12, 
+      "widget": 7, 
       "name": "Algorithm Performances", 
       "short_name": "aps", 
       "uid": "3b202ce7-d565-4f45-ae82-3f040f10499c", 
@@ -227,10 +350,10 @@
     }
   }, 
   {
-    "pk": 41, 
+    "pk": 12, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 12, 
+      "widget": 7, 
       "name": "F-measure Beta-parameter", 
       "short_name": "btp", 
       "uid": "c584ebf0-a9b4-4877-b503-2abef8c7dd72", 
@@ -245,10 +368,10 @@
     }
   }, 
   {
-    "pk": 10, 
+    "pk": 5, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 12, 
+      "widget": 7, 
       "name": "Performance Results", 
       "short_name": "prs", 
       "variable": "perf_results", 
@@ -258,20 +381,20 @@
     }
   }, 
   {
-    "pk": 13, 
+    "pk": 8, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 2, 
       "treeview_image": "treeview/results-table.png", 
+      "windows_queue": false, 
       "name": "Evaluation Results to Table", 
       "is_streaming": false, 
       "uid": "9b6d7a11-1bd9-41b6-ac6d-343fcf31ee1e", 
       "interaction_view": "", 
       "image": "images/results-table.png", 
       "package": "perfeval", 
-      "static_image": "results-table.png", 
+      "static_image": "", 
       "post_interact_action": "", 
-      "windows_queue": false, 
       "user": null, 
       "visualization_view": "eval_to_table_view", 
       "streaming_visualization_view": "", 
@@ -285,10 +408,10 @@
     }
   }, 
   {
-    "pk": 42, 
+    "pk": 13, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 13, 
+      "widget": 8, 
       "name": "Evaluation Results", 
       "short_name": "evr", 
       "uid": "37860143-3d94-4f29-9d73-2e817497c46b", 
@@ -303,20 +426,20 @@
     }
   }, 
   {
-    "pk": 14, 
+    "pk": 9, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 2, 
       "treeview_image": "treeview/Bar-chart-icon.png", 
+      "windows_queue": false, 
       "name": "Performance Chart", 
       "is_streaming": false, 
       "uid": "4c667e7a-82fe-4dc3-8f70-48fc261e0eee", 
       "interaction_view": "", 
       "image": "images/Bar-chart-icon.png", 
       "package": "perfeval", 
-      "static_image": "Bar-chart-icon.png", 
+      "static_image": "", 
       "post_interact_action": "", 
-      "windows_queue": false, 
       "user": null, 
       "visualization_view": "eval_bar_chart_view", 
       "streaming_visualization_view": "", 
@@ -330,10 +453,10 @@
     }
   }, 
   {
-    "pk": 43, 
+    "pk": 14, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 14, 
+      "widget": 9, 
       "name": "Evaluation Results", 
       "short_name": "evr", 
       "uid": "cf7561c5-a1ff-42bf-905b-92330ff39ae4", 
@@ -348,20 +471,20 @@
     }
   }, 
   {
-    "pk": 15, 
+    "pk": 10, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 3, 
+      "category": 2, 
       "treeview_image": "treeview/viper600-60_1.png", 
+      "windows_queue": false, 
       "name": "VIPER: Visual Performance Evaluation", 
       "is_streaming": false, 
       "uid": "4098a678-2d14-4cbe-808d-2d150a7c2341", 
       "interaction_view": "", 
       "image": "images/viper600-60_1.png", 
       "package": "perfeval", 
-      "static_image": "viper600-60_1.png", 
+      "static_image": "", 
       "post_interact_action": "", 
-      "windows_queue": false, 
       "user": null, 
       "visualization_view": "pr_space_view", 
       "streaming_visualization_view": "", 
@@ -375,10 +498,10 @@
     }
   }, 
   {
-    "pk": 44, 
+    "pk": 15, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 15, 
+      "widget": 10, 
       "name": "ε-proximity evaluation parameter [%]", 
       "short_name": "eps", 
       "uid": "1a17f990-5041-47c3-b47a-492a03fc6d21", 
@@ -393,120 +516,120 @@
     }
   }, 
   {
-    "pk": 23, 
+    "pk": 4, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "a10c7375-7021-4abb-8b50-3f8700806d9b", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0.01", 
       "name": " 1"
     }
   }, 
   {
-    "pk": 24, 
+    "pk": 5, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "d8a2826b-2dad-4544-bbce-6aa2434c7c02", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0.02", 
       "name": " 2"
     }
   }, 
   {
-    "pk": 25, 
+    "pk": 6, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "ba0813b6-23ba-4626-89df-04ce026a87c4", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0.03", 
       "name": " 3"
     }
   }, 
   {
-    "pk": 26, 
+    "pk": 7, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "cdd0bfe5-1cf4-4988-8ea2-2f93bfffcde8", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0.04", 
       "name": " 4"
     }
   }, 
   {
-    "pk": 27, 
+    "pk": 8, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "9003923c-73e9-4ab2-bb1a-c1cb5af8f289", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0.05", 
       "name": " 5"
     }
   }, 
   {
-    "pk": 28, 
+    "pk": 9, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "dcf68d77-c3aa-4044-9800-a3bc568d5b54", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0.06", 
       "name": " 6"
     }
   }, 
   {
-    "pk": 29, 
+    "pk": 10, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "d3b0473c-d8a3-46c9-8d8c-fa5ecd21461a", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0.07", 
       "name": " 7"
     }
   }, 
   {
-    "pk": 30, 
+    "pk": 11, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "c0be8ca7-3377-40bf-91a0-a6f2ce152078", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0.08", 
       "name": " 8"
     }
   }, 
   {
-    "pk": 31, 
+    "pk": 12, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "a383432b-3b92-4293-8d1d-e747bcb4eeba", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0.09", 
       "name": " 9"
     }
   }, 
   {
-    "pk": 32, 
+    "pk": 13, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "60176291-79c8-4042-afc4-55c8a11209d7", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0.1", 
       "name": "10"
     }
   }, 
   {
-    "pk": 33, 
+    "pk": 14, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "a82e638a-928d-4271-89a1-e511e50f43a4", 
-      "abstract_input": 44, 
+      "abstract_input": 15, 
       "value": "0", 
       "name": "Do not use ε-proximity evaluation"
     }
   }, 
   {
-    "pk": 45, 
+    "pk": 16, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 15, 
+      "widget": 10, 
       "name": "Algorithm Performance", 
       "short_name": "alp", 
       "uid": "9bd36b53-7c9a-4ce7-a591-acecfe1bdc14", 
