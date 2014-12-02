@@ -22,6 +22,8 @@ urlpatterns = patterns('',
     url(r'^streams/', include('streams.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
+    url(r'^api/', include('workflows.api_urls')),
+
     url('^' + LOGIN_URL[1:] + '$', 'django.contrib.auth.views.login', name='login'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
     url(r'^change-password/$', 'django.contrib.auth.views.password_change', name='password change'),
