@@ -1,3 +1,8 @@
+import StringIO
+import arff
+from services.webservice import WebService
+
+
 def weka_statistics(input_dict):
     summary = input_dict['summary']
     class_index = int(input_dict['classIndex'])
@@ -29,3 +34,21 @@ def weka_statistics(input_dict):
     output_dict['fp_rate']=fp_rate
     output_dict['f']=f
     return output_dict
+
+
+def weka_get_attr_list(input_dict):
+    '''
+    Returns attribute values for a single attribute from the dataset. Defaults to the last attribute.
+    E.g., useful for calculating classification statistics.
+    '''
+    arff_file = input_dict['arff_file']
+    attr_name = input_dict.get('attr_name', None)
+    attr_list = []
+    for row in arff.loads(arff_file):
+        if attr_name:
+            attr = getattr(row, attr_name)
+        else:
+            # Default to last row value
+            attr = row[len(row)-1]
+        attr_list.append(attr)
+    return {'attr_list': attr_list}
