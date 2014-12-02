@@ -174,6 +174,7 @@ INSTALLED_APPS_DEFAULT = (
     'djcelery',
     #'kombu.transport.django',
     'discover_runner',
+    'rest_framework',
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()
