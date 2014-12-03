@@ -2,15 +2,20 @@ from workflows.models import Workflow, Widget
 from rest_framework import viewsets, mixins
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from workflows.serializers import WorkflowSerializer, WidgetSerializer
+from workflows.serializers import WorkflowSerializer, WidgetSerializer, WorkflowListSerializer
 from rest_framework import filters
 
 class WorkflowViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows workflows to be viewed or edited.
     """
-    serializer_class = WorkflowSerializer
+    #serializer_class = WorkflowSerializer
     model = Workflow
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return WorkflowListSerializer
+        return WorkflowSerializer
 
     def pre_save(self, workflow):
         workflow.user = self.request.user
