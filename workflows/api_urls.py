@@ -4,6 +4,8 @@ from workflows import api_views
 
 router = routers.DefaultRouter()
 router.register(r'workflows', api_views.WorkflowViewSet)
+router.register(r'widgets', api_views.WidgetViewSet)
+
 
 urlpatterns = patterns('',
     url(r'^', include(router.urls)),
