@@ -64,7 +64,18 @@ def call_webservice(input_dict):
             ws_dict[i['name']]=''
     results = function_to_call(**ws_dict)
     output_dict=results
-    return output_dict
+    if type(results)==dict:
+        return output_dict
+    elif type(results)==list:
+        output_dict = {}
+        for l in results:
+            if type(l)==dict:
+                for k in l.keys():
+                    a = output_dict.get(k,[])
+                    a.append(l[k])
+                    output_dict[k]=a
+        return output_dict
+    return results
 
 def multiply_integers(input_dict):
     product = 1
