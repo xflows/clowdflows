@@ -16,4 +16,4 @@ class WorkflowViewSet(viewsets.ModelViewSet):
         workflow.user = self.request.user
 
     def get_queryset(self):
-        return Workflow.objects.filter(user=self.request.user)
+        return Workflow.objects.filter(user=self.request.user,widget=None)
