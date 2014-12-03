@@ -1,16 +1,15 @@
-from workflows.models import *
 from rest_framework import viewsets, mixins
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from workflows.serializers import *
 from rest_framework import filters
+from workflows.models import *
+from workflows.serializers import *
 
 
 class WorkflowViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows workflows to be viewed or edited.
     """
-    #serializer_class = WorkflowSerializer
     model = Workflow
 
     def get_serializer_class(self):
@@ -29,8 +28,12 @@ class WidgetViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows widgets to be viewed or edited.
     """
-    serializer_class = WidgetSerializer
     model = Widget
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return WidgetListSerializer
+        return WidgetSerializer
 
     def get_queryset(self):
         return Widget.objects.filter(workflow__user=self.request.user)
