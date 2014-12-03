@@ -3,6 +3,7 @@ from rest_framework import routers
 from workflows import api_views
 
 router = routers.DefaultRouter()
+router.register(r'workflows', api_views.WorkflowViewSet)
 
 urlpatterns = patterns('',
     url(r'^', include(router.urls)),
