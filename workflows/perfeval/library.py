@@ -49,7 +49,7 @@ def perfeval_classification_statistics(input_dict):
 
     # AUC is defined only for binary classes
     if len(classes) == 2:
-        auc = metrics.auc_score(y_true, y_pred, pos_label=0)
+        auc = metrics.auc_score(y_true, y_pred)
     else:
         auc = 'undefined for multiple classes'
     return {'accuracy': accuracy, 'precision': precision, 'recall': recall, 
