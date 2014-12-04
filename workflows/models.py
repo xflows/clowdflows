@@ -895,7 +895,8 @@ class Input(models.Model):
         ('text','Single line'),
         ('textarea','Multi line text'),
         ('select', 'Select box'),
-        ('file', 'File field')
+        ('file', 'File field'),
+        ('checkbox', 'Checkbox'),
     )
     parameter_type = models.CharField(max_length=50,choices=PARAMETER_CHOICES,blank=True,null=True)
     order = models.PositiveIntegerField(default=1)
