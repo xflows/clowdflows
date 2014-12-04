@@ -187,6 +187,11 @@ function deleteSelected() {
 		reportError("Nothing to delete.");
 	} else if (selectedWidget!=-1) {
         var newSelected = selectedWidget;
+        
+        if ($("#widget"+newSelected).hasClass('subprocess') && !confirm("Are you sure you want to delete this subprocess?")) {
+            return;
+        }
+
         unfinish(selectedWidget);
         $.post(url['delete-widget'], { "widget_id": selectedWidget }, function(data) {
         if ($("#widget"+newSelected).data("workflow_link")>0) {
