@@ -42,6 +42,7 @@ class WorkflowListSerializer(serializers.HyperlinkedModelSerializer):
 
 class WorkflowSerializer(serializers.HyperlinkedModelSerializer):
     widgets = WidgetSerializer(many=True, read_only=True)
+    connections = ConnectionSerializer(many=True, read_only=True)
     class Meta:
         model = Workflow
-        fields = ('id', 'name', 'public', 'description', 'widgets', 'url')
+        fields = ('id', 'name', 'public', 'description', 'widgets', 'connections', 'url')
