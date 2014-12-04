@@ -11,17 +11,18 @@ class WorkflowViewSet(viewsets.ModelViewSet):
     API endpoint that allows workflows to be viewed or edited.
     """
     model = Workflow
+    filter_fields = ('public',)
 
     def get_serializer_class(self):
         if self.action == 'list':
             return WorkflowListSerializer
         return WorkflowSerializer
 
-    def pre_save(self, workflow):
-        workflow.user = self.request.user
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
     def get_queryset(self):
-        return Workflow.objects.filter(user=self.request.user,widget=None)
+        return Workflow.objects.filter(user=self.request.user).prefetch_related('widgets','widgets__inputs','widgets__outputs')
 
 
 class WidgetViewSet(viewsets.ModelViewSet):
@@ -29,6 +30,7 @@ class WidgetViewSet(viewsets.ModelViewSet):
     API endpoint that allows widgets to be viewed or edited.
     """
     model = Widget
+    filter_field = ('workflow',)
 
     def get_serializer_class(self):
         if self.action == 'list':
@@ -36,7 +38,7 @@ class WidgetViewSet(viewsets.ModelViewSet):
         return WidgetSerializer
 
     def get_queryset(self):
-        return Widget.objects.filter(workflow__user=self.request.user)
+        return Widget.objects.filter(workflow__user=self.request.user).prefetch_related('inputs','outputs')
 
 
 class ConnectionViewSet(viewsets.ModelViewSet):
