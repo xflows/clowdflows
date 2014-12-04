@@ -30,7 +30,7 @@ class WidgetViewSet(viewsets.ModelViewSet):
     API endpoint that allows widgets to be viewed or edited.
     """
     model = Widget
-    filter_field = ('workflow',)
+    filter_fields = ('workflow',)
 
     def get_serializer_class(self):
         if self.action == 'list':

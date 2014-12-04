@@ -42,7 +42,7 @@ class WidgetSerializer(serializers.HyperlinkedModelSerializer):
     outputs = OutputSerializer(many=True, read_only=True)
     workflow_link = serializers.HyperlinkedRelatedField(
         read_only=True,
-        view_name='workflow-details'
+        view_name='workflow-detail'
     )
 
     class Meta:
