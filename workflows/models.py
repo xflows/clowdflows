@@ -129,7 +129,7 @@ class Workflow(models.Model):
         progress_total = len(input_list) # for progress bar
         current_iteration = 0
         for i in input_list:
-            print(i);
+            #print(i);
             """ Different parameters on which the widgets are going to be run"""
             fi.unfinish() # resets widgets, (read all widgets.finished=false)
             fo.unfinish() # resets widgets, (read all widgets.finished=false)
