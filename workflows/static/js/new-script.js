@@ -903,6 +903,7 @@ function updateWidgetListeners() {
                    if (data.status=="ok") {
                     unfinishDescendants(data.widget_id);
                     reportOk(data.message);
+                    $(".run").click();
                    $(".statusimage"+data.widget_id).hide();
                    $(".done"+data.widget_id).show();
                    } else if (data.status=="error") {

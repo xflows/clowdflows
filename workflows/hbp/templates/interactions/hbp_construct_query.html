@@ -1,0 +1,29 @@
+<div id="widgetinteract-{{widget.pk}}" height="500" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} wants your input!">
+<form id="interactionform-{{widget.pk}}" name="interactionform-{{widget.pk}}">
+
+<b>ICD-10 Classification</b><br>
+<label><input type="checkbox" value="CN" name="d" style="display:inline;width:auto;"> CN<br></label>
+<label><input type="checkbox" value="AD" name="d" style="display:inline;width:auto;"> Alzheimer's disiease<br></label>
+<label><input type="checkbox" value="LMCI" name="d" style="display:inline;width:auto;"> LMCI<br></label>
+<label><input type="checkbox" value="EMCI" name="d" style="display:inline;width:auto;"> EMCI<br></label>
+<label><input type="checkbox" value="SMC" name="d" style="display:inline;width:auto;"> SMC<br></label>
+<br>
+<b>Geographic Region</b><br>
+<label><input type="checkbox" value="Africa" name="g" style="display:inline;width:auto;"> Africa<br></label>
+<label><input type="checkbox" value="Asia" name="g" style="display:inline;width:auto;"> Asia<br></label>
+<label><input type="checkbox" value="Australia" name="g" style="display:inline;width:auto;"> Australia<br></label>
+<label><input type="checkbox" value="Europe" name="g" style="display:inline;width:auto;"> Europe<br></label>
+<label><input type="checkbox" value="North America" name="g" style="display:inline;width:auto;"> North America<br></label>
+<label><input type="checkbox" value="South America" name="g" style="display:inline;width:auto;"> South America<br></label>
+<br>
+<b>Age range</b><br>
+<label><input type="checkbox" value="1-18" name="a" style="display:inline;width:auto;"> 1-18<br></label>
+<label><input type="checkbox" value="18-24" name="a" style="display:inline;width:auto;"> 18-24<br></label>
+<label><input type="checkbox" value="25-34" name="a" style="display:inline;width:auto;"> 25-34<br></label>
+<label><input type="checkbox" value="35-44" name="a" style="display:inline;width:auto;"> 35-44<br></label>
+<label><input type="checkbox" value="45-54" name="a" style="display:inline;width:auto;"> 45-54<br></label>
+<label><input type="checkbox" value="55-64" name="a" style="display:inline;width:auto;"> 55-64<br></label>
+<label><input type="checkbox" value="65+" name="a" style="display:inline;width:auto;"> 65+<br></label>
+<input type="hidden" name="widget_id" value="{{widget.pk}}">
+</form>
+</div>
