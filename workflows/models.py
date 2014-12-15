@@ -215,7 +215,7 @@ class Workflow(models.Model):
             #check if we have an input
             input_seed = int(fi.outputs.all()[2].outer_input.value)
         else:
-            input_seed = rand.randint(1, 100000000)
+            input_seed = 0
 
         # Special case when reading from a DB
         input_type = input_list.__class__.__name__
