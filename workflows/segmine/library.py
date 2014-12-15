@@ -903,3 +903,14 @@ def segmine_biomine_search_plants(input_dict):
         raise Exception(result['error'])
 
     return {'bmgraph': result['graph']}
+# end
+
+
+def segmine_selectBMdatabase(input_dict):
+    return {'database': None}
+
+
+def segmine_selectBMdatabase_finished(postdata, input_dict, output_dict):
+    dbid = str(postdata['selected_database'][0])
+    return {'database': dbid}
+# end

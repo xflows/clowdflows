@@ -1,0 +1,41 @@
+<div id="widgetinteract-{{ widget.pk }}"
+     rel="{{ widget.pk }}"
+     class="widgetinteractdialog"
+     title="{{ widget.name }} wants your input!"
+     width=320 height=160>
+
+    <form id="interactionform-{{ widget.pk }}" name="interactionform-{{ widget.pk }}">
+        <label><strong>Available databases:</strong></label>
+        <select id="dbselect">
+            {% for dbid in databases %}
+                {% if forloop.counter0 == 0 %}
+                    <option value="{{ dbid }}" selected>{{ dbid }}</option>
+                {% else %}
+                    <option value="{{ dbid }}">{{ dbid }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <input type="hidden" name="widget_id" value="{{ widget.pk }}">
+        {% for dbid in databases %}
+            {% if forloop.counter0 == 0 %}
+                <input type="hidden" id="dbInput" name="selected_database" value="{{ dbid }}">
+            {% endif %}
+        {% empty %}
+            <input type="hidden" id="dbInput" name="selected_database" value="">
+        {% endfor %}
+
+    </form>
+</div>
+
+
+<style type="text/css">
+</style>
+
+<script>
+    $("#dbselect").change(function () {
+        $("#dbInput").val($("#dbselect").val());
+    });
+</script>
+
+
+

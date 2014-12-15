@@ -565,7 +565,7 @@
       "parameter_type": "text", 
       "variable": "maxnodes", 
       "parameter": true, 
-      "order": 1, 
+      "order": 2, 
       "description": "Search parameter maxnodes"
     }
   }, 
@@ -578,12 +578,12 @@
       "short_name": "dbs", 
       "uid": "cbdafcda-e0a8-4e8d-9684-f65023ec5b5b", 
       "default": "", 
-      "required": false, 
+      "required": true, 
       "multi": false, 
-      "parameter_type": "text", 
+      "parameter_type": null, 
       "variable": "dbname", 
-      "parameter": true, 
-      "order": 1, 
+      "parameter": false, 
+      "order": 3, 
       "description": "Name of the database to use"
     }
   }, 
@@ -3002,6 +3002,46 @@
       "uid": "19670a6e-77a0-4299-9211-52c331ee5842", 
       "order": 1, 
       "description": "Rules as rows, their terms as columns."
+    }
+  }, 
+  {
+    "pk": 435, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 44, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Select Biomine database", 
+      "is_streaming": false, 
+      "uid": "91b39cdf-e6b2-4b4f-b5c9-38ecf2ba01bf", 
+      "interaction_view": "segmine_selectBMdatabase", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "segmine_selectBMdatabase_finished", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_selectBMdatabase", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Calls the API of the new Biomine service to get the list of available databases."
+    }
+  }, 
+  {
+    "pk": 472, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 435, 
+      "name": "Database name", 
+      "short_name": "db", 
+      "variable": "database", 
+      "uid": "658dc964-06d2-4db9-8a82-f8d3947137ff", 
+      "order": 1, 
+      "description": "Name of the selected database"
     }
   }, 
   {

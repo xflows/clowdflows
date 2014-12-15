@@ -59,3 +59,21 @@ def segmine_hclustering(request, input_dict, output_dict, widget):
     return render(request, 'interactions/segmine_hierarchical_clustering.html', {'widget': widget,
                                                                                  'dendrogram_json': djson,
                                                                                  'nexamples': len(hcluster)})
+# end
+
+
+def segmine_selectBMdatabase(request, input_dict, output_dict, widget):
+    from urllib2 import urlopen
+    from json import loads
+
+    listdb_url = 'http://biomine.ijs.si/list_databases'
+    try:
+        result = loads(urlopen(listdb_url).read())
+        dbs = [str(x) for x in result['databases']]
+    except:
+        raise IOError('Error while calling Biomine API.')
+
+    return render(request, 'interactions/segmine_selectBMdatabase.html', {'widget': widget,
+                                                                          'databases': dbs})
+# end
+
