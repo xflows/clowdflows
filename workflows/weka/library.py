@@ -44,11 +44,10 @@ def weka_get_attr_list(input_dict):
     arff_file = input_dict['arff_file']
     attr_name = input_dict.get('attr_name', None)
     attr_list = []
-    for row in arff.loads(arff_file):
-        if attr_name:
-            attr = getattr(row, attr_name)
-        else:
-            # Default to last row value
-            attr = row[len(row)-1]
-        attr_list.append(attr)
+    dataset = arff.loads(arff_file)
+    attr_idx = -1
+    if attr_name:
+        attr_idx = map(lambda x: x[0], dataset['attributes'].index(attr_name))
+    for row in dataset['data']:
+        attr_list.append(row[attr_idx])
     return {'attr_list': attr_list}
