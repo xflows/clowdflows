@@ -914,3 +914,7 @@ def segmine_selectBMdatabase_finished(postdata, input_dict, output_dict):
     dbid = str(postdata['selected_database'][0])
     return {'database': dbid}
 # end
+
+
+def segmine_biomine_visualizer_js(input_dict):
+    return {}

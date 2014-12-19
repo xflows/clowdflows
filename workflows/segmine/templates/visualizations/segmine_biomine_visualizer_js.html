@@ -1,0 +1,73 @@
+<div id="widgetvisualization-{{ widget.pk }}" rel="{{ widget.pk }}"
+     class="widgetvisualizationdialog" title="{{ widget.name }} visualization" width="900" height="700">
+
+    <div id="networkviswrapper">
+        <div id="networkvis">
+        </div>
+    </div>
+</div>
+
+
+<style>
+    #networkvis, #networkviswrapper {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+</style>lin
+
+<script>
+    $('head').append('<link rel="stylesheet" type="text/css" href="http://visjs.org/dist/vis.css">');
+
+    $("#widgetvisualization-{{ widget.pk }}").bind("dialogresize", function (event, ui) {
+        scaleForGecko();
+    });
+
+    function scaleForGecko() {
+        $.getScript("https://cdn.rawgit.com/ded/bowser/master/bowser.min.js", function () {
+            if (bowser.firefox || bowser.seamonkey || bowser.sailfish) {
+                $('#networkvis').height($("#widgetvisualization-{{ widget.pk }}").height());
+                $('#networkvis').width($("#widgetvisualization-{{ widget.pk }}").width());
+            }
+        });
+    }
+</script>
+
+<script>
+    var network = null;
+    var nodes = {{ nodes|safe }};
+    var edges = {{ edges|safe }};
+    var groups = {{ groups|safe }};
+
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+
+    var options = {
+        hover: true,
+        stabilize: false,
+        groups: groups,
+        physics: {
+            barnesHut: {
+                enabled: true,
+                //gravitationalConstant: -2000,
+                //centralGravity: 0.01,
+                //springLength: 350,
+                //springConstant: 0.003,
+                //damping: 0.05
+                gravitationalConstant: -10000,
+                centralGravity: 0.1,
+                springLength: 200,
+                springConstant: 0.035,
+                damping: 0.05
+            }
+        }
+    };
+
+    var container = document.getElementById('networkvis');
+    scaleForGecko();
+    $.getScript("http://visjs.org/dist/vis.js", function () {
+        network = new vis.Network(container, data, options);
+    });
+</script>
+
