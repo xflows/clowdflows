@@ -149,8 +149,6 @@ class DBContext:
         if self.orng_tables:
             data = []
             for ex in self.orng_tables[table]:
-                print cols
-                print self.orng_tables[table].domain
                 data.append([ex[str(col)] for col in cols])
             return data
         else:
@@ -199,7 +197,7 @@ class DBContext:
         con.close()
 
     def copy(self):
-        return copy.copy(self)
+        return copy.deepcopy(self)
 
     def __repr__(self):
         return pprint.pformat({

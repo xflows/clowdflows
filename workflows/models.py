@@ -236,10 +236,11 @@ class Workflow(models.Model):
         if hasattr(input_list, "get_items_ref"):
             import orange 
             # Orange table on input, so we cannot do slices
-            indices = orange.MakeRandomIndicesCV(input_list, randseed=input_seed)
+            indices = orange.MakeRandomIndicesCV(input_list, randseed=input_seed, folds=input_fold)
             for i in range(input_fold):
                 output_train = input_list.select(indices, i, negate=1)
                 output_test = input_list.select(indices, i)
+		#print len(output_train), len(output_test)
                 folds.append((output_train, output_test))
         else:
             rand.seed(input_seed)
@@ -261,8 +262,9 @@ class Workflow(models.Model):
         for i in range(len(folds)):
             #import pdb; pdb.set_trace()
             if hasattr(input_list, "get_items_ref"):
-                output_test = folds[i][0]
-                output_train = folds[i][1]
+                output_test = folds[i][1]
+                output_train = folds[i][0]
+		print len(output_train), len(output_test)
             else:
                 output_train = folds[:i] + folds[i+1:]
                 output_test = folds[i]
@@ -279,9 +281,11 @@ class Workflow(models.Model):
             fo.unfinish() # resets widgets, (read all widgets.finished=false)
             proper_output = fi.outputs.all()[0] # inner output
             proper_output.value = output_train
+	    print len(output_train.orng_tables[context.target_table])
             proper_output.save()
             proper_output = fi.outputs.all()[1] # inner output
             proper_output.value = output_test
+	    print len(output_test.orng_tables[context.target_table])
             proper_output.save()
             fi.finished=True # set the input widget as finished
             fi.save()
