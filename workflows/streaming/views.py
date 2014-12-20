@@ -64,6 +64,33 @@ def streaming_active_annotation(request,widget,stream):
         tweets_available = True
     return render(request, 'streaming_vizualizations/streaming/active_learning.html', {'tweets':tweets,'widget':widget,'stream':stream,'tweets_available':tweets_available})
 
+def streaming_active_annotation2(request,widget,stream):
+    import pickle
+    from pysimplesoap.client import SoapClient, SoapFault
+    import pysimplesoap
+    client = SoapClient(location = "http://95.87.154.167:8098/",action = 'http://95.87.154.167:8098/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    pysimplesoap.client.TIMEOUT = 600
+    tweets = []
+    #here we get all the input_dict data
+    strategycount = "8"
+    randomcount = "2"
+    for i in widget.inputs.all():
+        if i.variable == 'q_strategy_closest':
+            strategycount = i.value
+        if i.variable == 'q_strategy_random':
+            randomcount = i.value
+    pickled = pickle.dumps((str(widget.id),strategycount,randomcount))
+    response = client.ActiveGetTweets(workflowid=pickled)
+    returned_tweets = pickle.loads(str(response.ActiveGetTweetsResult))
+    for tw in returned_tweets:
+        if tw!='':
+            tweets.append(tw)
+    tweets_available = False
+    if len(tweets)>0:
+        tweets_available = True
+    return render(request, 'streaming_vizualizations/streaming/active_learning.html', {'tweets':tweets,'widget':widget,'stream':stream,'tweets_available':tweets_available})
+
+
 def streaming_display_tweets_visualization(request,widget,stream):
     try:
         tweet_data = StreamWidgetData.objects.get(widget=widget,stream=stream).value
