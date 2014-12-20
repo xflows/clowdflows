@@ -379,6 +379,43 @@ def streaming_active_sentiment_analysis(input_dict,widget,stream=None):
 
     return output_dict
 
+def streaming_active_sentiment_analysis2(input_dict,widget,stream=None):
+    import pickle
+    from pysimplesoap.client import SoapClient, SoapFault
+    import pysimplesoap
+    client = SoapClient(location = "http://95.87.154.167:8098/",action = 'http://95.87.154.167:8098/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    pysimplesoap.client.TIMEOUT = 600
+
+    list_of_tweets = input_dict['ltw']
+
+    new_list_of_tweets = []
+
+    for tweet in list_of_tweets:
+        new_list_of_tweets.append(tweet['text'])
+
+    workflow_id = widget.id
+
+    service_input = pickle.dumps((str(workflow_id),input_dict['b_size'],input_dict['q_strategy_closest'],input_dict['q_strategy_random'],new_list_of_tweets))
+    #print service_input
+    response = client.ActiveClassifyMultiple(workflowtweets=service_input)
+
+    i=0
+    new_ltw = pickle.loads(str(response.ActiveClassifyMultipleResult))
+
+    for new_tweet in new_ltw:
+        if new_tweet[0]=="True":
+            list_of_tweets[i]['sentiment']="Positive"
+        elif new_tweet[0]=="False":
+            list_of_tweets[i]['sentiment']="Negative"
+        list_of_tweets[i]['reliability']=new_tweet[1]
+        i=i+1
+
+    output_dict = {}
+
+    output_dict['ltw'] = list_of_tweets
+
+    return output_dict
+
 def streaming_sentiment_analysis(input_dict,widget,stream=None):
     import pickle
     from pysimplesoap.client import SoapClient, SoapFault
