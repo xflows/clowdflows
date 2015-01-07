@@ -659,6 +659,51 @@
     }
   }, 
   {
+    "pk": 436, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 44, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Biomine visualizer (js)", 
+      "is_streaming": false, 
+      "uid": "3c0c9aa6-39f9-41ac-b73e-a0359b0dcc10", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "segmine", 
+      "static_image": "", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "segmine_biomine_visualizer_js", 
+      "streaming_visualization_view": "", 
+      "action": "segmine_biomine_visualizer_js", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": "Graph visualization for Biomine in Javascript."
+    }
+  }, 
+  {
+    "pk": 1098, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 436, 
+      "name": "Graph", 
+      "short_name": "g", 
+      "uid": "13f1cc93-1962-4f95-a4c0-96414910bb3a", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "graph", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Graph as a string in Biomine .bmg format"
+    }
+  }, 
+  {
     "pk": 418, 
     "model": "workflows.abstractwidget", 
     "fields": {

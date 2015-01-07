@@ -129,7 +129,7 @@ class Workflow(models.Model):
         progress_total = len(input_list) # for progress bar
         current_iteration = 0
         for i in input_list:
-            print(i);
+            #print(i);
             """ Different parameters on which the widgets are going to be run"""
             fi.unfinish() # resets widgets, (read all widgets.finished=false)
             fo.unfinish() # resets widgets, (read all widgets.finished=false)
@@ -215,7 +215,7 @@ class Workflow(models.Model):
             #check if we have an input
             input_seed = int(fi.outputs.all()[2].outer_input.value)
         else:
-            input_seed = rand.randint(1, 100000000)
+            input_seed = 0
 
         # Special case when reading from a DB
         input_type = input_list.__class__.__name__
@@ -231,18 +231,20 @@ class Workflow(models.Model):
         current_iteration = 0
 
         # create folds
-        rand.seed(input_seed)
-        rand.shuffle(input_list)
 
         folds = []
         if hasattr(input_list, "get_items_ref"):
+            import orange 
             # Orange table on input, so we cannot do slices
-            indices = range(len(input_list))
-            folds_indices = [indices[i::input_fold] for i in range(input_fold)]
-            folds = []
-            for fold_indices in folds_indices:
-                folds.append(input_list.get_items_ref(fold_indices))
+            indices = orange.MakeRandomIndicesCV(input_list, randseed=input_seed, folds=input_fold)
+            for i in range(input_fold):
+                output_train = input_list.select(indices, i, negate=1)
+                output_test = input_list.select(indices, i)
+		#print len(output_train), len(output_test)
+                folds.append((output_train, output_test))
         else:
+            rand.seed(input_seed)
+            rand.shuffle(input_list)
             folds = [input_list[i::input_fold] for i in range(input_fold)]
 
         # pass forward the seed
@@ -258,8 +260,14 @@ class Workflow(models.Model):
                     i.save()
 
         for i in range(len(folds)):
-            output_train = folds[:i] + folds[i+1:]
-            output_test = folds[i]
+            #import pdb; pdb.set_trace()
+            if hasattr(input_list, "get_items_ref"):
+                output_test = folds[i][1]
+                output_train = folds[i][0]
+		print len(output_train), len(output_test)
+            else:
+                output_train = folds[:i] + folds[i+1:]
+                output_test = folds[i]
             if input_type == 'DBContext':
                 output_train_obj = context.copy()
                 output_train_obj.orng_tables[context.target_table] = output_train
@@ -273,9 +281,11 @@ class Workflow(models.Model):
             fo.unfinish() # resets widgets, (read all widgets.finished=false)
             proper_output = fi.outputs.all()[0] # inner output
             proper_output.value = output_train
+	    print len(output_train.orng_tables[context.target_table])
             proper_output.save()
             proper_output = fi.outputs.all()[1] # inner output
             proper_output.value = output_test
+	    print len(output_test.orng_tables[context.target_table])
             proper_output.save()
             fi.finished=True # set the input widget as finished
             fi.save()

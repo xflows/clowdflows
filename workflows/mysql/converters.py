@@ -75,7 +75,6 @@ class ILP_Converter(Converter):
         n_intervals = len(intervals)
         for i, value in enumerate(intervals):
             punct = '.' if i == n_intervals-1 else ';'
-            print value
             if i == 0:
                 # Condition: att =< value_i
                 label = '=< %.2f' % value
