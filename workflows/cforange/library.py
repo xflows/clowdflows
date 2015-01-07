@@ -512,3 +512,16 @@ def cforange_hierarchical_clustering_finished(postdata, input_dict, output_dict)
     else: # Attribute distance
         centroids, selected_table, unselected_table = None, None, None
     return {'centroids' : centroids, 'selected_examples' : selected_table, 'unselected_examples' : unselected_table}
+
+
+def filter_table(input_dict):
+    return {'altered_data' : None}
+
+def filter_table_finished(postdata, input_dict, output_dict):
+    print postdata
+    import Orange
+    from Orange.feature import Type
+    widget_id = postdata['widget_id'][0]
+    # Parse the changes
+    new_table = Orange.data.Table(input_dict['data']).getitems([int(x) for x in postdata.get('include',[])])
+    return {'altered_data' : new_table}

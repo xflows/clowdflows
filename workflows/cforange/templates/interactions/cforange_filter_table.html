@@ -1,0 +1,46 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction" width="700" height="500">
+<center>
+<form>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="datasetTable{{widget.pk}}">
+    <!-- header -->
+    <thead>
+        <tr>
+            <th>Include</th>
+        {% for att in output_dict.attrs %}
+            <th>{{att}}</th>
+        {% endfor %}
+        {% if output_dict.class_var %}
+            <th>{{output_dict.class_var}} [class]</th>
+        {% endif %}
+        {% for att in output_dict.metas %}
+            <th>{{att}} [meta]</th>
+        {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+    <!-- instances -->
+    {% for inst in output_dict.data %}
+        <tr>
+                <td><input type="checkbox" name="include" value="{{forloop.counter0}}" style="float:left; display:inline;"></td>
+            {% for att, v in inst %}
+                <td id="cell_{{forloop.parentloop.counter0}}_{{att}}">{{v}}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    <input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+</form>
+</center>
+<script type="text/javascript">
+$(function () {
+    $(document).ready(function() {
+        $('#datasetTable{{widget.pk}}').dataTable( {
+            "bSortCellsTop" : true,
+            "bJQueryUI": true,
+            "sPaginationType": "full_numbers"
+        });
+    } );
+});
+</script>
+</div>

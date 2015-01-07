@@ -121,3 +121,9 @@ def cforange_hierarchical_clustering(request,input_dict,output_dict,widget):
     hierarchy = json.dumps(hierarchy)
     
     return render(request, 'interactions/cforange_hierarchical_clustering.html', {'widget' : widget, 'hierarchy' : hierarchy, 'attributes':attributes,'vizualization':input_dict['visualization']})
+
+
+def filter_table(request, input_dict, output_dict, widget):
+    from workflows.visualization_views import orng_table_to_dict
+    data = input_dict['data']
+    return render(request, 'interactions/cforange_filter_table.html', {'widget' : widget,'input_dict' : input_dict,'output_dict' : orng_table_to_dict(data)})
