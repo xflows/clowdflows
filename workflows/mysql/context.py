@@ -94,15 +94,16 @@ class DBContext:
         con.close()
 
         self.orng_tables = None
-        if in_memory:
-            self.orng_tables = self.read_into_orange()
+        self.in_memory = in_memory
 
     def read_into_orange(self):
         conv = converters.Orange_Converter(self)
         tables = {
             self.target_table: conv.target_Orange_table()
         }
-        tables.update(zip(self.tables[1:], conv.other_Orange_tables()))
+        other_tbl_names = [table for table in self.tables if table != self.target_table]
+        other_tables = dict(zip(other_tbl_names, conv.other_Orange_tables()))
+        tables.update(other_tables)
         return tables
 
     def update(self, postdata):
@@ -128,6 +129,8 @@ class DBContext:
             self.cols[table] = postdata.get('%s_columns%s' % (table, widget_id), [])
             if table == self.target_table and self.target_att not in self.cols[table]:
                 raise Exception('The selected target attribute ("%s") is not among the columns selected for the target table ("%s").' % (self.target_att, self.target_table))
+        if self.in_memory:
+            self.orng_tables = self.read_into_orange()
 
     def fmt_cols(self, cols):
         return ','.join(["`%s`" % col for col in cols])
