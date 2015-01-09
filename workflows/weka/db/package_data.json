@@ -1432,6 +1432,292 @@
     }
   }, 
   {
+    "pk": 358, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 5, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Apply mapped classifier", 
+      "is_streaming": false, 
+      "uid": "d140512f-b11c-4e48-86c2-6b5680be94b3", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "weka", 
+      "static_image": "WEKA_ApplyClassifier.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "call_webservice", 
+      "wsdl_method": "apply_mapped_classifier", 
+      "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 915, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 358, 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "uid": "32ac641a-6d45-473f-b1b8-aeb9dc8ddb68", 
+      "default": "60", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 916, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 358, 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "uid": "10589bee-7632-4fa6-97e2-8035fa149dda", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 917, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 358, 
+      "name": "classifier", 
+      "short_name": "cla", 
+      "uid": "9c48f769-7282-4517-addc-fd9478cd1e01", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 918, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 358, 
+      "name": "original_training_instances", 
+      "short_name": "ori", 
+      "uid": "130682bd-fea0-405f-ad15-48a8a8f07bae", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "original_training_instances", 
+      "parameter": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 919, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 358, 
+      "name": "instances", 
+      "short_name": "ins", 
+      "uid": "f03406cb-272d-4b4b-a17b-c7c5a8b0b9df", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 5, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 402, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 358, 
+      "name": "classes", 
+      "short_name": "cla", 
+      "variable": "classes", 
+      "uid": "d52744ba-03c1-40a7-a2be-d777b1c6b90e", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 403, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 358, 
+      "name": "mapping_report", 
+      "short_name": "map", 
+      "variable": "mapping_report", 
+      "uid": "69c17d1d-87c1-4fff-9602-9a7e72da946a", 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 361, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 5, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Apply mapped classifier get instances", 
+      "is_streaming": false, 
+      "uid": "c4138988-fc97-4daf-bfe8-b4e6299e3ca0", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "weka", 
+      "static_image": "WEKA_ApplyClassifier.png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "call_webservice", 
+      "wsdl_method": "apply_mapped_classifier_get_instances", 
+      "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 928, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 361, 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "uid": "53380691-204b-40b5-90f0-fedea051dd23", 
+      "default": "60", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 929, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 361, 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "uid": "99dd0cf1-5bfb-428d-bd0f-e4bd5111337c", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 930, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 361, 
+      "name": "classifier", 
+      "short_name": "cla", 
+      "uid": "3195ea76-f4f1-442b-b824-833b0f132920", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 931, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 361, 
+      "name": "original_training_instances", 
+      "short_name": "ori", 
+      "uid": "e7f4e700-08b6-4568-91aa-e06937d5e8d7", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "original_training_instances", 
+      "parameter": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 932, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 361, 
+      "name": "instances", 
+      "short_name": "ins", 
+      "uid": "77403ebd-7c9b-43c7-a2c7-95087c621eb2", 
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 5, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 406, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 361, 
+      "name": "instances", 
+      "short_name": "ins", 
+      "variable": "instances", 
+      "uid": "fcba6a34-ccc8-4eec-b3b5-064d9fa742df", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 407, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 361, 
+      "name": "mapping_report", 
+      "short_name": "map", 
+      "variable": "mapping_report", 
+      "uid": "c1be3d7b-4611-4337-90d3-bc0c4958cb82", 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
     "pk": 24, 
     "model": "workflows.abstractwidget", 
     "fields": {
