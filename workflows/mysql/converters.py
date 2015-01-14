@@ -319,15 +319,9 @@ class TreeLikerConverter(Converter):
             # Skip the class attribute
             if self.db.target_att in cols:
                 cols.remove(self.db.target_att)
-            #attributes = self.db.fmt_cols(cols)
 
             # All rows matching `pk`
-            #print "SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk)
-            #self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
-            #for row in self.cursor:
             for row in self.db.select_where(target, cols, pk_att, pk):
-             #   print 'row'
-                #values = []
                 row_pk = self._row_pk(target, cols, row)
                 row_pk_name = '%s%s' % (target, str(row_pk))
                 parent_pk_name = '%s%s' % (parent_table, str(parent_pk))
@@ -380,11 +374,6 @@ class TreeLikerConverter(Converter):
                         if predicate_template not in self._predicates:
                             self._predicates.add(predicate_template)
                             self._template.append(predicate_template)
-
-                    # if predicate == 'has_bonds':
-                    #     print self.db.pkeys[target]
-                    #     print self.db.fkeys[target]
-                    #     print row
 
         # Recursively follow links to other tables
         for table in self.db.tables:
@@ -478,4 +467,3 @@ if __name__ == '__main__':
     context.target_table = 'drugs'
     context.target_att = 'active'
     conv = Aleph_Converter(context)
-    print conv.background_knowledge()

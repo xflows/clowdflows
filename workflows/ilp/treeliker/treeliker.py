@@ -56,8 +56,6 @@ class TreeLiker:
         with open(self.batch, 'w') as f:
             f.write('\n'.join(commands))
 
-            print '\n'.join(commands)
-
     def _cleanup(self):
         """
         Cleans up all the temporary files.
