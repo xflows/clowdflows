@@ -27,7 +27,7 @@ def mysql_db_context_finished(postdata, input_dict, output_dict):
 
 def mysql_rsd_converter(input_dict):
     dump = input_dict['dump'] == 'true'
-    rsd = RSD_Converter(input_dict['context'], discr_intervals=input_dict['discr_intervals'] or {}, dump=dump)
+    rsd = RSD_Converter(input_dict['context'], discr_intervals=input_dict['discr_intervals'] or {})
     return {'examples' : rsd.all_examples(), 'bk' : rsd.background_knowledge()}
 
 def mysql_aleph_converter(input_dict):
@@ -35,7 +35,9 @@ def mysql_aleph_converter(input_dict):
     target_att_val = input_dict['target_att_val']
     if not target_att_val:
         raise Exception('Please specify a target attribute value.')
-    aleph = Aleph_Converter(input_dict['context'], target_att_val=target_att_val, discr_intervals=input_dict['discr_intervals'] or {}, dump=dump)
+    aleph = Aleph_Converter(input_dict['context'], target_att_val=target_att_val, discr_intervals=input_dict['discr_intervals'] or {})
+    with open('test_aleph.b', 'w') as f:
+        f.write(aleph.background_knowledge())
     return {'pos_examples' : aleph.positive_examples(), 'neg_examples' : aleph.negative_examples(), 'bk' : aleph.background_knowledge()}
 
 def mysql_treeliker_converter(input_dict):

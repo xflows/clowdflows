@@ -27,7 +27,7 @@ class ILP_Converter(Converter):
     def __init__(self, *args, **kwargs):
         self.settings = kwargs.pop('settings', {}) if kwargs else {}
         self.discr_intervals = kwargs.pop('discr_intervals', {}) if kwargs else {}
-        self.dump = kwargs.pop('dump', False) if kwargs else False
+        self.dump = kwargs.pop('dump', True) if kwargs else True
         Converter.__init__(self, *args, **kwargs)
 
     def user_settings(self):
@@ -98,7 +98,7 @@ class ILP_Converter(Converter):
     def numeric(val):
         for num_type in [int, float, long, complex]:
             try:
-                num_type(val)
+                num_type(str(val))
                 return True
             except:
                 pass
@@ -369,6 +369,7 @@ class TreeLikerConverter(Converter):
                     # Constants
                     else:
                         predicate = 'has_%s' % attr_name
+
                         col = self._discretize_check(target, attr_name, col)
                         facts.append('%s(%s, %s)' % (predicate, 
                                                      row_pk_name,
@@ -380,6 +381,11 @@ class TreeLikerConverter(Converter):
                         if predicate_template not in self._predicates:
                             self._predicates.add(predicate_template)
                             self._template.append(predicate_template)
+
+                    # if predicate == 'has_bonds':
+                    #     print self.db.pkeys[target]
+                    #     print self.db.fkeys[target]
+                    #     print row
 
         # Recursively follow links to other tables
         for table in self.db.tables:
@@ -401,12 +407,7 @@ class TreeLikerConverter(Converter):
                     
                     # Link case 2: this_att is a fk of another table
                     else:
-                        # attributes = self.db.fmt_cols([this_att]+cols)
-                        # self.cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, target, pk_att, pk))
-                        # fk_list = []
-                        # for row in self.cursor:
-                        #     row_pk = self._row_pk(target, cols, row[1:])
-                        #     fk_list.append((row[0], row_pk))
+                        fk_list = []
                         for row in self.db.select_where(target, [this_att]+cols, pk_att, pk):
                             row_pk = self._row_pk(target, cols, row[1:])
                             fk_list.append((row[0], row_pk))
@@ -424,7 +425,7 @@ class TreeLikerConverter(Converter):
         '''
         Replaces the value with an appropriate interval symbol, if available.
         '''
-        label = col
+        label = "'%s'" % col
         if table in self.discr_intervals and att in self.discr_intervals[table]:
             intervals = self.discr_intervals[table][att]
             n_intervals = len(intervals)
@@ -436,14 +437,18 @@ class TreeLikerConverter(Converter):
                     prev_value = intervals[i-1]
 
                 if not prev_value and col <= value:
-                    label = "'=< %.2f'" % value
+                    label = "'=<%.2f'" % value
                     break
                 elif prev_value and col <= value:
-                    label = "'(%.2f, %.2f]'" % (prev_value, value)
+                    label = "'(%.2f;%.2f]'" % (prev_value, value)
                     break
                 elif col > value and i == n_intervals - 1:
-                    label = "'> %.2f'" % value
+                    label = "'>%.2f'" % value
                     break
+        else:
+            # For some reason using [ and ] crashes TreeLiker
+            label = label.replace('[', 'I')
+            label = label.replace(']', 'I')
 
         return label
 
@@ -473,7 +478,5 @@ if __name__ == '__main__':
     context = DBContext(DBConnection('ilp','ilp123','ged.ijs.si','muta_42'))
     context.target_table = 'drugs'
     context.target_att = 'active'
-    treeliker = TreeLikerConverter(context)
-
-    print treeliker.default_template()
-    print treeliker.dataset()
+    conv = Aleph_Converter(context)
+    print conv.background_knowledge()
