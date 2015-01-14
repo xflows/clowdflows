@@ -218,7 +218,7 @@ class Aleph(object):
         examples = re.findall(r"example\((\w+),(\[[\d,]*\]),(\w+)\)\.", pl_dataset)
         for _, features, cls in examples:
             vals = []
-            for i in range(1, class_id):
+            for i in range(0, class_id):
                 vals.append('1' if i in json.loads(features) else '0')
 	    vals.append(cls)
             cat('%s' % ','.join(vals))
