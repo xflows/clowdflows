@@ -164,7 +164,8 @@ class DBContext:
         if self.orng_tables:
             data = []
             for ex in self.orng_tables[table]:
-                data.append([ex[str(col)] for col in cols if ex[str(pk_att)] == pk])
+                if ex[str(pk_att)] == pk:
+                    data.append([ex[str(col)] for col in cols])
             return data
         else:
             con = self.connection.connect()
