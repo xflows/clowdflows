@@ -999,7 +999,7 @@ def run_widget(request):
         if (w.workflow.user==request.user):
             try:
                 # find all required inputs
-                for inp in w.inputs.filter(required=True,parameter=False):
+                for inp in w.inputs.filter(required=True,parameter=False,multi=False):
                     if inp.connections.count()==0:
                         raise Exception("The input "+str(inp)+" must have something connected to it in order to run.")
                 if w.type == 'for_input' or w.type == 'for_output':
