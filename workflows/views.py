@@ -999,9 +999,18 @@ def run_widget(request):
         if (w.workflow.user==request.user):
             try:
                 # find all required inputs
-                for inp in w.inputs.filter(required=True,parameter=False,multi=False):
+                multi_satisfied = {}
+                for inp in w.inputs.filter(required=True,parameter=False):
                     if inp.connections.count()==0:
-                        raise Exception("The input "+str(inp)+" must have something connected to it in order to run.")
+                        if inp.multi_id == 0:
+                            raise Exception("The input "+str(inp)+" must have something connected to it in order to run.")
+                        else:
+                            multi_satisfied[inp.multi_id] = (str(inp),multi_satisfied.get(inp.multi_id,False))
+                    elif inp.multi_id != 0:
+                        multi_satisfied[inp.multi_id] = (str(inp),True)
+                for mid in multi_satisfied.keys():
+                    if multi_satisfied[mid][1]==False:
+                        raise Exception("The input "+multi_satisfied[mid][0]+" must have something connected to it in order to run.")
                 if w.type == 'for_input' or w.type == 'for_output':
                     raise Exception("You can't run for loops like this. Please run the containing widget.")
                 output_dict = w.run(False)
