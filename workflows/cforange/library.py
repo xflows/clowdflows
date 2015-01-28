@@ -323,7 +323,8 @@ def cforange_discretize(input_dict):
     from collections import defaultdict
 
     input_obj = input_dict['dataset']
-    output_tables=[]
+    intervals = input_dict['intervals']
+    output_tables = []
 
     input_type = input_obj.__class__.__name__
 
@@ -346,12 +347,13 @@ def cforange_discretize(input_dict):
 
     options = {}
     points = defaultdict(dict)
-    if discretizerIndex in [4]:
-        #find all cut-off points
-        points = [float(a) for a in input_dict['points'].replace(" ","").split(",")]
-        options['points']=sorted(points)
-    elif discretizerIndex in [0,1]:
-        options['numberOfIntervals']=int(input_dict['numberOfIntervals'])
+    if not intervals:
+        if discretizerIndex in [4]:
+            #find all cut-off points
+            user_points = [float(a) for a in input_dict['points'].replace(" ","").split(",")]
+            options['points']=sorted(user_points)
+        elif discretizerIndex in [0,1]:
+            options['numberOfIntervals']=int(input_dict['numberOfIntervals'])
 
     d = discretizers[discretizerIndex][1](**options)
 
@@ -359,7 +361,15 @@ def cforange_discretize(input_dict):
         newattrs = []
         for attr in inputdata.domain.attributes:
             if attr.varType == orange.VarTypes.Continuous:
-                newattr = d(attr,inputdata) if discretizerIndex in [0,2,3] else d.constructVariable(attr)
+
+                if not intervals:
+                    # No intervals provided, calculate them
+                    newattr = d(attr,inputdata) if discretizerIndex in [0,2,3] else d.constructVariable(attr)
+                else:
+                    # Use the input interval dictionary
+                    attr_points = intervals[inputdata.name][attr.name]
+                    idisc = orange.IntervalDiscretizer(points = attr_points)
+                    newattr = idisc.constructVariable(attr)
 
                 newattr.name = attr.name
                 newattrs.append(newattr)
