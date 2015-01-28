@@ -321,6 +321,7 @@ def add_connection(request):
                     j.value = None
                     j.parameter_type = i.parameter_type
                     j.multi_id = i.multi_id
+                    j.order = i.order
                     j.save()
                     refresh = i.widget.id
                     refreshworkflow = i.widget.workflow.id
