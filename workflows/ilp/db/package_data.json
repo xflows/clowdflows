@@ -1,6 +1,6 @@
 [
   {
-    "pk": 19, 
+    "pk": 24, 
     "model": "workflows.category", 
     "fields": {
       "uid": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
@@ -12,11 +12,12 @@
     }
   }, 
   {
-    "pk": 102, 
+    "pk": 134, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 19, 
+      "category": 24, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "Aleph", 
       "is_streaming": false, 
       "uid": "b8289304-389e-414a-98ab-273b16478cee", 
@@ -38,10 +39,10 @@
     }
   }, 
   {
-    "pk": 188, 
+    "pk": 267, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "mode", 
       "short_name": "mod", 
       "uid": "00b174f3-250d-4c47-9a60-b515e5260e0c", 
@@ -56,80 +57,80 @@
     }
   }, 
   {
-    "pk": 62, 
+    "pk": 70, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "8e5631e5-6497-4720-9e26-5936619caf5c", 
-      "abstract_input": 188, 
+      "abstract_input": 267, 
       "value": "induce", 
       "name": "induce"
     }
   }, 
   {
-    "pk": 63, 
+    "pk": 71, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "92f66b17-02fd-4bb6-b4cb-03bb54b403f6", 
-      "abstract_input": 188, 
+      "abstract_input": 267, 
       "value": "induce_constraints", 
       "name": "induce_constraints"
     }
   }, 
   {
-    "pk": 64, 
+    "pk": 72, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "ce82b005-81e4-4997-80c3-05731651869a", 
-      "abstract_input": 188, 
+      "abstract_input": 267, 
       "value": "induce_cover", 
       "name": "induce_cover"
     }
   }, 
   {
-    "pk": 65, 
+    "pk": 73, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "968d079a-871c-4cae-b15e-c8e7b61f3b8c", 
-      "abstract_input": 188, 
+      "abstract_input": 267, 
       "value": "induce_features", 
       "name": "induce_features"
     }
   }, 
   {
-    "pk": 66, 
+    "pk": 74, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "0103c466-0e2e-47fe-b182-0a034beb7eed", 
-      "abstract_input": 188, 
+      "abstract_input": 267, 
       "value": "induce_max", 
       "name": "induce_max"
     }
   }, 
   {
-    "pk": 67, 
+    "pk": 75, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "78cb938d-16b8-4c7c-b712-b59e27aa837d", 
-      "abstract_input": 188, 
+      "abstract_input": 267, 
       "value": "induce_modes", 
       "name": "induce_modes"
     }
   }, 
   {
-    "pk": 68, 
+    "pk": 76, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "45f5cc84-b097-439a-9363-d2299c540913", 
-      "abstract_input": 188, 
+      "abstract_input": 267, 
       "value": "induce_tree", 
       "name": "induce_tree"
     }
   }, 
   {
-    "pk": 189, 
+    "pk": 268, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "pos", 
       "short_name": "pos", 
       "uid": "03788382-f3b9-4580-8e85-b600874ef643", 
@@ -144,10 +145,10 @@
     }
   }, 
   {
-    "pk": 190, 
+    "pk": 269, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "neg", 
       "short_name": "neg", 
       "uid": "01529349-3300-41c5-8585-3f7a90175120", 
@@ -162,10 +163,10 @@
     }
   }, 
   {
-    "pk": 191, 
+    "pk": 270, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "b", 
       "short_name": "b", 
       "uid": "2ec81e9e-d911-46a1-a95d-2eaf349443a8", 
@@ -180,10 +181,10 @@
     }
   }, 
   {
-    "pk": 192, 
+    "pk": 271, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "settings", 
       "short_name": "set", 
       "uid": "bfe16b08-89b1-4835-875c-6b0302fb1da3", 
@@ -198,10 +199,10 @@
     }
   }, 
   {
-    "pk": 193, 
+    "pk": 272, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "minpos", 
       "short_name": "mps", 
       "uid": "cdeaa39a-7eeb-40eb-9443-8519cb841d2e", 
@@ -216,10 +217,10 @@
     }
   }, 
   {
-    "pk": 194, 
+    "pk": 273, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "noise", 
       "short_name": "noi", 
       "uid": "61292a9b-ff5b-4a7e-8baf-e6810cb50dcd", 
@@ -234,10 +235,10 @@
     }
   }, 
   {
-    "pk": 195, 
+    "pk": 274, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "clauselength", 
       "short_name": "cln", 
       "uid": "546d3a62-b499-4e61-a9b1-4f89f24ba01f", 
@@ -252,10 +253,10 @@
     }
   }, 
   {
-    "pk": 196, 
+    "pk": 275, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "depth", 
       "short_name": "dpt", 
       "uid": "3541b804-e8f3-42c5-b022-c0b7a51f05e1", 
@@ -270,10 +271,10 @@
     }
   }, 
   {
-    "pk": 197, 
+    "pk": 276, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "evalfn", 
       "short_name": "efn", 
       "uid": "27ed0924-8fa9-4cad-b033-c0a98db9f366", 
@@ -288,130 +289,130 @@
     }
   }, 
   {
-    "pk": 69, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "abd779d2-8276-4b2d-909d-2b6053d1f30f", 
-      "abstract_input": 197, 
-      "value": "accuracy", 
-      "name": "accuracy"
-    }
-  }, 
-  {
-    "pk": 70, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "2ec2f418-657b-44f7-a420-83cb4f4baed5", 
-      "abstract_input": 197, 
-      "value": "auto_m", 
-      "name": "auto_m"
-    }
-  }, 
-  {
-    "pk": 71, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "66261b29-3313-4f85-b8ab-f277e49eb40b", 
-      "abstract_input": 197, 
-      "value": "compression", 
-      "name": "compression"
-    }
-  }, 
-  {
-    "pk": 72, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "427cd0aa-6d3c-457e-8762-cdc7ec6b8512", 
-      "abstract_input": 197, 
-      "value": "coverage", 
-      "name": "coverage"
-    }
-  }, 
-  {
-    "pk": 73, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "bdf9d407-95af-4b42-b923-a027c45b0f26", 
-      "abstract_input": 197, 
-      "value": "entropy", 
-      "name": "entropy"
-    }
-  }, 
-  {
-    "pk": 74, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "ddc2bde8-7143-4e8f-9e6b-cdcaea871e27", 
-      "abstract_input": 197, 
-      "value": "gini", 
-      "name": "gini"
-    }
-  }, 
-  {
-    "pk": 75, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "0c4fd002-57a6-40b5-ac0f-e98cc62aa957", 
-      "abstract_input": 197, 
-      "value": "laplace", 
-      "name": "laplace"
-    }
-  }, 
-  {
-    "pk": 76, 
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "uid": "2d764051-9dca-42f2-b131-2a87576c21d7", 
-      "abstract_input": 197, 
-      "value": "mestimate", 
-      "name": "mestimate"
-    }
-  }, 
-  {
     "pk": 77, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "0684bf39-09a5-4499-8939-51a58fcc2446", 
-      "abstract_input": 197, 
-      "value": "pbayes", 
-      "name": "pbayes"
+      "uid": "abd779d2-8276-4b2d-909d-2b6053d1f30f", 
+      "abstract_input": 276, 
+      "value": "accuracy", 
+      "name": "accuracy"
     }
   }, 
   {
     "pk": 78, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "ecfbee4f-ce81-40ed-80a2-d53e04e9c7d3", 
-      "abstract_input": 197, 
-      "value": "posonly", 
-      "name": "posonly"
+      "uid": "2ec2f418-657b-44f7-a420-83cb4f4baed5", 
+      "abstract_input": 276, 
+      "value": "auto_m", 
+      "name": "auto_m"
     }
   }, 
   {
     "pk": 79, 
     "model": "workflows.abstractoption", 
     "fields": {
-      "uid": "775058c3-7763-4af7-bcf4-b629d1c0e6f1", 
-      "abstract_input": 197, 
-      "value": "sd", 
-      "name": "sd"
+      "uid": "66261b29-3313-4f85-b8ab-f277e49eb40b", 
+      "abstract_input": 276, 
+      "value": "compression", 
+      "name": "compression"
     }
   }, 
   {
     "pk": 80, 
     "model": "workflows.abstractoption", 
     "fields": {
+      "uid": "427cd0aa-6d3c-457e-8762-cdc7ec6b8512", 
+      "abstract_input": 276, 
+      "value": "coverage", 
+      "name": "coverage"
+    }
+  }, 
+  {
+    "pk": 81, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "bdf9d407-95af-4b42-b923-a027c45b0f26", 
+      "abstract_input": 276, 
+      "value": "entropy", 
+      "name": "entropy"
+    }
+  }, 
+  {
+    "pk": 82, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "ddc2bde8-7143-4e8f-9e6b-cdcaea871e27", 
+      "abstract_input": 276, 
+      "value": "gini", 
+      "name": "gini"
+    }
+  }, 
+  {
+    "pk": 83, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "0c4fd002-57a6-40b5-ac0f-e98cc62aa957", 
+      "abstract_input": 276, 
+      "value": "laplace", 
+      "name": "laplace"
+    }
+  }, 
+  {
+    "pk": 84, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "2d764051-9dca-42f2-b131-2a87576c21d7", 
+      "abstract_input": 276, 
+      "value": "mestimate", 
+      "name": "mestimate"
+    }
+  }, 
+  {
+    "pk": 85, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "0684bf39-09a5-4499-8939-51a58fcc2446", 
+      "abstract_input": 276, 
+      "value": "pbayes", 
+      "name": "pbayes"
+    }
+  }, 
+  {
+    "pk": 86, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "ecfbee4f-ce81-40ed-80a2-d53e04e9c7d3", 
+      "abstract_input": 276, 
+      "value": "posonly", 
+      "name": "posonly"
+    }
+  }, 
+  {
+    "pk": 87, 
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "uid": "775058c3-7763-4af7-bcf4-b629d1c0e6f1", 
+      "abstract_input": 276, 
+      "value": "sd", 
+      "name": "sd"
+    }
+  }, 
+  {
+    "pk": 88, 
+    "model": "workflows.abstractoption", 
+    "fields": {
       "uid": "14e08667-f530-43e6-b932-b8e2ac394ea4", 
-      "abstract_input": 197, 
+      "abstract_input": 276, 
       "value": "wracc", 
       "name": "wracc"
     }
   }, 
   {
-    "pk": 198, 
+    "pk": 277, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "i", 
       "short_name": "i", 
       "uid": "48905a20-0192-40c0-82de-2389e8fdc88e", 
@@ -426,10 +427,10 @@
     }
   }, 
   {
-    "pk": 199, 
+    "pk": 278, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "language", 
       "short_name": "lan", 
       "uid": "9de49bde-7518-4116-8606-eccc134d1d8f", 
@@ -444,10 +445,10 @@
     }
   }, 
   {
-    "pk": 200, 
+    "pk": 279, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "m", 
       "short_name": "m", 
       "uid": "b07b2b85-bc8f-4dfc-aaf8-800b94077312", 
@@ -462,10 +463,10 @@
     }
   }, 
   {
-    "pk": 201, 
+    "pk": 280, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "max_features", 
       "short_name": "mxf", 
       "uid": "4a275a37-e6bc-4b22-816d-b45e2ac791e2", 
@@ -480,10 +481,10 @@
     }
   }, 
   {
-    "pk": 113, 
+    "pk": 147, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 102, 
+      "widget": 134, 
       "name": "theory", 
       "short_name": "the", 
       "variable": "theory", 
@@ -493,11 +494,12 @@
     }
   }, 
   {
-    "pk": 103, 
+    "pk": 135, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 19, 
+      "category": 24, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "RSD", 
       "is_streaming": false, 
       "uid": "dabcb4ed-ae86-4f3e-8d3e-bb0306ff11f8", 
@@ -519,10 +521,10 @@
     }
   }, 
   {
-    "pk": 202, 
+    "pk": 281, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "examples", 
       "short_name": "ex", 
       "uid": "817a82dc-2264-4181-a31a-6a7ff2b6c882", 
@@ -537,10 +539,10 @@
     }
   }, 
   {
-    "pk": 203, 
+    "pk": 282, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "b", 
       "short_name": "b", 
       "uid": "746dac3a-bcf9-4546-b0cb-ccfea866707a", 
@@ -555,10 +557,10 @@
     }
   }, 
   {
-    "pk": 204, 
+    "pk": 283, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "clauselength", 
       "short_name": "cln", 
       "uid": "d840e1d9-5bd1-4004-94ec-6acd5b3c9910", 
@@ -573,10 +575,10 @@
     }
   }, 
   {
-    "pk": 205, 
+    "pk": 284, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "pos", 
       "short_name": "pos", 
       "uid": "676ef826-7dd9-415a-8a8a-d82146dcc95a", 
@@ -591,10 +593,10 @@
     }
   }, 
   {
-    "pk": 206, 
+    "pk": 285, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "depth", 
       "short_name": "dpt", 
       "uid": "bed46927-aa71-46a4-9022-8219cd2f59ca", 
@@ -609,10 +611,10 @@
     }
   }, 
   {
-    "pk": 207, 
+    "pk": 286, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "neg", 
       "short_name": "neg", 
       "uid": "0b46921d-50fe-46b1-a1e4-67c918160a7f", 
@@ -627,10 +629,10 @@
     }
   }, 
   {
-    "pk": 208, 
+    "pk": 287, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "negation", 
       "short_name": "neg", 
       "uid": "bfff50a5-ed9b-4e3f-bfb0-e6d135a60f38", 
@@ -645,40 +647,40 @@
     }
   }, 
   {
-    "pk": 81, 
+    "pk": 89, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "45656c1d-a666-4689-a37d-79a7d3b9c603", 
-      "abstract_input": 208, 
+      "abstract_input": 287, 
       "value": "later", 
       "name": "later"
     }
   }, 
   {
-    "pk": 82, 
+    "pk": 90, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "230d9101-6512-4f09-8a83-727be3fa4c74", 
-      "abstract_input": 208, 
+      "abstract_input": 287, 
       "value": "none", 
       "name": "none"
     }
   }, 
   {
-    "pk": 83, 
+    "pk": 91, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "79eec714-165c-4d67-9eb5-8f0ebe9a374f", 
-      "abstract_input": 208, 
+      "abstract_input": 287, 
       "value": "now", 
       "name": "now"
     }
   }, 
   {
-    "pk": 209, 
+    "pk": 288, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "settings", 
       "short_name": "set", 
       "uid": "a1660c9f-952d-4f29-9f23-9b0be5fe8cea", 
@@ -693,10 +695,10 @@
     }
   }, 
   {
-    "pk": 210, 
+    "pk": 289, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "min_coverage", 
       "short_name": "mcv", 
       "uid": "0864df0d-3e46-4af2-9ea3-2ccbfe33034a", 
@@ -711,10 +713,10 @@
     }
   }, 
   {
-    "pk": 211, 
+    "pk": 290, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "filtering", 
       "short_name": "flt", 
       "uid": "f510c2a1-454f-4ef8-b346-aba39a41ce24", 
@@ -729,30 +731,30 @@
     }
   }, 
   {
-    "pk": 84, 
+    "pk": 92, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "56d3293d-9d78-437e-821d-e478018e1988", 
-      "abstract_input": 211, 
+      "abstract_input": 290, 
       "value": "false", 
       "name": "false"
     }
   }, 
   {
-    "pk": 85, 
+    "pk": 93, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "1b3a141e-2da8-4e58-9e2d-4055ee8e8470", 
-      "abstract_input": 211, 
+      "abstract_input": 290, 
       "value": "true", 
       "name": "true"
     }
   }, 
   {
-    "pk": 212, 
+    "pk": 291, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "subgroups", 
       "short_name": "sg", 
       "uid": "1c982c21-0b97-40d1-a35e-30ba16342b00", 
@@ -767,10 +769,10 @@
     }
   }, 
   {
-    "pk": 114, 
+    "pk": 148, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "features", 
       "short_name": "frs", 
       "variable": "features", 
@@ -780,10 +782,10 @@
     }
   }, 
   {
-    "pk": 115, 
+    "pk": 149, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "arff", 
       "short_name": "arf", 
       "variable": "arff", 
@@ -793,10 +795,10 @@
     }
   }, 
   {
-    "pk": 116, 
+    "pk": 150, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 103, 
+      "widget": 135, 
       "name": "rules", 
       "short_name": "rul", 
       "variable": "rules", 
@@ -806,11 +808,12 @@
     }
   }, 
   {
-    "pk": 226, 
+    "pk": 136, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 19, 
+      "category": 24, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "SDM-Aleph", 
       "is_streaming": false, 
       "uid": "14c7c1f8-d9ee-43da-9c7d-c979d3533fe7", 
@@ -832,10 +835,10 @@
     }
   }, 
   {
-    "pk": 596, 
+    "pk": 292, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "examples", 
       "short_name": "ex", 
       "uid": "b82c4d43-f585-456f-824b-6ce47e27866f", 
@@ -850,10 +853,10 @@
     }
   }, 
   {
-    "pk": 597, 
+    "pk": 293, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "mapping", 
       "short_name": "map", 
       "uid": "cd4ab84b-91c7-42ed-bbb2-66c4a2d36fe0", 
@@ -868,10 +871,10 @@
     }
   }, 
   {
-    "pk": 598, 
+    "pk": 294, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "ontology", 
       "short_name": "ont", 
       "uid": "22bfc647-3185-44dd-8f7f-89fc4cc4dd87", 
@@ -886,10 +889,10 @@
     }
   }, 
   {
-    "pk": 599, 
+    "pk": 295, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "relation", 
       "short_name": "rel", 
       "uid": "d22cec50-3393-4e9b-8ef3-228e959dc574", 
@@ -904,10 +907,10 @@
     }
   }, 
   {
-    "pk": 600, 
+    "pk": 296, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "positive class val", 
       "short_name": "pcl", 
       "uid": "ad84f724-9935-4a3a-90b2-a4af70721477", 
@@ -922,10 +925,10 @@
     }
   }, 
   {
-    "pk": 601, 
+    "pk": 297, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "cutoff", 
       "short_name": "cut", 
       "uid": "0e5b7e98-aaa2-481d-b2d1-5b339a05b754", 
@@ -940,10 +943,10 @@
     }
   }, 
   {
-    "pk": 602, 
+    "pk": 298, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "minimum TP", 
       "short_name": "min", 
       "uid": "b2bbe491-8cf3-4ec7-b7a5-f52426ab9285", 
@@ -958,10 +961,10 @@
     }
   }, 
   {
-    "pk": 603, 
+    "pk": 299, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "maximum FP", 
       "short_name": "noi", 
       "uid": "87adfb36-8ca2-4c60-b404-c81e05485e00", 
@@ -976,10 +979,10 @@
     }
   }, 
   {
-    "pk": 604, 
+    "pk": 300, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "clause length", 
       "short_name": "cl", 
       "uid": "f51f11b5-a9c4-43cd-a337-a9f6e6e64992", 
@@ -994,10 +997,10 @@
     }
   }, 
   {
-    "pk": 605, 
+    "pk": 301, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "data format", 
       "short_name": "fmt", 
       "uid": "e3ae46df-56bf-4137-97bc-a98214dd6525", 
@@ -1012,10 +1015,10 @@
     }
   }, 
   {
-    "pk": 263, 
+    "pk": 151, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 226, 
+      "widget": 136, 
       "name": "theory", 
       "short_name": "the", 
       "variable": "theory", 
@@ -1025,11 +1028,12 @@
     }
   }, 
   {
-    "pk": 227, 
+    "pk": 137, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 19, 
+      "category": 24, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "SDM-SEGS", 
       "is_streaming": false, 
       "uid": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
@@ -1051,10 +1055,10 @@
     }
   }, 
   {
-    "pk": 606, 
+    "pk": 302, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "Timeout", 
       "short_name": "to", 
       "uid": "d8412f16-25bd-4109-8208-12be9bd4fa17", 
@@ -1069,10 +1073,10 @@
     }
   }, 
   {
-    "pk": 607, 
+    "pk": 303, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "uid": "0efe46b1-f1f4-4811-aacf-5f97a23e925d", 
@@ -1087,10 +1091,10 @@
     }
   }, 
   {
-    "pk": 608, 
+    "pk": 304, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "ont3", 
       "short_name": "ont", 
       "uid": "5b1a953e-0cf6-401b-81ce-f1773e0ca1f9", 
@@ -1105,10 +1109,10 @@
     }
   }, 
   {
-    "pk": 609, 
+    "pk": 305, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "ont2", 
       "short_name": "ont", 
       "uid": "3b0d4d2e-177e-4054-81d1-a841f4761f94", 
@@ -1123,10 +1127,10 @@
     }
   }, 
   {
-    "pk": 610, 
+    "pk": 306, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "ont1", 
       "short_name": "ont", 
       "uid": "5a86e8aa-9230-4bd3-80f2-3b2bc2ebc2b8", 
@@ -1141,10 +1145,10 @@
     }
   }, 
   {
-    "pk": 611, 
+    "pk": 307, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "generalTerms", 
       "short_name": "gen", 
       "uid": "141f075c-3634-4d6e-8254-fd9afbaa0eb7", 
@@ -1159,10 +1163,10 @@
     }
   }, 
   {
-    "pk": 612, 
+    "pk": 308, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "interactions", 
       "short_name": "int", 
       "uid": "303998af-0f97-4895-b5fb-1ec57f0ab706", 
@@ -1177,10 +1181,10 @@
     }
   }, 
   {
-    "pk": 613, 
+    "pk": 309, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "maxNumTerms", 
       "short_name": "max", 
       "uid": "8cbf4e91-616c-4b35-a16e-86c6ca1e2dd4", 
@@ -1195,10 +1199,10 @@
     }
   }, 
   {
-    "pk": 614, 
+    "pk": 310, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "ont4", 
       "short_name": "ont", 
       "uid": "0c790fc0-5f7f-4117-9b9f-dae365eb88f4", 
@@ -1213,10 +1217,10 @@
     }
   }, 
   {
-    "pk": 615, 
+    "pk": 311, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "mapping", 
       "short_name": "map", 
       "uid": "e9b6fee9-ca19-4aaf-9acf-9ecb98f11f5b", 
@@ -1231,10 +1235,10 @@
     }
   }, 
   {
-    "pk": 616, 
+    "pk": 312, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "weightGSEA", 
       "short_name": "wei", 
       "uid": "3e15d380-742f-4134-8093-097e053bdccb", 
@@ -1249,10 +1253,10 @@
     }
   }, 
   {
-    "pk": 617, 
+    "pk": 313, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "wracc_k", 
       "short_name": "wra", 
       "uid": "cb312cf6-2e82-4f17-8f36-8b0f8d17a8e0", 
@@ -1267,10 +1271,10 @@
     }
   }, 
   {
-    "pk": 618, 
+    "pk": 314, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "maximalPvalue", 
       "short_name": "max", 
       "uid": "b2b31c12-b1aa-4b7f-ace7-005035b92ed7", 
@@ -1285,10 +1289,10 @@
     }
   }, 
   {
-    "pk": 619, 
+    "pk": 315, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "legacy", 
       "short_name": "leg", 
       "uid": "15610106-cd5b-4dee-a3d1-ead67a3dc546", 
@@ -1303,10 +1307,10 @@
     }
   }, 
   {
-    "pk": 620, 
+    "pk": 316, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "maxReported", 
       "short_name": "max", 
       "uid": "86a886d5-7acc-41b4-9f01-09505385550c", 
@@ -1321,10 +1325,10 @@
     }
   }, 
   {
-    "pk": 621, 
+    "pk": 317, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "dataFormat", 
       "short_name": "dat", 
       "uid": "3ffa0341-a80e-47f5-bf77-488ef678dafa", 
@@ -1339,10 +1343,10 @@
     }
   }, 
   {
-    "pk": 622, 
+    "pk": 318, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "minimalSetSize", 
       "short_name": "min", 
       "uid": "c71c5076-fc5b-4b4e-823c-68350224caef", 
@@ -1357,10 +1361,10 @@
     }
   }, 
   {
-    "pk": 623, 
+    "pk": 319, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "weightFisher", 
       "short_name": "wei", 
       "uid": "fd4cc0d1-621d-43da-b03a-e938b104011d", 
@@ -1375,10 +1379,10 @@
     }
   }, 
   {
-    "pk": 624, 
+    "pk": 320, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "posClassVal", 
       "short_name": "pos", 
       "uid": "f78ab9ea-d0aa-41e4-afc2-383f0c74ce5d", 
@@ -1393,10 +1397,10 @@
     }
   }, 
   {
-    "pk": 625, 
+    "pk": 321, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "cutoff", 
       "short_name": "cut", 
       "uid": "5a8a4fce-7d56-43c8-9a88-1cc35969d27f", 
@@ -1411,10 +1415,10 @@
     }
   }, 
   {
-    "pk": 626, 
+    "pk": 322, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "inputData", 
       "short_name": "inp", 
       "uid": "4b925bc7-8605-472b-856d-35c0ec4441d2", 
@@ -1429,10 +1433,10 @@
     }
   }, 
   {
-    "pk": 627, 
+    "pk": 323, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "weightPAGE", 
       "short_name": "wei", 
       "uid": "22268dfd-5362-45b8-bcec-8bbfa547b826", 
@@ -1447,10 +1451,10 @@
     }
   }, 
   {
-    "pk": 264, 
+    "pk": 152, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 227, 
+      "widget": 137, 
       "name": "rules", 
       "short_name": "rls", 
       "variable": "rules", 
@@ -1460,11 +1464,12 @@
     }
   }, 
   {
-    "pk": 228, 
+    "pk": 138, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 19, 
+      "category": 24, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "SDM-SEGS Rule Viewer", 
       "is_streaming": false, 
       "uid": "792b7437-a9b5-4fca-8b21-f9939e9ff8e7", 
@@ -1486,10 +1491,10 @@
     }
   }, 
   {
-    "pk": 628, 
+    "pk": 324, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 228, 
+      "widget": 138, 
       "name": "SDM-SEGS rules", 
       "short_name": "rls", 
       "uid": "06cc9c5e-9250-423b-9c1e-6468f965284a", 
@@ -1504,11 +1509,12 @@
     }
   }, 
   {
-    "pk": 321, 
+    "pk": 179, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 19, 
+      "category": 24, 
       "treeview_image": "", 
+      "windows_queue": false, 
       "name": "TreeLiker", 
       "is_streaming": false, 
       "uid": "5b768023-a9df-4487-abf7-29844738cf7c", 
@@ -1530,10 +1536,10 @@
     }
   }, 
   {
-    "pk": 789, 
+    "pk": 443, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 321, 
+      "widget": 179, 
       "name": "Template", 
       "short_name": "tpl", 
       "uid": "7e160ade-ed96-4f93-abc8-a08d23867b2e", 
@@ -1548,10 +1554,10 @@
     }
   }, 
   {
-    "pk": 790, 
+    "pk": 444, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 321, 
+      "widget": 179, 
       "name": "Dataset", 
       "short_name": "dat", 
       "uid": "f02b857e-cd78-4d09-bf5e-d58344963fb5", 
@@ -1566,10 +1572,10 @@
     }
   }, 
   {
-    "pk": 791, 
+    "pk": 445, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 321, 
+      "widget": 179, 
       "name": "Algorithm", 
       "short_name": "alg", 
       "uid": "b71e1b77-e690-45e7-aed3-64da2919e8cb", 
@@ -1584,70 +1590,70 @@
     }
   }, 
   {
-    "pk": 242, 
+    "pk": 119, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "81636caa-6d43-4a74-829e-b87631d02fd9", 
-      "abstract_input": 791, 
+      "abstract_input": 445, 
       "value": "hifi", 
       "name": "HiFi"
     }
   }, 
   {
-    "pk": 243, 
+    "pk": 121, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "701b2f6a-6f4c-4570-ae79-8b33bf9864c2", 
-      "abstract_input": 791, 
+      "abstract_input": 445, 
       "value": "hifi_grounding_counting", 
       "name": "HiFi with grounding counting"
     }
   }, 
   {
-    "pk": 244, 
+    "pk": 118, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "c708639b-6219-4e7c-ba1a-4a3d1b7659d5", 
-      "abstract_input": 791, 
+      "abstract_input": 445, 
       "value": "poly", 
       "name": "Poly"
     }
   }, 
   {
-    "pk": 245, 
+    "pk": 122, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "776f2d0a-2fdd-4625-a154-493ffba32c6b", 
-      "abstract_input": 791, 
+      "abstract_input": 445, 
       "value": "poly_grounding_counting", 
       "name": "Poly with grounding counting"
     }
   }, 
   {
-    "pk": 246, 
+    "pk": 117, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "ae16afc9-4e8c-4f97-8920-98a8aa0dd535", 
-      "abstract_input": 791, 
+      "abstract_input": 445, 
       "value": "relf", 
       "name": "RelF"
     }
   }, 
   {
-    "pk": 247, 
+    "pk": 120, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "0202b10a-73d1-46b6-82fc-73c6afb4c73d", 
-      "abstract_input": 791, 
+      "abstract_input": 445, 
       "value": "relf_grounding_counting", 
       "name": "RelF with grounding counting"
     }
   }, 
   {
-    "pk": 792, 
+    "pk": 446, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 321, 
+      "widget": 179, 
       "name": "Minimum frequency", 
       "short_name": "mfr", 
       "uid": "21261080-c05e-4ca5-8a3f-d3fcfa9cd429", 
@@ -1662,10 +1668,10 @@
     }
   }, 
   {
-    "pk": 793, 
+    "pk": 448, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 321, 
+      "widget": 179, 
       "name": "Maximum size of features (applies to HiFi and Poly algs)", 
       "short_name": "msf", 
       "uid": "88122964-dd6b-4d90-ab97-ee865c454cbc", 
@@ -1680,10 +1686,10 @@
     }
   }, 
   {
-    "pk": 794, 
+    "pk": 447, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 321, 
+      "widget": 179, 
       "name": "Covered class (applies only to the RelF algorithm)", 
       "short_name": "ccl", 
       "uid": "a225e421-e8f1-4a79-a78b-98f7d09d34df", 
@@ -1698,10 +1704,10 @@
     }
   }, 
   {
-    "pk": 795, 
+    "pk": 449, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 321, 
+      "widget": 179, 
       "name": "Use sampling ", 
       "short_name": "smp", 
       "uid": "755563cb-3640-4737-b766-9e6db0f6a14d", 
@@ -1716,10 +1722,10 @@
     }
   }, 
   {
-    "pk": 796, 
+    "pk": 450, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 321, 
+      "widget": 179, 
       "name": "Sample size", 
       "short_name": "ssz", 
       "uid": "b0a6bd15-f1cb-4098-a551-95993ccf4c12", 
@@ -1734,10 +1740,10 @@
     }
   }, 
   {
-    "pk": 797, 
+    "pk": 451, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 321, 
+      "widget": 179, 
       "name": "Max polynomial degree (applies to Poly)", 
       "short_name": "mdg", 
       "uid": "09eec780-fed1-488b-9321-e468e0c25343", 
@@ -1752,10 +1758,10 @@
     }
   }, 
   {
-    "pk": 353, 
+    "pk": 203, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 321, 
+      "widget": 179, 
       "name": "Dataset", 
       "short_name": "dat", 
       "variable": "arff", 
@@ -1765,11 +1771,250 @@
     }
   }, 
   {
-    "pk": 200, 
+    "pk": 139, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 19, 
+      "category": 24, 
+      "treeview_image": "", 
+      "windows_queue": false, 
+      "name": "Wordification", 
+      "is_streaming": false, 
+      "uid": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "ilp", 
+      "static_image": "wordification.jpg", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "ilp_wordification", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 325, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "target_table", 
+      "short_name": "odt", 
+      "uid": "81dce274-b516-4121-b7a2-f6352da1183b", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "target_table", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "Orange data table"
+    }
+  }, 
+  {
+    "pk": 326, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "other_tables", 
+      "short_name": "lot", 
+      "uid": "8bf57c55-4c0c-451a-91e4-36fca2e61cfe", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "other_tables", 
+      "parameter": false, 
+      "order": 2, 
+      "description": "List of Orange data tables"
+    }
+  }, 
+  {
+    "pk": 327, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "context", 
+      "short_name": "ctx", 
+      "uid": "d3035919-8ecf-408f-812b-2d5cb84029e9", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "context", 
+      "parameter": false, 
+      "order": 3, 
+      "description": "Context"
+    }
+  }, 
+  {
+    "pk": 328, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "noise", 
+      "short_name": "noi", 
+      "uid": "2a5f9df6-1ab1-4c0b-ae1a-8fa2ba9fcc92", 
+      "default": "0", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "noise", 
+      "parameter": true, 
+      "order": 4, 
+      "description": "Set an upper bound on the number of negative examples allowed to be covered by an acceptable clause."
+    }
+  }, 
+  {
+    "pk": 329, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "clauselength", 
+      "short_name": "cln", 
+      "uid": "8c282c42-ad00-4cdc-b4ef-e788f329702e", 
+      "default": "4", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "clauselength", 
+      "parameter": true, 
+      "order": 5, 
+      "description": " Sets upper bound on number of literals in an acceptable clause."
+    }
+  }, 
+  {
+    "pk": 330, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "depth", 
+      "short_name": "dpt", 
+      "uid": "b9cdf1a0-65c1-44ba-8203-873392939fbc", 
+      "default": "10", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "depth", 
+      "parameter": true, 
+      "order": 6, 
+      "description": "Sets an upper bound on the proof depth to which theorem-proving proceeds."
+    }
+  }, 
+  {
+    "pk": 331, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "evalfn", 
+      "short_name": "efn", 
+      "uid": "4cf0000d-c4c7-4af3-bb6b-9d571d2a18d1", 
+      "default": "coverage", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "evalfn", 
+      "parameter": true, 
+      "order": 7, 
+      "description": "Sets the evaluation function for a search."
+    }
+  }, 
+  {
+    "pk": 332, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "i", 
+      "short_name": "i", 
+      "uid": "ae429c42-e945-4191-a576-f2a5ad5defe8", 
+      "default": "2", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "i", 
+      "parameter": true, 
+      "order": 8, 
+      "description": "Set upper bound on layers of new variables."
+    }
+  }, 
+  {
+    "pk": 333, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "language", 
+      "short_name": "lan", 
+      "uid": "2ddde27d-f3fe-4fc5-a8c1-73e5a8d6354e", 
+      "default": "inf", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "language", 
+      "parameter": true, 
+      "order": 9, 
+      "description": "Specifies the number of occurences of a predicate symbol in any clause (inf or > 0)."
+    }
+  }, 
+  {
+    "pk": 334, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "m", 
+      "short_name": "m", 
+      "uid": "835b85dd-7047-4f05-b60c-649e4814a711", 
+      "default": "1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "m", 
+      "parameter": true, 
+      "order": 10, 
+      "description": "Sets a value for \"m-estimate\" calculations."
+    }
+  }, 
+  {
+    "pk": 335, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 139, 
+      "name": "max_features", 
+      "short_name": "mxf", 
+      "uid": "e4a6db3f-2610-4cdd-b75f-5f8bf9939473", 
+      "default": "inf", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_features", 
+      "parameter": true, 
+      "order": 11, 
+      "description": "Sets an upper bound on the maximum number of boolean features constructed by searching for good clauses (inf or > 0)."
+    }
+  }, 
+  {
+    "pk": 153, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 139, 
+      "name": "Document corpus", 
+      "short_name": "crp", 
+      "variable": "corpus", 
+      "uid": "c9c147fe-f3f1-43fb-909d-cb20c65ae098", 
+      "order": 1, 
+      "description": "Result of wordification for main target table"
+    }
+  }, 
+  {
+    "pk": 248, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 24, 
       "treeview_image": "treeview/ilp.png", 
+      "windows_queue": false, 
       "name": "Wordification", 
       "is_streaming": false, 
       "uid": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
@@ -1791,10 +2036,10 @@
     }
   }, 
   {
-    "pk": 531, 
+    "pk": 579, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 200, 
+      "widget": 248, 
       "name": "target_table", 
       "short_name": "odt", 
       "uid": "f1b77c89-ed7b-4181-9f62-c2001fd7c388", 
@@ -1809,10 +2054,10 @@
     }
   }, 
   {
-    "pk": 532, 
+    "pk": 580, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 200, 
+      "widget": 248, 
       "name": "feature n-grams", 
       "short_name": "fng", 
       "uid": "b5eea832-1712-4db1-a677-92deca4e7a75", 
@@ -1827,10 +2072,10 @@
     }
   }, 
   {
-    "pk": 533, 
+    "pk": 581, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 200, 
+      "widget": 248, 
       "name": "other_tables", 
       "short_name": "lot", 
       "uid": "72854a26-f7bf-46a3-988e-61caaeabdc7a", 
@@ -1845,10 +2090,10 @@
     }
   }, 
   {
-    "pk": 534, 
+    "pk": 582, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 200, 
+      "widget": 248, 
       "name": "context", 
       "short_name": "ctx", 
       "uid": "8f02978b-e0d7-45c5-ab74-6a0e8728654d", 
@@ -1863,10 +2108,10 @@
     }
   }, 
   {
-    "pk": 233, 
+    "pk": 263, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 200, 
+      "widget": 248, 
       "name": "Document corpus", 
       "short_name": "str", 
       "variable": "corpus", 
@@ -1876,10 +2121,10 @@
     }
   }, 
   {
-    "pk": 366, 
+    "pk": 264, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 200, 
+      "widget": 248, 
       "name": "Arff table with TF-IDF values", 
       "short_name": "arf", 
       "variable": "arff", 

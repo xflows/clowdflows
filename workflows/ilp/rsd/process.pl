@@ -1059,12 +1059,30 @@ write_with_vars(Head,BodyList,Substitutions,C,Negation):-
     nl,
     !.
 
+%%
+%% Escape atoms that contain particular characters that would
+%% cause syntax errors when loaded.
+%%
+%% Added 20.1.2015
+%% anze.vavpetic@ijs.si
+must_escape(Atom):-
+    atom(Atom),
+    not number(Atom).
+    %atom_chars(Atom, Chars),
+    %my_member(Char, Chars),
+    %my_member(Char, ['[', ']', '(', ')', ' ', ',', '.', '-', '<', '>', '=']).
+
 write_with_vars1([],_).
 
 write_with_vars1([A|B],Substitutions):-
     my_member([A,Sub],Substitutions),
     !,
-    write(Sub),
+    (must_escape(Sub) ->
+        writeq(Sub)
+        ;
+        write(Sub)
+    ),
+    !,
     (B = [_|_] ->
         write(',')
         ;

@@ -29,8 +29,8 @@ def ilp_aleph(input_dict):
     for pl_script in [b, pos, neg]:
         check_input(pl_script)
     # Run aleph
-    result = aleph.induce(mode, pos, neg, b)
-    return {'theory': result}
+    results = aleph.induce(mode, pos, neg, b)
+    return {'theory': results[0], 'features': results[1]}
 
 def ilp_rsd(input_dict):
     rsd = RSD()
@@ -52,6 +52,7 @@ def ilp_rsd(input_dict):
     # Run rsd
     features, arff, rules = rsd.induce(b, examples=examples, pos=pos, neg=neg, cn2sd=subgroups)
     return {'features' : features, 'arff' : arff, 'rules' : rules}
+
 
 def ilp_sdmsegs_rule_viewer(input_dict):
     return {}
@@ -119,5 +120,6 @@ def ilp_treeliker(input_dict):
         'sample_size': input_dict.get('sample_size'),
         'max_degree': input_dict.get('max_degree')
     }
-    arff = TreeLiker(dataset, template).run(settings=settings)
-    return {'arff': arff}
+    treeliker = TreeLiker(dataset, template, settings=settings)
+    arff_train, arff_test = treeliker.run()
+    return {'arff': arff_train, 'treeliker': treeliker}
