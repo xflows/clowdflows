@@ -2,6 +2,8 @@ from rest_framework import serializers
 from workflows.models import *
 #from rest_framework.reverse import reverse
 
+import json
+
 class ConnectionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Connection
@@ -12,24 +14,30 @@ class InputSerializer(serializers.HyperlinkedModelSerializer):
 
     def get_deserialized_value(self,obj):
         try:
-            return str(obj.value)
+            json.dumps(obj.value)
         except:
-            return ""
+            return repr(obj.value)
+        else:
+            return obj.value
 
     class Meta:
         model = Input
+        exclude = ('value',)
 
 class OutputSerializer(serializers.HyperlinkedModelSerializer):
     deserialized_value = serializers.SerializerMethodField()
 
     def get_deserialized_value(self,obj):
         try:
-            return str(obj.value)
+            json.dumps(obj.value)
         except:
-            return ""    
+            return repr(obj.value)
+        else:
+            return obj.value
+
     class Meta:
         model = Output
-
+        exclude = ('value',)
 
 class WidgetListSerializer(serializers.HyperlinkedModelSerializer):
    class Meta:
