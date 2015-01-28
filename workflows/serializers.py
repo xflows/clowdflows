@@ -8,15 +8,27 @@ class ConnectionSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class InputSerializer(serializers.HyperlinkedModelSerializer):
+    deserialized_value = serializers.SerializerMethodField()
+
+    def get_deserialized_value(self,obj):
+        try:
+            return str(obj.value)
+        except:
+            return ""
+
     class Meta:
         model = Input
-        exclude = ('value',)
-
 
 class OutputSerializer(serializers.HyperlinkedModelSerializer):
+    deserialized_value = serializers.SerializerMethodField()
+
+    def get_deserialized_value(self,obj):
+        try:
+            return str(obj.value)
+        except:
+            return ""    
     class Meta:
         model = Output
-        exclude = ('value',)
 
 
 class WidgetListSerializer(serializers.HyperlinkedModelSerializer):
