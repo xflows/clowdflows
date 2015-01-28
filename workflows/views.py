@@ -95,8 +95,8 @@ def add_widget(request):
             if (workflow.user==request.user):
                 w = Widget()
                 w.workflow = workflow
-                w.x = int(request.POST['scrollLeft'])+50
-                y = int(request.POST['scrollTop'])+50
+                w.x = int(request.POST['scrollLeft'].split(".")[0])+50
+                y = int(request.POST['scrollTop'].split(".")[0])+50
                 while workflow.widgets.filter(y=y,x=w.x).count()>0:
                     y = y + 100
                 w.y = y
