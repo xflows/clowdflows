@@ -1,6 +1,6 @@
 [
   {
-    "pk": 50, 
+    "pk": 13, 
     "model": "workflows.category", 
     "fields": {
       "uid": "92fd265d-26cb-434f-bbfe-1780feb83dae", 
@@ -12,10 +12,10 @@
     }
   }, 
   {
-    "pk": 294, 
+    "pk": 63, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 50, 
+      "category": 13, 
       "treeview_image": "treeview/HARF_60-48-RF.png", 
       "name": "HARF", 
       "is_streaming": false, 
@@ -24,6 +24,7 @@
       "image": "images/HARF_60-48-RF.png", 
       "package": "noise", 
       "static_image": "HARF_60-48-RF.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -38,10 +39,10 @@
     }
   }, 
   {
-    "pk": 722, 
+    "pk": 154, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 294, 
+      "widget": 63, 
       "name": "Agreement Level", 
       "short_name": "agl", 
       "uid": "7903039a-7e1c-4cb2-a20a-1730431fd122", 
@@ -56,50 +57,50 @@
     }
   }, 
   {
-    "pk": 174, 
+    "pk": 34, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "fd06328e-cb70-4ba1-ae9d-d62c9c77401d", 
-      "abstract_input": 722, 
+      "abstract_input": 154, 
       "value": "60", 
       "name": "60"
     }
   }, 
   {
-    "pk": 175, 
+    "pk": 35, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "58128fe8-5dde-4648-bead-d9dc0ef67a3a", 
-      "abstract_input": 722, 
+      "abstract_input": 154, 
       "value": "70", 
       "name": "70"
     }
   }, 
   {
-    "pk": 176, 
+    "pk": 36, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "b857927d-26b1-4881-a1e0-e36b565f60fc", 
-      "abstract_input": 722, 
+      "abstract_input": 154, 
       "value": "80", 
       "name": "80"
     }
   }, 
   {
-    "pk": 177, 
+    "pk": 37, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "c08b3596-348e-4999-9ccd-476ef087472d", 
-      "abstract_input": 722, 
+      "abstract_input": 154, 
       "value": "90", 
       "name": "90"
     }
   }, 
   {
-    "pk": 319, 
+    "pk": 67, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 294, 
+      "widget": 63, 
       "name": "HARF Classifier", 
       "short_name": "hrf", 
       "variable": "harfout", 
@@ -109,10 +110,10 @@
     }
   }, 
   {
-    "pk": 295, 
+    "pk": 64, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 50, 
+      "category": 13, 
       "treeview_image": "treeview/NoiseRank3.png", 
       "name": "NoiseRank", 
       "is_streaming": false, 
@@ -121,6 +122,7 @@
       "image": "images/NoiseRank3.png", 
       "package": "noise", 
       "static_image": "NoiseRank3.png", 
+      "windows_queue": false, 
       "post_interact_action": "noiserank_select", 
       "user": null, 
       "visualization_view": "", 
@@ -135,10 +137,10 @@
     }
   }, 
   {
-    "pk": 723, 
+    "pk": 155, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 295, 
+      "widget": 64, 
       "name": "Dataset", 
       "short_name": "ds", 
       "uid": "ddd786e1-f8e5-4731-977c-48a80deb9de3", 
@@ -153,10 +155,10 @@
     }
   }, 
   {
-    "pk": 724, 
+    "pk": 156, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 295, 
+      "widget": 64, 
       "name": "Noisy Instances", 
       "short_name": "nsi", 
       "uid": "609eae39-00b0-4713-ba0e-55f54e7d642e", 
@@ -171,10 +173,10 @@
     }
   }, 
   {
-    "pk": 320, 
+    "pk": 68, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 295, 
+      "widget": 64, 
       "name": "All Noise", 
       "short_name": "ans", 
       "variable": "allnoise", 
@@ -184,10 +186,10 @@
     }
   }, 
   {
-    "pk": 321, 
+    "pk": 69, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 295, 
+      "widget": 64, 
       "name": "Selected Instances", 
       "short_name": "sel", 
       "variable": "selection", 
@@ -197,11 +199,24 @@
     }
   }, 
   {
-    "pk": 51, 
+    "pk": 407, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 64, 
+      "name": "Selected Indices", 
+      "short_name": "ind", 
+      "variable": "indices", 
+      "uid": "1c9e78f6-88b4-4a53-bdf7-ba88eccd798b", 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 14, 
     "model": "workflows.category", 
     "fields": {
       "uid": "fa867c58-d6eb-458f-989e-fddec3e2a8c7", 
-      "parent": 50, 
+      "parent": 13, 
       "workflow": null, 
       "user": null, 
       "order": 1, 
@@ -209,10 +224,10 @@
     }
   }, 
   {
-    "pk": 296, 
+    "pk": 65, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 51, 
+      "category": 14, 
       "treeview_image": "treeview/CF-filter-black.png", 
       "name": "Classification Filter", 
       "is_streaming": false, 
@@ -221,6 +236,7 @@
       "image": "images/CF-filter-black.png", 
       "package": "noise", 
       "static_image": "CF-filter-black.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -235,10 +251,10 @@
     }
   }, 
   {
-    "pk": 725, 
+    "pk": 157, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 296, 
+      "widget": 65, 
       "name": "Timeout", 
       "short_name": "tmo", 
       "uid": "df47c26c-4440-4dd0-9abb-b00759c5d4a5", 
@@ -253,10 +269,10 @@
     }
   }, 
   {
-    "pk": 726, 
+    "pk": 158, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 296, 
+      "widget": 65, 
       "name": "Learner", 
       "short_name": "lrn", 
       "uid": "a111962a-9cff-418a-8ad9-037569cfd2c3", 
@@ -271,10 +287,10 @@
     }
   }, 
   {
-    "pk": 727, 
+    "pk": 159, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 296, 
+      "widget": 65, 
       "name": "Dataset", 
       "short_name": "ds", 
       "uid": "acb2c1f9-d57c-4122-8088-a270aab2565a", 
@@ -289,10 +305,10 @@
     }
   }, 
   {
-    "pk": 728, 
+    "pk": 160, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 296, 
+      "widget": 65, 
       "name": "Number of Folds for Cross-Validation", 
       "short_name": "kfl", 
       "uid": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9", 
@@ -307,100 +323,100 @@
     }
   }, 
   {
-    "pk": 178, 
+    "pk": 38, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "7878abe8-7d00-463f-872d-f454086fac37", 
-      "abstract_input": 728, 
+      "abstract_input": 160, 
       "value": "10", 
       "name": "10"
     }
   }, 
   {
-    "pk": 179, 
+    "pk": 39, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "3909de0e-c5af-41ff-a784-568e68eb7993", 
-      "abstract_input": 728, 
+      "abstract_input": 160, 
       "value": "2", 
       "name": "2"
     }
   }, 
   {
-    "pk": 180, 
+    "pk": 40, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "3325ac07-e21c-4b7c-9e1f-653954e3e54d", 
-      "abstract_input": 728, 
+      "abstract_input": 160, 
       "value": "3", 
       "name": "3"
     }
   }, 
   {
-    "pk": 181, 
+    "pk": 41, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "aa0f50f5-4389-4a14-8480-ba18f754a83d", 
-      "abstract_input": 728, 
+      "abstract_input": 160, 
       "value": "4", 
       "name": "4"
     }
   }, 
   {
-    "pk": 182, 
+    "pk": 42, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "83b4ef78-205f-44da-bae1-4d1b8e939b75", 
-      "abstract_input": 728, 
+      "abstract_input": 160, 
       "value": "5", 
       "name": "5"
     }
   }, 
   {
-    "pk": 183, 
+    "pk": 43, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "ea261928-74fe-488e-a6cb-09c22f044879", 
-      "abstract_input": 728, 
+      "abstract_input": 160, 
       "value": "6", 
       "name": "6"
     }
   }, 
   {
-    "pk": 184, 
+    "pk": 44, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "8e68a530-d7b1-4fd5-875b-c4cc2ab6508f", 
-      "abstract_input": 728, 
+      "abstract_input": 160, 
       "value": "7", 
       "name": "7"
     }
   }, 
   {
-    "pk": 185, 
+    "pk": 45, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "7ea91039-9522-41ac-a419-5624b4bb62ff", 
-      "abstract_input": 728, 
+      "abstract_input": 160, 
       "value": "8", 
       "name": "8"
     }
   }, 
   {
-    "pk": 186, 
+    "pk": 46, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "27b1c2e5-ef44-4614-abc0-0de7d4c62d79", 
-      "abstract_input": 728, 
+      "abstract_input": 160, 
       "value": "9", 
       "name": "9"
     }
   }, 
   {
-    "pk": 322, 
+    "pk": 70, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 296, 
+      "widget": 65, 
       "name": "Noise instances", 
       "short_name": "noi", 
       "variable": "noise_dict", 
@@ -410,10 +426,86 @@
     }
   }, 
   {
-    "pk": 297, 
+    "pk": 278, 
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": 51, 
+      "category": 14, 
+      "treeview_image": "", 
+      "name": "Matrix Factorization Filter", 
+      "is_streaming": false, 
+      "uid": "0b5f2281-fdc0-4141-8670-fd40ed35f0a8", 
+      "interaction_view": "", 
+      "image": "", 
+      "package": "noise", 
+      "static_image": "CF-filter-black.png", 
+      "windows_queue": false, 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "action": "mf_filter", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 619, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 278, 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "uid": "fab033ae-1a59-40f0-b51c-3e11afcdf44c", 
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 620, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 278, 
+      "name": "Threshold", 
+      "short_name": "thd", 
+      "uid": "b44f486b-4459-435d-b89a-20809e1fdf9c", 
+      "default": "10", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "treshold", 
+      "parameter": true, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 283, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 278, 
+      "name": "Noise instances", 
+      "short_name": "noi", 
+      "variable": "noise_dict", 
+      "uid": "56721285-cec6-4915-a927-d25b7ebbf458", 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 66, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 14, 
       "treeview_image": "treeview/SF-filter_1.png", 
       "name": "Saturation Filter", 
       "is_streaming": false, 
@@ -422,6 +514,7 @@
       "image": "images/SF-filter_1.png", 
       "package": "noise", 
       "static_image": "SF-filter_1.png", 
+      "windows_queue": false, 
       "post_interact_action": "", 
       "user": null, 
       "visualization_view": "", 
@@ -436,10 +529,10 @@
     }
   }, 
   {
-    "pk": 729, 
+    "pk": 161, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 297, 
+      "widget": 66, 
       "name": "Type of Saturation Filtering", 
       "short_name": "tsf", 
       "uid": "6c4683c8-4be5-4115-af3d-a01aef2082b8", 
@@ -454,30 +547,30 @@
     }
   }, 
   {
-    "pk": 187, 
+    "pk": 47, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "e7657f7b-4a43-4297-b669-658418189ae5", 
-      "abstract_input": 729, 
+      "abstract_input": 161, 
       "value": "normal", 
       "name": "Normal"
     }
   }, 
   {
-    "pk": 188, 
+    "pk": 48, 
     "model": "workflows.abstractoption", 
     "fields": {
       "uid": "e44478f8-43fa-46a1-851e-c3e347e2de7b", 
-      "abstract_input": 729, 
+      "abstract_input": 161, 
       "value": "prune", 
       "name": "Pre-pruned "
     }
   }, 
   {
-    "pk": 730, 
+    "pk": 162, 
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": 297, 
+      "widget": 66, 
       "name": "Dataset", 
       "short_name": "ds", 
       "uid": "fd433309-d6b5-4fea-b99c-e55152a87e7a", 
@@ -492,10 +585,10 @@
     }
   }, 
   {
-    "pk": 323, 
+    "pk": 71, 
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": 297, 
+      "widget": 66, 
       "name": "Noise instances", 
       "short_name": "noi", 
       "variable": "noise_dict", 
