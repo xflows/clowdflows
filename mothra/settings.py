@@ -181,20 +181,10 @@ INSTALLED_APPS_WORKFLOWS_SUB = ()
 
 TEST_RUNNER = 'discover_runner.DiscoverRunner'
 
+USE_WINDOWS_QUEUE = True
+
 import djcelery
 djcelery.setup_loader()
-
-try:
-    LOCAL_SETTINGS
-except NameError:
-    try:
-        from local_settings import *
-    except ImportError:
-        pass     
-
-INSTALLED_APPS = \
-    INSTALLED_APPS_DEFAULT +\
-    INSTALLED_APPS_WORKFLOWS_SUB
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
@@ -224,3 +214,15 @@ STATIC_DOC_ROOT = os.path.join(os.getcwd(), 'mothra/public/media')
 
 CELERY_RESULT_BACKEND = 'amqp'
 CELERY_TASK_RESULT_EXPIRES = 18000
+
+try:
+    LOCAL_SETTINGS
+except NameError:
+    try:
+        from local_settings import *
+    except ImportError:
+        pass     
+
+INSTALLED_APPS = \
+    INSTALLED_APPS_DEFAULT +\
+    INSTALLED_APPS_WORKFLOWS_SUB

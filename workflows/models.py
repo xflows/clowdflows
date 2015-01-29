@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.conf import settings
 import workflows.library
 
 import time
@@ -569,7 +570,7 @@ class Widget(models.Model):
     def run(self,offline):
         """ This is only a hack, to make this work on windows """
         try: 
-            if self.abstract_widget.windows_queue:
+            if self.abstract_widget.windows_queue and settings.USE_WINDOWS_QUEUE:
                 t = runWidget.apply_async([self,offline],queue="windows")
                 t.wait()
             else:
@@ -858,7 +859,7 @@ class Widget(models.Model):
                     input_dict[i.variable].append(i.value)
         try:
             if not self.abstract_widget is None:
-                if self.abstract_widget.windows_queue:
+                if self.abstract_widget.windows_queue and settings.USE_WINDOWS_QUEUE:
                     t = executeWidgetPostInteract.apply_async([self,input_dict,output_dict,request],queue="windows")
                     outputs = t.wait()
                 else:
