@@ -99,7 +99,7 @@ def dump_dataset(features, feature_format, evaluations, train_context,
             target_vals = ('negative', 'positive')
         else:
             orng_target = train_context.orng_tables[target]
-            target_vals = tuple(orng_target.domain.classVar.values)
+            target_vals = tuple(sorted(orng_target.domain.classVar.values))
         class_attr = ('class', target_vals)
         data['attributes'].append(class_attr)
         for line in evaluations.splitlines():
