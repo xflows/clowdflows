@@ -43,12 +43,11 @@
 $(function() {
   $(".delete_workflow").click(function() {
     var thistd = $(this);
-  bootbox.confirm("Are you sure you wish to delete the workflow: "+$(this).parent().parent().find("td.name").html()+"?","No way!", "Yes, definitely!", function(result) {
+  var result = confirm("Are you sure you wish to delete the workflow: "+$(this).parent().parent().find("td.name").html()+"?");
     if (result==true) {
       thistd.parent().parent().remove();
       $.post("{% url 'delete workflow' %}?workflow_id="+thistd.attr('rel'))
     }
-  });
   });
 });
 
