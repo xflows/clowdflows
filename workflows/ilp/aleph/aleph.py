@@ -21,7 +21,7 @@ else:
     os.sys.path.append(parent_dir)
     from security import SafePopen
 
-DEBUG = True
+DEBUG = False
 
 # Setup a logger
 logger = logging.getLogger("Aleph [Python]")
@@ -117,8 +117,6 @@ class Aleph(object):
         # Run the aleph script.
         p = SafePopen(['yap', '-s50000', '-h200000', '-L', Aleph.SCRIPT], cwd=self.tmpdir).safe_run()
         stdout_str, stderr_str = p.communicate()
-        logger.debug(stdout_str)
-        logger.debug(stderr_str)
 
         logger.info("Done.")
 
@@ -127,6 +125,7 @@ class Aleph(object):
             # Return the rules written in the output file.
             rules_fn = filestem + Aleph.RULES_SUFFIX
             result = open('%s/%s' % (self.tmpdir, rules_fn)).read()
+            features = None
         else:
             features_fn = filestem + Aleph.FEATURES_SUFFIX
             features = open('%s/%s' % (self.tmpdir, features_fn)).read()
@@ -137,7 +136,7 @@ class Aleph(object):
 
         # Cleanup.
         self.__cleanup()
-        return result
+        return (result, features)
 
     def __prepare(self, filestem, pos, neg, b):
         """
@@ -208,7 +207,7 @@ class Aleph(object):
         features = re.findall(r"feature\((\d+),\((.*)\)\).", features)
         for fid, feature in sorted(features, key=lambda e: e[0]):
             cat('%% f%s: %s' % (fid, feature))
-            cat('@ATTRIBUTE f%s {0,1}' % fid)
+            cat('@ATTRIBUTE f%s {+,-}' % fid)
 
         # Class attribute
         class_id = len(features)
@@ -219,7 +218,7 @@ class Aleph(object):
         for _, features, cls in examples:
             vals = []
             for i in range(0, class_id):
-                vals.append('1' if i in json.loads(features) else '0')
+                vals.append('+' if i in json.loads(features) else '-')
 	    vals.append(cls)
             cat('%s' % ','.join(vals))
         return arff.getvalue()

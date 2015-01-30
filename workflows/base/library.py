@@ -175,7 +175,7 @@ def base_extract_results(input_dict):
     precision = input_dict['precision']
     recall = input_dict['recall']
     auc = input_dict['auc']
-    accuracy = input_dict['accuracy']
+    accuracy = input_dict['accuracy'] * 100 # ViperCharts expects percentages
     runtime = input_dict['runtime']
     name = input_dict['name']
     results = {'fbeta':1,'fscore':fscore,'name': name,'precision': precision,'recall': recall,'auc': auc,'accuracy': accuracy,'runtime': runtime}

@@ -28,10 +28,10 @@
         <td class="tablecellright"> 
 		{{ item.fscore|floatformat:"2" }}{% if 'std_fs' in item %}&nbsp;&plusmn;&nbsp;{{item.std_fs|floatformat:"2"}}{% endif %} </td>
         {% if 'accuracy' in input_dict.eval_results.0 %}
-        <td class="tablecellright">{{ item.accuracy }}%</td>
+        <td class="tablecellright">{{ item.accuracy|floatformat:"2" }}%</td>
         {% endif %}
         {% if 'auc' in input_dict.eval_results.0 %}
-        <td class="tablecellright">{{ item.auc }}</td>
+        <td class="tablecellright">{{ item.auc|floatformat:"2" }}</td>
         {% endif %}
     </tr>
     {% endfor %}

@@ -6,6 +6,8 @@ MySQL connectivity library.
 import mysql.connector as sql
 from context import DBConnection, DBContext
 from converters import RSD_Converter, Aleph_Converter, Orange_Converter, TreeLikerConverter
+from mapper import domain_map
+
 
 def mysql_connect(input_dict):
     user = str(input_dict['user'])
@@ -53,3 +55,30 @@ def mysql_orange_converter(input_dict):
     context = input_dict['context']
     orange = Orange_Converter(context)
     return {'target_table_dataset' : orange.target_Orange_table(),'other_table_datasets': orange.other_Orange_tables()}
+
+def ilp_map_rsd(input_dict):
+    return do_map(input_dict, 'rsd')
+
+def ilp_map_treeliker(input_dict):
+    return do_map(input_dict, 'treeliker')
+
+def ilp_map_aleph(input_dict):
+    positive_class = input_dict['positive_class']
+    return do_map(input_dict, 'aleph', positive_class=positive_class)
+
+def do_map(input_dict, feature_format, positive_class=None):
+    '''
+    Maps a new example to a set of features.
+    '''
+    # Context of the unseen example(s)
+    train_context = input_dict['train_ctx']
+    test_context = input_dict['test_ctx']
+
+    # Currently known examples & background knowledge
+    features = input_dict['features']
+    format = input_dict['output_format']
+
+    evaluations = domain_map(features, feature_format, train_context,
+                             test_context, format=format,
+                             positive_class=positive_class)
+    return {'evaluations' : evaluations}

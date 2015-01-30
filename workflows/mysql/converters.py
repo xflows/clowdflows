@@ -109,6 +109,7 @@ class ILP_Converter(Converter):
         fmt_cols = lambda cols: ','.join([("%s" % col) if ILP_Converter.numeric(col) else ("'%s'" % col) for col in cols])
         for table in self.db.tables:
             attributes = self.db.cols[table]
+            dump.append(':- table %s/%d.' % (table, len(attributes)))
             dump.append('\n'.join(["%s(%s)." % (table, fmt_cols(cols)) for cols in self.db.rows(table, attributes)]))
         return dump
 
