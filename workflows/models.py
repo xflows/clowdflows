@@ -510,6 +510,8 @@ class Widget(models.Model):
         ('subprocess','Subprocess widget'),
         ('input', 'Input widget'),
         ('output', 'Output widget'),
+        ('for_input', 'For input'),
+        ('for_output', 'For output'),
     )
     type = models.CharField(max_length=50,choices=WIDGET_CHOICES,default='regular')
 
