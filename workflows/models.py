@@ -512,6 +512,8 @@ class Widget(models.Model):
         ('output', 'Output widget'),
         ('for_input', 'For input'),
         ('for_output', 'For output'),
+        ('cv_input', 'Cross Validation input'),
+        ('cv_output', 'Cross Validation output'),
     )
     type = models.CharField(max_length=50,choices=WIDGET_CHOICES,default='regular')
 
