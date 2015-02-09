@@ -5,7 +5,7 @@
       "category": "b66b71b1-99d6-4efc-b264-a914a3e42911", 
       "treeview_image": "", 
       "uid": "3c5ac714-84ca-4c93-befb-ce0c16148193", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "mysql", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,26 +19,9 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
       "name": "Database To Aleph"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "3c5ac714-84ca-4c93-befb-ce0c16148193", 
-      "name": "Target attribute value", 
-      "short_name": "tgt", 
-      "default": "", 
-      "description": "Target attribute value to be used as the positive class", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "target_att_val", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "5b7354f1-35d8-41c8-a0ae-c3848855f29d"
     }
   }, 
   {
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 1, 
       "uid": "fb5fc5f5-aa8f-4667-b96a-2b3f9a7672c7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3c5ac714-84ca-4c93-befb-ce0c16148193", 
+      "name": "Target attribute value", 
+      "short_name": "tgt", 
+      "default": "", 
+      "description": "Target attribute value to be used as the positive class", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "target_att_val", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "5b7354f1-35d8-41c8-a0ae-c3848855f29d"
     }
   }, 
   {

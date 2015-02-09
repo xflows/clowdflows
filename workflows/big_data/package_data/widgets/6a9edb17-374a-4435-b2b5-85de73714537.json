@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a6ce3f5e-a0fa-4faa-8be4-5657fcd10b4e", 
+      "treeview_image": "", 
+      "uid": "6a9edb17-374a-4435-b2b5-85de73714537", 
+      "windows_queue": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "kmeans_predict", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "k-Means predict"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6a9edb17-374a-4435-b2b5-85de73714537", 
+      "name": "Fit model", 
+      "short_name": "fit", 
+      "default": "", 
+      "description": "Fit Model URL", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fitmodel_url", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f14da637-1699-4278-9dd6-912d4db15eca"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6a9edb17-374a-4435-b2b5-85de73714537", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "f3f54b2d-ba4b-440d-8600-c3630deec970"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6a9edb17-374a-4435-b2b5-85de73714537", 
+      "name": "Results", 
+      "short_name": "rst", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "92f87c76-e078-49dc-a9f3-79a148ae30c8"
+    }
+  }
+]

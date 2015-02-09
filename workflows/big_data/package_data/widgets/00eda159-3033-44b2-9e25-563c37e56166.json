@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0f139640-cca3-4b0c-91f9-dbd42f47e73c", 
+      "treeview_image": "", 
+      "uid": "00eda159-3033-44b2-9e25-563c37e56166", 
+      "windows_queue": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "The linear regression fits theta parameters to training data.", 
+      "static_image": "", 
+      "action": "lin_reg_predict", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Linear regression predict"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "00eda159-3033-44b2-9e25-563c37e56166", 
+      "name": "Fit model", 
+      "short_name": "fit", 
+      "default": "", 
+      "description": "Fit model URL.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fitmodel_url", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "31f6fb25-87b9-421f-907b-4123f33cbd60"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "00eda159-3033-44b2-9e25-563c37e56166", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "5b9aba72-163c-4862-af26-173b3b2cda7a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "00eda159-3033-44b2-9e25-563c37e56166", 
+      "name": "Results", 
+      "short_name": "rst", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "97f43f2b-9277-48d6-aa60-50b00ca90556"
+    }
+  }
+]

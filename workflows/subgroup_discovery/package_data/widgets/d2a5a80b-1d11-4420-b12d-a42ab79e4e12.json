@@ -5,7 +5,7 @@
       "category": "b01ed61e-31e6-4f6f-87b1-f93285801d1b", 
       "treeview_image": "", 
       "uid": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "subgroup_discovery", 
       "interaction_view": "build_subgroups", 
       "has_progress_bar": false, 
@@ -19,7 +19,7 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": true, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
       "name": "Build subgroups"
     }
@@ -45,24 +45,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
-      "name": "SD rules", 
-      "short_name": "rul", 
-      "description": "rule set", 
-      "variable": "rules", 
-      "order": 1, 
-      "uid": "81a5d62c-9725-4ec1-a352-d18ef75e0a74"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
       "name": "SD learner", 
       "short_name": "lrn", 
       "description": "learner", 
       "variable": "learner", 
       "order": 1, 
       "uid": "0276e508-2822-4387-84ef-2c48243bf5c1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
+      "name": "SD rules", 
+      "short_name": "rul", 
+      "description": "rule set", 
+      "variable": "rules", 
+      "order": 1, 
+      "uid": "81a5d62c-9725-4ec1-a352-d18ef75e0a74"
     }
   }, 
   {

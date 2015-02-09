@@ -5,7 +5,7 @@
       "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
       "treeview_image": "", 
       "uid": "dabcb4ed-ae86-4f3e-8d3e-bb0306ff11f8", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "ilp", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,7 +19,7 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
       "name": "RSD"
     }
@@ -45,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "dabcb4ed-ae86-4f3e-8d3e-bb0306ff11f8", 
-      "name": "b", 
-      "short_name": "b", 
-      "default": "", 
-      "description": "background knowledge", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "b", 
-      "parameter": false, 
-      "order": 2, 
-      "uid": "746dac3a-bcf9-4546-b0cb-ccfea866707a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "dabcb4ed-ae86-4f3e-8d3e-bb0306ff11f8", 
       "name": "clauselength", 
       "short_name": "cln", 
       "default": "8", 
@@ -79,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "dabcb4ed-ae86-4f3e-8d3e-bb0306ff11f8", 
-      "name": "pos", 
-      "short_name": "pos", 
+      "name": "b", 
+      "short_name": "b", 
       "default": "", 
-      "description": "positive examples", 
-      "required": false, 
+      "description": "background knowledge", 
+      "required": true, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "pos", 
+      "variable": "b", 
       "parameter": false, 
-      "order": 3, 
-      "uid": "676ef826-7dd9-415a-8a8a-d82146dcc95a"
+      "order": 2, 
+      "uid": "746dac3a-bcf9-4546-b0cb-ccfea866707a"
     }
   }, 
   {
@@ -113,17 +96,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "dabcb4ed-ae86-4f3e-8d3e-bb0306ff11f8", 
-      "name": "neg", 
-      "short_name": "neg", 
+      "name": "pos", 
+      "short_name": "pos", 
       "default": "", 
-      "description": "negative examples", 
+      "description": "positive examples", 
       "required": false, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "neg", 
+      "variable": "pos", 
       "parameter": false, 
-      "order": 4, 
-      "uid": "0b46921d-50fe-46b1-a1e4-67c918160a7f"
+      "order": 3, 
+      "uid": "676ef826-7dd9-415a-8a8a-d82146dcc95a"
     }
   }, 
   {
@@ -147,17 +130,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "dabcb4ed-ae86-4f3e-8d3e-bb0306ff11f8", 
-      "name": "settings", 
-      "short_name": "set", 
+      "name": "neg", 
+      "short_name": "neg", 
       "default": "", 
-      "description": "settings", 
+      "description": "negative examples", 
       "required": false, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "settings", 
+      "variable": "neg", 
       "parameter": false, 
-      "order": 5, 
-      "uid": "a1660c9f-952d-4f29-9f23-9b0be5fe8cea"
+      "order": 4, 
+      "uid": "0b46921d-50fe-46b1-a1e4-67c918160a7f"
     }
   }, 
   {
@@ -175,6 +158,23 @@
       "parameter": true, 
       "order": 5, 
       "uid": "0864df0d-3e46-4af2-9ea3-2ccbfe33034a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "dabcb4ed-ae86-4f3e-8d3e-bb0306ff11f8", 
+      "name": "settings", 
+      "short_name": "set", 
+      "default": "", 
+      "description": "settings", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "settings", 
+      "parameter": false, 
+      "order": 5, 
+      "uid": "a1660c9f-952d-4f29-9f23-9b0be5fe8cea"
     }
   }, 
   {

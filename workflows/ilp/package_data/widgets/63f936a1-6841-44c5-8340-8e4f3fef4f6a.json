@@ -5,7 +5,7 @@
       "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
       "treeview_image": "treeview/ilp.png", 
       "uid": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "ilp", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,7 +19,7 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
       "name": "Wordification"
     }
@@ -96,24 +96,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
-      "name": "Document corpus", 
-      "short_name": "str", 
-      "description": "Result of wordification for main target table", 
-      "variable": "corpus", 
-      "order": 1, 
-      "uid": "43b6d258-31a8-4ec8-a22a-e8927eeca602"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
       "name": "Arff table with TF-IDF values", 
       "short_name": "arf", 
       "description": "Arff table with TF-IDF values", 
       "variable": "arff", 
       "order": 1, 
       "uid": "703593f1-1cae-4dd0-96c0-47211d3f4dc1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "name": "Document corpus", 
+      "short_name": "str", 
+      "description": "Result of wordification for main target table", 
+      "variable": "corpus", 
+      "order": 1, 
+      "uid": "43b6d258-31a8-4ec8-a22a-e8927eeca602"
     }
   }
 ]
