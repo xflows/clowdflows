@@ -96,7 +96,7 @@
       "windows_queue": false,
       "name": "Load corpus2",
       "is_streaming": false,
-      "uid": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971",
+      "uid": "34ed9100-faff-4c15-a5aa-4105ee0e779d",
       "interaction_view": "",
       "image": "",
       "package": "nlp",
@@ -575,7 +575,7 @@
       "windows_queue": false,
       "name": "ToTrTaLe2",
       "is_streaming": false,
-      "uid": "e4f7d601-4ec6-44e3-8342-cdca9d813b58",
+      "uid": "63de0161-ab3e-4bc0-8805-41e95d966235",
       "interaction_view": "",
       "image": "",
       "package": "nlp",
@@ -625,7 +625,7 @@
       "parameter_type": "select",
       "variable": "lang",
       "parameter": true,
-      "order": 3,
+      "order": 2,
       "description": "Language of the input corpus"
     }
   },
@@ -663,7 +663,7 @@
       "parameter_type": "checkbox",
       "variable": "xml",
       "parameter": true,
-      "order": 4,
+      "order": 3,
       "description": "Output results as XML"
     }
   },
@@ -681,7 +681,7 @@
       "parameter_type": "checkbox",
       "variable": "postprocess",
       "parameter": true,
-      "order": 5,
+      "order": 4,
       "description": "Apply post processing"
     }
   },
@@ -699,7 +699,7 @@
       "parameter_type": "checkbox",
       "variable": "bohoricica",
       "parameter": true,
-      "order": 6,
+      "order": 5,
       "description": "Bohoricica"
     }
   },
@@ -717,7 +717,7 @@
       "parameter_type": "checkbox",
       "variable": "antique",
       "parameter": true,
-      "order": 7,
+      "order": 6,
       "description": "Antique slovenian"
     }
   },
