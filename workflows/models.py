@@ -38,6 +38,14 @@ class Category(models.Model):
 
     uid = models.CharField(max_length=250,blank=True,default='')
 
+    def update_uid(self):
+        import uuid
+        if self.uid == '' or self.uid is None:
+            self.uid = uuid.uuid4()
+            self.save()
+        if self.parent:
+            self.parent.update_uid()
+
     class Meta:
         verbose_name_plural = "categories"
         ordering = ('order','name',)
@@ -428,6 +436,22 @@ class AbstractWidget(models.Model):
             o.uid = uuid.uuid4()
             if commit:
                 o.save()
+
+    def update_uid(self):
+        import uuid
+        if self.uid == '' or self.uid is None:
+            self.uid = uuid.uuid4()
+            self.save()
+        for i in self.inputs.filter(uid=''):
+            i.uid = uuid.uuid4()
+            i.save()
+            for option in i.options.filter(uid=''):
+                option.uid = uuid.uuid4()
+                option.save()
+        for o in self.outputs.filter(uid=''):
+            o.uid = uuid.uuid4()
+            o.save()   
+        self.category.update_uid()     
 
     def __unicode__(self):
         return unicode(self.name)
