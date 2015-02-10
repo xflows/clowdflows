@@ -32,6 +32,44 @@ def choice(choices,question="Your choice: "):
         except:
             sys.stderr.write("Error: Wrong choice.\n")
 
+def serialize_widget(aw):
+    data = json.loads(serializers.serialize("json",[aw,]))[0]
+    if data.has_key('pk'):
+        data.pop('pk')
+    if data['fields'].has_key('user'):
+        data['fields'].pop('user')
+    if not data['fields']['category'] is None:
+        data['fields']['category'] = aw.category.uid
+    input_data = json.loads(serializers.serialize("json",aw.inputs.all()))
+    for i in input_data:
+        if i.has_key('pk'):
+            i.pop('pk')
+        i['fields']['widget']=aw.uid
+    output_data = json.loads(serializers.serialize("json",aw.outputs.all()))
+    for i in output_data:
+        if i.has_key('pk'):
+            i.pop('pk')
+        i['fields']['widget']=aw.uid
+    options_data = json.loads(serializers.serialize("json",AbstractOption.objects.filter(abstract_input__widget=aw)))
+    for o in options_data:
+        if o.has_key('pk'):
+            o.pop('pk')
+        o['fields']['abstract_input']=AbstractInput.objects.get(id=o['fields']['abstract_input']).uid
+    return [data,]+input_data+output_data+options_data
+
+def serialize_category(c):
+    data = json.loads(serializers.serialize("json",[c,]))[0]
+    if data.has_key('pk'):
+        data.pop('pk')
+    if not data['fields']['parent'] is None:
+        c2 = Category.objects.get(id=data['fields']['parent'])
+        data['fields']['parent'] = c2.uid
+    if data['fields'].has_key('workflow'):
+        data['fields'].pop('workflow')
+    if data['fields'].has_key('user'):
+        data['fields'].pop('user')
+    return data
+
 class Command(BaseCommand):
     args = 'package_name'
     help = 'Exports the package "package_name".'
@@ -74,29 +112,7 @@ class Command(BaseCommand):
         for aw in aws:
             aw.update_uid()
             add_category(aw.category,categories)
-            data = json.loads(serializers.serialize("json",[aw,]))[0]
-            if data.has_key('pk'):
-                data.pop('pk')
-            if data['fields'].has_key('user'):
-                data['fields'].pop('user')
-            if not data['fields']['category'] is None:
-                data['fields']['category'] = aw.category.uid
-            input_data = json.loads(serializers.serialize("json",aw.inputs.all()))
-            for i in input_data:
-                if i.has_key('pk'):
-                    i.pop('pk')
-                i['fields']['widget']=aw.uid
-            output_data = json.loads(serializers.serialize("json",aw.outputs.all()))
-            for i in output_data:
-                if i.has_key('pk'):
-                    i.pop('pk')
-                i['fields']['widget']=aw.uid
-            options_data = json.loads(serializers.serialize("json",AbstractOption.objects.filter(abstract_input__widget=aw)))
-            for o in options_data:
-                if o.has_key('pk'):
-                    o.pop('pk')
-                o['fields']['abstract_input']=AbstractInput.objects.get(id=o['fields']['abstract_input']).uid
-            
+            serialized_widget = serialize_widget(aw)
             
             created = True
             change = True
@@ -105,7 +121,7 @@ class Command(BaseCommand):
                 created = False
                 w_data = json.loads(widget_file.read())
                 widget_file.close()
-                if w_data == [data,]+input_data+output_data+options_data:
+                if w_data == serialized_widget:
                     change = False
             except:
                 created = True
@@ -117,7 +133,7 @@ class Command(BaseCommand):
                     self.stdout.write("     + Exporting widget "+str(aw)+"\n")
                 else:
                     self.stdout.write("     + Updating widget "+str(aw)+"\n")
-                widget_data = json.dumps([data,]+input_data+output_data+options_data,indent=2)
+                widget_data = json.dumps(serialized_widget,indent=2)
                 widget_file = open(os.path.join(widgets_directory,aw.uid+'.json'),'w')
                 widget_file.write(widget_data)
                 widget_file.close()
@@ -132,16 +148,7 @@ class Command(BaseCommand):
         for category in categories:
             c = Category.objects.get(id=category)
             c.update_uid()
-            data = json.loads(serializers.serialize("json",[c,]))[0]
-            if data.has_key('pk'):
-                data.pop('pk')
-            if not data['fields']['parent'] is None:
-                c2 = Category.objects.get(id=data['fields']['parent'])
-                data['fields']['parent'] = c2.uid
-            if data['fields'].has_key('workflow'):
-                data['fields'].pop('workflow')
-            if data['fields'].has_key('user'):
-                data['fields'].pop('user')
+            data = serialize_category(c)
             
             created = True
             change = True
