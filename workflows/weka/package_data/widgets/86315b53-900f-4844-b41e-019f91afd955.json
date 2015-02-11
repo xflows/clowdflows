@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "86315b53-900f-4844-b41e-019f91afd955", 
+      "name": "Classifier", 
+      "short_name": "cla", 
+      "default": "", 
+      "description": "to be applied on data.\r\n\r\nProvided by:\r\nWeka Build Classifier", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "09c54f59-0beb-4300-b682-47ebd63b71c9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "86315b53-900f-4844-b41e-019f91afd955", 
       "name": "Timeout", 
       "short_name": "to", 
       "default": "60", 
@@ -56,23 +73,6 @@
       "parameter": true, 
       "order": 2, 
       "uid": "80e54d5f-d86f-4681-8bad-8b37cc1ec2c3"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "86315b53-900f-4844-b41e-019f91afd955", 
-      "name": "Classifier", 
-      "short_name": "cla", 
-      "default": "", 
-      "description": "to be applied on data.\r\n\r\nProvided by:\r\nWeka Build Classifier", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "classifier", 
-      "parameter": false, 
-      "order": 3, 
-      "uid": "09c54f59-0beb-4300-b682-47ebd63b71c9"
     }
   }, 
   {

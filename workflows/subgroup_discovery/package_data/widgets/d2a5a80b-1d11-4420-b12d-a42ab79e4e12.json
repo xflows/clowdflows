@@ -5,7 +5,7 @@
       "category": "b01ed61e-31e6-4f6f-87b1-f93285801d1b", 
       "treeview_image": "", 
       "uid": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "package": "subgroup_discovery", 
       "interaction_view": "build_subgroups", 
       "has_progress_bar": false, 
@@ -19,7 +19,7 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": true, 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "order": 1, 
       "name": "Build subgroups"
     }
@@ -57,24 +57,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
-      "name": "SD rules", 
-      "short_name": "rul", 
-      "description": "rule set", 
-      "variable": "rules", 
-      "order": 1, 
-      "uid": "81a5d62c-9725-4ec1-a352-d18ef75e0a74"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
       "name": "SD classifier", 
       "short_name": "cls", 
       "description": "classifier", 
       "variable": "classifier", 
       "order": 2, 
       "uid": "3095ff52-cc73-4d70-92bf-1bdfa81a5631"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
+      "name": "SD rules", 
+      "short_name": "rul", 
+      "description": "rule set", 
+      "variable": "rules", 
+      "order": 1, 
+      "uid": "81a5d62c-9725-4ec1-a352-d18ef75e0a74"
     }
   }
 ]

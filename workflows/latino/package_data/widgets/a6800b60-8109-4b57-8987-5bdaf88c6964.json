@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
-      "name": "Num of Examples", 
+      "name": "Random Seed", 
       "short_name": "int", 
-      "default": "100", 
-      "description": "This determines the length of the set id list. If input 'examples' is set then len(examples) is used for 'numOfExamples' and this setting is overriden.", 
+      "default": "0", 
+      "description": "System.Int32", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "numOfExamples", 
+      "variable": "randomSeed", 
       "parameter": true, 
-      "order": 1, 
-      "uid": "fb61bef0-19b2-cbb3-f10c-65df90e01393"
+      "order": 5, 
+      "uid": "3269cb7f-b771-c58c-9383-57bcc120575b"
     }
   }, 
   {
@@ -79,6 +79,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
+      "name": "Example List", 
+      "short_name": "obj", 
+      "default": "", 
+      "description": "Not required, but if set, then it overrides parameter 'numOfExamples' and len(examples) is used for 'numOfExamples'. This should be a type implementing Count, Count() or Length.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "examples", 
+      "parameter": false, 
+      "order": 6, 
+      "uid": "67c5f668-0f79-ef4d-b8f0-2e6aa8f87369"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
       "name": "Use Seed for Random", 
       "short_name": "bol", 
       "default": "false", 
@@ -96,34 +113,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
-      "name": "Random Seed", 
+      "name": "Num of Examples", 
       "short_name": "int", 
-      "default": "0", 
-      "description": "System.Int32", 
+      "default": "100", 
+      "description": "This determines the length of the set id list. If input 'examples' is set then len(examples) is used for 'numOfExamples' and this setting is overriden.", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "randomSeed", 
+      "variable": "numOfExamples", 
       "parameter": true, 
-      "order": 5, 
-      "uid": "3269cb7f-b771-c58c-9383-57bcc120575b"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
-      "name": "Example List", 
-      "short_name": "obj", 
-      "default": "", 
-      "description": "Not required, but if set, then it overrides parameter 'numOfExamples' and len(examples) is used for 'numOfExamples'. This should be a type implementing Count, Count() or Length.", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "examples", 
-      "parameter": false, 
-      "order": 6, 
-      "uid": "67c5f668-0f79-ef4d-b8f0-2e6aa8f87369"
+      "order": 1, 
+      "uid": "fb61bef0-19b2-cbb3-f10c-65df90e01393"
     }
   }, 
   {

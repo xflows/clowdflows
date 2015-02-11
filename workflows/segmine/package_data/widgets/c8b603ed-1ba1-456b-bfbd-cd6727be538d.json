@@ -28,74 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
-      "name": "Group nodes", 
-      "short_name": "grn", 
-      "default": "", 
-      "description": "Group nodes", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "groupNodes", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "7c8954aa-083d-4f15-8784-061b59a258dc"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
-      "name": "Database version", 
-      "short_name": "dbv", 
-      "default": "<latest>", 
-      "description": "Database version", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "databaseVersion", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "fc0a5b03-f301-4e4a-b9d7-889d89467245"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
-      "name": "Single component", 
-      "short_name": "scm", 
-      "default": "", 
-      "description": "Single component", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "singleComponent", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "980f228d-94b5-4523-9a65-2d4d3d6a6521"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
-      "name": "Max nodes", 
-      "short_name": "mxn", 
-      "default": "0", 
-      "description": "Max nodes", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "maxNodes", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "97f71cb5-1ff0-45dc-84ed-2afe8e3aa7fa"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
       "name": "Medoids", 
       "short_name": "mds", 
       "default": "", 
@@ -127,15 +59,71 @@
     }
   }, 
   {
-    "model": "workflows.abstractoutput", 
+    "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
-      "name": "Result", 
-      "short_name": "g", 
-      "description": "Result graph", 
-      "variable": "result", 
+      "name": "Group nodes", 
+      "short_name": "grn", 
+      "default": "", 
+      "description": "Group nodes", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "groupNodes", 
+      "parameter": true, 
       "order": 1, 
-      "uid": "e987c6c3-6a2e-4f32-b2e4-be033d96a944"
+      "uid": "7c8954aa-083d-4f15-8784-061b59a258dc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
+      "name": "Max nodes", 
+      "short_name": "mxn", 
+      "default": "0", 
+      "description": "Max nodes", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxNodes", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "97f71cb5-1ff0-45dc-84ed-2afe8e3aa7fa"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
+      "name": "Single component", 
+      "short_name": "scm", 
+      "default": "", 
+      "description": "Single component", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "singleComponent", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "980f228d-94b5-4523-9a65-2d4d3d6a6521"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
+      "name": "Database version", 
+      "short_name": "dbv", 
+      "default": "<latest>", 
+      "description": "Database version", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "databaseVersion", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "fc0a5b03-f301-4e4a-b9d7-889d89467245"
     }
   }, 
   {
@@ -148,6 +136,18 @@
       "variable": "bestPath", 
       "order": 2, 
       "uid": "bd5f94d2-8bd1-41f5-87b4-82cf1c36775b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c8b603ed-1ba1-456b-bfbd-cd6727be538d", 
+      "name": "Result", 
+      "short_name": "g", 
+      "description": "Result graph", 
+      "variable": "result", 
+      "order": 1, 
+      "uid": "e987c6c3-6a2e-4f32-b2e4-be033d96a944"
     }
   }
 ]

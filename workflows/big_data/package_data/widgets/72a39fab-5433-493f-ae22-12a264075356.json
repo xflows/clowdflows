@@ -28,6 +28,40 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "72a39fab-5433-493f-ae22-12a264075356", 
+      "name": "Class majority", 
+      "short_name": "csm", 
+      "default": "1", 
+      "description": "Purity of a subset.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "majority", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "1b23ead1-b104-4d27-a6fd-b23de6efa28f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
+      "name": "Random state", 
+      "short_name": "rsd", 
+      "default": "None", 
+      "description": "Define a random state", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "seed", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "31c68e34-3bff-41bb-bf77-925c6171a6f6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
       "name": "Dataset", 
       "short_name": "dst", 
       "default": "", 
@@ -39,23 +73,6 @@
       "parameter": false, 
       "order": 1, 
       "uid": "37879268-0aa9-4458-afb2-71a521acb299"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
-      "name": "Trees per subset", 
-      "short_name": "tps", 
-      "default": "20", 
-      "description": "Number of trees per subset of data", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "trees_per_subset", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "8770ace6-4968-47cf-b7cc-4ad8bfff303c"
     }
   }, 
   {
@@ -79,34 +96,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "72a39fab-5433-493f-ae22-12a264075356", 
-      "name": "Min samples split", 
-      "short_name": "lmi", 
-      "default": "5", 
-      "description": "Min. number of samples to split the node", 
+      "name": "Trees per subset", 
+      "short_name": "tps", 
+      "default": "20", 
+      "description": "Number of trees per subset of data", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "leaf_min_inst", 
+      "variable": "trees_per_subset", 
       "parameter": true, 
-      "order": 5, 
-      "uid": "ac032f38-f4a4-44ea-8c02-96506d4f8e86"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
-      "name": "Class majority", 
-      "short_name": "csm", 
-      "default": "1", 
-      "description": "Purity of a subset.", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "majority", 
-      "parameter": true, 
-      "order": 6, 
-      "uid": "1b23ead1-b104-4d27-a6fd-b23de6efa28f"
+      "order": 3, 
+      "uid": "8770ace6-4968-47cf-b7cc-4ad8bfff303c"
     }
   }, 
   {
@@ -130,6 +130,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "72a39fab-5433-493f-ae22-12a264075356", 
+      "name": "Min samples split", 
+      "short_name": "lmi", 
+      "default": "5", 
+      "description": "Min. number of samples to split the node", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "leaf_min_inst", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "ac032f38-f4a4-44ea-8c02-96506d4f8e86"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
       "name": "Discretization", 
       "short_name": "spf", 
       "default": "equal_freq", 
@@ -141,23 +158,6 @@
       "parameter": true, 
       "order": 8, 
       "uid": "c43bfc92-e1af-42fc-8d73-f7348ebdaf40"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
-      "name": "Random state", 
-      "short_name": "rsd", 
-      "default": "None", 
-      "description": "Define a random state", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "seed", 
-      "parameter": true, 
-      "order": 9, 
-      "uid": "31c68e34-3bff-41bb-bf77-925c6171a6f6"
     }
   }, 
   {
@@ -175,10 +175,10 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Equal frequency discretization", 
-      "uid": "4ea5c55a-92a8-4541-a1cc-9aabb0fd82c0", 
-      "value": "equal_freq", 
-      "abstract_input": "c43bfc92-e1af-42fc-8d73-f7348ebdaf40"
+      "name": "Minimum description length", 
+      "uid": "293fb2f7-de3f-4133-8e3a-22701245c55d", 
+      "value": "mdl", 
+      "abstract_input": "9a8f3c2c-265c-4b37-93c1-d58fee9dd7af"
     }
   }, 
   {
@@ -193,10 +193,10 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Minimum description length", 
-      "uid": "293fb2f7-de3f-4133-8e3a-22701245c55d", 
-      "value": "mdl", 
-      "abstract_input": "9a8f3c2c-265c-4b37-93c1-d58fee9dd7af"
+      "name": "Equal frequency discretization", 
+      "uid": "4ea5c55a-92a8-4541-a1cc-9aabb0fd82c0", 
+      "value": "equal_freq", 
+      "abstract_input": "c43bfc92-e1af-42fc-8d73-f7348ebdaf40"
     }
   }, 
   {

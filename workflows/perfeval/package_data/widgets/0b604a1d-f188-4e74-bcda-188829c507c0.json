@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "0b604a1d-f188-4e74-bcda-188829c507c0", 
-      "name": "Noisy Instances", 
-      "short_name": "nid", 
-      "default": "", 
-      "description": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "noisy_inds", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "a386be60-c5ad-4565-bbab-3fb41266d233"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "0b604a1d-f188-4e74-bcda-188829c507c0", 
       "name": "Detected Noise", 
       "short_name": "dni", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "345a8672-386a-4bc5-b7ff-d7a3a9ee4b0c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0b604a1d-f188-4e74-bcda-188829c507c0", 
+      "name": "Noisy Instances", 
+      "short_name": "nid", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "noisy_inds", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a386be60-c5ad-4565-bbab-3fb41266d233"
     }
   }, 
   {

@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "cbae1835-bbea-43f2-b698-dc02ba106462", 
-      "name": "Annotated Document Corpus", 
-      "short_name": "adc", 
-      "default": "", 
-      "description": "LatinoClowdFlows.DocumentCorpus", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "adc", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "a3c0bde8-766f-5e30-2b2e-1fdcbaa8d913"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "cbae1835-bbea-43f2-b698-dc02ba106462", 
       "name": "Feature Values (Array of Labels)", 
       "short_name": "str", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "1219e584-0660-0d7b-4d31-288f5e99df89"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cbae1835-bbea-43f2-b698-dc02ba106462", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a3c0bde8-766f-5e30-2b2e-1fdcbaa8d913"
     }
   }, 
   {

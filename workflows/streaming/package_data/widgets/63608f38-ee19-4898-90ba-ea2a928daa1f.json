@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "63608f38-ee19-4898-90ba-ea2a928daa1f", 
-      "name": "List of Tweets", 
-      "short_name": "ltw", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "ltw", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "e969d30e-dc5c-4c45-8fa4-319e83f20699"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "63608f38-ee19-4898-90ba-ea2a928daa1f", 
       "name": "Language", 
       "short_name": "lan", 
       "default": "en", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "9befb8ed-7644-4f41-8887-1c6f74bdeba7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "63608f38-ee19-4898-90ba-ea2a928daa1f", 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e969d30e-dc5c-4c45-8fa4-319e83f20699"
     }
   }, 
   {

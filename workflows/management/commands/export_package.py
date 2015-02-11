@@ -40,17 +40,17 @@ def serialize_widget(aw):
         data['fields'].pop('user')
     if not data['fields']['category'] is None:
         data['fields']['category'] = aw.category.uid
-    input_data = json.loads(serializers.serialize("json",aw.inputs.all()))
+    input_data = json.loads(serializers.serialize("json",aw.inputs.all().order_by('uid')))
     for i in input_data:
         if i.has_key('pk'):
             i.pop('pk')
         i['fields']['widget']=aw.uid
-    output_data = json.loads(serializers.serialize("json",aw.outputs.all()))
+    output_data = json.loads(serializers.serialize("json",aw.outputs.all().order_by('uid')))
     for i in output_data:
         if i.has_key('pk'):
             i.pop('pk')
         i['fields']['widget']=aw.uid
-    options_data = json.loads(serializers.serialize("json",AbstractOption.objects.filter(abstract_input__widget=aw)))
+    options_data = json.loads(serializers.serialize("json",AbstractOption.objects.filter(abstract_input__widget=aw).order_by('uid')))
     for o in options_data:
         if o.has_key('pk'):
             o.pop('pk')

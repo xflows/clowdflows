@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "7547eb6d-e83d-4033-b0cb-1e8319c2508f", 
+      "name": "margin", 
+      "short_name": "mrg", 
+      "default": "0.0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "margin", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "1cce36a4-167d-4a23-83ee-eae626a3b492"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7547eb6d-e83d-4033-b0cb-1e8319c2508f", 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "default": "", 
@@ -73,23 +90,6 @@
       "parameter": true, 
       "order": 3, 
       "uid": "9b3082b4-5903-41cb-a4c0-63d471f80f57"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "7547eb6d-e83d-4033-b0cb-1e8319c2508f", 
-      "name": "margin", 
-      "short_name": "mrg", 
-      "default": "0.0", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "margin", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "1cce36a4-167d-4a23-83ee-eae626a3b492"
     }
   }, 
   {

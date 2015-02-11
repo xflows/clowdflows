@@ -45,6 +45,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "1c53d314-dfee-46b8-8dd4-ce71f81ae780", 
+      "name": "Header Line", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "If 'firstLineIsHeader' is set to false then widget tries to parse this paramater as header line.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "headerLine", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "775427da-51a0-8cd9-a8e8-3eeedc087d4c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1c53d314-dfee-46b8-8dd4-ce71f81ae780", 
       "name": "Delimiter", 
       "short_name": "str", 
       "default": "\t", 
@@ -73,23 +90,6 @@
       "parameter": true, 
       "order": 3, 
       "uid": "974fbfea-1c3f-72db-4195-e35985a81f1c"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "1c53d314-dfee-46b8-8dd4-ce71f81ae780", 
-      "name": "Header Line", 
-      "short_name": "str", 
-      "default": "", 
-      "description": "If 'firstLineIsHeader' is set to false then widget tries to parse this paramater as header line.", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "headerLine", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "775427da-51a0-8cd9-a8e8-3eeedc087d4c"
     }
   }, 
   {

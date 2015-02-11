@@ -28,68 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
-      "name": "Classifier", 
-      "short_name": "csf", 
-      "default": "", 
-      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "name": "Assign Sets Randomly", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
       "required": true, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "csf", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "ce140d06-8399-9f9e-73d4-1d62f6d048aa"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
-      "name": "Dataset", 
-      "short_name": "ds", 
-      "default": "", 
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "ds", 
-      "parameter": false, 
-      "order": 2, 
-      "uid": "7951cba0-726f-c289-80a9-6071170fc934"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
-      "name": "Corss-Validation Repetitions", 
-      "short_name": "int", 
-      "default": "5", 
-      "description": "How many times the whole cross-validation procedure is repeated.", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "repetitionCount", 
+      "parameter_type": "checkbox", 
+      "variable": "random", 
       "parameter": true, 
-      "order": 3, 
-      "uid": "ffa6f21f-bab4-ec85-564d-3c97ce7f1575"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
-      "name": "Outlier Score Threshold", 
-      "short_name": "int", 
-      "default": "2", 
-      "description": "Minimal number of times a single document needs to be that it is proclaimed outlier (usualy min=1 and max = 'Corss-Validation Repetitions').", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "outlierThreshold", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "ad206ea1-4158-620d-3ea8-7a1ad7f87cc8"
+      "order": 6, 
+      "uid": "0275f3ce-d1a3-fb1c-d241-fdd9198ba7c3"
     }
   }, 
   {
@@ -113,17 +62,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
-      "name": "Assign Sets Randomly", 
-      "short_name": "bol", 
-      "default": "true", 
-      "description": "System.Boolean", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "random", 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "7951cba0-726f-c289-80a9-6071170fc934"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Outlier Score Threshold", 
+      "short_name": "int", 
+      "default": "2", 
+      "description": "Minimal number of times a single document needs to be that it is proclaimed outlier (usualy min=1 and max = 'Corss-Validation Repetitions').", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outlierThreshold", 
       "parameter": true, 
-      "order": 6, 
-      "uid": "0275f3ce-d1a3-fb1c-d241-fdd9198ba7c3"
+      "order": 4, 
+      "uid": "ad206ea1-4158-620d-3ea8-7a1ad7f87cc8"
     }
   }, 
   {
@@ -147,17 +113,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
-      "name": "Random Seed", 
-      "short_name": "int", 
-      "default": "0", 
-      "description": "System.Int32", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "default": "", 
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "randomSeed", 
-      "parameter": true, 
-      "order": 8, 
-      "uid": "e7228b95-f0d5-346a-697c-6225bfc98db2"
+      "parameter_type": null, 
+      "variable": "csf", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ce140d06-8399-9f9e-73d4-1d62f6d048aa"
     }
   }, 
   {
@@ -178,6 +144,40 @@
     }
   }, 
   {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Random Seed", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "randomSeed", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "e7228b95-f0d5-346a-697c-6225bfc98db2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Corss-Validation Repetitions", 
+      "short_name": "int", 
+      "default": "5", 
+      "description": "How many times the whole cross-validation procedure is repeated.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "repetitionCount", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "ffa6f21f-bab4-ec85-564d-3c97ce7f1575"
+    }
+  }, 
+  {
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
@@ -187,6 +187,15 @@
       "variable": "out", 
       "order": 1, 
       "uid": "5b56d352-80b9-f52b-e714-875643cc69aa"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Relative: weight is relative percentage how many times a document was labeled outlier through all repetitions", 
+      "uid": "1a6722dd-f1ed-4ba2-702c-13b4c0688d65", 
+      "value": "RelativePercentage", 
+      "abstract_input": "d656fe12-2f4c-efb5-6687-013fb8c4b1e0"
     }
   }, 
   {
@@ -204,15 +213,6 @@
       "name": "No weighting: output is list of indexes of outlier documents", 
       "uid": "5fc5ec58-403c-5d07-6a7e-46d8619545e5", 
       "value": "NoWeighting", 
-      "abstract_input": "d656fe12-2f4c-efb5-6687-013fb8c4b1e0"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Relative: weight is relative percentage how many times a document was labeled outlier through all repetitions", 
-      "uid": "1a6722dd-f1ed-4ba2-702c-13b4c0688d65", 
-      "value": "RelativePercentage", 
       "abstract_input": "d656fe12-2f4c-efb5-6687-013fb8c4b1e0"
     }
   }

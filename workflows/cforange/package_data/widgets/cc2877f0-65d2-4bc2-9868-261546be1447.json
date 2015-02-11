@@ -73,9 +73,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "By Pairs", 
-      "uid": "cde2a234-f9be-461a-9298-d3f0698cea8b", 
-      "value": "1", 
+      "name": "One Against All", 
+      "uid": "64e1c620-ce14-4c78-9aed-199bf803b6b7", 
+      "value": "3", 
+      "abstract_input": "538f7e3a-8650-4c33-ad49-d00221d86145"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Weighted One Against All", 
+      "uid": "8f39364a-2698-430e-912e-dd8c547ca0a7", 
+      "value": "2", 
       "abstract_input": "538f7e3a-8650-4c33-ad49-d00221d86145"
     }
   }, 
@@ -91,18 +100,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "One Against All", 
-      "uid": "64e1c620-ce14-4c78-9aed-199bf803b6b7", 
-      "value": "3", 
-      "abstract_input": "538f7e3a-8650-4c33-ad49-d00221d86145"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Weighted One Against All", 
-      "uid": "8f39364a-2698-430e-912e-dd8c547ca0a7", 
-      "value": "2", 
+      "name": "By Pairs", 
+      "uid": "cde2a234-f9be-461a-9298-d3f0698cea8b", 
+      "value": "1", 
       "abstract_input": "538f7e3a-8650-4c33-ad49-d00221d86145"
     }
   }

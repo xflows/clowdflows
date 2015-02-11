@@ -73,24 +73,6 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "2-way interactions - I(A;B)/H(A,B)", 
-      "uid": "fe39a54a-3b27-42eb-97eb-4c53b0d775ee", 
-      "value": "1", 
-      "abstract_input": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "3-way interactions - I(A;B;C)", 
-      "uid": "5f77005a-d387-4550-afc9-d333c114ed00", 
-      "value": "2", 
-      "abstract_input": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
       "name": "Pearson's chi-square", 
       "uid": "103b7429-09b3-434f-a70b-40a6cc97326e", 
       "value": "0", 
@@ -109,9 +91,27 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
+      "name": "3-way interactions - I(A;B;C)", 
+      "uid": "5f77005a-d387-4550-afc9-d333c114ed00", 
+      "value": "2", 
+      "abstract_input": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
       "name": "Spearman's correlation", 
       "uid": "9740ed3e-036c-4972-890d-b8f9d05d995b", 
       "value": "4", 
+      "abstract_input": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "2-way interactions - I(A;B)/H(A,B)", 
+      "uid": "fe39a54a-3b27-42eb-97eb-4c53b0d775ee", 
+      "value": "1", 
       "abstract_input": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
     }
   }

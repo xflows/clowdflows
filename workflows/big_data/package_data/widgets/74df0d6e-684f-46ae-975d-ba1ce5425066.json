@@ -45,6 +45,40 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Measure", 
+      "short_name": "msr", 
+      "default": "info_gain", 
+      "description": "Select measure for estimation of attributes.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "measure", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "28f53666-76b0-4d44-acab-0824e603a848"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Discretization", 
+      "short_name": "spf", 
+      "default": "equal_freq", 
+      "description": "Select equal frequency discretization or random discretization for numeric attributes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "split_fun", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "8b88d56c-6cbb-451f-a618-4a1a27993a90"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
       "name": "Max tree nodes", 
       "short_name": "mtn", 
       "default": "20", 
@@ -93,40 +127,6 @@
     }
   }, 
   {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
-      "name": "Measure", 
-      "short_name": "msr", 
-      "default": "info_gain", 
-      "description": "Select measure for estimation of attributes.", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "measure", 
-      "parameter": true, 
-      "order": 6, 
-      "uid": "28f53666-76b0-4d44-acab-0824e603a848"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
-      "name": "Discretization", 
-      "short_name": "spf", 
-      "default": "equal_freq", 
-      "description": "Select equal frequency discretization or random discretization for numeric attributes", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "split_fun", 
-      "parameter": true, 
-      "order": 7, 
-      "uid": "8b88d56c-6cbb-451f-a618-4a1a27993a90"
-    }
-  }, 
-  {
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
@@ -136,15 +136,6 @@
       "variable": "fitmodel_url", 
       "order": 1, 
       "uid": "495262a9-980d-4648-b04f-b49862804937"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Equal frequency discretization", 
-      "uid": "dac3dd38-3a6c-408b-9135-77cb4380d543", 
-      "value": "equal_freq", 
-      "abstract_input": "8b88d56c-6cbb-451f-a618-4a1a27993a90"
     }
   }, 
   {
@@ -163,6 +154,15 @@
       "uid": "c633baf4-1a77-458c-8bd3-8f4fdb65e856", 
       "value": "mdl", 
       "abstract_input": "28f53666-76b0-4d44-acab-0824e603a848"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Equal frequency discretization", 
+      "uid": "dac3dd38-3a6c-408b-9135-77cb4380d543", 
+      "value": "equal_freq", 
+      "abstract_input": "8b88d56c-6cbb-451f-a618-4a1a27993a90"
     }
   }, 
   {

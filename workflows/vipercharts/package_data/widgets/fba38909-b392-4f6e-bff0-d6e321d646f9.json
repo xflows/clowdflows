@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fba38909-b392-4f6e-bff0-d6e321d646f9", 
+      "name": "Target class", 
+      "short_name": "cls", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "target", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "1c10f750-03f5-4640-8641-0059c7dc902f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fba38909-b392-4f6e-bff0-d6e321d646f9", 
       "name": "Actual dataset", 
       "short_name": "oda", 
       "default": "", 
@@ -73,23 +90,6 @@
       "parameter": false, 
       "order": 3, 
       "uid": "7a4682dc-a479-488b-a5c9-8c8576af48ec"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fba38909-b392-4f6e-bff0-d6e321d646f9", 
-      "name": "Target class", 
-      "short_name": "cls", 
-      "default": "", 
-      "description": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "target", 
-      "parameter": false, 
-      "order": 4, 
-      "uid": "1c10f750-03f5-4640-8641-0059c7dc902f"
     }
   }, 
   {

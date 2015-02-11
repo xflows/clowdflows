@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "59c7d09d-fe70-48f4-9700-4bff60e09a9f", 
-      "name": "Set Id List", 
-      "short_name": "lst", 
-      "default": "", 
-      "description": "List fo Set Ids which are used for retrieving indexes", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "setList", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "dca6e615-a35f-f132-6af1-53faa0014c74"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "59c7d09d-fe70-48f4-9700-4bff60e09a9f", 
       "name": "Selected Set Id", 
       "short_name": "int", 
       "default": "0", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "5470afdc-1cf8-d0d1-9358-b2dfb924b902"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "59c7d09d-fe70-48f4-9700-4bff60e09a9f", 
+      "name": "Set Id List", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "List fo Set Ids which are used for retrieving indexes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "setList", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "dca6e615-a35f-f132-6af1-53faa0014c74"
     }
   }, 
   {

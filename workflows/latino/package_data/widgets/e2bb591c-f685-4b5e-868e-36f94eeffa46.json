@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "e2bb591c-f685-4b5e-868e-36f94eeffa46", 
-      "name": "Similarity Model", 
-      "short_name": "typ", 
-      "default": "Cosine", 
-      "description": "LatinoClowdFlows.SimilarityModel", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "similarityModel", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "96168cbb-3359-2286-2754-6d322af7f38c"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "e2bb591c-f685-4b5e-868e-36f94eeffa46", 
       "name": "K (Neighbourhood)", 
       "short_name": "int", 
       "default": "10", 
@@ -76,6 +59,23 @@
     }
   }, 
   {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2bb591c-f685-4b5e-868e-36f94eeffa46", 
+      "name": "Similarity Model", 
+      "short_name": "typ", 
+      "default": "Cosine", 
+      "description": "LatinoClowdFlows.SimilarityModel", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "similarityModel", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "96168cbb-3359-2286-2754-6d322af7f38c"
+    }
+  }, 
+  {
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "e2bb591c-f685-4b5e-868e-36f94eeffa46", 
@@ -90,18 +90,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Cosine", 
-      "uid": "1a36620b-a316-77aa-e786-43ae1ddb521f", 
-      "value": "Cosine", 
+      "name": "Dot Product", 
+      "uid": "03ff898e-93fc-8d55-b69b-1106693a7917", 
+      "value": "DotProduct", 
       "abstract_input": "96168cbb-3359-2286-2754-6d322af7f38c"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Dot Product", 
-      "uid": "03ff898e-93fc-8d55-b69b-1106693a7917", 
-      "value": "DotProduct", 
+      "name": "Cosine", 
+      "uid": "1a36620b-a316-77aa-e786-43ae1ddb521f", 
+      "value": "Cosine", 
       "abstract_input": "96168cbb-3359-2286-2754-6d322af7f38c"
     }
   }

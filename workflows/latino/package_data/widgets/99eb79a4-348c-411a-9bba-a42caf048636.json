@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "99eb79a4-348c-411a-9bba-a42caf048636", 
-      "name": "Classifier", 
-      "short_name": "csf", 
-      "default": "", 
-      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "csf", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "e9bac05e-f82f-09cd-497d-4407fcecd056"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "99eb79a4-348c-411a-9bba-a42caf048636", 
       "name": "Dataset", 
       "short_name": "ds", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "4df20aa1-64f1-11c1-bd8c-b9c64e5c0437"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "99eb79a4-348c-411a-9bba-a42caf048636", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "default": "", 
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "csf", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e9bac05e-f82f-09cd-497d-4407fcecd056"
     }
   }, 
   {

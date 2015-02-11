@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "d8d62fa4-1432-47f5-9dcf-35dbfb7123a0", 
-      "name": "Dataset", 
-      "short_name": "ds", 
-      "default": "", 
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "ds", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "a1c9bdca-053d-bbff-e9d4-81d90b897185"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "d8d62fa4-1432-47f5-9dcf-35dbfb7123a0", 
       "name": "Labeles (Array of Strings)", 
       "short_name": "str", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "3045f3db-9ed9-5240-b2e9-4dab7d56fea0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d8d62fa4-1432-47f5-9dcf-35dbfb7123a0", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a1c9bdca-053d-bbff-e9d4-81d90b897185"
     }
   }, 
   {

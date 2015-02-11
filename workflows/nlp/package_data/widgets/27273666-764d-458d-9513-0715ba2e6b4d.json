@@ -90,18 +90,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "English", 
-      "uid": "eaf2ac7b-806b-444a-9ec3-5142b17f4ff7", 
-      "value": "en", 
+      "name": "Slovene", 
+      "uid": "36929744-b1be-4e76-88ef-2548378946ba", 
+      "value": "sl", 
       "abstract_input": "ceb04ed2-a444-499e-b24f-db6cb28f7e2c"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Slovene", 
-      "uid": "36929744-b1be-4e76-88ef-2548378946ba", 
-      "value": "sl", 
+      "name": "English", 
+      "uid": "eaf2ac7b-806b-444a-9ec3-5142b17f4ff7", 
+      "value": "en", 
       "abstract_input": "ceb04ed2-a444-499e-b24f-db6cb28f7e2c"
     }
   }

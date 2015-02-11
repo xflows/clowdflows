@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "33753234-ee1a-4fb0-8477-7a87d4c20985", 
-      "name": "List to be filtered", 
-      "short_name": "lst", 
-      "default": "", 
-      "description": "System.Collections.IList", 
+      "name": "Discard Filtered Out Elements", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
       "required": true, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "list", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "ec843e27-6502-8205-fb62-f7c4941540d7"
+      "parameter_type": "checkbox", 
+      "variable": "discardFilteredOut", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "880daee3-6078-9adc-9c61-352403672f35"
     }
   }, 
   {
@@ -62,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "33753234-ee1a-4fb0-8477-7a87d4c20985", 
-      "name": "Discard Filtered Out Elements", 
-      "short_name": "bol", 
-      "default": "false", 
-      "description": "System.Boolean", 
+      "name": "List to be filtered", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.IList", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "discardFilteredOut", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "880daee3-6078-9adc-9c61-352403672f35"
+      "parameter_type": null, 
+      "variable": "list", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ec843e27-6502-8205-fb62-f7c4941540d7"
     }
   }, 
   {

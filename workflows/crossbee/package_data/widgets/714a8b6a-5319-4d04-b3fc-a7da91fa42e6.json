@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "714a8b6a-5319-4d04-b3fc-a7da91fa42e6", 
-      "name": "Heuristics", 
-      "short_name": "heu", 
-      "default": "", 
-      "description": "CrossBeeInterfaces.Heurisitcs.Heuristics", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "heuristics", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "4125ea1b-0d90-433d-8236-f5bb662656e0"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "714a8b6a-5319-4d04-b3fc-a7da91fa42e6", 
       "name": "List of B-terms", 
       "short_name": "str", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "1c567211-d5f9-d0d0-bc21-3642d78dd2b9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "714a8b6a-5319-4d04-b3fc-a7da91fa42e6", 
+      "name": "Heuristics", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "CrossBeeInterfaces.Heurisitcs.Heuristics", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4125ea1b-0d90-433d-8236-f5bb662656e0"
     }
   }, 
   {

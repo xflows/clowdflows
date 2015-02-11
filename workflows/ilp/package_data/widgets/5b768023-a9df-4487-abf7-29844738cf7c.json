@@ -28,51 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "5b768023-a9df-4487-abf7-29844738cf7c", 
-      "name": "Template", 
-      "short_name": "tpl", 
+      "name": "Max polynomial degree (applies to Poly)", 
+      "short_name": "mdg", 
       "default": "", 
-      "description": "Feature template", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "template", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "7e160ade-ed96-4f93-abc8-a08d23867b2e"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "5b768023-a9df-4487-abf7-29844738cf7c", 
-      "name": "Dataset", 
-      "short_name": "dat", 
-      "default": "", 
-      "description": "Dataset in TreeLiker format", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "dataset", 
-      "parameter": false, 
-      "order": 2, 
-      "uid": "f02b857e-cd78-4d09-bf5e-d58344963fb5"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "5b768023-a9df-4487-abf7-29844738cf7c", 
-      "name": "Algorithm", 
-      "short_name": "alg", 
-      "default": "", 
-      "description": "Algorithm", 
+      "description": "Max polynomial degree (applies to Poly)", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "select", 
-      "variable": "algorithm", 
+      "parameter_type": "text", 
+      "variable": "max_degree", 
       "parameter": true, 
-      "order": 3, 
-      "uid": "b71e1b77-e690-45e7-aed3-64da2919e8cb"
+      "order": 9, 
+      "uid": "09eec780-fed1-488b-9321-e468e0c25343"
     }
   }, 
   {
@@ -90,6 +56,40 @@
       "parameter": true, 
       "order": 4, 
       "uid": "21261080-c05e-4ca5-8a3f-d3fcfa9cd429"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5b768023-a9df-4487-abf7-29844738cf7c", 
+      "name": "Use sampling ", 
+      "short_name": "smp", 
+      "default": "false", 
+      "description": "Use sampling mode", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "use_sampling", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "755563cb-3640-4737-b766-9e6db0f6a14d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5b768023-a9df-4487-abf7-29844738cf7c", 
+      "name": "Template", 
+      "short_name": "tpl", 
+      "default": "", 
+      "description": "Feature template", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "template", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "7e160ade-ed96-4f93-abc8-a08d23867b2e"
     }
   }, 
   {
@@ -130,23 +130,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "5b768023-a9df-4487-abf7-29844738cf7c", 
-      "name": "Use sampling ", 
-      "short_name": "smp", 
-      "default": "false", 
-      "description": "Use sampling mode", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "use_sampling", 
-      "parameter": true, 
-      "order": 7, 
-      "uid": "755563cb-3640-4737-b766-9e6db0f6a14d"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "5b768023-a9df-4487-abf7-29844738cf7c", 
       "name": "Sample size", 
       "short_name": "ssz", 
       "default": "", 
@@ -164,17 +147,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "5b768023-a9df-4487-abf7-29844738cf7c", 
-      "name": "Max polynomial degree (applies to Poly)", 
-      "short_name": "mdg", 
+      "name": "Algorithm", 
+      "short_name": "alg", 
       "default": "", 
-      "description": "Max polynomial degree (applies to Poly)", 
+      "description": "Algorithm", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "max_degree", 
+      "parameter_type": "select", 
+      "variable": "algorithm", 
       "parameter": true, 
-      "order": 9, 
-      "uid": "09eec780-fed1-488b-9321-e468e0c25343"
+      "order": 3, 
+      "uid": "b71e1b77-e690-45e7-aed3-64da2919e8cb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5b768023-a9df-4487-abf7-29844738cf7c", 
+      "name": "Dataset", 
+      "short_name": "dat", 
+      "default": "", 
+      "description": "Dataset in TreeLiker format", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "f02b857e-cd78-4d09-bf5e-d58344963fb5"
     }
   }, 
   {
@@ -192,9 +192,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "HiFi", 
-      "uid": "81636caa-6d43-4a74-829e-b87631d02fd9", 
-      "value": "hifi", 
+      "name": "RelF with grounding counting", 
+      "uid": "0202b10a-73d1-46b6-82fc-73c6afb4c73d", 
+      "value": "relf_grounding_counting", 
       "abstract_input": "b71e1b77-e690-45e7-aed3-64da2919e8cb"
     }
   }, 
@@ -210,18 +210,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Poly", 
-      "uid": "c708639b-6219-4e7c-ba1a-4a3d1b7659d5", 
-      "value": "poly", 
+      "name": "Poly with grounding counting", 
+      "uid": "776f2d0a-2fdd-4625-a154-493ffba32c6b", 
+      "value": "poly_grounding_counting", 
       "abstract_input": "b71e1b77-e690-45e7-aed3-64da2919e8cb"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Poly with grounding counting", 
-      "uid": "776f2d0a-2fdd-4625-a154-493ffba32c6b", 
-      "value": "poly_grounding_counting", 
+      "name": "HiFi", 
+      "uid": "81636caa-6d43-4a74-829e-b87631d02fd9", 
+      "value": "hifi", 
       "abstract_input": "b71e1b77-e690-45e7-aed3-64da2919e8cb"
     }
   }, 
@@ -237,9 +237,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "RelF with grounding counting", 
-      "uid": "0202b10a-73d1-46b6-82fc-73c6afb4c73d", 
-      "value": "relf_grounding_counting", 
+      "name": "Poly", 
+      "uid": "c708639b-6219-4e7c-ba1a-4a3d1b7659d5", 
+      "value": "poly", 
       "abstract_input": "b71e1b77-e690-45e7-aed3-64da2919e8cb"
     }
   }

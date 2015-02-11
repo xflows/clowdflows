@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "46379e7d-28c3-43e9-bfb3-653210f2852b", 
-      "name": "Object", 
-      "short_name": "obj", 
-      "default": "", 
-      "description": "Any type of object.", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "obj", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "35c2629f-9c6d-0408-80c3-f257bb243ae7"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "46379e7d-28c3-43e9-bfb3-653210f2852b", 
       "name": "Attribute", 
       "short_name": "int", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "1a12a3b6-82ed-bd27-1deb-75eb133da8e3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "46379e7d-28c3-43e9-bfb3-653210f2852b", 
+      "name": "Object", 
+      "short_name": "obj", 
+      "default": "", 
+      "description": "Any type of object.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "obj", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "35c2629f-9c6d-0408-80c3-f257bb243ae7"
     }
   }, 
   {

@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
+      "name": "Pre-defined patterns", 
+      "short_name": "pat", 
+      "default": "begin_novar", 
+      "description": "Pre-defined patterns", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "pattern", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
       "name": "Annotations", 
       "short_name": "ann", 
       "default": "", 
@@ -76,23 +93,6 @@
     }
   }, 
   {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
-      "name": "Pre-defined patterns", 
-      "short_name": "pat", 
-      "default": "begin_novar", 
-      "description": "Pre-defined patterns", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "pattern", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
-    }
-  }, 
-  {
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
@@ -102,24 +102,6 @@
       "variable": "sentences", 
       "order": 1, 
       "uid": "0fa73380-0ba2-47c6-be12-55c3a9a963c9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Begin allvar", 
-      "uid": "c3e0868f-5479-4490-9ff7-857ba4c2ca3e", 
-      "value": "begin_allvar", 
-      "abstract_input": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Begin novar", 
-      "uid": "dce0b5b5-e12e-4ffa-a758-2b1d4dc9b773", 
-      "value": "begin_novar", 
-      "abstract_input": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
     }
   }, 
   {
@@ -137,6 +119,24 @@
       "name": "No begin", 
       "uid": "9dc667b6-3b60-4844-ac6c-3b24645d6e4f", 
       "value": "no_begin", 
+      "abstract_input": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Begin allvar", 
+      "uid": "c3e0868f-5479-4490-9ff7-857ba4c2ca3e", 
+      "value": "begin_allvar", 
+      "abstract_input": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Begin novar", 
+      "uid": "dce0b5b5-e12e-4ffa-a758-2b1d4dc9b773", 
+      "value": "begin_novar", 
       "abstract_input": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
     }
   }, 

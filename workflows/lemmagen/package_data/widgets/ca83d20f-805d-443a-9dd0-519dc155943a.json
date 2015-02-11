@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ca83d20f-805d-443a-9dd0-519dc155943a", 
+      "name": "Inserted Column Name", 
+      "short_name": "str", 
+      "default": "ColumnX", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "columnName", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "82b538e9-eb57-0092-ff50-3b97e4296a9e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca83d20f-805d-443a-9dd0-519dc155943a", 
       "name": "Table", 
       "short_name": "tbl", 
       "default": "", 
@@ -73,23 +90,6 @@
       "parameter": false, 
       "order": 3, 
       "uid": "c27cbbe2-3f61-1f8a-3c4a-c6f0c4d34113"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "ca83d20f-805d-443a-9dd0-519dc155943a", 
-      "name": "Inserted Column Name", 
-      "short_name": "str", 
-      "default": "ColumnX", 
-      "description": "System.String", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "columnName", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "82b538e9-eb57-0092-ff50-3b97e4296a9e"
     }
   }, 
   {

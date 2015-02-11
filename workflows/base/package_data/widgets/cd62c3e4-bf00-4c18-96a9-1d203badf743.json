@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "cd62c3e4-bf00-4c18-96a9-1d203badf743", 
-      "name": "Dictionary 1", 
-      "short_name": "dct", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "dict1", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "7d53195e-49f3-4873-989d-e096563f84ed"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "cd62c3e4-bf00-4c18-96a9-1d203badf743", 
       "name": "Dictionary 2", 
       "short_name": "dct", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 1, 
       "uid": "53efae34-3906-4732-818c-78f44e6bceea"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cd62c3e4-bf00-4c18-96a9-1d203badf743", 
+      "name": "Dictionary 1", 
+      "short_name": "dct", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dict1", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "7d53195e-49f3-4873-989d-e096563f84ed"
     }
   }, 
   {

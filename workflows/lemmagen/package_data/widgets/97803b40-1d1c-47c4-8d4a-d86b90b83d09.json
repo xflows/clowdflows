@@ -28,34 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
-      "name": "Raw Text String", 
+      "name": "Header Line", 
       "short_name": "str", 
       "default": "", 
-      "description": "Input Text String: Contains one table row per line", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "examplesText", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "d2c7fe36-c315-c305-cbb2-9858f0ab3f80"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
-      "name": "Delimiter", 
-      "short_name": "str", 
-      "default": "\t", 
-      "description": "Delimiter used to split columns in a line (e.g. comma, tab).", 
+      "description": "If 'firstLineIsHeader' is set to false then widget tries to parse this paramater as header line.", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "delimiter", 
+      "variable": "headerLine", 
       "parameter": true, 
-      "order": 2, 
-      "uid": "f9089d34-c569-34da-6e3f-b79b7ccb1092"
+      "order": 3, 
+      "uid": "42ddb482-c07f-c6da-b4c8-447b0f4ebf3c"
     }
   }, 
   {
@@ -79,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
-      "name": "Header Line", 
+      "name": "Raw Text String", 
       "short_name": "str", 
       "default": "", 
-      "description": "If 'firstLineIsHeader' is set to false then widget tries to parse this paramater as header line.", 
-      "required": true, 
+      "description": "Input Text String: Contains one table row per line", 
+      "required": false, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "headerLine", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "42ddb482-c07f-c6da-b4c8-447b0f4ebf3c"
+      "parameter_type": "textarea", 
+      "variable": "examplesText", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d2c7fe36-c315-c305-cbb2-9858f0ab3f80"
     }
   }, 
   {
@@ -107,6 +90,23 @@
       "parameter": true, 
       "order": 4, 
       "uid": "e5259cf5-51c5-bf17-034b-baefae53b3b1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
+      "name": "Delimiter", 
+      "short_name": "str", 
+      "default": "\t", 
+      "description": "Delimiter used to split columns in a line (e.g. comma, tab).", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "delimiter", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "f9089d34-c569-34da-6e3f-b79b7ccb1092"
     }
   }, 
   {

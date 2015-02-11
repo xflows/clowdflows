@@ -62,12 +62,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
-      "name": "Precision", 
-      "short_name": "pre", 
+      "name": "TP rate", 
+      "short_name": "tp", 
       "description": "", 
-      "variable": "precision", 
-      "order": 1, 
-      "uid": "fbd6d60c-251d-41ab-a786-01760a0110ef"
+      "variable": "tp_rate", 
+      "order": 5, 
+      "uid": "401a36ad-3bbf-49b4-b6a1-1eda084683fc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
+      "name": "FP rate", 
+      "short_name": "fp", 
+      "description": "", 
+      "variable": "fp_rate", 
+      "order": 6, 
+      "uid": "41a9a618-0874-4665-b580-f181cd20202c"
     }
   }, 
   {
@@ -110,24 +122,12 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
-      "name": "TP rate", 
-      "short_name": "tp", 
+      "name": "Precision", 
+      "short_name": "pre", 
       "description": "", 
-      "variable": "tp_rate", 
-      "order": 5, 
-      "uid": "401a36ad-3bbf-49b4-b6a1-1eda084683fc"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
-      "name": "FP rate", 
-      "short_name": "fp", 
-      "description": "", 
-      "variable": "fp_rate", 
-      "order": 6, 
-      "uid": "41a9a618-0874-4665-b580-f181cd20202c"
+      "variable": "precision", 
+      "order": 1, 
+      "uid": "fbd6d60c-251d-41ab-a786-01760a0110ef"
     }
   }
 ]

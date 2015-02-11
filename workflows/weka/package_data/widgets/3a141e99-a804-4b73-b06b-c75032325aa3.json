@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3a141e99-a804-4b73-b06b-c75032325aa3", 
-      "name": "Timeout", 
-      "short_name": "to", 
-      "default": "60", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "timeout", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "2ec43e59-25e0-40da-a96f-7deb05ad063e"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "3a141e99-a804-4b73-b06b-c75032325aa3", 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "default": "true", 
@@ -62,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3a141e99-a804-4b73-b06b-c75032325aa3", 
-      "name": "arff file", 
-      "short_name": "arf", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "arff", 
-      "parameter": false, 
-      "order": 3, 
-      "uid": "b027ab99-adb6-44fb-96ab-08deb7db7f5d"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "3a141e99-a804-4b73-b06b-c75032325aa3", 
       "name": "Class index", 
       "short_name": "cla", 
       "default": "", 
@@ -90,6 +56,40 @@
       "parameter": true, 
       "order": 4, 
       "uid": "1e067896-7006-4b44-82af-b03a61727080"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a141e99-a804-4b73-b06b-c75032325aa3", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "2ec43e59-25e0-40da-a96f-7deb05ad063e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a141e99-a804-4b73-b06b-c75032325aa3", 
+      "name": "arff file", 
+      "short_name": "arf", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "arff", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "b027ab99-adb6-44fb-96ab-08deb7db7f5d"
     }
   }, 
   {

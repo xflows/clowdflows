@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971", 
-      "name": "Web service address", 
-      "short_name": "ws", 
-      "default": "http://vihar.ijs.si:8095/totale?wsdl", 
-      "description": "Web service address", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "wsdl", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "907565a7-4336-48c3-8989-9024aae0d7b1"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971", 
       "name": "File", 
       "short_name": "fil", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "096159a3-ddc8-4a57-b769-dddfb2590065"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971", 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "default": "http://vihar.ijs.si:8095/totale?wsdl", 
+      "description": "Web service address", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "907565a7-4336-48c3-8989-9024aae0d7b1"
     }
   }, 
   {

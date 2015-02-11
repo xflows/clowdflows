@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "d9285877-7db7-4540-aaf3-e6349772dac2", 
-      "name": "Key", 
-      "short_name": "key", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": true, 
-      "parameter_type": null, 
-      "variable": "keys", 
-      "parameter": false, 
-      "order": 0, 
-      "uid": "f777f094-06f8-4e6e-a7ea-eeadce33edac"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "d9285877-7db7-4540-aaf3-e6349772dac2", 
       "name": "Value", 
       "short_name": "val", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 0, 
       "uid": "8e7d857b-0ed5-4256-8ee7-18c7c2423f29"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d9285877-7db7-4540-aaf3-e6349772dac2", 
+      "name": "Key", 
+      "short_name": "key", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "keys", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "f777f094-06f8-4e6e-a7ea-eeadce33edac"
     }
   }, 
   {

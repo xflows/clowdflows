@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f7783ae4-2b4d-4067-8ee5-a3d1fddf0081", 
-      "name": "Domain A abbreviation", 
-      "short_name": "str", 
-      "default": "domainA", 
-      "description": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "domainA_abbr", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "c5774635-5d44-4cb1-a6d9-cc3dd471544a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "f7783ae4-2b4d-4067-8ee5-a3d1fddf0081", 
       "name": "Domain A string, corpus of documents", 
       "short_name": "str", 
       "default": "", 
@@ -90,6 +73,23 @@
       "parameter": false, 
       "order": 4, 
       "uid": "8edcdcbf-debb-4c00-93c4-34d6f4fe8f32"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f7783ae4-2b4d-4067-8ee5-a3d1fddf0081", 
+      "name": "Domain A abbreviation", 
+      "short_name": "str", 
+      "default": "domainA", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "domainA_abbr", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "c5774635-5d44-4cb1-a6d9-cc3dd471544a"
     }
   }, 
   {

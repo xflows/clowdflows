@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
-      "name": "Corpus", 
-      "short_name": "cor", 
-      "default": "", 
-      "description": "Corpus", 
-      "required": true, 
+      "name": "Antique slovenian", 
+      "short_name": "atq", 
+      "default": "false", 
+      "description": "Antique slovenian", 
+      "required": false, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "corpus", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "73feafbb-26e1-4bc5-8f1d-3c58443b89ba"
+      "parameter_type": "checkbox", 
+      "variable": "antique", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "161bece4-5e34-4f47-821c-ffbb35f6069a"
     }
   }, 
   {
@@ -56,6 +56,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "73feafbb-26e1-4bc5-8f1d-3c58443b89ba"
     }
   }, 
   {
@@ -107,23 +124,6 @@
       "parameter": true, 
       "order": 5, 
       "uid": "f429eb2c-a5ac-44b8-a691-602c97a2b0da"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
-      "name": "Antique slovenian", 
-      "short_name": "atq", 
-      "default": "false", 
-      "description": "Antique slovenian", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "antique", 
-      "parameter": true, 
-      "order": 6, 
-      "uid": "161bece4-5e34-4f47-821c-ffbb35f6069a"
     }
   }, 
   {

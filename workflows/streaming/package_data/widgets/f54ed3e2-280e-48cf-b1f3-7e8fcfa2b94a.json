@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f54ed3e2-280e-48cf-b1f3-7e8fcfa2b94a", 
-      "name": "Text", 
-      "short_name": "tex", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "text", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "f9236516-4a3b-4441-af21-86930bbd958a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "f54ed3e2-280e-48cf-b1f3-7e8fcfa2b94a", 
       "name": "Language", 
       "short_name": "lng", 
       "default": "en", 
@@ -59,15 +42,20 @@
     }
   }, 
   {
-    "model": "workflows.abstractoutput", 
+    "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f54ed3e2-280e-48cf-b1f3-7e8fcfa2b94a", 
-      "name": "Sentiment", 
-      "short_name": "sen", 
+      "name": "Text", 
+      "short_name": "tex", 
+      "default": "", 
       "description": "", 
-      "variable": "sentiment", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
       "order": 1, 
-      "uid": "f7d0779a-92ed-4953-95a6-2cb4da96c75f"
+      "uid": "f9236516-4a3b-4441-af21-86930bbd958a"
     }
   }, 
   {
@@ -80,6 +68,18 @@
       "variable": "reliability", 
       "order": 1, 
       "uid": "797fcd60-a9f5-492d-9f67-833d8c606617"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f54ed3e2-280e-48cf-b1f3-7e8fcfa2b94a", 
+      "name": "Sentiment", 
+      "short_name": "sen", 
+      "description": "", 
+      "variable": "sentiment", 
+      "order": 1, 
+      "uid": "f7d0779a-92ed-4953-95a6-2cb4da96c75f"
     }
   }
 ]

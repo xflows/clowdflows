@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "af4010a8-836c-41c7-adf6-50118295cf8e", 
-      "name": "Orange Data Table", 
-      "short_name": "odt", 
-      "default": "", 
-      "description": "A dataset that will be split into two parts", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "dataset", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "fe354f76-d6ed-4907-9ab6-d8784b3c7620"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "af4010a8-836c-41c7-adf6-50118295cf8e", 
       "name": "Split factor", 
       "short_name": "p", 
       "default": "0.5", 
@@ -59,15 +42,20 @@
     }
   }, 
   {
-    "model": "workflows.abstractoutput", 
+    "model": "workflows.abstractinput", 
     "fields": {
       "widget": "af4010a8-836c-41c7-adf6-50118295cf8e", 
-      "name": "Train data", 
-      "short_name": "tra", 
-      "description": "Train data", 
-      "variable": "train_data", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "A dataset that will be split into two parts", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
       "order": 1, 
-      "uid": "665e0af4-6e6e-4616-8e96-2d8866497a40"
+      "uid": "fe354f76-d6ed-4907-9ab6-d8784b3c7620"
     }
   }, 
   {
@@ -80,6 +68,18 @@
       "variable": "test_data", 
       "order": 2, 
       "uid": "514abf26-b0d5-4483-9273-6b930bf4eb68"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "af4010a8-836c-41c7-adf6-50118295cf8e", 
+      "name": "Train data", 
+      "short_name": "tra", 
+      "description": "Train data", 
+      "variable": "train_data", 
+      "order": 1, 
+      "uid": "665e0af4-6e6e-4616-8e96-2d8866497a40"
     }
   }
 ]

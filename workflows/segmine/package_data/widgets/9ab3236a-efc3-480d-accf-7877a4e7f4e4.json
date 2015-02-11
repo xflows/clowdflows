@@ -45,24 +45,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "9ab3236a-efc3-480d-accf-7877a4e7f4e4", 
-      "name": "Gene table", 
-      "short_name": "odt", 
-      "description": "Rules as rows, their genes as columns.", 
-      "variable": "gene_table", 
-      "order": 1, 
-      "uid": "664f5750-447c-4c3c-9870-a00af2ec101f"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "9ab3236a-efc3-480d-accf-7877a4e7f4e4", 
       "name": "Term table", 
       "short_name": "odt", 
       "description": "Rules as rows, their terms as columns.", 
       "variable": "term_table", 
       "order": 1, 
       "uid": "19670a6e-77a0-4299-9211-52c331ee5842"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9ab3236a-efc3-480d-accf-7877a4e7f4e4", 
+      "name": "Gene table", 
+      "short_name": "odt", 
+      "description": "Rules as rows, their genes as columns.", 
+      "variable": "gene_table", 
+      "order": 1, 
+      "uid": "664f5750-447c-4c3c-9870-a00af2ec101f"
     }
   }
 ]

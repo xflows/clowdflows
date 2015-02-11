@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c747f62a-9ca6-4bab-86be-f4d3e8849efb", 
+      "name": "Annotation to be tokenized", 
+      "short_name": "ann", 
+      "default": "TextBlock", 
+      "description": "Which annotated part of document to be splited", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "inputAnnotation", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "006cccbd-ee39-44b5-35fb-760a30422630"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c747f62a-9ca6-4bab-86be-f4d3e8849efb", 
       "name": "Annotated Document Corpus", 
       "short_name": "adc", 
       "default": "", 
@@ -56,23 +73,6 @@
       "parameter": false, 
       "order": 2, 
       "uid": "a03ee323-a151-3931-8d36-c86b63e7ee1f"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c747f62a-9ca6-4bab-86be-f4d3e8849efb", 
-      "name": "Annotation to be tokenized", 
-      "short_name": "ann", 
-      "default": "TextBlock", 
-      "description": "Which annotated part of document to be splited", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "inputAnnotation", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "006cccbd-ee39-44b5-35fb-760a30422630"
     }
   }, 
   {

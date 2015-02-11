@@ -28,17 +28,68 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
-      "name": "Input URLs", 
-      "short_name": "url", 
+      "name": "Class mapping", 
+      "short_name": "map", 
       "default": "", 
-      "description": "Multiple URLs can be specified. An URL should be accessible via HTTP and not HTTPS. ", 
+      "description": "The class mapping defines a mapping for a binary class. It is used with Logistic regression and Linear SVM.\r\n\r\nThe Logistic regression classifier uses 0 and 1 as class. If the dataset contains discrete classes  (e.g. healthy, sick), a mapping should be defined, where healthy is mapped to 1 and sick to 0. The class mapping is used only with binary target labels.\r\nExample: healthy, sick", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "y_map", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "04fb15c3-7d69-43e7-a009-0eb9a3c3a33e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Metadata URL", 
+      "short_name": "cmt", 
+      "default": "", 
+      "description": "Define an URL of a file with attribute metadata.\r\n\r\nExample of a file with 3 attributes, where first and second are continous and third is discrete:\r\natr1, atr2, atr3\r\nc,c,d ", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "custom", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "491eab89-b3f1-4503-864b-7cad9a01dda7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Class index", 
+      "short_name": "tar", 
+      "default": "", 
+      "description": "Define the class index in the dataset. If it is not defined, last attribute is used as the class.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "y_index", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "69a3061b-9dcf-4c18-9f69-b5bc082dd65e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Attribute metadata", 
+      "short_name": "mta", 
+      "default": "numeric", 
+      "description": "Select numeric, if all attributes are numeric or discrete, if all attributes are discrete. \r\n", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "url", 
+      "parameter_type": "select", 
+      "variable": "atr_meta", 
       "parameter": true, 
-      "order": 1, 
-      "uid": "e2883c3d-7b3a-46ec-8673-10da5f494ec9"
+      "order": 5, 
+      "uid": "705b4459-6f05-4fd3-a230-33e0ddd784b3"
     }
   }, 
   {
@@ -79,6 +130,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Input URLs", 
+      "short_name": "url", 
+      "default": "", 
+      "description": "Multiple URLs can be specified. An URL should be accessible via HTTP and not HTTPS. ", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e2883c3d-7b3a-46ec-8673-10da5f494ec9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
       "name": "Attribute selection", 
       "short_name": "ind", 
       "default": "", 
@@ -90,40 +158,6 @@
       "parameter": true, 
       "order": 4, 
       "uid": "e32184e0-f38a-466f-a991-82e084a1cd8b"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
-      "name": "Attribute metadata", 
-      "short_name": "mta", 
-      "default": "numeric", 
-      "description": "Select numeric, if all attributes are numeric or discrete, if all attributes are discrete. \r\n", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "atr_meta", 
-      "parameter": true, 
-      "order": 5, 
-      "uid": "705b4459-6f05-4fd3-a230-33e0ddd784b3"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
-      "name": "Metadata URL", 
-      "short_name": "cmt", 
-      "default": "", 
-      "description": "Define an URL of a file with attribute metadata.\r\n\r\nExample of a file with 3 attributes, where first and second are continous and third is discrete:\r\natr1, atr2, atr3\r\nc,c,d ", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "custom", 
-      "parameter": true, 
-      "order": 6, 
-      "uid": "491eab89-b3f1-4503-864b-7cad9a01dda7"
     }
   }, 
   {
@@ -147,17 +181,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
-      "name": "Class index", 
-      "short_name": "tar", 
+      "name": "Missing values", 
+      "short_name": "mv", 
       "default": "", 
-      "description": "Define the class index in the dataset. If it is not defined, last attribute is used as the class.", 
+      "description": "Missing data values are skipped.\r\n\r\nExample: ?,", 
       "required": false, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "y_index", 
+      "variable": "missing_vals", 
       "parameter": true, 
-      "order": 8, 
-      "uid": "69a3061b-9dcf-4c18-9f69-b5bc082dd65e"
+      "order": 10, 
+      "uid": "f393261f-ba93-4ed5-bdfc-82f6027bb327"
     }
   }, 
   {
@@ -178,40 +212,6 @@
     }
   }, 
   {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
-      "name": "Missing values", 
-      "short_name": "mv", 
-      "default": "", 
-      "description": "Missing data values are skipped.\r\n\r\nExample: ?,", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "missing_vals", 
-      "parameter": true, 
-      "order": 10, 
-      "uid": "f393261f-ba93-4ed5-bdfc-82f6027bb327"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
-      "name": "Class mapping", 
-      "short_name": "map", 
-      "default": "", 
-      "description": "The class mapping defines a mapping for a binary class. It is used with Logistic regression and Linear SVM.\r\n\r\nThe Logistic regression classifier uses 0 and 1 as class. If the dataset contains discrete classes  (e.g. healthy, sick), a mapping should be defined, where healthy is mapped to 1 and sick to 0. The class mapping is used only with binary target labels.\r\nExample: healthy, sick", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "y_map", 
-      "parameter": true, 
-      "order": 11, 
-      "uid": "04fb15c3-7d69-43e7-a009-0eb9a3c3a33e"
-    }
-  }, 
-  {
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
@@ -221,15 +221,6 @@
       "variable": "dataset", 
       "order": 1, 
       "uid": "819161f8-dffa-4ad3-8952-11b9d14f0c40"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "discrete", 
-      "uid": "c1d13a93-1572-415c-8988-12affdbff7fc", 
-      "value": "discrete", 
-      "abstract_input": "705b4459-6f05-4fd3-a230-33e0ddd784b3"
     }
   }, 
   {
@@ -247,6 +238,15 @@
       "name": "numeric", 
       "uid": "6fb7a9a5-29ed-47c9-a260-301f34ffcf52", 
       "value": "numeric", 
+      "abstract_input": "705b4459-6f05-4fd3-a230-33e0ddd784b3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "discrete", 
+      "uid": "c1d13a93-1572-415c-8988-12affdbff7fc", 
+      "value": "discrete", 
       "abstract_input": "705b4459-6f05-4fd3-a230-33e0ddd784b3"
     }
   }

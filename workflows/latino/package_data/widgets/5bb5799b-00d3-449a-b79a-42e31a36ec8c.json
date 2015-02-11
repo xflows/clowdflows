@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "5bb5799b-00d3-449a-b79a-42e31a36ec8c", 
-      "name": "Annotated Document Corpus", 
-      "short_name": "adc", 
-      "default": "", 
-      "description": "LatinoClowdFlows.DocumentCorpus", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "adc", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "da1abf2d-4055-a35e-be5f-51113e7af728"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "5bb5799b-00d3-449a-b79a-42e31a36ec8c", 
       "name": "Token Tagger", 
       "short_name": "tgr", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "07a9308b-9a84-28db-7d6d-d7ba80587882"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5bb5799b-00d3-449a-b79a-42e31a36ec8c", 
+      "name": "Output Feature Name (one line per each tagger)", 
+      "short_name": "str", 
+      "default": "tag", 
+      "description": "Output feature name specifies how the token will be tagged (assigend the feature to)\r\nIf multiple taggers are used then one line per tagger must be specified.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "outputFeatures", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "6e0f0289-cd76-2935-5153-a581b0bc8f89"
     }
   }, 
   {
@@ -79,17 +79,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "5bb5799b-00d3-449a-b79a-42e31a36ec8c", 
-      "name": "Output Feature Name (one line per each tagger)", 
-      "short_name": "str", 
-      "default": "tag", 
-      "description": "Output feature name specifies how the token will be tagged (assigend the feature to)\r\nIf multiple taggers are used then one line per tagger must be specified.", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "outputFeatures", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "6e0f0289-cd76-2935-5153-a581b0bc8f89"
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "da1abf2d-4055-a35e-be5f-51113e7af728"
     }
   }, 
   {

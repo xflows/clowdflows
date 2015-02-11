@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fca388cc-884a-4a37-bbd1-d05112962a12", 
+      "name": "Sentence's Annotation", 
+      "short_name": "str", 
+      "default": "Sentence", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "groupAnnotation", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "12a9df55-64c4-4398-c210-fd7d74117ec1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fca388cc-884a-4a37-bbd1-d05112962a12", 
       "name": "Annotated Document Corpus", 
       "short_name": "adc", 
       "default": "", 
@@ -62,17 +79,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fca388cc-884a-4a37-bbd1-d05112962a12", 
-      "name": "Sentence's Annotation", 
+      "name": "Output Feature Name", 
       "short_name": "str", 
-      "default": "Sentence", 
+      "default": "posTag", 
       "description": "System.String", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "groupAnnotation", 
+      "variable": "outputFeature", 
       "parameter": true, 
-      "order": 3, 
-      "uid": "12a9df55-64c4-4398-c210-fd7d74117ec1"
+      "order": 5, 
+      "uid": "a81b24b7-8b2c-c491-8e43-a46cb87a838b"
     }
   }, 
   {
@@ -90,23 +107,6 @@
       "parameter": true, 
       "order": 4, 
       "uid": "ec62f621-6061-a275-f03b-69d8bef311fe"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fca388cc-884a-4a37-bbd1-d05112962a12", 
-      "name": "Output Feature Name", 
-      "short_name": "str", 
-      "default": "posTag", 
-      "description": "System.String", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "outputFeature", 
-      "parameter": true, 
-      "order": 5, 
-      "uid": "a81b24b7-8b2c-c491-8e43-a46cb87a838b"
     }
   }, 
   {

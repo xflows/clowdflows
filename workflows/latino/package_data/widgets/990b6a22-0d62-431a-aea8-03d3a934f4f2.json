@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "990b6a22-0d62-431a-aea8-03d3a934f4f2", 
-      "name": "True Labels", 
-      "short_name": "lst", 
-      "default": "", 
-      "description": "System.Collections.IList", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "list1", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "4337f7d3-5113-be91-9dcd-7f23d955ca3e"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "990b6a22-0d62-431a-aea8-03d3a934f4f2", 
       "name": "Predicted Labels", 
       "short_name": "lst", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "3865d2f0-cf4f-cacc-78dc-77a6b0071e45"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "990b6a22-0d62-431a-aea8-03d3a934f4f2", 
+      "name": "True Labels", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.IList", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "list1", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4337f7d3-5113-be91-9dcd-7f23d955ca3e"
     }
   }, 
   {

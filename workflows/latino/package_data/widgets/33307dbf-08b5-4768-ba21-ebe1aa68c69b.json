@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "33307dbf-08b5-4768-ba21-ebe1aa68c69b", 
-      "name": "Text", 
+      "name": "Output Feature Name", 
       "short_name": "str", 
-      "default": "", 
-      "description": "System.Object", 
+      "default": "posTag", 
+      "description": "System.String", 
       "required": true, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "text", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "ed41747a-dc93-d818-291c-62d791613083"
+      "parameter_type": "text", 
+      "variable": "outputFeature", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "02d347c6-12c9-9892-5d69-38548474b35a"
     }
   }, 
   {
@@ -62,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "33307dbf-08b5-4768-ba21-ebe1aa68c69b", 
-      "name": "Output Feature Name", 
+      "name": "Text", 
       "short_name": "str", 
-      "default": "posTag", 
-      "description": "System.String", 
+      "default": "", 
+      "description": "System.Object", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "outputFeature", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "02d347c6-12c9-9892-5d69-38548474b35a"
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ed41747a-dc93-d818-291c-62d791613083"
     }
   }, 
   {

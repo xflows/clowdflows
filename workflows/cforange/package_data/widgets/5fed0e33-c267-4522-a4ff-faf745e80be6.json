@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "5fed0e33-c267-4522-a4ff-faf745e80be6", 
-      "name": "Evaluation Results", 
-      "short_name": "res", 
-      "default": "", 
-      "description": "Evaluation results", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "results", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "d85b2f09-ae60-49b7-9b07-b73e4f2f37f9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "5fed0e33-c267-4522-a4ff-faf745e80be6", 
       "name": "Report Standard Error", 
       "short_name": "rse", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "34afe990-c3e7-40ac-93c9-15283b3e12fc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5fed0e33-c267-4522-a4ff-faf745e80be6", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "Evaluation results", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d85b2f09-ae60-49b7-9b07-b73e4f2f37f9"
     }
   }, 
   {

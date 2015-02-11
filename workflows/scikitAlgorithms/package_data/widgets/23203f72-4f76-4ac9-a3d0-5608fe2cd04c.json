@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
-      "name": "Learner", 
-      "short_name": "lea", 
-      "default": "", 
-      "description": "used to build the classifier.\r\n\r\nProvided by:\r\na Weka Classification widget", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "learner", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "97bdb348-947c-4564-88b3-07f0f6134307"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
       "name": "Instances", 
       "short_name": "dts", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "436e18dc-5bab-4a74-8cce-0b31b81b2bbd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
+      "name": "Learner", 
+      "short_name": "lea", 
+      "default": "", 
+      "description": "used to build the classifier.\r\n\r\nProvided by:\r\na Weka Classification widget", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "learner", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "97bdb348-947c-4564-88b3-07f0f6134307"
     }
   }, 
   {

@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ff6b3afa-e162-4f94-aa75-5fe73b5b1709", 
-      "name": "Text", 
-      "short_name": "str", 
-      "default": "", 
-      "description": "System.Object", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "text", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "386df033-ec3f-649c-5c30-5231f776d16b"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "ff6b3afa-e162-4f94-aa75-5fe73b5b1709", 
       "name": "Tokenizer", 
       "short_name": "tkn", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "2d2360e0-2bd5-355e-5be8-851d24c13a51"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ff6b3afa-e162-4f94-aa75-5fe73b5b1709", 
+      "name": "Text", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "386df033-ec3f-649c-5c30-5231f776d16b"
     }
   }, 
   {

@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
-      "name": "penalty", 
-      "short_name": "par", 
-      "default": "l1", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "penIn", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "fb0e5723-41b0-4ef3-9fbd-d88c0a987252"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
       "name": "C", 
       "short_name": "par", 
       "default": "1.0", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "78a44bbf-4da4-46e1-9be2-e3335b04c74b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
+      "name": "penalty", 
+      "short_name": "par", 
+      "default": "l1", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "penIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "fb0e5723-41b0-4ef3-9fbd-d88c0a987252"
     }
   }, 
   {
@@ -73,18 +73,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "l1", 
-      "uid": "f8542745-ec0d-4f8e-bd84-f686628fae30", 
-      "value": "l1", 
+      "name": "l2", 
+      "uid": "9eaf2578-db7b-4341-b9b9-8622aa4d8de8", 
+      "value": "l2", 
       "abstract_input": "fb0e5723-41b0-4ef3-9fbd-d88c0a987252"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "l2", 
-      "uid": "9eaf2578-db7b-4341-b9b9-8622aa4d8de8", 
-      "value": "l2", 
+      "name": "l1", 
+      "uid": "f8542745-ec0d-4f8e-bd84-f686628fae30", 
+      "value": "l1", 
       "abstract_input": "fb0e5723-41b0-4ef3-9fbd-d88c0a987252"
     }
   }

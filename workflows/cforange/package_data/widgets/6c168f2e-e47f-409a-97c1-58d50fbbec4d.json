@@ -45,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "6c168f2e-e47f-409a-97c1-58d50fbbec4d", 
-      "name": "Learners", 
-      "short_name": "lrn", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": true, 
-      "parameter_type": null, 
-      "variable": "learners", 
-      "parameter": false, 
-      "order": 2, 
-      "uid": "499f4007-55c3-431c-93ca-5f493a9e592c"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "6c168f2e-e47f-409a-97c1-58d50fbbec4d", 
       "name": "Folds", 
       "short_name": "fld", 
       "default": "10", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "2b7ef618-6f7a-4f0c-ad5f-50000aa5ec0b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6c168f2e-e47f-409a-97c1-58d50fbbec4d", 
+      "name": "Learners", 
+      "short_name": "lrn", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "learners", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "499f4007-55c3-431c-93ca-5f493a9e592c"
     }
   }, 
   {

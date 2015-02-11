@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
-      "name": "context", 
-      "short_name": "cxt", 
-      "default": "", 
-      "description": "Database context object", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "context", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "4f1397a8-4e72-4b34-b31d-d09bf9a7e7d9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
       "name": "dump full database", 
       "short_name": "dmp", 
       "default": "false", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 1, 
       "uid": "3c1375b1-10ed-400d-abfe-261115723c2f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
+      "name": "context", 
+      "short_name": "cxt", 
+      "default": "", 
+      "description": "Database context object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "context", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4f1397a8-4e72-4b34-b31d-d09bf9a7e7d9"
     }
   }, 
   {
@@ -79,24 +79,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
-      "name": "examples", 
-      "short_name": "ex", 
-      "description": "examples", 
-      "variable": "examples", 
-      "order": 1, 
-      "uid": "f17690db-636b-4874-8406-f57778550c27"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
       "name": "background knowledge", 
       "short_name": "b", 
       "description": "background knowledge", 
       "variable": "bk", 
       "order": 2, 
       "uid": "89a386ef-3aa8-441f-99ff-4b64b1e3357f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
+      "name": "examples", 
+      "short_name": "ex", 
+      "description": "examples", 
+      "variable": "examples", 
+      "order": 1, 
+      "uid": "f17690db-636b-4874-8406-f57778550c27"
     }
   }
 ]

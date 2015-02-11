@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "b16da039-f997-4d78-baa0-26d5ad8661eb", 
+      "name": "List of F-measures", 
+      "short_name": "f", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "f", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "706ba66d-3425-4093-815f-8c62cc034e5b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b16da039-f997-4d78-baa0-26d5ad8661eb", 
       "name": "List of learners", 
       "short_name": "lrn", 
       "default": "", 
@@ -73,23 +90,6 @@
       "parameter": false, 
       "order": 3, 
       "uid": "b1f16202-0bf3-4002-b534-3523c615d26f"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "b16da039-f997-4d78-baa0-26d5ad8661eb", 
-      "name": "List of F-measures", 
-      "short_name": "f", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "f", 
-      "parameter": false, 
-      "order": 4, 
-      "uid": "706ba66d-3425-4093-815f-8c62cc034e5b"
     }
   }, 
   {

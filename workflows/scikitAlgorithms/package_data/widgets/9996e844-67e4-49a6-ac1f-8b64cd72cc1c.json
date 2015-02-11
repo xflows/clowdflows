@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "9996e844-67e4-49a6-ac1f-8b64cd72cc1c", 
+      "name": "weights", 
+      "short_name": "par", 
+      "default": "uniform", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "wgIn", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "322b76b8-dba1-4251-9920-871d62d7df4a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9996e844-67e4-49a6-ac1f-8b64cd72cc1c", 
       "name": "n_neighbors", 
       "short_name": "par", 
       "default": "5", 
@@ -59,23 +76,6 @@
     }
   }, 
   {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "9996e844-67e4-49a6-ac1f-8b64cd72cc1c", 
-      "name": "weights", 
-      "short_name": "par", 
-      "default": "uniform", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "wgIn", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "322b76b8-dba1-4251-9920-871d62d7df4a"
-    }
-  }, 
-  {
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "9996e844-67e4-49a6-ac1f-8b64cd72cc1c", 
@@ -85,15 +85,6 @@
       "variable": "KNNout", 
       "order": 1, 
       "uid": "62d4cc9a-d6f1-4a84-8f49-0685676e2ce8"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Ball Tree", 
-      "uid": "74b8fd6b-3f9e-491f-83d4-1fc4ec9ae636", 
-      "value": "ball_tree", 
-      "abstract_input": "cfdfd105-8eb0-4a7a-bf06-2df3e25f4880"
     }
   }, 
   {
@@ -120,6 +111,15 @@
       "name": "kd_tree", 
       "uid": "444c6e49-d8ed-442f-9b8e-f83117a36222", 
       "value": "kd_tree", 
+      "abstract_input": "cfdfd105-8eb0-4a7a-bf06-2df3e25f4880"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Ball Tree", 
+      "uid": "74b8fd6b-3f9e-491f-83d4-1fc4ec9ae636", 
+      "value": "ball_tree", 
       "abstract_input": "cfdfd105-8eb0-4a7a-bf06-2df3e25f4880"
     }
   }, 

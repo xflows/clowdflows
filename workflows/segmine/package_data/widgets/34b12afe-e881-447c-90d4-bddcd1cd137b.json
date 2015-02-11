@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
+      "name": "Reference examples (0 = all)", 
+      "short_name": "m", 
+      "default": "0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "m", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "11fd645a-cf41-4774-98aa-759478c94588"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
       "name": "Microarray Table", 
       "short_name": "ma", 
       "default": "", 
@@ -59,20 +76,15 @@
     }
   }, 
   {
-    "model": "workflows.abstractinput", 
+    "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
-      "name": "Reference examples (0 = all)", 
-      "short_name": "m", 
-      "default": "0", 
+      "name": "tScores", 
+      "short_name": "t", 
       "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "m", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "11fd645a-cf41-4774-98aa-759478c94588"
+      "variable": "tScores", 
+      "order": 2, 
+      "uid": "677d2177-8ee9-433d-920c-41b57293c601"
     }
   }, 
   {
@@ -85,18 +97,6 @@
       "variable": "geneRanks", 
       "order": 1, 
       "uid": "e3cc4347-d80b-4dbe-9e2c-37f6b0f98671"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
-      "name": "tScores", 
-      "short_name": "t", 
-      "description": "", 
-      "variable": "tScores", 
-      "order": 2, 
-      "uid": "677d2177-8ee9-433d-920c-41b57293c601"
     }
   }
 ]

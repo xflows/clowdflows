@@ -45,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "427e4a62-54dc-4eff-ba86-e0758f5792f1", 
-      "name": "Index of First Retrieved Word", 
-      "short_name": "int", 
-      "default": "1", 
-      "description": "System.Int32", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "startIndex", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "b565efc9-bf78-a2da-b0bf-0c8c93ae0212"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "427e4a62-54dc-4eff-ba86-e0758f5792f1", 
       "name": "Maximum Words Retrieved", 
       "short_name": "int", 
       "default": "500", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "acdd5fac-b3e3-ad60-59b2-34861952383b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "427e4a62-54dc-4eff-ba86-e0758f5792f1", 
+      "name": "Index of First Retrieved Word", 
+      "short_name": "int", 
+      "default": "1", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "startIndex", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "b565efc9-bf78-a2da-b0bf-0c8c93ae0212"
     }
   }, 
   {

@@ -28,34 +28,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
-      "name": "Regular Expression", 
-      "short_name": "rgx", 
-      "default": "\\p{L}+(-\\p{L}+)*", 
-      "description": "System.String", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "tokenRegex", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "9f31b30f-a480-da88-f8aa-275e938a1484"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
-      "name": "Ignore Unknown Tokens", 
+      "name": "Ignore Pattern Whitespace", 
       "short_name": "bol", 
       "default": "", 
       "description": "System.Boolean", 
       "required": true, 
       "multi": false, 
       "parameter_type": "checkbox", 
-      "variable": "ignoreUnknownTokens", 
+      "variable": "regexOptionsIgnorePatternWhitespace", 
       "parameter": true, 
-      "order": 2, 
-      "uid": "eddffd40-c816-c446-a2e3-606c0aaf0429"
+      "order": 8, 
+      "uid": "0688894c-aea7-bfe4-6d38-ca14f2ff0337"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
+      "name": "ECMA Script", 
+      "short_name": "bol", 
+      "default": "", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "regexOptionsECMAScript", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "3283613d-19d2-4d84-cef9-ef8f168bcd24"
     }
   }, 
   {
@@ -73,23 +73,6 @@
       "parameter": true, 
       "order": 3, 
       "uid": "89faa019-8d68-c318-7d5f-2a7c1720adbf"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
-      "name": "Multiline", 
-      "short_name": "bol", 
-      "default": "", 
-      "description": "System.Boolean", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "regexOptionsMultiline", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "ce522d23-7d8d-ec98-4d04-0d7abf0cd476"
     }
   }, 
   {
@@ -130,40 +113,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
-      "name": "Singleline", 
-      "short_name": "bol", 
-      "default": "", 
-      "description": "System.Boolean", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "regexOptionsSingleline", 
-      "parameter": true, 
-      "order": 7, 
-      "uid": "da23b6c7-f4e2-cd81-b95c-f47fc8897da1"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
-      "name": "Ignore Pattern Whitespace", 
-      "short_name": "bol", 
-      "default": "", 
-      "description": "System.Boolean", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "regexOptionsIgnorePatternWhitespace", 
-      "parameter": true, 
-      "order": 8, 
-      "uid": "0688894c-aea7-bfe4-6d38-ca14f2ff0337"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
       "name": "Right To Left", 
       "short_name": "bol", 
       "default": "", 
@@ -181,17 +130,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
-      "name": "ECMA Script", 
-      "short_name": "bol", 
-      "default": "", 
-      "description": "System.Boolean", 
+      "name": "Regular Expression", 
+      "short_name": "rgx", 
+      "default": "\\p{L}+(-\\p{L}+)*", 
+      "description": "System.String", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "regexOptionsECMAScript", 
+      "parameter_type": "text", 
+      "variable": "tokenRegex", 
       "parameter": true, 
-      "order": 10, 
-      "uid": "3283613d-19d2-4d84-cef9-ef8f168bcd24"
+      "order": 1, 
+      "uid": "9f31b30f-a480-da88-f8aa-275e938a1484"
     }
   }, 
   {
@@ -209,6 +158,57 @@
       "parameter": true, 
       "order": 11, 
       "uid": "cc5c2449-77dd-fd50-690d-6686bdf49153"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
+      "name": "Multiline", 
+      "short_name": "bol", 
+      "default": "", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "regexOptionsMultiline", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "ce522d23-7d8d-ec98-4d04-0d7abf0cd476"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
+      "name": "Singleline", 
+      "short_name": "bol", 
+      "default": "", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "regexOptionsSingleline", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "da23b6c7-f4e2-cd81-b95c-f47fc8897da1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ce52aeec-6f94-4456-b0b6-011ab9e77760", 
+      "name": "Ignore Unknown Tokens", 
+      "short_name": "bol", 
+      "default": "", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "ignoreUnknownTokens", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "eddffd40-c816-c446-a2e3-606c0aaf0429"
     }
   }, 
   {

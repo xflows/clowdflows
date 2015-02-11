@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "16042741-6834-43ab-9587-b64a1f460238", 
-      "name": "Dataset", 
-      "short_name": "dst", 
-      "default": "", 
-      "description": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "dataset", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "29dd4a35-7639-493f-9e7b-a64f54f0d06d"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "16042741-6834-43ab-9587-b64a1f460238", 
       "name": "Convergence", 
       "short_name": "con", 
       "default": "1e-8", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "104f5edc-6029-4ae8-8a83-29557fa901fd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "16042741-6834-43ab-9587-b64a1f460238", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "29dd4a35-7639-493f-9e7b-a64f54f0d06d"
     }
   }, 
   {

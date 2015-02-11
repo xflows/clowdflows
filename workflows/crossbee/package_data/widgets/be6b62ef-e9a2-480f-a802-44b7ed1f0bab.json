@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "be6b62ef-e9a2-480f-a802-44b7ed1f0bab", 
-      "name": "Name", 
-      "short_name": "str", 
-      "default": "ensemble", 
-      "description": "System.String", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "name", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "c7bb9b8c-4b9a-ff1e-b68f-83c7869087bd"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "be6b62ef-e9a2-480f-a802-44b7ed1f0bab", 
       "name": "Heurisitc(s)", 
       "short_name": "heu", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "9657dc70-a421-567e-b2fa-fb549d79e9d5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "be6b62ef-e9a2-480f-a802-44b7ed1f0bab", 
+      "name": "Name", 
+      "short_name": "str", 
+      "default": "ensemble", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "name", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "c7bb9b8c-4b9a-ff1e-b68f-83c7869087bd"
     }
   }, 
   {

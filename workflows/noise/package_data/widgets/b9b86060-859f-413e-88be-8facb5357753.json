@@ -56,15 +56,6 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "60", 
-      "uid": "fd06328e-cb70-4ba1-ae9d-d62c9c77401d", 
-      "value": "60", 
-      "abstract_input": "7903039a-7e1c-4cb2-a20a-1730431fd122"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
       "name": "70", 
       "uid": "58128fe8-5dde-4648-bead-d9dc0ef67a3a", 
       "value": "70", 
@@ -86,6 +77,15 @@
       "name": "90", 
       "uid": "c08b3596-348e-4999-9ccd-476ef087472d", 
       "value": "90", 
+      "abstract_input": "7903039a-7e1c-4cb2-a20a-1730431fd122"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "60", 
+      "uid": "fd06328e-cb70-4ba1-ae9d-d62c9c77401d", 
+      "value": "60", 
       "abstract_input": "7903039a-7e1c-4cb2-a20a-1730431fd122"
     }
   }

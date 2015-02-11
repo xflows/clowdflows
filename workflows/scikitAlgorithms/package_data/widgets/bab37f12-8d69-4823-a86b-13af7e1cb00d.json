@@ -107,18 +107,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "crammer_singer", 
-      "uid": "b009551e-ca6c-428c-b7a1-8fd3b7b49d08", 
-      "value": "crammer_singer", 
+      "name": "ovr", 
+      "uid": "2b37e801-b2b0-44ae-b4f8-53e1177845f0", 
+      "value": "ovr", 
       "abstract_input": "da13b053-3d1b-48ad-a046-5683143f1391"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "l1", 
-      "uid": "64809f7f-3b98-4b63-9c84-66608c1f6a8c", 
-      "value": "l1", 
+      "name": "l2", 
+      "uid": "554b3404-de82-418a-bc9e-f7fa530acde1", 
+      "value": "l2", 
       "abstract_input": "4511ba8c-015c-4e26-8ca4-164c74afde18"
     }
   }, 
@@ -134,9 +134,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "l2", 
-      "uid": "554b3404-de82-418a-bc9e-f7fa530acde1", 
-      "value": "l2", 
+      "name": "l1", 
+      "uid": "64809f7f-3b98-4b63-9c84-66608c1f6a8c", 
+      "value": "l1", 
       "abstract_input": "4511ba8c-015c-4e26-8ca4-164c74afde18"
     }
   }, 
@@ -152,9 +152,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "ovr", 
-      "uid": "2b37e801-b2b0-44ae-b4f8-53e1177845f0", 
-      "value": "ovr", 
+      "name": "crammer_singer", 
+      "uid": "b009551e-ca6c-428c-b7a1-8fd3b7b49d08", 
+      "value": "crammer_singer", 
       "abstract_input": "da13b053-3d1b-48ad-a046-5683143f1391"
     }
   }

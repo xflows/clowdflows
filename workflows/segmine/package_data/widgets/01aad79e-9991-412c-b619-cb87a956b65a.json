@@ -79,24 +79,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "01aad79e-9991-412c-b619-cb87a956b65a", 
-      "name": "Orange data table with class", 
-      "short_name": "odt", 
-      "description": "Orange data table where columns are genes and rows are measurements. The class attribute indicates whether the measurement belongs to the control or the treatment group.", 
-      "variable": "table", 
-      "order": 1, 
-      "uid": "e376fd1f-31d0-4d20-98e3-032bccbdb00a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "01aad79e-9991-412c-b619-cb87a956b65a", 
       "name": "Fold change", 
       "short_name": "fc", 
       "description": "sorted list of pairs (gene, fold change)", 
       "variable": "fold_change", 
       "order": 2, 
       "uid": "9d0b23d8-4493-4f61-842a-78356402fd54"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "01aad79e-9991-412c-b619-cb87a956b65a", 
+      "name": "Orange data table with class", 
+      "short_name": "odt", 
+      "description": "Orange data table where columns are genes and rows are measurements. The class attribute indicates whether the measurement belongs to the control or the treatment group.", 
+      "variable": "table", 
+      "order": 1, 
+      "uid": "e376fd1f-31d0-4d20-98e3-032bccbdb00a"
     }
   }, 
   {
@@ -120,19 +120,19 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "log2-transformed", 
-      "uid": "dcd58ba0-8956-4802-b954-f2a2c7deae79", 
-      "value": "2", 
-      "abstract_input": "94c5f4f1-7d85-45e2-8393-38fc31a70630"
+      "name": "ratio", 
+      "uid": "c36b408a-4947-424b-af2b-534bb57a0804", 
+      "value": "1", 
+      "abstract_input": "f3c2883f-e4a6-4c2b-90d8-07a73af84708"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "ratio", 
-      "uid": "c36b408a-4947-424b-af2b-534bb57a0804", 
-      "value": "1", 
-      "abstract_input": "f3c2883f-e4a6-4c2b-90d8-07a73af84708"
+      "name": "log2-transformed", 
+      "uid": "dcd58ba0-8956-4802-b954-f2a2c7deae79", 
+      "value": "2", 
+      "abstract_input": "94c5f4f1-7d85-45e2-8393-38fc31a70630"
     }
   }
 ]

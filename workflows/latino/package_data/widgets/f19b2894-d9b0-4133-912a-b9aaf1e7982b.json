@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f19b2894-d9b0-4133-912a-b9aaf1e7982b", 
-      "name": "Annotated Document Corpus", 
-      "short_name": "adc", 
-      "default": "", 
-      "description": "LatinoClowdFlows.DocumentCorpus", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "adc", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "c066e26b-af81-f1ac-251f-248483c79f8d"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "f19b2894-d9b0-4133-912a-b9aaf1e7982b", 
       "name": "Feature Name", 
       "short_name": "str", 
       "default": "set", 
@@ -56,40 +39,6 @@
       "parameter": true, 
       "order": 2, 
       "uid": "276fe964-c5aa-1081-0be9-13aad301c661"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "f19b2894-d9b0-4133-912a-b9aaf1e7982b", 
-      "name": "Feature Value Prefix", 
-      "short_name": "str", 
-      "default": "", 
-      "description": "System.String", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "featureValuePrefix", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "d67ecbbb-e185-d9bf-43dd-52e2906a7f1f"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "f19b2894-d9b0-4133-912a-b9aaf1e7982b", 
-      "name": "Num of Sets", 
-      "short_name": "int", 
-      "default": "10", 
-      "description": "System.Int32", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "numOfSets", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "96533d85-f52d-69a7-c4d9-4ab99f38fcb0"
     }
   }, 
   {
@@ -113,6 +62,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f19b2894-d9b0-4133-912a-b9aaf1e7982b", 
+      "name": "Random Seed", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "randomSeed", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "36dc97df-1c37-9f7a-337d-a11eedcd894d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f19b2894-d9b0-4133-912a-b9aaf1e7982b", 
       "name": "Use Seed for Random", 
       "short_name": "bol", 
       "default": "false", 
@@ -130,17 +96,51 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f19b2894-d9b0-4133-912a-b9aaf1e7982b", 
-      "name": "Random Seed", 
+      "name": "Num of Sets", 
       "short_name": "int", 
-      "default": "0", 
+      "default": "10", 
       "description": "System.Int32", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "randomSeed", 
+      "variable": "numOfSets", 
       "parameter": true, 
-      "order": 7, 
-      "uid": "36dc97df-1c37-9f7a-337d-a11eedcd894d"
+      "order": 4, 
+      "uid": "96533d85-f52d-69a7-c4d9-4ab99f38fcb0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f19b2894-d9b0-4133-912a-b9aaf1e7982b", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c066e26b-af81-f1ac-251f-248483c79f8d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f19b2894-d9b0-4133-912a-b9aaf1e7982b", 
+      "name": "Feature Value Prefix", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.String", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "featureValuePrefix", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "d67ecbbb-e185-d9bf-43dd-52e2906a7f1f"
     }
   }, 
   {

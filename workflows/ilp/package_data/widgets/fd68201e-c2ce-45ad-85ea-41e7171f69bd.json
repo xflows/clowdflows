@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "Timeout", 
-      "short_name": "to", 
-      "default": "60", 
+      "name": "ont4", 
+      "short_name": "ont", 
+      "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "timeout", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "d8412f16-25bd-4109-8208-12be9bd4fa17"
+      "parameter_type": null, 
+      "variable": "ont4", 
+      "parameter": false, 
+      "order": 9, 
+      "uid": "0c790fc0-5f7f-4117-9b9f-dae365eb88f4"
     }
   }, 
   {
@@ -62,57 +62,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "ont3", 
-      "short_name": "ont", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "ont3", 
-      "parameter": false, 
-      "order": 3, 
-      "uid": "5b1a953e-0cf6-401b-81ce-f1773e0ca1f9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "ont2", 
-      "short_name": "ont", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "ont2", 
-      "parameter": false, 
-      "order": 4, 
-      "uid": "3b0d4d2e-177e-4054-81d1-a841f4761f94"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "ont1", 
-      "short_name": "ont", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "ont1", 
-      "parameter": false, 
-      "order": 5, 
-      "uid": "5a86e8aa-9230-4bd3-80f2-3b2bc2ebc2b8"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
       "name": "generalTerms", 
       "short_name": "gen", 
       "default": "", 
@@ -124,125 +73,6 @@
       "parameter": false, 
       "order": 6, 
       "uid": "141f075c-3634-4d6e-8254-fd9afbaa0eb7"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "interactions", 
-      "short_name": "int", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "interactions", 
-      "parameter": false, 
-      "order": 7, 
-      "uid": "303998af-0f97-4895-b5fb-1ec57f0ab706"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "maxNumTerms", 
-      "short_name": "max", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "maxNumTerms", 
-      "parameter": true, 
-      "order": 8, 
-      "uid": "8cbf4e91-616c-4b35-a16e-86c6ca1e2dd4"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "ont4", 
-      "short_name": "ont", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "ont4", 
-      "parameter": false, 
-      "order": 9, 
-      "uid": "0c790fc0-5f7f-4117-9b9f-dae365eb88f4"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "mapping", 
-      "short_name": "map", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "mapping", 
-      "parameter": false, 
-      "order": 10, 
-      "uid": "e9b6fee9-ca19-4aaf-9acf-9ecb98f11f5b"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "weightGSEA", 
-      "short_name": "wei", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "weightGSEA", 
-      "parameter": true, 
-      "order": 11, 
-      "uid": "3e15d380-742f-4134-8093-097e053bdccb"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "wracc_k", 
-      "short_name": "wra", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "wracc_k", 
-      "parameter": true, 
-      "order": 12, 
-      "uid": "cb312cf6-2e82-4f17-8f36-8b0f8d17a8e0"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "maximalPvalue", 
-      "short_name": "max", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "maximalPvalue", 
-      "parameter": true, 
-      "order": 13, 
-      "uid": "b2b31c12-b1aa-4b7f-ace7-005035b92ed7"
     }
   }, 
   {
@@ -266,17 +96,68 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "maxReported", 
-      "short_name": "max", 
+      "name": "weightPAGE", 
+      "short_name": "wei", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "maxReported", 
+      "variable": "weightPAGE", 
       "parameter": true, 
-      "order": 15, 
-      "uid": "86a886d5-7acc-41b4-9f01-09505385550c"
+      "order": 22, 
+      "uid": "22268dfd-5362-45b8-bcec-8bbfa547b826"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "interactions", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "interactions", 
+      "parameter": false, 
+      "order": 7, 
+      "uid": "303998af-0f97-4895-b5fb-1ec57f0ab706"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "ont2", 
+      "short_name": "ont", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ont2", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "3b0d4d2e-177e-4054-81d1-a841f4761f94"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "weightGSEA", 
+      "short_name": "wei", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weightGSEA", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "3e15d380-742f-4134-8093-097e053bdccb"
     }
   }, 
   {
@@ -300,51 +181,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "minimalSetSize", 
-      "short_name": "min", 
+      "name": "inputData", 
+      "short_name": "inp", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "minimalSetSize", 
-      "parameter": true, 
-      "order": 17, 
-      "uid": "c71c5076-fc5b-4b4e-823c-68350224caef"
+      "parameter_type": null, 
+      "variable": "inputData", 
+      "parameter": false, 
+      "order": 21, 
+      "uid": "4b925bc7-8605-472b-856d-35c0ec4441d2"
     }
   }, 
   {
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "weightFisher", 
-      "short_name": "wei", 
+      "name": "ont1", 
+      "short_name": "ont", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "weightFisher", 
-      "parameter": true, 
-      "order": 18, 
-      "uid": "fd4cc0d1-621d-43da-b03a-e938b104011d"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "posClassVal", 
-      "short_name": "pos", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "posClassVal", 
-      "parameter": true, 
-      "order": 19, 
-      "uid": "f78ab9ea-d0aa-41e4-afc2-383f0c74ce5d"
+      "parameter_type": null, 
+      "variable": "ont1", 
+      "parameter": false, 
+      "order": 5, 
+      "uid": "5a86e8aa-9230-4bd3-80f2-3b2bc2ebc2b8"
     }
   }, 
   {
@@ -368,34 +232,170 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "inputData", 
-      "short_name": "inp", 
+      "name": "ont3", 
+      "short_name": "ont", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "inputData", 
+      "variable": "ont3", 
       "parameter": false, 
-      "order": 21, 
-      "uid": "4b925bc7-8605-472b-856d-35c0ec4441d2"
+      "order": 3, 
+      "uid": "5b1a953e-0cf6-401b-81ce-f1773e0ca1f9"
     }
   }, 
   {
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
-      "name": "weightPAGE", 
+      "name": "maxReported", 
+      "short_name": "max", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxReported", 
+      "parameter": true, 
+      "order": 15, 
+      "uid": "86a886d5-7acc-41b4-9f01-09505385550c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "maxNumTerms", 
+      "short_name": "max", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxNumTerms", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "8cbf4e91-616c-4b35-a16e-86c6ca1e2dd4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "maximalPvalue", 
+      "short_name": "max", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maximalPvalue", 
+      "parameter": true, 
+      "order": 13, 
+      "uid": "b2b31c12-b1aa-4b7f-ace7-005035b92ed7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "minimalSetSize", 
+      "short_name": "min", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minimalSetSize", 
+      "parameter": true, 
+      "order": 17, 
+      "uid": "c71c5076-fc5b-4b4e-823c-68350224caef"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "wracc_k", 
+      "short_name": "wra", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wracc_k", 
+      "parameter": true, 
+      "order": 12, 
+      "uid": "cb312cf6-2e82-4f17-8f36-8b0f8d17a8e0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "d8412f16-25bd-4109-8208-12be9bd4fa17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "mapping", 
+      "short_name": "map", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "mapping", 
+      "parameter": false, 
+      "order": 10, 
+      "uid": "e9b6fee9-ca19-4aaf-9acf-9ecb98f11f5b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "posClassVal", 
+      "short_name": "pos", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "posClassVal", 
+      "parameter": true, 
+      "order": 19, 
+      "uid": "f78ab9ea-d0aa-41e4-afc2-383f0c74ce5d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "weightFisher", 
       "short_name": "wei", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "weightPAGE", 
+      "variable": "weightFisher", 
       "parameter": true, 
-      "order": 22, 
-      "uid": "22268dfd-5362-45b8-bcec-8bbfa547b826"
+      "order": 18, 
+      "uid": "fd4cc0d1-621d-43da-b03a-e938b104011d"
     }
   }, 
   {

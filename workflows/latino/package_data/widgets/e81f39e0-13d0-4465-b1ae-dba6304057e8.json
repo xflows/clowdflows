@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "e81f39e0-13d0-4465-b1ae-dba6304057e8", 
-      "name": "BOW Model", 
-      "short_name": "bow", 
-      "default": "", 
-      "description": "Latino.TextMining.BowSpace", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "bow", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "c73db64c-9d63-6560-cfd5-43e966819e6a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "e81f39e0-13d0-4465-b1ae-dba6304057e8", 
       "name": "Index of First Retrieved Word", 
       "short_name": "int", 
       "default": "1", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "61c01bdf-6add-cd59-aebd-e4dac714dacc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e81f39e0-13d0-4465-b1ae-dba6304057e8", 
+      "name": "BOW Model", 
+      "short_name": "bow", 
+      "default": "", 
+      "description": "Latino.TextMining.BowSpace", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "bow", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c73db64c-9d63-6560-cfd5-43e966819e6a"
     }
   }, 
   {

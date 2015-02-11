@@ -62,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "54f29d7e-a8a6-4cbb-a042-8cdf89328a2b", 
-      "name": "Feature Condition", 
-      "short_name": "str", 
+      "name": "Include Document Identifier", 
+      "short_name": "bol", 
       "default": "", 
-      "description": "Condition which tokens to include based on their features.\r\nFormat examples:\r\n-Feature1 (don't include tokens with Feature1 set ta any value)\r\n-Feature1=Value1 (don't include tokens with Feature1 set to the value Value1)\r\n-Feature1 +Feature2 (don't include tokens with Feature1 set unless it has also Feature2 set)\r\n-Feature1=Value1 +Feature2 (don't include tokens with Feature1 set to Value1 unless it has also Feature2 set to any value)...", 
-      "required": false, 
+      "description": "System.Boolean", 
+      "required": true, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "elementFeatureConditions", 
+      "parameter_type": "checkbox", 
+      "variable": "includeDocId", 
       "parameter": true, 
-      "order": 3, 
-      "uid": "a7486c8d-0b1c-3a32-999f-15107c13c3f4"
+      "order": 5, 
+      "uid": "507de999-1802-700d-27e5-ea5f972bc8e7"
     }
   }, 
   {
@@ -96,17 +96,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "54f29d7e-a8a6-4cbb-a042-8cdf89328a2b", 
-      "name": "Include Document Identifier", 
-      "short_name": "bol", 
+      "name": "Feature Condition", 
+      "short_name": "str", 
       "default": "", 
-      "description": "System.Boolean", 
-      "required": true, 
+      "description": "Condition which tokens to include based on their features.\r\nFormat examples:\r\n-Feature1 (don't include tokens with Feature1 set ta any value)\r\n-Feature1=Value1 (don't include tokens with Feature1 set to the value Value1)\r\n-Feature1 +Feature2 (don't include tokens with Feature1 set unless it has also Feature2 set)\r\n-Feature1=Value1 +Feature2 (don't include tokens with Feature1 set to Value1 unless it has also Feature2 set to any value)...", 
+      "required": false, 
       "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "includeDocId", 
+      "parameter_type": "text", 
+      "variable": "elementFeatureConditions", 
       "parameter": true, 
-      "order": 5, 
-      "uid": "507de999-1802-700d-27e5-ea5f972bc8e7"
+      "order": 3, 
+      "uid": "a7486c8d-0b1c-3a32-999f-15107c13c3f4"
     }
   }, 
   {

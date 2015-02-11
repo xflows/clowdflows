@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a92685c6-aeca-42bd-af49-c815ebafb573", 
-      "name": "Classifier", 
-      "short_name": "csf", 
-      "default": "", 
-      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "csf", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "d48016c2-edb0-265e-c40a-858745ab012b"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "a92685c6-aeca-42bd-af49-c815ebafb573", 
       "name": "Dataset", 
       "short_name": "ds", 
       "default": "", 
@@ -59,15 +42,20 @@
     }
   }, 
   {
-    "model": "workflows.abstractoutput", 
+    "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a92685c6-aeca-42bd-af49-c815ebafb573", 
-      "name": "Prediction(s)", 
-      "short_name": "prd", 
-      "description": "", 
-      "variable": "predictions", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "default": "", 
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "csf", 
+      "parameter": false, 
       "order": 1, 
-      "uid": "efaba4b6-3b66-e7b9-f361-866c6104c3ed"
+      "uid": "d48016c2-edb0-265e-c40a-858745ab012b"
     }
   }, 
   {
@@ -80,6 +68,18 @@
       "variable": "ds", 
       "order": 2, 
       "uid": "3a72cfc4-179d-8db9-8086-6017f697e3b8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a92685c6-aeca-42bd-af49-c815ebafb573", 
+      "name": "Prediction(s)", 
+      "short_name": "prd", 
+      "description": "", 
+      "variable": "predictions", 
+      "order": 1, 
+      "uid": "efaba4b6-3b66-e7b9-f361-866c6104c3ed"
     }
   }
 ]

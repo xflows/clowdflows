@@ -28,6 +28,40 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Inhibition", 
+      "short_name": "inh", 
+      "default": "", 
+      "description": "CSV file with inhibitions.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "inhibition", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "17545bf5-42d0-44ec-8c20-734031a85dc4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Inhibition passive", 
+      "short_name": "inp", 
+      "default": "", 
+      "description": "CSV file with passive forms of inhibition.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "inhibition_passive", 
+      "parameter": false, 
+      "order": 7, 
+      "uid": "29aeb4f1-d4e9-4506-b62a-6dfd2db8e029"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
       "name": "Compounds", 
       "short_name": "cmp", 
       "default": "", 
@@ -79,40 +113,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
-      "name": "Inhibition", 
-      "short_name": "inh", 
-      "default": "", 
-      "description": "CSV file with inhibitions.", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "inhibition", 
-      "parameter": false, 
-      "order": 4, 
-      "uid": "17545bf5-42d0-44ec-8c20-734031a85dc4"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
-      "name": "Binding", 
-      "short_name": "bnd", 
-      "default": "", 
-      "description": "CSV file with bindings.", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "binding", 
-      "parameter": false, 
-      "order": 5, 
-      "uid": "eac8c9d4-a0ab-414e-a083-54a5f860e031"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
       "name": "Activation passive", 
       "short_name": "acp", 
       "default": "", 
@@ -130,17 +130,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
-      "name": "Inhibition passive", 
-      "short_name": "inp", 
+      "name": "Binding", 
+      "short_name": "bnd", 
       "default": "", 
-      "description": "CSV file with passive forms of inhibition.", 
+      "description": "CSV file with bindings.", 
       "required": true, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "inhibition_passive", 
+      "variable": "binding", 
       "parameter": false, 
-      "order": 7, 
-      "uid": "29aeb4f1-d4e9-4506-b62a-6dfd2db8e029"
+      "order": 5, 
+      "uid": "eac8c9d4-a0ab-414e-a083-54a5f860e031"
     }
   }, 
   {

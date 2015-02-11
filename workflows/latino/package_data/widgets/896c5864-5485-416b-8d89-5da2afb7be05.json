@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "896c5864-5485-416b-8d89-5da2afb7be05", 
+      "name": "Num of Threads", 
+      "short_name": "int", 
+      "default": "1", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numThreads", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "279fff3f-5f66-58f1-5a03-3c51d5648c95"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "896c5864-5485-416b-8d89-5da2afb7be05", 
       "name": "Move Data", 
       "short_name": "bol", 
       "default": "false", 
@@ -45,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "896c5864-5485-416b-8d89-5da2afb7be05", 
-      "name": "Num of Iterations", 
-      "short_name": "int", 
-      "default": "100", 
-      "description": "System.Int32", 
+      "name": "Normalize", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "numIter", 
+      "parameter_type": "checkbox", 
+      "variable": "normalize", 
       "parameter": true, 
-      "order": 2, 
-      "uid": "c31bbe9d-0354-503d-b9b3-807e7844a237"
+      "order": 5, 
+      "uid": "61c3861b-b61c-01a3-ae0e-62ac34a292f8"
     }
   }, 
   {
@@ -79,34 +96,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "896c5864-5485-416b-8d89-5da2afb7be05", 
-      "name": "Num of Threads", 
+      "name": "Num of Iterations", 
       "short_name": "int", 
-      "default": "1", 
+      "default": "100", 
       "description": "System.Int32", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "numThreads", 
+      "variable": "numIter", 
       "parameter": true, 
-      "order": 4, 
-      "uid": "279fff3f-5f66-58f1-5a03-3c51d5648c95"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "896c5864-5485-416b-8d89-5da2afb7be05", 
-      "name": "Normalize", 
-      "short_name": "bol", 
-      "default": "false", 
-      "description": "System.Boolean", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "normalize", 
-      "parameter": true, 
-      "order": 5, 
-      "uid": "61c3861b-b61c-01a3-ae0e-62ac34a292f8"
+      "order": 2, 
+      "uid": "c31bbe9d-0354-503d-b9b3-807e7844a237"
     }
   }, 
   {

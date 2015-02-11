@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ae7f1d26-8477-4192-b7e6-5b35a055074c", 
-      "name": "Timeout", 
-      "short_name": "tmo", 
-      "default": "300", 
-      "description": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "timeout", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "df47c26c-4440-4dd0-9abb-b00759c5d4a5"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "ae7f1d26-8477-4192-b7e6-5b35a055074c", 
       "name": "Learner", 
       "short_name": "lrn", 
       "default": "", 
@@ -79,6 +62,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ae7f1d26-8477-4192-b7e6-5b35a055074c", 
+      "name": "Timeout", 
+      "short_name": "tmo", 
+      "default": "300", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "df47c26c-4440-4dd0-9abb-b00759c5d4a5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ae7f1d26-8477-4192-b7e6-5b35a055074c", 
       "name": "Number of Folds for Cross-Validation", 
       "short_name": "kfl", 
       "default": "10", 
@@ -107,18 +107,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "10", 
-      "uid": "7878abe8-7d00-463f-872d-f454086fac37", 
-      "value": "10", 
-      "abstract_input": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "2", 
-      "uid": "3909de0e-c5af-41ff-a784-568e68eb7993", 
-      "value": "2", 
+      "name": "9", 
+      "uid": "27b1c2e5-ef44-4614-abc0-0de7d4c62d79", 
+      "value": "9", 
       "abstract_input": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9"
     }
   }, 
@@ -134,36 +125,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "4", 
-      "uid": "aa0f50f5-4389-4a14-8480-ba18f754a83d", 
-      "value": "4", 
+      "name": "2", 
+      "uid": "3909de0e-c5af-41ff-a784-568e68eb7993", 
+      "value": "2", 
       "abstract_input": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "5", 
-      "uid": "83b4ef78-205f-44da-bae1-4d1b8e939b75", 
-      "value": "5", 
-      "abstract_input": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "6", 
-      "uid": "ea261928-74fe-488e-a6cb-09c22f044879", 
-      "value": "6", 
-      "abstract_input": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "7", 
-      "uid": "8e68a530-d7b1-4fd5-875b-c4cc2ab6508f", 
-      "value": "7", 
+      "name": "10", 
+      "uid": "7878abe8-7d00-463f-872d-f454086fac37", 
+      "value": "10", 
       "abstract_input": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9"
     }
   }, 
@@ -179,9 +152,36 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "9", 
-      "uid": "27b1c2e5-ef44-4614-abc0-0de7d4c62d79", 
-      "value": "9", 
+      "name": "5", 
+      "uid": "83b4ef78-205f-44da-bae1-4d1b8e939b75", 
+      "value": "5", 
+      "abstract_input": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "7", 
+      "uid": "8e68a530-d7b1-4fd5-875b-c4cc2ab6508f", 
+      "value": "7", 
+      "abstract_input": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "4", 
+      "uid": "aa0f50f5-4389-4a14-8480-ba18f754a83d", 
+      "value": "4", 
+      "abstract_input": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "6", 
+      "uid": "ea261928-74fe-488e-a6cb-09c22f044879", 
+      "value": "6", 
       "abstract_input": "e70d523f-e740-4d69-a0be-fed6b8ec0ba9"
     }
   }

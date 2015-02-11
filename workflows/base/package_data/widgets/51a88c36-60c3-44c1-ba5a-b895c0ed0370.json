@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "51a88c36-60c3-44c1-ba5a-b895c0ed0370", 
-      "name": "Data", 
-      "short_name": "dat", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "data", 
-      "parameter": false, 
-      "order": 0, 
-      "uid": "c6ddfb2b-a04a-448e-a853-8b4e13d4ccdf"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "51a88c36-60c3-44c1-ba5a-b895c0ed0370", 
       "name": "Time", 
       "short_name": "tim", 
       "default": "10", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 0, 
       "uid": "1a463ddc-289a-4250-ae41-9f7a3eb81881"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "51a88c36-60c3-44c1-ba5a-b895c0ed0370", 
+      "name": "Data", 
+      "short_name": "dat", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "c6ddfb2b-a04a-448e-a853-8b4e13d4ccdf"
     }
   }, 
   {

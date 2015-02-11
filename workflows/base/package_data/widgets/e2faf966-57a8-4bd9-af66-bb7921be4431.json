@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "e2faf966-57a8-4bd9-af66-bb7921be4431", 
+      "name": "Ensemble Name", 
+      "short_name": "enn", 
+      "default": "Untitled Ensemble", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "ens_name", 
+      "parameter": true, 
+      "order": 0, 
+      "uid": "1fa7cc01-afac-4c8c-86d5-829662939661"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2faf966-57a8-4bd9-af66-bb7921be4431", 
       "name": "Data Indices", 
       "short_name": "dis", 
       "default": "", 
@@ -59,23 +76,6 @@
     }
   }, 
   {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "e2faf966-57a8-4bd9-af66-bb7921be4431", 
-      "name": "Ensemble Name", 
-      "short_name": "enn", 
-      "default": "Untitled Ensemble", 
-      "description": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "ens_name", 
-      "parameter": true, 
-      "order": 0, 
-      "uid": "1fa7cc01-afac-4c8c-86d5-829662939661"
-    }
-  }, 
-  {
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "e2faf966-57a8-4bd9-af66-bb7921be4431", 
@@ -90,18 +90,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Consensus", 
-      "uid": "7f71a3e6-cb99-4161-a62e-988424dc4598", 
-      "value": "consensus", 
+      "name": "Majority", 
+      "uid": "08bd84cc-2333-411c-9645-d0ac1f85b1dc", 
+      "value": "majority", 
       "abstract_input": "d07ef228-561f-49d0-8ea5-5e4638d14b76"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Majority", 
-      "uid": "08bd84cc-2333-411c-9645-d0ac1f85b1dc", 
-      "value": "majority", 
+      "name": "Consensus", 
+      "uid": "7f71a3e6-cb99-4161-a62e-988424dc4598", 
+      "value": "consensus", 
       "abstract_input": "d07ef228-561f-49d0-8ea5-5e4638d14b76"
     }
   }

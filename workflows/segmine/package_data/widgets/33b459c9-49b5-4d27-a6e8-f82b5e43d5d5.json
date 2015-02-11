@@ -45,17 +45,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
-      "name": "Fold change values", 
-      "short_name": "fc", 
-      "default": "", 
-      "description": "sorted list of pairs (geneID, logFC)", 
-      "required": true, 
+      "name": "Absolute", 
+      "short_name": "abs", 
+      "default": "true", 
+      "description": "absolute or not", 
+      "required": false, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "logfcs", 
-      "parameter": false, 
-      "order": 2, 
-      "uid": "b66d62cd-ee76-4e31-9ed9-c09741a2b567"
+      "parameter_type": "checkbox", 
+      "variable": "absolute", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "1a9e6e81-0484-4819-97aa-7485ff625da5"
     }
   }, 
   {
@@ -79,6 +79,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
+      "name": "Fold change values", 
+      "short_name": "fc", 
+      "default": "", 
+      "description": "sorted list of pairs (geneID, logFC)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "logfcs", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "b66d62cd-ee76-4e31-9ed9-c09741a2b567"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
       "name": "Lower bound", 
       "short_name": "lb", 
       "default": "", 
@@ -93,20 +110,15 @@
     }
   }, 
   {
-    "model": "workflows.abstractinput", 
+    "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
-      "name": "Absolute", 
-      "short_name": "abs", 
-      "default": "true", 
-      "description": "absolute or not", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "absolute", 
-      "parameter": true, 
-      "order": 5, 
-      "uid": "1a9e6e81-0484-4819-97aa-7485ff625da5"
+      "name": "Filtered fold change values", 
+      "short_name": "ffc", 
+      "description": "Filtered ordered list of pairs (geneID, logFC)", 
+      "variable": "filtered_logfcs", 
+      "order": 2, 
+      "uid": "9aa32968-3378-4e02-bbb0-6f8ba4dbc5b8"
     }
   }, 
   {
@@ -119,18 +131,6 @@
       "variable": "filtered_ranks", 
       "order": 1, 
       "uid": "a601e367-5952-4980-8cc1-2d621e3f6327"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
-      "name": "Filtered fold change values", 
-      "short_name": "ffc", 
-      "description": "Filtered ordered list of pairs (geneID, logFC)", 
-      "variable": "filtered_logfcs", 
-      "order": 2, 
-      "uid": "9aa32968-3378-4e02-bbb0-6f8ba4dbc5b8"
     }
   }
 ]

@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "689d4395-35d0-40eb-8355-60e3582abd8f", 
-      "name": "Initial network", 
-      "short_name": "inw", 
-      "default": "", 
-      "description": "Initial network as a NetworkX data structure.", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "initial_network", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "c58c938f-e283-4900-8c66-589d9f470a1a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "689d4395-35d0-40eb-8355-60e3582abd8f", 
       "name": "New network", 
       "short_name": "nnw", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "0c36aec5-7df4-4406-8d3c-d2c10cd876ed"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "689d4395-35d0-40eb-8355-60e3582abd8f", 
+      "name": "Initial network", 
+      "short_name": "inw", 
+      "default": "", 
+      "description": "Initial network as a NetworkX data structure.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "initial_network", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c58c938f-e283-4900-8c66-589d9f470a1a"
     }
   }, 
   {

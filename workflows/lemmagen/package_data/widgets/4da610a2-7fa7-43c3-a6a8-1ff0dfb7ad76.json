@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "4da610a2-7fa7-43c3-a6a8-1ff0dfb7ad76", 
-      "name": "Table of Examples", 
-      "short_name": "tbl", 
-      "default": "", 
-      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "table", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "e7ab13dc-67ee-c336-8594-a90fedb525fb"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "4da610a2-7fa7-43c3-a6a8-1ff0dfb7ad76", 
       "name": "Format", 
       "short_name": "str", 
       "default": "WLM", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "e24d9536-2890-fa60-1c7c-2618dee689f1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4da610a2-7fa7-43c3-a6a8-1ff0dfb7ad76", 
+      "name": "Table of Examples", 
+      "short_name": "tbl", 
+      "default": "", 
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "table", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e7ab13dc-67ee-c336-8594-a90fedb525fb"
     }
   }, 
   {

@@ -45,6 +45,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "77ce37e0-7cbd-4f6b-8877-b743b8ebd448", 
+      "name": "Annotations to be produced", 
+      "short_name": "ann", 
+      "default": "Token", 
+      "description": "How to annotate found sentences", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "outputAnnotations", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "8c781452-1924-dc90-e405-787c3c6d3124"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "77ce37e0-7cbd-4f6b-8877-b743b8ebd448", 
       "name": "Tokenizer", 
       "short_name": "tkn", 
       "default": "", 
@@ -73,23 +90,6 @@
       "parameter": true, 
       "order": 3, 
       "uid": "ecb3bf15-fa48-6a10-aa11-dfc62fb0ee46"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "77ce37e0-7cbd-4f6b-8877-b743b8ebd448", 
-      "name": "Annotations to be produced", 
-      "short_name": "ann", 
-      "default": "Token", 
-      "description": "How to annotate found sentences", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "outputAnnotations", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "8c781452-1924-dc90-e405-787c3c6d3124"
     }
   }, 
   {

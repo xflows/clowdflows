@@ -45,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "38c5a557-3fcb-40de-910b-341397c5f7fb", 
-      "name": "kernel", 
-      "short_name": "par", 
-      "default": "rbf", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "kernelIn", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "e1d631a9-e85b-4734-a3df-813b638def50"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "38c5a557-3fcb-40de-910b-341397c5f7fb", 
       "name": "degree", 
       "short_name": "par", 
       "default": "3", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 1, 
       "uid": "8f21f50d-caf6-4bdb-9dd4-0c5e35466cac"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "38c5a557-3fcb-40de-910b-341397c5f7fb", 
+      "name": "kernel", 
+      "short_name": "par", 
+      "default": "rbf", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "kernelIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e1d631a9-e85b-4734-a3df-813b638def50"
     }
   }, 
   {
@@ -90,15 +90,6 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "linear", 
-      "uid": "83eb0b69-b114-4b9b-a539-562203555834", 
-      "value": "linear", 
-      "abstract_input": "e1d631a9-e85b-4734-a3df-813b638def50"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
       "name": "poly", 
       "uid": "1a2e2e5e-68e0-4da8-8ba5-10991a198a1c", 
       "value": "poly", 
@@ -108,9 +99,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "rbf", 
-      "uid": "d0507071-d708-49eb-b83b-6d515c94bd96", 
-      "value": "rbf", 
+      "name": "linear", 
+      "uid": "83eb0b69-b114-4b9b-a539-562203555834", 
+      "value": "linear", 
       "abstract_input": "e1d631a9-e85b-4734-a3df-813b638def50"
     }
   }, 
@@ -120,6 +111,15 @@
       "name": "sigmoid", 
       "uid": "97aa6d96-c845-433b-a899-cb893ff60538", 
       "value": "sigmoid", 
+      "abstract_input": "e1d631a9-e85b-4734-a3df-813b638def50"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "rbf", 
+      "uid": "d0507071-d708-49eb-b83b-6d515c94bd96", 
+      "value": "rbf", 
       "abstract_input": "e1d631a9-e85b-4734-a3df-813b638def50"
     }
   }

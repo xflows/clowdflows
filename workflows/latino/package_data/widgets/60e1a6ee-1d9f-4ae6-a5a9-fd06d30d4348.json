@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "60e1a6ee-1d9f-4ae6-a5a9-fd06d30d4348", 
-      "name": "Raw Text File", 
-      "short_name": "fil", 
-      "default": "", 
-      "description": "Input Text File: Contains one document per line - the whole line represents text from the body of a document.", 
-      "required": false, 
+      "name": "First words in a line (after optional title) with preceding exclamation (!) present labels", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "file", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "d66b7ce4-8aa4-d26e-db69-762683ee0e3e"
+      "parameter_type": "checkbox", 
+      "variable": "leadingLabels", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "bc7ca808-781e-4de4-09cb-2bf3ff1f8954"
     }
   }, 
   {
@@ -62,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "60e1a6ee-1d9f-4ae6-a5a9-fd06d30d4348", 
-      "name": "First words in a line (after optional title) with preceding exclamation (!) present labels", 
-      "short_name": "bol", 
-      "default": "false", 
-      "description": "System.Boolean", 
-      "required": true, 
+      "name": "Raw Text File", 
+      "short_name": "fil", 
+      "default": "", 
+      "description": "Input Text File: Contains one document per line - the whole line represents text from the body of a document.", 
+      "required": false, 
       "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "leadingLabels", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "bc7ca808-781e-4de4-09cb-2bf3ff1f8954"
+      "parameter_type": null, 
+      "variable": "file", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d66b7ce4-8aa4-d26e-db69-762683ee0e3e"
     }
   }, 
   {

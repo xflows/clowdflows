@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
-      "name": "learners", 
-      "short_name": "lrn", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": true, 
-      "parameter_type": null, 
-      "variable": "learners", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "b77f51b3-6c21-4d6a-922a-bbbb4679155d"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "default": "", 
@@ -62,17 +45,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
-      "name": "Proportion", 
-      "short_name": "prp", 
-      "default": "0.7", 
+      "name": "learners", 
+      "short_name": "lrn", 
+      "default": "", 
       "description": "", 
       "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "learnProp", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "ff523b52-e08b-4da5-bb2c-7050731dcf16"
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "learners", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "b77f51b3-6c21-4d6a-922a-bbbb4679155d"
     }
   }, 
   {
@@ -90,6 +73,23 @@
       "parameter": true, 
       "order": 4, 
       "uid": "da5ab14e-9e1c-4395-b6ce-8ff0d53de4c9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
+      "name": "Proportion", 
+      "short_name": "prp", 
+      "default": "0.7", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "learnProp", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "ff523b52-e08b-4da5-bb2c-7050731dcf16"
     }
   }, 
   {

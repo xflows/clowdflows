@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "5cab835b-82f8-4146-a4d0-ff3b3f923395", 
-      "name": "Evaluation Results", 
-      "short_name": "res", 
-      "default": "", 
-      "description": "Evaluation results", 
+      "name": "Class Index", 
+      "short_name": "cli", 
+      "default": "-1", 
+      "description": "Index of class value for which the confusion matrices are to be computed.", 
       "required": false, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "results", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "cbce1aeb-69f9-44ab-9ba1-58e7f7c7edd2"
+      "parameter_type": "text", 
+      "variable": "classIndex", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "93b12c97-c01a-42a9-a934-b9c0a220f67a"
     }
   }, 
   {
@@ -62,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "5cab835b-82f8-4146-a4d0-ff3b3f923395", 
-      "name": "Class Index", 
-      "short_name": "cli", 
-      "default": "-1", 
-      "description": "Index of class value for which the confusion matrices are to be computed.", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "Evaluation results", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "classIndex", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "93b12c97-c01a-42a9-a934-b9c0a220f67a"
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "cbce1aeb-69f9-44ab-9ba1-58e7f7c7edd2"
     }
   }, 
   {

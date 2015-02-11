@@ -45,18 +45,6 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "5fd9822b-fcd7-4f83-a61d-478501b658f5", 
-      "name": "Number of Documents", 
-      "short_name": "int", 
-      "description": "", 
-      "variable": "docCount", 
-      "order": 1, 
-      "uid": "52b4b4ac-1637-7deb-ec6a-593c215dadc2"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "5fd9822b-fcd7-4f83-a61d-478501b658f5", 
       "name": "Number of Features", 
       "short_name": "int", 
       "description": "", 
@@ -75,6 +63,18 @@
       "variable": "description", 
       "order": 3, 
       "uid": "37f67dc5-1349-01dc-037a-3da9e156c871"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5fd9822b-fcd7-4f83-a61d-478501b658f5", 
+      "name": "Number of Documents", 
+      "short_name": "int", 
+      "description": "", 
+      "variable": "docCount", 
+      "order": 1, 
+      "uid": "52b4b4ac-1637-7deb-ec6a-593c215dadc2"
     }
   }
 ]

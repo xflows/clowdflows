@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "b1282be2-08f1-441e-9276-a05c0e6ab3ba", 
-      "name": "Text", 
-      "short_name": "str", 
-      "default": "", 
-      "description": "System.Object", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "text", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "45d86c20-4d28-d6f5-0eb7-aaf9b3aaff54"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "b1282be2-08f1-441e-9276-a05c0e6ab3ba", 
       "name": "Token Tagger", 
       "short_name": "tgr", 
       "default": "", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "362bc947-acec-8ccd-8cc9-2545d8a672db"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b1282be2-08f1-441e-9276-a05c0e6ab3ba", 
+      "name": "Text", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "45d86c20-4d28-d6f5-0eb7-aaf9b3aaff54"
     }
   }, 
   {

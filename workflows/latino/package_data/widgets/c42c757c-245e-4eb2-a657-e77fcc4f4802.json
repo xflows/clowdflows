@@ -45,17 +45,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
-      "name": "Dataset", 
-      "short_name": "ds", 
-      "default": "", 
-      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "name": "Random Seed", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "System.Int32", 
       "required": true, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "ds", 
-      "parameter": false, 
-      "order": 2, 
-      "uid": "eeab1227-dfa8-31df-b27b-2a27efeda6b0"
+      "parameter_type": "text", 
+      "variable": "randomSeed", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "15d0d98c-b25b-e7fc-19f1-d547a0dddd14"
     }
   }, 
   {
@@ -79,23 +79,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
-      "name": "Assign Sets Randomly", 
-      "short_name": "bol", 
-      "default": "true", 
-      "description": "System.Boolean", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "random", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "f7bb77e7-327e-5794-f330-186d669d6b1b"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
       "name": "Use Seed for Random", 
       "short_name": "bol", 
       "default": "false", 
@@ -113,17 +96,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
-      "name": "Random Seed", 
-      "short_name": "int", 
-      "default": "0", 
-      "description": "System.Int32", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "randomSeed", 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "eeab1227-dfa8-31df-b27b-2a27efeda6b0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
+      "name": "Assign Sets Randomly", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "random", 
       "parameter": true, 
-      "order": 6, 
-      "uid": "15d0d98c-b25b-e7fc-19f1-d547a0dddd14"
+      "order": 4, 
+      "uid": "f7bb77e7-327e-5794-f330-186d669d6b1b"
     }
   }, 
   {

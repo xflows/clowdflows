@@ -45,24 +45,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "1e086c78-809e-4ef2-886c-95e6deedbdac", 
-      "name": "Orange data table", 
-      "short_name": "odt", 
-      "description": "Orange data table", 
-      "variable": "data", 
-      "order": 1, 
-      "uid": "cfb9e871-f966-403b-a005-9c93202c0957"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "1e086c78-809e-4ef2-886c-95e6deedbdac", 
       "name": "WSM model", 
       "short_name": "mdl", 
       "description": "WSM model", 
       "variable": "model", 
       "order": 2, 
       "uid": "6b3fa18d-a68e-44ef-94d4-0d2f13bf1c12"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1e086c78-809e-4ef2-886c-95e6deedbdac", 
+      "name": "Orange data table", 
+      "short_name": "odt", 
+      "description": "Orange data table", 
+      "variable": "data", 
+      "order": 1, 
+      "uid": "cfb9e871-f966-403b-a005-9c93202c0957"
     }
   }
 ]

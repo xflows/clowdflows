@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "83d65059-1ce9-4eb7-a2cf-abb4a9d41d5f", 
-      "name": "Training dataset", 
-      "short_name": "dst", 
-      "default": "", 
-      "description": "Define training dataset", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "training_dataset", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "15644754-4c1d-4367-a0a3-5d442b51ff89"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "83d65059-1ce9-4eb7-a2cf-abb4a9d41d5f", 
       "name": "Fitting dataset", 
       "short_name": "dst", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "104d08df-fe2a-4c11-8432-e33389017f9e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "83d65059-1ce9-4eb7-a2cf-abb4a9d41d5f", 
+      "name": "Training dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "Define training dataset", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "training_dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "15644754-4c1d-4367-a0a3-5d442b51ff89"
     }
   }, 
   {

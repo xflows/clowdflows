@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "0b5f2281-fdc0-4141-8670-fd40ed35f0a8", 
-      "name": "Dataset", 
-      "short_name": "ds", 
-      "default": "", 
-      "description": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "data", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "fab033ae-1a59-40f0-b51c-3e11afcdf44c"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "0b5f2281-fdc0-4141-8670-fd40ed35f0a8", 
       "name": "Threshold", 
       "short_name": "thd", 
       "default": "10", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "b44f486b-4459-435d-b89a-20809e1fdf9c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0b5f2281-fdc0-4141-8670-fd40ed35f0a8", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "fab033ae-1a59-40f0-b51c-3e11afcdf44c"
     }
   }, 
   {

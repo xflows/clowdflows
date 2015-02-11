@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "77f625ba-46fd-4c7c-bcc1-ab279682a02c", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "0cd58b20-a46d-42ba-b1ea-e63f77bce087"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "77f625ba-46fd-4c7c-bcc1-ab279682a02c", 
       "name": "Timeout", 
       "short_name": "to", 
       "default": "60", 
@@ -56,23 +73,6 @@
       "parameter": true, 
       "order": 2, 
       "uid": "48127408-7f94-47bc-93d7-723787cccbe9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "77f625ba-46fd-4c7c-bcc1-ab279682a02c", 
-      "name": "Params", 
-      "short_name": "par", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "params", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "0cd58b20-a46d-42ba-b1ea-e63f77bce087"
     }
   }, 
   {

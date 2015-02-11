@@ -45,6 +45,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
+      "name": "Instances", 
+      "short_name": "ins", 
+      "default": "", 
+      "description": "Provided data.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "278891e3-2530-4c9b-9871-57e6b6ad4070"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "default": "true", 
@@ -76,23 +93,6 @@
     }
   }, 
   {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
-      "name": "Instances", 
-      "short_name": "ins", 
-      "default": "", 
-      "description": "Provided data.", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "instances", 
-      "parameter": false, 
-      "order": 4, 
-      "uid": "278891e3-2530-4c9b-9871-57e6b6ad4070"
-    }
-  }, 
-  {
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
@@ -108,24 +108,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
-      "name": "Number of Clusters", 
-      "short_name": "num", 
-      "description": "Number of data clusters based on the clustering done", 
-      "variable": "number_of_clusters", 
-      "order": 2, 
-      "uid": "618a6e7b-54a2-4ee0-8356-6819a88451c7"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
       "name": "Centroids", 
       "short_name": "cen", 
       "description": "Number of centroids based on the clustering done", 
       "variable": "centroids", 
       "order": 3, 
       "uid": "39951e7d-8354-49b6-aa26-cbbc5be2285a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
+      "name": "Number of Clusters", 
+      "short_name": "num", 
+      "description": "Number of data clusters based on the clustering done", 
+      "variable": "number_of_clusters", 
+      "order": 2, 
+      "uid": "618a6e7b-54a2-4ee0-8356-6819a88451c7"
     }
   }
 ]

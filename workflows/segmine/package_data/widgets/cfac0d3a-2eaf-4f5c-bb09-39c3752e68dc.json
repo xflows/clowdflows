@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
-      "name": "Group nodes", 
-      "short_name": "grn", 
-      "default": "", 
-      "description": "Group nodes", 
+      "name": "Max nodes", 
+      "short_name": "mxn", 
+      "default": "0", 
+      "description": "Max nodes", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "groupNodes", 
+      "parameter_type": "text", 
+      "variable": "maxNodes", 
       "parameter": true, 
-      "order": 1, 
-      "uid": "e2effb53-e150-4833-956e-5c58b15f1eb6"
+      "order": 4, 
+      "uid": "1942dd52-a553-460b-bdba-4ef29b6a402c"
     }
   }, 
   {
@@ -79,23 +79,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
-      "name": "Max nodes", 
-      "short_name": "mxn", 
-      "default": "0", 
-      "description": "Max nodes", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "maxNodes", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "1942dd52-a553-460b-bdba-4ef29b6a402c"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
       "name": "Start nodes", 
       "short_name": "beg", 
       "default": "", 
@@ -107,6 +90,23 @@
       "parameter": false, 
       "order": 5, 
       "uid": "c68a9f13-92a1-4000-ae7d-bcf43311109e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
+      "name": "Group nodes", 
+      "short_name": "grn", 
+      "default": "", 
+      "description": "Group nodes", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "groupNodes", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e2effb53-e150-4833-956e-5c58b15f1eb6"
     }
   }, 
   {

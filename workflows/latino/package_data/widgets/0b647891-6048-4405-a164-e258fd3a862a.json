@@ -28,74 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
-      "name": "Annotated Document Corpus", 
-      "short_name": "adc", 
-      "default": "", 
-      "description": "LatinoClowdFlows.DocumentCorpus", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "adc", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "46e9da50-b6bd-488d-6e8b-39390199f715"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
-      "name": "Token Annotation", 
-      "short_name": "str", 
-      "default": "Token", 
-      "description": "System.String", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "tokenId", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "08730492-7140-e200-701c-1860a5023fe3"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
-      "name": "Stem Feature Name", 
-      "short_name": "str", 
-      "default": "stem", 
-      "description": "System.String", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "stemId", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "db0b4d1f-8f3f-a538-edc9-9972862ae8fe"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
-      "name": "Stopword Feature Name", 
-      "short_name": "str", 
-      "default": "stopword", 
-      "description": "System.String", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "stopwordId", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "b0ed88bf-6c79-591a-513a-b9e604836f94"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
       "name": "Label Document Feature Name", 
       "short_name": "str", 
       "default": "label", 
@@ -113,17 +45,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
-      "name": "Maximum N-Gram Length", 
-      "short_name": "int", 
-      "default": "2", 
-      "description": "System.Int32", 
+      "name": "Token Annotation", 
+      "short_name": "str", 
+      "default": "Token", 
+      "description": "System.String", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "maxNGramLen", 
+      "variable": "tokenId", 
       "parameter": true, 
-      "order": 6, 
-      "uid": "4453b145-995c-ea4f-45fc-631653422f42"
+      "order": 2, 
+      "uid": "08730492-7140-e200-701c-1860a5023fe3"
     }
   }, 
   {
@@ -164,17 +96,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
-      "name": "Cut Low Weights Percentage", 
-      "short_name": "dbl", 
-      "default": "0.2", 
-      "description": "System.Double", 
+      "name": "Maximum N-Gram Length", 
+      "short_name": "int", 
+      "default": "2", 
+      "description": "System.Int32", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "cutLowWeightsPerc", 
+      "variable": "maxNGramLen", 
       "parameter": true, 
-      "order": 9, 
-      "uid": "f01b5be1-c58a-a1f8-b8d3-095e9ed2ba74"
+      "order": 6, 
+      "uid": "4453b145-995c-ea4f-45fc-631653422f42"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "46e9da50-b6bd-488d-6e8b-39390199f715"
     }
   }, 
   {
@@ -192,6 +141,57 @@
       "parameter": true, 
       "order": 10, 
       "uid": "78df0885-bff7-3211-285d-5c71b25f14a3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
+      "name": "Stopword Feature Name", 
+      "short_name": "str", 
+      "default": "stopword", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "stopwordId", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "b0ed88bf-6c79-591a-513a-b9e604836f94"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
+      "name": "Stem Feature Name", 
+      "short_name": "str", 
+      "default": "stem", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "stemId", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "db0b4d1f-8f3f-a538-edc9-9972862ae8fe"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0b647891-6048-4405-a164-e258fd3a862a", 
+      "name": "Cut Low Weights Percentage", 
+      "short_name": "dbl", 
+      "default": "0.2", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cutLowWeightsPerc", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "f01b5be1-c58a-a1f8-b8d3-095e9ed2ba74"
     }
   }, 
   {
@@ -218,18 +218,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Term Freq", 
-      "uid": "d54fdea1-21e3-3ddd-4a9d-5b8be4514585", 
-      "value": "TermFreq", 
+      "name": "Tf Idf", 
+      "uid": "8bc02361-6117-d927-d4ba-d9c0919ca479", 
+      "value": "TfIdf", 
       "abstract_input": "274f41c2-90a9-282b-4241-0b1473830fe3"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Tf Idf", 
-      "uid": "8bc02361-6117-d927-d4ba-d9c0919ca479", 
-      "value": "TfIdf", 
+      "name": "Term Freq", 
+      "uid": "d54fdea1-21e3-3ddd-4a9d-5b8be4514585", 
+      "value": "TermFreq", 
       "abstract_input": "274f41c2-90a9-282b-4241-0b1473830fe3"
     }
   }

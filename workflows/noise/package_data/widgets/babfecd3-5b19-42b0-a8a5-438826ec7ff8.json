@@ -73,18 +73,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Normal", 
-      "uid": "e7657f7b-4a43-4297-b669-658418189ae5", 
-      "value": "normal", 
+      "name": "Pre-pruned ", 
+      "uid": "e44478f8-43fa-46a1-851e-c3e347e2de7b", 
+      "value": "prune", 
       "abstract_input": "6c4683c8-4be5-4115-af3d-a01aef2082b8"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Pre-pruned ", 
-      "uid": "e44478f8-43fa-46a1-851e-c3e347e2de7b", 
-      "value": "prune", 
+      "name": "Normal", 
+      "uid": "e7657f7b-4a43-4297-b669-658418189ae5", 
+      "value": "normal", 
       "abstract_input": "6c4683c8-4be5-4115-af3d-a01aef2082b8"
     }
   }

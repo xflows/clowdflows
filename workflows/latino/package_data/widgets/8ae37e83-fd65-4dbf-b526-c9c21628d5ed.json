@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "8ae37e83-fd65-4dbf-b526-c9c21628d5ed", 
+      "name": "CutOff", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cutOff", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "3e2ac4a9-3e2a-d81b-a272-6122dd6e3e2e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8ae37e83-fd65-4dbf-b526-c9c21628d5ed", 
       "name": "Move Data", 
       "short_name": "bol", 
       "default": "false", 
@@ -56,23 +73,6 @@
       "parameter": true, 
       "order": 2, 
       "uid": "bed915e1-fab9-728b-0d3c-dcb61afa34fd"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "8ae37e83-fd65-4dbf-b526-c9c21628d5ed", 
-      "name": "CutOff", 
-      "short_name": "int", 
-      "default": "0", 
-      "description": "System.Int32", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "cutOff", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "3e2ac4a9-3e2a-d81b-a272-6122dd6e3e2e"
     }
   }, 
   {

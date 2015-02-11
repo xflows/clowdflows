@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "e4d10ab3-57dd-4b79-84bc-7f92c2de8250", 
-      "name": "maxHits", 
-      "short_name": "mh", 
-      "default": "100", 
-      "description": "max number of results (0 for inf)", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "maxHits", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "7a13cece-f90d-434e-9e4b-d7d42a36635a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "e4d10ab3-57dd-4b79-84bc-7f92c2de8250", 
       "name": "query", 
       "short_name": "q", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "67b45d4f-32a5-415f-ad53-8a2caf1cd3d1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4d10ab3-57dd-4b79-84bc-7f92c2de8250", 
+      "name": "maxHits", 
+      "short_name": "mh", 
+      "default": "100", 
+      "description": "max number of results (0 for inf)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxHits", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "7a13cece-f90d-434e-9e4b-d7d42a36635a"
     }
   }, 
   {

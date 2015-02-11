@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "Bohoricica", 
+      "short_name": "boh", 
+      "default": "false", 
+      "description": "Bohoricica", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "bohoricica", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "10af1284-dba8-4bdb-9b81-a479f0ce07cb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
       "name": "Corpus", 
       "short_name": "cor", 
       "default": "", 
@@ -39,57 +56,6 @@
       "parameter": false, 
       "order": 1, 
       "uid": "462305a9-d156-42d6-888e-b64da8c4de78"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
-      "name": "WSDL", 
-      "short_name": "ws", 
-      "default": "http://vihar.ijs.si:8095/totale?wsdl", 
-      "description": "Web service address", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "wsdl", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "c4b8b86a-13ac-4e87-8708-84cfb79cd24a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
-      "name": "Language", 
-      "short_name": "lng", 
-      "default": "en", 
-      "description": "Language of the input corpus", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "lang", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "654779ff-54b8-460e-a543-c56a38a910a6"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
-      "name": "XML output", 
-      "short_name": "xml", 
-      "default": "false", 
-      "description": "Output results as XML", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "xml", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "52b80a99-9302-4816-88ed-a5e1def8822d"
     }
   }, 
   {
@@ -113,17 +79,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
-      "name": "Bohoricica", 
-      "short_name": "boh", 
+      "name": "XML output", 
+      "short_name": "xml", 
       "default": "false", 
-      "description": "Bohoricica", 
+      "description": "Output results as XML", 
       "required": false, 
       "multi": false, 
       "parameter_type": "checkbox", 
-      "variable": "bohoricica", 
+      "variable": "xml", 
       "parameter": true, 
-      "order": 6, 
-      "uid": "10af1284-dba8-4bdb-9b81-a479f0ce07cb"
+      "order": 4, 
+      "uid": "52b80a99-9302-4816-88ed-a5e1def8822d"
     }
   }, 
   {
@@ -141,6 +107,40 @@
       "parameter": true, 
       "order": 7, 
       "uid": "57f45eb8-8fae-4ca1-ae36-178c364de2a7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "en", 
+      "description": "Language of the input corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "654779ff-54b8-460e-a543-c56a38a910a6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "WSDL", 
+      "short_name": "ws", 
+      "default": "http://vihar.ijs.si:8095/totale?wsdl", 
+      "description": "Web service address", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "c4b8b86a-13ac-4e87-8708-84cfb79cd24a"
     }
   }, 
   {

@@ -45,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "8283f38a-33dc-4d0d-812d-1c58c7209469", 
-      "name": "Send empty strings to webservices", 
-      "short_name": "ses", 
-      "default": "true", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "sendemptystrings", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "9d4e54cc-013a-4997-8804-bc6329901226"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "8283f38a-33dc-4d0d-812d-1c58c7209469", 
       "name": "Params", 
       "short_name": "par", 
       "default": "", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "4c034605-af49-4af3-b1b5-ba3feb4fe5f7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8283f38a-33dc-4d0d-812d-1c58c7209469", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "9d4e54cc-013a-4997-8804-bc6329901226"
     }
   }, 
   {

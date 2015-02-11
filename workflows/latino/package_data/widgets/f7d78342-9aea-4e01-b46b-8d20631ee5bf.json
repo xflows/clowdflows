@@ -45,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f7d78342-9aea-4e01-b46b-8d20631ee5bf", 
-      "name": "Stop", 
-      "short_name": "int", 
-      "default": "10", 
-      "description": "System.Int32", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "stop", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "c707764e-6ee4-8318-565e-3c4aab14cc45"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "f7d78342-9aea-4e01-b46b-8d20631ee5bf", 
       "name": "Step", 
       "short_name": "int", 
       "default": "1", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "64dbf120-d027-0a31-a88d-e78bd15fb0c1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f7d78342-9aea-4e01-b46b-8d20631ee5bf", 
+      "name": "Stop", 
+      "short_name": "int", 
+      "default": "10", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "stop", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "c707764e-6ee4-8318-565e-3c4aab14cc45"
     }
   }, 
   {

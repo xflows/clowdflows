@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "00e860b0-d62d-4e1d-8f58-0a1755c0f0e1", 
-      "name": "Classifier", 
-      "short_name": "clf", 
-      "default": "", 
-      "description": "Classifier to be applied", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "classifier", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "fd103975-883d-4501-9fe3-9ebadb01ae4f"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "00e860b0-d62d-4e1d-8f58-0a1755c0f0e1", 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "7c16a50f-c548-4104-afd2-0f3be086fc9e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "00e860b0-d62d-4e1d-8f58-0a1755c0f0e1", 
+      "name": "Classifier", 
+      "short_name": "clf", 
+      "default": "", 
+      "description": "Classifier to be applied", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "fd103975-883d-4501-9fe3-9ebadb01ae4f"
     }
   }, 
   {

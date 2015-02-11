@@ -56,15 +56,6 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Boston (regression)", 
-      "uid": "48f974a6-5a7e-45aa-9ce9-13d092ddcaf7", 
-      "value": "boston", 
-      "abstract_input": "b29f0614-1db8-48a4-8645-9f28c5d05f66"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
       "name": "Diabetes (regression)", 
       "uid": "10f6c559-491a-471d-8853-5afa14489aa1", 
       "value": "diabetes", 
@@ -74,18 +65,27 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Iris (classification)", 
-      "uid": "dd6bb693-a735-4d43-9680-71843f8f58d9", 
-      "value": "iris", 
+      "name": "Linnerud dataset (multivariate regression)", 
+      "uid": "31ac6a55-5935-42af-9033-b31769f28c6c", 
+      "value": " linnerud", 
       "abstract_input": "b29f0614-1db8-48a4-8645-9f28c5d05f66"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Linnerud dataset (multivariate regression)", 
-      "uid": "31ac6a55-5935-42af-9033-b31769f28c6c", 
-      "value": " linnerud", 
+      "name": "Boston (regression)", 
+      "uid": "48f974a6-5a7e-45aa-9ce9-13d092ddcaf7", 
+      "value": "boston", 
+      "abstract_input": "b29f0614-1db8-48a4-8645-9f28c5d05f66"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Iris (classification)", 
+      "uid": "dd6bb693-a735-4d43-9680-71843f8f58d9", 
+      "value": "iris", 
       "abstract_input": "b29f0614-1db8-48a4-8645-9f28c5d05f66"
     }
   }

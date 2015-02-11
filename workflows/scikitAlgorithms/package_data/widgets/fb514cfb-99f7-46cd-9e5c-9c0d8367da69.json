@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fb514cfb-99f7-46cd-9e5c-9c0d8367da69", 
-      "name": "Classifier", 
-      "short_name": "cls", 
-      "default": "", 
-      "description": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "classifier", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "6b9238bf-af83-468d-83a7-dd59fc8e8bcd"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "fb514cfb-99f7-46cd-9e5c-9c0d8367da69", 
       "name": "ScikitDataset", 
       "short_name": "dts", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "2cf65003-ff21-4c06-8783-0473fe66195d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fb514cfb-99f7-46cd-9e5c-9c0d8367da69", 
+      "name": "Classifier", 
+      "short_name": "cls", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "6b9238bf-af83-468d-83a7-dd59fc8e8bcd"
     }
   }, 
   {

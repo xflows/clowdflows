@@ -45,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "9fb92534-94bf-4a07-a020-c01b20eaa00a", 
-      "name": "Distance Metrics", 
-      "short_name": "dm", 
-      "default": "0", 
-      "description": "The available Distance Metrics definitions are Euclidean, Manhattan, Hammming and Relief. Besides, of course, different formal definitions, the measures also differ in how correctly they treat unknown values. Manhattan and Hamming distance do not excel in this respect; Relief distance is similar to Manhattan, but with a more correct treatment for discrete attributes.", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "distanceMetrics", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "df5d4372-6365-4285-9c8b-261bb620ca39"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "9fb92534-94bf-4a07-a020-c01b20eaa00a", 
       "name": "Normalization", 
       "short_name": "nor", 
       "default": "", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "88835ea7-91d0-4bc7-8de0-8bba3734ef01"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9fb92534-94bf-4a07-a020-c01b20eaa00a", 
+      "name": "Distance Metrics", 
+      "short_name": "dm", 
+      "default": "0", 
+      "description": "The available Distance Metrics definitions are Euclidean, Manhattan, Hammming and Relief. Besides, of course, different formal definitions, the measures also differ in how correctly they treat unknown values. Manhattan and Hamming distance do not excel in this respect; Relief distance is similar to Manhattan, but with a more correct treatment for discrete attributes.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "distanceMetrics", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "df5d4372-6365-4285-9c8b-261bb620ca39"
     }
   }, 
   {
@@ -90,9 +90,27 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Euclidean", 
-      "uid": "b0b46bdb-c632-4559-8d1d-e450b41405d2", 
-      "value": "0", 
+      "name": "Relief", 
+      "uid": "213dba49-9471-4b03-9a1e-928de961b54b", 
+      "value": "5", 
+      "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Pearson Correlation", 
+      "uid": "2de2a685-cb40-499a-908a-8e669c7881b9", 
+      "value": "1", 
+      "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Spearman Rank Correlation", 
+      "uid": "43f56e1e-56d5-4fd5-9dd8-ba27b8a1b6fa", 
+      "value": "2", 
       "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
     }
   }, 
@@ -117,27 +135,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Pearson Correlation", 
-      "uid": "2de2a685-cb40-499a-908a-8e669c7881b9", 
-      "value": "1", 
-      "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Relief", 
-      "uid": "213dba49-9471-4b03-9a1e-928de961b54b", 
-      "value": "5", 
-      "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Spearman Rank Correlation", 
-      "uid": "43f56e1e-56d5-4fd5-9dd8-ba27b8a1b6fa", 
-      "value": "2", 
+      "name": "Euclidean", 
+      "uid": "b0b46bdb-c632-4559-8d1d-e450b41405d2", 
+      "value": "0", 
       "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
     }
   }

@@ -28,51 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
-      "name": "Group nodes", 
-      "short_name": "grn", 
+      "name": "Start nodes", 
+      "short_name": "beg", 
       "default": "", 
-      "description": "Group nodes", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "groupNodes", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "46ac2ec3-fb26-4ed0-87eb-017222ada842"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
-      "name": "Database version", 
-      "short_name": "dbv", 
-      "default": "<latest>", 
-      "description": "Database version", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "databaseVersion", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "ff783343-b1b5-4f43-9caa-1cfe35706e13"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
-      "name": "End nodes", 
-      "short_name": "end", 
-      "default": "", 
-      "description": "End nodes", 
+      "description": "Start nodes", 
       "required": true, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "endNodes", 
+      "variable": "startNodes", 
       "parameter": false, 
-      "order": 3, 
-      "uid": "9a0dc048-ae26-4bb8-ba90-76521b4843b3"
+      "order": 7, 
+      "uid": "0bb9e00a-2159-419c-8a3a-758d8ae778d1"
     }
   }, 
   {
@@ -96,17 +62,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
-      "name": "Max nodes", 
-      "short_name": "mxn", 
-      "default": "0", 
-      "description": "Max nodes", 
+      "name": "Group nodes", 
+      "short_name": "grn", 
+      "default": "", 
+      "description": "Group nodes", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "maxNodes", 
+      "parameter_type": "checkbox", 
+      "variable": "groupNodes", 
       "parameter": true, 
-      "order": 5, 
-      "uid": "ff95b75f-b4f4-4b3e-acf2-d69aa41ed948"
+      "order": 1, 
+      "uid": "46ac2ec3-fb26-4ed0-87eb-017222ada842"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "End nodes", 
+      "short_name": "end", 
+      "default": "", 
+      "description": "End nodes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "endNodes", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "9a0dc048-ae26-4bb8-ba90-76521b4843b3"
     }
   }, 
   {
@@ -130,17 +113,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
-      "name": "Start nodes", 
-      "short_name": "beg", 
-      "default": "", 
-      "description": "Start nodes", 
-      "required": true, 
+      "name": "Database version", 
+      "short_name": "dbv", 
+      "default": "<latest>", 
+      "description": "Database version", 
+      "required": false, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "startNodes", 
-      "parameter": false, 
-      "order": 7, 
-      "uid": "0bb9e00a-2159-419c-8a3a-758d8ae778d1"
+      "parameter_type": "text", 
+      "variable": "databaseVersion", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "ff783343-b1b5-4f43-9caa-1cfe35706e13"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "Max nodes", 
+      "short_name": "mxn", 
+      "default": "0", 
+      "description": "Max nodes", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxNodes", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "ff95b75f-b4f4-4b3e-acf2-d69aa41ed948"
     }
   }, 
   {

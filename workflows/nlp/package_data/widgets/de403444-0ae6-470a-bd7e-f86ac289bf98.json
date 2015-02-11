@@ -73,15 +73,6 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Intersection", 
-      "uid": "de9d5d39-53dc-4791-8d1d-2298c678f5b6", 
-      "value": "intersection", 
-      "abstract_input": "27c8cd4a-1016-4a88-b463-4713874fc87f"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
       "name": "Intersection by at least two", 
       "uid": "8a445f1f-44ad-481f-aa17-46e6222c82be", 
       "value": "intersection_two", 
@@ -94,6 +85,15 @@
       "name": "Union", 
       "uid": "d0886005-a48a-415f-b767-e670211f6fe9", 
       "value": "union", 
+      "abstract_input": "27c8cd4a-1016-4a88-b463-4713874fc87f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Intersection", 
+      "uid": "de9d5d39-53dc-4791-8d1d-2298c678f5b6", 
+      "value": "intersection", 
       "abstract_input": "27c8cd4a-1016-4a88-b463-4713874fc87f"
     }
   }

@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "aa30cd38-4a1c-4c6a-ba47-ff00252fc5a9", 
-      "name": "Annotated Document Corpus", 
-      "short_name": "adc", 
-      "default": "", 
-      "description": "LatinoClowdFlows.DocumentCorpus", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "adc", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "d992649a-16a0-4482-96e0-f4c45db6134c"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "aa30cd38-4a1c-4c6a-ba47-ff00252fc5a9", 
       "name": "Tokenizer", 
       "short_name": "tkn", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "04e625eb-87ca-5e2d-5af7-1e4a4ea21eb3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa30cd38-4a1c-4c6a-ba47-ff00252fc5a9", 
+      "name": "Annotation to be produced", 
+      "short_name": "ann", 
+      "default": "Sentence", 
+      "description": "How to annotate found sentences", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outputAnnotation", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "07ba8fe5-2a71-600f-b57a-9903c73e1d65"
     }
   }, 
   {
@@ -79,17 +79,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "aa30cd38-4a1c-4c6a-ba47-ff00252fc5a9", 
-      "name": "Annotation to be produced", 
-      "short_name": "ann", 
-      "default": "Sentence", 
-      "description": "How to annotate found sentences", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "outputAnnotation", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "07ba8fe5-2a71-600f-b57a-9903c73e1d65"
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d992649a-16a0-4482-96e0-f4c45db6134c"
     }
   }, 
   {

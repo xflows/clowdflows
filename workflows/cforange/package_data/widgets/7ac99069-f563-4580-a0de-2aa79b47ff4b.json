@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
-      "name": "Confusion Matrix", 
-      "short_name": "cm", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "cm", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "5bbce817-42f9-4454-ade9-c6b73a8b4f56"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
       "name": "alpha", 
       "short_name": "alp", 
       "default": "2.0", 
@@ -59,15 +42,20 @@
     }
   }, 
   {
-    "model": "workflows.abstractoutput", 
+    "model": "workflows.abstractinput", 
     "fields": {
       "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
-      "name": "Sensitiviry", 
-      "short_name": "sen", 
+      "name": "Confusion Matrix", 
+      "short_name": "cm", 
+      "default": "", 
       "description": "", 
-      "variable": "sens", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "cm", 
+      "parameter": false, 
       "order": 1, 
-      "uid": "4cb7033f-0e4e-425c-96a2-529c8ba17c69"
+      "uid": "5bbce817-42f9-4454-ade9-c6b73a8b4f56"
     }
   }, 
   {
@@ -86,48 +74,12 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
-      "name": "Positive Predictive Value", 
-      "short_name": "ppv", 
-      "description": "", 
-      "variable": "PPV", 
-      "order": 3, 
-      "uid": "75932ec5-48f7-4d32-bfbf-7054ed6140e5"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
-      "name": "Negative Predictive Value", 
-      "short_name": "npv", 
-      "description": "", 
-      "variable": "NPV", 
-      "order": 4, 
-      "uid": "db506973-2b95-4e59-9881-4e365b54c5d9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
       "name": "Precision", 
       "short_name": "pre", 
       "description": "", 
       "variable": "precision", 
       "order": 5, 
       "uid": "2d390622-897a-411a-bbbf-b2ca33f84271"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
-      "name": "Recall", 
-      "short_name": "rec", 
-      "description": "", 
-      "variable": "recall", 
-      "order": 6, 
-      "uid": "e0b726bb-063d-4759-a1c0-eb8becc7c65b"
     }
   }, 
   {
@@ -146,12 +98,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
-      "name": "Falpha", 
-      "short_name": "fal", 
+      "name": "Sensitiviry", 
+      "short_name": "sen", 
       "description": "", 
-      "variable": "Falpha", 
-      "order": 8, 
-      "uid": "8a068c50-6b65-42db-8f95-8c0cfedfeeb0"
+      "variable": "sens", 
+      "order": 1, 
+      "uid": "4cb7033f-0e4e-425c-96a2-529c8ba17c69"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Positive Predictive Value", 
+      "short_name": "ppv", 
+      "description": "", 
+      "variable": "PPV", 
+      "order": 3, 
+      "uid": "75932ec5-48f7-4d32-bfbf-7054ed6140e5"
     }
   }, 
   {
@@ -164,6 +128,42 @@
       "variable": "MCC", 
       "order": 9, 
       "uid": "83ac8895-17e3-467d-a107-58b112bf1655"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Falpha", 
+      "short_name": "fal", 
+      "description": "", 
+      "variable": "Falpha", 
+      "order": 8, 
+      "uid": "8a068c50-6b65-42db-8f95-8c0cfedfeeb0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Negative Predictive Value", 
+      "short_name": "npv", 
+      "description": "", 
+      "variable": "NPV", 
+      "order": 4, 
+      "uid": "db506973-2b95-4e59-9881-4e365b54c5d9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Recall", 
+      "short_name": "rec", 
+      "description": "", 
+      "variable": "recall", 
+      "order": 6, 
+      "uid": "e0b726bb-063d-4759-a1c0-eb8becc7c65b"
     }
   }
 ]

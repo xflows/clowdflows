@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a7996264-f373-44f6-ada2-6caec545eb88", 
-      "name": "Performance results", 
-      "short_name": "prf", 
-      "default": "", 
-      "description": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "performance", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "81d5b567-844d-4c9a-a791-6593820fb8a7"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "a7996264-f373-44f6-ada2-6caec545eb88", 
       "name": "Chart title", 
       "short_name": "ttl", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "040a9932-a5d5-465c-889d-ddc45bc68c5b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a7996264-f373-44f6-ada2-6caec545eb88", 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "81d5b567-844d-4c9a-a791-6593820fb8a7"
     }
   }
 ]

@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a79ad967-5070-449b-bcd7-a76d341cc79c", 
-      "name": "Heurisic Name Prefix", 
-      "short_name": "str", 
-      "default": "outFreq", 
-      "description": "System.String", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "namePrefix", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "d6055ed0-f08d-555b-4cd3-5355a117f07d"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "a79ad967-5070-449b-bcd7-a76d341cc79c", 
       "name": "Specification", 
       "short_name": "str", 
       "default": "#comment\r\nsvmOutlier (5): 0, 5(0.9), 8, 11(0.85), 12", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "7f42ad6d-0593-5433-df7f-a482dd977c28"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a79ad967-5070-449b-bcd7-a76d341cc79c", 
+      "name": "Heurisic Name Prefix", 
+      "short_name": "str", 
+      "default": "outFreq", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "namePrefix", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "d6055ed0-f08d-555b-4cd3-5355a117f07d"
     }
   }, 
   {

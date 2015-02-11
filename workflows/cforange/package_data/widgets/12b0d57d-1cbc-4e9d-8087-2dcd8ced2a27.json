@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
-      "name": "Distance Matrix", 
-      "short_name": "dm", 
-      "default": "", 
-      "description": "A matrix of distances between items being clustered", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "dm", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "bc238f40-be7b-48c4-a526-f17d461a1e10"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
       "name": "Linkage", 
       "short_name": "lin", 
       "default": "0", 
@@ -62,6 +45,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
+      "name": "Distance Matrix", 
+      "short_name": "dm", 
+      "default": "", 
+      "description": "A matrix of distances between items being clustered", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dm", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "bc238f40-be7b-48c4-a526-f17d461a1e10"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
       "name": "Visualization type", 
       "short_name": "viz", 
       "default": "circle", 
@@ -73,18 +73,6 @@
       "parameter": true, 
       "order": 3, 
       "uid": "f0c1c618-f7c4-4b9c-8780-d03e1ab29834"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
-      "name": "Centroids", 
-      "short_name": "ctr", 
-      "description": "A list of cluster centroids", 
-      "variable": "centroids", 
-      "order": 1, 
-      "uid": "da9b8816-0ed4-4159-8a7e-ff915d5eb2d2"
     }
   }, 
   {
@@ -112,38 +100,23 @@
     }
   }, 
   {
-    "model": "workflows.abstractoption", 
+    "model": "workflows.abstractoutput", 
     "fields": {
-      "name": "Average linkage", 
-      "uid": "e5a0e0cd-aefe-4d2f-b2dd-26c54aecda41", 
-      "value": "1", 
-      "abstract_input": "9804f098-f6b6-4858-9d83-df2a45e6174a"
+      "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
+      "name": "Centroids", 
+      "short_name": "ctr", 
+      "description": "A list of cluster centroids", 
+      "variable": "centroids", 
+      "order": 1, 
+      "uid": "da9b8816-0ed4-4159-8a7e-ff915d5eb2d2"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Circle", 
-      "uid": "ea7c03eb-b596-4b7f-82ea-840ca44daaad", 
-      "value": "circle", 
-      "abstract_input": "f0c1c618-f7c4-4b9c-8780-d03e1ab29834"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Complete linkage", 
-      "uid": "e7ab085c-59a2-469b-b4e0-aeef40685a1f", 
-      "value": "3", 
-      "abstract_input": "9804f098-f6b6-4858-9d83-df2a45e6174a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Single linkage", 
-      "uid": "e751309c-0f24-409e-b21e-94692c3fa5cf", 
-      "value": "0", 
+      "name": "Ward's linkage", 
+      "uid": "16d7b4ca-b14d-4a93-bda3-ca3478efd316", 
+      "value": "2", 
       "abstract_input": "9804f098-f6b6-4858-9d83-df2a45e6174a"
     }
   }, 
@@ -159,10 +132,37 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Ward's linkage", 
-      "uid": "16d7b4ca-b14d-4a93-bda3-ca3478efd316", 
-      "value": "2", 
+      "name": "Average linkage", 
+      "uid": "e5a0e0cd-aefe-4d2f-b2dd-26c54aecda41", 
+      "value": "1", 
       "abstract_input": "9804f098-f6b6-4858-9d83-df2a45e6174a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Single linkage", 
+      "uid": "e751309c-0f24-409e-b21e-94692c3fa5cf", 
+      "value": "0", 
+      "abstract_input": "9804f098-f6b6-4858-9d83-df2a45e6174a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Complete linkage", 
+      "uid": "e7ab085c-59a2-469b-b4e0-aeef40685a1f", 
+      "value": "3", 
+      "abstract_input": "9804f098-f6b6-4858-9d83-df2a45e6174a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Circle", 
+      "uid": "ea7c03eb-b596-4b7f-82ea-840ca44daaad", 
+      "value": "circle", 
+      "abstract_input": "f0c1c618-f7c4-4b9c-8780-d03e1ab29834"
     }
   }
 ]

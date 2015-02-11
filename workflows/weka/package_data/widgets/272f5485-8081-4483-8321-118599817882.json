@@ -28,34 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "272f5485-8081-4483-8321-118599817882", 
-      "name": "Timeout", 
-      "short_name": "to", 
-      "default": "60", 
+      "name": "Folds", 
+      "short_name": "fol", 
+      "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "timeout", 
+      "variable": "folds", 
       "parameter": true, 
-      "order": 1, 
-      "uid": "db8ea5c9-738b-44c1-bcd9-9b704a8798c6"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "272f5485-8081-4483-8321-118599817882", 
-      "name": "Send empty strings to webservices", 
-      "short_name": "ses", 
-      "default": "true", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "sendemptystrings", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "f5f83294-4688-4244-8b8a-95df71859fb0"
+      "order": 5, 
+      "uid": "1a99446a-c3bd-40b4-996a-eb1af12fbf65"
     }
   }, 
   {
@@ -96,17 +79,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "272f5485-8081-4483-8321-118599817882", 
-      "name": "Folds", 
-      "short_name": "fol", 
-      "default": "", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
       "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "folds", 
+      "variable": "timeout", 
       "parameter": true, 
-      "order": 5, 
-      "uid": "1a99446a-c3bd-40b4-996a-eb1af12fbf65"
+      "order": 1, 
+      "uid": "db8ea5c9-738b-44c1-bcd9-9b704a8798c6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "f5f83294-4688-4244-8b8a-95df71859fb0"
     }
   }, 
   {
@@ -119,6 +119,18 @@
       "variable": "accuracy", 
       "order": 1, 
       "uid": "1030110c-bab6-4dbd-b19e-549ea1c94450"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Summary", 
+      "short_name": "sum", 
+      "description": "", 
+      "variable": "summary", 
+      "order": 4, 
+      "uid": "997d0a9d-273d-47df-8aaf-3e74e35d6b7d"
     }
   }, 
   {
@@ -143,18 +155,6 @@
       "variable": "accuracy_by_class", 
       "order": 3, 
       "uid": "ca272653-396e-4a43-a94c-dc86029728eb"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "272f5485-8081-4483-8321-118599817882", 
-      "name": "Summary", 
-      "short_name": "sum", 
-      "description": "", 
-      "variable": "summary", 
-      "order": 4, 
-      "uid": "997d0a9d-273d-47df-8aaf-3e74e35d6b7d"
     }
   }
 ]

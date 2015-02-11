@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
-      "name": "Use From In Rules", 
-      "short_name": "bol", 
-      "default": "true", 
-      "description": "True if from string should be included in rule identifier ([from]->[to]). False if just length of from string is used ([#len]->[to]).", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "useFromInRules", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "e7fb66dd-2d1e-7c8c-bd73-847d1b2fd5fd"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
       "name": "Msd Consideration", 
       "short_name": "msd", 
       "default": "Distinct", 
@@ -110,6 +93,23 @@
     }
   }, 
   {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
+      "name": "Use From In Rules", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "True if from string should be included in rule identifier ([from]->[to]). False if just length of from string is used ([#len]->[to]).", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useFromInRules", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e7fb66dd-2d1e-7c8c-bd73-847d1b2fd5fd"
+    }
+  }, 
+  {
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
@@ -119,15 +119,6 @@
       "variable": "lemmatizerSettings", 
       "order": 5, 
       "uid": "3275f2bd-f8ca-3ae0-e054-160ab45c7220"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Distinct          (Same examples with different msd's are not considered equal and joined)", 
-      "uid": "84e5ff67-fbb1-9981-9092-6e9cbd036e99", 
-      "value": "Distinct", 
-      "abstract_input": "207135dc-56cf-ed6b-257c-8c7368a9435c"
     }
   }, 
   {
@@ -145,6 +136,15 @@
       "name": "JoinAll           (Joins examples with different tags - concatenates all msd tags)", 
       "uid": "6ce84c3b-4a8b-a1cf-ff81-b30c3c607a72", 
       "value": "JoinAll", 
+      "abstract_input": "207135dc-56cf-ed6b-257c-8c7368a9435c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Distinct          (Same examples with different msd's are not considered equal and joined)", 
+      "uid": "84e5ff67-fbb1-9981-9092-6e9cbd036e99", 
+      "value": "Distinct", 
       "abstract_input": "207135dc-56cf-ed6b-257c-8c7368a9435c"
     }
   }, 

@@ -62,23 +62,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
-      "name": "Namespace Section (using directives)", 
-      "short_name": "str", 
-      "default": "using System;\r\nusing System.Collections.Generic;\r\nusing Latino;\r\nusing Latino.TextMining;\r\nusing LatinoClowdFlows;", 
-      "description": "System.String", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "usings", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "6cb80407-d2c4-f810-c9cd-34527394644c"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
       "name": "Additional References (imports)", 
       "short_name": "str", 
       "default": "System.dll\r\nSystem.Xml.dll\r\nworkflows\\latino\\bin\\Latino.dll\r\nworkflows\\latino\\bin\\LatinoWorkflows.dll\r\nworkflows\\latino\\bin\\LatinoClowdFlows.dll", 
@@ -93,27 +76,20 @@
     }
   }, 
   {
-    "model": "workflows.abstractoutput", 
+    "model": "workflows.abstractinput", 
     "fields": {
       "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
-      "name": "out", 
-      "short_name": "out", 
-      "description": "output can be accesed/assigned as variable \"_out\" inside the code", 
-      "variable": "out", 
-      "order": 1, 
-      "uid": "8668b4da-ef51-b439-2c3e-10bba389cd5c"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
-      "name": "Console Output", 
+      "name": "Namespace Section (using directives)", 
       "short_name": "str", 
-      "description": "", 
-      "variable": "consoleOut", 
-      "order": 2, 
-      "uid": "679b380e-fb6a-1580-7e3e-a0c1df24c6ca"
+      "default": "using System;\r\nusing System.Collections.Generic;\r\nusing Latino;\r\nusing Latino.TextMining;\r\nusing LatinoClowdFlows;", 
+      "description": "System.String", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "usings", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "6cb80407-d2c4-f810-c9cd-34527394644c"
     }
   }, 
   {
@@ -138,6 +114,30 @@
       "variable": "code", 
       "order": 4, 
       "uid": "4aa43f4d-78f5-2609-1539-1ac9bced051f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "name": "Console Output", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "consoleOut", 
+      "order": 2, 
+      "uid": "679b380e-fb6a-1580-7e3e-a0c1df24c6ca"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "name": "out", 
+      "short_name": "out", 
+      "description": "output can be accesed/assigned as variable \"_out\" inside the code", 
+      "variable": "out", 
+      "order": 1, 
+      "uid": "8668b4da-ef51-b439-2c3e-10bba389cd5c"
     }
   }
 ]

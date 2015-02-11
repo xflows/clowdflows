@@ -45,6 +45,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "name": "Access Token Secret", 
+      "short_name": "as", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "as", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "299ae040-2916-4b88-8a79-3ced689ef23f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
       "name": "Geocode", 
       "short_name": "geo", 
       "default": "", 
@@ -56,40 +73,6 @@
       "parameter": true, 
       "order": 2, 
       "uid": "80d1e542-7f7c-4a8e-b683-764d0a754b03"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
-      "name": "Use ClowdFlows authentication (warning: not stable)", 
-      "short_name": "cfa", 
-      "default": "", 
-      "description": "If this is set, the default consumer and access tokens are used.", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "cfauth", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "c78c8f03-92c4-4f6c-972d-c064baecd09a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
-      "name": "Consumer Key", 
-      "short_name": "ck", 
-      "default": "", 
-      "description": "Go to http://dev.twitter.com and create an app. The consumer key and secret will be generated for you after.", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "ck", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "ed2db381-2ed2-4a4d-bd6d-9f9dc0430a50"
     }
   }, 
   {
@@ -130,17 +113,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
-      "name": "Access Token Secret", 
-      "short_name": "as", 
+      "name": "Use ClowdFlows authentication (warning: not stable)", 
+      "short_name": "cfa", 
       "default": "", 
-      "description": "", 
+      "description": "If this is set, the default consumer and access tokens are used.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "cfauth", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "c78c8f03-92c4-4f6c-972d-c064baecd09a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "name": "Consumer Key", 
+      "short_name": "ck", 
+      "default": "", 
+      "description": "Go to http://dev.twitter.com and create an app. The consumer key and secret will be generated for you after.", 
       "required": false, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "as", 
+      "variable": "ck", 
       "parameter": true, 
-      "order": 7, 
-      "uid": "299ae040-2916-4b88-8a79-3ced689ef23f"
+      "order": 4, 
+      "uid": "ed2db381-2ed2-4a4d-bd6d-9f9dc0430a50"
     }
   }, 
   {

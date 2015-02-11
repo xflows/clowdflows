@@ -45,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a708874c-9ad2-45d6-9657-5fb3dd095688", 
-      "name": "Feature Condition", 
-      "short_name": "str", 
-      "default": "", 
-      "description": "System.String", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "featureCondition", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "e69daa5d-7665-7c5d-5493-5747210a5b9a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "a708874c-9ad2-45d6-9657-5fb3dd095688", 
       "name": "Discard The Rest (The Filtered Out)", 
       "short_name": "bol", 
       "default": "false", 
@@ -76,15 +59,20 @@
     }
   }, 
   {
-    "model": "workflows.abstractoutput", 
+    "model": "workflows.abstractinput", 
     "fields": {
       "widget": "a708874c-9ad2-45d6-9657-5fb3dd095688", 
-      "name": "Filtered Annotated Document Corpus", 
-      "short_name": "adc", 
-      "description": "", 
-      "variable": "adcFiltered", 
-      "order": 1, 
-      "uid": "9f147ab3-11c8-6114-3331-38ac1ee2324f"
+      "name": "Feature Condition", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "featureCondition", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "e69daa5d-7665-7c5d-5493-5747210a5b9a"
     }
   }, 
   {
@@ -97,6 +85,18 @@
       "variable": "adcRest", 
       "order": 2, 
       "uid": "199d7c70-c431-9b85-1d61-d69ca2a455a7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a708874c-9ad2-45d6-9657-5fb3dd095688", 
+      "name": "Filtered Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adcFiltered", 
+      "order": 1, 
+      "uid": "9f147ab3-11c8-6114-3331-38ac1ee2324f"
     }
   }
 ]

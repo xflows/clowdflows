@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "48540dc6-233b-4155-ba8a-ab3a6a867361", 
-      "name": "C", 
-      "short_name": "dbl", 
-      "default": "5000", 
-      "description": "System.Double", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "c", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "aa4af239-bf2b-9396-9382-1d3e62dbba60"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "48540dc6-233b-4155-ba8a-ab3a6a867361", 
       "name": "Eps", 
       "short_name": "dbl", 
       "default": "0.1", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "02ad47bb-6058-37d1-85cb-140ddcfec097"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "48540dc6-233b-4155-ba8a-ab3a6a867361", 
+      "name": "C", 
+      "short_name": "dbl", 
+      "default": "5000", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "c", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "aa4af239-bf2b-9396-9382-1d3e62dbba60"
     }
   }, 
   {

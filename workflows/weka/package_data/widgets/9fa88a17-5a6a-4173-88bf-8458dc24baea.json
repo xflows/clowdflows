@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "9fa88a17-5a6a-4173-88bf-8458dc24baea", 
-      "name": "Timeout", 
-      "short_name": "to", 
-      "default": "60", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "timeout", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "88f3ce4a-fd3e-45a3-bacf-94bb6ae183e1"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "9fa88a17-5a6a-4173-88bf-8458dc24baea", 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "default": "true", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "69e8a087-14b7-4539-bea2-07450fb40cdd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9fa88a17-5a6a-4173-88bf-8458dc24baea", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "88f3ce4a-fd3e-45a3-bacf-94bb6ae183e1"
     }
   }, 
   {

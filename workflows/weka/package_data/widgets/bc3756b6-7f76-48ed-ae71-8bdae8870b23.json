@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "bc3756b6-7f76-48ed-ae71-8bdae8870b23", 
-      "name": "Timeout", 
-      "short_name": "to", 
-      "default": "60", 
+      "name": "Tree model", 
+      "short_name": "tre", 
+      "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "timeout", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "b0aa8640-b529-4433-b795-f1f022939fc3"
+      "parameter_type": null, 
+      "variable": "tree_model", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "2910d5a9-1735-416f-8ec4-cc2afbd5e977"
     }
   }, 
   {
@@ -62,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "bc3756b6-7f76-48ed-ae71-8bdae8870b23", 
-      "name": "Tree model", 
-      "short_name": "tre", 
-      "default": "", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
       "description": "", 
       "required": false, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "tree_model", 
-      "parameter": false, 
-      "order": 3, 
-      "uid": "2910d5a9-1735-416f-8ec4-cc2afbd5e977"
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "b0aa8640-b529-4433-b795-f1f022939fc3"
     }
   }, 
   {

@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "d72801e0-e756-47f7-acd4-aad6ef88a6e1", 
-      "name": "Parsed Document Corpus", 
-      "short_name": "pdc", 
+      "name": "List of B-terms", 
+      "short_name": "str", 
       "default": "", 
-      "description": "System.Object", 
-      "required": true, 
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": false, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "parsedDoc", 
+      "variable": "bterms", 
       "parameter": false, 
-      "order": 1, 
-      "uid": "d6295874-04fd-26be-0bc1-48218f9b1aef"
+      "order": 3, 
+      "uid": "72bc9488-3469-ae90-155f-788b0f935a74"
     }
   }, 
   {
@@ -62,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "d72801e0-e756-47f7-acd4-aad6ef88a6e1", 
-      "name": "List of B-terms", 
-      "short_name": "str", 
+      "name": "Parsed Document Corpus", 
+      "short_name": "pdc", 
       "default": "", 
-      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
-      "required": false, 
+      "description": "System.Object", 
+      "required": true, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "bterms", 
+      "variable": "parsedDoc", 
       "parameter": false, 
-      "order": 3, 
-      "uid": "72bc9488-3469-ae90-155f-788b0f935a74"
+      "order": 1, 
+      "uid": "d6295874-04fd-26be-0bc1-48218f9b1aef"
     }
   }
 ]

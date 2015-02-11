@@ -45,24 +45,12 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
-      "name": "Classification accuracy", 
-      "short_name": "ca", 
-      "description": "Classification accuracy", 
-      "variable": "accuracy", 
-      "order": 1, 
-      "uid": "afd2ad97-8fd4-40db-8767-df69824bb0a2"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
-      "name": "Precision", 
-      "short_name": "prc", 
-      "description": "Precision", 
-      "variable": "precision", 
-      "order": 2, 
-      "uid": "529feda2-fbc5-42e9-980f-f8bf82f5d1ef"
+      "name": "F1", 
+      "short_name": "f1", 
+      "description": "F1 measure", 
+      "variable": "f1", 
+      "order": 4, 
+      "uid": "37cba070-0b06-4e6e-bf03-04895c956467"
     }
   }, 
   {
@@ -81,12 +69,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
-      "name": "F1", 
-      "short_name": "f1", 
-      "description": "F1 measure", 
-      "variable": "f1", 
-      "order": 4, 
-      "uid": "37cba070-0b06-4e6e-bf03-04895c956467"
+      "name": "Precision", 
+      "short_name": "prc", 
+      "description": "Precision", 
+      "variable": "precision", 
+      "order": 2, 
+      "uid": "529feda2-fbc5-42e9-980f-f8bf82f5d1ef"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
+      "name": "Classification accuracy", 
+      "short_name": "ca", 
+      "description": "Classification accuracy", 
+      "variable": "accuracy", 
+      "order": 1, 
+      "uid": "afd2ad97-8fd4-40db-8767-df69824bb0a2"
     }
   }, 
   {

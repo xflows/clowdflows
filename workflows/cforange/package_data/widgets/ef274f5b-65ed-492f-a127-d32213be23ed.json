@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
+      "name": "Cut-off points", 
+      "short_name": "cp", 
+      "default": "", 
+      "description": "Comma separated cut-off points", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "points", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "43b2e055-65c1-4cc3-ae94-926b71911c0e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "default": "", 
@@ -76,20 +93,15 @@
     }
   }, 
   {
-    "model": "workflows.abstractinput", 
+    "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
-      "name": "Cut-off points", 
-      "short_name": "cp", 
-      "default": "", 
-      "description": "Comma separated cut-off points", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "points", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "43b2e055-65c1-4cc3-ae94-926b71911c0e"
+      "name": "Discretization intervals", 
+      "short_name": "itr", 
+      "description": "Discretization intervals", 
+      "variable": "discr_intervals", 
+      "order": 1, 
+      "uid": "78154f38-95f1-47b9-bf82-b64858d8010a"
     }
   }, 
   {
@@ -102,18 +114,6 @@
       "variable": "odt", 
       "order": 1, 
       "uid": "99ece393-b5ed-48ee-ace3-b995318720ef"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
-      "name": "Discretization intervals", 
-      "short_name": "itr", 
-      "description": "Discretization intervals", 
-      "variable": "discr_intervals", 
-      "order": 1, 
-      "uid": "78154f38-95f1-47b9-bf82-b64858d8010a"
     }
   }, 
   {

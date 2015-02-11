@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c6cf5c17-f6a6-4076-bf35-ecb06d72da86", 
-      "name": "Integer 1", 
-      "short_name": "int", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "integer1", 
-      "parameter": false, 
-      "order": 0, 
-      "uid": "77312adf-6969-407e-90bd-083c96d3983b"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c6cf5c17-f6a6-4076-bf35-ecb06d72da86", 
       "name": "Integer 2", 
       "short_name": "int", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 0, 
       "uid": "10fdef7a-7c55-464d-bd7d-1e273759eda9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c6cf5c17-f6a6-4076-bf35-ecb06d72da86", 
+      "name": "Integer 1", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "integer1", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "77312adf-6969-407e-90bd-083c96d3983b"
     }
   }, 
   {

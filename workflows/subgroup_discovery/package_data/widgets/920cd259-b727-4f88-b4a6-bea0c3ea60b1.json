@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "920cd259-b727-4f88-b4a6-bea0c3ea60b1", 
-      "name": "Data table", 
-      "short_name": "dat", 
-      "default": "", 
-      "description": "data table", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "data", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "df3a0ac5-ca5f-483a-91c1-d5a32a404de9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "920cd259-b727-4f88-b4a6-bea0c3ea60b1", 
       "name": "SD Rules", 
       "short_name": "rul", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "ca5c3d62-8f8b-4cfd-9be2-200e5c5fd6fc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "920cd259-b727-4f88-b4a6-bea0c3ea60b1", 
+      "name": "Data table", 
+      "short_name": "dat", 
+      "default": "", 
+      "description": "data table", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "df3a0ac5-ca5f-483a-91c1-d5a32a404de9"
     }
   }, 
   {

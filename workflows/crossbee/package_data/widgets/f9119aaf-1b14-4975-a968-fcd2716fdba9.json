@@ -73,9 +73,18 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "appearInAllDomn: better baseline heuristic which can separate two classes of terms - the ones that appear in both domains and the ones that appear only in one", 
-      "uid": "baa0c2ee-cf9e-95c4-8512-a4f3f8a2afa0", 
-      "value": "appearInAllDomn", 
+      "name": "tfidfAvg: average tf idf of a term", 
+      "uid": "3f1621d3-7bc0-5e28-abc1-814bf77c0bd4", 
+      "value": "tfidfAvg", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "tfidfDomnSum: sum of a term\u2019s importance in both domains", 
+      "uid": "40d62620-22c5-84a6-79e3-9657e62eda10", 
+      "value": "tfidfDomnSum", 
       "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
     }
   }, 
@@ -100,54 +109,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "freqDomnProdRel: product of term frequencies in both domains relative to the term frequency in all domains", 
-      "uid": "d650ea43-9e99-d228-3093-7b912391e8b3", 
-      "value": "freqDomnProdRel", 
-      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "freqDomnRatioMin: minimum of term frequencies ratio between both domains", 
-      "uid": "a9a43380-128e-c1d4-f5e0-1c9061ea4d4f", 
-      "value": "freqDomnRatioMin", 
-      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "freqRatio: term to document frequency ratio", 
-      "uid": "e85317e8-2193-ee9a-90b1-6320c5d301ee", 
-      "value": "freqRatio", 
-      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
       "name": "freqTerm: term frequency across both domains", 
       "uid": "66c8c1be-9678-5564-8722-62018610a66a", 
       "value": "freqTerm", 
-      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "random: random baseline heuristic", 
-      "uid": "cc5decfa-9ed4-60e7-691e-c8f59bb9ca8a", 
-      "value": "random", 
-      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "simAvgTerm: similarity to an average term \u2013 the distance from the center of the cluster of all terms", 
-      "uid": "9704c8d8-bc29-9286-08f9-5c6191235203", 
-      "value": "simAvgTerm", 
       "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
     }
   }, 
@@ -163,6 +127,15 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
+      "name": "simAvgTerm: similarity to an average term \u2013 the distance from the center of the cluster of all terms", 
+      "uid": "9704c8d8-bc29-9286-08f9-5c6191235203", 
+      "value": "simAvgTerm", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
       "name": "simDomnRatioMin: minimum of a term\u2018s frequencies ratio between both domains", 
       "uid": "a2521b2a-a074-d279-eb27-073ddd2ebe46", 
       "value": "simDomnRatioMin", 
@@ -172,9 +145,45 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "tfidfAvg: average tf idf of a term", 
-      "uid": "3f1621d3-7bc0-5e28-abc1-814bf77c0bd4", 
-      "value": "tfidfAvg", 
+      "name": "freqDomnRatioMin: minimum of term frequencies ratio between both domains", 
+      "uid": "a9a43380-128e-c1d4-f5e0-1c9061ea4d4f", 
+      "value": "freqDomnRatioMin", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "tfidfSum: sum of all tf idf weights of a term across both domains", 
+      "uid": "b8be1a09-27a9-80c5-55c4-2fe2ff2e9937", 
+      "value": "tfidfSum", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "appearInAllDomn: better baseline heuristic which can separate two classes of terms - the ones that appear in both domains and the ones that appear only in one", 
+      "uid": "baa0c2ee-cf9e-95c4-8512-a4f3f8a2afa0", 
+      "value": "appearInAllDomn", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "random: random baseline heuristic", 
+      "uid": "cc5decfa-9ed4-60e7-691e-c8f59bb9ca8a", 
+      "value": "random", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "freqDomnProdRel: product of term frequencies in both domains relative to the term frequency in all domains", 
+      "uid": "d650ea43-9e99-d228-3093-7b912391e8b3", 
+      "value": "freqDomnProdRel", 
       "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
     }
   }, 
@@ -190,18 +199,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "tfidfDomnSum: sum of a term\u2019s importance in both domains", 
-      "uid": "40d62620-22c5-84a6-79e3-9657e62eda10", 
-      "value": "tfidfDomnSum", 
-      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "tfidfSum: sum of all tf idf weights of a term across both domains", 
-      "uid": "b8be1a09-27a9-80c5-55c4-2fe2ff2e9937", 
-      "value": "tfidfSum", 
+      "name": "freqRatio: term to document frequency ratio", 
+      "uid": "e85317e8-2193-ee9a-90b1-6320c5d301ee", 
+      "value": "freqRatio", 
       "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
     }
   }

@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
-      "name": "Timeout", 
-      "short_name": "to", 
-      "default": "60", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "timeout", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "db17d2bf-4d1e-49cd-863c-2055246de11c"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
       "name": "Send empty strings to webservices", 
       "short_name": "ses", 
       "default": "true", 
@@ -62,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
-      "name": "Learner", 
-      "short_name": "lea", 
-      "default": "", 
-      "description": "used to build the clusterer.", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "learner", 
-      "parameter": false, 
-      "order": 3, 
-      "uid": "eec2f308-1c5e-4de3-b60d-59b4f19d7aa6"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
       "name": "Instances", 
       "short_name": "ins", 
       "default": "", 
@@ -90,6 +56,40 @@
       "parameter": false, 
       "order": 4, 
       "uid": "da953155-8ed2-416b-b739-bed4fd748dda"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "db17d2bf-4d1e-49cd-863c-2055246de11c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
+      "name": "Learner", 
+      "short_name": "lea", 
+      "default": "", 
+      "description": "used to build the clusterer.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "learner", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "eec2f308-1c5e-4de3-b60d-59b4f19d7aa6"
     }
   }, 
   {

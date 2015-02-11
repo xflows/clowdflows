@@ -5,7 +5,7 @@
       "category": "b66b71b1-99d6-4efc-b264-a914a3e42911", 
       "treeview_image": "", 
       "uid": "3c5ac714-84ca-4c93-befb-ce0c16148193", 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "package": "mysql", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,7 +19,7 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "order": 1, 
       "name": "Database To Aleph"
     }
@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3c5ac714-84ca-4c93-befb-ce0c16148193", 
-      "name": "dump full database", 
-      "short_name": "dmp", 
-      "default": "false", 
-      "description": "dump full database to prolog", 
-      "required": false, 
+      "name": "context", 
+      "short_name": "cxt", 
+      "default": "", 
+      "description": "Database context object", 
+      "required": true, 
       "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "dump", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "fb5fc5f5-aa8f-4667-b96a-2b3f9a7672c7"
+      "parameter_type": null, 
+      "variable": "context", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "474e9673-9c55-48c5-bae8-a7b986aa0287"
     }
   }, 
   {
@@ -79,29 +79,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3c5ac714-84ca-4c93-befb-ce0c16148193", 
-      "name": "context", 
-      "short_name": "cxt", 
-      "default": "", 
-      "description": "Database context object", 
-      "required": true, 
+      "name": "dump full database", 
+      "short_name": "dmp", 
+      "default": "false", 
+      "description": "dump full database to prolog", 
+      "required": false, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "context", 
-      "parameter": false, 
-      "order": 3, 
-      "uid": "474e9673-9c55-48c5-bae8-a7b986aa0287"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "3c5ac714-84ca-4c93-befb-ce0c16148193", 
-      "name": "positive examples", 
-      "short_name": "pos", 
-      "description": "positive examples file", 
-      "variable": "pos_examples", 
+      "parameter_type": "checkbox", 
+      "variable": "dump", 
+      "parameter": true, 
       "order": 1, 
-      "uid": "48184527-16a5-446c-9181-48a6558430c2"
+      "uid": "fb5fc5f5-aa8f-4667-b96a-2b3f9a7672c7"
     }
   }, 
   {
@@ -114,6 +102,18 @@
       "variable": "neg_examples", 
       "order": 2, 
       "uid": "2c623064-95cd-48ac-8bff-617edf2b9468"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3c5ac714-84ca-4c93-befb-ce0c16148193", 
+      "name": "positive examples", 
+      "short_name": "pos", 
+      "description": "positive examples file", 
+      "variable": "pos_examples", 
+      "order": 1, 
+      "uid": "48184527-16a5-446c-9181-48a6558430c2"
     }
   }, 
   {

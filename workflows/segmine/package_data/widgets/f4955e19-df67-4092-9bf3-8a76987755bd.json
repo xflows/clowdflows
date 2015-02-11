@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f4955e19-df67-4092-9bf3-8a76987755bd", 
-      "name": "Query nodes", 
-      "short_name": "que", 
-      "default": "", 
-      "description": "A list of query nodes", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "qterms", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "54934b0c-9ef7-456d-bfa6-37dab60a863a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "f4955e19-df67-4092-9bf3-8a76987755bd", 
       "name": "Max nodes", 
       "short_name": "mxn", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "0fe196ff-1e7b-4047-917a-2d828f52f3ae"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f4955e19-df67-4092-9bf3-8a76987755bd", 
+      "name": "Query nodes", 
+      "short_name": "que", 
+      "default": "", 
+      "description": "A list of query nodes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "qterms", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "54934b0c-9ef7-456d-bfa6-37dab60a863a"
     }
   }, 
   {

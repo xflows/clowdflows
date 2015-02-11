@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
-      "name": "Dataset", 
-      "short_name": "ds", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "data", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "ddd786e1-f8e5-4731-977c-48a80deb9de3"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
       "name": "Noisy Instances", 
       "short_name": "nsi", 
       "default": "", 
@@ -59,15 +42,20 @@
     }
   }, 
   {
-    "model": "workflows.abstractoutput", 
+    "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
-      "name": "All Noise", 
-      "short_name": "ans", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
       "description": "", 
-      "variable": "allnoise", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
       "order": 1, 
-      "uid": "1b051588-c6cc-472c-88ec-18f96216d46c"
+      "uid": "ddd786e1-f8e5-4731-977c-48a80deb9de3"
     }
   }, 
   {
@@ -80,6 +68,18 @@
       "variable": "selection", 
       "order": 2, 
       "uid": "16252437-410b-4b27-82d3-04cdf6655a77"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
+      "name": "All Noise", 
+      "short_name": "ans", 
+      "description": "", 
+      "variable": "allnoise", 
+      "order": 1, 
+      "uid": "1b051588-c6cc-472c-88ec-18f96216d46c"
     }
   }, 
   {

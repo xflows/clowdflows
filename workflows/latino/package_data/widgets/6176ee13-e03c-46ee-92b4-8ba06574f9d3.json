@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "6176ee13-e03c-46ee-92b4-8ba06574f9d3", 
+      "name": "Output Feature Name", 
+      "short_name": "str", 
+      "default": "stopword", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outputFeature", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "4059e050-41d9-28bf-312b-245be978eb90"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6176ee13-e03c-46ee-92b4-8ba06574f9d3", 
       "name": "Annotated Document Corpus", 
       "short_name": "adc", 
       "default": "", 
@@ -73,23 +90,6 @@
       "parameter": true, 
       "order": 3, 
       "uid": "cc2ca8d9-f024-0b55-8876-dbd2f604dc1b"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "6176ee13-e03c-46ee-92b4-8ba06574f9d3", 
-      "name": "Output Feature Name", 
-      "short_name": "str", 
-      "default": "stopword", 
-      "description": "System.String", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "outputFeature", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "4059e050-41d9-28bf-312b-245be978eb90"
     }
   }, 
   {

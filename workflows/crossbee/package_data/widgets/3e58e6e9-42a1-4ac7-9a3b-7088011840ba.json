@@ -28,17 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3e58e6e9-42a1-4ac7-9a3b-7088011840ba", 
-      "name": "Name", 
-      "short_name": "str", 
-      "default": "outlier", 
-      "description": "System.String", 
-      "required": true, 
+      "name": "Outlier Document Indexes", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "Either unweighted list of indexes (List<int>) or weighted index dictionary (Dictionary<int, double>).", 
+      "required": false, 
       "multi": false, 
-      "parameter_type": "text", 
-      "variable": "name", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "e8143732-511e-1627-b661-71f579c4dbdb"
+      "parameter_type": null, 
+      "variable": "outlierDocumentIndexes", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "1cf73158-780a-857f-fde4-4fbdda0553e8"
     }
   }, 
   {
@@ -62,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3e58e6e9-42a1-4ac7-9a3b-7088011840ba", 
-      "name": "Outlier Document Indexes", 
-      "short_name": "lst", 
-      "default": "", 
-      "description": "Either unweighted list of indexes (List<int>) or weighted index dictionary (Dictionary<int, double>).", 
-      "required": false, 
+      "name": "Name", 
+      "short_name": "str", 
+      "default": "outlier", 
+      "description": "System.String", 
+      "required": true, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "outlierDocumentIndexes", 
-      "parameter": false, 
-      "order": 3, 
-      "uid": "1cf73158-780a-857f-fde4-4fbdda0553e8"
+      "parameter_type": "text", 
+      "variable": "name", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e8143732-511e-1627-b661-71f579c4dbdb"
     }
   }, 
   {

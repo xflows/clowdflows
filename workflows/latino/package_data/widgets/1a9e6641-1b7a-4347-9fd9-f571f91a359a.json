@@ -73,15 +73,6 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "AllChars: equivalent to [^\\s]+", 
-      "uid": "cf95fed8-1237-9797-4dea-4d83520fcdd3", 
-      "value": "AllChars", 
-      "abstract_input": "59c6fc11-0932-4b8c-6fba-7fb4108d312b"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
       "name": "AlphaOnly: equivalent to \\p{L}+", 
       "uid": "36a7266e-fc89-ffb9-488d-5d7cfe797e98", 
       "value": "AlphaOnly", 
@@ -94,6 +85,15 @@
       "name": "AlphanumOnly: equivalent to [\\p{L}\\d]+", 
       "uid": "9f8214a1-8ae8-051f-c708-6ebcfd949e01", 
       "value": "AlphanumOnly", 
+      "abstract_input": "59c6fc11-0932-4b8c-6fba-7fb4108d312b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "AllChars: equivalent to [^\\s]+", 
+      "uid": "cf95fed8-1237-9797-4dea-4d83520fcdd3", 
+      "value": "AllChars", 
       "abstract_input": "59c6fc11-0932-4b8c-6fba-7fb4108d312b"
     }
   }

@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "28c00f15-c6e1-45b7-9825-14fdc9819584", 
-      "name": "Strings", 
-      "short_name": "str", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": true, 
-      "parameter_type": null, 
-      "variable": "strings", 
-      "parameter": false, 
-      "order": 0, 
-      "uid": "909c8b13-c318-4fab-b9d5-a6c6b08a25b3"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "28c00f15-c6e1-45b7-9825-14fdc9819584", 
       "name": "Delimiter", 
       "short_name": "del", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 0, 
       "uid": "8862cfd6-6444-46b7-9b16-456f27b58cb4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "28c00f15-c6e1-45b7-9825-14fdc9819584", 
+      "name": "Strings", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "strings", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "909c8b13-c318-4fab-b9d5-a6c6b08a25b3"
     }
   }, 
   {

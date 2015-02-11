@@ -28,34 +28,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
-      "name": "Timeout", 
-      "short_name": "to", 
-      "default": "60", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "timeout", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "f706b0cf-0361-4bb6-b7d5-190d184802db"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
-      "name": "Send empty strings to webservices", 
-      "short_name": "ses", 
+      "name": "instances", 
+      "short_name": "ins", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "sendemptystrings", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "ee7f6b67-f6ef-4801-afdc-e7aab6656dd7"
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "5d68936c-6cfc-446e-95e7-2c3173a6232c"
     }
   }, 
   {
@@ -79,17 +62,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
-      "name": "instances", 
-      "short_name": "ins", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
-      "parameter_type": null, 
-      "variable": "instances", 
-      "parameter": false, 
-      "order": 4, 
-      "uid": "5d68936c-6cfc-446e-95e7-2c3173a6232c"
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "ee7f6b67-f6ef-4801-afdc-e7aab6656dd7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "f706b0cf-0361-4bb6-b7d5-190d184802db"
     }
   }, 
   {

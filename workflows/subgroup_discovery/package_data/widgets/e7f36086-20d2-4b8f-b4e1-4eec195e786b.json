@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "e7f36086-20d2-4b8f-b4e1-4eec195e786b", 
-      "name": "Timeout", 
-      "short_name": "to", 
-      "default": "60", 
-      "description": "Web-service timeout", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "timeout", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "50362ef5-42b7-4f71-a8c8-ac48ad8cc79f"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "e7f36086-20d2-4b8f-b4e1-4eec195e786b", 
       "name": "Input Table", 
       "short_name": "tab", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "07f782ce-6ad4-4eaa-bc4c-58a82e627335"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e7f36086-20d2-4b8f-b4e1-4eec195e786b", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "Web-service timeout", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "50362ef5-42b7-4f71-a8c8-ac48ad8cc79f"
     }
   }, 
   {

@@ -45,24 +45,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "2e3c0b5c-5bcb-4c8c-950f-a4c92a5d6c7d", 
-      "name": "Attribute union", 
-      "short_name": "atu", 
-      "description": "Union of attributes of rules", 
-      "variable": "atrUnion", 
-      "order": 1, 
-      "uid": "64b2edae-31f7-4b97-93f5-144a03097852"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoutput", 
-    "fields": {
-      "widget": "2e3c0b5c-5bcb-4c8c-950f-a4c92a5d6c7d", 
       "name": "Attribute intersection", 
       "short_name": "ati", 
       "description": "Intersection of atributes of rules", 
       "variable": "atrInter", 
       "order": 2, 
       "uid": "06e8a9b6-901b-4e16-8d02-fded307a12c1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2e3c0b5c-5bcb-4c8c-950f-a4c92a5d6c7d", 
+      "name": "Attribute union", 
+      "short_name": "atu", 
+      "description": "Union of attributes of rules", 
+      "variable": "atrUnion", 
+      "order": 1, 
+      "uid": "64b2edae-31f7-4b97-93f5-144a03097852"
     }
   }
 ]

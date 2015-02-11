@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "68ce4c2e-baf7-4a2e-843b-3b5622c20448", 
-      "name": "Orange Data Table", 
-      "short_name": "odt", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "dataset", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "b41c9bbf-7405-451d-8dda-794ce850d452"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "68ce4c2e-baf7-4a2e-843b-3b5622c20448", 
       "name": "Scores", 
       "short_name": "sco", 
       "default": "", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "af3d33a6-674f-42c6-a092-abfd65196617"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "68ce4c2e-baf7-4a2e-843b-3b5622c20448", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "b41c9bbf-7405-451d-8dda-794ce850d452"
     }
   }, 
   {

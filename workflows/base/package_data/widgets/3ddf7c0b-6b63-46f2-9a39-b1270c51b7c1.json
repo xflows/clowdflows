@@ -5,7 +5,7 @@
       "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
       "treeview_image": "", 
       "uid": "3ddf7c0b-6b63-46f2-9a39-b1270c51b7c1", 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "package": "base", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,26 +19,9 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "order": 1, 
       "name": "Extract results"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "3ddf7c0b-6b63-46f2-9a39-b1270c51b7c1", 
-      "name": "Runtime", 
-      "short_name": "bmk", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "runtime", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "9d2b4fd5-e977-41c0-a857-ef9c00499c0f"
     }
   }, 
   {
@@ -62,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3ddf7c0b-6b63-46f2-9a39-b1270c51b7c1", 
-      "name": "F score", 
-      "short_name": "f", 
-      "default": "", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "fscore", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "46771a73-77e1-40d1-9a53-1a4ffed49f21"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "3ddf7c0b-6b63-46f2-9a39-b1270c51b7c1", 
       "name": "Precision", 
       "short_name": "pre", 
       "default": "", 
@@ -96,17 +62,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3ddf7c0b-6b63-46f2-9a39-b1270c51b7c1", 
-      "name": "Recall", 
-      "short_name": "rec", 
+      "name": "F score", 
+      "short_name": "f", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "recall", 
+      "variable": "fscore", 
       "parameter": false, 
       "order": 1, 
-      "uid": "ed759223-3e5d-4f27-8fa3-26000808fda0"
+      "uid": "46771a73-77e1-40d1-9a53-1a4ffed49f21"
     }
   }, 
   {
@@ -130,6 +96,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3ddf7c0b-6b63-46f2-9a39-b1270c51b7c1", 
+      "name": "Runtime", 
+      "short_name": "bmk", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "runtime", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "9d2b4fd5-e977-41c0-a857-ef9c00499c0f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3ddf7c0b-6b63-46f2-9a39-b1270c51b7c1", 
       "name": "Accuracy", 
       "short_name": "acc", 
       "default": "", 
@@ -141,6 +124,23 @@
       "parameter": false, 
       "order": 1, 
       "uid": "af085bcc-39a0-4d04-b709-6fe6fd953920"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3ddf7c0b-6b63-46f2-9a39-b1270c51b7c1", 
+      "name": "Recall", 
+      "short_name": "rec", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "recall", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ed759223-3e5d-4f27-8fa3-26000808fda0"
     }
   }, 
   {

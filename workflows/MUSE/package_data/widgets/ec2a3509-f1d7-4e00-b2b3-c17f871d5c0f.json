@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ec2a3509-f1d7-4e00-b2b3-c17f871d5c0f", 
-      "name": "Input data", 
-      "short_name": "str", 
-      "default": "", 
-      "description": "Plain text file with special annotations", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "input_data", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "472a4149-0115-4f63-bf9b-1494fd0468b9"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "ec2a3509-f1d7-4e00-b2b3-c17f871d5c0f", 
       "name": "Service url", 
       "short_name": "url", 
       "default": "http://vihar.ijs.si:8001/MUSE_services/jsonwsp/description", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "2b6b393c-97c7-4827-94a5-042944382939"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ec2a3509-f1d7-4e00-b2b3-c17f871d5c0f", 
+      "name": "Input data", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Plain text file with special annotations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "input_data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "472a4149-0115-4f63-bf9b-1494fd0468b9"
     }
   }, 
   {

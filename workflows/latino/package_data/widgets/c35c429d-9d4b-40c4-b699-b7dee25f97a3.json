@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c35c429d-9d4b-40c4-b699-b7dee25f97a3", 
-      "name": "String", 
-      "short_name": "str", 
-      "default": "", 
-      "description": "Input Text String: Contains one document per line - the whole line represents text from the body of a document.", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "textarea", 
-      "variable": "plainString", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "91e6fdd5-0969-dc3f-395e-3f2827a9c57c"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c35c429d-9d4b-40c4-b699-b7dee25f97a3", 
       "name": "Text before the first tabulator [/t] represents the title of a document", 
       "short_name": "bol", 
       "default": "false", 
@@ -56,6 +39,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "18f37a99-5141-f7d2-108e-49ee6505c3da"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c35c429d-9d4b-40c4-b699-b7dee25f97a3", 
+      "name": "String", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Input Text String: Contains one document per line - the whole line represents text from the body of a document.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "plainString", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "91e6fdd5-0969-dc3f-395e-3f2827a9c57c"
     }
   }, 
   {

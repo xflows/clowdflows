@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "51906007-2471-4869-89f9-f3f805358d13", 
+      "name": "Folds", 
+      "short_name": "fld", 
+      "default": "10", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "folds", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "2e4561d0-99fd-44fd-99a5-7ac32457aa58"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "51906007-2471-4869-89f9-f3f805358d13", 
       "name": "Orange Data Table", 
       "short_name": "odt", 
       "default": "", 
@@ -56,23 +73,6 @@
       "parameter": false, 
       "order": 2, 
       "uid": "a7f392fe-55f7-48df-9afb-1d0044562a2a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "51906007-2471-4869-89f9-f3f805358d13", 
-      "name": "Folds", 
-      "short_name": "fld", 
-      "default": "10", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "folds", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "2e4561d0-99fd-44fd-99a5-7ac32457aa58"
     }
   }, 
   {

@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "05317f75-cc6b-4257-bc71-21f080776bfc", 
-      "name": "NLP data", 
-      "short_name": "nlp", 
-      "default": "", 
-      "description": "Results of NLP processing", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "NLP_data", 
-      "parameter": false, 
-      "order": 1, 
-      "uid": "6e5ebc4b-cdbe-4ca6-8f5d-bcde21f5319a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "05317f75-cc6b-4257-bc71-21f080776bfc", 
       "name": "Server link", 
       "short_name": "url", 
       "default": "", 
@@ -56,6 +39,23 @@
       "parameter": false, 
       "order": 2, 
       "uid": "585e80d1-e5fb-49c9-92a7-7af16d4070f6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "05317f75-cc6b-4257-bc71-21f080776bfc", 
+      "name": "NLP data", 
+      "short_name": "nlp", 
+      "default": "", 
+      "description": "Results of NLP processing", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "NLP_data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "6e5ebc4b-cdbe-4ca6-8f5d-bcde21f5319a"
     }
   }
 ]

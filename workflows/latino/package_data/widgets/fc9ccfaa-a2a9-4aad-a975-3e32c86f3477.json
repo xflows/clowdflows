@@ -45,17 +45,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fc9ccfaa-a2a9-4aad-a975-3e32c86f3477", 
-      "name": "New Feature Name", 
+      "name": "Old Features Specification", 
       "short_name": "str", 
-      "default": "feature", 
-      "description": "System.String", 
+      "default": "feature1, feature2", 
+      "description": "Comma separated list of names of old features used in the 'New Feature Computataion'.", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "featureName", 
+      "variable": "featureSpec", 
       "parameter": true, 
-      "order": 2, 
-      "uid": "f2788c26-049a-cac4-d263-fa346f149424"
+      "order": 4, 
+      "uid": "9446f6e6-86cb-883f-82d1-9a36b37a330e"
     }
   }, 
   {
@@ -79,17 +79,17 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "fc9ccfaa-a2a9-4aad-a975-3e32c86f3477", 
-      "name": "Old Features Specification", 
+      "name": "New Feature Name", 
       "short_name": "str", 
-      "default": "feature1, feature2", 
-      "description": "Comma separated list of names of old features used in the 'New Feature Computataion'.", 
+      "default": "feature", 
+      "description": "System.String", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "featureSpec", 
+      "variable": "featureName", 
       "parameter": true, 
-      "order": 4, 
-      "uid": "9446f6e6-86cb-883f-82d1-9a36b37a330e"
+      "order": 2, 
+      "uid": "f2788c26-049a-cac4-d263-fa346f149424"
     }
   }, 
   {

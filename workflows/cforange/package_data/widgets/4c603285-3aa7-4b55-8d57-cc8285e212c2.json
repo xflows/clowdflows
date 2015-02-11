@@ -45,23 +45,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "4c603285-3aa7-4b55-8d57-cc8285e212c2", 
-      "name": "Orange Data Table", 
-      "short_name": "odt", 
-      "default": "", 
-      "description": "", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": null, 
-      "variable": "data", 
-      "parameter": false, 
-      "order": 2, 
-      "uid": "aa5d2630-534f-4662-8da5-342b2e87995b"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "4c603285-3aa7-4b55-8d57-cc8285e212c2", 
       "name": "Noise Level (%)", 
       "short_name": "nlv", 
       "default": "5", 
@@ -73,6 +56,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "9c5ec335-76a0-4208-81a0-76b4a0457d5d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4c603285-3aa7-4b55-8d57-cc8285e212c2", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "aa5d2630-534f-4662-8da5-342b2e87995b"
     }
   }, 
   {

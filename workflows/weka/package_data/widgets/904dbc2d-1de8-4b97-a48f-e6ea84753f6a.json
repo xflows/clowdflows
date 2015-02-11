@@ -28,40 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "904dbc2d-1de8-4b97-a48f-e6ea84753f6a", 
-      "name": "Timeout", 
-      "short_name": "to", 
-      "default": "60", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "timeout", 
-      "parameter": true, 
-      "order": 1, 
-      "uid": "e3d4fe8d-8b9d-45ff-a3a4-de7ce9a29327"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "904dbc2d-1de8-4b97-a48f-e6ea84753f6a", 
-      "name": "Send empty strings to webservices", 
-      "short_name": "ses", 
-      "default": "true", 
-      "description": "", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "sendemptystrings", 
-      "parameter": true, 
-      "order": 2, 
-      "uid": "8b63a66a-2a37-41d0-8c55-8b92f98fc79f"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "904dbc2d-1de8-4b97-a48f-e6ea84753f6a", 
       "name": "Learner", 
       "short_name": "lea", 
       "default": "", 
@@ -90,6 +56,40 @@
       "parameter": false, 
       "order": 4, 
       "uid": "1c36937f-7127-48a5-b086-ab3356e8db7d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "904dbc2d-1de8-4b97-a48f-e6ea84753f6a", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "8b63a66a-2a37-41d0-8c55-8b92f98fc79f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "904dbc2d-1de8-4b97-a48f-e6ea84753f6a", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e3d4fe8d-8b9d-45ff-a3a4-de7ce9a29327"
     }
   }, 
   {
