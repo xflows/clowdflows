@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d97dbb5a-b0a6-42c4-b9a2-ae1cacef8b76", 
+      "treeview_image": "", 
+      "uid": "cfd5aaa6-fce4-4f8a-aab7-820041ffec25", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Widget measures distribution of classes in subsets of data.", 
+      "static_image": "", 
+      "action": "measure_distribution", 
+      "visualization_view": "measure_distribution", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "Class distribution"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cfd5aaa6-fce4-4f8a-aab7-820041ffec25", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "8618f799-6bfd-4852-8a2b-db34e4441235"
+    }
+  }
+]

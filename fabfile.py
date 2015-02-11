@@ -36,7 +36,7 @@ def deploy():
             run("python manage.py collectstatic --noinput")
 
             puts(yellow("[Auto importing packages]"))
-            run("python manage.py auto_import_packages")
+            run("python manage.py import_all")
 
         with cd('/srv/django-projects/supervisor'):
             puts(yellow("[Restarting the run streams daemon"))

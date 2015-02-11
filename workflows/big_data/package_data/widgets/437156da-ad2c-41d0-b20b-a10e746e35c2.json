@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "cf7b1d24-7c6d-4cd1-bcc9-16e43e1ab5a7", 
+      "treeview_image": "", 
+      "uid": "437156da-ad2c-41d0-b20b-a10e746e35c2", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "results_to_file", 
+      "visualization_view": "results_to_file", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "Results View"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "437156da-ad2c-41d0-b20b-a10e746e35c2", 
+      "name": "Results", 
+      "short_name": "rst", 
+      "default": "", 
+      "description": "Results URL", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "string", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "795a676a-e380-4565-9170-be7e9b621377"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "437156da-ad2c-41d0-b20b-a10e746e35c2", 
+      "name": "Additional parameters", 
+      "short_name": "adp", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "add_params", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a194ac52-5e13-46c2-be48-a9b531da4d33"
+    }
+  }
+]

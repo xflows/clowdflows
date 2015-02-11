@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0165a189-a6ea-4152-8b5c-f507d47bc0e6", 
+      "treeview_image": "", 
+      "uid": "4fddd2e5-f253-4854-a246-389ce6cce36c", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Linear proximal SVM with MapReduce\r\n\r\nAlgorithm builds a model with continuous features and predicts binary target label (-1, 1). \r\n\r\nReference\r\nAlgorithm is proposed by Glenn Fung, O. L. Mangasarian. Incremental Support Vector Machine Classification. Description of algorithm can be found at ftp://ftp.cs.wisc.edu/pub/dmi/tech-reports/01-08.pdf. ", 
+      "static_image": "", 
+      "action": "linsvm_fit", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 3, 
+      "name": "Linear SVM"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4fddd2e5-f253-4854-a246-389ce6cce36c", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "66d60bda-e24c-4e40-898a-0627800fe022"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4fddd2e5-f253-4854-a246-389ce6cce36c", 
+      "name": "The weighting factor", 
+      "short_name": "nu", 
+      "default": "0.1", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "nu", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "e9b6cbcd-fc02-478b-a993-3b42ee730857"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4fddd2e5-f253-4854-a246-389ce6cce36c", 
+      "name": "Fit model", 
+      "short_name": "fit", 
+      "description": "Fit model URL", 
+      "variable": "fitmodel_url", 
+      "order": 1, 
+      "uid": "52ac4c1a-c595-4d8a-8f7a-5f54f1bce318"
+    }
+  }
+]

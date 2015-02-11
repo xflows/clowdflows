@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "08c90036-fd13-4ff3-ac20-01982262a782", 
+      "treeview_image": "", 
+      "uid": "19afbba4-6c29-4594-bda6-d86e344cbf15", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "bigdata_mse", 
+      "visualization_view": "bigdata_mse", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Mean squared error"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "19afbba4-6c29-4594-bda6-d86e344cbf15", 
+      "name": "Results", 
+      "short_name": "rst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "predictions", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "92e97624-fa25-4889-b7d6-fd9ce2823e5f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "19afbba4-6c29-4594-bda6-d86e344cbf15", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "ae2aaa2e-93d8-427c-9631-d053581ad888"
+    }
+  }
+]

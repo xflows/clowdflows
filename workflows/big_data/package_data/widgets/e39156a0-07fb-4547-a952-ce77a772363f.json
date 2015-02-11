@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d97dbb5a-b0a6-42c4-b9a2-ae1cacef8b76", 
+      "treeview_image": "", 
+      "uid": "e39156a0-07fb-4547-a952-ce77a772363f", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Widget takes a model on input and saves to a file that user can review. ", 
+      "static_image": "", 
+      "action": "model_view", 
+      "visualization_view": "model_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Model View"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e39156a0-07fb-4547-a952-ce77a772363f", 
+      "name": "Fit Model", 
+      "short_name": "fit", 
+      "default": "", 
+      "description": "Fit Model URL", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fitmodel_url", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f1c72ba9-b59b-4fef-9fb8-ea2803f2c69c"
+    }
+  }
+]

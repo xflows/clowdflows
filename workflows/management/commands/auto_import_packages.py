@@ -3,8 +3,8 @@ import os
 import sys
 from django.core.management.base import BaseCommand, CommandError
 from workflows import module_importer
-from workflows.management.commands import export_package
-from workflows.management.commands import import_package
+from workflows.management.commands import export_package_old as export_package
+from workflows.management.commands import import_package_old as import_package
 from optparse import make_option
 
 class Command(BaseCommand):

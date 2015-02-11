@@ -1,0 +1,68 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa1a52a7-66ee-483d-b24a-e543140fc476", 
+      "treeview_image": "", 
+      "uid": "bec0c1ac-59d4-4b1d-95d3-5e826f896b0e", 
+      "is_streaming": false, 
+      "package": "conceptnet", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "concept_net_triplets", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Conceptnet Get Triplets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bec0c1ac-59d4-4b1d-95d3-5e826f896b0e", 
+      "name": "concept_net_json_response", 
+      "short_name": "jsn", 
+      "default": "", 
+      "description": "Conceptnet JSON response", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "concept_net_json_response", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "fc379a4b-e1d7-4a71-9d5d-7d7879ba6fc8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bec0c1ac-59d4-4b1d-95d3-5e826f896b0e", 
+      "name": "triplets", 
+      "short_name": "tri", 
+      "description": "Triplets: subject, predicate, object", 
+      "variable": "triplets", 
+      "order": 1, 
+      "uid": "6fbf2ad3-8c9e-4b99-baa4-1a8519533454"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bec0c1ac-59d4-4b1d-95d3-5e826f896b0e", 
+      "name": "triplets without prefixes", 
+      "short_name": "trc", 
+      "description": "Triplets: subject, predicate, object without conceptnet prefixes", 
+      "variable": "basename_triplets", 
+      "order": 1, 
+      "uid": "f62999b0-9420-4fe6-a1dd-8e18c9ac4aed"
+    }
+  }
+]
