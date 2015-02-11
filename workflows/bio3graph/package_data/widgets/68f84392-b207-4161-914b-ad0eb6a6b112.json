@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e28eda39-1f18-4efe-9b7c-0d5f652f208f", 
+      "treeview_image": "", 
+      "uid": "68f84392-b207-4161-914b-ad0eb6a6b112", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Resets colours of all relations to black.", 
+      "static_image": "", 
+      "action": "bio3graph_reset_colours", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 21, 
+      "name": "Reset colours"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "68f84392-b207-4161-914b-ad0eb6a6b112", 
+      "name": "Network", 
+      "short_name": "nwx", 
+      "default": "", 
+      "description": "NetworkX data structure", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "network", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "5466b94f-9f1c-4121-88e5-3c5f15911684"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "68f84392-b207-4161-914b-ad0eb6a6b112", 
+      "name": "Network", 
+      "short_name": "nwx", 
+      "description": "NetworkX data structure", 
+      "variable": "network", 
+      "order": 1, 
+      "uid": "b46568bd-6eea-4a42-a548-83adc8e6e955"
+    }
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1eee22f4-9235-4b0a-be2e-407494968f4e", 
+      "treeview_image": "", 
+      "uid": "5dc72a81-347c-4a40-8658-2591961477e5", 
+      "is_streaming": false, 
+      "package": "vipercharts", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "vipercharts_pr_space", 
+      "visualization_view": "vipercharts_pr_space_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 7, 
+      "name": "PR space"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5dc72a81-347c-4a40-8658-2591961477e5", 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "perf", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "33e1ee25-2b74-49c9-99fb-30d9141f9119"
+    }
+  }
+]

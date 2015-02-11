@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "f544eee2-1f9b-4830-bf78-26d5c828b162", 
+      "treeview_image": "", 
+      "uid": "917749ce-0308-499b-be85-c987285f90db", 
+      "is_streaming": false, 
+      "package": "decision_support", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "sensitivity.png", 
+      "action": "decision_support_sensitivity_analysis", 
+      "visualization_view": "decision_support_sensitivity_analysis_viewer", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Sensitivity analysis"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "917749ce-0308-499b-be85-c987285f90db", 
+      "name": "DS model", 
+      "short_name": "mdl", 
+      "default": "", 
+      "description": "model", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "model", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "1f13bb91-47fb-4ba6-bdee-2d96f05d6f45"
+    }
+  }
+]

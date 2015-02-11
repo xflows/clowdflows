@@ -1,0 +1,68 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "2786eaa2-3505-4d44-9962-23df9f23c072", 
+      "is_streaming": false, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "split.png", 
+      "action": "streaming_split_pos_neg", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Split positive and negative tweets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2786eaa2-3505-4d44-9962-23df9f23c072", 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "eea9cd8a-dbbb-4c08-98c4-d0d6df97aee0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2786eaa2-3505-4d44-9962-23df9f23c072", 
+      "name": "Positive tweets", 
+      "short_name": "ptw", 
+      "description": "", 
+      "variable": "ptw", 
+      "order": 1, 
+      "uid": "8694851c-3f97-4177-835e-fb49c43f8dcd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2786eaa2-3505-4d44-9962-23df9f23c072", 
+      "name": "Negative tweets", 
+      "short_name": "ntw", 
+      "description": "", 
+      "variable": "ntw", 
+      "order": 2, 
+      "uid": "bb2debb9-914d-4c8a-abc2-3eff09009dd9"
+    }
+  }
+]

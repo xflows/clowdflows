@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e28eda39-1f18-4efe-9b7c-0d5f652f208f", 
+      "treeview_image": "", 
+      "uid": "da67ace9-8a01-41ca-972f-e0bbf8ef595b", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Transforms a Biomine graph into a NetworkX data structure.", 
+      "static_image": "", 
+      "action": "bio3graph_biomine_to_networkx", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 24, 
+      "name": "Transform Biomine to NetworkX"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "da67ace9-8a01-41ca-972f-e0bbf8ef595b", 
+      "name": "Biomine graph", 
+      "short_name": "bmg", 
+      "default": "", 
+      "description": "Biomine graph as string", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "biomine_graph", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ba70777c-5132-4bc8-acbf-5e6d76e6ef2c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "da67ace9-8a01-41ca-972f-e0bbf8ef595b", 
+      "name": "NetworkX network", 
+      "short_name": "nwx", 
+      "description": "NetworkX network object", 
+      "variable": "network_object", 
+      "order": 1, 
+      "uid": "294ede06-c49a-4552-b6c4-3e0183fd8fcf"
+    }
+  }
+]

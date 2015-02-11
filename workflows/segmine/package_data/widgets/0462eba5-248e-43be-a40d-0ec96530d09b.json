@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "0462eba5-248e-43be-a40d-0ec96530d09b", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "segmine_hclustering", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "A non-interactive variant of Hierarchical clustering for SegMine.", 
+      "static_image": "", 
+      "action": "segmine_hclustering", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "segmine_hclustering_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Select hierarchical cluster"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0462eba5-248e-43be-a40d-0ec96530d09b", 
+      "name": "Hierarchical clustering", 
+      "short_name": "hcl", 
+      "default": "", 
+      "description": "Orange hierarchical clustering object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "hclustering", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "0ae6fa4f-9032-42f0-a65c-067b221036c6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0462eba5-248e-43be-a40d-0ec96530d09b", 
+      "name": "Selected examples", 
+      "short_name": "sel", 
+      "description": "Examples from the selected cluster", 
+      "variable": "selected_examples", 
+      "order": 1, 
+      "uid": "5bd9d37d-f9da-4d38-a70f-fe6e8a19778e"
+    }
+  }
+]

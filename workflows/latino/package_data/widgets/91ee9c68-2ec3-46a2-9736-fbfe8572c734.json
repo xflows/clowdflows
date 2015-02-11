@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0378e3a8-b71e-47b5-96b0-84dca2680f4d", 
+      "treeview_image": "", 
+      "uid": "91ee9c68-2ec3-46a2-9736-fbfe8572c734", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function CreateTermDatasetFromAdc in package latino. The original function signature: CreateTermDatasetFromAdc.", 
+      "static_image": "get_vocabulary_image.png", 
+      "action": "latino_create_term_dataset_from_adc", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 3, 
+      "name": "Create Term Dataset"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "91ee9c68-2ec3-46a2-9736-fbfe8572c734", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "0524eef4-b6f8-0b9f-c8a6-bd70d54e09b9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "91ee9c68-2ec3-46a2-9736-fbfe8572c734", 
+      "name": "Bag of Words Model", 
+      "short_name": "bow", 
+      "default": "", 
+      "description": "Latino.TextMining.BowSpace", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "bow", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "d6f40c90-b6c9-dceb-426d-cc6781ec4dc4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "91ee9c68-2ec3-46a2-9736-fbfe8572c734", 
+      "name": "Term Dataset", 
+      "short_name": "tds", 
+      "description": "", 
+      "variable": "termDataset", 
+      "order": 1, 
+      "uid": "1d1bb0a9-af17-4c12-0c1a-ff3dea0956e4"
+    }
+  }
+]

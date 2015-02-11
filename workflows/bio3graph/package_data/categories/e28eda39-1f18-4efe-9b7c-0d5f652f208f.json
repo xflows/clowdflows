@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Graph operations", 
+    "parent": "472a416b-b56a-4f6e-aae9-0ffb9cef240d", 
+    "order": 1, 
+    "uid": "e28eda39-1f18-4efe-9b7c-0d5f652f208f"
+  }
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "90c0715f-36e0-4e06-a2ef-7fb88bf95943", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Summarizes a news article retrieved by URL.", 
+      "static_image": "summary.png", 
+      "action": "streaming_summarize_url", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Summarize news article"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "90c0715f-36e0-4e06-a2ef-7fb88bf95943", 
+      "name": "URL", 
+      "short_name": "url", 
+      "default": "", 
+      "description": "URL of a news article", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "url", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e475bee2-b965-48fe-b027-4447bc0c6005"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "90c0715f-36e0-4e06-a2ef-7fb88bf95943", 
+      "name": "Summary", 
+      "short_name": "txt", 
+      "description": "Summary", 
+      "variable": "summary", 
+      "order": 1, 
+      "uid": "64b1fc78-bd34-4fd1-8cbc-04fd17a94fbd"
+    }
+  }
+]

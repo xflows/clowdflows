@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "7b1fb3c2-3dd7-4754-9a3e-ccf71a43e7c6", 
+      "treeview_image": "", 
+      "uid": "11b77438-8264-4234-9abf-f96aa9848fe0", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function RankTerms in package crossbee. The original function signature: RankTerms.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_rank_terms", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 20, 
+      "name": "Rank Terms"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "11b77438-8264-4234-9abf-f96aa9848fe0", 
+      "name": "Heuristics", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "CrossBeeInterfaces.Heurisitcs.Heuristics", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f1836042-3fcd-8ad9-7750-78ededd252d2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "11b77438-8264-4234-9abf-f96aa9848fe0", 
+      "name": "Table", 
+      "short_name": "tbl", 
+      "description": "", 
+      "variable": "table", 
+      "order": 1, 
+      "uid": "962b3cbd-2a78-dac1-2f20-e58143d40217"
+    }
+  }
+]

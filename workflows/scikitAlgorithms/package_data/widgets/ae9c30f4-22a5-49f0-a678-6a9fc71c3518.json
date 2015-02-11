@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ef06ed94-c57a-4bb0-8f05-1212920c95a0", 
+      "treeview_image": "", 
+      "uid": "ae9c30f4-22a5-49f0-a678-6a9fc71c3518", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Transforms CSV file into Scikit-learn dataset. Result values must be in the last column", 
+      "static_image": "SDT-to-CSV.png", 
+      "action": "scikitAlgorithms_CSVtoNumpy", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "CSV to Scikit-Dataset"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ae9c30f4-22a5-49f0-a678-6a9fc71c3518", 
+      "name": "FileIn", 
+      "short_name": "fil", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fileIn", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "60c22566-2703-473d-8575-df5471d25d1d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ae9c30f4-22a5-49f0-a678-6a9fc71c3518", 
+      "name": "Dataset", 
+      "short_name": "dts", 
+      "description": "", 
+      "variable": "scikitDataset", 
+      "order": 1, 
+      "uid": "f0fe78a8-00ab-4266-9e2f-aaea3dc6492d"
+    }
+  }
+]

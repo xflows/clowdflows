@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e8574599-994c-4cff-a94d-453d6c5e2dfd", 
+      "treeview_image": "", 
+      "uid": "ec3279bc-9a20-4e06-84c0-ae0cd1c79a56", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "3D demonstrator for the Tuk the Hunter children story", 
+      "static_image": "", 
+      "action": "MUSE_virtual_environment_demonstrator_tuk", 
+      "visualization_view": "MUSE_virtual_environment_demonstrator_tuk", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Tuk the Hunter 3D demonstrator"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ec3279bc-9a20-4e06-84c0-ae0cd1c79a56", 
+      "name": "mapping file URL", 
+      "short_name": "lnk", 
+      "default": "", 
+      "description": "A link to the XML file contating mapping to knowledge representation", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "mappingLink", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "6f99be99-50d7-4f2b-a1f0-2ab2aa8c69b9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ec3279bc-9a20-4e06-84c0-ae0cd1c79a56", 
+      "name": "Unity3D app link", 
+      "short_name": "lnk", 
+      "default": "https://ive.scm.tees.ac.uk/muse/tuk-text/Tuk-Text-Workflow-Web.html", 
+      "description": "A link to the Tuk Unity3D web app", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "unityLink", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "adfdaa7d-4e2e-4d98-aaa0-a33df67c381e"
+    }
+  }
+]

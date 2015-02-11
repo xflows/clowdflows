@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ef06ed94-c57a-4bb0-8f05-1212920c95a0", 
+      "treeview_image": "", 
+      "uid": "3ce67944-b38e-433d-8274-e9838ebdedab", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "SDT-to-CSV.png", 
+      "action": "scikitAlgorithms_CSVtoOrange", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "CSV to Orange Data Table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3ce67944-b38e-433d-8274-e9838ebdedab", 
+      "name": "File", 
+      "short_name": "csv", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "file", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "30bf4478-dfbc-4e31-9933-806f68941b3b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3ce67944-b38e-433d-8274-e9838ebdedab", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "description": "", 
+      "variable": "dataset", 
+      "order": 1, 
+      "uid": "257607d4-205f-4a1d-9136-1cf54b19bc3d"
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5d55b2bf-c5f6-4fff-bfd3-9d6ad83ba9f9", 
+      "treeview_image": "", 
+      "uid": "c4984507-aa74-43d0-9a9c-861561fdb5fe", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function OutlierHeuristicsSpec in package crossbee. The original function signature: OutlierHeuristicsSpec.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_outlier_heuristics_spec", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 420, 
+      "name": "Outlier Heuristics Specification"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c4984507-aa74-43d0-9a9c-861561fdb5fe", 
+      "name": "Outlier Heurisitc(s)", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heurisitcs.Heuristics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4e27297b-5056-076c-f30b-c7075a320556"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c4984507-aa74-43d0-9a9c-861561fdb5fe", 
+      "name": "Heuristics Specification", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "specification", 
+      "order": 1, 
+      "uid": "ef2a8e96-cba6-8340-9c9d-9ca73ebf32f9"
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "10957b62-2dcb-4461-8146-70eecf27fcff", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "wordnet.png", 
+      "action": "streaming_triplet_wordnet_lemmatizer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "WordNet lemmatizer on triplets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "10957b62-2dcb-4461-8146-70eecf27fcff", 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e9bc6945-54fb-4128-87ae-75aa1b7f9a79"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "10957b62-2dcb-4461-8146-70eecf27fcff", 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "description": "Triplets", 
+      "variable": "triplets", 
+      "order": 1, 
+      "uid": "0b0219b5-8b80-4e61-8cb1-f02123649d54"
+    }
+  }
+]

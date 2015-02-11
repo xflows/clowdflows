@@ -49,7 +49,7 @@ Uncomment the packages that you need in `mothra/local_settings.py` in the `INSTA
 Say "no" to creating a super-user when prompted. You'll create the user after migrations.
 
 ```bash
-python manage.py syncdb
+python manage.py syncdb --noinput
 ```
 
 ### Migrate database ###
@@ -64,7 +64,7 @@ python manage.py createsuperuser
 
 ### Import packages ###
 ```bash
-python manage.py auto_import_packages -n
+python manage.py import_all
 ```
 
 ## Running ##

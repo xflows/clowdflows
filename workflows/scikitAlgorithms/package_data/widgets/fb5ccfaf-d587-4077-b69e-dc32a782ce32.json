@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "168025e9-edfe-44d0-9818-1ac1d7d5cfe3", 
+      "treeview_image": "", 
+      "uid": "fb5ccfaf-d587-4077-b69e-dc32a782ce32", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "L1+L2-regularized least squares linear model trained using Stochastic Gradient Descent", 
+      "static_image": "scikit_SGD.png", 
+      "action": "scikitAlgorithms_SGDRegressor", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "SGD Regressor"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "fb5ccfaf-d587-4077-b69e-dc32a782ce32", 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "out", 
+      "order": 1, 
+      "uid": "f9da971d-5bbc-49b5-93d8-6dbb148c3c10"
+    }
+  }
+]

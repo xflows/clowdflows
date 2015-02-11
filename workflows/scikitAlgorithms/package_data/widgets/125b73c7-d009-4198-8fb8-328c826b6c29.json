@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ef06ed94-c57a-4bb0-8f05-1212920c95a0", 
+      "treeview_image": "", 
+      "uid": "125b73c7-d009-4198-8fb8-328c826b6c29", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "table.png", 
+      "action": "scikitAlgorithms_SVMtoScikitDataset", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "SVM to Scikit Dataset"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "125b73c7-d009-4198-8fb8-328c826b6c29", 
+      "name": "FileIn", 
+      "short_name": "fil", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fileIn", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "792a13ff-e47e-4482-aaec-bc5e40a81c37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "125b73c7-d009-4198-8fb8-328c826b6c29", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "description": "", 
+      "variable": "datasetOut", 
+      "order": 1, 
+      "uid": "606cc624-54a5-4636-89f5-b8ad1cfce925"
+    }
+  }
+]

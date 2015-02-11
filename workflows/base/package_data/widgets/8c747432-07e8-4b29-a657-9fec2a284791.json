@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "", 
+      "uid": "8c747432-07e8-4b29-a657-9fec2a284791", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Safe evaluation of strings.", 
+      "static_image": "", 
+      "action": "base_safe_eval_string", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Evaluate string"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8c747432-07e8-4b29-a657-9fec2a284791", 
+      "name": "Input string", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "String to evaluate", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "8436f5de-560f-427d-bb3e-b5e3774b56e7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "8c747432-07e8-4b29-a657-9fec2a284791", 
+      "name": "Object", 
+      "short_name": "obj", 
+      "description": "Result of evaluation", 
+      "variable": "evaluation_result", 
+      "order": 1, 
+      "uid": "68a67e71-8973-41e8-9f22-991f9f46ff26"
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "44fdf9b8-8259-4a43-8a77-59753b74cacd", 
+      "treeview_image": "", 
+      "uid": "681badb5-8a52-4a35-a9cf-5da73729ca5f", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ExampleListToTable in package lemmagen. The original function signature: ExampleListToTable.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_example_list_to_table", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 660, 
+      "name": "Example List to Table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "681badb5-8a52-4a35-a9cf-5da73729ca5f", 
+      "name": "List of LemmaExamples", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[LemmaSharp.LemmaExample, LemmaSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "exampleList", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "015ac402-992b-a3fe-0ae3-abfa9e92f441"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "681badb5-8a52-4a35-a9cf-5da73729ca5f", 
+      "name": "Table", 
+      "short_name": "tbl", 
+      "description": "", 
+      "variable": "table", 
+      "order": 1, 
+      "uid": "c8b6a311-9c9f-97a6-48ef-1c75688a4f35"
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "eebdd845-fbff-48f4-ab8f-509a10f53f12", 
+      "treeview_image": "", 
+      "uid": "df886b89-84db-4196-9f9f-464318b89245", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "bio3graph_xml_to_fulltext", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Create full texts of the given PMC article XMLs.", 
+      "static_image": "", 
+      "action": "bio3graph_xml_to_fulltext", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "bio3graph_xml_to_fulltext_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 12, 
+      "name": "XML to Fulltext"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "df886b89-84db-4196-9f9f-464318b89245", 
+      "name": "xml list", 
+      "short_name": "xml", 
+      "default": "", 
+      "description": "List of document xmls", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "xml_list", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "814bb140-7040-457e-9d1b-8684582520bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "df886b89-84db-4196-9f9f-464318b89245", 
+      "name": "fulltexts", 
+      "short_name": "txt", 
+      "description": "List of fulltexts", 
+      "variable": "fulltexts", 
+      "order": 1, 
+      "uid": "b1bc856c-a1b7-4a36-b9ab-1301e4a5a400"
+    }
+  }
+]

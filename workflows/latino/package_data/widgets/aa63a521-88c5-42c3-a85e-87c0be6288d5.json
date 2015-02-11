@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1eed1020-c423-4831-80ce-50f65ae276e1", 
+      "treeview_image": "", 
+      "uid": "aa63a521-88c5-42c3-a85e-87c0be6288d5", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function SaveADCtoXml in package latino. The original function signature: SaveADCtoXml.", 
+      "static_image": "adc_to_xml_image.png", 
+      "action": "latino_save_adcto_xml", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "Convert Corpus to XML String"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa63a521-88c5-42c3-a85e-87c0be6288d5", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "bb23f353-d88a-ae54-fd44-1249badd8f28"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "aa63a521-88c5-42c3-a85e-87c0be6288d5", 
+      "name": "XML String", 
+      "short_name": "xml", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "d8a5c93d-9a82-ff1a-7d5a-a6e287074ca5"
+    }
+  }
+]

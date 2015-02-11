@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bc5a8211-0cdd-4c1e-82cc-5251672bfba3", 
+      "treeview_image": "", 
+      "uid": "638a8dfc-ca61-4003-a380-55a292b7a4cc", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Parses document sentences using the GENIA POS tagger.", 
+      "static_image": "", 
+      "action": "bio3graph_parse_sentences", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 17, 
+      "name": "Parse sentences"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "638a8dfc-ca61-4003-a380-55a292b7a4cc", 
+      "name": "Document", 
+      "short_name": "doc", 
+      "default": "", 
+      "description": "Bio3graph document structure with sentences splitted.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "document", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "5f523026-ac69-463b-abec-41000c0ad5b5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "638a8dfc-ca61-4003-a380-55a292b7a4cc", 
+      "name": "Document", 
+      "short_name": "doc", 
+      "description": "Bio3graph document structure with sentences parsed.", 
+      "variable": "document", 
+      "order": 1, 
+      "uid": "91ea9756-dade-48af-a03b-9d5ef8120ac5"
+    }
+  }
+]

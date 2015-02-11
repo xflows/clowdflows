@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "317018eb-3bc8-4862-bce8-273451a01de4", 
+      "treeview_image": "", 
+      "uid": "2e92b1c1-0d1a-4569-a003-0bb3b9400801", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "max_features : {int, float or string } The number of features to consider when looking for the best split:\r\n\r\nint, then consider max_features features at each split.\r\nfloat, then max_features is a percentage and int(max_features * n_features) features are considered at each split.\r\n\u201cauto\u201d, then max_features=sqrt(n_features).\r\n\u201csqrt\u201d, then max_features=sqrt(n_features).\r\n\u201clog2\u201d, then max_features=log2(n_features).\r\nNone, then max_features=n_features.\r\n\r\nmax_depth : {integer} The maximum depth of the tree. \r\n", 
+      "static_image": "scikit_Tree-icon.png", 
+      "action": "scikitAlgorithms_J48", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Decision Tree"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2e92b1c1-0d1a-4569-a003-0bb3b9400801", 
+      "name": "max_feature", 
+      "short_name": "par", 
+      "default": "auto", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "featureIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "61d7acc2-72c8-4943-a602-fcbabea6cc0f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2e92b1c1-0d1a-4569-a003-0bb3b9400801", 
+      "name": "max_depth", 
+      "short_name": "par", 
+      "default": "100", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "depthIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "d3fe38b1-f3b2-4364-a30e-dac5a27d3dfa"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2e92b1c1-0d1a-4569-a003-0bb3b9400801", 
+      "name": "Dataset", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "treeOut", 
+      "order": 1, 
+      "uid": "c1eedb63-fabc-46c4-b751-7e7072847180"
+    }
+  }
+]

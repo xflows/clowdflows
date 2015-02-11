@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "CrossBee", 
+    "parent": null, 
+    "order": 3, 
+    "uid": "62a3ddb8-ff28-4e54-8144-3a7af70d235a"
+  }
+}

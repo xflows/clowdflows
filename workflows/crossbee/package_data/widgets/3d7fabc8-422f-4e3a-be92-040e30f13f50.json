@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d8fee140-c280-4d6b-b0b9-7c02fd857b50", 
+      "treeview_image": "", 
+      "uid": "3d7fabc8-422f-4e3a-be92-040e30f13f50", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructAllStandardHeurisitc in package crossbee. The original function signature: ConstructAllStandardHeurisitc.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_construct_all_standard_heurisitc", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 12, 
+      "name": "All Standard Heuristics"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3d7fabc8-422f-4e3a-be92-040e30f13f50", 
+      "name": "Heuristics", 
+      "short_name": "heu", 
+      "description": "", 
+      "variable": "heurisitcs", 
+      "order": 1, 
+      "uid": "62cecd9a-3eb0-7285-adb5-58f0ee08d1e3"
+    }
+  }
+]

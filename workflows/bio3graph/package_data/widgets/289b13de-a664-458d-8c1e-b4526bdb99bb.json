@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "eebdd845-fbff-48f4-ab8f-509a10f53f12", 
+      "treeview_image": "", 
+      "uid": "289b13de-a664-458d-8c1e-b4526bdb99bb", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Downloads the XML document of the give article(s).", 
+      "static_image": "", 
+      "action": "bio3graph_get_xmls", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 11, 
+      "name": "Get XML of PMC article"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "289b13de-a664-458d-8c1e-b4526bdb99bb", 
+      "name": "id list", 
+      "short_name": "ids", 
+      "default": "", 
+      "description": "List of document ids", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "id_list", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "bc0365c3-298e-45a9-91fd-f293829b9bc0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "289b13de-a664-458d-8c1e-b4526bdb99bb", 
+      "name": "list of XMLs", 
+      "short_name": "xml", 
+      "description": "List of XMLs", 
+      "variable": "xmls", 
+      "order": 1, 
+      "uid": "6d8ff59f-9356-4180-9ef7-0644caffec72"
+    }
+  }
+]

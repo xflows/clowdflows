@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "44fdf9b8-8259-4a43-8a77-59753b74cacd", 
+      "treeview_image": "", 
+      "uid": "3dde957a-b5f9-41e6-9911-fdaff1432af2", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function LoadExampleListFromString in package lemmagen. The original function signature: LoadExampleListFromString.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_load_example_list_from_string", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 550, 
+      "name": "Load Example List from String"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3dde957a-b5f9-41e6-9911-fdaff1432af2", 
+      "name": "Tab Delimited String Table Representation", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "tabDelim", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "16eababc-9f13-04db-456d-3a0dc0fbcee5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3dde957a-b5f9-41e6-9911-fdaff1432af2", 
+      "name": "Format", 
+      "short_name": "str", 
+      "default": "WLM", 
+      "description": "Use letters to declare input column meaning: 'W'=word, 'L'=lemma, 'M'=msd and 'F'=frequency. Use '_' to declare not important column. For example, format 'W_LM' specifies that words are in the first column, lemmas are in the third column and msds are in the fourth column. Word and lemma specifiers are required, msd and frequency are optional.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "format", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a7182c81-aa75-8385-8b40-1d244503766e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3dde957a-b5f9-41e6-9911-fdaff1432af2", 
+      "name": "List of LemmaExamples", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "exampleList", 
+      "order": 1, 
+      "uid": "774ba003-4ec2-296e-1b81-b8a253f886c5"
+    }
+  }
+]

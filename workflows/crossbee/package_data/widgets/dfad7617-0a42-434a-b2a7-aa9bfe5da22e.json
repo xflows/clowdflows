@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e47e7821-f8b2-40d5-9bbc-c3508367aed7", 
+      "treeview_image": "", 
+      "uid": "dfad7617-0a42-434a-b2a7-aa9bfe5da22e", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function DisplayRocCurves in package crossbee. The original function signature: DisplayRocCurves.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_display_roc_curves", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 16, 
+      "name": "Display ROC Curves"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "dfad7617-0a42-434a-b2a7-aa9bfe5da22e", 
+      "name": "ROC Curves", 
+      "short_name": "roc", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "roc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ce10343f-5cff-eb61-b85a-349163f62a19"
+    }
+  }
+]

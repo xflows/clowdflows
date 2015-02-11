@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "723e4654-abf4-4c9f-920f-08915c4d7a72", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "rss.png", 
+      "action": "streaming_rss_reader", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "RSS Reader"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "723e4654-abf4-4c9f-920f-08915c4d7a72", 
+      "name": "RSS URL", 
+      "short_name": "url", 
+      "default": "", 
+      "description": "The URL of the RSS feed", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "bab53d85-8423-409c-91c3-f36a857b5e5f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "723e4654-abf4-4c9f-920f-08915c4d7a72", 
+      "name": "URL", 
+      "short_name": "url", 
+      "description": "", 
+      "variable": "url", 
+      "order": 1, 
+      "uid": "50d8c3ec-e1df-4f0a-b743-5e00509fed02"
+    }
+  }
+]

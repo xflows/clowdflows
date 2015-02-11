@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Orange", 
+    "parent": null, 
+    "order": 1, 
+    "uid": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99"
+  }
+}

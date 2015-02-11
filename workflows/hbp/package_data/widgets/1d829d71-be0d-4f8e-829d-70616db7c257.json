@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e73346b1-803c-4d44-8230-52c499f11da6", 
+      "treeview_image": "", 
+      "uid": "1d829d71-be0d-4f8e-829d-70616db7c257", 
+      "is_streaming": false, 
+      "package": "hbp", 
+      "interaction_view": "hbp_interactive_analysis", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "hbp_interactive_analysis", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "hbp_interactive_analysis_post", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Interactive analysis"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1d829d71-be0d-4f8e-829d-70616db7c257", 
+      "name": "Dataset", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "Dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "1551b5dc-2127-4b6d-9430-a0316e83f84b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1d829d71-be0d-4f8e-829d-70616db7c257", 
+      "name": "Results", 
+      "short_name": "res", 
+      "description": "The results", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "1a042d29-37f8-4acc-ac4d-fa21ffa8ecce"
+    }
+  }
+]

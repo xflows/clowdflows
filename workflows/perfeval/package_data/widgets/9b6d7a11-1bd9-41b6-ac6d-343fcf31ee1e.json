@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed2728bc-3fd5-4244-9876-f6a757d1b922", 
+      "treeview_image": "treeview/results-table.png", 
+      "uid": "9b6d7a11-1bd9-41b6-ac6d-343fcf31ee1e", 
+      "is_streaming": false, 
+      "package": "perfeval", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/results-table.png", 
+      "description": "", 
+      "static_image": "", 
+      "action": "eval_to_table", 
+      "visualization_view": "eval_to_table_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Evaluation Results to Table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9b6d7a11-1bd9-41b6-ac6d-343fcf31ee1e", 
+      "name": "Evaluation Results", 
+      "short_name": "evr", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "eval_results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "37860143-3d94-4f29-9d73-2e817497c46b"
+    }
+  }
+]

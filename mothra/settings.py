@@ -161,7 +161,6 @@ INSTALLED_APPS_DEFAULT = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'south',
     'website',
     'signuplogin',
     'django_extensions',
@@ -175,6 +174,7 @@ INSTALLED_APPS_DEFAULT = (
     #'kombu.transport.django',
     'discover_runner',
     'rest_framework',
+    'south',    
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()

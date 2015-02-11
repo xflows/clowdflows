@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Feature Subset Selection", 
+    "parent": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99", 
+    "order": 4, 
+    "uid": "81efce93-b6c5-4270-bde9-ec946a394b10"
+  }
+}

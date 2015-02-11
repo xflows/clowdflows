@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "74457dca-9fba-4d66-98dd-633df385a22b", 
+      "treeview_image": "", 
+      "uid": "a096d16d-ed0b-4e24-90be-d8e2fb44cc64", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructHierarchicalBisectingClusterer in package latino. The original function signature: ConstructHierarchicalBisectingClusterer.", 
+      "static_image": "clusterer_hierarchial_bisec_image.png", 
+      "action": "latino_construct_hierarchical_bisecting_clusterer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 3, 
+      "name": "Hierarchical Bisecting Clusterer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a096d16d-ed0b-4e24-90be-d8e2fb44cc64", 
+      "name": "Min Quality", 
+      "short_name": "dbl", 
+      "default": "0.2", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minQuality", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "c7e679d0-ff8c-afcf-0d8b-011b65f862ed"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a096d16d-ed0b-4e24-90be-d8e2fb44cc64", 
+      "name": "Clusterer", 
+      "short_name": "cls", 
+      "description": "", 
+      "variable": "clusterer", 
+      "order": 1, 
+      "uid": "e4ddd462-8964-be15-5b4b-e65516c4b925"
+    }
+  }
+]

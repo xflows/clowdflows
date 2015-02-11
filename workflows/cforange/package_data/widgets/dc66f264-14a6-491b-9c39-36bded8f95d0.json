@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d13c01e6-675f-4c48-a211-b24af72229b0", 
+      "treeview_image": "", 
+      "uid": "dc66f264-14a6-491b-9c39-36bded8f95d0", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "One of the several alternative measures to be used to evaluate the success of numeric prediction.", 
+      "static_image": "MSE2.png", 
+      "action": "cforange_RMSE", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Root Mean-squared Error"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "dc66f264-14a6-491b-9c39-36bded8f95d0", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "588d6e48-4365-43e7-8388-09da5fe660ea"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "dc66f264-14a6-491b-9c39-36bded8f95d0", 
+      "name": "Root Mean Squared Error", 
+      "short_name": "rms", 
+      "description": "", 
+      "variable": "RMSE", 
+      "order": 1, 
+      "uid": "9ff06017-8f60-4456-916a-6261222631db"
+    }
+  }
+]

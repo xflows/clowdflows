@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
+      "treeview_image": "treeview/orange-SVM_1.png", 
+      "uid": "6b40b000-3e93-4fe4-bb95-f7ea4822eebf", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/orange-SVM_1.png", 
+      "description": "Support vector machine learner.", 
+      "static_image": "orange-SVM_1.png", 
+      "action": "svm", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 10, 
+      "name": "Support Vector Machine"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6b40b000-3e93-4fe4-bb95-f7ea4822eebf", 
+      "name": "Support Vector Machine Learner", 
+      "short_name": "lrn", 
+      "description": "The support vector machine learning algorithm.", 
+      "variable": "svmout", 
+      "order": 1, 
+      "uid": "f2c9a031-e94f-4b3f-9302-656c46871e46"
+    }
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed2728bc-3fd5-4244-9876-f6a757d1b922", 
+      "treeview_image": "treeview/EvaluateRepeated.png", 
+      "uid": "5b52c563-3302-429f-9232-4f003e8c11f0", 
+      "is_streaming": false, 
+      "package": "perfeval", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/EvaluateRepeated.png", 
+      "description": "", 
+      "static_image": "", 
+      "action": "eval_batch", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Evaluate Repeated Detection"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5b52c563-3302-429f-9232-4f003e8c11f0", 
+      "name": "Algorithm Performances", 
+      "short_name": "aps", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "perfs", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "3b202ce7-d565-4f45-ae82-3f040f10499c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5b52c563-3302-429f-9232-4f003e8c11f0", 
+      "name": "F-measure Beta-parameter", 
+      "short_name": "btp", 
+      "default": "1", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "beta", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "c584ebf0-a9b4-4877-b503-2abef8c7dd72"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5b52c563-3302-429f-9232-4f003e8c11f0", 
+      "name": "Performance Results", 
+      "short_name": "prs", 
+      "description": "", 
+      "variable": "perf_results", 
+      "order": 1, 
+      "uid": "1e4b9502-809e-46ab-ab12-728edaf4c3f3"
+    }
+  }
+]

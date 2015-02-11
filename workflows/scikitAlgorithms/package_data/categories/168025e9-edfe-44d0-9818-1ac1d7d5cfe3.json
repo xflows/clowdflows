@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Regression", 
+    "parent": "62f6171b-5448-424b-b5cc-88cd63883fd0", 
+    "order": 1, 
+    "uid": "168025e9-edfe-44d0-9818-1ac1d7d5cfe3"
+  }
+}

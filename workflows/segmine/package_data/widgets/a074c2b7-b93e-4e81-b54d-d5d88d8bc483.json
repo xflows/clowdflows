@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "a074c2b7-b93e-4e81-b54d-d5d88d8bc483", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "segmine_fc_gene_filter", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Filters the genes according to FC threshold.", 
+      "static_image": "fc.png", 
+      "action": "segmine_fc_gene_filter", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "segmine_fc_gene_filter_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Fold change gene filter"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a074c2b7-b93e-4e81-b54d-d5d88d8bc483", 
+      "name": "Orange dataset", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Orange dataset", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d3abfbe3-7871-49e0-9f9f-76d5e39346cc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a074c2b7-b93e-4e81-b54d-d5d88d8bc483", 
+      "name": "Orange dataset", 
+      "short_name": "odt", 
+      "description": "Orange dataset with filtered genes", 
+      "variable": "dataset", 
+      "order": 1, 
+      "uid": "789f37fa-3160-4aa5-b06e-df22146be552"
+    }
+  }
+]

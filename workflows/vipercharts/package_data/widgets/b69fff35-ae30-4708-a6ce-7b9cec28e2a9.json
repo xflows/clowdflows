@@ -1,0 +1,91 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9e81a365-de58-4a38-9735-58678a0baf28", 
+      "treeview_image": "", 
+      "uid": "b69fff35-ae30-4708-a6ce-7b9cec28e2a9", 
+      "is_streaming": false, 
+      "package": "vipercharts", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "vipercharts_prepareCurveData", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 8, 
+      "name": "Prepare performance curve data"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b69fff35-ae30-4708-a6ce-7b9cec28e2a9", 
+      "name": "Actual and Predicted values", 
+      "short_name": "apv", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "predictions", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "3f6230f3-2a34-4d51-8dce-77b25f499516"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b69fff35-ae30-4708-a6ce-7b9cec28e2a9", 
+      "name": "Prediction Type", 
+      "short_name": "typ", 
+      "default": "-score", 
+      "description": "Prediction scores or ranks", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "subtype", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "783b6e0b-ba48-4346-a8f2-94c7a719d85f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b69fff35-ae30-4708-a6ce-7b9cec28e2a9", 
+      "name": "Performance curve data", 
+      "short_name": "pcd", 
+      "description": "", 
+      "variable": "performance", 
+      "order": 1, 
+      "uid": "26e3df43-342f-45ff-885c-02bd5770f234"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Ranks", 
+      "uid": "d33eed85-08ae-498e-8eb2-59b95b9d14ea", 
+      "value": "-rank", 
+      "abstract_input": "783b6e0b-ba48-4346-a8f2-94c7a719d85f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Scores", 
+      "uid": "f5e87515-71cd-4c84-ac5b-d9fa59bc3c3f", 
+      "value": "-score", 
+      "abstract_input": "783b6e0b-ba48-4346-a8f2-94c7a719d85f"
+    }
+  }
+]

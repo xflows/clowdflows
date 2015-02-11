@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "load_tagged_corpus", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Load tagged corpus"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "File", 
+      "short_name": "fil", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "f0700745-0130-483b-95d9-4472f3ff88d0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "description": "", 
+      "variable": "annotations", 
+      "order": 1, 
+      "uid": "009be1e0-8ce5-4a33-be87-c9b38b25b192"
+    }
+  }
+]

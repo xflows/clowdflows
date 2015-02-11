@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
+      "treeview_image": "treeview/orange-Rule-Learner.png", 
+      "uid": "0ce778a2-b40c-45f1-8383-9327b18fc661", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/orange-Rule-Learner.png", 
+      "description": "A base rule induction learner. The algorithm follows separate-and-conquer strategy, which has its origins in the AQ family of algorithms (Fuernkranz J.; Separate-and-Conquer Rule Learning, Artificial Intelligence Review 13, 3-54, 1999). Such algorithms search for the optimal rule for the current training set, remove the covered training instances (separate) and repeat the process (conquer) on the remaining data.", 
+      "static_image": "orange-Rule-Learner.png", 
+      "action": "rules", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 9, 
+      "name": "Rule Induction"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0ce778a2-b40c-45f1-8383-9327b18fc661", 
+      "name": "Rule Learner", 
+      "short_name": "lrn", 
+      "description": "Rule Learner algorithm.", 
+      "variable": "rulesout", 
+      "order": 1, 
+      "uid": "20a9db03-d944-4ba4-9786-d2c8dd688e87"
+    }
+  }
+]

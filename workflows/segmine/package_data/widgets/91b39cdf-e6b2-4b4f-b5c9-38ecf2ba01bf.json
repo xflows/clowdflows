@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "91b39cdf-e6b2-4b4f-b5c9-38ecf2ba01bf", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "segmine_selectBMdatabase", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Calls the API of the new Biomine service to get the list of available databases.", 
+      "static_image": "", 
+      "action": "segmine_selectBMdatabase", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "segmine_selectBMdatabase_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Select Biomine database"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "91b39cdf-e6b2-4b4f-b5c9-38ecf2ba01bf", 
+      "name": "Database name", 
+      "short_name": "db", 
+      "description": "Name of the selected database", 
+      "variable": "database", 
+      "order": 1, 
+      "uid": "658dc964-06d2-4db9-8a82-f8d3947137ff"
+    }
+  }
+]

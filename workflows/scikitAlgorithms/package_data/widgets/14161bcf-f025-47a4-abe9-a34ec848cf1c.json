@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "317018eb-3bc8-4862-bce8-273451a01de4", 
+      "treeview_image": "", 
+      "uid": "14161bcf-f025-47a4-abe9-a34ec848cf1c", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "implements the Naive Bayes algorithm for classification. ", 
+      "static_image": "scikit_NaiveBayes_60.png", 
+      "action": "scikitAlgorithms_naiveBayes", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Naive Bayes"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "14161bcf-f025-47a4-abe9-a34ec848cf1c", 
+      "name": "Bayes Learner", 
+      "short_name": "lst", 
+      "description": "The naive Bayesian learning algorithm.", 
+      "variable": "bayesout", 
+      "order": 1, 
+      "uid": "3ceddb72-81fd-48ff-b73d-73f34ffa7642"
+    }
+  }
+]

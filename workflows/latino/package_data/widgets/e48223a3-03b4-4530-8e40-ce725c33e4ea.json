@@ -1,0 +1,68 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "74457dca-9fba-4d66-98dd-633df385a22b", 
+      "treeview_image": "", 
+      "uid": "e48223a3-03b4-4530-8e40-ce725c33e4ea", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ClusteringResultsInfo in package latino. The original function signature: ClusteringResultsInfo.", 
+      "static_image": "clustering_result_info_image.png", 
+      "action": "latino_clustering_results_info", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 5, 
+      "name": "Clustering Results Info"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e48223a3-03b4-4530-8e40-ce725c33e4ea", 
+      "name": "Clustering Results", 
+      "short_name": "cr", 
+      "default": "", 
+      "description": "Latino.Model.ClusteringResult", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "clustRes", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "8ad4dfeb-cf27-9013-826d-046edc418b25"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e48223a3-03b4-4530-8e40-ce725c33e4ea", 
+      "name": "Document Labels (Array of Clusteres Ids)", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "docLabels", 
+      "order": 1, 
+      "uid": "611c7d9f-a46c-8051-30dc-3c5559411937"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e48223a3-03b4-4530-8e40-ce725c33e4ea", 
+      "name": "Clusters Tree", 
+      "short_name": "obj", 
+      "description": "", 
+      "variable": "clustTree", 
+      "order": 2, 
+      "uid": "a5aeaa0f-527d-7706-37c1-e3c75bec5250"
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "bcc04bde-485f-4ca3-ace1-28161ff281e4", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Maps a the input list of ranked miRNA into a ranked list of genes using the Targetscan database.", 
+      "static_image": "", 
+      "action": "segmine_mirna_to_gene_targetscan", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Map miRNA to gene (targetscan)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bcc04bde-485f-4ca3-ace1-28161ff281e4", 
+      "name": "miRNA ranks", 
+      "short_name": "rnk", 
+      "default": "", 
+      "description": "list of pairs (rna, rank)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "mirna_ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "0e0b0db4-1d36-4ef3-9bd8-51a1c343b2ec"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bcc04bde-485f-4ca3-ace1-28161ff281e4", 
+      "name": "gene ranks", 
+      "short_name": "rnk", 
+      "description": "list of pairs (gene, rank)", 
+      "variable": "gene_ranks", 
+      "order": 1, 
+      "uid": "e94960b5-2f39-462d-99eb-30f19b75994a"
+    }
+  }
+]

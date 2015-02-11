@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Noise Filters", 
+    "parent": "92fd265d-26cb-434f-bbfe-1780feb83dae", 
+    "order": 1, 
+    "uid": "fa867c58-d6eb-458f-989e-fddec3e2a8c7"
+  }
+}

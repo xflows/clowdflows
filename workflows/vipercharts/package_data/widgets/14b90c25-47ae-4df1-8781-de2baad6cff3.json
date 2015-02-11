@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "583debcb-5041-46b3-b464-e21875896710", 
+      "treeview_image": "", 
+      "uid": "14b90c25-47ae-4df1-8781-de2baad6cff3", 
+      "is_streaming": false, 
+      "package": "vipercharts", 
+      "interaction_view": "class_from_odt_interactive", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "class_from_odt", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "class_from_odt_selection", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Select Class from ODT"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "14b90c25-47ae-4df1-8781-de2baad6cff3", 
+      "name": "Orange data table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "660b5fa0-92dd-4462-83dd-75908e3d9d45"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "14b90c25-47ae-4df1-8781-de2baad6cff3", 
+      "name": "Selected Class", 
+      "short_name": "cls", 
+      "description": "", 
+      "variable": "target", 
+      "order": 1, 
+      "uid": "dd95e10c-9746-4332-8273-0339cbe0e221"
+    }
+  }
+]

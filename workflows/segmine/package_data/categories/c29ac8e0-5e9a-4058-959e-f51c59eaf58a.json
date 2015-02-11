@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "SegMine", 
+    "parent": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99", 
+    "order": 1, 
+    "uid": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a"
+  }
+}

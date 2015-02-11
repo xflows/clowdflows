@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "2ea309eb-3f82-45cb-8b33-9d00cf3f5a35", 
+      "treeview_image": "", 
+      "uid": "6f800e52-4d42-44aa-a981-ef554a29fb3a", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "MUSE_string_to_file", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Creates a statically served file from the given (text) content.", 
+      "static_image": "", 
+      "action": "MUSE_string_to_file", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "MUSE_string_to_file_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "String to statically hosted file"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6f800e52-4d42-44aa-a981-ef554a29fb3a", 
+      "name": "Input data", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Input data as string", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "948f82ac-f8a3-4fd7-b7ed-3faeaa4d0a94"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6f800e52-4d42-44aa-a981-ef554a29fb3a", 
+      "name": "File extension", 
+      "short_name": "typ", 
+      "default": ".xml", 
+      "description": "Extension of the static file", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "fending", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a948226a-881f-4b8d-9739-6c99a57a8837"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6f800e52-4d42-44aa-a981-ef554a29fb3a", 
+      "name": "Link", 
+      "short_name": "url", 
+      "description": "Link to the statically hosted file", 
+      "variable": "fileURL", 
+      "order": 1, 
+      "uid": "280a6753-6e16-435c-80f4-85992b224000"
+    }
+  }
+]

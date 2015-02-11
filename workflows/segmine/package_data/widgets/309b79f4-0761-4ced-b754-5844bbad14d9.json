@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "309b79f4-0761-4ced-b754-5844bbad14d9", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "segmine_mirna_to_gene_tarbase", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Map miRNA to gene (tarbase)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "309b79f4-0761-4ced-b754-5844bbad14d9", 
+      "name": "miRNA ranks", 
+      "short_name": "rnk", 
+      "default": "", 
+      "description": "list of pairs (rna, rank)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "mirna_ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d66cf1c3-5619-4c89-9ad1-220b7238e06c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "309b79f4-0761-4ced-b754-5844bbad14d9", 
+      "name": "gene ranks", 
+      "short_name": "rnk", 
+      "description": "list of pairs (gene, rank)", 
+      "variable": "gene_ranks", 
+      "order": 1, 
+      "uid": "04b571c8-2e52-4c00-af3b-4b66ad1a4f63"
+    }
+  }
+]

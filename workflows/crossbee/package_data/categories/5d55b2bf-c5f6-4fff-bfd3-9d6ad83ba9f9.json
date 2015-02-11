@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Outliers", 
+    "parent": "62a3ddb8-ff28-4e54-8144-3a7af70d235a", 
+    "order": 1, 
+    "uid": "5d55b2bf-c5f6-4fff-bfd3-9d6ad83ba9f9"
+  }
+}

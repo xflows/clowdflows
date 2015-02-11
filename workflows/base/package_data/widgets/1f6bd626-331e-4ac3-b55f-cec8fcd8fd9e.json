@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "treeview/pickle.png", 
+      "uid": "1f6bd626-331e-4ac3-b55f-cec8fcd8fd9e", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/pickle.png", 
+      "description": "", 
+      "static_image": "pickle.png", 
+      "action": "pickle_object", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 6, 
+      "name": "Pickle object"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1f6bd626-331e-4ac3-b55f-cec8fcd8fd9e", 
+      "name": "object", 
+      "short_name": "obj", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "object", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "3a319eaf-52fb-4cd0-b1b6-78d8a807b892"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1f6bd626-331e-4ac3-b55f-cec8fcd8fd9e", 
+      "name": "pickled object", 
+      "short_name": "obj", 
+      "description": "", 
+      "variable": "pickled_object", 
+      "order": 1, 
+      "uid": "1c47c99e-5ba3-4bcf-8f67-56ebb8c97374"
+    }
+  }
+]

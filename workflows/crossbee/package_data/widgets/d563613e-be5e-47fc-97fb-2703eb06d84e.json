@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e47e7821-f8b2-40d5-9bbc-c3508367aed7", 
+      "treeview_image": "", 
+      "uid": "d563613e-be5e-47fc-97fb-2703eb06d84e", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function GetPerformanceMeasures in package crossbee. The original function signature: GetPerformanceMeasures.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_get_performance_measures", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 20, 
+      "name": "Performance Measures"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d563613e-be5e-47fc-97fb-2703eb06d84e", 
+      "name": "Heuristics", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "CrossBeeInterfaces.Heurisitcs.Heuristics", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "255641f0-4ea6-ae90-85fb-603e5283ed33"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d563613e-be5e-47fc-97fb-2703eb06d84e", 
+      "name": "List of B-terms", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "bterms", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "27b2094b-e8ec-d5fc-bb29-f9ebc4dcbb42"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d563613e-be5e-47fc-97fb-2703eb06d84e", 
+      "name": "Performance Measures", 
+      "short_name": "prf", 
+      "description": "", 
+      "variable": "perf", 
+      "order": 1, 
+      "uid": "d9cfa5ec-0412-4f65-9586-0e87703e66c0"
+    }
+  }
+]

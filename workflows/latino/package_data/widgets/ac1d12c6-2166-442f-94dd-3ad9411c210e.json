@@ -1,0 +1,102 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a8348101-116c-4e04-b2a7-af1c991c3927", 
+      "treeview_image": "", 
+      "uid": "ac1d12c6-2166-442f-94dd-3ad9411c210e", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function DatasetSplitPredefined in package latino. The original function signature: DatasetSplitPredefined.", 
+      "static_image": "dataset_split_predef_image.png", 
+      "action": "latino_dataset_split_predefined", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 5, 
+      "name": "Split to Predefined Sets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ac1d12c6-2166-442f-94dd-3ad9411c210e", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "3162e392-5481-6022-3b1a-8dd8965a2871"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ac1d12c6-2166-442f-94dd-3ad9411c210e", 
+      "name": "Sets (List with predefined set numbers)", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Int32[]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "sets", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "52c930c3-8b1f-6f55-b5ee-ad516c1e29f8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ac1d12c6-2166-442f-94dd-3ad9411c210e", 
+      "name": "SetId", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "setId", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "d7455c5e-004f-74a1-b522-8c2a551860d3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ac1d12c6-2166-442f-94dd-3ad9411c210e", 
+      "name": "Dataset with Extracted Set", 
+      "short_name": "ds", 
+      "description": "", 
+      "variable": "ds1", 
+      "order": 1, 
+      "uid": "06c03be5-0b76-40a0-2b40-9c477fe2266b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ac1d12c6-2166-442f-94dd-3ad9411c210e", 
+      "name": "Dataset of Remaining Sets", 
+      "short_name": "ds", 
+      "description": "", 
+      "variable": "ds2", 
+      "order": 2, 
+      "uid": "dcb66a8b-d31a-9ef3-1c72-91e9aa58a440"
+    }
+  }
+]

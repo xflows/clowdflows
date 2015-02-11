@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bc5a8211-0cdd-4c1e-82cc-5251672bfba3", 
+      "treeview_image": "", 
+      "uid": "0d98cff2-dc50-4e22-982e-017d93bb55b7", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Creates a document object structure from a string.", 
+      "static_image": "", 
+      "action": "bio3graph_create_document_from_string", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 8, 
+      "name": "Create document from string"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0d98cff2-dc50-4e22-982e-017d93bb55b7", 
+      "name": "Document string", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Input document string", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "docstr", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a7d505ec-cfc9-495c-83fa-d3a47f79b5a4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0d98cff2-dc50-4e22-982e-017d93bb55b7", 
+      "name": "Document object", 
+      "short_name": "obj", 
+      "description": "Document object structure", 
+      "variable": "document", 
+      "order": 1, 
+      "uid": "a7fd27eb-78b3-4113-91cd-8b2aa0ffa11c"
+    }
+  }
+]

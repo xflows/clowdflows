@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c0502e02-2e9e-4b93-8c93-9eb217b0799b", 
+      "treeview_image": "", 
+      "uid": "d9faca24-a7c4-4e4e-a075-518c8bd9aada", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function DisplayLemmatizationRules in package lemmagen. The original function signature: DisplayLemmatizationRules.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_display_lemmatization_rules", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 9, 
+      "name": "Display Lemmatization Rules"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d9faca24-a7c4-4e4e-a075-518c8bd9aada", 
+      "name": "Lemmatizer", 
+      "short_name": "lmz", 
+      "default": "true", 
+      "description": "Lemmatizer", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "lmtz", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "de38c2be-cb54-d084-1126-1d1cda94e6d9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d9faca24-a7c4-4e4e-a075-518c8bd9aada", 
+      "name": "Lemmatizer Rules", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "lmtzTree", 
+      "order": 1, 
+      "uid": "7be9d7ca-95bb-0d66-b5ff-39822b8d280c"
+    }
+  }
+]

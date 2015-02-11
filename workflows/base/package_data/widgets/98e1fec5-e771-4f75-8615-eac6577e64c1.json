@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "treeview/Create-Range_1.png", 
+      "uid": "98e1fec5-e771-4f75-8615-eac6577e64c1", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Create-Range_1.png", 
+      "description": "", 
+      "static_image": "Create-Range_1.png", 
+      "action": "create_range", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "Create Range"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "98e1fec5-e771-4f75-8615-eac6577e64c1", 
+      "name": "Range Length (Number of Items in Range)", 
+      "short_name": "rln", 
+      "default": "10", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "n_range", 
+      "parameter": true, 
+      "order": 0, 
+      "uid": "4f60c95a-3177-4a5d-b047-75d971ee7654"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "98e1fec5-e771-4f75-8615-eac6577e64c1", 
+      "name": "Range", 
+      "short_name": "rng", 
+      "description": "", 
+      "variable": "rangeout", 
+      "order": 1, 
+      "uid": "c5f77ca1-7680-4b73-852f-ebf142ed538a"
+    }
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e28eda39-1f18-4efe-9b7c-0d5f652f208f", 
+      "treeview_image": "", 
+      "uid": "eb54fff9-e090-4823-b1d7-a3a2f9687706", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Removes given relations from a given network.", 
+      "static_image": "", 
+      "action": "bio3graph_remove_relations", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 20, 
+      "name": "Remove relations"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "eb54fff9-e090-4823-b1d7-a3a2f9687706", 
+      "name": "NetworkX network", 
+      "short_name": "nwx", 
+      "default": "", 
+      "description": "NetworkX data structure", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "network", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a492ce92-d5bd-4428-b4b9-558b4dd25adf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "eb54fff9-e090-4823-b1d7-a3a2f9687706", 
+      "name": "Relations", 
+      "short_name": "rls", 
+      "default": "", 
+      "description": "List of relations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "relations", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "b42536ae-979b-441f-ad6d-e7a76e22db5e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "eb54fff9-e090-4823-b1d7-a3a2f9687706", 
+      "name": "NetworkX network", 
+      "short_name": "nwx", 
+      "description": "Network with given relations removed.", 
+      "variable": "pruned_graph", 
+      "order": 1, 
+      "uid": "2415dd69-a255-41bb-8183-cd1bf89ccf30"
+    }
+  }
+]

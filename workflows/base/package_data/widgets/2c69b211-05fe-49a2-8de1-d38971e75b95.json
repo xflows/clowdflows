@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "11865b03-cb06-4d50-9174-69d920cbe4ec", 
+      "treeview_image": "treeview/display_string.png", 
+      "uid": "2c69b211-05fe-49a2-8de1-d38971e75b95", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/display_string.png", 
+      "description": "", 
+      "static_image": "display_string.png", 
+      "action": "display_string", 
+      "visualization_view": "display_string", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 3, 
+      "name": "Display String"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2c69b211-05fe-49a2-8de1-d38971e75b95", 
+      "name": "String", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Displays the string so that it is readable.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "string", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "611e005a-e495-4572-9983-337e98ee5898"
+    }
+  }
+]

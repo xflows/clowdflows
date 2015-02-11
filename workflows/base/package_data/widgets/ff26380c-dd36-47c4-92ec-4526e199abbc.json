@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bbf1e628-8be6-4178-8d93-765de278c0e4", 
+      "treeview_image": "treeview/File.png", 
+      "uid": "ff26380c-dd36-47c4-92ec-4526e199abbc", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/File.png", 
+      "description": "", 
+      "static_image": "File.png", 
+      "action": "file_to_string", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "File to string"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ff26380c-dd36-47c4-92ec-4526e199abbc", 
+      "name": "File", 
+      "short_name": "fil", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "file", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "81742f96-f3c3-470a-af08-8afc54b6ff30"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ff26380c-dd36-47c4-92ec-4526e199abbc", 
+      "name": "String", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "4ca351ce-9b2f-4466-be15-b47f8cc37a84"
+    }
+  }
+]

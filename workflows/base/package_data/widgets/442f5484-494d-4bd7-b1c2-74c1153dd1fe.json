@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bbf1e628-8be6-4178-8d93-765de278c0e4", 
+      "treeview_image": "treeview/1688041475.png", 
+      "uid": "442f5484-494d-4bd7-b1c2-74c1153dd1fe", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/1688041475.png", 
+      "description": "", 
+      "static_image": "1688041475.png", 
+      "action": "string_to_file", 
+      "visualization_view": "string_to_file", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "String to file"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "442f5484-494d-4bd7-b1c2-74c1153dd1fe", 
+      "name": "String", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "string", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "c658923a-a611-414b-ba7e-510aaa83ff19"
+    }
+  }
+]

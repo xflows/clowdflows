@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e28eda39-1f18-4efe-9b7c-0d5f652f208f", 
+      "treeview_image": "", 
+      "uid": "ede1a781-9faf-4b31-923f-2c475d13630c", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Biomine graph visualizer which is run as a Java applet.", 
+      "static_image": "BiomineVisualizer.png", 
+      "action": "bio3graph_biomine_visualizer", 
+      "visualization_view": "bio3graph_biomine_visualizer", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Biomine graph visualizer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ede1a781-9faf-4b31-923f-2c475d13630c", 
+      "name": "Biomine graph", 
+      "short_name": "bmg", 
+      "default": "", 
+      "description": "Biomine graph as string.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "biomine_graph", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "61d98ab2-512e-4a04-888b-5998378948a8"
+    }
+  }
+]

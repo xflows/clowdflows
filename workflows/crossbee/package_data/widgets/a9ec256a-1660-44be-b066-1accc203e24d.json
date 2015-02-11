@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "7b1fb3c2-3dd7-4754-9a3e-ccf71a43e7c6", 
+      "treeview_image": "", 
+      "uid": "a9ec256a-1660-44be-b066-1accc203e24d", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function SelectHeuristics in package crossbee. The original function signature: SelectHeuristics.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_select_heuristics", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 10, 
+      "name": "Select Prime Heuristic"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a9ec256a-1660-44be-b066-1accc203e24d", 
+      "name": "Heuristics", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "CrossBeeInterfaces.Heurisitcs.Heuristics", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "7383e91d-67f8-ce08-be47-40eae1b65395"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a9ec256a-1660-44be-b066-1accc203e24d", 
+      "name": "Heuristics", 
+      "short_name": "heu", 
+      "description": "", 
+      "variable": "heuristics", 
+      "order": 1, 
+      "uid": "9e5702ae-2a57-0efd-8585-0499190277d8"
+    }
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0803d58-35d4-4590-bb32-f2041e735247", 
+      "treeview_image": "", 
+      "uid": "95027c9a-b555-4b47-9f9a-57cc4e40fb96", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "display-tweets.png", 
+      "action": "streaming_display_tweets", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "streaming_display_tweets_visualization", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Display tweets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "95027c9a-b555-4b47-9f9a-57cc4e40fb96", 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "default": "", 
+      "description": "List of tweets (can be annotated or not)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e8fc4c63-2e17-4ad4-a3ab-6ec8d554ecac"
+    }
+  }
+]

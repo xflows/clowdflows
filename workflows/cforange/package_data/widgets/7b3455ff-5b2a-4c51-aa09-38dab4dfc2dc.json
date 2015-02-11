@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "treeview/Orange-SelectAttributes_60.png", 
+      "uid": "7b3455ff-5b2a-4c51-aa09-38dab4dfc2dc", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "select_attrs", 
+      "has_progress_bar": false, 
+      "image": "images/Orange-SelectAttributes_60.png", 
+      "description": "Select Attributes widget is used to manually compose your data domain, that is, to decide which attributes will be used and how. Orange distinguishes between ordinary attributes, an (optional) class attributes and meta attributes.", 
+      "static_image": "selectattributes.png", 
+      "action": "select_attrs", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "select_attrs_post", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Select Attributes"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7b3455ff-5b2a-4c51-aa09-38dab4dfc2dc", 
+      "name": "Orange Data tTble", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Attribute-valued data set.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d0f1d1e2-b3e8-4f79-bb88-50c2f3812e79"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7b3455ff-5b2a-4c51-aa09-38dab4dfc2dc", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "description": "Modified data set, composed using the domain specification constructed using the widget.", 
+      "variable": "data", 
+      "order": 1, 
+      "uid": "59a32aa6-0c2d-41d4-a0f0-690eef9ee3c1"
+    }
+  }
+]

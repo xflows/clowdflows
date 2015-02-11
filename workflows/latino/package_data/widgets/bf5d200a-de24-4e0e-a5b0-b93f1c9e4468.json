@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5a4286c8-d182-45a5-896b-cc3c6ed84f22", 
+      "treeview_image": "", 
+      "uid": "bf5d200a-de24-4e0e-a5b0-b93f1c9e4468", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructEnglishMaximumEntropyTokenizer in package latino. The original function signature: ConstructEnglishMaximumEntropyTokenizer.", 
+      "static_image": "token_word_image.png", 
+      "action": "latino_construct_english_maximum_entropy_tokenizer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 3, 
+      "name": "Max Entorpy Tokenizer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bf5d200a-de24-4e0e-a5b0-b93f1c9e4468", 
+      "name": "Alpha Numeric Optimization", 
+      "short_name": "ano", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "alphaNumericOptimization", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "f49e114d-c12e-a3e6-1bde-b53999b0b759"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bf5d200a-de24-4e0e-a5b0-b93f1c9e4468", 
+      "name": "Tokenizer", 
+      "short_name": "tkn", 
+      "description": "", 
+      "variable": "tokenizer", 
+      "order": 1, 
+      "uid": "1834f658-5fca-2ab5-1a75-dfdc56e738f8"
+    }
+  }
+]

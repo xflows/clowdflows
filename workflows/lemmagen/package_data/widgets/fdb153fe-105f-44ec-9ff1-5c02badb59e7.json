@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "fdb153fe-105f-44ec-9ff1-5c02badb59e7", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function LoadNetObject in package lemmagen. The original function signature: LoadNetObject.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_load_net_object", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 102, 
+      "name": "Load Serializable Object"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fdb153fe-105f-44ec-9ff1-5c02badb59e7", 
+      "name": "String of the Serialized Object", 
+      "short_name": "str", 
+      "default": "true", 
+      "description": "System.String", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "serializableObjectStr", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "06a89168-8806-5d74-128e-7f6ff7e7d083"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fdb153fe-105f-44ec-9ff1-5c02badb59e7", 
+      "name": "Is Compressed", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "compress", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "cde5f7a9-496c-45e6-2ba1-affeeaf931ec"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "fdb153fe-105f-44ec-9ff1-5c02badb59e7", 
+      "name": "Object (Deserialized)", 
+      "short_name": "obj", 
+      "description": "", 
+      "variable": "obj", 
+      "order": 1, 
+      "uid": "465f0994-f8ac-1b96-51d6-ee7f4ca5cb6e"
+    }
+  }
+]

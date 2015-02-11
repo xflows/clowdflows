@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ef06ed94-c57a-4bb0-8f05-1212920c95a0", 
+      "treeview_image": "", 
+      "uid": "1bc483d6-4d6c-435f-9fc0-ad3716fe390b", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Transforms scikit dataset to CSV", 
+      "static_image": "SDT-to-CSV.png", 
+      "action": "scikitAlgorithms_scikitDatasetToCSV", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Scikit-Dataset to CSV"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1bc483d6-4d6c-435f-9fc0-ad3716fe390b", 
+      "name": "DataSet", 
+      "short_name": "dts", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "scikitDataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "8782c523-ca3c-43f2-9c49-29ddb706a67e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1bc483d6-4d6c-435f-9fc0-ad3716fe390b", 
+      "name": "Out", 
+      "short_name": "csv", 
+      "description": "", 
+      "variable": "CSVout", 
+      "order": 1, 
+      "uid": "0171b31d-4edd-43f8-abf1-e8a898fd4f8c"
+    }
+  }
+]

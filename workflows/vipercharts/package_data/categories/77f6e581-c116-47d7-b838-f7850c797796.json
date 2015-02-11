@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Column charts", 
+    "parent": "f2821411-7b06-46ea-b577-3a06fecd02de", 
+    "order": 1, 
+    "uid": "77f6e581-c116-47d7-b838-f7850c797796"
+  }
+}

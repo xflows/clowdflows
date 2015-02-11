@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "168025e9-edfe-44d0-9818-1ac1d7d5cfe3", 
+      "treeview_image": "", 
+      "uid": "e733abdb-9109-4f0e-88e3-23beecb3d330", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Bayesian Automated Relevance Determination regression", 
+      "static_image": "scikit_ARD.png", 
+      "action": "scikitAlgorithms_ARDRegression", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "ARD Regression"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e733abdb-9109-4f0e-88e3-23beecb3d330", 
+      "name": "n_iter", 
+      "short_name": "par", 
+      "default": "300", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "iterIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "3d658af4-f2c7-4e6c-b8a8-44be1e73a6bf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e733abdb-9109-4f0e-88e3-23beecb3d330", 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "out", 
+      "order": 1, 
+      "uid": "3f8f387d-fbf7-4cbc-b469-a23b21c1ad7f"
+    }
+  }
+]

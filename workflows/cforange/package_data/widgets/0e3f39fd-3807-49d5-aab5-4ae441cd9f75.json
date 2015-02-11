@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
+      "treeview_image": "treeview/orange-C45.png", 
+      "uid": "0e3f39fd-3807-49d5-aab5-4ae441cd9f75", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/orange-C45.png", 
+      "description": "C4.5 learner by Ross Quinlan, this widget provides a graphical interface to the well-known Quinlan\u2019s C4.5 algorithm for construction of classification tree. ", 
+      "static_image": "orange-C45.png", 
+      "action": "c45_tree", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "C4.5 Tree Learner"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0e3f39fd-3807-49d5-aab5-4ae441cd9f75", 
+      "name": "C4.5 Tree Learner", 
+      "short_name": "lrn", 
+      "description": "The C4.5 learning algorithm.", 
+      "variable": "c45out", 
+      "order": 1, 
+      "uid": "be5a0f89-b7a8-4e1c-b6d9-48ccd5f4a151"
+    }
+  }
+]

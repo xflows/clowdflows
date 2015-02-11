@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9b145e48-9cc0-4a24-9ac7-0df48e879361", 
+      "treeview_image": "treeview/417px-Latex_integers.svg.png", 
+      "uid": "8b20d4ad-c420-4156-973d-48d6d15934ba", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/417px-Latex_integers.svg.png", 
+      "description": "Creates an integer object from a parameter.", 
+      "static_image": "417px-Latex_integers.svg.png", 
+      "action": "create_integer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 3, 
+      "name": "Create Integer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8b20d4ad-c420-4156-973d-48d6d15934ba", 
+      "name": "Type your integer", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "integer", 
+      "parameter": true, 
+      "order": 0, 
+      "uid": "1e52e44e-94cc-4666-8278-04da49d8f890"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "8b20d4ad-c420-4156-973d-48d6d15934ba", 
+      "name": "Integer", 
+      "short_name": "int", 
+      "description": "The returned integer.", 
+      "variable": "integer", 
+      "order": 1, 
+      "uid": "68ec6254-d17a-4867-b57c-6f95f7a72527"
+    }
+  }
+]

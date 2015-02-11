@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "treeview/nlp_2.png", 
+      "uid": "af5ee96e-7307-46f9-8d8c-55cb7c36d111", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/nlp_8.png", 
+      "description": "", 
+      "static_image": "nlp.png", 
+      "action": "term_candidates", 
+      "visualization_view": "term_candidate_viewer", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Term candidates viewer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af5ee96e-7307-46f9-8d8c-55cb7c36d111", 
+      "name": "candidates", 
+      "short_name": "can", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "candidates", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "32536744-964e-4206-b582-be92ab355e8e"
+    }
+  }
+]

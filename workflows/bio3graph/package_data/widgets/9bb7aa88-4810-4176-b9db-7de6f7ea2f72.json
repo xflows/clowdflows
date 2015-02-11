@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bc5a8211-0cdd-4c1e-82cc-5251672bfba3", 
+      "treeview_image": "", 
+      "uid": "9bb7aa88-4810-4176-b9db-7de6f7ea2f72", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Exports the input list of triplet structures into text.", 
+      "static_image": "", 
+      "action": "bio3graph_export_triplets_to_text", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Export triplets to text"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9bb7aa88-4810-4176-b9db-7de6f7ea2f72", 
+      "name": "Triplets", 
+      "short_name": "trs", 
+      "default": "", 
+      "description": "Input list of triplet objects", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "0dadb3ad-f28f-42b6-9f52-b21b1a90bd74"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9bb7aa88-4810-4176-b9db-7de6f7ea2f72", 
+      "name": "Triplet text", 
+      "short_name": "ttx", 
+      "description": "Triplets as text", 
+      "variable": "triplets_as_text", 
+      "order": 1, 
+      "uid": "dcd3f08d-5c02-425a-9f0b-3941ee23468e"
+    }
+  }
+]

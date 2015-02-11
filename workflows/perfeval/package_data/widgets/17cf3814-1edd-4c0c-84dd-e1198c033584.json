@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed2728bc-3fd5-4244-9876-f6a757d1b922", 
+      "treeview_image": "treeview/aggregate-icon.png", 
+      "uid": "17cf3814-1edd-4c0c-84dd-e1198c033584", 
+      "is_streaming": false, 
+      "package": "perfeval", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/aggregate-icon.png", 
+      "description": "", 
+      "static_image": "", 
+      "action": "aggr_results", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Aggregate Detection Results"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "17cf3814-1edd-4c0c-84dd-e1198c033584", 
+      "name": "Positive Indices", 
+      "short_name": "psi", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "pos_inds", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "91cfd170-b37a-457e-9077-285c6e88a408"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "17cf3814-1edd-4c0c-84dd-e1198c033584", 
+      "name": "Detected Instances", 
+      "short_name": "dti", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "detected_inds", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "da95100a-ec91-46d7-9244-b642aab9bf0d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "17cf3814-1edd-4c0c-84dd-e1198c033584", 
+      "name": "Aggregated Detection Results", 
+      "short_name": "adr", 
+      "description": "", 
+      "variable": "aggr_dict", 
+      "order": 1, 
+      "uid": "d5a86b48-af73-486a-9f0b-6d15261fa743"
+    }
+  }
+]

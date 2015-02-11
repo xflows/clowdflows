@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e28eda39-1f18-4efe-9b7c-0d5f652f208f", 
+      "treeview_image": "", 
+      "uid": "116f578f-a366-4767-94fe-c08f9b40faec", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Constructs a network from input triplets. Biomine's .bmg format as well as NetworkX data structure is produced.", 
+      "static_image": "", 
+      "action": "bio3graph_construct_triplet_network", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 6, 
+      "name": "Construct triplet network"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "116f578f-a366-4767-94fe-c08f9b40faec", 
+      "name": "Triplets", 
+      "short_name": "trs", 
+      "default": "", 
+      "description": "Input list of triplet objects", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "7ee93f9a-f18e-45fa-a163-e2e1a92b9607"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "116f578f-a366-4767-94fe-c08f9b40faec", 
+      "name": "NetworkX structure", 
+      "short_name": "nwx", 
+      "description": "NetworkX graph data structure.", 
+      "variable": "network_object", 
+      "order": 1, 
+      "uid": "913cdcd0-6812-4f23-b4cf-33de8881bdc9"
+    }
+  }
+]

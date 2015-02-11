@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "1118c133-0113-4df8-b240-8690c4b62e07", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "segmine_rule_browser", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "RuleBrowser.png", 
+      "action": "segmine_rule_browser", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "segmine_rule_browser_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "SEGS Rule browser"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1118c133-0113-4df8-b240-8690c4b62e07", 
+      "name": "SEGS set of rules", 
+      "short_name": "rls", 
+      "default": "", 
+      "description": "SEGS set of rules", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "rules", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "1e4ce1f5-f8f1-4f50-8ebf-5d230909e968"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1118c133-0113-4df8-b240-8690c4b62e07", 
+      "name": "List of nodes", 
+      "short_name": "nds", 
+      "description": "List of nodes", 
+      "variable": "node_list", 
+      "order": 1, 
+      "uid": "82ddfd0d-77cb-4acd-9561-60c4bed6a138"
+    }
+  }
+]

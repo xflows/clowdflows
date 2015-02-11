@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e28eda39-1f18-4efe-9b7c-0d5f652f208f", 
+      "treeview_image": "", 
+      "uid": "cbb4459d-7050-4674-855b-43b560c2134e", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Merges an exiting network and a new network and colours the relations accordingly: old: black colour, overlap: green colour, new: red colour.", 
+      "static_image": "", 
+      "action": "bio3graph_incremental_network_merge", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 14, 
+      "name": "Incremental merge of networks"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cbb4459d-7050-4674-855b-43b560c2134e", 
+      "name": "Old network", 
+      "short_name": "nwx", 
+      "default": "", 
+      "description": "Existing network as NetworkX data structure", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "existing_network", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "01213d24-dd22-425c-b52c-2ce051a5be4a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cbb4459d-7050-4674-855b-43b560c2134e", 
+      "name": "New network", 
+      "short_name": "nwx", 
+      "default": "", 
+      "description": "New network as NetworkX data structure", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "new_network", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "2359acc6-7680-4a8f-aa75-34f1a216dd4d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "cbb4459d-7050-4674-855b-43b560c2134e", 
+      "name": "Merged network", 
+      "short_name": "nwx", 
+      "description": "Merged and coloured network as NetworkX data structure", 
+      "variable": "merged_network", 
+      "order": 1, 
+      "uid": "1638484f-63c3-4dcf-85f5-60766e02a4ce"
+    }
+  }
+]

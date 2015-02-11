@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d13c01e6-675f-4c48-a211-b24af72229b0", 
+      "treeview_image": "", 
+      "uid": "2299e615-4d72-4db7-9b32-3566b903c749", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "One of the several alternative measures to be used to evaluate the success of numeric prediction.", 
+      "static_image": "R2.png", 
+      "action": "cforange_R2", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "R-squared"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2299e615-4d72-4db7-9b32-3566b903c749", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e06248e9-dd6d-4746-8972-1cbf6e6f116f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2299e615-4d72-4db7-9b32-3566b903c749", 
+      "name": "R-Squared", 
+      "short_name": "r2", 
+      "description": "", 
+      "variable": "R2", 
+      "order": 1, 
+      "uid": "889fcdf7-7475-47f7-b1e0-0c199398f037"
+    }
+  }
+]

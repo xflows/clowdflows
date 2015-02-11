@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "94237b9c-8e88-460c-abc5-9c8108acb821", 
+      "treeview_image": "", 
+      "uid": "f2be2fc3-5a17-47c1-9353-3cfc454bfe59", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function TagStringStemLemma in package latino. The original function signature: TagStringStemLemma.", 
+      "static_image": "tag_stem_do_image.png", 
+      "action": "latino_tag_string_stem_lemma", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 3, 
+      "name": "Stem/Lemma Tagger Hub (Text)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f2be2fc3-5a17-47c1-9353-3cfc454bfe59", 
+      "name": "Text", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "24f1fd60-dd51-d6cb-4855-d1e4b9dc780c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f2be2fc3-5a17-47c1-9353-3cfc454bfe59", 
+      "name": "Token Tagger", 
+      "short_name": "tgr", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "tagger", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "c7161458-dd14-d64c-55b2-aeea24aa08b2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f2be2fc3-5a17-47c1-9353-3cfc454bfe59", 
+      "name": "Output Feature Name", 
+      "short_name": "str", 
+      "default": "stem", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outputFeature", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "c8240d9c-bddf-fb62-f7b6-666f8dba9895"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f2be2fc3-5a17-47c1-9353-3cfc454bfe59", 
+      "name": "String", 
+      "short_name": "str", 
+      "description": "string or array of strings (based on the input)", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "2430a1d2-25a4-c887-cb71-3df05bd2696f"
+    }
+  }
+]

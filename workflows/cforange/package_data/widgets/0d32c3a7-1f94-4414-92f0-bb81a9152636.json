@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d13c01e6-675f-4c48-a211-b24af72229b0", 
+      "treeview_image": "", 
+      "uid": "0d32c3a7-1f94-4414-92f0-bb81a9152636", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "One of the several alternative measures to be used to evaluate the success of numeric prediction.", 
+      "static_image": "RSE.png", 
+      "action": "cforange_RSE", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Relative Squared Error"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0d32c3a7-1f94-4414-92f0-bb81a9152636", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "64ff64b7-5878-4c9f-8a43-908d3d9b187a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0d32c3a7-1f94-4414-92f0-bb81a9152636", 
+      "name": "Relative Squared Error", 
+      "short_name": "rse", 
+      "description": "", 
+      "variable": "RSE", 
+      "order": 1, 
+      "uid": "66f3b71d-c53f-4653-9cb8-307b9eec70aa"
+    }
+  }
+]

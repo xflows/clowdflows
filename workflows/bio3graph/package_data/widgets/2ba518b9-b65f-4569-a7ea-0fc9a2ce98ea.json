@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e28eda39-1f18-4efe-9b7c-0d5f652f208f", 
+      "treeview_image": "", 
+      "uid": "2ba518b9-b65f-4569-a7ea-0fc9a2ce98ea", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Colours given relations in a given graph. Pink colour is used.", 
+      "static_image": "", 
+      "action": "bio3graph_colour_relations", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Colour relations"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2ba518b9-b65f-4569-a7ea-0fc9a2ce98ea", 
+      "name": "Network", 
+      "short_name": "nwx", 
+      "default": "", 
+      "description": "NetworkX data structure", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "network", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "7f63339c-031a-4957-8340-10326b6812d2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2ba518b9-b65f-4569-a7ea-0fc9a2ce98ea", 
+      "name": "Relations", 
+      "short_name": "rls", 
+      "default": "", 
+      "description": "List of relations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "relations", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "93cb1318-763a-435d-9304-a33e3bf20299"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2ba518b9-b65f-4569-a7ea-0fc9a2ce98ea", 
+      "name": "Network", 
+      "short_name": "nwx", 
+      "description": "Network with relations coloured", 
+      "variable": "network", 
+      "order": 1, 
+      "uid": "d893541b-3d81-41e9-85c0-8162faa66bc2"
+    }
+  }
+]

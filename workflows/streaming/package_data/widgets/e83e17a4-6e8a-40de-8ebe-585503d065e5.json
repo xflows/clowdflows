@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0803d58-35d4-4590-bb32-f2041e735247", 
+      "treeview_image": "", 
+      "uid": "e83e17a4-6e8a-40de-8ebe-585503d065e5", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "word-cloud.png", 
+      "action": "streaming_display_tweets", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "streaming_tweet_cloud", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Tweet word cloud"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e83e17a4-6e8a-40de-8ebe-585503d065e5", 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "default": "", 
+      "description": "List of tweets", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "98c77b95-1221-4a85-bdbf-6436327e39b3"
+    }
+  }
+]

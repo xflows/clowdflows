@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "9dc49613-daa0-440f-bb2c-80909edee633", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "streaming_triplet_porter_stemmer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Porter stemmer on triplets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9dc49613-daa0-440f-bb2c-80909edee633", 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4887ef25-3d11-47a7-97b3-6d225eddb38a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9dc49613-daa0-440f-bb2c-80909edee633", 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "description": "Triplets", 
+      "variable": "triplets", 
+      "order": 1, 
+      "uid": "90738598-90c0-41ed-9039-d541a6c61133"
+    }
+  }
+]

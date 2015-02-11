@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9744d60c-c755-448a-930c-0c40236a4a05", 
+      "treeview_image": "", 
+      "uid": "5016b669-4b80-440d-9da6-66e81b64a145", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Constructs a csv file from gene synonyms dictionary", 
+      "static_image": "", 
+      "action": "bio3graph_construct_compounds_from_gene_synonyms", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 5, 
+      "name": "Construct compounds csv file from gene synonyms"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5016b669-4b80-440d-9da6-66e81b64a145", 
+      "name": "gene synonyms", 
+      "short_name": "syn", 
+      "default": "", 
+      "description": "Dictionary of gene synonyms", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "gene_synonyms", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "2c2ed635-93eb-4e91-932d-1dc383048023"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5016b669-4b80-440d-9da6-66e81b64a145", 
+      "name": "compoiunds csv", 
+      "short_name": "csv", 
+      "description": "Bio3graph CSV file with gene synonyms as compounds", 
+      "variable": "compounds_csv", 
+      "order": 1, 
+      "uid": "756ec3c2-d1a2-4cfa-a2c4-d4ba77b382d1"
+    }
+  }
+]

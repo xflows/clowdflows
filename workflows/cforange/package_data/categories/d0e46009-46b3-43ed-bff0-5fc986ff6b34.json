@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Classification and Regression", 
+    "parent": "d2dfe5ca-7d73-4b4d-b922-b389ec610d99", 
+    "order": 1, 
+    "uid": "d0e46009-46b3-43ed-bff0-5fc986ff6b34"
+  }
+}

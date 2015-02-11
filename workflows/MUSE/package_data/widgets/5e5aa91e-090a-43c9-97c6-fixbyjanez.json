@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "cf46e990-42b6-4027-b2f4-a95acaaed210", 
+      "treeview_image": "", 
+      "uid": "5e5aa91e-090a-43c9-97c6-fixbyjanez", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Calls the LIIR NLP annotation (TERENCE NLP service)", 
+      "static_image": "", 
+      "action": "MUSE_annotate", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Event extraction"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5e5aa91e-090a-43c9-97c6-fixbyjanez", 
+      "name": "Raw text", 
+      "short_name": "txt", 
+      "default": "", 
+      "description": "Input document as raw text", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "raw_text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "7e5b5533-d21c-4955-8fb8-janezfix"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5e5aa91e-090a-43c9-97c6-fixbyjanez", 
+      "name": "Annotated text", 
+      "short_name": "xml", 
+      "description": "XML document with all annotations", 
+      "variable": "annotations_xml", 
+      "order": 1, 
+      "uid": "c677e844-9f9b-4d09-8e08-janezfix"
+    }
+  }
+]

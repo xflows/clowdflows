@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "48fb3ce2-11ef-4afc-ab1e-aec6f1d6d055", 
+      "treeview_image": "", 
+      "uid": "cf21a09c-47b0-4252-93be-71d205c2fc9e", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function JoinDocumentsCorpora in package latino. The original function signature: JoinDocumentsCorpora.", 
+      "static_image": "latino_widget_image.png", 
+      "action": "latino_join_documents_corpora", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 9, 
+      "name": "Merge Corpora"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cf21a09c-47b0-4252-93be-71d205c2fc9e", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[LatinoClowdFlows.DocumentCorpus, LatinoClowdFlows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "23ed1f30-b139-706e-e555-37023356e788"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "cf21a09c-47b0-4252-93be-71d205c2fc9e", 
+      "name": "Merged Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adc", 
+      "order": 1, 
+      "uid": "7f1828e2-9192-447b-146a-23c10ee0554b"
+    }
+  }
+]

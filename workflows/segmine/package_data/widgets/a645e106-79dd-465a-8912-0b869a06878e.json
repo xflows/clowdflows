@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "a645e106-79dd-465a-8912-0b869a06878e", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "filter_unknown_genes_stu", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Filter unknown STU genes"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a645e106-79dd-465a-8912-0b869a06878e", 
+      "name": "Gene ranks", 
+      "short_name": "rnk", 
+      "default": "", 
+      "description": "list of pairs (gene, rank)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "gene_ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a5bd6f15-c3a7-4c67-8df2-07c33dba4065"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a645e106-79dd-465a-8912-0b869a06878e", 
+      "name": "Filtered gene ranks", 
+      "short_name": "rnk", 
+      "description": "filtered list of pairs (gene, rank)", 
+      "variable": "filtered_ranks", 
+      "order": 1, 
+      "uid": "27b4bfaa-2679-4b9e-b6dc-5c37d3e275f2"
+    }
+  }
+]

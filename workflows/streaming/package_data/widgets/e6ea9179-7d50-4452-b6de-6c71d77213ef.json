@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "e6ea9179-7d50-4452-b6de-6c71d77213ef", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Extracts triplets from sentences.", 
+      "static_image": "triplets.png", 
+      "action": "streaming_triplet_extraction", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Triplet Extraction"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e6ea9179-7d50-4452-b6de-6c71d77213ef", 
+      "name": "Text", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Sentences to extract triplets from.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "512c2f51-ba58-4382-9ee3-6fec78bee74b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e6ea9179-7d50-4452-b6de-6c71d77213ef", 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "description": "Triplets", 
+      "variable": "triplets", 
+      "order": 1, 
+      "uid": "c9bffa1b-2a47-4353-a646-290b1a4640ad"
+    }
+  }
+]

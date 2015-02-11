@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0803d58-35d4-4590-bb32-f2041e735247", 
+      "treeview_image": "", 
+      "uid": "cf3f6218-1b21-4864-9ee1-c22069abe03d", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "BiomineVisualizer.png", 
+      "action": "streaming_triplet_graph", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "streaming_triplet_graph_visualization", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Streaming triplet graph"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cf3f6218-1b21-4864-9ee1-c22069abe03d", 
+      "name": "Triplets", 
+      "short_name": "tri", 
+      "default": "", 
+      "description": "Triplets", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e9c4bd5a-0ea4-4739-bc7c-d95bb40d7e57"
+    }
+  }
+]

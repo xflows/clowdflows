@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0ae049f7-6040-4992-bb03-f9134b8e63c7", 
+      "treeview_image": "", 
+      "uid": "27b03964-8802-40e5-a7e4-4bed62c305eb", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Returns attribute values for a single attribute from the dataset. Defaults to the last attribute. E.g., useful for calculating classification statistics.\r\n", 
+      "static_image": "", 
+      "action": "weka_get_attr_list", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Weka Get Attribute List"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "27b03964-8802-40e5-a7e4-4bed62c305eb", 
+      "name": "Arff dataset", 
+      "short_name": "arf", 
+      "default": "", 
+      "description": "Arff dataset", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "arff_file", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "cb2a88ea-8ffa-4776-b91e-6e6a608e1cbd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "27b03964-8802-40e5-a7e4-4bed62c305eb", 
+      "name": "Attribute name", 
+      "short_name": "atr", 
+      "default": "", 
+      "description": "Attribute name to extract as list", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "attr_name", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "cbc6708b-6932-4858-8522-a7fa705af1fd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "27b03964-8802-40e5-a7e4-4bed62c305eb", 
+      "name": "List of attr-values", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "attr_list", 
+      "order": 1, 
+      "uid": "6c4e0b43-fd91-422b-a01b-3cbbd2c387c2"
+    }
+  }
+]

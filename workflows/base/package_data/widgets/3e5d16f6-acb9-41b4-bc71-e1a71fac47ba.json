@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "treeview/Task-List-icon.png", 
+      "uid": "3e5d16f6-acb9-41b4-bc71-e1a71fac47ba", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Task-List-icon.png", 
+      "description": "", 
+      "static_image": "Task-List-icon.png", 
+      "action": "create_tuple", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Create Tuple"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3e5d16f6-acb9-41b4-bc71-e1a71fac47ba", 
+      "name": "Element", 
+      "short_name": "el", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "elements", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "49c5792d-b75d-47c9-8539-3dc12193b16b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3e5d16f6-acb9-41b4-bc71-e1a71fac47ba", 
+      "name": "Tuple", 
+      "short_name": "tup", 
+      "description": "", 
+      "variable": "tuple", 
+      "order": 1, 
+      "uid": "7f6874cd-681b-4ad3-996b-cc8b5c994727"
+    }
+  }
+]

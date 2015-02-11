@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "treeview/ODT-to-ARFF-string.png", 
+      "uid": "e85e8eee-a6c1-464c-ab11-fecf4240fdd0", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/ODT-to-ARFF-string.png", 
+      "description": "Transforms an orange data table to an arff string.", 
+      "static_image": "ODT-to-ARFF-string.png", 
+      "action": "odt_to_arff", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Orange Data Table to ARFF String"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e85e8eee-a6c1-464c-ab11-fecf4240fdd0", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "odt", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "052788be-6a3d-4c8f-be34-b957ff445c04"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e85e8eee-a6c1-464c-ab11-fecf4240fdd0", 
+      "name": "ARFF", 
+      "short_name": "arf", 
+      "description": "", 
+      "variable": "arff", 
+      "order": 1, 
+      "uid": "02062c11-09e0-4bfd-b712-ad1c655a5e02"
+    }
+  }
+]

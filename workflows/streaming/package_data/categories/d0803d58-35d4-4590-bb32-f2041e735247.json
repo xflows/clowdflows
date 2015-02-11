@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Streaming Visualizations", 
+    "parent": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+    "order": 1, 
+    "uid": "d0803d58-35d4-4590-bb32-f2041e735247"
+  }
+}

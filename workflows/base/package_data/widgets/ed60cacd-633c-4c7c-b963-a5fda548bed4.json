@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "treeview/Task-List-icon.png", 
+      "uid": "ed60cacd-633c-4c7c-b963-a5fda548bed4", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Task-List-icon.png", 
+      "description": "", 
+      "static_image": "Task-List-icon.png", 
+      "action": "create_list", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Create List"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ed60cacd-633c-4c7c-b963-a5fda548bed4", 
+      "name": "Element", 
+      "short_name": "el", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "list", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "40d329ea-23e6-4217-9944-a43a9195bd54"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ed60cacd-633c-4c7c-b963-a5fda548bed4", 
+      "name": "List", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "list", 
+      "order": 1, 
+      "uid": "97e650f1-8235-43ee-b23d-92a7c029c47f"
+    }
+  }
+]

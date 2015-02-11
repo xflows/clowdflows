@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Heuristics Specification", 
+    "parent": "62a3ddb8-ff28-4e54-8144-3a7af70d235a", 
+    "order": 2, 
+    "uid": "d8fee140-c280-4d6b-b0b9-7c02fd857b50"
+  }
+}

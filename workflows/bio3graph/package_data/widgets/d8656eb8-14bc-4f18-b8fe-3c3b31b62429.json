@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "eebdd845-fbff-48f4-ab8f-509a10f53f12", 
+      "treeview_image": "", 
+      "uid": "d8656eb8-14bc-4f18-b8fe-3c3b31b62429", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Downloads the full text of the given PMC article(s). Note: fulltext is available only for PMC OA subset!", 
+      "static_image": "", 
+      "action": "bio3graph_get_fulltexts", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 12, 
+      "name": "Get fulltext of PMC article"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d8656eb8-14bc-4f18-b8fe-3c3b31b62429", 
+      "name": "id list", 
+      "short_name": "ids", 
+      "default": "", 
+      "description": "List of document ids", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "id_list", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "5849b4c2-bc39-49b6-afda-8f138448ffe3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d8656eb8-14bc-4f18-b8fe-3c3b31b62429", 
+      "name": "fulltexts", 
+      "short_name": "txt", 
+      "description": "List of fulltexts", 
+      "variable": "fulltexts", 
+      "order": 1, 
+      "uid": "5472d024-b910-42d3-a486-35e1666624dd"
+    }
+  }
+]

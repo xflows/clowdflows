@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9b145e48-9cc0-4a24-9ac7-0df48e879361", 
+      "treeview_image": "", 
+      "uid": "cf0af098-719c-4dce-bf75-0b3018eafb03", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "filter_integers", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Filters some integers", 
+      "static_image": "", 
+      "action": "filter_integers", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "filter_integers_post", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Filter integers"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cf0af098-719c-4dce-bf75-0b3018eafb03", 
+      "name": "Integer List", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "integers", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "7358ad8b-b3e7-4d19-98e1-749444b6686d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "cf0af098-719c-4dce-bf75-0b3018eafb03", 
+      "name": "Integer list", 
+      "short_name": "int", 
+      "description": "", 
+      "variable": "integers", 
+      "order": 1, 
+      "uid": "ca868bfc-19db-49c1-babe-9ae5694478e4"
+    }
+  }
+]

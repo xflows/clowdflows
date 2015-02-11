@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Testing", 
+    "parent": "583debcb-5041-46b3-b464-e21875896710", 
+    "order": 1, 
+    "uid": "8b90267f-c82d-4b62-bee3-66184f4db931"
+  }
+}

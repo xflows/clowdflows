@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "05c26564-86b5-4a73-aae9-f4dc14bc75d7", 
+      "treeview_image": "", 
+      "uid": "3860ae51-48ca-485d-b170-9064dd51e0ab", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructEnglishMaximumEntropyPosTagger in package latino. The original function signature: ConstructEnglishMaximumEntropyPosTagger.", 
+      "static_image": "tag_pos_image.png", 
+      "action": "latino_construct_english_maximum_entropy_pos_tagger", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "Max Entropy POS Tagger"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3860ae51-48ca-485d-b170-9064dd51e0ab", 
+      "name": "Beam Size", 
+      "short_name": "int", 
+      "default": "3", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "beamSize", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "f85d9aa7-bb95-4d17-cd09-c55785705bad"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3860ae51-48ca-485d-b170-9064dd51e0ab", 
+      "name": "POS Tagger", 
+      "short_name": "pst", 
+      "description": "", 
+      "variable": "posTagger", 
+      "order": 1, 
+      "uid": "3c4807f0-9a29-56b6-9b2e-3e038f1737b9"
+    }
+  }
+]

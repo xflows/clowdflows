@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Curve charts", 
+    "parent": "f2821411-7b06-46ea-b577-3a06fecd02de", 
+    "order": 1, 
+    "uid": "880198d8-b759-4a1c-a642-968b7a79887e"
+  }
+}

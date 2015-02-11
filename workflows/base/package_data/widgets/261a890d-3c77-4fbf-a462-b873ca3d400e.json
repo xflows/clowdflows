@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "11865b03-cb06-4d50-9174-69d920cbe4ec", 
+      "treeview_image": "", 
+      "uid": "261a890d-3c77-4fbf-a462-b873ca3d400e", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "split_documents", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Filter documents"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "261a890d-3c77-4fbf-a462-b873ca3d400e", 
+      "name": "String", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "string", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "21652a75-6742-4330-9bc3-9683f30a5618"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "261a890d-3c77-4fbf-a462-b873ca3d400e", 
+      "name": "Filter", 
+      "short_name": "flt", 
+      "default": "!classname", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "class", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "ccc080f1-e7e4-4bd7-9837-b59dc9037ae9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "261a890d-3c77-4fbf-a462-b873ca3d400e", 
+      "name": "String", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "cc43f6b5-d012-46b7-9b28-e19d22410ed3"
+    }
+  }
+]

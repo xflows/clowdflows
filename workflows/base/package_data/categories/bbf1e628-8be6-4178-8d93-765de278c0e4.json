@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Files", 
+    "parent": null, 
+    "order": 1, 
+    "uid": "bbf1e628-8be6-4178-8d93-765de278c0e4"
+  }
+}

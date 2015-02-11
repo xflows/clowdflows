@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "treeview/glass_1.png", 
+      "uid": "9c7ff1bd-6026-4ebd-b44f-ed889a8b0fad", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/glass_3.png", 
+      "description": "Displays any input.", 
+      "static_image": "glass_3.png", 
+      "action": "object_viewer", 
+      "visualization_view": "object_viewer", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 5, 
+      "name": "Object viewer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9c7ff1bd-6026-4ebd-b44f-ed889a8b0fad", 
+      "name": "Object", 
+      "short_name": "obj", 
+      "default": "", 
+      "description": "Any type of object.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "object", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "175cd7ae-46dd-471e-9aa2-29105cb077eb"
+    }
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "04813a15-93d0-48ca-9c64-0bb6a7bc92b4", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function PredictionInfo in package latino. The original function signature: PredictionInfo.", 
+      "static_image": "clasification_info_image.png", 
+      "action": "latino_prediction_info", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 14, 
+      "name": "Prediction Info"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "04813a15-93d0-48ca-9c64-0bb6a7bc92b4", 
+      "name": "Prediction(s)", 
+      "short_name": "prd", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[Latino.Model.Prediction`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "predictions", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4196036a-5c53-8452-8ccc-325f1ac734d6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "04813a15-93d0-48ca-9c64-0bb6a7bc92b4", 
+      "name": "Lable(s) (Array of Strings)", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "labels", 
+      "order": 1, 
+      "uid": "776fb044-5dfc-18a2-cf20-4e817796f204"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "04813a15-93d0-48ca-9c64-0bb6a7bc92b4", 
+      "name": "Prediction Info(s)", 
+      "short_name": "obj", 
+      "description": "", 
+      "variable": "predictInfos", 
+      "order": 2, 
+      "uid": "8653f42a-e09b-5eaf-795f-587cc48bfc21"
+    }
+  }
+]

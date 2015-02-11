@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
+      "treeview_image": "treeview/orange-LogisticRegression.png", 
+      "uid": "bb9cbb4e-516d-4856-9ad3-614a7a01cba1", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/orange-LogisticRegression.png", 
+      "description": "Logistic regression is a statistical classification method that fits data to a logistic function. A logistic regression classification model stores estimated values of regression coefficients and their significances, and uses them to predict classes and class probabilities.", 
+      "static_image": "orange-LogisticRegression.png", 
+      "action": "logreg", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Logistic Regression"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bb9cbb4e-516d-4856-9ad3-614a7a01cba1", 
+      "name": "Logistic Regresion Learner", 
+      "short_name": "lrn", 
+      "description": "The logistic regression learning algorithm.", 
+      "variable": "logregout", 
+      "order": 1, 
+      "uid": "bd5fa320-9059-44f4-8186-f5dea9283520"
+    }
+  }
+]

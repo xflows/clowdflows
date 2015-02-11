@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9744d60c-c755-448a-930c-0c40236a4a05", 
+      "treeview_image": "", 
+      "uid": "0a453395-40a3-4d8d-a242-17945abf1f21", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Obtains all synonyms of all genes using the GPSDB service.", 
+      "static_image": "", 
+      "action": "bio3graph_get_gene_synonyms_from_GPSDB", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 13, 
+      "name": "Get gene synonyms from GPSDB"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0a453395-40a3-4d8d-a242-17945abf1f21", 
+      "name": "gene symbol list", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "List of gene symbols", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "gene_symbols", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "976df41a-5099-417f-8641-3e83390ca963"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0a453395-40a3-4d8d-a242-17945abf1f21", 
+      "name": "gene synonyms", 
+      "short_name": "syn", 
+      "description": "Dictionary of gene synonyms", 
+      "variable": "gene_synonyms", 
+      "order": 1, 
+      "uid": "479b88b6-e71c-4ea6-a4a7-e6aa586d4c12"
+    }
+  }
+]

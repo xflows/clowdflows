@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "74457dca-9fba-4d66-98dd-633df385a22b", 
+      "treeview_image": "", 
+      "uid": "ace23118-d1f5-475d-b0e0-a4c0f9b05d82", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ViewClusters_PYTHON in package latino. The original function signature: ViewClusters_PYTHON.", 
+      "static_image": "cluster_viewer_image.png", 
+      "action": "show_clusters", 
+      "visualization_view": "show_clusters", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 6, 
+      "name": "View Clusters"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ace23118-d1f5-475d-b0e0-a4c0f9b05d82", 
+      "name": "Clustering Results", 
+      "short_name": "cr", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "clustRes", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "8dbe38d0-3b33-3d44-efe6-b21f26c17b5d"
+    }
+  }
+]

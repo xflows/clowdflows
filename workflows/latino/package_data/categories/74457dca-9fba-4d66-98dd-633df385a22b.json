@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Clustering", 
+    "parent": "3f7d449c-9222-458b-9c4e-412b01bcbc6b", 
+    "order": 8, 
+    "uid": "74457dca-9fba-4d66-98dd-633df385a22b"
+  }
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "bfeb7cb9-45b8-45c6-9f67-c7c6455845b6", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function SaveNetObject in package lemmagen. The original function signature: SaveNetObject.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_save_net_object", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 101, 
+      "name": "Save Serializable Object"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bfeb7cb9-45b8-45c6-9f67-c7c6455845b6", 
+      "name": "Serializable Object", 
+      "short_name": "obj", 
+      "default": "true", 
+      "description": "System.Object", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "serializableObject", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "67e07c46-92b2-d508-9c3c-4038e9bf428a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bfeb7cb9-45b8-45c6-9f67-c7c6455845b6", 
+      "name": "Compress", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "compress", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "8446952b-60cc-f20c-437a-08b9e71ed4db"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bfeb7cb9-45b8-45c6-9f67-c7c6455845b6", 
+      "name": "String of the Serialized Object", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "objString", 
+      "order": 1, 
+      "uid": "9f6adb4c-507f-089a-8dcb-d9cba0613e5b"
+    }
+  }
+]

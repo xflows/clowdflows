@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Similarity Matrix", 
+    "parent": "3f7d449c-9222-458b-9c4e-412b01bcbc6b", 
+    "order": 7, 
+    "uid": "c7a26cb0-65af-4c6e-887b-7c6a7a162327"
+  }
+}

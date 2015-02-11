@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "LemmaGen", 
+    "parent": null, 
+    "order": 2, 
+    "uid": "3f47e2a2-682f-4439-9b7c-e67c6506fd67"
+  }
+}

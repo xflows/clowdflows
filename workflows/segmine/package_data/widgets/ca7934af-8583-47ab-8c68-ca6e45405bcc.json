@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "ca7934af-8583-47ab-8c68-ca6e45405bcc", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "RankPlotter.png", 
+      "action": "segmine_rank_plotter", 
+      "visualization_view": "segmine_rank_plotter", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Rank plotter"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca7934af-8583-47ab-8c68-ca6e45405bcc", 
+      "name": "Gene ranks", 
+      "short_name": "rnk", 
+      "default": "", 
+      "description": "List of pairs (geneID, rank)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "1cf60ff1-4e25-4fb2-8a55-6bbc07998608"
+    }
+  }
+]
