@@ -421,19 +421,19 @@ class AbstractWidget(models.Model):
 
     def set_uid(self,commit=False):
         import uuid
-        self.uid = uuid.uuid4()
+        self.uid = str(uuid.uuid4())
         if commit:
             self.save()
         for i in self.inputs.all():
-            i.uid = uuid.uuid4()
+            i.uid = str(uuid.uuid4())
             if commit:
                 i.save()
             for option in i.options.all():
-                option.uid = uuid.uuid4()
+                option.uid = str(uuid.uuid4())
                 if commit:
                     option.save()
         for o in self.outputs.all():
-            o.uid = uuid.uuid4()
+            o.uid = str(uuid.uuid4())
             if commit:
                 o.save()
 
