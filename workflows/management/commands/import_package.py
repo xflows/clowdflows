@@ -117,6 +117,9 @@ def import_package(package_name,writer):
                         setattr(i,field,inp['fields'][field])
                 i.widget = aw
                 i.save()
+            # find stale inputs
+            stale_ais = AbstractInput.objects.filter(widget=aw).exclude(uid__in=[inp['fields']['uid'] for inp in inputs])
+            print stale_ais
             for out in outputs:
                 try:
                     o = AbstractOutput.objects.get(uid=out['fields']['uid'])
