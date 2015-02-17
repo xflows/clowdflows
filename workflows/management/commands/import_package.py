@@ -77,7 +77,8 @@ def import_package(package_name,writer):
             c.save()
 
     if not global_change:
-        writer.write("    No changes detected in the categories.\n")
+        #writer.write("    No changes detected in the categories.\n")
+        pass
 
     global_change = False
 
@@ -119,7 +120,9 @@ def import_package(package_name,writer):
                 i.save()
             # find stale inputs
             stale_ais = AbstractInput.objects.filter(widget=aw).exclude(uid__in=[inp['fields']['uid'] for inp in inputs])
-            print stale_ais
+            if stale_ais:
+                stale_ais.delete()
+                writer.write("     - Removing stale inputs\n")
             for out in outputs:
                 try:
                     o = AbstractOutput.objects.get(uid=out['fields']['uid'])
@@ -130,6 +133,10 @@ def import_package(package_name,writer):
                         setattr(o,field,out['fields'][field])
                 o.widget = aw
                 o.save()
+            stale_aos = AbstractOutput.objects.filter(widget=aw).exclude(uid__in=[out['fields']['uid'] for out in outputs])
+            if stale_aos:
+                stale_aos.delete()
+                writer.write("     - Removing stale outputs\n")
             for option in options:
                 try:
                     o = AbstractOption.objects.get(uid=option['fields']['uid'])
@@ -141,10 +148,14 @@ def import_package(package_name,writer):
                     else:
                         o.abstract_input = AbstractInput.objects.get(uid=option['fields']['abstract_input'])
                 o.save()
-
+            stale_os = AbstractOption.objects.filter(abstract_input__widget=aw).exclude(uid__in=[o['fields']['uid'] for o in options])
+            if stale_os:
+                stale_os.delete()
+                writer.write("     - Removing stale options\n")
 
     if not global_change:
-        writer.write("    No changes detected in the widgets.\n")
+        #writer.write("    No changes detected in the widgets.\n")
+        pass
 
 
 

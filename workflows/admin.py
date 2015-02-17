@@ -40,6 +40,7 @@ class OptionInline(admin.StackedInline):
     
 class InputAdmin(admin.ModelAdmin):
     inlines = [ OptionInline ]
+    list_display = ('name','parameter_type')
     
 class WorkflowAdmin(admin.ModelAdmin):
     list_display = ('name','user','public')
