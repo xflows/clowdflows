@@ -31,7 +31,7 @@ illegal_predicates = [
     'source_file', 'source_location', 'source_mode', 'stream', 'stream_position', 'stream_position_data', 'stream_property', 'stream_select', \
     'style_check', 'syntax_errors', 'system', 'system_predicate', 'tableInfo', 'tell', 'telling', 'term_position', 'thread_at_exit', \
     'thread_create', 'thread_detach', 'thread_exit', 'thread_join', 'thread_self', 'thread_setconcurrency', 'thread_sleep', 'throw', 'time_file', \
-    'ttyget', 'ttyget0', 'ttyput', 'ttyskip', 'ttytab', 'unhide', 'unix', 'var', 'variable_names', 'variables', 'version', 'view', 'with_output_to', \
+    'ttyget', 'ttyget0', 'ttyput', 'ttyskip', 'ttytab', 'unhide', 'unix', 'var', 'variable_names', 'variables', 'view', 'with_output_to', \
     'write', 'write_canonical', 'write_depth', 'write_many_as', 'write_term', 'writeln', 'writeq', 'yap_flag'
 ]
 
@@ -40,7 +40,7 @@ allowed_mysql_predicates = [
     'db_import', 
     'db_open',
 ]
-default_timeout = 1200 * 60
+default_timeout = 120000 * 60
 
 class SafePopen(threading.Thread):
     '''
