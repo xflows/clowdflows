@@ -1,0 +1,189 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d8fee140-c280-4d6b-b0b9-7c02fd857b50", 
+      "treeview_image": "", 
+      "uid": "9c0c1f1f-bdf2-4751-bc26-989094660e77", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructCalculatedHeuristics in package crossbee. The original function signature: ConstructCalculatedHeuristics.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_construct_calculated_heuristics", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 13, 
+      "name": "Calculated Heuristic"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9c0c1f1f-bdf2-4751-bc26-989094660e77", 
+      "name": "Heurisitc(s)", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heurisitcs.Heuristics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": "text", 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "2a9150da-560d-ce9b-987a-f2492c315c12"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9c0c1f1f-bdf2-4751-bc26-989094660e77", 
+      "name": "Calculation", 
+      "short_name": "clc", 
+      "default": "Sum", 
+      "description": "CrossBeeInterfaces.Heurisitcs.CalculatedHeustistic+Calculation", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "calc", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9c0c1f1f-bdf2-4751-bc26-989094660e77", 
+      "name": "Name", 
+      "short_name": "str", 
+      "default": "calculated", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "name", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "bac420b2-4a79-b5d3-4699-3c6c5dd22a6e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9c0c1f1f-bdf2-4751-bc26-989094660e77", 
+      "name": "Ensemble Heuristics", 
+      "short_name": "heu", 
+      "description": "", 
+      "variable": "newHeurisitcs", 
+      "order": 1, 
+      "uid": "694f1c64-0b22-4c8e-6bc5-9e6022ee3f87"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Abs", 
+      "uid": "0fa9a446-51d6-159b-8965-da960aca34f9", 
+      "value": "Abs", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Div", 
+      "uid": "1dbaadd9-502c-2c66-cac4-ff85db24af8d", 
+      "value": "Div", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Sin", 
+      "uid": "20eb84a9-6c36-fa84-f34c-0500e1c2583c", 
+      "value": "Sin", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Min", 
+      "uid": "49306557-b83a-cae4-07cc-0703f9f3b5ad", 
+      "value": "Min", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Cos", 
+      "uid": "58e21428-22b0-1b32-1f34-2e9ff9289dd8", 
+      "value": "Cos", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Sum", 
+      "uid": "6db0f285-39a9-ef1f-d1f5-aa9b102f3c11", 
+      "value": "Sum", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Max", 
+      "uid": "78eb2f10-e09b-16dc-b74e-a85567fecdfc", 
+      "value": "Max", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Prod", 
+      "uid": "976452e4-d989-8180-2f90-5d2878829570", 
+      "value": "Prod", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Log", 
+      "uid": "9d9eacda-1cf2-aa94-2a0d-3574dde61294", 
+      "value": "Log", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Subt", 
+      "uid": "a3bc7d12-0d55-062b-96e6-91df5756c228", 
+      "value": "Subt", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Norm", 
+      "uid": "ef4dfb77-de2a-305f-9d32-66615737cfb1", 
+      "value": "Norm", 
+      "abstract_input": "8ba9e687-f07d-84af-35b4-8969200b5ced"
+    }
+  }
+]

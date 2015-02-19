@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "74a7063e-9e7f-4305-8b5e-d5f1a4c40250", 
+      "treeview_image": "", 
+      "uid": "8283f38a-33dc-4d0d-812d-1c58c7209469", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "WEKA_naiveBayes.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "Naive_Bayes", 
+      "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Naive Bayes"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8283f38a-33dc-4d0d-812d-1c58c7209469", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "0d9e4fd6-aae2-42d1-9dc8-8c905cbea8ab"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8283f38a-33dc-4d0d-812d-1c58c7209469", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "4c034605-af49-4af3-b1b5-ba3feb4fe5f7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8283f38a-33dc-4d0d-812d-1c58c7209469", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "9d4e54cc-013a-4997-8804-bc6329901226"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "8283f38a-33dc-4d0d-812d-1c58c7209469", 
+      "name": "Naive Bayes Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "Naive_Bayes_learner", 
+      "order": 1, 
+      "uid": "e399b729-9f81-437d-8037-6aee44155e14"
+    }
+  }
+]

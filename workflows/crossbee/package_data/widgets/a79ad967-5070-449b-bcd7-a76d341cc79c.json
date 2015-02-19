@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5d55b2bf-c5f6-4fff-bfd3-9d6ad83ba9f9", 
+      "treeview_image": "", 
+      "uid": "a79ad967-5070-449b-bcd7-a76d341cc79c", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function LoadOutlierHeuristics in package crossbee. The original function signature: LoadOutlierHeuristics.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_load_outlier_heuristics", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 410, 
+      "name": "Load Outlier Heuristics"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a79ad967-5070-449b-bcd7-a76d341cc79c", 
+      "name": "Specification", 
+      "short_name": "str", 
+      "default": "#comment\r\nsvmOutlier (5): 0, 5(0.9), 8, 11(0.85), 12", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "specification", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "1fe24622-a12a-679f-dc93-702ff6c39a6b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a79ad967-5070-449b-bcd7-a76d341cc79c", 
+      "name": "Relative", 
+      "short_name": "clc", 
+      "default": "false", 
+      "description": "If false then absolute number of terms apearing in outlier documents is used. If true, the relative number of terms is used - based on the frequency of the term in the whole dataset.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "relative", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "7f42ad6d-0593-5433-df7f-a482dd977c28"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a79ad967-5070-449b-bcd7-a76d341cc79c", 
+      "name": "Heurisic Name Prefix", 
+      "short_name": "str", 
+      "default": "outFreq", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "namePrefix", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "d6055ed0-f08d-555b-4cd3-5355a117f07d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a79ad967-5070-449b-bcd7-a76d341cc79c", 
+      "name": "Ensemble Heuristics", 
+      "short_name": "heu", 
+      "description": "", 
+      "variable": "newHeurisitcs", 
+      "order": 1, 
+      "uid": "7e50c540-0fce-c6dc-b8d0-54a0f8a8f161"
+    }
+  }
+]

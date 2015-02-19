@@ -1,0 +1,186 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "74457dca-9fba-4d66-98dd-633df385a22b", 
+      "treeview_image": "", 
+      "uid": "21a9a085-4eca-4e2f-b9f6-af721a78f692", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructKMeansClusterer in package latino. The original function signature: ConstructKMeansClusterer.", 
+      "static_image": "clusterer_kmeans_image.png", 
+      "action": "latino_construct_kmeans_clusterer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "KMeans Clusterer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "21a9a085-4eca-4e2f-b9f6-af721a78f692", 
+      "name": "Centroid Type", 
+      "short_name": "typ", 
+      "default": "NrmL2", 
+      "description": "Latino.Model.CentroidType", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "centroidType", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "0806279f-9562-89a0-a1d0-cade15c962e8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "21a9a085-4eca-4e2f-b9f6-af721a78f692", 
+      "name": "Eps", 
+      "short_name": "dbl", 
+      "default": "0.0005", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "eps", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "6f033ef3-4c89-be34-5ce7-0dba9b9440f9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "21a9a085-4eca-4e2f-b9f6-af721a78f692", 
+      "name": "K (Number of Clusteres)", 
+      "short_name": "int", 
+      "default": "10", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "k", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "de12d18b-684b-ea51-0bc9-4ff969ea494c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "21a9a085-4eca-4e2f-b9f6-af721a78f692", 
+      "name": "Similarity Measure", 
+      "short_name": "typ", 
+      "default": "Cosine", 
+      "description": "LatinoClowdFlows.SimilarityModel", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "similarityModel", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "ef384f86-a53a-0eef-1d95-2b0a0058cf33"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "21a9a085-4eca-4e2f-b9f6-af721a78f692", 
+      "name": "Trials (Num of Initializations)", 
+      "short_name": "int", 
+      "default": "1", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "trials", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "f51990f9-63d1-e0b6-fd8e-b3d15ac265c3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "21a9a085-4eca-4e2f-b9f6-af721a78f692", 
+      "name": "Random Seed (-1: Use Always Different)", 
+      "short_name": "int", 
+      "default": "-1", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "randomSeed", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "fdd2526b-8927-0b15-c98e-b9f6a156d23f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "21a9a085-4eca-4e2f-b9f6-af721a78f692", 
+      "name": "Clusterer", 
+      "short_name": "cls", 
+      "description": "", 
+      "variable": "clusterer", 
+      "order": 1, 
+      "uid": "05ade0db-187f-22de-dee5-a10b9b730718"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Nrm L2", 
+      "uid": "0294df92-e048-bb36-eb41-16cdad8fc0b4", 
+      "value": "NrmL2", 
+      "abstract_input": "0806279f-9562-89a0-a1d0-cade15c962e8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Avg", 
+      "uid": "3beb3f40-ed4d-d744-b7db-8f2f60812c3d", 
+      "value": "Avg", 
+      "abstract_input": "0806279f-9562-89a0-a1d0-cade15c962e8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Cosine", 
+      "uid": "515ac573-1c2f-a1eb-c2c7-6ed90cf50612", 
+      "value": "Cosine", 
+      "abstract_input": "ef384f86-a53a-0eef-1d95-2b0a0058cf33"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Sum", 
+      "uid": "947c0190-6f41-28ba-9201-f7241cb70c81", 
+      "value": "Sum", 
+      "abstract_input": "0806279f-9562-89a0-a1d0-cade15c962e8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Dot Product", 
+      "uid": "bfbf01d8-0c41-646e-da71-3d493788ff04", 
+      "value": "DotProduct", 
+      "abstract_input": "ef384f86-a53a-0eef-1d95-2b0a0058cf33"
+    }
+  }
+]

@@ -1,0 +1,159 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "4eec620e-f919-47d5-99f9-846ada308ac2", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "A tool developed to process historical (Slovene) text, which annotates words in a TEI encoded corpus with their modern-day equivalents, morphosyntactic tags and lemmas. Such a tool is useful for developing historical corpora of highly-inflecting languages, enabling full text search in digital libraries of historical texts, for modernising such texts for today's readers and making it simpler to correct OCR transcriptions.", 
+      "static_image": "nlp.png", 
+      "action": "nlp_totrtale2", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "ToTrTaLe2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
+      "name": "Antique slovenian", 
+      "short_name": "atq", 
+      "default": "false", 
+      "description": "Antique slovenian", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "antique", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "161bece4-5e34-4f47-821c-ffbb35f6069a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "en", 
+      "description": "Language of the input corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "73feafbb-26e1-4bc5-8f1d-3c58443b89ba"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
+      "name": "XML output", 
+      "short_name": "xml", 
+      "default": "false", 
+      "description": "Output results as XML", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "xml", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "a47a5353-fee0-414b-8393-db0af3bc93b9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
+      "name": "Post-processing", 
+      "short_name": "pst", 
+      "default": "false", 
+      "description": "Apply post processing", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "postprocess", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "b9d70de4-156d-45da-aece-5adf08122a5c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
+      "name": "Bohoricica", 
+      "short_name": "boh", 
+      "default": "false", 
+      "description": "Bohoricica", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "bohoricica", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "f429eb2c-a5ac-44b8-a691-602c97a2b0da"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "description": "Annotations", 
+      "variable": "annotations", 
+      "order": 1, 
+      "uid": "20f014a4-127a-4153-8c2e-1d32dd0b2343"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "6400d9b2-72ff-48c2-b9d0-302cc62a08be", 
+      "value": "en", 
+      "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovene", 
+      "uid": "793cbfa7-36ea-430e-9965-3dec464743be", 
+      "value": "sl", 
+      "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
+    }
+  }
+]

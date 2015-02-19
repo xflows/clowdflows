@@ -1,0 +1,100 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5a4286c8-d182-45a5-896b-cc3c6ed84f22", 
+      "treeview_image": "", 
+      "uid": "1a9e6641-1b7a-4347-9fd9-f571f91a359a", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructSimpleTokenizer in package latino. The original function signature: ConstructSimpleTokenizer.", 
+      "static_image": "token_word_image.png", 
+      "action": "latino_construct_simple_tokenizer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 6, 
+      "name": "Simple Tokenizer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1a9e6641-1b7a-4347-9fd9-f571f91a359a", 
+      "name": "Type", 
+      "short_name": "typ", 
+      "default": "AllChars", 
+      "description": "Latino.TextMining.TokenizerType", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "type", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "59c6fc11-0932-4b8c-6fba-7fb4108d312b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1a9e6641-1b7a-4347-9fd9-f571f91a359a", 
+      "name": "Minimal Token Length", 
+      "short_name": "int", 
+      "default": "1", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minTokenLen", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "dcc2c809-f060-d931-3751-34694bceec2e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1a9e6641-1b7a-4347-9fd9-f571f91a359a", 
+      "name": "Tokenizer", 
+      "short_name": "tkn", 
+      "description": "", 
+      "variable": "tokenizer", 
+      "order": 1, 
+      "uid": "490faf80-54e0-e36d-e73a-544533984301"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "AlphaOnly: equivalent to \\p{L}+", 
+      "uid": "36a7266e-fc89-ffb9-488d-5d7cfe797e98", 
+      "value": "AlphaOnly", 
+      "abstract_input": "59c6fc11-0932-4b8c-6fba-7fb4108d312b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "AlphanumOnly: equivalent to [\\p{L}\\d]+", 
+      "uid": "9f8214a1-8ae8-051f-c708-6ebcfd949e01", 
+      "value": "AlphanumOnly", 
+      "abstract_input": "59c6fc11-0932-4b8c-6fba-7fb4108d312b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "AllChars: equivalent to [^\\s]+", 
+      "uid": "cf95fed8-1237-9797-4dea-4d83520fcdd3", 
+      "value": "AllChars", 
+      "abstract_input": "59c6fc11-0932-4b8c-6fba-7fb4108d312b"
+    }
+  }
+]

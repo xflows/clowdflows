@@ -1,0 +1,97 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "92fd265d-26cb-434f-bbfe-1780feb83dae", 
+      "treeview_image": "treeview/NoiseRank3.png", 
+      "uid": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
+      "is_streaming": false, 
+      "package": "noise", 
+      "interaction_view": "noiserankview", 
+      "has_progress_bar": false, 
+      "image": "images/NoiseRank3.png", 
+      "description": "", 
+      "static_image": "NoiseRank3.png", 
+      "action": "noiserank", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "noiserank_select", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "NoiseRank"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
+      "name": "Noisy Instances", 
+      "short_name": "nsi", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "noise", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "609eae39-00b0-4713-ba0e-55f54e7d642e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ddd786e1-f8e5-4731-977c-48a80deb9de3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
+      "name": "Selected Instances", 
+      "short_name": "sel", 
+      "description": "", 
+      "variable": "selection", 
+      "order": 2, 
+      "uid": "16252437-410b-4b27-82d3-04cdf6655a77"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
+      "name": "All Noise", 
+      "short_name": "ans", 
+      "description": "", 
+      "variable": "allnoise", 
+      "order": 1, 
+      "uid": "1b051588-c6cc-472c-88ec-18f96216d46c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c8ec62db-aded-4fb5-8e5f-7766b1d86fe4", 
+      "name": "Selected Indices", 
+      "short_name": "ind", 
+      "description": "", 
+      "variable": "indices", 
+      "order": 3, 
+      "uid": "1c9e78f6-88b4-4a53-bdf7-ba88eccd798b"
+    }
+  }
+]

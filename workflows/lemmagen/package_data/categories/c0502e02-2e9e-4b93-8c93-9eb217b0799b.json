@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Lemmatizer Creation", 
+    "parent": "3f47e2a2-682f-4439-9b7c-e67c6506fd67", 
+    "order": 3, 
+    "uid": "c0502e02-2e9e-4b93-8c93-9eb217b0799b"
+  }
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "9a20da2e-0903-4332-8938-63b15d370657", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "twitter.png", 
+      "action": "streaming_simulate_stream_from_text_file", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Simulate stream from text file"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9a20da2e-0903-4332-8938-63b15d370657", 
+      "name": "Text file", 
+      "short_name": "txt", 
+      "default": "", 
+      "description": "Text file of line separated tweets", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "b3f3126c-6004-41f4-839b-08e047ffcb62"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9a20da2e-0903-4332-8938-63b15d370657", 
+      "name": "List of tweets", 
+      "short_name": "ltw", 
+      "description": "A list of Tweets.", 
+      "variable": "ltw", 
+      "order": 1, 
+      "uid": "76b17d4f-7bf4-4f7d-9685-1f2cb4dda73e"
+    }
+  }
+]

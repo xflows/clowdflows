@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d8fee140-c280-4d6b-b0b9-7c02fd857b50", 
+      "treeview_image": "", 
+      "uid": "a7a80313-60f2-4632-90ea-0c4d1b8e9725", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function CombineHeuristics in package crossbee. The original function signature: CombineHeuristics.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_combine_heuristics", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 20, 
+      "name": "Heuristics List"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a7a80313-60f2-4632-90ea-0c4d1b8e9725", 
+      "name": "Heurisitc(s)", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heurisitcs.Heuristics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": "text", 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "35b7d943-8fed-0a70-bf9e-11e9d539c223"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a7a80313-60f2-4632-90ea-0c4d1b8e9725", 
+      "name": "Heuristics", 
+      "short_name": "heu", 
+      "description": "", 
+      "variable": "newHeurisitcs", 
+      "order": 1, 
+      "uid": "7f5afee7-a123-ba0c-a5c8-1c765b4ef212"
+    }
+  }
+]

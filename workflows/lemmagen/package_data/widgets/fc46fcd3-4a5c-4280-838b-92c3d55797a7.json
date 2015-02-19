@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "44fdf9b8-8259-4a43-8a77-59753b74cacd", 
+      "treeview_image": "", 
+      "uid": "fc46fcd3-4a5c-4280-838b-92c3d55797a7", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function LoadNetLemmatizer in package lemmagen. The original function signature: LoadNetLemmatizer.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_load_net_lemmatizer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 775, 
+      "name": "Load Lemmatizer from Binary"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fc46fcd3-4a5c-4280-838b-92c3d55797a7", 
+      "name": "String of the Serialized Lemmatizer", 
+      "short_name": "str", 
+      "default": "true", 
+      "description": "System.String", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "lmtzStr", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c6911b36-0633-bbde-700e-378bb9b16a17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "fc46fcd3-4a5c-4280-838b-92c3d55797a7", 
+      "name": "Lemmatizer (Deserialized)", 
+      "short_name": "lmz", 
+      "description": "", 
+      "variable": "obj", 
+      "order": 1, 
+      "uid": "88b3d970-d33d-f095-a9fc-d245da50e4f4"
+    }
+  }
+]

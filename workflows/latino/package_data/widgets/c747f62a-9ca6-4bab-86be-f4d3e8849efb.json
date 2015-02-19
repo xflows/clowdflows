@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5a4286c8-d182-45a5-896b-cc3c6ed84f22", 
+      "treeview_image": "", 
+      "uid": "c747f62a-9ca6-4bab-86be-f4d3e8849efb", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function TokenizeWords in package latino. The original function signature: TokenizeWords.", 
+      "static_image": "token_word_do_image.png", 
+      "action": "latino_tokenize_words", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 7, 
+      "name": "Tokenizer Hub"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c747f62a-9ca6-4bab-86be-f4d3e8849efb", 
+      "name": "Annotation to be tokenized", 
+      "short_name": "ann", 
+      "default": "TextBlock", 
+      "description": "Which annotated part of document to be splited", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "inputAnnotation", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "006cccbd-ee39-44b5-35fb-760a30422630"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c747f62a-9ca6-4bab-86be-f4d3e8849efb", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "8114ab48-987a-8570-27c8-1544be7bbaae"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c747f62a-9ca6-4bab-86be-f4d3e8849efb", 
+      "name": "Tokenizer", 
+      "short_name": "tkn", 
+      "default": "", 
+      "description": "Latino.TextMining.ITokenizer", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "tokenizer", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "a03ee323-a151-3931-8d36-c86b63e7ee1f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c747f62a-9ca6-4bab-86be-f4d3e8849efb", 
+      "name": "Annotation to be produced", 
+      "short_name": "ann", 
+      "default": "Token", 
+      "description": "How to annotate found sentences", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outputAnnotation", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "cd426790-640d-a1a9-18ec-a8f611780b4a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c747f62a-9ca6-4bab-86be-f4d3e8849efb", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adc", 
+      "order": 1, 
+      "uid": "e8c8a6d2-1d5b-579a-8e1d-7a45c7f22ba6"
+    }
+  }
+]

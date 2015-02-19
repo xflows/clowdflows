@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "74a7063e-9e7f-4305-8b5e-d5f1a4c40250", 
+      "treeview_image": "treeview/120px-Gears_icon.png", 
+      "uid": "a86057ba-aa1f-40fe-a548-e6c3259b7a6e", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/120px-Gears_icon.png", 
+      "description": "Random Forest learner.", 
+      "static_image": "WEKA_RandomForest.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "RandomForest", 
+      "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "RandomForest"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a86057ba-aa1f-40fe-a548-e6c3259b7a6e", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "7e7e0abe-932b-48e0-937b-cc6285f08ac7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a86057ba-aa1f-40fe-a548-e6c3259b7a6e", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "d88bcf23-9d76-4ac7-9335-1a480ba93db7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a86057ba-aa1f-40fe-a548-e6c3259b7a6e", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "e91780de-4643-4e7d-86a7-6fe3f4d81324"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a86057ba-aa1f-40fe-a548-e6c3259b7a6e", 
+      "name": "RandomForest Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "RandomForest_learner", 
+      "order": 1, 
+      "uid": "5fcca051-bda1-44b3-b8d9-199fef38d0b4"
+    }
+  }
+]

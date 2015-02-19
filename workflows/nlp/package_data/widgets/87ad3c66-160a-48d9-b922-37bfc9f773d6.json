@@ -1,0 +1,152 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9a30eafc-37b8-48f2-8a92-692c4b324dff", 
+      "treeview_image": "", 
+      "uid": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "nlp.png", 
+      "action": "nlp_def_extraction_patterns", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Definition extraction by patterns"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
+      "name": "Pre-defined patterns", 
+      "short_name": "pat", 
+      "default": "begin_novar", 
+      "description": "Pre-defined patterns", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "pattern", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "default": "", 
+      "description": "Totrtale annotations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "annotations", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "9d27304b-dc9f-4535-bd76-2996083f6fc7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "default": "http://vihar.ijs.si:8099", 
+      "description": "Web service address", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "9d817240-a951-460e-84db-b46ae503cdfb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
+      "name": "Language", 
+      "short_name": "lan", 
+      "default": "en", 
+      "description": "Language", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "a509c622-a31e-4b51-8d11-7793ea923b71"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "87ad3c66-160a-48d9-b922-37bfc9f773d6", 
+      "name": "Sentences", 
+      "short_name": "sen", 
+      "description": "Definition sentences", 
+      "variable": "sentences", 
+      "order": 1, 
+      "uid": "0fa73380-0ba2-47c6-be12-55c3a9a963c9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "57c3afc3-623b-448c-90c8-f5056a847e67", 
+      "value": "en", 
+      "abstract_input": "a509c622-a31e-4b51-8d11-7793ea923b71"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "No begin", 
+      "uid": "9dc667b6-3b60-4844-ac6c-3b24645d6e4f", 
+      "value": "no_begin", 
+      "abstract_input": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Begin allvar", 
+      "uid": "c3e0868f-5479-4490-9ff7-857ba4c2ca3e", 
+      "value": "begin_allvar", 
+      "abstract_input": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Begin novar", 
+      "uid": "dce0b5b5-e12e-4ffa-a758-2b1d4dc9b773", 
+      "value": "begin_novar", 
+      "abstract_input": "65d538aa-c277-4cb3-8f37-87d02ee5ede0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovene", 
+      "uid": "deddbb96-e1d0-4f92-a0cd-d474444ded68", 
+      "value": "sl", 
+      "abstract_input": "a509c622-a31e-4b51-8d11-7793ea923b71"
+    }
+  }
+]

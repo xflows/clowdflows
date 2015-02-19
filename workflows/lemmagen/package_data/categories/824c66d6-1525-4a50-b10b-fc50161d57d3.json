@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Data & Settings Preparation", 
+    "parent": "3f47e2a2-682f-4439-9b7c-e67c6506fd67", 
+    "order": 2, 
+    "uid": "824c66d6-1525-4a50-b10b-fc50161d57d3"
+  }
+}

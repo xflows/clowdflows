@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "treeview/orange-SelectData.png", 
+      "uid": "2039c5fe-48a1-426c-b418-f0a16fdf1b18", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "select_data", 
+      "has_progress_bar": false, 
+      "image": "images/orange-SelectData.png", 
+      "description": "This widget allows the user to select a subset of the data from the input data set based on the condition defined over a set of data\u2019s attributes. Data instances that match the selection rule are placed on the output channel.", 
+      "static_image": "orange-SelectData.png", 
+      "action": "select_data", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "select_data_post", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Select Data"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2039c5fe-48a1-426c-b418-f0a16fdf1b18", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Attribute-valued data set.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "042b574e-c08a-43ad-87db-9030a8a74cb8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2039c5fe-48a1-426c-b418-f0a16fdf1b18", 
+      "name": "Matching Data", 
+      "short_name": "odt", 
+      "description": "Attribute-valued data set composed from instances from input data set that match user-defined condition.", 
+      "variable": "data", 
+      "order": 1, 
+      "uid": "93e88b7e-048a-412d-b93f-552659e62ecb"
+    }
+  }
+]

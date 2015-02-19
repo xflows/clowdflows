@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "21d0b931-ef97-43d1-9650-edd4eec2062f", 
+      "treeview_image": "", 
+      "uid": "7e18340c-ac40-4916-8974-88130119b367", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function LemmatizeExplainWords in package lemmagen. The original function signature: LemmatizeExplainWords.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_lemmatize_explain_words", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Explain Lemmatization"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7e18340c-ac40-4916-8974-88130119b367", 
+      "name": "Msd of the input word(s)", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "msd", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "0ddb821e-4661-9c59-28cf-28ed04cd997a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7e18340c-ac40-4916-8974-88130119b367", 
+      "name": "Lemmatizer", 
+      "short_name": "lmz", 
+      "default": "", 
+      "description": "Latino.TextMining.IStemmer", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "lemmatizer", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "64e6155f-37ff-ebbc-c2dd-81a8cf3a5e29"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7e18340c-ac40-4916-8974-88130119b367", 
+      "name": "Word(s)", 
+      "short_name": "wrd", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "words", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "95364585-fc76-cfa1-89e9-e1ccc1898555"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7e18340c-ac40-4916-8974-88130119b367", 
+      "name": "Ignore character casing", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "ignoreCase", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "f70a7312-29d4-5c51-edad-19928c498e46"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7e18340c-ac40-4916-8974-88130119b367", 
+      "name": "Explanation Trees of Lemmatization(s)", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "explanations", 
+      "order": 1, 
+      "uid": "a12ffdee-3657-72ef-6e4b-d9e7157fb564"
+    }
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b86956c3-21f6-47bd-8379-edf6f6c2f351", 
+      "treeview_image": "", 
+      "uid": "2d9e3324-d221-4bcd-8799-22e33707db4b", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function Table2StringDelimited in package lemmagen. The original function signature: Table2StringDelimited.", 
+      "static_image": "helper_table.png", 
+      "action": "lemmagen_table2_string_delimited", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 6, 
+      "name": "Table to Delimited String"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2d9e3324-d221-4bcd-8799-22e33707db4b", 
+      "name": "Delimiter", 
+      "short_name": "str", 
+      "default": "\t", 
+      "description": "Delimiter used to split columns in a line (e.g. comma, tab).", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "delimiter", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "180372a1-f24e-0423-ff66-3edb94ce2b05"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2d9e3324-d221-4bcd-8799-22e33707db4b", 
+      "name": "Table", 
+      "short_name": "tbl", 
+      "default": "", 
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "table", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f2c0a800-0505-4ba2-6f72-d60b38e55801"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2d9e3324-d221-4bcd-8799-22e33707db4b", 
+      "name": "If true then column headers are written as the first line of string", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "outputHeader", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "fb31b326-1937-1f39-2089-395019a487b7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2d9e3324-d221-4bcd-8799-22e33707db4b", 
+      "name": "Delimited String Representation of the Table", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "3b482422-b08f-ffac-6d1d-7f5b719c7155"
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c7a26cb0-65af-4c6e-887b-7c6a7a162327", 
+      "treeview_image": "", 
+      "uid": "c3065bfb-ada5-45d3-833c-d1c527399edb", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function SparseMatrixToTable in package latino. The original function signature: SparseMatrixToTable.", 
+      "static_image": "sim_matrix_to_table_image.png", 
+      "action": "latino_sparse_matrix_to_table", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Convert Matrix to Table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c3065bfb-ada5-45d3-833c-d1c527399edb", 
+      "name": "Sparse Matrix", 
+      "short_name": "smx", 
+      "default": "", 
+      "description": "Latino.SparseMatrix`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "smx", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a6b405ee-579b-ac7f-d5ec-8f095e4fb284"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c3065bfb-ada5-45d3-833c-d1c527399edb", 
+      "name": "Matrix Table", 
+      "short_name": "tbl", 
+      "description": "", 
+      "variable": "tbl", 
+      "order": 1, 
+      "uid": "53fe424c-f738-5ac4-69b5-7b2124fa82d6"
+    }
+  }
+]

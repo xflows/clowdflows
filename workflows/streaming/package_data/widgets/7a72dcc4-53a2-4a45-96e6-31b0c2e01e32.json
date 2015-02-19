@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "7a72dcc4-53a2-4a45-96e6-31b0c2e01e32", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Simulates a stream from gama system's csv export", 
+      "static_image": "twitter.png", 
+      "action": "streaming_simulate_stream_from_csv", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Simulate stream from Gamasystem csv"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7a72dcc4-53a2-4a45-96e6-31b0c2e01e32", 
+      "name": "CSV file", 
+      "short_name": "csv", 
+      "default": "", 
+      "description": "CSV file exportet by gamasystem's perceptionanalytics", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "csv", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e064e54e-47de-42a1-a9a5-fa1552845403"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7a72dcc4-53a2-4a45-96e6-31b0c2e01e32", 
+      "name": "List of tweets", 
+      "short_name": "ltw", 
+      "description": "A list of Tweets.", 
+      "variable": "ltw", 
+      "order": 1, 
+      "uid": "c63bf850-8c95-40e3-afc9-25ecb2783c44"
+    }
+  }
+]

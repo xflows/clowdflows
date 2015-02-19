@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
+      "treeview_image": "treeview/orange-NaiveBayes.png", 
+      "uid": "bf4a4479-b2c3-47b3-b900-be8d39871ecd", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/orange-NaiveBayes.png", 
+      "description": "A Naive Bayes classifier is a probabilistic classifier that estimates conditional probabilities of the dependant variable from training data and uses them for classification of new data instances. The algorithm is very fast for discrete features, but runs slower for continuous features.", 
+      "static_image": "orange-NaiveBayes.png", 
+      "action": "bayes", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 7, 
+      "name": "Naive Bayes"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bf4a4479-b2c3-47b3-b900-be8d39871ecd", 
+      "name": "Bayes Learner", 
+      "short_name": "lrn", 
+      "description": "The naive Bayesian learning algorithm.", 
+      "variable": "bayesout", 
+      "order": 1, 
+      "uid": "4557f31d-6877-44c7-96b1-3dc72f628e2e"
+    }
+  }
+]

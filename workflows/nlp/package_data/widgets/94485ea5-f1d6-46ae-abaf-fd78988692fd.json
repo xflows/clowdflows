@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9a30eafc-37b8-48f2-8a92-692c4b324dff", 
+      "treeview_image": "treeview/nlp_1.png", 
+      "uid": "94485ea5-f1d6-46ae-abaf-fd78988692fd", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/nlp_7.png", 
+      "description": "", 
+      "static_image": "nlp.png", 
+      "action": "definition_sentences", 
+      "visualization_view": "definition_sentences_viewer", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Sentence viewer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "94485ea5-f1d6-46ae-abaf-fd78988692fd", 
+      "name": "candidates", 
+      "short_name": "can", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "candidates", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "2ad6546b-5fae-42fa-97ab-e75e91838c19"
+    }
+  }
+]

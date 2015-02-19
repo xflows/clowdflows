@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "6593a40f-1280-4d20-b399-7d182ebcdbf3", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "segmine_ttest_gene_filter", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Filters the genes according to t-test p-value threshold.", 
+      "static_image": "ttest.png", 
+      "action": "segmine_ttest_gene_filter", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "segmine_ttest_gene_filter_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "T-test gene filter"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6593a40f-1280-4d20-b399-7d182ebcdbf3", 
+      "name": "Orange dataset", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Orange dataset", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "bdf0c245-91ed-4177-a2e0-2eb7fa78003a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6593a40f-1280-4d20-b399-7d182ebcdbf3", 
+      "name": "Orange dataset", 
+      "short_name": "odt", 
+      "description": "Orange dataset with filtered genes", 
+      "variable": "dataset", 
+      "order": 1, 
+      "uid": "67ebb338-9765-4805-b7c7-3ed78098cdc3"
+    }
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "05c26564-86b5-4a73-aae9-f4dc14bc75d7", 
+      "treeview_image": "", 
+      "uid": "3f8d1230-4aa3-4d0a-b1b7-440b4be85617", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Taggs the given annotated document corpus with the given tagger.", 
+      "static_image": "tag_stem_do_image.png", 
+      "action": "latino_tag_adcstem_lemma", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 5, 
+      "name": "Stem/Lemma Tagger Hub"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3f8d1230-4aa3-4d0a-b1b7-440b4be85617", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "39f94180-1a05-b54c-a2ed-aca515adfdf5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3f8d1230-4aa3-4d0a-b1b7-440b4be85617", 
+      "name": "Token Tagger", 
+      "short_name": "tgr", 
+      "default": "Output feature name specifies how the token will be tagged (assigend the feature to)\r\nIf multiple taggers are used then one line per tagger must be specified.", 
+      "description": "Token Annotation of the token to be tagged. If also the feature name is used than the feature value of selected token will be tagged.\r\nUsage: \r\n1. TokenName\r\n2. TokenName/FeatureName\r\nIf multiple taggers are used then one line per tagger must be specified.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "tagger", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "4b53bed0-7e83-30a8-6bc7-00c61010082a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3f8d1230-4aa3-4d0a-b1b7-440b4be85617", 
+      "name": "Token Annotation", 
+      "short_name": "str", 
+      "default": "Token", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "elementAnnotation", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "568a8c0e-5e96-3315-ba84-4a1c2158050c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3f8d1230-4aa3-4d0a-b1b7-440b4be85617", 
+      "name": "Output Feature Name", 
+      "short_name": "str", 
+      "default": "stem", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outputFeature", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "ce347962-18cf-ca95-cd26-37e29fef1fd8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3f8d1230-4aa3-4d0a-b1b7-440b4be85617", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adc", 
+      "order": 1, 
+      "uid": "a54b5f27-df00-1cd7-3318-9e90d518d876"
+    }
+  }
+]

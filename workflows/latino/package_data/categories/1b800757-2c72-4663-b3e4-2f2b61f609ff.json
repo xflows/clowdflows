@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Helpers", 
+    "parent": null, 
+    "order": 4, 
+    "uid": "1b800757-2c72-4663-b3e4-2f2b61f609ff"
+  }
+}

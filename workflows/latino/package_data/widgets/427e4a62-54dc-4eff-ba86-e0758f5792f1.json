@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b5964b0d-5acb-4dbf-a49d-4331a5a44f9c", 
+      "treeview_image": "", 
+      "uid": "427e4a62-54dc-4eff-ba86-e0758f5792f1", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function GetVocabularyTable in package latino. The original function signature: GetVocabularyTable.", 
+      "static_image": "get_vocabulary_image.png", 
+      "action": "latino_get_vocabulary_table", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Get Vocabulary Table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "427e4a62-54dc-4eff-ba86-e0758f5792f1", 
+      "name": "Bag of Words Model", 
+      "short_name": "bow", 
+      "default": "", 
+      "description": "Latino.TextMining.BowSpace", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "bow", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "42ef0943-14de-5f26-7563-a94b0a683355"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "427e4a62-54dc-4eff-ba86-e0758f5792f1", 
+      "name": "Maximum Words Retrieved", 
+      "short_name": "int", 
+      "default": "500", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxWords", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "acdd5fac-b3e3-ad60-59b2-34861952383b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "427e4a62-54dc-4eff-ba86-e0758f5792f1", 
+      "name": "Index of First Retrieved Word", 
+      "short_name": "int", 
+      "default": "1", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "startIndex", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "b565efc9-bf78-a2da-b0bf-0c8c93ae0212"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "427e4a62-54dc-4eff-ba86-e0758f5792f1", 
+      "name": "Vocabulary Table", 
+      "short_name": "tbl", 
+      "description": "", 
+      "variable": "vocabulary", 
+      "order": 1, 
+      "uid": "ca939886-de45-32e4-6aa3-253a89fd3857"
+    }
+  }
+]

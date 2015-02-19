@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Regression Statistics", 
+    "parent": "583debcb-5041-46b3-b464-e21875896710", 
+    "order": 1, 
+    "uid": "d13c01e6-675f-4c48-a211-b24af72229b0"
+  }
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9744d60c-c755-448a-930c-0c40236a4a05", 
+      "treeview_image": "", 
+      "uid": "2089a0c6-3178-4a85-b0e8-f3e7fe464ddd", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Maps every Entrez gene ID in the input list to the corresponding NCBI gene symbol.", 
+      "static_image": "", 
+      "action": "bio3graph_map_entrez_to_ncbi_symbol", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 15, 
+      "name": "Map Entrez ID to NCBI symbol"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2089a0c6-3178-4a85-b0e8-f3e7fe464ddd", 
+      "name": "gene list", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "List of Entrez gene IDs", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "genes", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4c6f85bb-34d3-4330-8171-c84de7b84e1d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2089a0c6-3178-4a85-b0e8-f3e7fe464ddd", 
+      "name": "gene symbol list", 
+      "short_name": "lst", 
+      "description": "List of gene symbols", 
+      "variable": "gene_symbols", 
+      "order": 1, 
+      "uid": "17ac773d-48f3-41f2-b48e-30022bc9dbc4"
+    }
+  }
+]

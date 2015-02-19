@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "168025e9-edfe-44d0-9818-1ac1d7d5cfe3", 
+      "treeview_image": "", 
+      "uid": "5f1d2eba-123f-41f4-ac54-118c6cf036ff", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "L2-regularized least squares linear model", 
+      "static_image": "scikit_RDG.png", 
+      "action": "scikitAlgorithms_Ridge", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Ridge"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5f1d2eba-123f-41f4-ac54-118c6cf036ff", 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "out", 
+      "order": 1, 
+      "uid": "7e86922d-29e8-42a2-81f7-771c2043e7d2"
+    }
+  }
+]

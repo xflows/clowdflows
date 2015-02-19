@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e28eda39-1f18-4efe-9b7c-0d5f652f208f", 
+      "treeview_image": "", 
+      "uid": "689d4395-35d0-40eb-8355-60e3582abd8f", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Finds redundant transitive relations in the new network (which are already present in the given existing network).", 
+      "static_image": "", 
+      "action": "bio3graph_find_redundant_transitive_relations", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 12, 
+      "name": "Find transitive relations"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "689d4395-35d0-40eb-8355-60e3582abd8f", 
+      "name": "New network", 
+      "short_name": "nnw", 
+      "default": "", 
+      "description": "New network as a NetworkX data structure.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "new_network", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "0c36aec5-7df4-4406-8d3c-d2c10cd876ed"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "689d4395-35d0-40eb-8355-60e3582abd8f", 
+      "name": "Initial network", 
+      "short_name": "inw", 
+      "default": "", 
+      "description": "Initial network as a NetworkX data structure.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "initial_network", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c58c938f-e283-4900-8c66-589d9f470a1a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "689d4395-35d0-40eb-8355-60e3582abd8f", 
+      "name": "Transitive relations", 
+      "short_name": "trl", 
+      "description": "List of discovered transitive relations.", 
+      "variable": "transitive_relations", 
+      "order": 1, 
+      "uid": "36011dd6-a245-4a74-a2f4-12ef1ab306b9"
+    }
+  }
+]

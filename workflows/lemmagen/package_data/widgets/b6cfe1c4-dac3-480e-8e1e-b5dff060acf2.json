@@ -1,0 +1,102 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b86956c3-21f6-47bd-8379-edf6f6c2f351", 
+      "treeview_image": "", 
+      "uid": "b6cfe1c4-dac3-480e-8e1e-b5dff060acf2", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function FilterTableRows in package lemmagen. The original function signature: FilterTableRows.", 
+      "static_image": "helper_table.png", 
+      "action": "lemmagen_filter_table_rows", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 3, 
+      "name": "Filter Table Rows"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b6cfe1c4-dac3-480e-8e1e-b5dff060acf2", 
+      "name": "Table", 
+      "short_name": "tbl", 
+      "default": "", 
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "table", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "877ff393-2280-2b67-951c-1c510a20a720"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b6cfe1c4-dac3-480e-8e1e-b5dff060acf2", 
+      "name": "Selected Indexes", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "indexList", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "8a78c098-65b0-58c7-6a62-d7bcb933a7a9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b6cfe1c4-dac3-480e-8e1e-b5dff060acf2", 
+      "name": "Discard Filtered Out", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "discardFilteredOut", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "aa6fb3ac-65d5-2817-1ae5-59abbc1f873b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b6cfe1c4-dac3-480e-8e1e-b5dff060acf2", 
+      "name": "Table with Filtered-out Rows", 
+      "short_name": "tbl", 
+      "description": "", 
+      "variable": "tableFiltered", 
+      "order": 2, 
+      "uid": "133ec3ec-7aaf-617e-e8aa-ff73602f0809"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b6cfe1c4-dac3-480e-8e1e-b5dff060acf2", 
+      "name": "Table with Selecter Rows", 
+      "short_name": "tbl", 
+      "description": "", 
+      "variable": "tableSelected", 
+      "order": 1, 
+      "uid": "2fcb8b20-5809-847d-8f23-2b30b597bbfa"
+    }
+  }
+]

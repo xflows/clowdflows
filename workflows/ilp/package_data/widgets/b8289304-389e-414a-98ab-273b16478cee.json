@@ -1,0 +1,448 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "b8289304-389e-414a-98ab-273b16478cee", 
+      "is_streaming": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "ilp.png", 
+      "action": "ilp_aleph", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Aleph"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "mode", 
+      "short_name": "mod", 
+      "default": "induce", 
+      "description": "induction mode", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "mode", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "00b174f3-250d-4c47-9a60-b515e5260e0c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "neg", 
+      "short_name": "neg", 
+      "default": "", 
+      "description": "negative examples", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "neg", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "01529349-3300-41c5-8585-3f7a90175120"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "pos", 
+      "short_name": "pos", 
+      "default": "", 
+      "description": "positive examples", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "pos", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "03788382-f3b9-4580-8e85-b600874ef643"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "evalfn", 
+      "short_name": "efn", 
+      "default": "coverage", 
+      "description": "Sets the evaluation function for a search.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "evalfn", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "b", 
+      "short_name": "b", 
+      "default": "", 
+      "description": "background knowledge", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "b", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "2ec81e9e-d911-46a1-a95d-2eaf349443a8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "depth", 
+      "short_name": "dpt", 
+      "default": "10", 
+      "description": "Sets an upper bound on the proof depth to which theorem-proving proceeds.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "depth", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "3541b804-e8f3-42c5-b022-c0b7a51f05e1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "i", 
+      "short_name": "i", 
+      "default": "2", 
+      "description": "Set upper bound on layers of new variables.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "i", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "48905a20-0192-40c0-82de-2389e8fdc88e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "max_features", 
+      "short_name": "mxf", 
+      "default": "inf", 
+      "description": "Sets an upper bound on the maximum number of boolean features constructed by searching for good clauses (inf or > 0).", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_features", 
+      "parameter": true, 
+      "order": 14, 
+      "uid": "4a275a37-e6bc-4b22-816d-b45e2ac791e2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "clauselength", 
+      "short_name": "cln", 
+      "default": "4", 
+      "description": " Sets upper bound on number of literals in an acceptable clause.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "clauselength", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "546d3a62-b499-4e61-a9b1-4f89f24ba01f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "noise", 
+      "short_name": "noi", 
+      "default": "0", 
+      "description": "Set an upper bound on the number of negative examples allowed to be covered by an acceptable clause.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "noise", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "61292a9b-ff5b-4a7e-8baf-e6810cb50dcd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "language", 
+      "short_name": "lan", 
+      "default": "inf", 
+      "description": "Specifies the number of occurences of a predicate symbol in any clause (inf or > 0).", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "language", 
+      "parameter": true, 
+      "order": 12, 
+      "uid": "9de49bde-7518-4116-8606-eccc134d1d8f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "m", 
+      "short_name": "m", 
+      "default": "1", 
+      "description": "Sets a value for \"m-estimate\" calculations.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "m", 
+      "parameter": true, 
+      "order": 13, 
+      "uid": "b07b2b85-bc8f-4dfc-aaf8-800b94077312"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "settings", 
+      "short_name": "set", 
+      "default": "", 
+      "description": "settings facts", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "settings", 
+      "parameter": false, 
+      "order": 5, 
+      "uid": "bfe16b08-89b1-4835-875c-6b0302fb1da3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "minpos", 
+      "short_name": "mps", 
+      "default": "1", 
+      "description": "Set a lower bound on the number of positive examples to be covered by an acceptable clause. If the best clause covers positive examples below this number, then it is not added to the current theory. This can be used to prevent Aleph from adding ground unit clauses to the theory (by setting the value to 2).", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minpos", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "cdeaa39a-7eeb-40eb-9443-8519cb841d2e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b8289304-389e-414a-98ab-273b16478cee", 
+      "name": "theory", 
+      "short_name": "the", 
+      "description": "theory", 
+      "variable": "theory", 
+      "order": 1, 
+      "uid": "d1d8839b-a2f1-4b82-b759-7c6c7d7d57e5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "induce_max", 
+      "uid": "0103c466-0e2e-47fe-b182-0a034beb7eed", 
+      "value": "induce_max", 
+      "abstract_input": "00b174f3-250d-4c47-9a60-b515e5260e0c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "pbayes", 
+      "uid": "0684bf39-09a5-4499-8939-51a58fcc2446", 
+      "value": "pbayes", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "laplace", 
+      "uid": "0c4fd002-57a6-40b5-ac0f-e98cc62aa957", 
+      "value": "laplace", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "wracc", 
+      "uid": "14e08667-f530-43e6-b932-b8e2ac394ea4", 
+      "value": "wracc", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "mestimate", 
+      "uid": "2d764051-9dca-42f2-b131-2a87576c21d7", 
+      "value": "mestimate", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "auto_m", 
+      "uid": "2ec2f418-657b-44f7-a420-83cb4f4baed5", 
+      "value": "auto_m", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "coverage", 
+      "uid": "427cd0aa-6d3c-457e-8762-cdc7ec6b8512", 
+      "value": "coverage", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "induce_tree", 
+      "uid": "45f5cc84-b097-439a-9363-d2299c540913", 
+      "value": "induce_tree", 
+      "abstract_input": "00b174f3-250d-4c47-9a60-b515e5260e0c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "compression", 
+      "uid": "66261b29-3313-4f85-b8ab-f277e49eb40b", 
+      "value": "compression", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "sd", 
+      "uid": "775058c3-7763-4af7-bcf4-b629d1c0e6f1", 
+      "value": "sd", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "induce_modes", 
+      "uid": "78cb938d-16b8-4c7c-b712-b59e27aa837d", 
+      "value": "induce_modes", 
+      "abstract_input": "00b174f3-250d-4c47-9a60-b515e5260e0c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "induce", 
+      "uid": "8e5631e5-6497-4720-9e26-5936619caf5c", 
+      "value": "induce", 
+      "abstract_input": "00b174f3-250d-4c47-9a60-b515e5260e0c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "induce_constraints", 
+      "uid": "92f66b17-02fd-4bb6-b4cb-03bb54b403f6", 
+      "value": "induce_constraints", 
+      "abstract_input": "00b174f3-250d-4c47-9a60-b515e5260e0c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "induce_features", 
+      "uid": "968d079a-871c-4cae-b15e-c8e7b61f3b8c", 
+      "value": "induce_features", 
+      "abstract_input": "00b174f3-250d-4c47-9a60-b515e5260e0c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "accuracy", 
+      "uid": "abd779d2-8276-4b2d-909d-2b6053d1f30f", 
+      "value": "accuracy", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "entropy", 
+      "uid": "bdf9d407-95af-4b42-b923-a027c45b0f26", 
+      "value": "entropy", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "induce_cover", 
+      "uid": "ce82b005-81e4-4997-80c3-05731651869a", 
+      "value": "induce_cover", 
+      "abstract_input": "00b174f3-250d-4c47-9a60-b515e5260e0c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "gini", 
+      "uid": "ddc2bde8-7143-4e8f-9e6b-cdcaea871e27", 
+      "value": "gini", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "posonly", 
+      "uid": "ecfbee4f-ce81-40ed-80a2-d53e04e9c7d3", 
+      "value": "posonly", 
+      "abstract_input": "27ed0924-8fa9-4cad-b033-c0a98db9f366"
+    }
+  }
+]

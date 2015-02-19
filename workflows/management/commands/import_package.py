@@ -1,254 +1,179 @@
+from unicodedata import category
 from django.core.management.base import BaseCommand, CommandError
 from workflows.models import Category, AbstractWidget, AbstractInput, AbstractOutput, AbstractOption
 from django.core import serializers
-
-#dirty python2.6 fix
-try:
-    from collections import Counter
-except:
-    def Counter(list):
-        return set(list)
-
 from optparse import make_option
+import uuid
+import os
+import sys
+from django.conf import settings
+import json
+from .export_package import serialize_category, serialize_widget
+
+def parsewidgetdata(widget_data):
+    widget = None
+    inputs = []
+    outputs = []
+    options = []
+    for i in widget_data:
+        if i['model']=='workflows.abstractwidget':
+            widget = i
+        elif i['model']=='workflows.abstractinput':
+            inputs.append(i)
+        elif i['model']=='workflows.abstractoutput':
+            outputs.append(i)
+        elif i['model']=='workflows.abstractoption':
+            options.append(i)
+        else:
+            raise CommandError("Wrong data in widget files!")
+    return widget, inputs, outputs, options
+
+def import_package(package_name,writer):
+    package_directory = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../'+package_name+"/package_data/")
+    widgets_directory = os.path.join(package_directory,"widgets")
+    categories_directory = os.path.join(package_directory,"categories")        
+
+    if not os.path.exists(package_directory) or not os.path.exists(widgets_directory) or not os.path.exists(categories_directory):
+        raise CommandError("Cannot find package data. Are you sure this package has been exported already?")
+
+    widget_files = os.listdir(widgets_directory)
+    category_files = os.listdir(categories_directory)
+
+    writer.write(' > Importing categories\n')
+
+    global_change = False
+
+    for category_file in category_files:
+        cfilepath = os.path.join(categories_directory,category_file)
+        c_file = open(cfilepath,'r')
+        c_data = json.loads(c_file.read())
+        c_file.close()
+        uid = c_data['fields']['uid']
+        created = False
+        try:
+            c = Category.objects.get(uid=uid)
+        except Category.DoesNotExist:
+            created = True
+            c = Category(uid=uid)
+        old_c_data = serialize_category(c)
+        if old_c_data != c_data:
+            global_change = True
+            if created:
+                writer.write('   + Creating category '+str(c_data['fields']['name'])+'\n')
+            else:
+                writer.write('   + Updating category '+str(c_data['fields']['name'])+'\n')
+            for field in c_data['fields'].keys():
+                if field != 'parent':
+                    setattr(c,field,c_data['fields'][field])
+                else:
+                    parent = None
+                    if c_data['fields']['parent'] != None:
+                        try:
+                            parent = Category.objects.get(uid=c_data['fields']['parent'])
+                        except Category.DoesNotExist:
+                            parent = Category(uid=c_data['fields']['parent'],name="Temporary category name")
+                            parent.save()
+                    c.parent = parent
+            c.save()
+
+    if not global_change:
+        #writer.write("    No changes detected in the categories.\n")
+        pass
+
+    global_change = False
+
+    writer.write(' > Importing widgets\n')
+
+    for widget_file in widget_files:
+        wfilepath = os.path.join(widgets_directory,widget_file)
+        w_file = open(wfilepath,'r')
+        w_data = json.loads(w_file.read())
+        w_file.close()
+        widget, inputs, outputs, options = parsewidgetdata(w_data)
+        created = False
+        try:
+            aw = AbstractWidget.objects.get(uid=widget['fields']['uid'],package=package_name)
+        except AbstractWidget.DoesNotExist:
+            aw = AbstractWidget(uid=widget['fields']['uid'],package=package_name)
+            created = True
+        if w_data != serialize_widget(aw):
+            global_change = True
+            if created:
+                writer.write('   + Creating widget '+str(widget['fields']['name'])+'\n')
+            else:
+                writer.write('   + Updating widget '+str(widget['fields']['name'])+'\n')
+            for field in widget['fields'].keys():
+                if field != 'category':
+                    setattr(aw,field,widget['fields'][field])
+                else:
+                    aw.category = Category.objects.get(uid=widget['fields']['category'])
+            aw.save()
+            for inp in inputs:
+                try:
+                    i = AbstractInput.objects.get(uid=inp['fields']['uid'])
+                except AbstractInput.DoesNotExist:
+                    i = AbstractInput(uid=inp['fields']['uid'])
+                for field in inp['fields'].keys():
+                    if field != 'widget':
+                        setattr(i,field,inp['fields'][field])
+                i.widget = aw
+                i.save()
+            # find stale inputs
+            stale_ais = AbstractInput.objects.filter(widget=aw).exclude(uid__in=[inp['fields']['uid'] for inp in inputs])
+            if stale_ais:
+                stale_ais.delete()
+                writer.write("     - Removing stale inputs\n")
+            for out in outputs:
+                try:
+                    o = AbstractOutput.objects.get(uid=out['fields']['uid'])
+                except AbstractOutput.DoesNotExist:
+                    o = AbstractOutput(uid=out['fields']['uid'])
+                for field in out['fields'].keys():
+                    if field != 'widget':
+                        setattr(o,field,out['fields'][field])
+                o.widget = aw
+                o.save()
+            stale_aos = AbstractOutput.objects.filter(widget=aw).exclude(uid__in=[out['fields']['uid'] for out in outputs])
+            if stale_aos:
+                stale_aos.delete()
+                writer.write("     - Removing stale outputs\n")
+            for option in options:
+                try:
+                    o = AbstractOption.objects.get(uid=option['fields']['uid'])
+                except AbstractOption.DoesNotExist:
+                    o = AbstractOption(uid=option['fields']['uid'])
+                for field in option['fields'].keys():
+                    if field != 'abstract_input':
+                        setattr(o,field,option['fields'][field])
+                    else:
+                        o.abstract_input = AbstractInput.objects.get(uid=option['fields']['abstract_input'])
+                o.save()
+            stale_os = AbstractOption.objects.filter(abstract_input__widget=aw).exclude(uid__in=[o['fields']['uid'] for o in options])
+            if stale_os:
+                stale_os.delete()
+                writer.write("     - Removing stale options\n")
+
+    if not global_change:
+        #writer.write("    No changes detected in the widgets.\n")
+        pass
+
 
 
 class Command(BaseCommand):
-    args = 'file_name'
-    help = 'Imports all models from the file named "file_name". All models in the database which have the same uuid as imported models are updated. The folowing models are included in inport: AbstractWidget, Category, AbstractInput, AbstractOutput, and AbstractOption.'
-    option_list = BaseCommand.option_list + (
-        make_option('-r', '--replace',
-            action="store_true",
-            dest='replace',
-            default=False,
-            help='Completely replace whole widgets with the new one where UIDs match. Default behaviour merges widgets submodels (AbstractInputs, AbstractOutputs and AbstratcOptions)'
-                 'based on their submodel\'s own UID. When using this option all widget\'s old submodels are deleted and completely replaced by new submodels.)'
-        ),
-        )
+    args = 'package_name'
+    help = 'Imports the package "package_name".'
 
     def handle(self, *args, **options):
-        if (len(args)<1):
-            raise CommandError('Arguments "file_name" is required!')
+        if (len(args) < 1):
+            raise CommandError('Argument "package_name" is required.')
 
-        try:
-            string = open(args[0], 'r').read()
-        except:
-            raise CommandError('There was a problem with opening given input file')
+        package_name = args[0]
 
-        import_package_string(self.stdout.write, string, options['replace'], int(options['verbosity']))
-        self.stdout.write('Import procedure successfully finished.\n')
+        if 'workflows.'+package_name not in settings.INSTALLED_APPS:
+            raise CommandError("Package not found in INSTALLED_APPS.")
 
+        writer = self.stdout
 
-def import_package_string(writeFunc, string, replace, verbosity=1):
-    #get all objects from file and eliminate empty UID and check for UID duplicates
-    objsFileRaw = serializers.deserialize("json", string)
-    objsFile = list(objsFileRaw)
+        import_package(package_name,writer)
 
-    #order file models - essential for succesfull import
-    #TODO: following ordering could be done more efficiently
-    objsFile = order_objects_hier_top(objsFile)
-
-    objsFileNoUid = [x for x in objsFile if len(x.object.uid) == 0]
-    objsFile = [x for x in objsFile if len(x.object.uid) != 0]
-    if len(objsFileNoUid)>0:
-        writeFunc('File contains %i model(s) without UID field set. Those will not be imported! If you wish to'
-                  ' assign them random UIDs then use the "-n" option when exporting models with the "export_package"'
-                  ' command. Afterwards, you will be able to import them.\n' % len(objsFileNoUid))
-    if len(Counter([x.object.uid for x in objsFile])) != len(objsFile):
-        a = sorted([x.object.uid for x in objsFile])
-        for x in a:
-            print x
-        raise CommandError('Input process terminated without any changes to the database. There were multiple equal '
-                           'UIDs defined on different models in the given input file. The input procedure can not continue '
-                           'from safety reasons. Please resolve manually!')
-
-    #divide new objects by type
-    wids = [x for x in objsFile if isinstance(x.object, AbstractWidget)]
-    inps = [x for x in objsFile if isinstance(x.object, AbstractInput)]
-    outs = [x for x in objsFile if isinstance(x.object, AbstractOutput)]
-    opts = [x for x in objsFile if isinstance(x.object, AbstractOption)]
-    cats = [x for x in objsFile if isinstance(x.object, Category)]
-
-    #ouput statistics about file
-    if verbosity>0:
-        writeFunc('Import file contains:\n')
-        writeFunc('    % 4i AbstractWidget(s)\n' % len(wids))
-        writeFunc('    % 4i AbstractInput(s)\n' % len(inps))
-        writeFunc('    % 4i AbstractOutput(s)\n' % len(outs))
-        writeFunc('    % 4i AbstractOption(s)\n' % len(opts))
-        writeFunc('    % 4i Category(s)\n' % len(cats))
-
-    #get all objects from database
-    objsDb = []
-    objsDb.extend(AbstractWidget.objects.all())
-    objsDb.extend(AbstractInput.objects.all())
-    objsDb.extend(AbstractOutput.objects.all())
-    objsDb.extend(AbstractOption.objects.all())
-    objsDb.extend(Category.objects.all())
-
-    #check for DB UID duplicates
-    objsdbDict = dict((x.uid,x) for x in objsDb if len(x.uid) != 0)
-
-    if len([x for x in objsDb if len(x.uid) != 0]) != len(objsdbDict):
-        error_txt=  'Input process terminated without any changes to the database. There were multiple equal ' \
-                    'UIDs defined on different models in the database. The input procedure can not continue ' \
-                    'from safety reasons. Please resolve manually! UIDs with multiple models:'
-        #count objects per uid
-        from collections import defaultdict
-        objs_per_uid=defaultdict(list)
-        for x in objsDb:
-            if x.uid:
-                objs_per_uid[x.uid].append(x)
-
-        for uid,objs in objs_per_uid.items():
-            if len(objs)>1:
-                error_txt+="\n\nUID:     "+str(uid)+"\nobjects: "+str(objs)
-        raise CommandError(error_txt)
-
-    #create new to existing id mapping and check for type match
-    idMappingDict = dict()
-    for objFile in objsFile:
-        if objsdbDict.has_key(objFile.object.uid):
-            objDb = objsdbDict[objFile.object.uid]
-            objFileTypeId = str(type(objFile.object))+':'+str(objFile.object.id)
-            objDbTypeId = str(type(objDb))+':'+str(objDb.id)
-            if type(objFile.object) == type(objsdbDict[objFile.object.uid]):
-                idMappingDict[objFileTypeId] = objDb.id
-            else:
-                raise CommandError('Input process terminated without any changes to the database. Two models match by uid but not '
-                                   'by type:\n    - from file: id: %s uid: %s\n    - from database: id: %s uid: %s\n    Please resolve manually!'%
-                                   (objFileTypeId, objFile.object.uid, objDbTypeId, objsdbDict[objFile.object.uid].uid))
-
-    #ouput statistics about database
-    if verbosity>0:
-        writeFunc('Current database contains %i models,\n' % len(objsDb))
-        writeFunc('    of which %i models have UID set,\n' % len(objsdbDict))
-        writeFunc('    of which %i models match with the imported models and will be updated.\n' % len(idMappingDict))
-
-    #prepare statistics
-    statDict = dict([('old:'+str(t),len(t.objects.all())) for t in [AbstractWidget, AbstractInput, AbstractOutput, AbstractOption, Category]])
-    for modelType in [AbstractWidget, AbstractInput, AbstractOutput, AbstractOption, Category]:
-        for operation in ['mod','add','del']:
-            statDict[operation+':'+str(modelType)]=0
-
-    #save models to the database - update the ids for the matching models and remove the ids (to get a new one) for the non matching models
-    #the import needs to be done in specific order! Hierarhically top down - all superiror objects needs to be imported prior importing sub object
-    #order: parent categories>sub categories>widgets>inputs>outputs>options
-
-    if verbosity>0:
-        writeFunc('Merging file and database models ...' + ('\n' if verbosity>1 else ''))
-    importedUids = dict()
-    for objFile in objsFile:
-        objFileTypeId = str(type(objFile.object))+':'+str(objFile.object.id)
-
-        if verbosity>1:
-            objFileTypeIdStr = objFileTypeId.replace(":",":"+" "*(47-len(objFileTypeId)))
-            if idMappingDict.has_key(objFileTypeId):
-                writeFunc('updating: ' + objFileTypeIdStr + ' => <db_id>: ' + str(idMappingDict[objFileTypeId]) + '\n')
-            else:
-                writeFunc('  adding: ' + objFileTypeIdStr + '\n')
-
-        #parent category needs to be already imported and added to idMappingDict
-        if isinstance(objFile.object, Category):
-            if not objFile.object.parent_id is None:
-                objId = idMappingDict[str(Category)+':'+str(objFile.object.parent_id)]
-                if verbosity>2:
-                    writeFunc('% 52s'%'rewiring parent category from <file_id>:' + '% 5i'%objFile.object.parent_id + ' => <db_id>: %i\n'%objId)
-                objFile.object.parent = Category.objects.get(id=objId)
-
-        #widget's category needs to be already imported and added to idMappingDict
-        if isinstance(objFile.object, AbstractWidget):
-            objId = idMappingDict[str(Category) + ':' + str(objFile.object.category_id)]
-            if verbosity>2:
-                writeFunc('% 52s'%'rewiring widget\'s category from <file_id>:' + '% 5i'%objFile.object.category_id + ' => <db_id>: %i\n'%objId)
-            objFile.object.category = Category.objects.get(id=objId)
-
-        #input/output's widget needs to be already imported and added to idMappingDict
-        if isinstance(objFile.object, AbstractInput) or isinstance(objFile.object, AbstractOutput):
-            objId = idMappingDict[str(AbstractWidget) + ':' + str(objFile.object.widget_id)]
-            if verbosity>2:
-                writeFunc('% 52s'%'rewiring containing widget from <file_id>:' + '% 5i'%objFile.object.widget_id + ' => <db_id>: %i\n'%objId)
-            objFile.object.widget = AbstractWidget.objects.get(id=objId)
-
-        #options's input needs to be already imported and added to idMappingDict
-        if isinstance(objFile.object, AbstractOption):
-            objId = idMappingDict[str(AbstractInput) + ':' + str(objFile.object.abstract_input_id)]
-            if verbosity>2:
-                writeFunc('% 52s'%'rewiring containing input from <file_id>:' + '% 5i'%objFile.object.abstract_input_id + ' => <db_id>: %i\n'%objId)
-            objFile.object.abstract_input = AbstractInput.objects.get(id=objId)
-
-        #update existing model or add a new one
-        if idMappingDict.has_key(objFileTypeId):
-            #there is already an existing model with same uid
-            statDict['mod:'+str(type(objFile.object))]+=1
-            objFile.object.id = idMappingDict[objFileTypeId]
-        else:
-            #there is no model jet, add it
-            statDict['add:'+str(type(objFile.object))]+=1
-            objFile.object.id = None
-
-        objFile.save() #actual saving to the DB, if object is new then id is assigend at this point
-
-        #dictionary bookkeeping
-        idMappingDict[objFileTypeId] = objFile.object.id
-        importedUids[objFile.object.uid]=True
-
-    if verbosity>0:
-        writeFunc(' done.\n')
-
-    if replace:
-        if verbosity>0:
-            writeFunc('Removing unnecessary inputs/options/outputs...')
-        for wid in [wid for wid in objsFile if isinstance(wid.object, AbstractWidget)]:
-            for inp in AbstractInput.objects.filter(widget = wid.object.id):
-                for opt in AbstractOption.objects.filter(abstract_input = inp.id):
-                    if not importedUids.has_key(opt.uid):
-                        statDict['del:'+str(AbstractOption)]+=1
-                        opt.delete()
-                if not importedUids.has_key(inp.uid):
-                    statDict['del:'+str(AbstractInput)]+=1
-                    inp.delete()
-            for out in AbstractOutput.objects.filter(widget = wid.object.id):
-                if not importedUids.has_key(out.uid):
-                    statDict['del:'+str(AbstractOutput)]+=1
-                    out.delete()
-        if verbosity>0:
-            writeFunc(' done.\n')
-
-    #update and output statistics
-    if verbosity>0:
-        statDict = dict(statDict.items() + dict([('new:'+str(t),len(t.objects.all())) for t in [AbstractWidget, AbstractInput, AbstractOutput, AbstractOption, Category]]).items())
-        writeFunc('Database models count statistics: pre-import + ( added | modified | deleted ) = after-import\n')
-        for t in [AbstractWidget, AbstractInput, AbstractOutput, AbstractOption, Category]:
-            writeFunc('    % 15s: % 5i + (% 4i | % 4i | % 4i ) = % 5i\n' %
-                      (t.__name__,
-                       statDict['old:'+str(t)],
-                       statDict['add:'+str(t)],
-                       statDict['mod:'+str(t)],
-                       statDict['del:'+str(t)],
-                       statDict['new:'+str(t)]))
-
-def order_objects_hier_top(objsFile):
-    objsFileOrdered = []
-    for topCat in [x for x in objsFile if (isinstance(x.object, Category) and x.object.parent_id is None)]:
-        objsFileOrdered.extend(order_objects_hier(topCat, objsFile))
-    return objsFileOrdered
-
-def order_objects_hier(cat, objsFile):
-    assert isinstance(cat.object, Category)
-    assert isinstance(objsFile, list)
-    objsFileOrdered = []
-
-    objsFileOrdered.append(cat)
-    for wid in [x for x in objsFile if (isinstance(x.object, AbstractWidget) and x.object.category_id == cat.object.id)]:
-        objsFileOrdered.append(wid)
-        for inp in [x for x in objsFile if (isinstance(x.object, AbstractInput) and x.object.widget_id == wid.object.id)]:
-            objsFileOrdered.append(inp)
-            for opt in [x for x in objsFile if (isinstance(x.object, AbstractOption) and x.object.abstract_input_id == inp.object.id)]:
-                objsFileOrdered.append(opt)
-        for outp in [x for x in objsFile if (isinstance(x.object, AbstractOutput) and x.object.widget_id == wid.object.id)]:
-            objsFileOrdered.append(outp)
-
-    for subCat in [x for x in objsFile if (isinstance(x.object, Category) and x.object.parent_id == cat.object.id)]:
-        objsFileOrdered.extend(order_objects_hier(subCat,objsFile))
-
-    return objsFileOrdered
+        writer.write('Thanks for using the new import command. You rock.\n')

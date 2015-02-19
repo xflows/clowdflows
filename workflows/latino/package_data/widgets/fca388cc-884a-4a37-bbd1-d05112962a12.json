@@ -1,0 +1,124 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "05c26564-86b5-4a73-aae9-f4dc14bc75d7", 
+      "treeview_image": "", 
+      "uid": "fca388cc-884a-4a37-bbd1-d05112962a12", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function PosTag in package latino. The original function signature: PosTag.", 
+      "static_image": "tag_pos_do_image.png", 
+      "action": "latino_pos_tag", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "POS Tagger Hub"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fca388cc-884a-4a37-bbd1-d05112962a12", 
+      "name": "Sentence's Annotation", 
+      "short_name": "str", 
+      "default": "Sentence", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "groupAnnotation", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "12a9df55-64c4-4398-c210-fd7d74117ec1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fca388cc-884a-4a37-bbd1-d05112962a12", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "367dea85-fea7-1eb1-4e69-29de6cbca466"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fca388cc-884a-4a37-bbd1-d05112962a12", 
+      "name": "POS Tagger", 
+      "short_name": "pst", 
+      "default": "", 
+      "description": "OpenNLP.Tools.PosTagger.EnglishMaximumEntropyPosTagger", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "posTagger", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "59990e29-5dc9-de5f-21c7-76d8d310fecd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fca388cc-884a-4a37-bbd1-d05112962a12", 
+      "name": "Output Feature Name", 
+      "short_name": "str", 
+      "default": "posTag", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outputFeature", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "a81b24b7-8b2c-c491-8e43-a46cb87a838b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fca388cc-884a-4a37-bbd1-d05112962a12", 
+      "name": "Element's Annotation", 
+      "short_name": "str", 
+      "default": "Token", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "elementAnnotation", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "ec62f621-6061-a275-f03b-69d8bef311fe"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "fca388cc-884a-4a37-bbd1-d05112962a12", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adc", 
+      "order": 1, 
+      "uid": "7a252b1a-25ae-33cd-a13b-baa7320bfad5"
+    }
+  }
+]

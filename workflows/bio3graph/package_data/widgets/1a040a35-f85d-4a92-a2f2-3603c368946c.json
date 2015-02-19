@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bc5a8211-0cdd-4c1e-82cc-5251672bfba3", 
+      "treeview_image": "", 
+      "uid": "1a040a35-f85d-4a92-a2f2-3603c368946c", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Splits document text into sentences using NLTK's Punkt sentence splitter.", 
+      "static_image": "", 
+      "action": "bio3graph_split_sentences", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 19, 
+      "name": "Split sentences"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1a040a35-f85d-4a92-a2f2-3603c368946c", 
+      "name": "Document", 
+      "short_name": "doc", 
+      "default": "", 
+      "description": "Bio3graph Document object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "document", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c408f224-ce05-4937-bba2-d81593824af2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1a040a35-f85d-4a92-a2f2-3603c368946c", 
+      "name": "Document", 
+      "short_name": "doc", 
+      "description": "Bio3graph Document object with sentences splitted.", 
+      "variable": "document", 
+      "order": 1, 
+      "uid": "72abb5d0-3f2e-4f39-874d-f8385a361580"
+    }
+  }
+]

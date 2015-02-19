@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Heuristic Calculation", 
+    "parent": "62a3ddb8-ff28-4e54-8144-3a7af70d235a", 
+    "order": 3, 
+    "uid": "b92a6a5d-36cd-4be6-add3-9786ff26b60c"
+  }
+}

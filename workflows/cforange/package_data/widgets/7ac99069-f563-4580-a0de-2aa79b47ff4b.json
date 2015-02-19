@@ -1,0 +1,169 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "2c4c8f68-33db-411c-a8ce-176096349eba", 
+      "treeview_image": "", 
+      "uid": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "With the confusion matrix defined in terms of positive and negative classes, you can also compute the sensitivity [TP/(TP+FN)], specificity [TN/(TN+FP)], positive predictive value [TP/(TP+FP)] and negative predictive value [TN/(TN+FN)]. In information retrieval, positive predictive value is called precision (the ratio of the number of relevant records retrieved to the total number of irrelevant and relevant records retrieved), and sensitivity is called recall (the ratio of the number of relevant records retrieved to the total number of relevant records in the database). The harmonic mean of precision and recall is called an F-measure, where, depending on the ratio of the weight between precision and recall is implemented as F1 [2*precision*recall/(precision+recall)] or, for a general case, Falpha [(1+alpha)*precision*recall / (alpha*precision + recall)].", 
+      "static_image": "ConfusionMatrix_60.png", 
+      "action": "cforange_confusion_matrix_computations", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 5, 
+      "name": "Confusion Matrix Computations"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "alpha", 
+      "short_name": "alp", 
+      "default": "2.0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "alpha", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "26e4f697-0231-4cf8-8cbd-2cb325441ba7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Confusion Matrix", 
+      "short_name": "cm", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "cm", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "5bbce817-42f9-4454-ade9-c6b73a8b4f56"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Specificity", 
+      "short_name": "spe", 
+      "description": "", 
+      "variable": "spec", 
+      "order": 2, 
+      "uid": "0704171d-35c0-4ae5-9be5-e62103c5a4a2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Precision", 
+      "short_name": "pre", 
+      "description": "", 
+      "variable": "precision", 
+      "order": 5, 
+      "uid": "2d390622-897a-411a-bbbf-b2ca33f84271"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "F1", 
+      "short_name": "f1", 
+      "description": "", 
+      "variable": "F1", 
+      "order": 7, 
+      "uid": "4b24d1e9-7a47-4083-ba7c-00c1112ff320"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Sensitiviry", 
+      "short_name": "sen", 
+      "description": "", 
+      "variable": "sens", 
+      "order": 1, 
+      "uid": "4cb7033f-0e4e-425c-96a2-529c8ba17c69"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Positive Predictive Value", 
+      "short_name": "ppv", 
+      "description": "", 
+      "variable": "PPV", 
+      "order": 3, 
+      "uid": "75932ec5-48f7-4d32-bfbf-7054ed6140e5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "MCC", 
+      "short_name": "mcc", 
+      "description": "", 
+      "variable": "MCC", 
+      "order": 9, 
+      "uid": "83ac8895-17e3-467d-a107-58b112bf1655"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Falpha", 
+      "short_name": "fal", 
+      "description": "", 
+      "variable": "Falpha", 
+      "order": 8, 
+      "uid": "8a068c50-6b65-42db-8f95-8c0cfedfeeb0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Negative Predictive Value", 
+      "short_name": "npv", 
+      "description": "", 
+      "variable": "NPV", 
+      "order": 4, 
+      "uid": "db506973-2b95-4e59-9881-4e365b54c5d9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7ac99069-f563-4580-a0de-2aa79b47ff4b", 
+      "name": "Recall", 
+      "short_name": "rec", 
+      "description": "", 
+      "variable": "recall", 
+      "order": 6, 
+      "uid": "e0b726bb-063d-4759-a1c0-eb8becc7c65b"
+    }
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "", 
+      "uid": "c5a545bb-e0ac-4b73-aa76-4add863e3252", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "ODT-to-ARFF-string.png", 
+      "action": "string_to_file", 
+      "visualization_view": "odt_to_arff", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Orange Data Table to ARFF File"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c5a545bb-e0ac-4b73-aa76-4add863e3252", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "1eb8eb33-61d6-4b77-93ef-abfe6fd2c15f"
+    }
+  }
+]

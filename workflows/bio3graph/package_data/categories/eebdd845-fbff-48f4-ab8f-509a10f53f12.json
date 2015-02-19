@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "PMC utilities", 
+    "parent": "472a416b-b56a-4f6e-aae9-0ffb9cef240d", 
+    "order": 4, 
+    "uid": "eebdd845-fbff-48f4-ab8f-509a10f53f12"
+  }
+}

@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "880198d8-b759-4a1c-a642-968b7a79887e", 
+      "treeview_image": "", 
+      "uid": "a7996264-f373-44f6-ada2-6caec545eb88", 
+      "is_streaming": false, 
+      "package": "vipercharts", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "vipercharts_rate_curve", 
+      "visualization_view": "vipercharts_rate_curve_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 7, 
+      "name": "Rate driven curves"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a7996264-f373-44f6-ada2-6caec545eb88", 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "040a9932-a5d5-465c-889d-ddc45bc68c5b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a7996264-f373-44f6-ada2-6caec545eb88", 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "81d5b567-844d-4c9a-a791-6593820fb8a7"
+    }
+  }
+]

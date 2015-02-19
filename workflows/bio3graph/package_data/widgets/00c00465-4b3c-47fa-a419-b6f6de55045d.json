@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "eebdd845-fbff-48f4-ab8f-509a10f53f12", 
+      "treeview_image": "", 
+      "uid": "00c00465-4b3c-47fa-a419-b6f6de55045d", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Removes ids of non-open access publications from the input list", 
+      "static_image": "", 
+      "action": "bio3graph_filter_open_access", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 10, 
+      "name": "Filter non-OA PMC publications"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "00c00465-4b3c-47fa-a419-b6f6de55045d", 
+      "name": "id list", 
+      "short_name": "ids", 
+      "default": "", 
+      "description": "List of document ids", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ids", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e7eeb8d0-dd0f-4369-8d17-6b34aff84621"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "00c00465-4b3c-47fa-a419-b6f6de55045d", 
+      "name": "id list", 
+      "short_name": "ids", 
+      "description": "Filtered list of document ids", 
+      "variable": "oa_ids", 
+      "order": 1, 
+      "uid": "052a9c35-e250-4e59-a7e7-640f04d3dcdb"
+    }
+  }
+]

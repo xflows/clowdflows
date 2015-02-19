@@ -1,0 +1,108 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "e2bb591c-f685-4b5e-868e-36f94eeffa46", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructKnnClassifier in package latino. The original function signature: ConstructKnnClassifier.", 
+      "static_image": "classifier_knn_image.png", 
+      "action": "latino_construct_knn_classifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 8, 
+      "name": "Knn Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2bb591c-f685-4b5e-868e-36f94eeffa46", 
+      "name": "K (Neighbourhood)", 
+      "short_name": "int", 
+      "default": "10", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "k", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "94782d0e-43be-f9b9-bfc5-a00132ff1237"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2bb591c-f685-4b5e-868e-36f94eeffa46", 
+      "name": "Soft Voting", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "softVoting", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "9614283a-4628-4fa5-a62e-7aaee386c143"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2bb591c-f685-4b5e-868e-36f94eeffa46", 
+      "name": "Similarity Model", 
+      "short_name": "typ", 
+      "default": "Cosine", 
+      "description": "LatinoClowdFlows.SimilarityModel", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "similarityModel", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "96168cbb-3359-2286-2754-6d322af7f38c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e2bb591c-f685-4b5e-868e-36f94eeffa46", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "description": "", 
+      "variable": "classifier", 
+      "order": 1, 
+      "uid": "5d3ae75f-7fc8-ab56-8eab-3a4b1fa0a20c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Dot Product", 
+      "uid": "03ff898e-93fc-8d55-b69b-1106693a7917", 
+      "value": "DotProduct", 
+      "abstract_input": "96168cbb-3359-2286-2754-6d322af7f38c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Cosine", 
+      "uid": "1a36620b-a316-77aa-e786-43ae1ddb521f", 
+      "value": "Cosine", 
+      "abstract_input": "96168cbb-3359-2286-2754-6d322af7f38c"
+    }
+  }
+]

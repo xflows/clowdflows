@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "11865b03-cb06-4d50-9174-69d920cbe4ec", 
+      "treeview_image": "", 
+      "uid": "2734af6c-6044-494d-9f08-4b3526b224c0", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "base_triplet_graph", 
+      "visualization_view": "base_triplet_graph", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Triplet graph"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2734af6c-6044-494d-9f08-4b3526b224c0", 
+      "name": "Triplet graph", 
+      "short_name": "tri", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d0826218-2d76-47a3-aa68-a884ea552c9d"
+    }
+  }
+]

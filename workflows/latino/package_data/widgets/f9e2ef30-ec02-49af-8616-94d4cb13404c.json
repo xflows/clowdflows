@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0378e3a8-b71e-47b5-96b0-84dca2680f4d", 
+      "treeview_image": "", 
+      "uid": "f9e2ef30-ec02-49af-8616-94d4cb13404c", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ProcessNewDocumentsFromString in package latino. The original function signature: ProcessNewDocumentsFromString.", 
+      "static_image": "process_new_txt_image.png", 
+      "action": "latino_process_new_documents_from_string", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Process New Documents (Text)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e2ef30-ec02-49af-8616-94d4cb13404c", 
+      "name": "Documents = (Nested) List of Strings", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "lst", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ca27a6d1-192b-6bee-d8e9-fc3a8376dcb3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e2ef30-ec02-49af-8616-94d4cb13404c", 
+      "name": "Bag of Words Model", 
+      "short_name": "bow", 
+      "default": "", 
+      "description": "Latino.TextMining.BowSpace", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "bow", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "e953a3ff-187c-ed0d-06af-481ea0db2b76"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f9e2ef30-ec02-49af-8616-94d4cb13404c", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "description": "", 
+      "variable": "ds", 
+      "order": 1, 
+      "uid": "78dc5be9-fc09-b07b-8800-3dbfe4e6674c"
+    }
+  }
+]

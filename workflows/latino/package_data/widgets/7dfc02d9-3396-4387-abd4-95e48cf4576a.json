@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b5964b0d-5acb-4dbf-a49d-4331a5a44f9c", 
+      "treeview_image": "", 
+      "uid": "7dfc02d9-3396-4387-abd4-95e48cf4576a", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ProcessNewDocumentsFromADC in package latino. The original function signature: ProcessNewDocumentsFromADC.", 
+      "static_image": "process_new_adc_image.png", 
+      "action": "latino_process_new_documents_from_adc", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 3, 
+      "name": "Create Dataset"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7dfc02d9-3396-4387-abd4-95e48cf4576a", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "929065a7-9eda-4166-a21d-42a01cf45876"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7dfc02d9-3396-4387-abd4-95e48cf4576a", 
+      "name": "Bag of Words Model", 
+      "short_name": "bow", 
+      "default": "", 
+      "description": "Latino.TextMining.BowSpace", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "bow", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "a909e63a-7921-2be9-8553-7ead130aa4d7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7dfc02d9-3396-4387-abd4-95e48cf4576a", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "description": "", 
+      "variable": "ds", 
+      "order": 1, 
+      "uid": "a1ff8aad-6c91-ad5e-e208-3b08e321c7ab"
+    }
+  }
+]

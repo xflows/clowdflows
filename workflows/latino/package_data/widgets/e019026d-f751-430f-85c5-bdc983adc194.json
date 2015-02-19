@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "05c26564-86b5-4a73-aae9-f4dc14bc75d7", 
+      "treeview_image": "", 
+      "uid": "e019026d-f751-430f-85c5-bdc983adc194", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructStopWordsTagger in package latino. The original function signature: ConstructStopWordsTagger.", 
+      "static_image": "tag_stop_image.png", 
+      "action": "latino_construct_stop_words_tagger", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 7, 
+      "name": "Stopwords Tagger"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e019026d-f751-430f-85c5-bdc983adc194", 
+      "name": "Ignore Case", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "If true than words are marked stopword regardless of their casing.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "ignoreCase", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "05ce0842-1fbf-a438-deac-3b84f792d62f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e019026d-f751-430f-85c5-bdc983adc194", 
+      "name": "Stopwords", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "List of stopwords", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "stopWords", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e48be590-bbd9-0604-2542-a58ac6d43eac"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e019026d-f751-430f-85c5-bdc983adc194", 
+      "name": "StopWords Tagger", 
+      "short_name": "tgr", 
+      "description": "", 
+      "variable": "tagger", 
+      "order": 1, 
+      "uid": "d49a2af5-3c00-19a3-acf5-4e19ad314452"
+    }
+  }
+]

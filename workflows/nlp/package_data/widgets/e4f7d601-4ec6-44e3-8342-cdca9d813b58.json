@@ -1,0 +1,176 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "A tool developed to process historical (Slovene) text, which annotates words in a TEI encoded corpus with their modern-day equivalents, morphosyntactic tags and lemmas. Such a tool is useful for developing historical corpora of highly-inflecting languages, enabling full text search in digital libraries of historical texts, for modernising such texts for today's readers and making it simpler to correct OCR transcriptions.", 
+      "static_image": "nlp.png", 
+      "action": "nlp_totrtale", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "ToTrTaLe"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "Bohoricica", 
+      "short_name": "boh", 
+      "default": "false", 
+      "description": "Bohoricica", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "bohoricica", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "10af1284-dba8-4bdb-9b81-a479f0ce07cb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "462305a9-d156-42d6-888e-b64da8c4de78"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "Post-processing", 
+      "short_name": "pst", 
+      "default": "false", 
+      "description": "Apply post processing", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "postprocess", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "4bd34d04-8dd4-4a66-8005-12aa7df88c92"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "XML output", 
+      "short_name": "xml", 
+      "default": "false", 
+      "description": "Output results as XML", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "xml", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "52b80a99-9302-4816-88ed-a5e1def8822d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "Antique slovenian", 
+      "short_name": "atq", 
+      "default": "false", 
+      "description": "Antique slovenian", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "antique", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "57f45eb8-8fae-4ca1-ae36-178c364de2a7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "en", 
+      "description": "Language of the input corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "654779ff-54b8-460e-a543-c56a38a910a6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "WSDL", 
+      "short_name": "ws", 
+      "default": "http://vihar.ijs.si:8095/totale?wsdl", 
+      "description": "Web service address", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "c4b8b86a-13ac-4e87-8708-84cfb79cd24a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e4f7d601-4ec6-44e3-8342-cdca9d813b58", 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "description": "Annotations", 
+      "variable": "annotations", 
+      "order": 1, 
+      "uid": "4f497ae0-2268-4d38-8490-aa3e1d09c267"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "4a78da69-2801-4a43-bd3e-60ba64036f08", 
+      "value": "en", 
+      "abstract_input": "654779ff-54b8-460e-a543-c56a38a910a6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovene", 
+      "uid": "558c7004-2edf-4910-985d-4bf89e5c2143", 
+      "value": "sl", 
+      "abstract_input": "654779ff-54b8-460e-a543-c56a38a910a6"
+    }
+  }
+]

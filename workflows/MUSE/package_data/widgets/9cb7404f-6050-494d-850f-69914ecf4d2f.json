@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "cf46e990-42b6-4027-b2f4-a95acaaed210", 
+      "treeview_image": "", 
+      "uid": "9cb7404f-6050-494d-850f-69914ecf4d2f", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Calls the mapping to knowledge representation service", 
+      "static_image": "", 
+      "action": "MUSE_mapping_to_KR_latest", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Mapping to Knowledge representation (latest)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9cb7404f-6050-494d-850f-69914ecf4d2f", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://vihar.ijs.si:8001/MUSE_services/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "fd076e47-1432-4678-8353-aeb4ec286ecf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9cb7404f-6050-494d-850f-69914ecf4d2f", 
+      "name": "Input data", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Plain text file with special annotations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "input_data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "fd659d24-6367-442a-8e9a-871a66122f35"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9cb7404f-6050-494d-850f-69914ecf4d2f", 
+      "name": "XML with results", 
+      "short_name": "xml", 
+      "description": "XML with results", 
+      "variable": "xml", 
+      "order": 2, 
+      "uid": "041923da-7e34-488b-986b-526e52badaa1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9cb7404f-6050-494d-850f-69914ecf4d2f", 
+      "name": "Instantiated event templates", 
+      "short_name": "tpl", 
+      "description": "Instantiated event-templates with argument roles as defined in the domain.\r\n", 
+      "variable": "mapping", 
+      "order": 1, 
+      "uid": "5e1c076a-dc4a-424a-aa2c-7ca1840299f3"
+    }
+  }
+]

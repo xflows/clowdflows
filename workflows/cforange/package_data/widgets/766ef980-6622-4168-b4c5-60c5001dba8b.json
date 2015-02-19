@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
+      "treeview_image": "treeview/orange-CN2-small.png", 
+      "uid": "766ef980-6622-4168-b4c5-60c5001dba8b", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/orange-CN2-small.png", 
+      "description": "Use this widget to learn a set of if-then rules from data. The algorithm is based on CN2 algorithm.", 
+      "static_image": "orange-CN2-small.png", 
+      "action": "cn2", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "CN2 Rule Learner"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "766ef980-6622-4168-b4c5-60c5001dba8b", 
+      "name": "CN2 Rule Learner", 
+      "short_name": "lrn", 
+      "description": "The CN2 Rule learning algorithm.", 
+      "variable": "cn2out", 
+      "order": 1, 
+      "uid": "8fd12925-d2ac-4672-82d9-39da4174c2b4"
+    }
+  }
+]

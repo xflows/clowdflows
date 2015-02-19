@@ -1,0 +1,116 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed2728bc-3fd5-4244-9876-f6a757d1b922", 
+      "treeview_image": "", 
+      "uid": "3564589a-1dea-4743-8a56-d04992d569e8", 
+      "is_streaming": false, 
+      "package": "perfeval", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Calculates various classification statistics from true and predicted labels. Labels can be provided in two ways:\r\n\r\na) [y_true, y_predicted]\r\n\r\nor for folds:\r\n\r\nb) [[y_true_1, y_predicted_1], [y_true_2, y_predicted_2], ...]\r\n", 
+      "static_image": "", 
+      "action": "perfeval_classification_statistics", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Classification statistics"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
+      "name": "True and predicted labels", 
+      "short_name": "lbl", 
+      "default": "", 
+      "description": "List of true and predicted labels (see help for details)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "true_and_predicted_labels", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "26c549c6-5ea1-4f1d-91c8-b9ced19f8aff"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
+      "name": "F1", 
+      "short_name": "f1", 
+      "description": "F1 measure", 
+      "variable": "f1", 
+      "order": 4, 
+      "uid": "37cba070-0b06-4e6e-bf03-04895c956467"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
+      "name": "Recall", 
+      "short_name": "rec", 
+      "description": "Recall", 
+      "variable": "recall", 
+      "order": 3, 
+      "uid": "3f5e14ad-e8de-44ea-b4a3-a3f395400a28"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
+      "name": "Precision", 
+      "short_name": "prc", 
+      "description": "Precision", 
+      "variable": "precision", 
+      "order": 2, 
+      "uid": "529feda2-fbc5-42e9-980f-f8bf82f5d1ef"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
+      "name": "Classification accuracy", 
+      "short_name": "ca", 
+      "description": "Classification accuracy", 
+      "variable": "accuracy", 
+      "order": 1, 
+      "uid": "afd2ad97-8fd4-40db-8767-df69824bb0a2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
+      "name": "AUC", 
+      "short_name": "auc", 
+      "description": "AUC", 
+      "variable": "auc", 
+      "order": 5, 
+      "uid": "bc72c5a9-f057-43a7-8dbe-4e654846f1ae"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3564589a-1dea-4743-8a56-d04992d569e8", 
+      "name": "Confusion matrix", 
+      "short_name": "cm", 
+      "description": "Confusion matrix", 
+      "variable": "confusion_matrix", 
+      "order": 6, 
+      "uid": "bea68107-f4c2-4aac-ab99-4b466c41b704"
+    }
+  }
+]

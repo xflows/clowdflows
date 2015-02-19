@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b86956c3-21f6-47bd-8379-edf6f6c2f351", 
+      "treeview_image": "", 
+      "uid": "ca83d20f-805d-443a-9dd0-519dc155943a", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function InsertListAsColumn in package lemmagen. The original function signature: InsertListAsColumn.", 
+      "static_image": "helper_table.png", 
+      "action": "lemmagen_insert_list_as_column", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 5, 
+      "name": "Insert List as Column"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca83d20f-805d-443a-9dd0-519dc155943a", 
+      "name": "Inserted Column Name", 
+      "short_name": "str", 
+      "default": "ColumnX", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "columnName", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "82b538e9-eb57-0092-ff50-3b97e4296a9e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca83d20f-805d-443a-9dd0-519dc155943a", 
+      "name": "Table", 
+      "short_name": "tbl", 
+      "default": "", 
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "table", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "8e314efd-99ee-3e17-9f24-9096c251a228"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca83d20f-805d-443a-9dd0-519dc155943a", 
+      "name": "Position of Inserted Column", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "Zero based index where the column should be inserted.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "columnIndex", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "9db3ea01-6260-4472-fe4e-df39e6f2477d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca83d20f-805d-443a-9dd0-519dc155943a", 
+      "name": "Inserted Column Values", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "columnValues", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "c27cbbe2-3f61-1f8a-3c4a-c6f0c4d34113"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ca83d20f-805d-443a-9dd0-519dc155943a", 
+      "name": "Table with Inserted Column", 
+      "short_name": "tbl", 
+      "description": "", 
+      "variable": "table", 
+      "order": 1, 
+      "uid": "59c0f2f9-4778-b3e5-ee1c-d13067de662b"
+    }
+  }
+]

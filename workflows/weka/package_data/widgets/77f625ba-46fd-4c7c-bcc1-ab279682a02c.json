@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "74a7063e-9e7f-4305-8b5e-d5f1a4c40250", 
+      "treeview_image": "", 
+      "uid": "77f625ba-46fd-4c7c-bcc1-ab279682a02c", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "WEKA_REPTree.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "REPTree", 
+      "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "REP Tree"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "77f625ba-46fd-4c7c-bcc1-ab279682a02c", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "0cd58b20-a46d-42ba-b1ea-e63f77bce087"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "77f625ba-46fd-4c7c-bcc1-ab279682a02c", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "1f6b1b09-1319-45a8-a785-83afa47649fb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "77f625ba-46fd-4c7c-bcc1-ab279682a02c", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "48127408-7f94-47bc-93d7-723787cccbe9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "77f625ba-46fd-4c7c-bcc1-ab279682a02c", 
+      "name": "REPTree Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "REPTree_learner", 
+      "order": 1, 
+      "uid": "6b3e9710-6b9b-492c-808a-52a9f4476c65"
+    }
+  }
+]

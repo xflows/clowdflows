@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "", 
+      "uid": "cd62c3e4-bf00-4c18-96a9-1d203badf743", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "base_merge_dictionaries", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Merge dictionaries"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cd62c3e4-bf00-4c18-96a9-1d203badf743", 
+      "name": "Dictionary 2", 
+      "short_name": "dct", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dict2", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "53efae34-3906-4732-818c-78f44e6bceea"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cd62c3e4-bf00-4c18-96a9-1d203badf743", 
+      "name": "Dictionary 1", 
+      "short_name": "dct", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dict1", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "7d53195e-49f3-4873-989d-e096563f84ed"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "cd62c3e4-bf00-4c18-96a9-1d203badf743", 
+      "name": "Dictionary", 
+      "short_name": "dct", 
+      "description": "", 
+      "variable": "dict", 
+      "order": 1, 
+      "uid": "91c393dd-10c1-4ee6-ada8-35ece5b72128"
+    }
+  }
+]

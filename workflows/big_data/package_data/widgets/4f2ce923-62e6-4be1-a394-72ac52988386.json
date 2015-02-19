@@ -1,0 +1,211 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1be7b5eb-c1b2-485a-8dbe-56abce63fc73", 
+      "treeview_image": "", 
+      "uid": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Random forest with MapReduce\r\n\r\nFit phase\r\nRandom forest algorithm builds multiple decision trees with a bootstrap method on a subset of data. \r\nIn each tree node, it estimates sqrt(num. of attributes)+1 randomly selected attributes (without replacement).\r\nAll decision trees are merged in large ensemble.  \r\n\r\nPredict phase\r\nAlgorithm queries as many trees as needed for reliable prediction.\r\nFirstly, it randomly chooses without replacement 15 trees. If all trees vote for the same class, it outputs prediction. If there are multiple classes predicted, it chooses 15 trees again. Algorithm calculates difference in probability between most and second most probable prediction. If difference is greater than parameter diff, it outputs prediction. If a test sample is hard to predict (difference is never higher than diff), it queries whole ensemble to make a prediction.\r\n\r\nReference\r\nSimilar algorithm is proposed in: Justin D Basilico, M Arthur Munson, Tamara G Kolda, Kevin R Dixon, and W Philip Kegelmeyer. Comet: A recipe for learning and using large ensembles on massive data. \r\n", 
+      "static_image": "", 
+      "action": "rf_fit", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Random forest"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Discretization", 
+      "short_name": "spf", 
+      "default": "equal_freq", 
+      "description": "Select equal frequency discretization or random discretization for numeric attributes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "split_fun", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "00758cdf-2eb5-43c5-bedf-bd3b8b9c29d6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Max tree nodes", 
+      "short_name": "mnt", 
+      "default": "20", 
+      "description": "Max. number of decision tree nodes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "tree_nodes", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "5a915d8b-2c99-4661-aa20-325709b61b6b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "5b9a6e22-130c-48d5-9b78-06ac2bd2c32a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Measure", 
+      "short_name": "msr", 
+      "default": "info_gain", 
+      "description": "Select measure for estimation of attributes.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "measure", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "68cbccf9-7469-4b55-b96e-4f7c6a3c9cde"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Random state", 
+      "short_name": "rsd", 
+      "default": "None", 
+      "description": "Define a random state", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "seed", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "8e6e2d96-3457-4b23-ac93-ab90b083920f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Trees per subset", 
+      "short_name": "tps", 
+      "default": "20", 
+      "description": "Number of trees per subset of data", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "trees_per_subset", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "a0b28dbe-1cb8-4987-958e-e4d379c8d2ff"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Min samples split", 
+      "short_name": "lmi", 
+      "default": "5", 
+      "description": "Min. number of samples to split the node", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "leaf_min_inst", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "a2f366a9-af74-4b3f-90ed-33c1fcad4c3a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Class majority", 
+      "short_name": "csm", 
+      "default": "1", 
+      "description": "Purity of a subset.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "majority", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "fe7f5d5a-c2e2-4ae9-b138-18b1de7c4e93"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Fit model", 
+      "short_name": "fit", 
+      "description": "Fit model URL", 
+      "variable": "fitmodel_url", 
+      "order": 1, 
+      "uid": "0adadf0c-a93a-4e47-9df0-344d2cdadbf9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Equal frequency discretization", 
+      "uid": "02b0bf99-232c-4529-b1a7-701bba646450", 
+      "value": "equal_freq", 
+      "abstract_input": "00758cdf-2eb5-43c5-bedf-bd3b8b9c29d6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Minimum description length", 
+      "uid": "53059d4e-4375-488f-b2b2-0e9567f499d7", 
+      "value": "mdl", 
+      "abstract_input": "68cbccf9-7469-4b55-b96e-4f7c6a3c9cde"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Information gain", 
+      "uid": "95331a01-dbfa-4f31-966a-759d65d3a556", 
+      "value": "info_gain", 
+      "abstract_input": "68cbccf9-7469-4b55-b96e-4f7c6a3c9cde"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Random discretization", 
+      "uid": "ef11b2d3-301f-4440-be3c-24089b7f234f", 
+      "value": "random", 
+      "abstract_input": "00758cdf-2eb5-43c5-bedf-bd3b8b9c29d6"
+    }
+  }
+]

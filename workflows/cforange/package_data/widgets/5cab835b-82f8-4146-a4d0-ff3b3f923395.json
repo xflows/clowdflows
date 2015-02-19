@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "2c4c8f68-33db-411c-a8ce-176096349eba", 
+      "treeview_image": "", 
+      "uid": "5cab835b-82f8-4146-a4d0-ff3b3f923395", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Confusion Matrix gives the number/proportion of examples from one class classified in to another (or same) class. Besides that, selecting elements of the matrix feeds the corresponding examples onto the output signal. This way, one can observe which specific examples were misclassified in a certain way.", 
+      "static_image": "ConfusionMatrix_60.png", 
+      "action": "cforange_confusion_matrix", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Confusion Matrix"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5cab835b-82f8-4146-a4d0-ff3b3f923395", 
+      "name": "Class Index", 
+      "short_name": "cli", 
+      "default": "-1", 
+      "description": "Index of class value for which the confusion matrices are to be computed.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "classIndex", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "93b12c97-c01a-42a9-a934-b9c0a220f67a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5cab835b-82f8-4146-a4d0-ff3b3f923395", 
+      "name": "Cutoff", 
+      "short_name": "ctf", 
+      "default": "", 
+      "description": "We can also add the keyword argument cutoff (e.g. confusionMatrices(results, cutoff=0.3); if we do, confusionMatrices will disregard the classifiers' class predictions and observe the predicted probabilities, and consider the prediction \"positive\" if the predicted probability of the positive class is higher than the cutoff.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cutoff", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "c6fa462e-df86-424e-8803-3ded38ee6f73"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5cab835b-82f8-4146-a4d0-ff3b3f923395", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "Evaluation results", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "cbce1aeb-69f9-44ab-9ba1-58e7f7c7edd2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5cab835b-82f8-4146-a4d0-ff3b3f923395", 
+      "name": "Confusion Matrix", 
+      "short_name": "cm", 
+      "description": "", 
+      "variable": "cm", 
+      "order": 1, 
+      "uid": "80ffab5b-b464-44e3-b659-ee3cbc6318e3"
+    }
+  }
+]

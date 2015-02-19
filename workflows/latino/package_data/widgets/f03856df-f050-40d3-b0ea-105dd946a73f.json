@@ -1,0 +1,78 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "f03856df-f050-40d3-b0ea-105dd946a73f", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Displays any input.", 
+      "static_image": "object_advanced_view_image.png", 
+      "action": "advanced_object_viewer", 
+      "visualization_view": "advanced_object_viewer", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "Advanced Object Viewer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f03856df-f050-40d3-b0ea-105dd946a73f", 
+      "name": "Object", 
+      "short_name": "obj", 
+      "default": "", 
+      "description": "Any type of object.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "obj", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "6482823f-f2e5-01b4-4f05-4d235f5ee2eb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f03856df-f050-40d3-b0ea-105dd946a73f", 
+      "name": "Attribute", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "The depth of the object display", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "attribute", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "84be4d9b-6210-39f1-a4c3-324a37d5b1a6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f03856df-f050-40d3-b0ea-105dd946a73f", 
+      "name": "Maximum Output Length", 
+      "short_name": "int", 
+      "default": "5000", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxStringLen", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "d0a89d3b-705e-46ef-eaf7-266c48d4432b"
+    }
+  }
+]

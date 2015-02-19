@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "94237b9c-8e88-460c-abc5-9c8108acb821", 
+      "treeview_image": "", 
+      "uid": "33307dbf-08b5-4768-ba21-ebe1aa68c69b", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function PosTagString in package latino. The original function signature: PosTagString.", 
+      "static_image": "tag_pos_do_image.png", 
+      "action": "latino_pos_tag_string", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "POS Tagger Hub (Text)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33307dbf-08b5-4768-ba21-ebe1aa68c69b", 
+      "name": "Output Feature Name", 
+      "short_name": "str", 
+      "default": "posTag", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outputFeature", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "02d347c6-12c9-9892-5d69-38548474b35a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33307dbf-08b5-4768-ba21-ebe1aa68c69b", 
+      "name": "POS Tagger", 
+      "short_name": "pst", 
+      "default": "", 
+      "description": "OpenNLP.Tools.PosTagger.EnglishMaximumEntropyPosTagger", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "posTagger", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "981e7201-35ab-7b25-ae8f-29e5b03cb407"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33307dbf-08b5-4768-ba21-ebe1aa68c69b", 
+      "name": "Text", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ed41747a-dc93-d818-291c-62d791613083"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "33307dbf-08b5-4768-ba21-ebe1aa68c69b", 
+      "name": "String", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "b773304e-55a1-d06f-363c-e10850b7bd56"
+    }
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "81efce93-b6c5-4270-bde9-ec946a394b10", 
+      "treeview_image": "", 
+      "uid": "68ce4c2e-baf7-4a2e-843b-3b5622c20448", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Constructs and returns a new data set that includes a class and only N best attributes from a list scores. data is used to pass an original data set.", 
+      "static_image": "bestN.png", 
+      "action": "cforange_best_natts", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Select best N attributes"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "68ce4c2e-baf7-4a2e-843b-3b5622c20448", 
+      "name": "Scores", 
+      "short_name": "sco", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "scores", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "a19e140e-4aab-4491-9536-992152a3d56f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "68ce4c2e-baf7-4a2e-843b-3b5622c20448", 
+      "name": "N", 
+      "short_name": "n", 
+      "default": "3", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "n", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "af3d33a6-674f-42c6-a092-abfd65196617"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "68ce4c2e-baf7-4a2e-843b-3b5622c20448", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "b41c9bbf-7405-451d-8dda-794ce850d452"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "68ce4c2e-baf7-4a2e-843b-3b5622c20448", 
+      "name": "New Orange Data Table", 
+      "short_name": "odt", 
+      "description": "", 
+      "variable": "new_dataset", 
+      "order": 1, 
+      "uid": "27db7439-6424-4565-b8ce-711adfe7fcf2"
+    }
+  }
+]

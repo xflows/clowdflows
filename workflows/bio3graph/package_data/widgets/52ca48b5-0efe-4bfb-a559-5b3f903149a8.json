@@ -1,0 +1,175 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bc5a8211-0cdd-4c1e-82cc-5251672bfba3", 
+      "treeview_image": "", 
+      "uid": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Constructs a Bio3graph vocabulary for triplet extraction using the provided files.", 
+      "static_image": "", 
+      "action": "bio3graph_build_vocabulary", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 3, 
+      "name": "Build vocabulary"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Inhibition", 
+      "short_name": "inh", 
+      "default": "", 
+      "description": "CSV file with inhibitions.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "inhibition", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "17545bf5-42d0-44ec-8c20-734031a85dc4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Inhibition passive", 
+      "short_name": "inp", 
+      "default": "", 
+      "description": "CSV file with passive forms of inhibition.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "inhibition_passive", 
+      "parameter": false, 
+      "order": 7, 
+      "uid": "29aeb4f1-d4e9-4506-b62a-6dfd2db8e029"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Compounds", 
+      "short_name": "cmp", 
+      "default": "", 
+      "description": "CSV file with compounds.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "compounds", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "88451abf-b4c0-4468-b58b-562b1c812225"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Activation", 
+      "short_name": "act", 
+      "default": "", 
+      "description": "CSV file with activations.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "activation", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "913b8b8b-9d99-4f24-ae48-db25f3490187"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Activation rotate", 
+      "short_name": "acr", 
+      "default": "", 
+      "description": "CSV file with activations for rotation.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "activation_rotate", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "b0cc0191-6202-431f-87a8-7c3ff39911d0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Activation passive", 
+      "short_name": "acp", 
+      "default": "", 
+      "description": "CSV file with passive forms of activation.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "activation_passive", 
+      "parameter": false, 
+      "order": 6, 
+      "uid": "e59a900a-1796-43ba-a229-e0b82c4ef964"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Binding", 
+      "short_name": "bnd", 
+      "default": "", 
+      "description": "CSV file with bindings.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "binding", 
+      "parameter": false, 
+      "order": 5, 
+      "uid": "eac8c9d4-a0ab-414e-a083-54a5f860e031"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Binding passive", 
+      "short_name": "bnp", 
+      "default": "", 
+      "description": "CSV file with passive forms of binding.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "binding_passive", 
+      "parameter": false, 
+      "order": 8, 
+      "uid": "f448d9b8-d646-4eda-9306-899942073800"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "52ca48b5-0efe-4bfb-a559-5b3f903149a8", 
+      "name": "Vocabulary", 
+      "short_name": "voc", 
+      "description": "Bio3graph vocabulary data structure.", 
+      "variable": "vocabulary", 
+      "order": 1, 
+      "uid": "39840de5-c9b4-4daa-be2a-f11d73d62d10"
+    }
+  }
+]

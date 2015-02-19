@@ -1,0 +1,168 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5723a5b8-8c18-4b1f-9398-e93828556c3c", 
+      "treeview_image": "", 
+      "uid": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "cforange_hierarchical_clustering", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "The widget computes hierarchical clustering of arbitrary types of objects from the matrix of distances between them and shows the corresponding diagram. If the distances apply to examples, the widget offers some special functionality (adding cluster indices, outputting examples...).", 
+      "static_image": "HierarchicalClustering_60.png", 
+      "action": "cforange_hierarchical_clustering", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "cforange_hierarchical_clustering_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Hierarchical clustering"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
+      "name": "Linkage", 
+      "short_name": "lin", 
+      "default": "0", 
+      "description": "The widget supports three kinds of linkages. In Single linkage clustering, the distance between two clusters is defined as the distance between the closest elements of the two clusters. Average linkage clustering computes the average distance between elements of the two clusters, and Complete linkage defines the distance between two clusters as the distance between their most distant elements.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "linkage", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "9804f098-f6b6-4858-9d83-df2a45e6174a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
+      "name": "Distance Matrix", 
+      "short_name": "dm", 
+      "default": "", 
+      "description": "A matrix of distances between items being clustered", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dm", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "bc238f40-be7b-48c4-a526-f17d461a1e10"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
+      "name": "Visualization type", 
+      "short_name": "viz", 
+      "default": "circle", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "visualization", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "f0c1c618-f7c4-4b9c-8780-d03e1ab29834"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
+      "name": "Selected examples", 
+      "short_name": "sel", 
+      "description": "A list of selected examples; applicable only when the input matrix refers to distances between examples", 
+      "variable": "selected_examples", 
+      "order": 2, 
+      "uid": "2055c99d-b2cd-4270-94e7-688eb86ae00b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
+      "name": "Unselected examples", 
+      "short_name": "uns", 
+      "description": "A list of unselected examples", 
+      "variable": "unselected_examples", 
+      "order": 3, 
+      "uid": "d23df6ab-e4ec-4c09-8d4b-9457f666efca"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "12b0d57d-1cbc-4e9d-8087-2dcd8ced2a27", 
+      "name": "Centroids", 
+      "short_name": "ctr", 
+      "description": "A list of cluster centroids", 
+      "variable": "centroids", 
+      "order": 1, 
+      "uid": "da9b8816-0ed4-4159-8a7e-ff915d5eb2d2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Ward's linkage", 
+      "uid": "16d7b4ca-b14d-4a93-bda3-ca3478efd316", 
+      "value": "2", 
+      "abstract_input": "9804f098-f6b6-4858-9d83-df2a45e6174a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Tree", 
+      "uid": "4bd2311e-3051-451e-8c47-5bb526a885e6", 
+      "value": "tree", 
+      "abstract_input": "f0c1c618-f7c4-4b9c-8780-d03e1ab29834"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Average linkage", 
+      "uid": "e5a0e0cd-aefe-4d2f-b2dd-26c54aecda41", 
+      "value": "1", 
+      "abstract_input": "9804f098-f6b6-4858-9d83-df2a45e6174a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Single linkage", 
+      "uid": "e751309c-0f24-409e-b21e-94692c3fa5cf", 
+      "value": "0", 
+      "abstract_input": "9804f098-f6b6-4858-9d83-df2a45e6174a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Complete linkage", 
+      "uid": "e7ab085c-59a2-469b-b4e0-aeef40685a1f", 
+      "value": "3", 
+      "abstract_input": "9804f098-f6b6-4858-9d83-df2a45e6174a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Circle", 
+      "uid": "ea7c03eb-b596-4b7f-82ea-840ca44daaad", 
+      "value": "circle", 
+      "abstract_input": "f0c1c618-f7c4-4b9c-8780-d03e1ab29834"
+    }
+  }
+]

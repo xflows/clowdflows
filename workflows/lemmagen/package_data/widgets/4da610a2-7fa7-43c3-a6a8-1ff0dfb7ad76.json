@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "44fdf9b8-8259-4a43-8a77-59753b74cacd", 
+      "treeview_image": "", 
+      "uid": "4da610a2-7fa7-43c3-a6a8-1ff0dfb7ad76", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function LoadExampleListFromTable in package lemmagen. The original function signature: LoadExampleListFromTable.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_load_example_list_from_table", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 555, 
+      "name": "Load Example List from Table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4da610a2-7fa7-43c3-a6a8-1ff0dfb7ad76", 
+      "name": "Format", 
+      "short_name": "str", 
+      "default": "WLM", 
+      "description": "Use letters to declare input column meaning: 'W'=word, 'L'=lemma, 'M'=msd and 'F'=frequency. Use '_' to declare not important column. For example, format 'W_LM' specifies that words are in the first column, lemmas are in the third column and msds are in the fourth column. Word and lemma specifiers are required, msd and frequency are optional.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "format", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "e24d9536-2890-fa60-1c7c-2618dee689f1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4da610a2-7fa7-43c3-a6a8-1ff0dfb7ad76", 
+      "name": "Table of Examples", 
+      "short_name": "tbl", 
+      "default": "", 
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "table", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e7ab13dc-67ee-c336-8594-a90fedb525fb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4da610a2-7fa7-43c3-a6a8-1ff0dfb7ad76", 
+      "name": "List of LemmaExamples", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "exampleList", 
+      "order": 1, 
+      "uid": "63cb6cbc-cbf5-4d00-d38a-ec1b773b3ad3"
+    }
+  }
+]

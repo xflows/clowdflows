@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "treeview/Task-List-icon.png", 
+      "uid": "d9285877-7db7-4540-aaf3-e6349772dac2", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Task-List-icon.png", 
+      "description": "", 
+      "static_image": "Task-List-icon.png", 
+      "action": "create_dictionary", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Create Dictionary"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d9285877-7db7-4540-aaf3-e6349772dac2", 
+      "name": "Value", 
+      "short_name": "val", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "values", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "8e7d857b-0ed5-4256-8ee7-18c7c2423f29"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d9285877-7db7-4540-aaf3-e6349772dac2", 
+      "name": "Key", 
+      "short_name": "key", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "keys", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "f777f094-06f8-4e6e-a7ea-eeadce33edac"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d9285877-7db7-4540-aaf3-e6349772dac2", 
+      "name": "Dictionary", 
+      "short_name": "dct", 
+      "description": "", 
+      "variable": "dict", 
+      "order": 1, 
+      "uid": "6fb7b2b2-7630-454a-a1b1-b0de3e486ef9"
+    }
+  }
+]

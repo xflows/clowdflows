@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b92a6a5d-36cd-4be6-add3-9786ff26b60c", 
+      "treeview_image": "", 
+      "uid": "b3e9c690-e7cd-47e4-b70c-802a0e6df2d8", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ApplyHeurisitcs in package crossbee. The original function signature: ApplyHeurisitcs.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_apply_heurisitcs", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Calculate Terms Heuristic Scores"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b3e9c690-e7cd-47e4-b70c-802a0e6df2d8", 
+      "name": "Term Dataset", 
+      "short_name": "tds", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "termDataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "814b5a30-ba68-f7cc-cd5a-a258723c9b42"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b3e9c690-e7cd-47e4-b70c-802a0e6df2d8", 
+      "name": "Heuristics", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "CrossBeeInterfaces.Heurisitcs.Heuristics", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "c940978b-e4fb-6922-fb99-9469d9f06489"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b3e9c690-e7cd-47e4-b70c-802a0e6df2d8", 
+      "name": "Applied Heuristics", 
+      "short_name": "heu", 
+      "description": "", 
+      "variable": "heur", 
+      "order": 1, 
+      "uid": "9e167be4-805e-66fd-02ca-12194a352332"
+    }
+  }
+]

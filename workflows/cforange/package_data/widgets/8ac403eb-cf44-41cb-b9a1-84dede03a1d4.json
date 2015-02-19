@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
+      "treeview_image": "treeview/orange-RandomForest.png", 
+      "uid": "8ac403eb-cf44-41cb-b9a1-84dede03a1d4", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/orange-RandomForest.png", 
+      "description": "Random forest is a classification technique that, given the set of class-labeled data, builds a set of classification trees. Each tree is developed from a bootstrap sample from the training data. When developing individual trees, an arbitrary subset of attributes is drawn (hence the term \u201crandom\u201d) from which the best attribute for the split is selected. The classification is based on the majority vote from individually developed tree classifiers in the forest.", 
+      "static_image": "orange-RandomForest.png", 
+      "action": "random_forest", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 8, 
+      "name": "Random Forest"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8ac403eb-cf44-41cb-b9a1-84dede03a1d4", 
+      "name": "Number of decision trees", 
+      "short_name": "ndt", 
+      "default": "100", 
+      "description": "tells the algorithm how many classification trees will be included in the forest.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "n", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "d8f62393-dda8-48a0-93c1-ac5bc3c5667f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "8ac403eb-cf44-41cb-b9a1-84dede03a1d4", 
+      "name": "Random Forest Learner", 
+      "short_name": "lrn", 
+      "description": "The random forest learning algorithm.", 
+      "variable": "rfout", 
+      "order": 1, 
+      "uid": "fe85cc7e-0e13-4f76-841f-ac809d28095f"
+    }
+  }
+]

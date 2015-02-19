@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0165a189-a6ea-4152-8b5c-f507d47bc0e6", 
+      "treeview_image": "", 
+      "uid": "672a3a70-1bd9-4c99-b55a-e5fe8fc5c264", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "gaussian_naive_bayes_predict", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "Gaussian Naive Bayes predict"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "672a3a70-1bd9-4c99-b55a-e5fe8fc5c264", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "08f26e43-9ceb-4081-b00c-265c567096b2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "672a3a70-1bd9-4c99-b55a-e5fe8fc5c264", 
+      "name": "Fit Model", 
+      "short_name": "fit", 
+      "default": "", 
+      "description": "Fit Model URL", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fitmodel_url", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4f190e78-d94e-4318-87c1-4fcd8625650d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "672a3a70-1bd9-4c99-b55a-e5fe8fc5c264", 
+      "name": "Log probabilities", 
+      "short_name": "log", 
+      "default": "", 
+      "description": "Calculate logarithm probabilities.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "log_probs", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "ad2231df-eef5-44b4-8a60-50f855a28fcb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "672a3a70-1bd9-4c99-b55a-e5fe8fc5c264", 
+      "name": "Results", 
+      "short_name": "rst", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "4759f850-a661-4414-89e9-6b7a5d4b3b8e"
+    }
+  }
+]

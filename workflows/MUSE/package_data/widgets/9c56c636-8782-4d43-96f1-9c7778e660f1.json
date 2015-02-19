@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "cf46e990-42b6-4027-b2f4-a95acaaed210", 
+      "treeview_image": "", 
+      "uid": "9c56c636-8782-4d43-96f1-9c7778e660f1", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Calls the semantic role labeling service", 
+      "static_image": "", 
+      "action": "MUSE_semantic_role_labeling_tuk", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Semantic role labeling (Tuk specific)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9c56c636-8782-4d43-96f1-9c7778e660f1", 
+      "name": "Input XML", 
+      "short_name": "xml", 
+      "default": "", 
+      "description": "MUSE XML file", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "xml", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "29ffdc81-3172-4998-b2f0-ec216fcc3618"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9c56c636-8782-4d43-96f1-9c7778e660f1", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://vihar.ijs.si:8001/MUSE_services/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a9e1d01c-af14-4826-bac3-1f8fbd37b595"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9c56c636-8782-4d43-96f1-9c7778e660f1", 
+      "name": "Output XML", 
+      "short_name": "xml", 
+      "description": "XML with semantic roles added", 
+      "variable": "xml", 
+      "order": 1, 
+      "uid": "54f32c2e-91da-4a25-80e3-b71704d4f59a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9c56c636-8782-4d43-96f1-9c7778e660f1", 
+      "name": "Input for KR", 
+      "short_name": "str", 
+      "description": "Input text file for mapping to knowledge representation", 
+      "variable": "txt", 
+      "order": 2, 
+      "uid": "edbf8cb3-cbf6-4c5d-9881-514ee3f79923"
+    }
+  }
+]

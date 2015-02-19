@@ -1,0 +1,124 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "8ae37e83-fd65-4dbf-b526-c9c21628d5ed", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructMaximumEntropyClassifierFast in package latino. The original function signature: ConstructMaximumEntropyClassifierFast.", 
+      "static_image": "classifier_max_entropy_fast_image.png", 
+      "action": "latino_construct_maximum_entropy_classifier_fast", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 7, 
+      "name": "Maximum Entropy Fast Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8ae37e83-fd65-4dbf-b526-c9c21628d5ed", 
+      "name": "CutOff", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cutOff", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "3e2ac4a9-3e2a-d81b-a272-6122dd6e3e2e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8ae37e83-fd65-4dbf-b526-c9c21628d5ed", 
+      "name": "Move Data", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "moveData", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "526be33e-ac76-f04e-0b71-15f6ecb82a15"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8ae37e83-fd65-4dbf-b526-c9c21628d5ed", 
+      "name": "Num of Iterations", 
+      "short_name": "int", 
+      "default": "100", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numIter", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "bed915e1-fab9-728b-0d3c-dcb61afa34fd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8ae37e83-fd65-4dbf-b526-c9c21628d5ed", 
+      "name": "Num of Threads", 
+      "short_name": "int", 
+      "default": "1", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numThreads", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "c3d4d8f6-da2b-8380-3f8f-4891d16163fb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8ae37e83-fd65-4dbf-b526-c9c21628d5ed", 
+      "name": "Normalize", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "normalize", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "d9850b7d-ca56-df40-d886-41f6675bbbf6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "8ae37e83-fd65-4dbf-b526-c9c21628d5ed", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "description": "", 
+      "variable": "classifier", 
+      "order": 1, 
+      "uid": "2e7e8c44-26de-56f1-18d7-4c1ba44ad1b5"
+    }
+  }
+]

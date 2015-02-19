@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "", 
+      "uid": "39e85968-5f6e-4ac7-802b-5260b406e123", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Used to visually represent classification trees.", 
+      "static_image": "TreeVisualization.png", 
+      "action": "tree_visualization", 
+      "visualization_view": "tree_visualization", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Tree Visualization"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "39e85968-5f6e-4ac7-802b-5260b406e123", 
+      "name": "Classification Tree", 
+      "short_name": "clf", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "clt", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ae24ffde-8868-4646-86c8-f209c62e98bb"
+    }
+  }
+]

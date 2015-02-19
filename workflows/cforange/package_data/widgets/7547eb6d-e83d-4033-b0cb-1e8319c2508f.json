@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "81efce93-b6c5-4270-bde9-ec946a394b10", 
+      "treeview_image": "", 
+      "uid": "7547eb6d-e83d-4033-b0cb-1e8319c2508f", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Takes the data set data and a measure for score of attributes measure. Repeats the process of estimating attributes and removing the worst attribute if its measure is lower than margin. Stops when no attribute score is below this margin. The default for measure is relief(k=20, m=50), and margin defaults to 0.0.", 
+      "static_image": "relieff.png", 
+      "action": "cforange_filter_relieff", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Filter ReliefF"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7547eb6d-e83d-4033-b0cb-1e8319c2508f", 
+      "name": "margin", 
+      "short_name": "mrg", 
+      "default": "0.0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "margin", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "1cce36a4-167d-4a23-83ee-eae626a3b492"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7547eb6d-e83d-4033-b0cb-1e8319c2508f", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "2dc5a9e7-06c8-494f-9f4b-80b3c5eb31ff"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7547eb6d-e83d-4033-b0cb-1e8319c2508f", 
+      "name": "k", 
+      "short_name": "k", 
+      "default": "20", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "k", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "3ef628d4-03af-4d46-b90b-6c4475054d31"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7547eb6d-e83d-4033-b0cb-1e8319c2508f", 
+      "name": "m", 
+      "short_name": "m", 
+      "default": "50", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "m", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "9b3082b4-5903-41cb-a4c0-63d471f80f57"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7547eb6d-e83d-4033-b0cb-1e8319c2508f", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "description": "", 
+      "variable": "new_dataset", 
+      "order": 1, 
+      "uid": "60efae56-9748-471d-b85d-9c9a3bc84f52"
+    }
+  }
+]

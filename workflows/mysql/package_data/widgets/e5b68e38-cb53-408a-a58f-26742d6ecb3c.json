@@ -1,0 +1,102 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b66b71b1-99d6-4efc-b264-a914a3e42911", 
+      "treeview_image": "", 
+      "uid": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
+      "is_streaming": false, 
+      "package": "mysql", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "mysql.png", 
+      "action": "mysql_rsd_converter", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Database To RSD"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
+      "name": "dump full database", 
+      "short_name": "dmp", 
+      "default": "false", 
+      "description": "dump full database", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "dump", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "3c1375b1-10ed-400d-abfe-261115723c2f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
+      "name": "context", 
+      "short_name": "cxt", 
+      "default": "", 
+      "description": "Database context object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "context", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4f1397a8-4e72-4b34-b31d-d09bf9a7e7d9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
+      "name": "discretization intervals", 
+      "short_name": "itr", 
+      "default": "", 
+      "description": "dictionary of intervals for discretization", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "discr_intervals", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "de698509-3bdc-482f-b5f9-9c6b3916426b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
+      "name": "background knowledge", 
+      "short_name": "b", 
+      "description": "background knowledge", 
+      "variable": "bk", 
+      "order": 2, 
+      "uid": "89a386ef-3aa8-441f-99ff-4b64b1e3357f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
+      "name": "examples", 
+      "short_name": "ex", 
+      "description": "examples", 
+      "variable": "examples", 
+      "order": 1, 
+      "uid": "f17690db-636b-4874-8406-f57778550c27"
+    }
+  }
+]

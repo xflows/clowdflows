@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d8fee140-c280-4d6b-b0b9-7c02fd857b50", 
+      "treeview_image": "", 
+      "uid": "be6b62ef-e9a2-480f-a802-44b7ed1f0bab", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructEnsembleHeuristics in package crossbee. The original function signature: ConstructEnsembleHeuristics.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_construct_ensemble_heuristics", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 14, 
+      "name": "Ensemble Heuristic"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "be6b62ef-e9a2-480f-a802-44b7ed1f0bab", 
+      "name": "Heurisitc(s)", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[CrossBeeInterfaces.Heurisitcs.Heuristics, CrossBeeInterfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": "text", 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "9657dc70-a421-567e-b2fa-fb549d79e9d5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "be6b62ef-e9a2-480f-a802-44b7ed1f0bab", 
+      "name": "Name", 
+      "short_name": "str", 
+      "default": "ensemble", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "name", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "c7bb9b8c-4b9a-ff1e-b68f-83c7869087bd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "be6b62ef-e9a2-480f-a802-44b7ed1f0bab", 
+      "name": "Ensemble Heuristics", 
+      "short_name": "heu", 
+      "description": "", 
+      "variable": "newHeurisitcs", 
+      "order": 1, 
+      "uid": "92114fc2-0738-e0ae-97d2-3409a8547f19"
+    }
+  }
+]

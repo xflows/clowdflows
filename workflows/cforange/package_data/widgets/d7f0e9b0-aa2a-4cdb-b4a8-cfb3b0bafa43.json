@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "81efce93-b6c5-4270-bde9-ec946a394b10", 
+      "treeview_image": "", 
+      "uid": "d7f0e9b0-aa2a-4cdb-b4a8-cfb3b0bafa43", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Assesses features\u2019 ability to distinguish between very similar instances from different classes. This scoring method was first developed by Kira and Rendell and then improved by Kononenko.", 
+      "static_image": "SE.png", 
+      "action": "cforange_score_estimation", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Score estimation (Relief)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d7f0e9b0-aa2a-4cdb-b4a8-cfb3b0bafa43", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "964fbb76-a749-4775-a665-ff0242b7dc2c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d7f0e9b0-aa2a-4cdb-b4a8-cfb3b0bafa43", 
+      "name": "m", 
+      "short_name": "m", 
+      "default": "50", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "m", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "cc9cff1e-75d7-474c-8408-dc39aec692af"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d7f0e9b0-aa2a-4cdb-b4a8-cfb3b0bafa43", 
+      "name": "k", 
+      "short_name": "k", 
+      "default": "20", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "k", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "d6f4067c-39c3-4ea5-80f8-77759db7b2dc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d7f0e9b0-aa2a-4cdb-b4a8-cfb3b0bafa43", 
+      "name": "Scores", 
+      "short_name": "sco", 
+      "description": "", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "45a4eb83-dc9d-4800-b9eb-ad145e3abf6c"
+    }
+  }
+]

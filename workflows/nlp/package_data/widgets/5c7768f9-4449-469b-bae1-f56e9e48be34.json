@@ -1,0 +1,298 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9a30eafc-37b8-48f2-8a92-692c4b324dff", 
+      "treeview_image": "", 
+      "uid": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "nlp.png", 
+      "action": "nlp_def_extraction_terms", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Definition extraction by terms"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "Multi-terms in a sentence", 
+      "short_name": "mtn", 
+      "default": "1", 
+      "description": "Multi-terms in a sentence", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "num_multiterms", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "0343cf50-bacf-4e07-90d6-ecbeb19986d2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "Terms per sentence", 
+      "short_name": "tps", 
+      "default": "3", 
+      "description": "Terms per sentence", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "terms_per_sentence", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "14b2d90f-4539-4c67-94ea-2636988adc86"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "Verb between two terms", 
+      "short_name": "vtt", 
+      "default": "None", 
+      "description": "Verb between two terms", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "verb_two_terms", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "24ce3b81-ae6d-4976-84c2-5bc56977ee8b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "Language", 
+      "short_name": "lan", 
+      "default": "en", 
+      "description": "Language", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "30b3d767-220d-4de1-bbc8-3ea22abd9ec5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "One term should occur at the beginning of the sentence", 
+      "short_name": "tbs", 
+      "default": "false", 
+      "description": "One term should occur at the beginning of the sentence", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "term_beginning", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "4eed193a-62b1-406f-8a6a-7d21fc02a2bd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "Candidates", 
+      "short_name": "can", 
+      "default": "", 
+      "description": "Term candidates", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "term_candidates", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "521e1f25-6d61-4439-a494-2cd61c44244b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "First term should be a multi-word term", 
+      "short_name": "mwt", 
+      "default": "false", 
+      "description": "First term should be a multi-word term", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "multiword_term", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "7b47a94d-c8c0-4264-98da-9e96d3580a1e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "Threshold top % terms", 
+      "short_name": "thr", 
+      "default": "2%", 
+      "description": "Threshold", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "threshold", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "ba6fb908-5d5b-4af7-afc4-5adbe5fd5d97"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "default": "http://vihar.ijs.si:8099", 
+      "description": "Web service address", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "d717986e-e906-4599-bc07-0c772078dc8d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "default": "", 
+      "description": "Totrtale annotations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "annotations", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "d8ee7029-f645-403c-94da-c5ea6f4f901a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "Nominatives (only for slovene)", 
+      "short_name": "nom", 
+      "default": "0", 
+      "description": "Nominatives", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "nominatives", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "eaf18ca7-b87c-4f78-90c1-a93837d0b525"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
+      "name": "Sentences", 
+      "short_name": "sen", 
+      "description": "Definition sentences", 
+      "variable": "sentences", 
+      "order": 1, 
+      "uid": "80dbe77b-ff9a-45cf-9a8f-1db77084c3f6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovene", 
+      "uid": "398791e4-dc7e-47e0-974c-01539ec31c48", 
+      "value": "sl", 
+      "abstract_input": "30b3d767-220d-4de1-bbc8-3ea22abd9ec5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Only between first two terms", 
+      "uid": "645705b8-1154-48ed-9095-fb85416f836f", 
+      "value": "two", 
+      "abstract_input": "24ce3b81-ae6d-4976-84c2-5bc56977ee8b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "1", 
+      "uid": "7990dda4-6d8b-47ab-bb5b-3984b908e810", 
+      "value": "1", 
+      "abstract_input": "eaf18ca7-b87c-4f78-90c1-a93837d0b525"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Between all", 
+      "uid": "80ea1fcb-f72e-4bd9-abc5-f8672fb3fce4", 
+      "value": "all", 
+      "abstract_input": "24ce3b81-ae6d-4976-84c2-5bc56977ee8b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "None", 
+      "uid": "93d1fd82-5cef-482c-ab5b-9d617472c7fc", 
+      "value": "none", 
+      "abstract_input": "24ce3b81-ae6d-4976-84c2-5bc56977ee8b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "0", 
+      "uid": "b0cd42f1-6b88-4beb-a39b-7a20d3a780ca", 
+      "value": "0", 
+      "abstract_input": "eaf18ca7-b87c-4f78-90c1-a93837d0b525"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "c9bedd1d-d374-4e07-b2bd-3faf7f71c6ee", 
+      "value": "en", 
+      "abstract_input": "30b3d767-220d-4de1-bbc8-3ea22abd9ec5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "2", 
+      "uid": "f829d7b9-e59d-491f-a37a-6c46057032b0", 
+      "value": "2", 
+      "abstract_input": "eaf18ca7-b87c-4f78-90c1-a93837d0b525"
+    }
+  }
+]

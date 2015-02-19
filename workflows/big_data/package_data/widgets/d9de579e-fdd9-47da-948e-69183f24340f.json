@@ -1,0 +1,124 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "08c90036-fd13-4ff3-ac20-01982262a782", 
+      "treeview_image": "", 
+      "uid": "d9de579e-fdd9-47da-948e-69183f24340f", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Widget takes a model on input and applies it on test data", 
+      "static_image": "", 
+      "action": "big_data_apply_classifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Apply Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d9de579e-fdd9-47da-948e-69183f24340f", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "dataset", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 5, 
+      "uid": "0c174cfd-0d61-44ff-8ce2-9c32f8791293"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d9de579e-fdd9-47da-948e-69183f24340f", 
+      "name": "Fit Model", 
+      "short_name": "fit", 
+      "default": "", 
+      "description": "Fit Model URL", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fitmodel_url", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "46e9a02d-a613-4a01-a8ee-51d578a32fea"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d9de579e-fdd9-47da-948e-69183f24340f", 
+      "name": "Random forest  - random state", 
+      "short_name": "rds", 
+      "default": "None", 
+      "description": "Define a random state for predict phase.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "seed", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "8ec2b906-2b9e-4cda-9455-09ccd7d134fb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d9de579e-fdd9-47da-948e-69183f24340f", 
+      "name": "Naive Bayes - m estimate", 
+      "short_name": "m", 
+      "default": "1", 
+      "description": "m estimate", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "m", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a247302f-c63d-4473-9869-c93e330b0c48"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d9de579e-fdd9-47da-948e-69183f24340f", 
+      "name": "Random forest - difference", 
+      "short_name": "dff", 
+      "default": "0.3", 
+      "description": "Random forest calculates difference in probability between most and second most probable prediction. If difference is greater than parameter diff, it outputs prediction. If a test sample is hard to predict (difference is never higher than diff), it queries whole ensemble to make a prediction.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "diff", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "d979ff23-eb11-40cf-9d81-2a71ddf5d790"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d9de579e-fdd9-47da-948e-69183f24340f", 
+      "name": "Results", 
+      "short_name": "rst", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "601a2f3c-92b7-48e7-bcf2-297180d0fc25"
+    }
+  }
+]

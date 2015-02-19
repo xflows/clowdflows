@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa1a52a7-66ee-483d-b24a-e543140fc476", 
+      "treeview_image": "", 
+      "uid": "e2359c29-f2bc-4cc5-92b2-5d32f9a26de3", 
+      "is_streaming": false, 
+      "package": "conceptnet", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "conceptnet_create_search_query", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Conceptnet Create Search Query"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2359c29-f2bc-4cc5-92b2-5d32f9a26de3", 
+      "name": "Text", 
+      "short_name": "txt", 
+      "default": "", 
+      "description": "Searches for data that contain this word in this field. Do not use sentences, write only a single word.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "text", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "29a4d41b-1361-4b20-b3b2-9ecbab156ca4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2359c29-f2bc-4cc5-92b2-5d32f9a26de3", 
+      "name": "MinWeight", 
+      "short_name": "wgt", 
+      "default": "", 
+      "description": "Input must be an integer or double. Filters for edges whose weight is at least weight.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minweight", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "2d591bb7-6838-4f0b-8cdc-1d6ed5bfd0d7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2359c29-f2bc-4cc5-92b2-5d32f9a26de3", 
+      "name": "Limit", 
+      "short_name": "lmt", 
+      "default": "", 
+      "description": "Input must be a number. This input influences how much results we want returned.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "limit", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "594b1488-dadb-4c9e-9a73-4c2ebed10a9d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2359c29-f2bc-4cc5-92b2-5d32f9a26de3", 
+      "name": "Offset", 
+      "short_name": "off", 
+      "default": "", 
+      "description": "Input must be a number. This input influences how many inputs we should skip in the beginning.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "offset", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "6fef5306-e341-4794-a1c0-57c6a74c15e0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e2359c29-f2bc-4cc5-92b2-5d32f9a26de3", 
+      "name": "Query", 
+      "short_name": "que", 
+      "description": "Query that you can input in widget \"Query to JSON\"", 
+      "variable": "query", 
+      "order": 1, 
+      "uid": "7f4009fb-96c5-498c-9604-3c91a75e1322"
+    }
+  }
+]

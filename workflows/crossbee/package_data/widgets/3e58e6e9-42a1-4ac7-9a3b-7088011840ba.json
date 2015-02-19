@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d8fee140-c280-4d6b-b0b9-7c02fd857b50", 
+      "treeview_image": "", 
+      "uid": "3e58e6e9-42a1-4ac7-9a3b-7088011840ba", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructOutlierHeuristics in package crossbee. The original function signature: ConstructOutlierHeuristics.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_construct_outlier_heuristics", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 13, 
+      "name": "Outlier Heuristic"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3e58e6e9-42a1-4ac7-9a3b-7088011840ba", 
+      "name": "Outlier Document Indexes", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "Either unweighted list of indexes (List<int>) or weighted index dictionary (Dictionary<int, double>).", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "outlierDocumentIndexes", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "1cf73158-780a-857f-fde4-4fbdda0553e8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3e58e6e9-42a1-4ac7-9a3b-7088011840ba", 
+      "name": "Relative", 
+      "short_name": "clc", 
+      "default": "false", 
+      "description": "If false then absolute number of terms apearing in outlier documents is used. If true, the relative number of terms is used - based on the frequency of the term in the whole dataset.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "relative", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "7d742dd5-7417-0461-32c1-34b2ea7daf55"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3e58e6e9-42a1-4ac7-9a3b-7088011840ba", 
+      "name": "Name", 
+      "short_name": "str", 
+      "default": "outlier", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "name", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e8143732-511e-1627-b661-71f579c4dbdb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3e58e6e9-42a1-4ac7-9a3b-7088011840ba", 
+      "name": "Ensemble Heuristics", 
+      "short_name": "heu", 
+      "description": "", 
+      "variable": "newHeurisitcs", 
+      "order": 1, 
+      "uid": "4b418ff6-eb12-56cb-b6fe-8ac9dbe1ece7"
+    }
+  }
+]

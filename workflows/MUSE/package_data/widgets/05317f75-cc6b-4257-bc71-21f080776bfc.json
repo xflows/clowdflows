@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e8574599-994c-4cff-a94d-453d6c5e2dfd", 
+      "treeview_image": "", 
+      "uid": "05317f75-cc6b-4257-bc71-21f080776bfc", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "MUSE_virtual_environment_visualization", 
+      "visualization_view": "MUSE_virtual_environment_visualization", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Virtual environment visualization"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "05317f75-cc6b-4257-bc71-21f080776bfc", 
+      "name": "Server link", 
+      "short_name": "url", 
+      "default": "", 
+      "description": "Link to the Unity3D server", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "unitylink", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "585e80d1-e5fb-49c9-92a7-7af16d4070f6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "05317f75-cc6b-4257-bc71-21f080776bfc", 
+      "name": "NLP data", 
+      "short_name": "nlp", 
+      "default": "", 
+      "description": "Results of NLP processing", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "NLP_data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "6e5ebc4b-cdbe-4ca6-8f5d-bcde21f5319a"
+    }
+  }
+]

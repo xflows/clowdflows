@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "eebdd845-fbff-48f4-ab8f-509a10f53f12", 
+      "treeview_image": "", 
+      "uid": "02dd276c-1751-41fb-9af4-775b4a0dc256", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "mesh_filter", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "mesh_filter", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "mesh_filter_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 14, 
+      "name": "Mesh filter"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "02dd276c-1751-41fb-9af4-775b4a0dc256", 
+      "name": "Term Filter file", 
+      "short_name": "fil", 
+      "description": "Text file with all mesh terms", 
+      "variable": "output_file", 
+      "order": 1, 
+      "uid": "0fb1f543-386d-49ca-b8f4-a3b767a5ff3d"
+    }
+  }
+]

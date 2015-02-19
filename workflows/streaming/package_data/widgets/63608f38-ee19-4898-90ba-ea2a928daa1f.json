@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "63608f38-ee19-4898-90ba-ea2a928daa1f", 
+      "is_streaming": false, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "filter_tweets.png", 
+      "action": "streaming_filter_tweets_by_language", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Filter tweets by language"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "63608f38-ee19-4898-90ba-ea2a928daa1f", 
+      "name": "Language", 
+      "short_name": "lan", 
+      "default": "en", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "9befb8ed-7644-4f41-8887-1c6f74bdeba7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "63608f38-ee19-4898-90ba-ea2a928daa1f", 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e969d30e-dc5c-4c45-8fa4-319e83f20699"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "63608f38-ee19-4898-90ba-ea2a928daa1f", 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "description": "", 
+      "variable": "ltw", 
+      "order": 1, 
+      "uid": "5642b7b5-596b-475c-b59c-2656427482ad"
+    }
+  }
+]

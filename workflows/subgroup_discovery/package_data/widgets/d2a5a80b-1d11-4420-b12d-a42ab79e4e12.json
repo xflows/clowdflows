@@ -1,0 +1,80 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b01ed61e-31e6-4f6f-87b1-f93285801d1b", 
+      "treeview_image": "", 
+      "uid": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
+      "is_streaming": false, 
+      "package": "subgroup_discovery", 
+      "interaction_view": "build_subgroups", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "builder.png", 
+      "action": "build_subgroups", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "build_subgroups_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Build subgroups"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
+      "name": "Data table", 
+      "short_name": "dat", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "3f631385-f579-431d-9b00-887fdfcfe39c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
+      "name": "SD learner", 
+      "short_name": "lrn", 
+      "description": "learner", 
+      "variable": "learner", 
+      "order": 1, 
+      "uid": "0276e508-2822-4387-84ef-2c48243bf5c1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
+      "name": "SD classifier", 
+      "short_name": "cls", 
+      "description": "classifier", 
+      "variable": "classifier", 
+      "order": 2, 
+      "uid": "3095ff52-cc73-4d70-92bf-1bdfa81a5631"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d2a5a80b-1d11-4420-b12d-a42ab79e4e12", 
+      "name": "SD rules", 
+      "short_name": "rul", 
+      "description": "rule set", 
+      "variable": "rules", 
+      "order": 1, 
+      "uid": "81a5d62c-9725-4ec1-a352-d18ef75e0a74"
+    }
+  }
+]

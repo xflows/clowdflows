@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "2c4c8f68-33db-411c-a8ce-176096349eba", 
+      "treeview_image": "", 
+      "uid": "5fed0e33-c267-4522-a4ff-faf745e80be6", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Computes the information score as defined by Kononenko and Bratko (1991). ", 
+      "static_image": "IS.png", 
+      "action": "cforange_information_score", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 7, 
+      "name": "Information Score"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5fed0e33-c267-4522-a4ff-faf745e80be6", 
+      "name": "Report Standard Error", 
+      "short_name": "rse", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "reportSE", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "34afe990-c3e7-40ac-93c9-15283b3e12fc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5fed0e33-c267-4522-a4ff-faf745e80be6", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "Evaluation results", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d85b2f09-ae60-49b7-9b07-b73e4f2f37f9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5fed0e33-c267-4522-a4ff-faf745e80be6", 
+      "name": "Information Score", 
+      "short_name": "is", 
+      "description": "", 
+      "variable": "is", 
+      "order": 1, 
+      "uid": "ae1c8ffc-ef32-4ce4-94c3-3a59ba0ca301"
+    }
+  }
+]

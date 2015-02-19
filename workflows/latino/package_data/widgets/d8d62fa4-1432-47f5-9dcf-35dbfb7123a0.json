@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a8348101-116c-4e04-b2a7-af1c991c3927", 
+      "treeview_image": "", 
+      "uid": "d8d62fa4-1432-47f5-9dcf-35dbfb7123a0", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function AddLabelsToDocumentVectors in package latino. The original function signature: AddLabelsToDocumentVectors.", 
+      "static_image": "dataset_add_labels_image.png", 
+      "action": "latino_add_labels_to_document_vectors", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "Add Labels"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d8d62fa4-1432-47f5-9dcf-35dbfb7123a0", 
+      "name": "Labeles (Array of Strings)", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "labels", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "3045f3db-9ed9-5240-b2e9-4dab7d56fea0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d8d62fa4-1432-47f5-9dcf-35dbfb7123a0", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a1c9bdca-053d-bbff-e9d4-81d90b897185"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d8d62fa4-1432-47f5-9dcf-35dbfb7123a0", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "description": "", 
+      "variable": "ds", 
+      "order": 1, 
+      "uid": "8e481127-8895-cd48-0c21-17caf8080ccc"
+    }
+  }
+]

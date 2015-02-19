@@ -1,0 +1,108 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9a30eafc-37b8-48f2-8a92-692c4b324dff", 
+      "treeview_image": "", 
+      "uid": "27273666-764d-458d-9513-0715ba2e6b4d", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "nlp.png", 
+      "action": "nlp_def_extraction_wnet", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Definition extraction by wordnet"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "27273666-764d-458d-9513-0715ba2e6b4d", 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "default": "", 
+      "description": "Totrtale annotations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "annotations", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "7342b75e-2e19-4bcf-b71e-fbd6d7a097f7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "27273666-764d-458d-9513-0715ba2e6b4d", 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "default": "http://vihar.ijs.si:8099", 
+      "description": "Web service address", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a9fc6cb8-53fe-4977-8c34-29347b274548"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "27273666-764d-458d-9513-0715ba2e6b4d", 
+      "name": "Language", 
+      "short_name": "lan", 
+      "default": "en", 
+      "description": "Language", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "ceb04ed2-a444-499e-b24f-db6cb28f7e2c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "27273666-764d-458d-9513-0715ba2e6b4d", 
+      "name": "Sentences", 
+      "short_name": "sen", 
+      "description": "Definition sentences", 
+      "variable": "sentences", 
+      "order": 1, 
+      "uid": "c9772bbc-3dcc-424b-b03b-c48c8ff6916f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovene", 
+      "uid": "36929744-b1be-4e76-88ef-2548378946ba", 
+      "value": "sl", 
+      "abstract_input": "ceb04ed2-a444-499e-b24f-db6cb28f7e2c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "eaf2ac7b-806b-444a-9ec3-5142b17f4ff7", 
+      "value": "en", 
+      "abstract_input": "ceb04ed2-a444-499e-b24f-db6cb28f7e2c"
+    }
+  }
+]

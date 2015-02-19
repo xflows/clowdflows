@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Ensembles", 
+    "parent": "cf7b1d24-7c6d-4cd1-bcc9-16e43e1ab5a7", 
+    "order": 3, 
+    "uid": "1be7b5eb-c1b2-485a-8dbe-56abce63fc73"
+  }
+}

@@ -1,0 +1,161 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "317018eb-3bc8-4862-bce8-273451a01de4", 
+      "treeview_image": "", 
+      "uid": "bab37f12-8d69-4823-a86b-13af7e1cb00d", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Support Vector Machines without kernels based on liblinear\r\n\r\nC : {float} - Penalty parameter C of the error term.\r\nloss : string, \u2018l1\u2019 or \u2018l2\u2019 (default=\u2019l2\u2019) Specifies the loss function. \u2018l1\u2019 is the hinge loss (standard SVM) while \u2018l2\u2019 is the squared hinge loss.\r\npenalty : string, \u2018l1\u2019 or \u2018l2\u2019 (default=\u2019l2\u2019) Specifies the norm used in the penalization. The \u2018l2\u2019 penalty is the standard used in SVC. The \u2018l1\u2019 leads to coef_ vectors that are sparse.\r\n\r\nmulti_class: string, \u2018ovr\u2019 or \u2018crammer_singer\u2019 (default=\u2019ovr\u2019) :\r\nDetermines the multi-class strategy if y contains more than two classes. ovr trains n_classes one-vs-rest classifiers, while crammer_singer optimizes a joint objective over all classes. While crammer_singer is interesting from an theoretical perspective as it is consistent it is seldom used in practice and rarely leads to better accuracy and is more expensive to compute. If crammer_singer is chosen, the options loss, penalty and dual will be ignored.", 
+      "static_image": "scikit_svm.png", 
+      "action": "scikitAlgorithms_linearSVC", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Linear Support Vector Classification"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bab37f12-8d69-4823-a86b-13af7e1cb00d", 
+      "name": "Penalty parameter(C)", 
+      "short_name": "par", 
+      "default": "1.0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "penaltyIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "2404bc82-b32b-4787-acd4-82ceef160c22"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bab37f12-8d69-4823-a86b-13af7e1cb00d", 
+      "name": "Loss parameter(loss)", 
+      "short_name": "par", 
+      "default": "l2", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lossIn", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "4511ba8c-015c-4e26-8ca4-164c74afde18"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bab37f12-8d69-4823-a86b-13af7e1cb00d", 
+      "name": "Norm(penalty)", 
+      "short_name": "par", 
+      "default": "l2", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "normIn", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "b8b407d1-c11e-4829-a851-f1cd9ebe1409"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bab37f12-8d69-4823-a86b-13af7e1cb00d", 
+      "name": "multi_class", 
+      "short_name": "par", 
+      "default": "ovr", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "classIn", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "da13b053-3d1b-48ad-a046-5683143f1391"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bab37f12-8d69-4823-a86b-13af7e1cb00d", 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "SVCout", 
+      "order": 1, 
+      "uid": "592151e0-6d55-4a42-bec2-f60cfd59dc2a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "ovr", 
+      "uid": "2b37e801-b2b0-44ae-b4f8-53e1177845f0", 
+      "value": "ovr", 
+      "abstract_input": "da13b053-3d1b-48ad-a046-5683143f1391"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "l2", 
+      "uid": "554b3404-de82-418a-bc9e-f7fa530acde1", 
+      "value": "l2", 
+      "abstract_input": "4511ba8c-015c-4e26-8ca4-164c74afde18"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "l1", 
+      "uid": "5c1c4169-8fba-4921-8241-e69da36ee797", 
+      "value": "l1", 
+      "abstract_input": "b8b407d1-c11e-4829-a851-f1cd9ebe1409"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "l1", 
+      "uid": "64809f7f-3b98-4b63-9c84-66608c1f6a8c", 
+      "value": "l1", 
+      "abstract_input": "4511ba8c-015c-4e26-8ca4-164c74afde18"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "l2", 
+      "uid": "7739f64c-c5e3-4cb7-b506-f5816c2c09c9", 
+      "value": "l2", 
+      "abstract_input": "b8b407d1-c11e-4829-a851-f1cd9ebe1409"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "crammer_singer", 
+      "uid": "b009551e-ca6c-428c-b7a1-8fd3b7b49d08", 
+      "value": "crammer_singer", 
+      "abstract_input": "da13b053-3d1b-48ad-a046-5683143f1391"
+    }
+  }
+]

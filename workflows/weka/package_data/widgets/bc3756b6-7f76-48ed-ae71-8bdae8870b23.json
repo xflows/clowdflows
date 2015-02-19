@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0ae049f7-6040-4992-bb03-f9134b8e63c7", 
+      "treeview_image": "", 
+      "uid": "bc3756b6-7f76-48ed-ae71-8bdae8870b23", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "WEKA_printTree.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "print_tree", 
+      "wsdl": "http://vihar.ijs.si:8092/Utilities?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Print Tree"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bc3756b6-7f76-48ed-ae71-8bdae8870b23", 
+      "name": "Tree model", 
+      "short_name": "tre", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "tree_model", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "2910d5a9-1735-416f-8ec4-cc2afbd5e977"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bc3756b6-7f76-48ed-ae71-8bdae8870b23", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "3ce46037-9612-4b55-8297-1a604d545a64"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bc3756b6-7f76-48ed-ae71-8bdae8870b23", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "b0aa8640-b529-4433-b795-f1f022939fc3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bc3756b6-7f76-48ed-ae71-8bdae8870b23", 
+      "name": "Tree", 
+      "short_name": "tre", 
+      "description": "", 
+      "variable": "tree", 
+      "order": 1, 
+      "uid": "dc917831-9cb4-457b-9b40-4acb54d23335"
+    }
+  }
+]

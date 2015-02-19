@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "48fb3ce2-11ef-4afc-ab1e-aec6f1d6d055", 
+      "treeview_image": "", 
+      "uid": "fc9ccfaa-a2a9-4aad-a975-3e32c86f3477", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function AddComputedFeatures in package latino. The original function signature: AddComputedFeatures.", 
+      "static_image": "adc_add_feature_image.png", 
+      "action": "latino_add_computed_features", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 5, 
+      "name": "Add Computed Feature"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fc9ccfaa-a2a9-4aad-a975-3e32c86f3477", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "55d8709b-85b9-bc10-4084-b64012974478"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fc9ccfaa-a2a9-4aad-a975-3e32c86f3477", 
+      "name": "Old Features Specification", 
+      "short_name": "str", 
+      "default": "feature1, feature2", 
+      "description": "Comma separated list of names of old features used in the 'New Feature Computataion'.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "featureSpec", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "9446f6e6-86cb-883f-82d1-9a36b37a330e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fc9ccfaa-a2a9-4aad-a975-3e32c86f3477", 
+      "name": "New Feature Computataion", 
+      "short_name": "str", 
+      "default": "{feature2:name}{feature3}, {feature1:value}", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "featureComputataion", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "e9b21c7f-0d2b-2df0-353b-30869f9a6d49"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fc9ccfaa-a2a9-4aad-a975-3e32c86f3477", 
+      "name": "New Feature Name", 
+      "short_name": "str", 
+      "default": "feature", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "featureName", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "f2788c26-049a-cac4-d263-fa346f149424"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "fc9ccfaa-a2a9-4aad-a975-3e32c86f3477", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adc", 
+      "order": 1, 
+      "uid": "873b611f-efa3-1ecc-c802-400e35d491bb"
+    }
+  }
+]

@@ -1,0 +1,160 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "6d75faa7-c547-475c-8b96-04b78d4ff402", 
+      "treeview_image": "", 
+      "uid": "272f5485-8081-4483-8321-118599817882", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "WEKA_CrossVal.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "cross_validate", 
+      "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Cross Validate"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Folds", 
+      "short_name": "fol", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "folds", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "1a99446a-c3bd-40b4-996a-eb1af12fbf65"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "learner", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "5ddb24a4-f7ad-4d31-9a3d-8c18da1361a2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Instances", 
+      "short_name": "ins", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "91c0ad22-1d1b-4f0b-8ea9-be94be1ade29"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "db8ea5c9-738b-44c1-bcd9-9b704a8798c6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "f5f83294-4688-4244-8b8a-95df71859fb0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Accuracy", 
+      "short_name": "acc", 
+      "description": "", 
+      "variable": "accuracy", 
+      "order": 1, 
+      "uid": "1030110c-bab6-4dbd-b19e-549ea1c94450"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Summary", 
+      "short_name": "sum", 
+      "description": "", 
+      "variable": "summary", 
+      "order": 4, 
+      "uid": "997d0a9d-273d-47df-8aaf-3e74e35d6b7d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Confusion matrix", 
+      "short_name": "con", 
+      "description": "", 
+      "variable": "confusion_matrix", 
+      "order": 2, 
+      "uid": "b6b27c8f-ce52-4e01-bdf2-de6011a42f44"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "272f5485-8081-4483-8321-118599817882", 
+      "name": "Accuracy by class", 
+      "short_name": "acc", 
+      "description": "", 
+      "variable": "accuracy_by_class", 
+      "order": 3, 
+      "uid": "ca272653-396e-4a43-a94c-dc86029728eb"
+    }
+  }
+]

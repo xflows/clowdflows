@@ -1,0 +1,248 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b5964b0d-5acb-4dbf-a49d-4331a5a44f9c", 
+      "treeview_image": "", 
+      "uid": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructBowSpace in package latino. The original function signature: ConstructBowSpace.", 
+      "static_image": "bow_space_image.png", 
+      "action": "latino_construct_bow_space_2", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "BOW Model and Dataset"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Token Annotation", 
+      "short_name": "str", 
+      "default": "Token", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "tokenId", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "03cb77fe-4b71-3f3b-b52c-7ce359cd671a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Maximum N-Gram Length", 
+      "short_name": "int", 
+      "default": "2", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxNGramLen", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "04f5a54b-df46-1b8f-fd33-2ef08e95a170"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "0abb5f7e-8690-60c4-b5c7-85c1d1731d8e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Minimum Word Freqency", 
+      "short_name": "dbl", 
+      "default": "5", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minWordFreq", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "0ee9ea90-c79d-60a6-acdb-550f3e83fc9f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Word Weighting Type", 
+      "short_name": "wwt", 
+      "default": "TfIdf", 
+      "description": "Latino.TextMining.WordWeightType", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "wordWeightType", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "2d8b45c0-58db-00a7-3bce-d11bfb35cbe8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Label Document Feature Name", 
+      "short_name": "str", 
+      "default": "label", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "labelId", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "4eae4c2d-4cb3-f204-6de5-4864b2e45224"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Stopword Feature Name", 
+      "short_name": "str", 
+      "default": "stopword", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "stopwordId", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "7f18f58a-52b5-2422-9e66-d48cea082d82"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Cut Low Weights Percentage", 
+      "short_name": "dbl", 
+      "default": "0.2", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cutLowWeightsPerc", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "d7f036e9-9634-d94d-a489-656760b8776d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Stem Feature Name", 
+      "short_name": "str", 
+      "default": "stem", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "stemId", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "e22eb888-c070-e863-0abf-c8b448917d5f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Normalize Vectors", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "normalizeVectors", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "e2ca4b98-3636-ff76-3e61-b25daed57739"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "description": "", 
+      "variable": "ds", 
+      "order": 2, 
+      "uid": "4b0b8791-ab58-61a2-580d-820e9d700367"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "070a465b-ea02-4238-b16c-9df74fbcbba8", 
+      "name": "Bag of Words Model", 
+      "short_name": "bow", 
+      "description": "", 
+      "variable": "bow", 
+      "order": 1, 
+      "uid": "f86ef891-0d04-495a-322c-062767248dd6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Tf Idf", 
+      "uid": "3448d5ae-e75e-b126-29ac-4085bd1a10cf", 
+      "value": "TfIdf", 
+      "abstract_input": "2d8b45c0-58db-00a7-3bce-d11bfb35cbe8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Term Freq", 
+      "uid": "354d457d-d086-66e5-6392-b9adf0dc74ed", 
+      "value": "TermFreq", 
+      "abstract_input": "2d8b45c0-58db-00a7-3bce-d11bfb35cbe8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Log Df Tf Idf", 
+      "uid": "e707140f-980f-f092-75cc-811878137320", 
+      "value": "LogDfTfIdf", 
+      "abstract_input": "2d8b45c0-58db-00a7-3bce-d11bfb35cbe8"
+    }
+  }
+]

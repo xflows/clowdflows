@@ -1,0 +1,133 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0ae049f7-6040-4992-bb03-f9134b8e63c7", 
+      "treeview_image": "", 
+      "uid": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Confusion Matrix shows how many instances have been assigned to each class. Elements show the number of test examples whose actual class is the row and whose predicted class is the column.", 
+      "static_image": "WEKA_ConfusionMatrix.png", 
+      "action": "weka_statistics", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Weka confusion matrix computations"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
+      "name": "Summary", 
+      "short_name": "sum", 
+      "default": "", 
+      "description": "The summary output of the Cross Validate widget", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "summary", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "173d8ec1-24ce-48bf-a77b-ce948f20b32f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
+      "name": "Class Index", 
+      "short_name": "ci", 
+      "default": "-1", 
+      "description": "Class index. If -1, it will return a weighted average.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "classIndex", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "ef5fbfe5-72dc-4e3d-9d88-239caeeed56e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
+      "name": "TP rate", 
+      "short_name": "tp", 
+      "description": "", 
+      "variable": "tp_rate", 
+      "order": 5, 
+      "uid": "401a36ad-3bbf-49b4-b6a1-1eda084683fc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
+      "name": "FP rate", 
+      "short_name": "fp", 
+      "description": "", 
+      "variable": "fp_rate", 
+      "order": 6, 
+      "uid": "41a9a618-0874-4665-b580-f181cd20202c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
+      "name": "Recall", 
+      "short_name": "rec", 
+      "description": "", 
+      "variable": "recall", 
+      "order": 2, 
+      "uid": "4f3e18a4-fcc0-44e1-9c37-0f6d53127a94"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
+      "name": "F-score", 
+      "short_name": "f", 
+      "description": "", 
+      "variable": "f", 
+      "order": 3, 
+      "uid": "9ef277a3-ca41-443e-b975-3c6b6d1f4ff2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
+      "name": "ROC area", 
+      "short_name": "auc", 
+      "description": "", 
+      "variable": "auc", 
+      "order": 4, 
+      "uid": "c602bc74-f0ff-4cac-9a53-900a777fe236"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b62a32e0-ab1b-4bf9-b2f2-ed699d4b05be", 
+      "name": "Precision", 
+      "short_name": "pre", 
+      "description": "", 
+      "variable": "precision", 
+      "order": 1, 
+      "uid": "fbd6d60c-251d-41ab-a786-01760a0110ef"
+    }
+  }
+]

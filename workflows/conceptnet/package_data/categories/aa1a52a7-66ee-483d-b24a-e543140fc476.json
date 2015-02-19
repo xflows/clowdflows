@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Conceptnet", 
+    "parent": null, 
+    "order": 1, 
+    "uid": "aa1a52a7-66ee-483d-b24a-e543140fc476"
+  }
+}

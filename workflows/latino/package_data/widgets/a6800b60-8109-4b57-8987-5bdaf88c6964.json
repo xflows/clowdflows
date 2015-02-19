@@ -1,0 +1,141 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function RandomCrossValidationSets in package latino. The original function signature: RandomCrossValidationSets.", 
+      "static_image": "helper_general.png", 
+      "action": "latino_random_cross_validation_sets", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "Random Cross Validation Sets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
+      "name": "Random Seed", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "randomSeed", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "3269cb7f-b771-c58c-9383-57bcc120575b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
+      "name": "Num of Sets", 
+      "short_name": "int", 
+      "default": "10", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numOfSets", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "5ec6119e-5067-f636-e539-ee4cb168449b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
+      "name": "Assign Sets Randomly", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "random", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "61e5a30d-ed5b-2942-bb39-087186c0857d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
+      "name": "Example List", 
+      "short_name": "obj", 
+      "default": "", 
+      "description": "Not required, but if set, then it overrides parameter 'numOfExamples' and len(examples) is used for 'numOfExamples'. This should be a type implementing Count, Count() or Length.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "examples", 
+      "parameter": false, 
+      "order": 6, 
+      "uid": "67c5f668-0f79-ef4d-b8f0-2e6aa8f87369"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
+      "name": "Use Seed for Random", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useSeed", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "80a229ea-c57a-c590-00cd-d550cfe290a2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
+      "name": "Num of Examples", 
+      "short_name": "int", 
+      "default": "100", 
+      "description": "This determines the length of the set id list. If input 'examples' is set then len(examples) is used for 'numOfExamples' and this setting is overriden.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numOfExamples", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "fb61bef0-19b2-cbb3-f10c-65df90e01393"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a6800b60-8109-4b57-8987-5bdaf88c6964", 
+      "name": "Example SetIds List", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "exampleSetId", 
+      "order": 1, 
+      "uid": "17003e5c-5449-5da4-a22a-c1bcc6ab2647"
+    }
+  }
+]

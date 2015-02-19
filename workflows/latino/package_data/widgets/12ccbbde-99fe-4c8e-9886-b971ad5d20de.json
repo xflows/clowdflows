@@ -1,0 +1,143 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Runs c#.NET snippet. You can use variable which is provided on the input by the name \"in1\" .. \"inN\". Whatever you want to otput needs to be asigned to the variable \"out1\" before the code is terminated", 
+      "static_image": "csharp_snippet_image.png", 
+      "action": "latino_run_csharp_snippet", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "C#.NET Snippet"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "name": "Snippet Input Parameter(s)", 
+      "short_name": "in", 
+      "default": "", 
+      "description": "input can be accesed as variable \"in1\" .. \"inN\" inside the code", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "snippetParams", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "2b2c9753-afa0-8b31-e0ff-c9d3d50e80c7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "name": "C# Snippet Code", 
+      "short_name": "cs", 
+      "default": "// This is the C#.NET Code Snippet where you can modify the data.\r\n// Varaible \"in1\" .. \"inN\" contains whatever you connected to the input port\r\n// Input variables are correctly typed.\r\n// Whatever is assigned to the variable \"out1\" will be transfered to the output port.\r\nout1 = in1;", 
+      "description": "Input can be accesed as variable \"in1\" .. \"inN\" inside the code and output can be accesed/assigned as variable \"out1\" inside the code.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "snippetCode", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "2ec1a3c4-e2aa-bf52-c253-ba4473c26938"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "name": "Additional References (imports)", 
+      "short_name": "str", 
+      "default": "System.dll\r\nSystem.Xml.dll\r\nworkflows\\latino\\bin\\Latino.dll\r\nworkflows\\latino\\bin\\LatinoWorkflows.dll\r\nworkflows\\latino\\bin\\LatinoClowdFlows.dll", 
+      "description": "System.String", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "aditionalReferences", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "5ae25dd8-d110-b97b-615b-6a5810dd7ef0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "name": "Namespace Section (using directives)", 
+      "short_name": "str", 
+      "default": "using System;\r\nusing System.Collections.Generic;\r\nusing Latino;\r\nusing Latino.TextMining;\r\nusing LatinoClowdFlows;", 
+      "description": "System.String", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "usings", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "6cb80407-d2c4-f810-c9cd-34527394644c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "name": "Possible compile/runtime errors", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "error", 
+      "order": 3, 
+      "uid": "1f5de938-8af5-1635-cd4a-3d973a440c29"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "name": "Generated Code", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "code", 
+      "order": 4, 
+      "uid": "4aa43f4d-78f5-2609-1539-1ac9bced051f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "name": "Console Output", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "consoleOut", 
+      "order": 2, 
+      "uid": "679b380e-fb6a-1580-7e3e-a0c1df24c6ca"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "12ccbbde-99fe-4c8e-9886-b971ad5d20de", 
+      "name": "out", 
+      "short_name": "out", 
+      "description": "output can be accesed/assigned as variable \"_out\" inside the code", 
+      "variable": "out", 
+      "order": 1, 
+      "uid": "8668b4da-ef51-b439-2c3e-10bba389cd5c"
+    }
+  }
+]

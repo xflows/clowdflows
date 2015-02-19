@@ -1,0 +1,253 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "cf7b1d24-7c6d-4cd1-bcc9-16e43e1ab5a7", 
+      "treeview_image": "", 
+      "uid": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "file_url", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Input Dataset"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Class mapping", 
+      "short_name": "map", 
+      "default": "", 
+      "description": "The class mapping defines a mapping for a binary class. It is used with Logistic regression and Linear SVM.\r\n\r\nThe Logistic regression classifier uses 0 and 1 as class. If the dataset contains discrete classes  (e.g. healthy, sick), a mapping should be defined, where healthy is mapped to 1 and sick to 0. The class mapping is used only with binary target labels.\r\nExample: healthy, sick", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "y_map", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "04fb15c3-7d69-43e7-a009-0eb9a3c3a33e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Metadata URL", 
+      "short_name": "cmt", 
+      "default": "", 
+      "description": "Define an URL of a file with attribute metadata.\r\n\r\nExample of a file with 3 attributes, where first and second are continous and third is discrete:\r\natr1, atr2, atr3\r\nc,c,d ", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "custom", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "491eab89-b3f1-4503-864b-7cad9a01dda7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Class index", 
+      "short_name": "tar", 
+      "default": "", 
+      "description": "Define the class index in the dataset. If it is not defined, last attribute is used as the class.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "y_index", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "69a3061b-9dcf-4c18-9f69-b5bc082dd65e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Attribute metadata", 
+      "short_name": "mta", 
+      "default": "numeric", 
+      "description": "Select numeric, if all attributes are numeric or discrete, if all attributes are discrete. \r\n", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "atr_meta", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "705b4459-6f05-4fd3-a230-33e0ddd784b3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "URL range", 
+      "short_name": "rng", 
+      "default": "", 
+      "description": "The URL range parameter is used with URLs that point to file chunks, named as xaaaa to xzzzz. This naming is provided by the unix split command. The first and last URL should be defined in the URLs text box. Intermediate URLs will be automatically generated.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "range", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "992a24e0-0365-46ef-8dd2-37fa19563bd5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Gzipped data", 
+      "short_name": "zip", 
+      "default": "", 
+      "description": "Select if specified URLs point to data in gzipped format.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "data_type", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "d62fc126-afda-4f0b-876d-5180cd409779"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Input URLs", 
+      "short_name": "url", 
+      "default": "", 
+      "description": "Multiple URLs can be specified. An URL should be accessible via HTTP and not HTTPS. ", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e2883c3d-7b3a-46ec-8673-10da5f494ec9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Attribute selection", 
+      "short_name": "ind", 
+      "default": "", 
+      "description": "Select attributes that will processed. \r\n\r\nExample: 1 - 10 for indices in the range from 1 to 10 or 1,2 for indices 1 and 2.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "X_indices", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "e32184e0-f38a-466f-a991-82e084a1cd8b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "ID index", 
+      "short_name": "id", 
+      "default": "", 
+      "description": "Define identifier index in the data.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "id_index", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "f100a206-8fdd-4f8f-afa4-c7d3c3b6f0ca"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Missing values", 
+      "short_name": "mv", 
+      "default": "", 
+      "description": "Missing data values are skipped.\r\n\r\nExample: ?,", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "missing_vals", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "f393261f-ba93-4ed5-bdfc-82f6027bb327"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Delimiter", 
+      "short_name": "dlt", 
+      "default": ",", 
+      "description": "Define delimiter to parse the data.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "delimiter", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "fd2eff8a-b2d0-4de6-9384-13ce5385e3fc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "189c6a1b-612a-4ca6-a7e3-c39349922781", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "description": "", 
+      "variable": "dataset", 
+      "order": 1, 
+      "uid": "819161f8-dffa-4ad3-8952-11b9d14f0c40"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "metadata url", 
+      "uid": "26ec18bf-771f-4aa4-957f-301df41cfa4e", 
+      "value": "metadata url", 
+      "abstract_input": "705b4459-6f05-4fd3-a230-33e0ddd784b3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "numeric", 
+      "uid": "6fb7a9a5-29ed-47c9-a260-301f34ffcf52", 
+      "value": "numeric", 
+      "abstract_input": "705b4459-6f05-4fd3-a230-33e0ddd784b3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "discrete", 
+      "uid": "c1d13a93-1572-415c-8988-12affdbff7fc", 
+      "value": "discrete", 
+      "abstract_input": "705b4459-6f05-4fd3-a230-33e0ddd784b3"
+    }
+  }
+]

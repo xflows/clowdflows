@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "", 
+      "uid": "6f73d7a0-ed32-4ff8-9743-6a5d0867c693", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "alter_table", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Alter individual values in an Orange Data Table.", 
+      "static_image": "alterTable.png", 
+      "action": "alter_table", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "alter_table_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Alter table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6f73d7a0-ed32-4ff8-9743-6a5d0867c693", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Original table", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "1aff9f6a-6d0b-4cf2-ae5c-6de3301dc931"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6f73d7a0-ed32-4ff8-9743-6a5d0867c693", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "description": "Altered table", 
+      "variable": "altered_data", 
+      "order": 1, 
+      "uid": "27079127-e4e6-45bd-a2e2-11aade432583"
+    }
+  }
+]

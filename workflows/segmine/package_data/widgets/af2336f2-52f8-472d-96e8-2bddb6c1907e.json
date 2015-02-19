@@ -1,0 +1,170 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "BiomineConnections.png", 
+      "action": "segmine_biomine_connection", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Biomine connection search"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "Start nodes", 
+      "short_name": "beg", 
+      "default": "", 
+      "description": "Start nodes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "startNodes", 
+      "parameter": false, 
+      "order": 7, 
+      "uid": "0bb9e00a-2159-419c-8a3a-758d8ae778d1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "Single component", 
+      "short_name": "scm", 
+      "default": "", 
+      "description": "Single component", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "singleComponent", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "1b27100e-c585-47f0-a30f-05d2d2720927"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "Group nodes", 
+      "short_name": "grn", 
+      "default": "", 
+      "description": "Group nodes", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "groupNodes", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "46ac2ec3-fb26-4ed0-87eb-017222ada842"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "End nodes", 
+      "short_name": "end", 
+      "default": "", 
+      "description": "End nodes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "endNodes", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "9a0dc048-ae26-4bb8-ba90-76521b4843b3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "Medoids", 
+      "short_name": "mds", 
+      "default": "", 
+      "description": "Medoids", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "medoids", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "aecdd58f-1fef-4aec-8039-2fdbc4cc7279"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "Database version", 
+      "short_name": "dbv", 
+      "default": "<latest>", 
+      "description": "Database version", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "databaseVersion", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "ff783343-b1b5-4f43-9caa-1cfe35706e13"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "Max nodes", 
+      "short_name": "mxn", 
+      "default": "0", 
+      "description": "Max nodes", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxNodes", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "ff95b75f-b4f4-4b3e-acf2-d69aa41ed948"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "Result", 
+      "short_name": "g", 
+      "description": "Result graph", 
+      "variable": "result", 
+      "order": 1, 
+      "uid": "3b884f86-d1eb-4fb9-b31c-28a029b2a657"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "af2336f2-52f8-472d-96e8-2bddb6c1907e", 
+      "name": "Best path", 
+      "short_name": "pth", 
+      "description": "Best path", 
+      "variable": "bestPath", 
+      "order": 2, 
+      "uid": "9ef99494-fbc3-4cac-ba62-10db590c7169"
+    }
+  }
+]

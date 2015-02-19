@@ -1,0 +1,144 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "317018eb-3bc8-4862-bce8-273451a01de4", 
+      "treeview_image": "", 
+      "uid": "9996e844-67e4-49a6-ac1f-8b64cd72cc1c", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "k-Nearest Neighbors classifier based on the ball tree datastructure for low dimensional data and brute force search for high dimensional data.\r\n\r\nn_neighbors: {Natural Numbers} - Number of neighbors to use for k_neighbors queries\r\n\r\nweights : {\u2018uniform\u2019, \u2018distance\u2019,  [callable]}\r\n    \u2018uniform\u2019 : uniform weights. All points in each neighborhood are weighted equally.\r\n    \u2018distance\u2019 : weight points by the inverse of their distance. in this case, closer neighbors of a query point will have a greater influence than neighbors which are further away.\r\n    [callable] : a user-defined function which accepts an array of distances, and returns an array of the same shape containing the weights.\r\n\r\n\r\nalgorithm : {\u2018auto\u2019, \u2018ball_tree\u2019, \u2018kd_tree\u2019, \u2018brute\u2019} - Algorithm used to compute the nearest neighbors:\r\n    \u2018ball_tree\u2019 will use BallTree\r\n    \u2018kd_tree\u2019 will use scipy.spatial.cKDtree\r\n    \u2018brute\u2019 will use a brute-force search.\r\n    \u2018auto\u2019 will attempt to decide the most appropriate algorithm based on the values passed to fit method.\r\n\r\n", 
+      "static_image": "scikit_network.png", 
+      "action": "scikitAlgorithms_kNearestNeighbors", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "k-Nearest Neighbours"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9996e844-67e4-49a6-ac1f-8b64cd72cc1c", 
+      "name": "weights", 
+      "short_name": "par", 
+      "default": "uniform", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "wgIn", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "322b76b8-dba1-4251-9920-871d62d7df4a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9996e844-67e4-49a6-ac1f-8b64cd72cc1c", 
+      "name": "n_neighbors", 
+      "short_name": "par", 
+      "default": "5", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numNeib", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "8e52a690-4a80-4d1b-9527-81258157e7c1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9996e844-67e4-49a6-ac1f-8b64cd72cc1c", 
+      "name": "algorithm", 
+      "short_name": "par", 
+      "default": "auto", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "algIn", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "cfdfd105-8eb0-4a7a-bf06-2df3e25f4880"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9996e844-67e4-49a6-ac1f-8b64cd72cc1c", 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "KNNout", 
+      "order": 1, 
+      "uid": "62d4cc9a-d6f1-4a84-8f49-0685676e2ce8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "brute-force search", 
+      "uid": "046af724-e351-4ca8-b5a1-5c96f8205007", 
+      "value": "brute", 
+      "abstract_input": "cfdfd105-8eb0-4a7a-bf06-2df3e25f4880"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "distance", 
+      "uid": "234a816e-95cd-4eba-b481-35ba1118d9ac", 
+      "value": "distance", 
+      "abstract_input": "322b76b8-dba1-4251-9920-871d62d7df4a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "kd_tree", 
+      "uid": "444c6e49-d8ed-442f-9b8e-f83117a36222", 
+      "value": "kd_tree", 
+      "abstract_input": "cfdfd105-8eb0-4a7a-bf06-2df3e25f4880"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Ball Tree", 
+      "uid": "74b8fd6b-3f9e-491f-83d4-1fc4ec9ae636", 
+      "value": "ball_tree", 
+      "abstract_input": "cfdfd105-8eb0-4a7a-bf06-2df3e25f4880"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "most appropriate (automatically)", 
+      "uid": "80dbee28-4f54-4dbd-b5be-c68971901bc0", 
+      "value": "auto", 
+      "abstract_input": "cfdfd105-8eb0-4a7a-bf06-2df3e25f4880"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "uniform", 
+      "uid": "e9b3a7e9-bf96-401f-85b9-9c4144a09d7f", 
+      "value": "uniform", 
+      "abstract_input": "322b76b8-dba1-4251-9920-871d62d7df4a"
+    }
+  }
+]

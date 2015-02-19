@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "4ae60fcc-ae3a-4609-9ec1-a7724d5ac0c4", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function SplitObject_PYTHON in package latino. The original function signature: SplitObject_PYTHON.", 
+      "static_image": "object_split_image.png", 
+      "action": "split_object", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 7, 
+      "name": "Split Object"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4ae60fcc-ae3a-4609-9ec1-a7724d5ac0c4", 
+      "name": "object", 
+      "short_name": "obj", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "object", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "298ce522-7061-993e-a940-069d9c9b739d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4ae60fcc-ae3a-4609-9ec1-a7724d5ac0c4", 
+      "name": "Object Modifier", 
+      "short_name": "atr", 
+      "default": "", 
+      "description": "if one wants to extract object's attributes, leading dot should be used.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "attribute", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "bf822d07-096d-1aeb-e6da-3670d6aa9c53"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4ae60fcc-ae3a-4609-9ec1-a7724d5ac0c4", 
+      "name": "object", 
+      "short_name": "obj", 
+      "description": "", 
+      "variable": "object", 
+      "order": 1, 
+      "uid": "6817c1ee-8e0f-8e63-f4d6-7c43522b7f10"
+    }
+  }
+]

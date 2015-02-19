@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "NLP components", 
+    "parent": "1f5cbe19-0df7-44de-91d8-1ffdae9a1645", 
+    "order": 1, 
+    "uid": "cf46e990-42b6-4027-b2f4-a95acaaed210"
+  }
+}

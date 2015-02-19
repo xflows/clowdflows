@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bc5a8211-0cdd-4c1e-82cc-5251672bfba3", 
+      "treeview_image": "", 
+      "uid": "1a846e00-b256-4e47-9f3c-d820b287a200", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Constructs a default Bio3graph vocabulary.", 
+      "static_image": "", 
+      "action": "bio3graph_build_default_vocabulary", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Build default vocabulary"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1a846e00-b256-4e47-9f3c-d820b287a200", 
+      "name": "Vocabulary", 
+      "short_name": "voc", 
+      "description": "Bio3graph vocabulary structure.", 
+      "variable": "vocabulary", 
+      "order": 1, 
+      "uid": "0e041e74-2386-4080-8f99-c47c2607f142"
+    }
+  }
+]

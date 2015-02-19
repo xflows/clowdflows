@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "74a7063e-9e7f-4305-8b5e-d5f1a4c40250", 
+      "treeview_image": "treeview/Toolbar_-_Loop.png", 
+      "uid": "0adcbc66-4b1a-475b-b82f-42682050c8f4", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Toolbar_-_Loop.png", 
+      "description": "", 
+      "static_image": "WEKA_RandomTree.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "RandomTree", 
+      "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Random Tree"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0adcbc66-4b1a-475b-b82f-42682050c8f4", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "4061b687-c92d-4eca-9e2a-b420bb2b8611"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0adcbc66-4b1a-475b-b82f-42682050c8f4", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "b38f475d-34b7-4892-9ae2-2f1c0fbcd753"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0adcbc66-4b1a-475b-b82f-42682050c8f4", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "ba293824-883c-463c-aefc-b7f3d6617dec"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0adcbc66-4b1a-475b-b82f-42682050c8f4", 
+      "name": "RandomTree Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "RandomTree_learner", 
+      "order": 1, 
+      "uid": "26150fbf-2b4c-4ab4-b227-df9c941febed"
+    }
+  }
+]

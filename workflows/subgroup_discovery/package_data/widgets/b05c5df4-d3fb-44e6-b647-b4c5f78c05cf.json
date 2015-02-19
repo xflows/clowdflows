@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b01ed61e-31e6-4f6f-87b1-f93285801d1b", 
+      "treeview_image": "", 
+      "uid": "b05c5df4-d3fb-44e6-b647-b4c5f78c05cf", 
+      "is_streaming": false, 
+      "package": "subgroup_discovery", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "roc.png", 
+      "action": "subgroup_roc_visualization", 
+      "visualization_view": "subgroup_roc_visualization", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Subgroup ROC visualization"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b05c5df4-d3fb-44e6-b647-b4c5f78c05cf", 
+      "name": "SD rules", 
+      "short_name": "rul", 
+      "default": "", 
+      "description": "rules", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "rules", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "8ceb4772-878e-45c1-b43c-c3ab8605abd0"
+    }
+  }
+]

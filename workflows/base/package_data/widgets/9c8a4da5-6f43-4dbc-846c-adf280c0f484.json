@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "11865b03-cb06-4d50-9174-69d920cbe4ec", 
+      "treeview_image": "", 
+      "uid": "9c8a4da5-6f43-4dbc-846c-adf280c0f484", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Displays a word cloud based on the input string. If the string is a named line documents file (each line starts with !classname) a wordcloud will be displayed for each class.", 
+      "static_image": "word-cloud.png", 
+      "action": "base_wordcloud", 
+      "visualization_view": "base_wordcloud", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Word cloud"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9c8a4da5-6f43-4dbc-846c-adf280c0f484", 
+      "name": "String", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "string", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "cc45bbca-d6c6-4935-b6b3-08d4f38c7f3a"
+    }
+  }
+]

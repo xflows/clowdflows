@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0ae049f7-6040-4992-bb03-f9134b8e63c7", 
+      "treeview_image": "", 
+      "uid": "4d855dc4-0544-484a-914e-79487e8bb982", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "WEKA_arff.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "weka_instances_to_arff", 
+      "wsdl": "http://vihar.ijs.si:8092/Utilities?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Weka Instances To Arff"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4d855dc4-0544-484a-914e-79487e8bb982", 
+      "name": "Instances", 
+      "short_name": "ins", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "0ba276f9-f0c5-4d1e-ada8-7398e3ea3d72"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4d855dc4-0544-484a-914e-79487e8bb982", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "306aa32b-0c75-41e7-8a12-1dbad868124c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4d855dc4-0544-484a-914e-79487e8bb982", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "8bb6803e-eb93-4809-8b1b-a8d9f74e1910"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4d855dc4-0544-484a-914e-79487e8bb982", 
+      "name": "arff file", 
+      "short_name": "arf", 
+      "description": "", 
+      "variable": "arff", 
+      "order": 1, 
+      "uid": "bfbd3109-e756-4a38-bcaf-b2d5883eda77"
+    }
+  }
+]

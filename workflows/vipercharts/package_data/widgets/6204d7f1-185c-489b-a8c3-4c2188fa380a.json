@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "880198d8-b759-4a1c-a642-968b7a79887e", 
+      "treeview_image": "", 
+      "uid": "6204d7f1-185c-489b-a8c3-4c2188fa380a", 
+      "is_streaming": false, 
+      "package": "vipercharts", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "vipercharts_cost_curve", 
+      "visualization_view": "vipercharts_cost_curve_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 5, 
+      "name": "Cost curves"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6204d7f1-185c-489b-a8c3-4c2188fa380a", 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "5d1b1a32-42f6-48a9-b9b1-b3f68cc49bb3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6204d7f1-185c-489b-a8c3-4c2188fa380a", 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "ee7d6063-1bd7-4cd5-98c3-605a1c4a10f3"
+    }
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "7b1fb3c2-3dd7-4754-9a3e-ccf71a43e7c6", 
+      "treeview_image": "", 
+      "uid": "d72801e0-e756-47f7-acd4-aad6ef88a6e1", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ExploreInCrossbee in package crossbee. The original function signature: ExploreInCrossbee.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_explore_in_crossbee", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 25, 
+      "name": "Explore in CrossBee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d72801e0-e756-47f7-acd4-aad6ef88a6e1", 
+      "name": "List of B-terms", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "bterms", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "72bc9488-3469-ae90-155f-788b0f935a74"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d72801e0-e756-47f7-acd4-aad6ef88a6e1", 
+      "name": "Heuristics", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "CrossBeeInterfaces.Heurisitcs.Heuristics", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "95a6b25d-4382-b994-a744-48bc5fdf4c46"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d72801e0-e756-47f7-acd4-aad6ef88a6e1", 
+      "name": "Parsed Document Corpus", 
+      "short_name": "pdc", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "parsedDoc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d6295874-04fd-26be-0bc1-48218f9b1aef"
+    }
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "77f6e581-c116-47d7-b838-f7850c797796", 
+      "treeview_image": "", 
+      "uid": "9b03c323-da3e-4726-8c1b-86cb44387a3e", 
+      "is_streaming": false, 
+      "package": "vipercharts", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "vipercharts_column_chart", 
+      "visualization_view": "vipercharts_column_chart_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Column chart"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9b03c323-da3e-4726-8c1b-86cb44387a3e", 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "9d55a1cd-0546-40a8-94db-5d87f2385a73"
+    }
+  }
+]

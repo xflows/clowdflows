@@ -1,0 +1,138 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "01aad79e-9991-412c-b619-cb87a956b65a", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Reads a csv of gene expression data in SegMine specific format into an Orange data table.", 
+      "static_image": "", 
+      "action": "segmine_read_microarray_data", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Read microarray data from file"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "01aad79e-9991-412c-b619-cb87a956b65a", 
+      "name": "Microarray csv data file", 
+      "short_name": "csv", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "4a2fc0cc-4140-46a8-924c-72ffad6297e0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "01aad79e-9991-412c-b619-cb87a956b65a", 
+      "name": "Fold change: Input data format", 
+      "short_name": "f", 
+      "default": "1", 
+      "description": "Specifies whether the input data is linear or log2 transformed (needed for fold change computation).", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "idf", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "94c5f4f1-7d85-45e2-8393-38fc31a70630"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "01aad79e-9991-412c-b619-cb87a956b65a", 
+      "name": "Fold change: Calculation method", 
+      "short_name": "m", 
+      "default": "1", 
+      "description": "Specifies fold change calculation method.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "cm", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "f3c2883f-e4a6-4c2b-90d8-07a73af84708"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "01aad79e-9991-412c-b619-cb87a956b65a", 
+      "name": "Fold change", 
+      "short_name": "fc", 
+      "description": "sorted list of pairs (gene, fold change)", 
+      "variable": "fold_change", 
+      "order": 2, 
+      "uid": "9d0b23d8-4493-4f61-842a-78356402fd54"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "01aad79e-9991-412c-b619-cb87a956b65a", 
+      "name": "Orange data table with class", 
+      "short_name": "odt", 
+      "description": "Orange data table where columns are genes and rows are measurements. The class attribute indicates whether the measurement belongs to the control or the treatment group.", 
+      "variable": "table", 
+      "order": 1, 
+      "uid": "e376fd1f-31d0-4d20-98e3-032bccbdb00a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "difference of average log2 values", 
+      "uid": "2ff3aa8b-b70b-48c7-9306-4e39727894bd", 
+      "value": "2", 
+      "abstract_input": "f3c2883f-e4a6-4c2b-90d8-07a73af84708"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "linear", 
+      "uid": "43a8b68c-6fcc-4908-a45e-53f08e27670b", 
+      "value": "1", 
+      "abstract_input": "94c5f4f1-7d85-45e2-8393-38fc31a70630"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "ratio", 
+      "uid": "c36b408a-4947-424b-af2b-534bb57a0804", 
+      "value": "1", 
+      "abstract_input": "f3c2883f-e4a6-4c2b-90d8-07a73af84708"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "log2-transformed", 
+      "uid": "dcd58ba0-8956-4802-b954-f2a2c7deae79", 
+      "value": "2", 
+      "abstract_input": "94c5f4f1-7d85-45e2-8393-38fc31a70630"
+    }
+  }
+]

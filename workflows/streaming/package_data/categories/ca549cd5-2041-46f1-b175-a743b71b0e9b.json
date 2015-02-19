@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Streaming", 
+    "parent": null, 
+    "order": 1, 
+    "uid": "ca549cd5-2041-46f1-b175-a743b71b0e9b"
+  }
+}

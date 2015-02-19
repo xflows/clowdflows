@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "74a7063e-9e7f-4305-8b5e-d5f1a4c40250", 
+      "treeview_image": "", 
+      "uid": "fa4f24ac-1055-408a-852f-1ce4d90ef3ce", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "WEKA_MultilPerceptron.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "Multilayer_Perceptron", 
+      "wsdl": "http://vihar.ijs.si:8092/Classification?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Multilayer Perceptron"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fa4f24ac-1055-408a-852f-1ce4d90ef3ce", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a084b7c4-cbc1-44eb-b9ae-8265f800d999"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fa4f24ac-1055-408a-852f-1ce4d90ef3ce", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "b4ffb057-67de-4df8-ad9c-1fe44fd491bd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fa4f24ac-1055-408a-852f-1ce4d90ef3ce", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "f1f2a5e7-40c7-485f-a592-0d7a13bafa30"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "fa4f24ac-1055-408a-852f-1ce4d90ef3ce", 
+      "name": "Multilayer Perceptron Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "Multilayer_Perceptron_learner", 
+      "order": 1, 
+      "uid": "8174e40c-d895-4db1-a51b-d9b83aa3fa42"
+    }
+  }
+]

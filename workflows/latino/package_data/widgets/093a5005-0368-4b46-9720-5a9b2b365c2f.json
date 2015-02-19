@@ -1,0 +1,91 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "093a5005-0368-4b46-9720-5a9b2b365c2f", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructCentroidClassifier in package latino. The original function signature: ConstructCentroidClassifier.", 
+      "static_image": "classifier_centroid_image.png", 
+      "action": "latino_construct_centroid_classifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "Nearest Centroid Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "093a5005-0368-4b46-9720-5a9b2b365c2f", 
+      "name": "Similarity Model", 
+      "short_name": "typ", 
+      "default": "Cosine", 
+      "description": "LatinoClowdFlows.SimilarityModel", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "similarityModel", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "8c1b49cb-78f8-a7d2-2d8a-8710b5f25a03"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "093a5005-0368-4b46-9720-5a9b2b365c2f", 
+      "name": "Normalize Centorids", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "normalizeCentorids", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "c3a78c28-2c45-7233-7f40-c424577eb01b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "093a5005-0368-4b46-9720-5a9b2b365c2f", 
+      "name": "Centroid Classifier", 
+      "short_name": "csf", 
+      "description": "", 
+      "variable": "classifier", 
+      "order": 1, 
+      "uid": "59f16675-9d37-9120-3445-7637121fc316"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Cosine", 
+      "uid": "8484d913-23ba-43ba-508e-12a012b52f39", 
+      "value": "Cosine", 
+      "abstract_input": "8c1b49cb-78f8-a7d2-2d8a-8710b5f25a03"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Dot Product", 
+      "uid": "acab5c6c-60e6-81c3-820a-c3158948cf31", 
+      "value": "DotProduct", 
+      "abstract_input": "8c1b49cb-78f8-a7d2-2d8a-8710b5f25a03"
+    }
+  }
+]

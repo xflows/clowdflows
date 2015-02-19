@@ -1,0 +1,144 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5723a5b8-8c18-4b1f-9398-e93828556c3c", 
+      "treeview_image": "", 
+      "uid": "9fb92534-94bf-4a07-a020-c01b20eaa00a", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Computes the distances between the examples in the data set. ", 
+      "static_image": "ExampleDistance.png", 
+      "action": "cforange_example_distance", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Example Distance"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9fb92534-94bf-4a07-a020-c01b20eaa00a", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "A list of examples", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "44a7c33e-5da8-4676-9ca7-e3188ad7b5c3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9fb92534-94bf-4a07-a020-c01b20eaa00a", 
+      "name": "Normalization", 
+      "short_name": "nor", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "normalization", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "88835ea7-91d0-4bc7-8de0-8bba3734ef01"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9fb92534-94bf-4a07-a020-c01b20eaa00a", 
+      "name": "Distance Metrics", 
+      "short_name": "dm", 
+      "default": "0", 
+      "description": "The available Distance Metrics definitions are Euclidean, Manhattan, Hammming and Relief. Besides, of course, different formal definitions, the measures also differ in how correctly they treat unknown values. Manhattan and Hamming distance do not excel in this respect; Relief distance is similar to Manhattan, but with a more correct treatment for discrete attributes.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "distanceMetrics", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "df5d4372-6365-4285-9c8b-261bb620ca39"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9fb92534-94bf-4a07-a020-c01b20eaa00a", 
+      "name": "Distance matrix", 
+      "short_name": "dm", 
+      "description": "A matrix of example distances", 
+      "variable": "dm", 
+      "order": 1, 
+      "uid": "8e0ec88e-d993-4320-868c-10b45e0ac753"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Relief", 
+      "uid": "213dba49-9471-4b03-9a1e-928de961b54b", 
+      "value": "5", 
+      "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Pearson Correlation", 
+      "uid": "2de2a685-cb40-499a-908a-8e669c7881b9", 
+      "value": "1", 
+      "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Spearman Rank Correlation", 
+      "uid": "43f56e1e-56d5-4fd5-9dd8-ba27b8a1b6fa", 
+      "value": "2", 
+      "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Hamming", 
+      "uid": "69e12fe0-281d-4a67-8144-5a52d9d23140", 
+      "value": "4", 
+      "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Manhattan", 
+      "uid": "7d01bf53-798d-4656-aca5-701c00136ae6", 
+      "value": "3", 
+      "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Euclidean", 
+      "uid": "b0b46bdb-c632-4559-8d1d-e450b41405d2", 
+      "value": "0", 
+      "abstract_input": "df5d4372-6365-4285-9c8b-261bb620ca39"
+    }
+  }
+]

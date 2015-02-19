@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "880198d8-b759-4a1c-a642-968b7a79887e", 
+      "treeview_image": "", 
+      "uid": "f8e7ead9-1ed0-43e1-9c93-01087fa1470a", 
+      "is_streaming": false, 
+      "package": "vipercharts", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "vipercharts_roc_curve", 
+      "visualization_view": "vipercharts_roc_curve_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "ROC curves"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f8e7ead9-1ed0-43e1-9c93-01087fa1470a", 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "72ab4bab-aeac-4530-b75e-8f86ca9e12c1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f8e7ead9-1ed0-43e1-9c93-01087fa1470a", 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a326316c-ca1b-4229-a80c-4256cf83c025"
+    }
+  }
+]

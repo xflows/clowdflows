@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "", 
+      "uid": "53641cf6-8e77-442a-ab4b-016ad52eb36e", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "filter_table", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Filter individual instances in an Orange Data Table.", 
+      "static_image": "alterTable.png", 
+      "action": "filter_table", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "filter_table_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Filter table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "53641cf6-8e77-442a-ab4b-016ad52eb36e", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Original table", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f3dd730c-2d62-4bb1-a749-9db284b2ed31"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "53641cf6-8e77-442a-ab4b-016ad52eb36e", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "description": "Altered table", 
+      "variable": "altered_data", 
+      "order": 1, 
+      "uid": "e373513e-a50a-4884-804e-095247fb5228"
+    }
+  }
+]

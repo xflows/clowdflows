@@ -1,0 +1,126 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "317018eb-3bc8-4862-bce8-273451a01de4", 
+      "treeview_image": "", 
+      "uid": "38c5a557-3fcb-40de-910b-341397c5f7fb", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Support Vector Machines with kernels based on libsvm", 
+      "static_image": "scikit_svm.png", 
+      "action": "scikitAlgorithms_SVC", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Normal Support Vector Classification"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "38c5a557-3fcb-40de-910b-341397c5f7fb", 
+      "name": "Penalty parameter (C)", 
+      "short_name": "par", 
+      "default": "1.0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "penaltyIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "83daa60b-af19-4d20-81d9-cdbdb78afd75"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "38c5a557-3fcb-40de-910b-341397c5f7fb", 
+      "name": "degree", 
+      "short_name": "par", 
+      "default": "3", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "degIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "8f21f50d-caf6-4bdb-9dd4-0c5e35466cac"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "38c5a557-3fcb-40de-910b-341397c5f7fb", 
+      "name": "kernel", 
+      "short_name": "par", 
+      "default": "rbf", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "kernelIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e1d631a9-e85b-4734-a3df-813b638def50"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "38c5a557-3fcb-40de-910b-341397c5f7fb", 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "SVCout", 
+      "order": 1, 
+      "uid": "1900d766-a254-4c3a-9495-51a836f642b6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "poly", 
+      "uid": "1a2e2e5e-68e0-4da8-8ba5-10991a198a1c", 
+      "value": "poly", 
+      "abstract_input": "e1d631a9-e85b-4734-a3df-813b638def50"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "linear", 
+      "uid": "83eb0b69-b114-4b9b-a539-562203555834", 
+      "value": "linear", 
+      "abstract_input": "e1d631a9-e85b-4734-a3df-813b638def50"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "sigmoid", 
+      "uid": "97aa6d96-c845-433b-a899-cb893ff60538", 
+      "value": "sigmoid", 
+      "abstract_input": "e1d631a9-e85b-4734-a3df-813b638def50"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "rbf", 
+      "uid": "d0507071-d708-49eb-b83b-6d515c94bd96", 
+      "value": "rbf", 
+      "abstract_input": "e1d631a9-e85b-4734-a3df-813b638def50"
+    }
+  }
+]

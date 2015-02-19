@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "44fdf9b8-8259-4a43-8a77-59753b74cacd", 
+      "treeview_image": "", 
+      "uid": "206a969a-96b5-4e2f-acc3-d50e261387ce", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function SaveLemmatizer in package lemmagen. The original function signature: SaveLemmatizer.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_save_lemmatizer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 770, 
+      "name": "Save Lemmatizer to Binary"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "206a969a-96b5-4e2f-acc3-d50e261387ce", 
+      "name": "Lemmatizer", 
+      "short_name": "lmz", 
+      "default": "true", 
+      "description": "LemmaSharp.Lemmatizer", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "lmtz", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a1320469-6112-830a-7aa1-5c7372e6ee54"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "206a969a-96b5-4e2f-acc3-d50e261387ce", 
+      "name": "String of the Serialized Lemmatizer", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "objString", 
+      "order": 1, 
+      "uid": "5d04642e-c3b5-28dd-1a8b-eaefab71dc5d"
+    }
+  }
+]

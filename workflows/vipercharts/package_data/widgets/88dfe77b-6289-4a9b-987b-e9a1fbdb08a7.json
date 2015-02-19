@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "880198d8-b759-4a1c-a642-968b7a79887e", 
+      "treeview_image": "", 
+      "uid": "88dfe77b-6289-4a9b-987b-e9a1fbdb08a7", 
+      "is_streaming": false, 
+      "package": "vipercharts", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "vipercharts_kendall_curve", 
+      "visualization_view": "vipercharts_kendall_curve_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 6, 
+      "name": "Kendall curves"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "88dfe77b-6289-4a9b-987b-e9a1fbdb08a7", 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "1bfa000e-e224-424b-b602-8191dc705f8a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "88dfe77b-6289-4a9b-987b-e9a1fbdb08a7", 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c35e8f26-40a6-4cfd-98a7-bda65a3c513c"
+    }
+  }
+]

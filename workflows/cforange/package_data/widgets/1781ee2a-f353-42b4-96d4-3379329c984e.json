@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
+      "treeview_image": "treeview/lookup.png", 
+      "uid": "1781ee2a-f353-42b4-96d4-3379329c984e", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/lookup.png", 
+      "description": "Lookup classifiers predict classes by looking into stored lists of cases. A learner sorts the data instances and merges those with the same feature values.", 
+      "static_image": "lookup.png", 
+      "action": "lookup_learner", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 5, 
+      "name": "Lookup Learner"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1781ee2a-f353-42b4-96d4-3379329c984e", 
+      "name": "Lookup Learner", 
+      "short_name": "lrn", 
+      "description": "Lookup learning algorithm.", 
+      "variable": "lookupout", 
+      "order": 1, 
+      "uid": "9d104fe8-e95a-4553-a9a5-03a49421d148"
+    }
+  }
+]

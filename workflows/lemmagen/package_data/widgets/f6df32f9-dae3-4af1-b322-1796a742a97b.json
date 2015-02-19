@@ -1,0 +1,135 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "824c66d6-1525-4a50-b10b-fc50161d57d3", 
+      "treeview_image": "", 
+      "uid": "f6df32f9-dae3-4af1-b322-1796a742a97b", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Grouping of examples that have same word and same lemma.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_group_examples", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 4, 
+      "name": "Group Examples"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f6df32f9-dae3-4af1-b322-1796a742a97b", 
+      "name": "Ignore Example Frequencies", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "True if frequencies are to be ignored. False if frequencies of elements of a group should be summed together.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "ignoreFrequencies", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "88170ee7-3ffb-ed32-d554-263aa8759d78"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f6df32f9-dae3-4af1-b322-1796a742a97b", 
+      "name": "List of LemmaExamples", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[LemmaSharp.LemmaExample, LemmaSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "exampleList", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "8ab67fe8-f8a5-d0ea-1cc1-a4a30d3adda5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f6df32f9-dae3-4af1-b322-1796a742a97b", 
+      "name": "Msd Consideration", 
+      "short_name": "msd", 
+      "default": "Distinct", 
+      "description": "Specification how algorithm grouping considers msd tags.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "msdConsider", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "f1f0e58b-00ee-0674-d21f-95a36e08dff1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f6df32f9-dae3-4af1-b322-1796a742a97b", 
+      "name": "List of Grouped LemmaExamples", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "exampleList", 
+      "order": 1, 
+      "uid": "683de9d0-78ea-886c-520b-719fbca531a8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "JoinSameSubstring (Joins examples with different tags - new tag is the left to right substring that all joined examples share)", 
+      "uid": "35f3b8b5-151a-356b-76dd-64d84e1482cb", 
+      "value": "JoinSameSubstring", 
+      "abstract_input": "f1f0e58b-00ee-0674-d21f-95a36e08dff1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Ignore            (Completely ignores mds tags - join examples with different tags and sum their weihgts)", 
+      "uid": "b48c8c8f-2f70-4fea-e434-5012e0b40872", 
+      "value": "Ignore", 
+      "abstract_input": "f1f0e58b-00ee-0674-d21f-95a36e08dff1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "JoinAll           (Joins examples with different tags - concatenates all msd tags)", 
+      "uid": "bf48a8f4-2810-8a0e-d219-8c9f79585784", 
+      "value": "JoinAll", 
+      "abstract_input": "f1f0e58b-00ee-0674-d21f-95a36e08dff1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Distinct          (Same examples with different msd's are not considered equal and joined)", 
+      "uid": "c69e5f10-2706-08b8-3e76-5abcbbbde75e", 
+      "value": "Distinct", 
+      "abstract_input": "f1f0e58b-00ee-0674-d21f-95a36e08dff1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "JoinDistinct      (Joins examples with different tags - concatenates just distinct msd tags - somehow slower)", 
+      "uid": "ea9e8fbf-1dc6-23f7-4773-0e332cf74d14", 
+      "value": "JoinDistinct", 
+      "abstract_input": "f1f0e58b-00ee-0674-d21f-95a36e08dff1"
+    }
+  }
+]

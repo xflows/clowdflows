@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0165a189-a6ea-4152-8b5c-f507d47bc0e6", 
+      "treeview_image": "", 
+      "uid": "e8714044-edf0-4f04-906f-34775e5f6072", 
+      "windows_queue": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "The NB classifier uses discrete features. The NB estimates conditional probabilities P(x_j = k|y = c) and prior probabilities P(y) from the training data, where k denotes the value of discrete feature x_j and c denotes a training label. ", 
+      "static_image": "", 
+      "action": "multinomail_naive_bayes_fit", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 7, 
+      "name": "Multinomial Naive Bayes fit"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e8714044-edf0-4f04-906f-34775e5f6072", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "fa45f814-8206-4256-9964-451c88607b9f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e8714044-edf0-4f04-906f-34775e5f6072", 
+      "name": "Fit model", 
+      "short_name": "fit", 
+      "description": "Fit model URL", 
+      "variable": "fitmodel_url", 
+      "order": 1, 
+      "uid": "fb8e25c8-3a32-467e-a070-87c40392a260"
+    }
+  }
+]

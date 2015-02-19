@@ -1,0 +1,164 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "05c26564-86b5-4a73-aae9-f4dc14bc75d7", 
+      "treeview_image": "", 
+      "uid": "d7cf3f71-3efd-4568-b2ff-fb9520106d9a", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructLemmaSharpLemmatizer in package latino. The original function signature: ConstructLemmaSharpLemmatizer.", 
+      "static_image": "tag_stem_image.png", 
+      "action": "latino_construct_lemma_sharp_lemmatizer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 3, 
+      "name": "Lemma Tagger LemmaGen"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d7cf3f71-3efd-4568-b2ff-fb9520106d9a", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "English", 
+      "description": "Latino.TextMining.Language", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "language", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d7cf3f71-3efd-4568-b2ff-fb9520106d9a", 
+      "name": "Lemmatizer (Tagger)", 
+      "short_name": "tgr", 
+      "description": "", 
+      "variable": "tagger", 
+      "order": 1, 
+      "uid": "7e9e5cb0-cc51-7ffb-d85c-f78309363f49"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "0e4a2ccf-0fd4-69e3-e630-d60d8b8f658e", 
+      "value": "English", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Czech", 
+      "uid": "18ddfc3a-1255-b6ea-01fc-7c5742401cfa", 
+      "value": "Czech", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Serbian", 
+      "uid": "1c164e45-6ac6-c26b-1147-da7a53412c3d", 
+      "value": "Serbian", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Italian", 
+      "uid": "3364645a-3a08-6dd5-8a1f-64e3c33a0685", 
+      "value": "Italian", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "German", 
+      "uid": "46c55bf1-aea8-bc38-2c32-f8ce64bdb3c4", 
+      "value": "German", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Spanish", 
+      "uid": "4a2fbfde-ad2c-721d-c563-8f7aa4860d6d", 
+      "value": "Spanish", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovene", 
+      "uid": "705cc251-de0f-8b0b-36e7-2a34a01f7c63", 
+      "value": "Slovene", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Estonian", 
+      "uid": "7a3e3672-48fb-5929-bc0a-d58253ea5a4b", 
+      "value": "Estonian", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "French", 
+      "uid": "9b381bf5-3eab-bcdc-3ce4-491f99291ac9", 
+      "value": "French", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Bulgarian", 
+      "uid": "d31cca41-7ee0-6eb6-a3bb-cccbbf4490ca", 
+      "value": "Bulgarian", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Romanian", 
+      "uid": "e7a9adf6-d6b2-5999-6cd8-2d894a7c31b4", 
+      "value": "Romanian", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Hungarian", 
+      "uid": "fc7c31e4-95d8-2801-efee-b4157d29f3f2", 
+      "value": "Hungarian", 
+      "abstract_input": "97933b25-f871-cb19-0fc6-64b0ffc2c49b"
+    }
+  }
+]

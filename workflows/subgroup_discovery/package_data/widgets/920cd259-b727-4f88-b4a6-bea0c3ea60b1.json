@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b01ed61e-31e6-4f6f-87b1-f93285801d1b", 
+      "treeview_image": "", 
+      "uid": "920cd259-b727-4f88-b4a6-bea0c3ea60b1", 
+      "is_streaming": false, 
+      "package": "subgroup_discovery", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "querydatawithsg.png", 
+      "action": "query_with_subgroups", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "Query data with subgroups"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "920cd259-b727-4f88-b4a6-bea0c3ea60b1", 
+      "name": "SD Rules", 
+      "short_name": "rul", 
+      "default": "", 
+      "description": "rules", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "rules", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "ca5c3d62-8f8b-4cfd-9be2-200e5c5fd6fc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "920cd259-b727-4f88-b4a6-bea0c3ea60b1", 
+      "name": "Data table", 
+      "short_name": "dat", 
+      "default": "", 
+      "description": "data table", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "df3a0ac5-ca5f-483a-91c1-d5a32a404de9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "920cd259-b727-4f88-b4a6-bea0c3ea60b1", 
+      "name": "Data table", 
+      "short_name": "dat", 
+      "description": "queried data", 
+      "variable": "data", 
+      "order": 1, 
+      "uid": "240f52b7-74cf-4451-9ca9-27d647a0a7b9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "920cd259-b727-4f88-b4a6-bea0c3ea60b1", 
+      "name": "Data table", 
+      "short_name": "rem", 
+      "description": "remaining data", 
+      "variable": "remaining_data", 
+      "order": 2, 
+      "uid": "fb43b33f-8d79-4240-a8fb-2cb49fc28875"
+    }
+  }
+]

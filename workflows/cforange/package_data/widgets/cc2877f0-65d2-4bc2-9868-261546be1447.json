@@ -1,0 +1,109 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "2c4c8f68-33db-411c-a8ce-176096349eba", 
+      "treeview_image": "", 
+      "uid": "cc2877f0-65d2-4bc2-9868-261546be1447", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "ROCAnalysis_60.png", 
+      "action": "cforange_auc", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Area under curve (ROC analysis)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cc2877f0-65d2-4bc2-9868-261546be1447", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "Results of classifiers\u2019 tests on data.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "51a10241-e26e-4fab-831b-4295ac82081a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cc2877f0-65d2-4bc2-9868-261546be1447", 
+      "name": "Method", 
+      "short_name": "met", 
+      "default": "0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "method", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "538f7e3a-8650-4c33-ad49-d00221d86145"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "cc2877f0-65d2-4bc2-9868-261546be1447", 
+      "name": "Area Under Curve", 
+      "short_name": "auc", 
+      "description": "", 
+      "variable": "AUC", 
+      "order": 1, 
+      "uid": "c761f9c4-0204-4734-a208-dd8ca3fbd2ba"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "One Against All", 
+      "uid": "64e1c620-ce14-4c78-9aed-199bf803b6b7", 
+      "value": "3", 
+      "abstract_input": "538f7e3a-8650-4c33-ad49-d00221d86145"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Weighted One Against All", 
+      "uid": "8f39364a-2698-430e-912e-dd8c547ca0a7", 
+      "value": "2", 
+      "abstract_input": "538f7e3a-8650-4c33-ad49-d00221d86145"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "By Weighted Pairs", 
+      "uid": "ad6a3d61-5be9-45f7-b9d6-9826dde0986c", 
+      "value": "0", 
+      "abstract_input": "538f7e3a-8650-4c33-ad49-d00221d86145"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "By Pairs", 
+      "uid": "cde2a234-f9be-461a-9298-d3f0698cea8b", 
+      "value": "1", 
+      "abstract_input": "538f7e3a-8650-4c33-ad49-d00221d86145"
+    }
+  }
+]

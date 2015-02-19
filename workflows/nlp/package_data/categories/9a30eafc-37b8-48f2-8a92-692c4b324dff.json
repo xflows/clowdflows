@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Definition extraction", 
+    "parent": "15acb469-c510-44f0-8330-60bfe11a463c", 
+    "order": 1, 
+    "uid": "9a30eafc-37b8-48f2-8a92-692c4b324dff"
+  }
+}

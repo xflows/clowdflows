@@ -1,0 +1,124 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1eed1020-c423-4831-80ce-50f65ae276e1", 
+      "treeview_image": "", 
+      "uid": "54f29d7e-a8a6-4cbb-a042-8cdf89328a2b", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function GetDocStrings in package latino. The original function signature: GetDocStrings.", 
+      "static_image": "adc_to_text_image.png", 
+      "action": "latino_get_doc_strings", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 3, 
+      "name": "Get Plain Texts"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "54f29d7e-a8a6-4cbb-a042-8cdf89328a2b", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "3367601a-8a96-20f1-7bdb-b2610fa4eb18"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "54f29d7e-a8a6-4cbb-a042-8cdf89328a2b", 
+      "name": "Token Annotation", 
+      "short_name": "str", 
+      "default": "TextBlock", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "elementAnnotation", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "4d5f3e18-4eff-0fd7-5961-27e5aae71e74"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "54f29d7e-a8a6-4cbb-a042-8cdf89328a2b", 
+      "name": "Include Document Identifier", 
+      "short_name": "bol", 
+      "default": "", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "includeDocId", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "507de999-1802-700d-27e5-ea5f972bc8e7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "54f29d7e-a8a6-4cbb-a042-8cdf89328a2b", 
+      "name": "Delimiter for token concatenation", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "delimiter", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "5ebae072-0a90-6b4c-a7dc-47bb6bd71d51"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "54f29d7e-a8a6-4cbb-a042-8cdf89328a2b", 
+      "name": "Feature Condition", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Condition which tokens to include based on their features.\r\nFormat examples:\r\n-Feature1 (don't include tokens with Feature1 set ta any value)\r\n-Feature1=Value1 (don't include tokens with Feature1 set to the value Value1)\r\n-Feature1 +Feature2 (don't include tokens with Feature1 set unless it has also Feature2 set)\r\n-Feature1=Value1 +Feature2 (don't include tokens with Feature1 set to Value1 unless it has also Feature2 set to any value)...", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "elementFeatureConditions", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "a7486c8d-0b1c-3a32-999f-15107c13c3f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "54f29d7e-a8a6-4cbb-a042-8cdf89328a2b", 
+      "name": "Texts", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "strings", 
+      "order": 1, 
+      "uid": "bbcbbfc9-8a0f-bf3f-4b2d-7bf018ea4ff9"
+    }
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "99eb79a4-348c-411a-9bba-a42caf048636", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function TrainClassifier in package latino. The original function signature: TrainClassifier.", 
+      "static_image": "classifier_train_image.png", 
+      "action": "latino_train_classifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 15, 
+      "name": "Train Classifier Hub"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "99eb79a4-348c-411a-9bba-a42caf048636", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "4df20aa1-64f1-11c1-bd8c-b9c64e5c0437"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "99eb79a4-348c-411a-9bba-a42caf048636", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "default": "", 
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "csf", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e9bac05e-f82f-09cd-497d-4407fcecd056"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "99eb79a4-348c-411a-9bba-a42caf048636", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "description": "", 
+      "variable": "csf", 
+      "order": 1, 
+      "uid": "fcf15ec3-2176-5d23-4c0a-ebe19faf2a92"
+    }
+  }
+]

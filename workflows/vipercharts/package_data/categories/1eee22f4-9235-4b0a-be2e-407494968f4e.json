@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Scatter charts", 
+    "parent": "f2821411-7b06-46ea-b577-3a06fecd02de", 
+    "order": 1, 
+    "uid": "1eee22f4-9235-4b0a-be2e-407494968f4e"
+  }
+}

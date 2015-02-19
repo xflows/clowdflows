@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b5964b0d-5acb-4dbf-a49d-4331a5a44f9c", 
+      "treeview_image": "", 
+      "uid": "7aafe757-8399-471b-8265-17e2c2be5083", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ParseDocuments in package latino. The original function signature: ParseDocuments.", 
+      "static_image": "latino_widget_image.png", 
+      "action": "latino_parse_documents", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "Parse Document Corpus"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7aafe757-8399-471b-8265-17e2c2be5083", 
+      "name": "Bag of Words Model", 
+      "short_name": "bow", 
+      "default": "", 
+      "description": "Latino.TextMining.BowSpace", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "bow", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "1ab5eba6-24ae-6d8e-0cc7-846c03f0026f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7aafe757-8399-471b-8265-17e2c2be5083", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4746034c-518b-e9b1-3a52-7853adadb5e6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7aafe757-8399-471b-8265-17e2c2be5083", 
+      "name": "Parsed Document Corpus", 
+      "short_name": "pdc", 
+      "description": "", 
+      "variable": "pdc", 
+      "order": 1, 
+      "uid": "a005f62b-6ecc-ae54-68e7-b81c03877dd9"
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bbf1e628-8be6-4178-8d93-765de278c0e4", 
+      "treeview_image": "treeview/Upload-icon_1.png", 
+      "uid": "866b596e-0131-43f6-969d-97f43c66ef0d", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Upload-icon_1.png", 
+      "description": "", 
+      "static_image": "Upload-icon_1.png", 
+      "action": "load_to_string", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 3, 
+      "name": "Load file to string"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "866b596e-0131-43f6-969d-97f43c66ef0d", 
+      "name": "file", 
+      "short_name": "fil", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 0, 
+      "uid": "2de6ce93-0063-4770-a1d1-93fc2d98bccc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "866b596e-0131-43f6-969d-97f43c66ef0d", 
+      "name": "string", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "9051dbca-57cb-4d2b-98e1-14e5b2ea3375"
+    }
+  }
+]

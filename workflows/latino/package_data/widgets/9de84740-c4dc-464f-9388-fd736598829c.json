@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "94237b9c-8e88-460c-abc5-9c8108acb821", 
+      "treeview_image": "", 
+      "uid": "9de84740-c4dc-464f-9388-fd736598829c", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructConditionTagger in package latino. The original function signature: ConstructConditionTagger.", 
+      "static_image": "tag_condition_image.png", 
+      "action": "latino_construct_condition_tagger", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "Condition Tagger"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9de84740-c4dc-464f-9388-fd736598829c", 
+      "name": "Feature Condition", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Condition which tokens to include based on their features.\r\nFormat examples:\r\n-Feature1 (don't include tokens with Feature1 set ta any value)\r\n-Feature1=Value1 (don't include tokens with Feature1 set to the value Value1)\r\n-Feature1 +Feature2 (don't include tokens with Feature1 set unless it has also Feature2 set)\r\n-Feature1=Value1 +Feature2 (don't include tokens with Feature1 set to Value1 unless it has also Feature2 set to any value)...", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "featureCondition", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "93ce61ae-f7af-ee3a-26d0-1b0af81bcc03"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9de84740-c4dc-464f-9388-fd736598829c", 
+      "name": "output Feature Value", 
+      "short_name": "str", 
+      "default": "true", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outputFeatureValue", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "96c4c439-c645-d2b4-cd7d-8524f3c3b2bf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9de84740-c4dc-464f-9388-fd736598829c", 
+      "name": "Put token/feature text as the output feature value", 
+      "short_name": "bol", 
+      "default": "", 
+      "description": "If set to true than token or token's feature text is asigned as output feature value", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "elementsTextToFeatureValue", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "b2e17caf-f2d7-b587-b76e-83bdf12109ae"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9de84740-c4dc-464f-9388-fd736598829c", 
+      "name": "Tagger", 
+      "short_name": "tgr", 
+      "description": "", 
+      "variable": "tagger", 
+      "order": 1, 
+      "uid": "f1d9b4f2-62a1-add4-3f66-cb599081a33c"
+    }
+  }
+]

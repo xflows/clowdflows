@@ -1,0 +1,80 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "48fb3ce2-11ef-4afc-ab1e-aec6f1d6d055", 
+      "treeview_image": "", 
+      "uid": "5fd9822b-fcd7-4f83-a61d-478501b658f5", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function CorpusStatistics in package latino. The original function signature: CorpusStatistics.", 
+      "static_image": "adc_info_image.png", 
+      "action": "latino_corpus_statistics", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Statistics"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5fd9822b-fcd7-4f83-a61d-478501b658f5", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "49ac398c-6c02-3a9e-9d41-06afbf34a384"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5fd9822b-fcd7-4f83-a61d-478501b658f5", 
+      "name": "Number of Features", 
+      "short_name": "int", 
+      "description": "", 
+      "variable": "featureCount", 
+      "order": 2, 
+      "uid": "03ba3ed7-b815-7090-af39-3cb1ced48a80"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5fd9822b-fcd7-4f83-a61d-478501b658f5", 
+      "name": "Statistics", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "description", 
+      "order": 3, 
+      "uid": "37f67dc5-1349-01dc-037a-3da9e156c871"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5fd9822b-fcd7-4f83-a61d-478501b658f5", 
+      "name": "Number of Documents", 
+      "short_name": "int", 
+      "description": "", 
+      "variable": "docCount", 
+      "order": 1, 
+      "uid": "52b4b4ac-1637-7deb-ec6a-593c215dadc2"
+    }
+  }
+]

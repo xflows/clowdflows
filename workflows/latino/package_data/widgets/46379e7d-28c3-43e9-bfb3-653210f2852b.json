@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "46379e7d-28c3-43e9-bfb3-653210f2852b", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Displays any input.", 
+      "static_image": "latino_widget_image.png", 
+      "action": "advanced_object_converter", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Advanced Object to String Converter"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "46379e7d-28c3-43e9-bfb3-653210f2852b", 
+      "name": "Attribute", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "The attribute of the object to display", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "attribute", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "1a12a3b6-82ed-bd27-1deb-75eb133da8e3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "46379e7d-28c3-43e9-bfb3-653210f2852b", 
+      "name": "Object", 
+      "short_name": "obj", 
+      "default": "", 
+      "description": "Any type of object.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "obj", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "35c2629f-9c6d-0408-80c3-f257bb243ae7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "46379e7d-28c3-43e9-bfb3-653210f2852b", 
+      "name": "Maximum Output Length", 
+      "short_name": "int", 
+      "default": "500000", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxStringLen", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "69e503b8-07e4-94b2-b968-51599304de45"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "46379e7d-28c3-43e9-bfb3-653210f2852b", 
+      "name": "Object String Representation", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "objStr", 
+      "order": 1, 
+      "uid": "09a182f3-18ed-33b6-7cf4-ae0a69545641"
+    }
+  }
+]

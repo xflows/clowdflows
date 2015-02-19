@@ -1,0 +1,102 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": true, 
+      "image": "", 
+      "description": "", 
+      "static_image": "GeneRanker.png", 
+      "action": "segmine_gene_ranker", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Gene Ranker"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
+      "name": "Reference examples (0 = all)", 
+      "short_name": "m", 
+      "default": "0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "m", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "11fd645a-cf41-4774-98aa-759478c94588"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
+      "name": "Microarray Table", 
+      "short_name": "ma", 
+      "default": "", 
+      "description": "Orange data table", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "microarrayTable", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "73b59971-1839-417c-a937-021ae2d12903"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
+      "name": "Number of neighbours", 
+      "short_name": "k", 
+      "default": "10", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "k", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "96947efb-4df1-48f8-8802-ac6bc2e1984b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
+      "name": "tScores", 
+      "short_name": "t", 
+      "description": "", 
+      "variable": "tScores", 
+      "order": 2, 
+      "uid": "677d2177-8ee9-433d-920c-41b57293c601"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "34b12afe-e881-447c-90d4-bddcd1cd137b", 
+      "name": "Gene ranks", 
+      "short_name": "rnk", 
+      "description": "", 
+      "variable": "geneRanks", 
+      "order": 1, 
+      "uid": "e3cc4347-d80b-4dbe-9e2c-37f6b0f98671"
+    }
+  }
+]

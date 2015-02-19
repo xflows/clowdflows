@@ -1,0 +1,136 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "segmine_cutoff", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Cutoff (logFC)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
+      "name": "Gene ranks", 
+      "short_name": "rnk", 
+      "default": "", 
+      "description": "sorted list of pairs (geneID, rank)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "12dcc03d-a266-447d-bdc5-810a24de4c27"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
+      "name": "Absolute", 
+      "short_name": "abs", 
+      "default": "true", 
+      "description": "absolute or not", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "absolute", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "1a9e6e81-0484-4819-97aa-7485ff625da5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
+      "name": "Upper bound", 
+      "short_name": "ub", 
+      "default": "0.3", 
+      "description": "upper bound for cutoff", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "upper", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "89f39076-f11d-4d50-a91c-e4db60781b2f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
+      "name": "Fold change values", 
+      "short_name": "fc", 
+      "default": "", 
+      "description": "sorted list of pairs (geneID, logFC)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "logfcs", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "b66d62cd-ee76-4e31-9ed9-c09741a2b567"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
+      "name": "Lower bound", 
+      "short_name": "lb", 
+      "default": "", 
+      "description": "lower bound for cutoff", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "lower", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "d2c9ff0d-46ea-44d1-b962-7108e44cbfb8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
+      "name": "Filtered fold change values", 
+      "short_name": "ffc", 
+      "description": "Filtered ordered list of pairs (geneID, logFC)", 
+      "variable": "filtered_logfcs", 
+      "order": 2, 
+      "uid": "9aa32968-3378-4e02-bbb0-6f8ba4dbc5b8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "33b459c9-49b5-4d27-a6e8-f82b5e43d5d5", 
+      "name": "Filtered gene ranks", 
+      "short_name": "frk", 
+      "description": "Filtered ordered list of pairs (geneID, rank)", 
+      "variable": "filtered_ranks", 
+      "order": 1, 
+      "uid": "a601e367-5952-4980-8cc1-2d621e3f6327"
+    }
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "cf46e990-42b6-4027-b2f4-a95acaaed210", 
+      "treeview_image": "", 
+      "uid": "32cab8ef-ef16-41bd-b14e-fff54ad1e411", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "A link to the golden standard XML file for mapping to KR", 
+      "static_image": "", 
+      "action": "MUSE_mapping_to_KR_golden_standard", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Mapping to KR golden standard"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "32cab8ef-ef16-41bd-b14e-fff54ad1e411", 
+      "name": "Link", 
+      "short_name": "lnk", 
+      "description": "Link to the golden standard for mapping to KR", 
+      "variable": "goldenLink", 
+      "order": 1, 
+      "uid": "f130683f-435e-4199-be4d-c420acb29886"
+    }
+  }
+]

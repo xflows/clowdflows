@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d13c01e6-675f-4c48-a211-b24af72229b0", 
+      "treeview_image": "", 
+      "uid": "c9ecd12e-eaff-41b6-b104-dff7fb60b124", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "One of the several alternative measures to be used to evaluate the success of numeric prediction.", 
+      "static_image": "RSE2.png", 
+      "action": "cforange_RRSE", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Root Relative Squared Error"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c9ecd12e-eaff-41b6-b104-dff7fb60b124", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "44ac11fb-201e-4d8f-b0b2-4d7668ea49a2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c9ecd12e-eaff-41b6-b104-dff7fb60b124", 
+      "name": "Root Relative Squared Error", 
+      "short_name": "rrs", 
+      "description": "", 
+      "variable": "RRSE", 
+      "order": 1, 
+      "uid": "aa8347f5-5243-4336-9c0e-2d9649fc5de2"
+    }
+  }
+]

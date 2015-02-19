@@ -1,0 +1,413 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "is_streaming": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "\t\t\t\t\r\n    SDM-SEGS web service.\r\n    \r\n    Inputs:\r\n        - inputData: str, a .tab dataset or a (pythonish) list of pairs\r\n        - interactions: str, list of interacting examples,\r\n        - mapping : str, a mapping between examples and ontological terms,\r\n        - ont1-4 : str, ontologies in OWL (legacy=false), or in SEGS's format (legacy=true)\r\n        - generalTerms : str, terms that are too general (each in new line),\r\n        - legacy : bool, turns on SEGS mode,\r\n        - posClassVal : str, if the data is class-labeled, this is the target class,\r\n        - cutoff : int, if the data is ranked, this is the cutoff value for splitting it into two classes,\r\n        - wracc_k : int, number of times an example can be covered when selecting with WRAcc,\r\n        - minimalSetSize : int, minimum number of covered examples,\r\n        - maxNumTerms : int, maximum number of conjunctions in one rule,\r\n        - maxReported : int, number of returned rules,\r\n        - maximalPvalue : float, maximum p-value of a returned rule,\r\n        - weightFisher, weightGSEA, weightPAGE : float, weights for corresponding score functions; makes sense only if legacy = false,\r\n        - dataFormat : str, legal values are 'tab' or 'list'\r\n    Output:\r\n        - json dictionary encoding the discovered rules.\r\n        \r\n    Note: See http://kt.ijs.si/software/SEGS/ for legacy format specification.\r\n    \r\n    @author: Anze Vavpetic, 2011 <anze.vavpetic@ijs.si>\r\n    \r\n\t\t\t", 
+      "static_image": "", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "sdmsegs", 
+      "wsdl": "http://vihar.ijs.si:8096/", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "SDM-SEGS"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "ont4", 
+      "short_name": "ont", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ont4", 
+      "parameter": false, 
+      "order": 9, 
+      "uid": "0c790fc0-5f7f-4117-9b9f-dae365eb88f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "0efe46b1-f1f4-4811-aacf-5f97a23e925d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "generalTerms", 
+      "short_name": "gen", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "generalTerms", 
+      "parameter": false, 
+      "order": 6, 
+      "uid": "141f075c-3634-4d6e-8254-fd9afbaa0eb7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "legacy", 
+      "short_name": "leg", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "legacy", 
+      "parameter": true, 
+      "order": 14, 
+      "uid": "15610106-cd5b-4dee-a3d1-ead67a3dc546"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "weightPAGE", 
+      "short_name": "wei", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weightPAGE", 
+      "parameter": true, 
+      "order": 22, 
+      "uid": "22268dfd-5362-45b8-bcec-8bbfa547b826"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "interactions", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "interactions", 
+      "parameter": false, 
+      "order": 7, 
+      "uid": "303998af-0f97-4895-b5fb-1ec57f0ab706"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "ont2", 
+      "short_name": "ont", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ont2", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "3b0d4d2e-177e-4054-81d1-a841f4761f94"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "weightGSEA", 
+      "short_name": "wei", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weightGSEA", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "3e15d380-742f-4134-8093-097e053bdccb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "dataFormat", 
+      "short_name": "dat", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "dataFormat", 
+      "parameter": true, 
+      "order": 16, 
+      "uid": "3ffa0341-a80e-47f5-bf77-488ef678dafa"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "inputData", 
+      "short_name": "inp", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "inputData", 
+      "parameter": false, 
+      "order": 21, 
+      "uid": "4b925bc7-8605-472b-856d-35c0ec4441d2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "ont1", 
+      "short_name": "ont", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ont1", 
+      "parameter": false, 
+      "order": 5, 
+      "uid": "5a86e8aa-9230-4bd3-80f2-3b2bc2ebc2b8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "cutoff", 
+      "short_name": "cut", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cutoff", 
+      "parameter": true, 
+      "order": 20, 
+      "uid": "5a8a4fce-7d56-43c8-9a88-1cc35969d27f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "ont3", 
+      "short_name": "ont", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ont3", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "5b1a953e-0cf6-401b-81ce-f1773e0ca1f9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "maxReported", 
+      "short_name": "max", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxReported", 
+      "parameter": true, 
+      "order": 15, 
+      "uid": "86a886d5-7acc-41b4-9f01-09505385550c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "maxNumTerms", 
+      "short_name": "max", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxNumTerms", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "8cbf4e91-616c-4b35-a16e-86c6ca1e2dd4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "maximalPvalue", 
+      "short_name": "max", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maximalPvalue", 
+      "parameter": true, 
+      "order": 13, 
+      "uid": "b2b31c12-b1aa-4b7f-ace7-005035b92ed7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "minimalSetSize", 
+      "short_name": "min", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minimalSetSize", 
+      "parameter": true, 
+      "order": 17, 
+      "uid": "c71c5076-fc5b-4b4e-823c-68350224caef"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "wracc_k", 
+      "short_name": "wra", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wracc_k", 
+      "parameter": true, 
+      "order": 12, 
+      "uid": "cb312cf6-2e82-4f17-8f36-8b0f8d17a8e0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "d8412f16-25bd-4109-8208-12be9bd4fa17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "mapping", 
+      "short_name": "map", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "mapping", 
+      "parameter": false, 
+      "order": 10, 
+      "uid": "e9b6fee9-ca19-4aaf-9acf-9ecb98f11f5b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "posClassVal", 
+      "short_name": "pos", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "posClassVal", 
+      "parameter": true, 
+      "order": 19, 
+      "uid": "f78ab9ea-d0aa-41e4-afc2-383f0c74ce5d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "weightFisher", 
+      "short_name": "wei", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weightFisher", 
+      "parameter": true, 
+      "order": 18, 
+      "uid": "fd4cc0d1-621d-43da-b03a-e938b104011d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "fd68201e-c2ce-45ad-85ea-41e7171f69bd", 
+      "name": "rules", 
+      "short_name": "rls", 
+      "description": "", 
+      "variable": "rules", 
+      "order": 1, 
+      "uid": "f3f44526-0877-4912-a89c-0bc14b1da6c2"
+    }
+  }
+]

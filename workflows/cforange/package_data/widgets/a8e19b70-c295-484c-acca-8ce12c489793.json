@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "2c4c8f68-33db-411c-a8ce-176096349eba", 
+      "treeview_image": "", 
+      "uid": "a8e19b70-c295-484c-acca-8ce12c489793", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Computes the Brier's score, defined as the average (over test examples) of sumx(t(x)-p(x))^2, where x is a class, t(x) is 1 for the correct class and 0 for the others, and p(x) is the probability that the classifier assigned to the class x.", 
+      "static_image": "BS.png", 
+      "action": "cforange_brier_score", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "Brier Score"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a8e19b70-c295-484c-acca-8ce12c489793", 
+      "name": "Report Standard Error", 
+      "short_name": "rse", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "reportSE", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "49a8722a-74b9-4cd6-a9bf-aec25ff05120"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a8e19b70-c295-484c-acca-8ce12c489793", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "dc37ebf6-0148-4aee-945a-857ea3e8e4fb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a8e19b70-c295-484c-acca-8ce12c489793", 
+      "name": "Brier Score", 
+      "short_name": "bs", 
+      "description": "", 
+      "variable": "bs", 
+      "order": 1, 
+      "uid": "62634c2a-524e-4293-9a37-922a2902afae"
+    }
+  }
+]

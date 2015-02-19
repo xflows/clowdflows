@@ -1,0 +1,102 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "33753234-ee1a-4fb0-8477-7a87d4c20985", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function FilterListElements in package lemmagen. The original function signature: FilterListElements.", 
+      "static_image": "helper_general.png", 
+      "action": "lemmagen_filter_list_elements", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 3, 
+      "name": "Filter List Elements"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33753234-ee1a-4fb0-8477-7a87d4c20985", 
+      "name": "Discard Filtered Out Elements", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "discardFilteredOut", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "880daee3-6078-9adc-9c61-352403672f35"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33753234-ee1a-4fb0-8477-7a87d4c20985", 
+      "name": "Selected Indexes", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "indexList", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "b4cd5345-8b32-45b7-01f2-9ad2365c3d2d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "33753234-ee1a-4fb0-8477-7a87d4c20985", 
+      "name": "List to be filtered", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.IList", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "list", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ec843e27-6502-8205-fb62-f7c4941540d7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "33753234-ee1a-4fb0-8477-7a87d4c20985", 
+      "name": "List with Selecter Elements", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "listSelected", 
+      "order": 1, 
+      "uid": "016753cd-2343-9730-eea7-4930712224b1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "33753234-ee1a-4fb0-8477-7a87d4c20985", 
+      "name": "List with Filtered-out Elements", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "listFiltered", 
+      "order": 2, 
+      "uid": "b5a439db-c53c-deee-dc19-460c484571fd"
+    }
+  }
+]

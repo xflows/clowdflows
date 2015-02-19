@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5888aa38-270f-423b-8d5f-e08f23c1a3b9", 
+      "treeview_image": "", 
+      "uid": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "scikit_buildClassifier.png", 
+      "action": "scikitAlgorithms_buildClassifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Build Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
+      "name": "Instances", 
+      "short_name": "dts", 
+      "default": "", 
+      "description": "to be used by the provided learner to create a classifier.\r\n\r\nProvided by:\r\nArff to Weka Instances", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "436e18dc-5bab-4a74-8cce-0b31b81b2bbd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
+      "name": "Learner", 
+      "short_name": "lea", 
+      "default": "", 
+      "description": "used to build the classifier.\r\n\r\nProvided by:\r\na Weka Classification widget", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "learner", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "97bdb348-947c-4564-88b3-07f0f6134307"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
+      "name": "Classifier", 
+      "short_name": "cls", 
+      "description": "based on the provided data and learner.\r\n\r\nUsed by:\r\nWeka Apply Classifier", 
+      "variable": "classifier", 
+      "order": 1, 
+      "uid": "21f0bf7d-7415-4c4e-b68f-053155c015c2"
+    }
+  }
+]

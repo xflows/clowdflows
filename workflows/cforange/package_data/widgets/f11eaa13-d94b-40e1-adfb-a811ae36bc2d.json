@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
+      "treeview_image": "treeview/orange-Majority.png", 
+      "uid": "f11eaa13-d94b-40e1-adfb-a811ae36bc2d", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/orange-Majority.png", 
+      "description": "A Learner that returns the majority class, disregarding the example\u2019s attributes. Accuracy of classifiers is often compared with the \u201cdefault accuracy\u201d, that is, the accuracy of a classifier which classifies all instances to the majority class. The training of such classifier consists of computing the class distribution and its modus. This \u201clearning algorithm\u201d will most often be used as a baseline, that is, to determine if some other learning algorithm provides any information about the class.", 
+      "static_image": "orange-Majority.png", 
+      "action": "majority_learner", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 6, 
+      "name": "Majority Learner"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f11eaa13-d94b-40e1-adfb-a811ae36bc2d", 
+      "name": "Majority Learner", 
+      "short_name": "lrn", 
+      "description": "The \u201clearning\u201d algorithm.", 
+      "variable": "majorout", 
+      "order": 1, 
+      "uid": "95de96fb-f220-4b30-a981-e669f3380e79"
+    }
+  }
+]

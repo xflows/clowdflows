@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "533f57dc-a21d-4e02-9405-023620fcc39b", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "genesynonyms.png", 
+      "action": "segmine_resolve_gene_synonyms", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Resolve gene synonyms"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "533f57dc-a21d-4e02-9405-023620fcc39b", 
+      "name": "gene ranks", 
+      "short_name": "rnk", 
+      "default": "", 
+      "description": "list of pairs (gene, rank)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "gene_ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ba3dc8e2-4948-4450-a456-30a611cf2283"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "533f57dc-a21d-4e02-9405-023620fcc39b", 
+      "name": "gene ranks", 
+      "short_name": "rnk", 
+      "description": "list of pairs (entrez_id, rank)", 
+      "variable": "gene_ranks", 
+      "order": 1, 
+      "uid": "d9d771fb-b5d1-4c42-9183-873145f910d2"
+    }
+  }
+]

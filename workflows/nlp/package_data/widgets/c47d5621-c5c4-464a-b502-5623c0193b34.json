@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "c47d5621-c5c4-464a-b502-5623c0193b34", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "nlp.png", 
+      "action": "load_corpus2", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Load corpus2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c47d5621-c5c4-464a-b502-5623c0193b34", 
+      "name": "File", 
+      "short_name": "fil", 
+      "default": "", 
+      "description": "File", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "0061e8c8-0759-4686-8b1e-4d3caec9240e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c47d5621-c5c4-464a-b502-5623c0193b34", 
+      "name": "Or input text", 
+      "short_name": "tex", 
+      "default": "", 
+      "description": "Input text", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "text", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "26773c28-d88a-4671-aa06-cb7f1aea1296"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c47d5621-c5c4-464a-b502-5623c0193b34", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "description": "corpus", 
+      "variable": "corpus", 
+      "order": 1, 
+      "uid": "2eea9a0b-0469-4bb4-bc30-3841b5a165a1"
+    }
+  }
+]

@@ -1,0 +1,95 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "62a3ddb8-ff28-4e54-8144-3a7af70d235a", 
+      "treeview_image": "", 
+      "uid": "5a3a0229-7e10-40d8-8c2b-e3ce8011e7f0", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "open_data_in_crossbee", 
+      "visualization_view": "open_data_in_crossbee", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Open data in CrossBee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5a3a0229-7e10-40d8-8c2b-e3ce8011e7f0", 
+      "name": "Domain C name", 
+      "short_name": "dCn", 
+      "default": "domain C", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "domainC", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "3c08d617-7a38-4663-894f-4c8d44640a85"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5a3a0229-7e10-40d8-8c2b-e3ce8011e7f0", 
+      "name": "CrossBee dataset", 
+      "short_name": "cds", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "67436927-c32b-4629-b3ab-f7f87715a863"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5a3a0229-7e10-40d8-8c2b-e3ce8011e7f0", 
+      "name": "Domain A name", 
+      "short_name": "dAn", 
+      "default": "domain A", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "domainA", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "85ac39f7-b5dc-44f3-9d14-0edc48cc4041"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5a3a0229-7e10-40d8-8c2b-e3ce8011e7f0", 
+      "name": "Bterms", 
+      "short_name": "btr", 
+      "default": "", 
+      "description": "Each line represents one bterm", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "bterms", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "a838659f-fdc9-4f8a-91b7-902b8b37f924"
+    }
+  }
+]

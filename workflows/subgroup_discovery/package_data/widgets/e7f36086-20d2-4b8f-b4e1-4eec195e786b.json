@@ -1,0 +1,102 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b01ed61e-31e6-4f6f-87b1-f93285801d1b", 
+      "treeview_image": "", 
+      "uid": "e7f36086-20d2-4b8f-b4e1-4eec195e786b", 
+      "is_streaming": false, 
+      "package": "subgroup_discovery", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "The RelSets algorithm proposed by Garriga et al. (2008):\r\nhttp://jmlr.org/papers/v9/garriga08a.html\r\n\r\nImplemented as a web-service by Podpecan and Kralj:\r\nhttp://kt.ijs.si/petra_kralj/RelSets/", 
+      "static_image": "", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "relSets", 
+      "wsdl": "http://zulu.ijs.si:8085/RS_services?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "RelSets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e7f36086-20d2-4b8f-b4e1-4eec195e786b", 
+      "name": "Input Table", 
+      "short_name": "tab", 
+      "default": "", 
+      "description": "Input Table as an Orange Table represented as a string", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "inputTable", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "07f782ce-6ad4-4eaa-bc4c-58a82e627335"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e7f36086-20d2-4b8f-b4e1-4eec195e786b", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "Web-service timeout", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "50362ef5-42b7-4f71-a8c8-ac48ad8cc79f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e7f36086-20d2-4b8f-b4e1-4eec195e786b", 
+      "name": "Minimal TP Rate", 
+      "short_name": "tpr", 
+      "default": "0.8", 
+      "description": "Minimal True Positive Rate", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minTPrate", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "84eaef35-dab6-4b5b-92fd-b75c2d9f139c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e7f36086-20d2-4b8f-b4e1-4eec195e786b", 
+      "name": "Rules As String", 
+      "short_name": "str", 
+      "description": "The Rules as in a human readable format", 
+      "variable": "rulesAsString", 
+      "order": 1, 
+      "uid": "4ede445e-d1ee-414b-8ec8-5b0da4a32644"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e7f36086-20d2-4b8f-b4e1-4eec195e786b", 
+      "name": "Rules As PMML", 
+      "short_name": "pml", 
+      "description": "The Rules in PMML format", 
+      "variable": "rulesAsPMML", 
+      "order": 2, 
+      "uid": "f026b043-01db-4776-83ae-f8f5d580f989"
+    }
+  }
+]

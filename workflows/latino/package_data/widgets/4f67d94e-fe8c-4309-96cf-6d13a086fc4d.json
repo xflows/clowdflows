@@ -1,0 +1,102 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "48fb3ce2-11ef-4afc-ab1e-aec6f1d6d055", 
+      "treeview_image": "", 
+      "uid": "4f67d94e-fe8c-4309-96cf-6d13a086fc4d", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ExtractDocuments in package latino. The original function signature: ExtractDocuments.", 
+      "static_image": "adc_split_image.png", 
+      "action": "latino_extract_documents", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 8, 
+      "name": "Extract Documents"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f67d94e-fe8c-4309-96cf-6d13a086fc4d", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "1750fb9e-7e7a-335d-c304-f0b6453acaf9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f67d94e-fe8c-4309-96cf-6d13a086fc4d", 
+      "name": "Discard The Rest (The Filtered Out)", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "discardFilteredOut", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "986aade1-9a84-03e6-5951-d2e2a0eff7a1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f67d94e-fe8c-4309-96cf-6d13a086fc4d", 
+      "name": "List of Document Indexes to be Extracted", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "indexList", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "d044e982-d465-5081-7834-5cb71c2c8160"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4f67d94e-fe8c-4309-96cf-6d13a086fc4d", 
+      "name": "Annotated Document Corpus of the Rest of Documents", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adcRest", 
+      "order": 2, 
+      "uid": "a4b90021-e1fe-90cb-3d97-faf863753aea"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4f67d94e-fe8c-4309-96cf-6d13a086fc4d", 
+      "name": "Annotated Document Corpus of Extracted Documents", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adcFiltered", 
+      "order": 1, 
+      "uid": "e9f552d1-8b0a-c54b-cb00-53fd897c353b"
+    }
+  }
+]

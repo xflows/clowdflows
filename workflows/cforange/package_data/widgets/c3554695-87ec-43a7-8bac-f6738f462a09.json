@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "2c4c8f68-33db-411c-a8ce-176096349eba", 
+      "treeview_image": "", 
+      "uid": "c3554695-87ec-43a7-8bac-f6738f462a09", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Computes classification accuracy, i.e. percentage of matches between predicted and actual class. The function returns a list of classification accuracies of all classifiers tested. If reportSE is set to true, the list will contain tuples with accuracies and standard errors.", 
+      "static_image": "CA.png", 
+      "action": "cforange_classification_accuracy", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 3, 
+      "name": "Classification Accuracy"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c3554695-87ec-43a7-8bac-f6738f462a09", 
+      "name": "Report Standard Error", 
+      "short_name": "rse", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "reportSE", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "322d1975-8cff-423c-b73a-e7f5a1488e2e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c3554695-87ec-43a7-8bac-f6738f462a09", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "Evaluation results", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "844835a9-5473-4eba-ad40-162ec8712088"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c3554695-87ec-43a7-8bac-f6738f462a09", 
+      "name": "Classification Accuracy", 
+      "short_name": "ca", 
+      "description": "", 
+      "variable": "ca", 
+      "order": 1, 
+      "uid": "236ad57c-2e84-4df4-9043-0f0d34b45b9b"
+    }
+  }
+]

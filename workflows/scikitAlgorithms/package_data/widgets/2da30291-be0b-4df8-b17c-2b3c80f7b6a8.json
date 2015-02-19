@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ef06ed94-c57a-4bb0-8f05-1212920c95a0", 
+      "treeview_image": "", 
+      "uid": "2da30291-be0b-4df8-b17c-2b3c80f7b6a8", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "scikit_display.png", 
+      "action": "scikitAlgorithms_displayDS", 
+      "visualization_view": "scikitAlgorithms_displayDS", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Display Dataset"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2da30291-be0b-4df8-b17c-2b3c80f7b6a8", 
+      "name": "DataSet", 
+      "short_name": "dts", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e5cd20c4-8346-45d7-a39a-d58bcb5a66c5"
+    }
+  }
+]

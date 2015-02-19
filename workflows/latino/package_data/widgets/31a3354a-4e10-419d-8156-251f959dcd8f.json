@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a8348101-116c-4e04-b2a7-af1c991c3927", 
+      "treeview_image": "", 
+      "uid": "31a3354a-4e10-419d-8156-251f959dcd8f", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function DatasetToObject in package latino. The original function signature: DatasetToObject.", 
+      "static_image": "latino_widget_image.png", 
+      "action": "latino_dataset_to_object", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 6, 
+      "name": "Dataset to Object"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "31a3354a-4e10-419d-8156-251f959dcd8f", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "36c84474-6c5b-4cb5-7848-672d4311d66a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "31a3354a-4e10-419d-8156-251f959dcd8f", 
+      "name": "Standard Object Representataion of Dataset", 
+      "short_name": "obj", 
+      "description": "List<Tuple<int,string,Dictionary<int,double>>> explained as: (List of Examples)<(Example Tuple)<(Id) int,(Label) string,(BOW Dictionary)<(Word Id) int,(Word Weight) double>>>", 
+      "variable": "obj", 
+      "order": 1, 
+      "uid": "fc1445c7-5815-0b77-1a6e-f24d78ae6621"
+    }
+  }
+]

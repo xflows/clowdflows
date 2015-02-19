@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "05c26564-86b5-4a73-aae9-f4dc14bc75d7", 
+      "treeview_image": "", 
+      "uid": "6176ee13-e03c-46ee-92b4-8ba06574f9d3", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function TagADCStopwords in package latino. The original function signature: TagADCStopwords.", 
+      "static_image": "tag_stop_do_image.png", 
+      "action": "latino_tag_adcstopwords", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 8, 
+      "name": "Stopword Tagger Hub"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6176ee13-e03c-46ee-92b4-8ba06574f9d3", 
+      "name": "Output Feature Name", 
+      "short_name": "str", 
+      "default": "stopword", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outputFeature", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "4059e050-41d9-28bf-312b-245be978eb90"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6176ee13-e03c-46ee-92b4-8ba06574f9d3", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "506918e6-a155-19db-a92d-a49020cb739e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6176ee13-e03c-46ee-92b4-8ba06574f9d3", 
+      "name": "Token Tagger", 
+      "short_name": "tgr", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "tagger", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "ab4aca52-bba4-ce58-fdb2-5f8e12117236"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6176ee13-e03c-46ee-92b4-8ba06574f9d3", 
+      "name": "Token Annotation", 
+      "short_name": "str", 
+      "default": "Token", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "elementAnnotation", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "cc2ca8d9-f024-0b55-8876-dbd2f604dc1b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6176ee13-e03c-46ee-92b4-8ba06574f9d3", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adc", 
+      "order": 1, 
+      "uid": "3a8fcb8a-bf7e-38d1-1f9c-dd0f8ad2fd35"
+    }
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "11865b03-cb06-4d50-9174-69d920cbe4ec", 
+      "treeview_image": "treeview/concatenate_string.png", 
+      "uid": "28c00f15-c6e1-45b7-9825-14fdc9819584", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/concatenate_string.png", 
+      "description": "", 
+      "static_image": "concatenate_string.png", 
+      "action": "concatenate_strings", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Concatenate Strings"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "28c00f15-c6e1-45b7-9825-14fdc9819584", 
+      "name": "Delimiter", 
+      "short_name": "del", 
+      "default": "", 
+      "description": "The delimiter will be inserted in between the strings", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "delimiter", 
+      "parameter": true, 
+      "order": 0, 
+      "uid": "8862cfd6-6444-46b7-9b16-456f27b58cb4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "28c00f15-c6e1-45b7-9825-14fdc9819584", 
+      "name": "Strings", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "strings", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "909c8b13-c318-4fab-b9d5-a6c6b08a25b3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "28c00f15-c6e1-45b7-9825-14fdc9819584", 
+      "name": "String", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "95c60fd3-1e53-4de7-84e0-8c0fa56d9e8a"
+    }
+  }
+]

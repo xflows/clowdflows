@@ -1,0 +1,299 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "treeview/UCI-2-ODT.png", 
+      "uid": "4e8683ae-c571-413c-a592-2093de96e8d1", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/UCI-2-ODT.png", 
+      "description": "", 
+      "static_image": "UCI-2-ODT.png", 
+      "action": "uci_to_odt", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "UCI Dataset to Orange Data Table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4e8683ae-c571-413c-a592-2093de96e8d1", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "iris.tab", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "filename", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4e8683ae-c571-413c-a592-2093de96e8d1", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "description": "", 
+      "variable": "data", 
+      "order": 1, 
+      "uid": "2150098d-bcd0-480a-afac-78a833e76eb5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Adult (sample)", 
+      "uid": "0808be1d-5602-4277-9571-96ecb1faf58b", 
+      "value": "adult_sample.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Monks 3 Test", 
+      "uid": "0d832f9c-6fa6-4af9-bbb5-b6bfdabbbe5e", 
+      "value": "monks-3_test.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Post-Operative Patient", 
+      "uid": "136a2c2e-a3b6-4abb-88f1-641ca837804b", 
+      "value": "post-operative.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Yeast", 
+      "uid": "1b451375-329b-46f2-b471-9e4d7d0bc6ca", 
+      "value": "yeast.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Housing", 
+      "uid": "1e765b4f-0c6f-43d6-a4c8-630faa528030", 
+      "value": "housing.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Lenses", 
+      "uid": "27f607c8-651a-4637-a4ab-4f7f12a0a37f", 
+      "value": "lenses.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Congressional Voting Records", 
+      "uid": "2b7b385d-b1c5-4242-86eb-ce77602f2c8b", 
+      "value": "voting.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Glass Identification", 
+      "uid": "33892420-6b22-4262-93d8-45f8c0fb05f8", 
+      "value": "glass.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Lung Cancer", 
+      "uid": "338f8871-e237-4c35-a34c-03228248deac", 
+      "value": "lung-cancer.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Heart Disease", 
+      "uid": "346d63f4-53ec-40d1-8080-e97e1f8b7663", 
+      "value": "heart_disease.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Car Evaluation", 
+      "uid": "45898880-5a9e-4b8f-9a04-d04c77a0ab28", 
+      "value": "car.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Balance Scale", 
+      "uid": "46fca181-b956-47c6-8281-eb60b69052d8", 
+      "value": "balance-scale.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Liver Disorder (BUPA)", 
+      "uid": "66a974be-f910-4710-a18a-87a98136ae7d", 
+      "value": "bupa.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "King Rook vs. King Pawn", 
+      "uid": "695fadad-4433-4d51-88d9-c6ca9ccf0730", 
+      "value": "kr-vs-kp.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Horse Colic", 
+      "uid": "6edc1a09-369f-4465-8b0e-0c6f192f0d82", 
+      "value": "horse-colic.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Breast Cancer", 
+      "uid": "84129065-b876-4ce7-ac3a-09d5dd19989b", 
+      "value": "breast-cancer.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Tic Tac Toe", 
+      "uid": "8ecb78b9-17d4-48d7-8bdf-09c09445a569", 
+      "value": "tic_tac_toe.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Monks 2 Test", 
+      "uid": "9ab37819-cdd4-4dba-8a38-21bf7d3076f0", 
+      "value": "monks-2_test.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Monks 1 Test", 
+      "uid": "a316eaf4-053b-4b02-9c96-c5f80f06d02f", 
+      "value": "monks-1_test.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Molecular Biology (Promoter Gene Sequences)", 
+      "uid": "b0a9f5aa-1b16-4dba-981d-eb9145883700", 
+      "value": "promoters.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Iris", 
+      "uid": "bfd3ffc2-f47c-487f-bfa1-4331a1c5aa3c", 
+      "value": "iris.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Zoo", 
+      "uid": "d1464e56-53fc-47fd-b1b4-43d635159c45", 
+      "value": "zoo.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Wine", 
+      "uid": "d7033002-c7de-4295-84ff-c9a9b2e32cb6", 
+      "value": "wine.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Breast Cancer Wisconsin", 
+      "uid": "dd097a8f-01c7-4ec6-b00e-22efe6aeeb61", 
+      "value": "breast-cancer-wisconsin.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Ionosphere", 
+      "uid": "e14dbdbb-5849-4a56-b8be-8fc2d75d280d", 
+      "value": "ionosphere.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Credit Approval", 
+      "uid": "e2e36bac-e538-4783-9821-81d57a5eba58", 
+      "value": "crx.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Mushroom", 
+      "uid": "f498f469-904c-4e36-88d1-9748495e6cf3", 
+      "value": "mushroom.tab", 
+      "abstract_input": "268452b1-6016-404d-bdb8-01f03df4890f"
+    }
+  }
+]

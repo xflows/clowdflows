@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a6ce3f5e-a0fa-4faa-8be4-5657fcd10b4e", 
+      "treeview_image": "", 
+      "uid": "83c90b6f-9fc1-43d5-a144-6d539497351e", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "kmeans with MapReduce\r\n\r\nThe k-means is a partitional clustering technique that attempts to find a user-specified number of clusters k represented by their centroids.", 
+      "static_image": "", 
+      "action": "kmeans_fit", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "k-means"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "83c90b6f-9fc1-43d5-a144-6d539497351e", 
+      "name": "Random state", 
+      "short_name": "rsd", 
+      "default": "None", 
+      "description": "Define a random state", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "seed", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "47bb296e-f481-432f-a381-63c6df4c6950"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "83c90b6f-9fc1-43d5-a144-6d539497351e", 
+      "name": "Number of clusters", 
+      "short_name": "cls", 
+      "default": "3", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "clusters", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "48f3025a-1bcc-41a1-985f-f2b3ae9633e7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "83c90b6f-9fc1-43d5-a144-6d539497351e", 
+      "name": "Max number of iterations", 
+      "short_name": "itr", 
+      "default": "10", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "itr", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "a8ec22c5-199b-43ff-9c72-780a49d57ea4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "83c90b6f-9fc1-43d5-a144-6d539497351e", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f840ac50-5422-492f-9ba9-b0e2195fef04"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "83c90b6f-9fc1-43d5-a144-6d539497351e", 
+      "name": "Fit model", 
+      "short_name": "fit", 
+      "description": "Fit model URL", 
+      "variable": "fitmodel_url", 
+      "order": 1, 
+      "uid": "5bde14bf-9012-4ee2-9f32-f439c19d8981"
+    }
+  }
+]

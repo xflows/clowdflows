@@ -1,0 +1,164 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "05c26564-86b5-4a73-aae9-f4dc14bc75d7", 
+      "treeview_image": "", 
+      "uid": "bfd10a14-60ea-424d-bc54-eb34173fe7df", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructSnowballStemmer in package latino. The original function signature: ConstructSnowballStemmer.", 
+      "static_image": "tag_stem_image.png", 
+      "action": "latino_construct_snowball_stemmer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 4, 
+      "name": "Stem Tagger Snowball"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bfd10a14-60ea-424d-bc54-eb34173fe7df", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "English", 
+      "description": "Latino.TextMining.Language", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "language", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bfd10a14-60ea-424d-bc54-eb34173fe7df", 
+      "name": "Stemmer (Tagger)", 
+      "short_name": "tgr", 
+      "description": "", 
+      "variable": "tagger", 
+      "order": 1, 
+      "uid": "19aaae25-ca47-25d1-c801-a4e72d012841"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "15d69a6e-35a2-e99a-339d-916620898d3e", 
+      "value": "English", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Spanish", 
+      "uid": "1c32684a-8c3c-6478-1ec0-9a9758a8357c", 
+      "value": "Spanish", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Danish", 
+      "uid": "2a6956b4-d25c-c5cf-9680-37f358c44443", 
+      "value": "Danish", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Dutch", 
+      "uid": "44bf6b31-0384-c6f4-a32a-ea0f63dc7a64", 
+      "value": "Dutch", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Italian", 
+      "uid": "52cd8332-9770-2775-e1b2-c927225c3cdb", 
+      "value": "Italian", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Finnish", 
+      "uid": "717fae43-e56c-75e8-873e-7d39ab06cb4b", 
+      "value": "Finnish", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Norwegian", 
+      "uid": "7907ce4b-9e29-c093-35c1-442545a5d555", 
+      "value": "Norwegian", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Swedish", 
+      "uid": "80d2656e-901f-7116-7e4d-41a0ee672536", 
+      "value": "Swedish", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "French", 
+      "uid": "89bc5e03-96fe-4419-8d35-9dde624bdc01", 
+      "value": "French", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Portuguese", 
+      "uid": "8a771e14-51c7-ff9a-6d1b-f6b12af42e0f", 
+      "value": "Portuguese", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "German", 
+      "uid": "9c008d61-1052-d597-2ec3-f450a9db3ad9", 
+      "value": "German", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Russian", 
+      "uid": "d8d8ac95-caf7-f385-9fe1-80965496dec5", 
+      "value": "Russian", 
+      "abstract_input": "38622b5c-1d5f-4e61-ea6e-8dbdfe8768ee"
+    }
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0f139640-cca3-4b0c-91f9-dbd42f47e73c", 
+      "treeview_image": "", 
+      "uid": "83d65059-1ce9-4eb7-a2cf-abb4a9d41d5f", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Locally weighted linear regression with MapReduce\r\n\r\nReference:\r\nMapReduce version of algorithm is proposed by Cheng-Tao Chu; Sang Kyun Kim, Yi-An Lin, YuanYuan Yu, Gary Bradski, Andrew Ng, and Kunle Olukotun. \"Map-Reduce for Machine Learning on Multicore\". NIPS 2006.   \r\n", 
+      "static_image": "", 
+      "action": "lwlr_fit_predict", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Locally weighted regression"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "83d65059-1ce9-4eb7-a2cf-abb4a9d41d5f", 
+      "name": "Fitting dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "Define a dataset that will be fitted to training dataset.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fitting_dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "104d08df-fe2a-4c11-8432-e33389017f9e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "83d65059-1ce9-4eb7-a2cf-abb4a9d41d5f", 
+      "name": "Training dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "Define training dataset", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "training_dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "15644754-4c1d-4367-a0a3-5d442b51ff89"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "83d65059-1ce9-4eb7-a2cf-abb4a9d41d5f", 
+      "name": "Tau", 
+      "short_name": "tau", 
+      "default": "1", 
+      "description": "Parameter Tau controls how quickly the weight of a training example falls off with distance of its x(i) from the query point x", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "tau", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "ec1391de-af20-4921-876c-d304a6a4e721"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "83d65059-1ce9-4eb7-a2cf-abb4a9d41d5f", 
+      "name": "Results", 
+      "short_name": "rst", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "23922bd7-a70c-440a-b90f-9452a850af18"
+    }
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "8b90267f-c82d-4b62-bee3-66184f4db931", 
+      "treeview_image": "", 
+      "uid": "0e9514ce-914a-4dd0-9952-9cd14877c427", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Performs a leave-one-out experiment with the given list of learners and examples. This is equivalent to performing len(examples)-fold cross validation. Function accepts additional keyword arguments for preprocessing, storing classifiers and verbose output.", 
+      "static_image": "leaveOneOut.png", 
+      "action": "cforange_leave_one_out", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Leave One Out"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0e9514ce-914a-4dd0-9952-9cd14877c427", 
+      "name": "learners", 
+      "short_name": "lrn", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "learners", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "153d8297-ab47-4c51-a540-ed5cf907173f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0e9514ce-914a-4dd0-9952-9cd14877c427", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "51ffb874-f2b3-431c-a38b-16177631fd6f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0e9514ce-914a-4dd0-9952-9cd14877c427", 
+      "name": "Results", 
+      "short_name": "res", 
+      "description": "", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "8d618b48-62db-4f71-8440-5797234117af"
+    }
+  }
+]

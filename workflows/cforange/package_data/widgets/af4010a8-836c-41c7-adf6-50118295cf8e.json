@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "", 
+      "uid": "af4010a8-836c-41c7-adf6-50118295cf8e", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Splits a dataset to a train and test dataset.", 
+      "static_image": "split_dataset.png", 
+      "action": "cforange_split_dataset", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Split dataset"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af4010a8-836c-41c7-adf6-50118295cf8e", 
+      "name": "Split factor", 
+      "short_name": "p", 
+      "default": "0.5", 
+      "description": "A number between 0 and 1 that determines the sizes of the two datasets", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "p", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "6a637f14-7ba4-4c33-90e0-6cc260587260"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "af4010a8-836c-41c7-adf6-50118295cf8e", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "A dataset that will be split into two parts", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "fe354f76-d6ed-4907-9ab6-d8784b3c7620"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "af4010a8-836c-41c7-adf6-50118295cf8e", 
+      "name": "Test data", 
+      "short_name": "tes", 
+      "description": "Test data", 
+      "variable": "test_data", 
+      "order": 2, 
+      "uid": "514abf26-b0d5-4483-9273-6b930bf4eb68"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "af4010a8-836c-41c7-adf6-50118295cf8e", 
+      "name": "Train data", 
+      "short_name": "tra", 
+      "description": "Train data", 
+      "variable": "train_data", 
+      "order": 1, 
+      "uid": "665e0af4-6e6e-4616-8e96-2d8866497a40"
+    }
+  }
+]

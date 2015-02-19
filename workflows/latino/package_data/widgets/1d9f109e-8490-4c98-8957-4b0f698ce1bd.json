@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "1d9f109e-8490-4c98-8957-4b0f698ce1bd", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function FlattenObjectToStringArray in package latino. The original function signature: FlattenObjectToStringArray.", 
+      "static_image": "flatten_string_hierarchy_image.png", 
+      "action": "latino_flatten_object_to_string_array", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 4, 
+      "name": "Flatten String Hierarchy"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1d9f109e-8490-4c98-8957-4b0f698ce1bd", 
+      "name": "data", 
+      "short_name": "obj", 
+      "default": "", 
+      "description": "System.Object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "26dc986a-e8c4-ee4b-ac32-5ce895f3383a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1d9f109e-8490-4c98-8957-4b0f698ce1bd", 
+      "name": "flatData", 
+      "short_name": "obj", 
+      "description": "", 
+      "variable": "flatData", 
+      "order": 1, 
+      "uid": "a16d6a3b-e656-9b50-10c8-8359a5174193"
+    }
+  }
+]

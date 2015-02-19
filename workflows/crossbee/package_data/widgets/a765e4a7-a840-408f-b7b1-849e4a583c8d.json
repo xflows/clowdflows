@@ -1,0 +1,219 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5d55b2bf-c5f6-4fff-bfd3-9d6ad83ba9f9", 
+      "treeview_image": "", 
+      "uid": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Document outlier detection method is using missclassified document instances as otlier candidates.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_outlier_detection_via_cross_validation", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 510, 
+      "name": "Document Outlier Detection"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Assign Sets Randomly", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "random", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "0275f3ce-d1a3-fb1c-d241-fdd9198ba7c3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Num of Cross Validation Sets/Splits", 
+      "short_name": "int", 
+      "default": "10", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numOfSets", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "70f37618-6173-b6de-1581-333303025651"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "7951cba0-726f-c289-80a9-6071170fc934"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Outlier Score Threshold", 
+      "short_name": "int", 
+      "default": "2", 
+      "description": "Minimal number of times a single document needs to be that it is proclaimed outlier (usualy min=1 and max = 'Corss-Validation Repetitions').", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "outlierThreshold", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "ad206ea1-4158-620d-3ea8-7a1ad7f87cc8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Use Specified Seed for Random", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useSeed", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "b732736e-8c7f-d8f7-e9f0-7becd4a6bdcc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "default": "", 
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "csf", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ce140d06-8399-9f9e-73d4-1d62f6d048aa"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Outlier Weighting", 
+      "short_name": "wgh", 
+      "default": "RelativePercentage", 
+      "description": "CrossBeeInterfaces.CrossBeeIntf+OutlierWeighting", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "outlierWeighting", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "d656fe12-2f4c-efb5-6687-013fb8c4b1e0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Random Seed", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "randomSeed", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "e7228b95-f0d5-346a-697c-6225bfc98db2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "Corss-Validation Repetitions", 
+      "short_name": "int", 
+      "default": "5", 
+      "description": "How many times the whole cross-validation procedure is repeated.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "repetitionCount", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "ffa6f21f-bab4-ec85-564d-3c97ce7f1575"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a765e4a7-a840-408f-b7b1-849e4a583c8d", 
+      "name": "List of Outlier Indexes (with Weights)", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "out", 
+      "order": 1, 
+      "uid": "5b56d352-80b9-f52b-e714-875643cc69aa"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Relative: weight is relative percentage how many times a document was labeled outlier through all repetitions", 
+      "uid": "1a6722dd-f1ed-4ba2-702c-13b4c0688d65", 
+      "value": "RelativePercentage", 
+      "abstract_input": "d656fe12-2f4c-efb5-6687-013fb8c4b1e0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Absolute: weight is absolute number of time a document was labeld outlier through all repetitions", 
+      "uid": "4f477fa7-7768-c376-c588-1f3eb74a9355", 
+      "value": "AbsoluteNumber", 
+      "abstract_input": "d656fe12-2f4c-efb5-6687-013fb8c4b1e0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "No weighting: output is list of indexes of outlier documents", 
+      "uid": "5fc5ec58-403c-5d07-6a7e-46d8619545e5", 
+      "value": "NoWeighting", 
+      "abstract_input": "d656fe12-2f4c-efb5-6687-013fb8c4b1e0"
+    }
+  }
+]

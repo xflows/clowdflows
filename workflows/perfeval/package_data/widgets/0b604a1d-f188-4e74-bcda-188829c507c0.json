@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed2728bc-3fd5-4244-9876-f6a757d1b922", 
+      "treeview_image": "treeview/Evaluate.png", 
+      "uid": "0b604a1d-f188-4e74-bcda-188829c507c0", 
+      "is_streaming": false, 
+      "package": "perfeval", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Evaluate.png", 
+      "description": "", 
+      "static_image": "", 
+      "action": "eval_noise_detection", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Evaluate Detection Algorithms"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0b604a1d-f188-4e74-bcda-188829c507c0", 
+      "name": "Detected Noise", 
+      "short_name": "dni", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "detected_noise", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "345a8672-386a-4bc5-b7ff-d7a3a9ee4b0c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0b604a1d-f188-4e74-bcda-188829c507c0", 
+      "name": "Noisy Instances", 
+      "short_name": "nid", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "noisy_inds", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a386be60-c5ad-4565-bbab-3fb41266d233"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0b604a1d-f188-4e74-bcda-188829c507c0", 
+      "name": "Beta parameter for F-mesure ", 
+      "short_name": "bfm", 
+      "default": "1", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "f_beta", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "d6d32949-4eb8-47b5-86fc-2d4026ef54b1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0b604a1d-f188-4e74-bcda-188829c507c0", 
+      "name": "Noise Detection Performance", 
+      "short_name": "ndp", 
+      "description": "", 
+      "variable": "nd_eval", 
+      "order": 1, 
+      "uid": "8254f904-c735-4965-aef4-6ef613ebd5e8"
+    }
+  }
+]

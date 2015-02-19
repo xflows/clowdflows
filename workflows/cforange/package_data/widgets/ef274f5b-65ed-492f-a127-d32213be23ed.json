@@ -1,0 +1,164 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "", 
+      "uid": "ef274f5b-65ed-492f-a127-d32213be23ed", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Discretizes continuous attrbutes from input data set.", 
+      "static_image": "discretization.png", 
+      "action": "cforange_discretize", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Dataset Discretization"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
+      "name": "Cut-off points", 
+      "short_name": "cp", 
+      "default": "", 
+      "description": "Comma separated cut-off points", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "points", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "43b2e055-65c1-4cc3-ae94-926b71911c0e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Attribute-valued data set.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "6172ffda-8582-42ee-b8c3-6e47e1e5aba2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
+      "name": "Discretizators", 
+      "short_name": "dis", 
+      "default": "0", 
+      "description": "Example-based automatic discretization is in essence similar to learning: given a set of examples, discretization method proposes a list of suitable intervals to cut the attribute's values into. For this reason, Orange structures for discretization resemble its structures for learning. Objects derived from orange.Discretization play a role of \"learner\" that, upon observing the examples, construct an orange.Discretizer whose role is to convert continuous values into discrete according to the rule found by Discretization.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "discretizer_id", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "6facdb69-d2e9-4625-bfaf-0b498adba715"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
+      "name": "Number of intervals", 
+      "short_name": "nor", 
+      "default": "", 
+      "description": "Number of intervals is user-defined.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numberOfIntervals", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "a51a20f2-b336-4c4b-a818-30922a4e83d1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
+      "name": "Discretization intervals", 
+      "short_name": "itr", 
+      "description": "Discretization intervals", 
+      "variable": "discr_intervals", 
+      "order": 1, 
+      "uid": "78154f38-95f1-47b9-bf82-b64858d8010a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "description": "Attribute-valued data set composed from instances from input data set that match user-defined condition.", 
+      "variable": "odt", 
+      "order": 1, 
+      "uid": "99ece393-b5ed-48ee-ace3-b995318720ef"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Bi-modal discretization", 
+      "uid": "2c59cad9-6515-49d2-80e2-3e6638040521", 
+      "value": "3", 
+      "abstract_input": "6facdb69-d2e9-4625-bfaf-0b498adba715"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Entropy-based discretization", 
+      "uid": "80b0bca8-a4b3-4edb-9b79-1be959c4069c", 
+      "value": "2", 
+      "abstract_input": "6facdb69-d2e9-4625-bfaf-0b498adba715"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Equi-distant discretization", 
+      "uid": "cf6d0204-e2ef-4be4-b953-96ca63ff35c8", 
+      "value": "0", 
+      "abstract_input": "6facdb69-d2e9-4625-bfaf-0b498adba715"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Fixed discretization", 
+      "uid": "d99c4046-34f4-422b-b294-50753e6f75f6", 
+      "value": "4", 
+      "abstract_input": "6facdb69-d2e9-4625-bfaf-0b498adba715"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Quantile-based discretization", 
+      "uid": "da697eb2-853d-4ad1-a15a-f5afb04dfae9", 
+      "value": "1", 
+      "abstract_input": "6facdb69-d2e9-4625-bfaf-0b498adba715"
+    }
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "94237b9c-8e88-460c-abc5-9c8108acb821", 
+      "treeview_image": "", 
+      "uid": "5bb5799b-00d3-449a-b79a-42e31a36ec8c", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function TagADCMultiple in package latino. The original function signature: TagADCMultiple.", 
+      "static_image": "tag_multiple_do_image.png", 
+      "action": "latino_tag_adcmultiple", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 5, 
+      "name": "Universal Multiple Tagger Hub"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5bb5799b-00d3-449a-b79a-42e31a36ec8c", 
+      "name": "Token Tagger", 
+      "short_name": "tgr", 
+      "default": "", 
+      "description": "System.Collections.IList", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "taggers", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "07a9308b-9a84-28db-7d6d-d7ba80587882"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5bb5799b-00d3-449a-b79a-42e31a36ec8c", 
+      "name": "Output Feature Name (one line per each tagger)", 
+      "short_name": "str", 
+      "default": "tag", 
+      "description": "Output feature name specifies how the token will be tagged (assigend the feature to)\r\nIf multiple taggers are used then one line per tagger must be specified.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "outputFeatures", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "6e0f0289-cd76-2935-5153-a581b0bc8f89"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5bb5799b-00d3-449a-b79a-42e31a36ec8c", 
+      "name": "Token Annotation [ / Feature Name ] (one line per each tagger)", 
+      "short_name": "str", 
+      "default": "Token", 
+      "description": "Token Annotation of the token to be tagged. If also the feature name is used than the feature value of selected token will be tagged.\r\nUsage: \r\n1. TokenName\r\n2. TokenName/FatureName\r\n3. GroupTokenName/TokenName/FatureName\r\nIf multiple taggers are used then one line per tagger must be specified.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "elementAnnotations", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "8081e46e-e87f-d112-5008-c99825c5ff12"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5bb5799b-00d3-449a-b79a-42e31a36ec8c", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "da1abf2d-4055-a35e-be5f-51113e7af728"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5bb5799b-00d3-449a-b79a-42e31a36ec8c", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adc", 
+      "order": 1, 
+      "uid": "d53da19f-9902-08f8-a857-a2b553cb17d7"
+    }
+  }
+]

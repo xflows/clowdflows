@@ -1,0 +1,192 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function RandomSequentialValidationSets in package latino. The original function signature: RandomSequentialValidationSets.", 
+      "static_image": "helper_general.png", 
+      "action": "latino_random_sequential_validation_sets", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 1, 
+      "name": "Random Sequential Validation Sets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "name": "Example List", 
+      "short_name": "obj", 
+      "default": "", 
+      "description": "Not required, but if set, then it overrides parameter 'numOfExamples' and len(examples) is used for 'numOfExamples'. This should be a type implementing Count, Count() or Length.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "examples", 
+      "parameter": false, 
+      "order": 9, 
+      "uid": "2a148451-6c7d-ce3f-b8e5-d13d64a9c45e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "name": "Size of Test Set", 
+      "short_name": "num", 
+      "default": "10%", 
+      "description": "May be specified as absolute number or number foloweed by '%' to denote the percentage of the whole dataset.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "testSize", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "2d2abe8f-342c-76c1-28e7-81f64f993296"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "name": "Size of Train Set", 
+      "short_name": "num", 
+      "default": "40%", 
+      "description": "May be specified as absolute number or number foloweed by '%' to denote the percentage of the whole dataset.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "trainSize", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "31018dd7-7d3d-7389-81bf-b62f01ab1aa7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "name": "Num of Sets", 
+      "short_name": "int", 
+      "default": "10", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numOfSets", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "3c925a37-0ee3-f62e-7b22-d1714d351d1d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "name": "Num of Examples", 
+      "short_name": "int", 
+      "default": "100", 
+      "description": "This determines the length of the set id list. If input 'examples' is set then len(examples) is used for 'numOfExamples' and this setting is overriden.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numOfExamples", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "462fb6c6-cd17-00fb-d043-1f1ffba08207"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "name": "Size of Space Between Train and Test Set", 
+      "short_name": "num", 
+      "default": "1%", 
+      "description": "May be specified as absolute number or number foloweed by '%' to denote the percentage of the whole dataset.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "trainTestDelay", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "7907fe83-3ce8-2c40-bda9-f82a0596e58d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "name": "Random Seed", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "randomSeed", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "8c1254ff-9daf-705a-4538-63c58d0e6ecf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "name": "Assign Sets Randomly", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "If not set then sets are exactly evenly distributet across the whole dataset.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "random", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "a6f0f610-f5f0-849f-8b12-60bf2ec87697"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "name": "Use Seed for Random", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useSeed", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "cf82fbf2-afcb-3dfb-e9b0-729905db423e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5d4f624c-b0e1-4366-9f60-650cb29417e8", 
+      "name": "Multiple Set Indexes", 
+      "short_name": "dct", 
+      "description": "", 
+      "variable": "dict", 
+      "order": 1, 
+      "uid": "90a04e2b-c617-c9d9-341c-08b8c3b2c9b7"
+    }
+  }
+]

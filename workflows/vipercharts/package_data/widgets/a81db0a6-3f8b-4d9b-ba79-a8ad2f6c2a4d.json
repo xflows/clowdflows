@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "880198d8-b759-4a1c-a642-968b7a79887e", 
+      "treeview_image": "", 
+      "uid": "a81db0a6-3f8b-4d9b-ba79-a8ad2f6c2a4d", 
+      "is_streaming": false, 
+      "package": "vipercharts", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "vipercharts_lift_curve", 
+      "visualization_view": "vipercharts_lift_curve_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Lift curves"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a81db0a6-3f8b-4d9b-ba79-a8ad2f6c2a4d", 
+      "name": "Chart title", 
+      "short_name": "ttl", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "title", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "76d078ee-c5e7-4a4c-9347-a7884305cbc8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a81db0a6-3f8b-4d9b-ba79-a8ad2f6c2a4d", 
+      "name": "Performance results", 
+      "short_name": "prf", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f84aeba3-2d50-41c4-b613-22413b34b586"
+    }
+  }
+]

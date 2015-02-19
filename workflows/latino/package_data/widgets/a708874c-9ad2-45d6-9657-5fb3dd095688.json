@@ -1,0 +1,102 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "48fb3ce2-11ef-4afc-ab1e-aec6f1d6d055", 
+      "treeview_image": "", 
+      "uid": "a708874c-9ad2-45d6-9657-5fb3dd095688", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function SplitDocumentsByFeatureValue in package latino. The original function signature: SplitDocumentsByFeatureValue.", 
+      "static_image": "adc_split_image.png", 
+      "action": "latino_split_documents_by_feature_value", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 7, 
+      "name": "Split"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a708874c-9ad2-45d6-9657-5fb3dd095688", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "default": "", 
+      "description": "LatinoClowdFlows.DocumentCorpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "adc", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "6aab324d-c86e-d859-f4bc-b3720f6e7941"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a708874c-9ad2-45d6-9657-5fb3dd095688", 
+      "name": "Discard The Rest (The Filtered Out)", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "discardFilteredOut", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "cda48ea0-9018-41c0-6ef7-7710f48ac59f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a708874c-9ad2-45d6-9657-5fb3dd095688", 
+      "name": "Feature Condition", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "featureCondition", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "e69daa5d-7665-7c5d-5493-5747210a5b9a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a708874c-9ad2-45d6-9657-5fb3dd095688", 
+      "name": "The Rest of Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adcRest", 
+      "order": 2, 
+      "uid": "199d7c70-c431-9b85-1d61-d69ca2a455a7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a708874c-9ad2-45d6-9657-5fb3dd095688", 
+      "name": "Filtered Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adcFiltered", 
+      "order": 1, 
+      "uid": "9f147ab3-11c8-6114-3331-38ac1ee2324f"
+    }
+  }
+]

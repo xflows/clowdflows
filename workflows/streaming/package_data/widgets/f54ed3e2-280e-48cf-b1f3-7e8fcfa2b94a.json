@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "f54ed3e2-280e-48cf-b1f3-7e8fcfa2b94a", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "sentiment.png", 
+      "action": "streaming_sentiment_analysis", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Text Sentiment Analysis"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f54ed3e2-280e-48cf-b1f3-7e8fcfa2b94a", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "en", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "456adb59-6533-4d24-98c2-be076c43c1fb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f54ed3e2-280e-48cf-b1f3-7e8fcfa2b94a", 
+      "name": "Text", 
+      "short_name": "tex", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f9236516-4a3b-4441-af21-86930bbd958a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f54ed3e2-280e-48cf-b1f3-7e8fcfa2b94a", 
+      "name": "Reliability", 
+      "short_name": "rel", 
+      "description": "", 
+      "variable": "reliability", 
+      "order": 1, 
+      "uid": "797fcd60-a9f5-492d-9f67-833d8c606617"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f54ed3e2-280e-48cf-b1f3-7e8fcfa2b94a", 
+      "name": "Sentiment", 
+      "short_name": "sen", 
+      "description": "", 
+      "variable": "sentiment", 
+      "order": 1, 
+      "uid": "f7d0779a-92ed-4953-95a6-2cb4da96c75f"
+    }
+  }
+]

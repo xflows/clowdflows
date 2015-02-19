@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "6d75faa7-c547-475c-8b96-04b78d4ff402", 
+      "treeview_image": "", 
+      "uid": "86315b53-900f-4844-b41e-019f91afd955", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Apply the provided classifier on the provided data.", 
+      "static_image": "WEKA_ApplyClassifier.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "apply_classifier", 
+      "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Apply Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "86315b53-900f-4844-b41e-019f91afd955", 
+      "name": "Classifier", 
+      "short_name": "cla", 
+      "default": "", 
+      "description": "to be applied on data.\r\n\r\nProvided by:\r\nWeka Build Classifier", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "09c54f59-0beb-4300-b682-47ebd63b71c9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "86315b53-900f-4844-b41e-019f91afd955", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "542b8e26-bc86-4e7c-8595-01911478f235"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "86315b53-900f-4844-b41e-019f91afd955", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "80e54d5f-d86f-4681-8bad-8b37cc1ec2c3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "86315b53-900f-4844-b41e-019f91afd955", 
+      "name": "Instances", 
+      "short_name": "ins", 
+      "default": "", 
+      "description": "to be classified.\r\n\r\nProvided by:\r\nArff to Weka Instances", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "c22197af-f60b-4b76-b40e-516c17c9e1ab"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "86315b53-900f-4844-b41e-019f91afd955", 
+      "name": "Classes", 
+      "short_name": "cls", 
+      "description": "based on the provided classifier and data.", 
+      "variable": "classes", 
+      "order": 1, 
+      "uid": "9b29be8c-d5e9-46c5-84a8-530275037210"
+    }
+  }
+]

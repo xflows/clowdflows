@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b01ed61e-31e6-4f6f-87b1-f93285801d1b", 
+      "treeview_image": "", 
+      "uid": "b3cb0462-6bae-4922-a67d-504e93fc0fc6", 
+      "is_streaming": false, 
+      "package": "subgroup_discovery", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "bar.png", 
+      "action": "subgroup_bar_visualization", 
+      "visualization_view": "subgroup_bar_visualization", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 5, 
+      "name": "Subgroup bar visualization"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b3cb0462-6bae-4922-a67d-504e93fc0fc6", 
+      "name": "SD rules", 
+      "short_name": "rul", 
+      "default": "", 
+      "description": "rules", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "rules", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "1c212c77-bc15-437c-a69a-1a9e153a35d1"
+    }
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "treeview/nlp_3.png", 
+      "uid": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/nlp_9.png", 
+      "description": "", 
+      "static_image": "nlp.png", 
+      "action": "load_corpus", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Load corpus"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971", 
+      "name": "File", 
+      "short_name": "fil", 
+      "default": "", 
+      "description": "File", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "file", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "096159a3-ddc8-4a57-b769-dddfb2590065"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971", 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "default": "http://vihar.ijs.si:8095/totale?wsdl", 
+      "description": "Web service address", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "907565a7-4336-48c3-8989-9024aae0d7b1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ce3c4bc7-689c-4eff-8c5c-2aa1aaf82971", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "description": "corpus", 
+      "variable": "corpus", 
+      "order": 1, 
+      "uid": "edcc6852-ba3b-4fd7-a46a-6988a7ff61ad"
+    }
+  }
+]

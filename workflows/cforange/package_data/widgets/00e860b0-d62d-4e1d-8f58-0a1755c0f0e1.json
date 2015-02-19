@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "583debcb-5041-46b3-b464-e21875896710", 
+      "treeview_image": "treeview/Orange-ApplyClassifier5.png", 
+      "uid": "00e860b0-d62d-4e1d-8f58-0a1755c0f0e1", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Orange-ApplyClassifier5.png", 
+      "description": "", 
+      "static_image": "Orange-ApplyClassifier5.png", 
+      "action": "apply_classifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Apply Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "00e860b0-d62d-4e1d-8f58-0a1755c0f0e1", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "7c16a50f-c548-4104-afd2-0f3be086fc9e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "00e860b0-d62d-4e1d-8f58-0a1755c0f0e1", 
+      "name": "Classifier", 
+      "short_name": "clf", 
+      "default": "", 
+      "description": "Classifier to be applied", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "fd103975-883d-4501-9fe3-9ebadb01ae4f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "00e860b0-d62d-4e1d-8f58-0a1755c0f0e1", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "description": "", 
+      "variable": "data", 
+      "order": 1, 
+      "uid": "fd7a69ac-a8bf-4681-bf32-328fde34d742"
+    }
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "168025e9-edfe-44d0-9818-1ac1d7d5cfe3", 
+      "treeview_image": "", 
+      "uid": "0a5cb319-2063-4518-b0a0-d4686e7d0e7d", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "L1+L2-regularized least squares linear model trained using Coordinate Descent", 
+      "static_image": "scikit_NET.png", 
+      "action": "scikitAlgorithms_ElasticNet", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Elastic Net"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0a5cb319-2063-4518-b0a0-d4686e7d0e7d", 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "out", 
+      "order": 1, 
+      "uid": "dc4f1e7a-aaf9-45a2-8d00-51ddb3948eb3"
+    }
+  }
+]

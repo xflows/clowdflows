@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b01ed61e-31e6-4f6f-87b1-f93285801d1b", 
+      "treeview_image": "", 
+      "uid": "6e02a8d4-fe84-4430-8a74-beb1e4c51964", 
+      "is_streaming": false, 
+      "package": "subgroup_discovery", 
+      "interaction_view": "select_subgroups", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "selectsg.png", 
+      "action": "select_subgroups", 
+      "visualization_view": "select_subgroups", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "select_subgroups_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 3, 
+      "name": "Select subgroups"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6e02a8d4-fe84-4430-8a74-beb1e4c51964", 
+      "name": "SD rules", 
+      "short_name": "rul", 
+      "default": "", 
+      "description": "rules", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "rules", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a9f87b37-1b21-47d3-80fa-687d68f2a5c3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6e02a8d4-fe84-4430-8a74-beb1e4c51964", 
+      "name": "SD rules", 
+      "short_name": "rul", 
+      "description": "selected rules", 
+      "variable": "sel_rules", 
+      "order": 1, 
+      "uid": "a95fdc85-da40-4fd3-a324-7940bd9132d9"
+    }
+  }
+]

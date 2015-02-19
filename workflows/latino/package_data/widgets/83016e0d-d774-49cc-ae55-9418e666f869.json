@@ -1,0 +1,118 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5a4286c8-d182-45a5-896b-cc3c6ed84f22", 
+      "treeview_image": "", 
+      "uid": "83016e0d-d774-49cc-ae55-9418e666f869", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructUnicodeTokenizer in package latino. The original function signature: ConstructUnicodeTokenizer.", 
+      "static_image": "token_word_image.png", 
+      "action": "latino_construct_unicode_tokenizer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 4, 
+      "name": "Unicode Tokenizer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "83016e0d-d774-49cc-ae55-9418e666f869", 
+      "name": "Minimal Token Length", 
+      "short_name": "int", 
+      "default": "1", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "minTokenLen", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "811f5465-88c6-a8db-7e7d-1663d248a0e5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "83016e0d-d774-49cc-ae55-9418e666f869", 
+      "name": "Filter", 
+      "short_name": "flt", 
+      "default": "None", 
+      "description": "Latino.TextMining.TokenizerFilter", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "filter", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "a8b4b017-ffd3-da3f-9092-9f9dccc0377c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "83016e0d-d774-49cc-ae55-9418e666f869", 
+      "name": "Tokenizer", 
+      "short_name": "tkn", 
+      "description": "", 
+      "variable": "tokenizer", 
+      "order": 1, 
+      "uid": "512e0add-0214-bf5b-e52d-e0e608110684"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "AlphaStrict: accept tokens that contain alphabetic characters only", 
+      "uid": "2b71a17a-2a16-4d35-288f-937ca3091dc9", 
+      "value": "AlphaStrict", 
+      "abstract_input": "a8b4b017-ffd3-da3f-9092-9f9dccc0377c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "AlphanumLoose: accept tokens that contain at least one alphanumeric character", 
+      "uid": "5f5f556a-e3a2-a278-6e0a-fafebd3481ff", 
+      "value": "AlphanumLoose", 
+      "abstract_input": "a8b4b017-ffd3-da3f-9092-9f9dccc0377c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "AlphanumStrict: accept tokens that contain alphanumeric characters only", 
+      "uid": "8af9dd9b-fc70-9745-7872-ae443896c2a8", 
+      "value": "AlphanumStrict", 
+      "abstract_input": "a8b4b017-ffd3-da3f-9092-9f9dccc0377c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "AlphaLoose: accept tokens that contain at least one alphabetic character", 
+      "uid": "974d33bf-987b-82f6-fcc4-cd95ca65e5db", 
+      "value": "AlphaLoose", 
+      "abstract_input": "a8b4b017-ffd3-da3f-9092-9f9dccc0377c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "None: accept all tokens", 
+      "uid": "e0d910d0-3c99-24bc-a3c2-dc67fea4c8ee", 
+      "value": "None", 
+      "abstract_input": "a8b4b017-ffd3-da3f-9092-9f9dccc0377c"
+    }
+  }
+]

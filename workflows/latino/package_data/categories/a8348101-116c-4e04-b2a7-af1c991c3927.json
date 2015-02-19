@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Dataset", 
+    "parent": "3f7d449c-9222-458b-9c4e-412b01bcbc6b", 
+    "order": 6, 
+    "uid": "a8348101-116c-4e04-b2a7-af1c991c3927"
+  }
+}

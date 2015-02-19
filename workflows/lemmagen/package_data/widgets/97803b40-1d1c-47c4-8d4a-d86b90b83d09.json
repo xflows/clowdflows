@@ -1,0 +1,124 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b86956c3-21f6-47bd-8379-edf6f6c2f351", 
+      "treeview_image": "", 
+      "uid": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This is a common widget for loading a simple text (e.g. tab separated) string as table.", 
+      "static_image": "helper_table.png", 
+      "action": "lemmagen_delimited_string2_table", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Load Table From String"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
+      "name": "Header Line", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "If 'firstLineIsHeader' is set to false then widget tries to parse this paramater as header line.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "headerLine", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "42ddb482-c07f-c6da-b4c8-447b0f4ebf3c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
+      "name": "First Line is Header", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "If true then widget parses first line of file as column headers.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "firstLineIsHeader", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "74057cba-ebac-ac44-c1a9-f6a1b9e9eb4f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
+      "name": "Raw Text String", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Input Text String: Contains one table row per line", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "examplesText", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d2c7fe36-c315-c305-cbb2-9858f0ab3f80"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
+      "name": "Skip Empty Lines", 
+      "short_name": "bool", 
+      "default": "true", 
+      "description": "If true, empty lines in the input string are ignored (usefull also for eliminating a trailing newline in a document).", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "skipEmptyLines", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "e5259cf5-51c5-bf17-034b-baefae53b3b1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
+      "name": "Delimiter", 
+      "short_name": "str", 
+      "default": "\t", 
+      "description": "Delimiter used to split columns in a line (e.g. comma, tab).", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "delimiter", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "f9089d34-c569-34da-6e3f-b79b7ccb1092"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "97803b40-1d1c-47c4-8d4a-d86b90b83d09", 
+      "name": "Table", 
+      "short_name": "tbl", 
+      "description": "", 
+      "variable": "table", 
+      "order": 1, 
+      "uid": "1d7354c1-a0b5-2c46-1933-c6f6e30baf9a"
+    }
+  }
+]

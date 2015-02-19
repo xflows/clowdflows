@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "a92685c6-aeca-42bd-af49-c815ebafb573", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function PredictClassification in package latino. The original function signature: PredictClassification.", 
+      "static_image": "classification_predict_image.png", 
+      "action": "latino_predict_classification", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 13, 
+      "name": "Predict Classification"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a92685c6-aeca-42bd-af49-c815ebafb573", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "6bfd0b18-b660-feb8-8894-492da5fb7ac9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a92685c6-aeca-42bd-af49-c815ebafb573", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "default": "", 
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "csf", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d48016c2-edb0-265e-c40a-858745ab012b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a92685c6-aeca-42bd-af49-c815ebafb573", 
+      "name": "Labeled dataset", 
+      "short_name": "ds", 
+      "description": "", 
+      "variable": "ds", 
+      "order": 2, 
+      "uid": "3a72cfc4-179d-8db9-8086-6017f697e3b8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a92685c6-aeca-42bd-af49-c815ebafb573", 
+      "name": "Prediction(s)", 
+      "short_name": "prd", 
+      "description": "", 
+      "variable": "predictions", 
+      "order": 1, 
+      "uid": "efaba4b6-3b66-e7b9-f361-866c6104c3ed"
+    }
+  }
+]

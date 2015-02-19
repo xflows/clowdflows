@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa1a52a7-66ee-483d-b24a-e543140fc476", 
+      "treeview_image": "", 
+      "uid": "1baeaa93-6b32-4fbb-89c0-98a04c381328", 
+      "is_streaming": false, 
+      "package": "conceptnet", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "conceptnet_execute_query", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Conceptnet Execute Query"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1baeaa93-6b32-4fbb-89c0-98a04c381328", 
+      "name": "query", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "query", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c7f7da84-266c-4fe2-8e08-84ffe7e7a126"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1baeaa93-6b32-4fbb-89c0-98a04c381328", 
+      "name": "json", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "json", 
+      "order": 1, 
+      "uid": "b62150ba-c796-46cd-988b-d4bfd3b1d0a2"
+    }
+  }
+]

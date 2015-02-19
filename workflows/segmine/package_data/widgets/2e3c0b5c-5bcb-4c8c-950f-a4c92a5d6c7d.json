@@ -1,0 +1,68 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "2e3c0b5c-5bcb-4c8c-950f-a4c92a5d6c7d", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Returns a set of strings computed as a union and intersection of all attributes of a SegMine rule table (genes or terms).", 
+      "static_image": "", 
+      "action": "segmine_ruletable2attribute_union_intersection", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Union and intersection of attributes for SegMine rule table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2e3c0b5c-5bcb-4c8c-950f-a4c92a5d6c7d", 
+      "name": "Data table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Orange data table", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ruletable", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "2e913773-e48c-4401-b058-e75869eed9b6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2e3c0b5c-5bcb-4c8c-950f-a4c92a5d6c7d", 
+      "name": "Attribute intersection", 
+      "short_name": "ati", 
+      "description": "Intersection of atributes of rules", 
+      "variable": "atrInter", 
+      "order": 2, 
+      "uid": "06e8a9b6-901b-4e16-8d02-fded307a12c1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2e3c0b5c-5bcb-4c8c-950f-a4c92a5d6c7d", 
+      "name": "Attribute union", 
+      "short_name": "atu", 
+      "description": "Union of attributes of rules", 
+      "variable": "atrUnion", 
+      "order": 1, 
+      "uid": "64b2edae-31f7-4b97-93f5-144a03097852"
+    }
+  }
+]

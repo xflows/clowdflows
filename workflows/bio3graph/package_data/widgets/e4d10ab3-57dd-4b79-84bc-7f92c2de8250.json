@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "eebdd845-fbff-48f4-ab8f-509a10f53f12", 
+      "treeview_image": "", 
+      "uid": "e4d10ab3-57dd-4b79-84bc-7f92c2de8250", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Performs a query to PubMed Central.", 
+      "static_image": "", 
+      "action": "bio3graph_search_pubmed", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 18, 
+      "name": "Search PubMed Central"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4d10ab3-57dd-4b79-84bc-7f92c2de8250", 
+      "name": "query", 
+      "short_name": "q", 
+      "default": "", 
+      "description": "PubMed query", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "query", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "67b45d4f-32a5-415f-ad53-8a2caf1cd3d1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e4d10ab3-57dd-4b79-84bc-7f92c2de8250", 
+      "name": "maxHits", 
+      "short_name": "mh", 
+      "default": "100", 
+      "description": "max number of results (0 for inf)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxHits", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "7a13cece-f90d-434e-9e4b-d7d42a36635a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e4d10ab3-57dd-4b79-84bc-7f92c2de8250", 
+      "name": "id list", 
+      "short_name": "ids", 
+      "description": "List of document ids", 
+      "variable": "pmids", 
+      "order": 1, 
+      "uid": "b666c917-633f-4ccd-a463-1b173a0ff506"
+    }
+  }
+]

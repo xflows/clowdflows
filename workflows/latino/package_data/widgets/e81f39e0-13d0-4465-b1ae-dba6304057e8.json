@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0378e3a8-b71e-47b5-96b0-84dca2680f4d", 
+      "treeview_image": "", 
+      "uid": "e81f39e0-13d0-4465-b1ae-dba6304057e8", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function GetVocabulary in package latino. The original function signature: GetVocabulary.", 
+      "static_image": "get_vocabulary_image.png", 
+      "action": "latino_get_vocabulary", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Get Terms"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e81f39e0-13d0-4465-b1ae-dba6304057e8", 
+      "name": "Index of First Retrieved Word", 
+      "short_name": "int", 
+      "default": "1", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "startIndex", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "54560185-50aa-5c7f-78cf-4c05b8cc4918"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e81f39e0-13d0-4465-b1ae-dba6304057e8", 
+      "name": "Maximum Words Retrieved", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "Use 0 for no limit.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxWords", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "61c01bdf-6add-cd59-aebd-e4dac714dacc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e81f39e0-13d0-4465-b1ae-dba6304057e8", 
+      "name": "BOW Model", 
+      "short_name": "bow", 
+      "default": "", 
+      "description": "Latino.TextMining.BowSpace", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "bow", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c73db64c-9d63-6560-cfd5-43e966819e6a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e81f39e0-13d0-4465-b1ae-dba6304057e8", 
+      "name": "Terms", 
+      "short_name": "trs", 
+      "description": "", 
+      "variable": "terms", 
+      "order": 1, 
+      "uid": "f140dfd1-486d-627c-4684-e1df08c2a499"
+    }
+  }
+]

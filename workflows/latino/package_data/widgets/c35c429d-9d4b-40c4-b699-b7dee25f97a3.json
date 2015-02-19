@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1eed1020-c423-4831-80ce-50f65ae276e1", 
+      "treeview_image": "", 
+      "uid": "c35c429d-9d4b-40c4-b699-b7dee25f97a3", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This widges processes raw text file and loads the texts into ADC (Annotated Document Corpus) structure. The input file contains one document per line - the whole line represents text from the body of a document. In case lines contain more document properties (i.e.: ids, titles, labels,...) than other widgets should be used to load ADC structure.", 
+      "static_image": "load_adc_from_file_image.png", 
+      "action": "latino_load_adcfrom_string", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 5, 
+      "name": "Load Document Corpus From String"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c35c429d-9d4b-40c4-b699-b7dee25f97a3", 
+      "name": "Text before the first tabulator [/t] represents the title of a document", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "tabSeparatedTitle", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "18f37a99-5141-f7d2-108e-49ee6505c3da"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c35c429d-9d4b-40c4-b699-b7dee25f97a3", 
+      "name": "String", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Input Text String: Contains one document per line - the whole line represents text from the body of a document.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "plainString", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "91e6fdd5-0969-dc3f-395e-3f2827a9c57c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c35c429d-9d4b-40c4-b699-b7dee25f97a3", 
+      "name": "First words in a line (after optional title) with preceding exclamation (!) present labels", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "leadingLabels", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "c696eb66-0d08-ea16-7d68-57d160e613f3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c35c429d-9d4b-40c4-b699-b7dee25f97a3", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adc", 
+      "order": 1, 
+      "uid": "52165ac9-d42a-be5c-f24d-d6f02ab32e77"
+    }
+  }
+]

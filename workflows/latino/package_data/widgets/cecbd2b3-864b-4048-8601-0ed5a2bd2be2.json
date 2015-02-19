@@ -1,0 +1,102 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a8348101-116c-4e04-b2a7-af1c991c3927", 
+      "treeview_image": "", 
+      "uid": "cecbd2b3-864b-4048-8601-0ed5a2bd2be2", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function DatasetSplitSimple in package latino. The original function signature: DatasetSplitSimple.", 
+      "static_image": "dataset_split_simple_image.png", 
+      "action": "latino_dataset_split_simple", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 4, 
+      "name": "Split"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cecbd2b3-864b-4048-8601-0ed5a2bd2be2", 
+      "name": "Random Seed", 
+      "short_name": "int", 
+      "default": "-1", 
+      "description": "-1 for random (time dependet) random seed", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "randomSeed", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "2226b21b-7e55-07b6-69ba-b66d5173bef9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cecbd2b3-864b-4048-8601-0ed5a2bd2be2", 
+      "name": "Percentage", 
+      "short_name": "dbl", 
+      "default": "10", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "percentage", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "4b831641-e6c8-e45f-6944-c785c93de20e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cecbd2b3-864b-4048-8601-0ed5a2bd2be2", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f911747a-cd2e-5d02-1858-3a9ac4073a0b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "cecbd2b3-864b-4048-8601-0ed5a2bd2be2", 
+      "name": "Dataset of Remaining Sets", 
+      "short_name": "ds", 
+      "description": "", 
+      "variable": "ds2", 
+      "order": 2, 
+      "uid": "adf873dc-2372-d278-c45d-ee93cc35aa68"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "cecbd2b3-864b-4048-8601-0ed5a2bd2be2", 
+      "name": "Dataset with Extracted Set", 
+      "short_name": "ds", 
+      "description": "", 
+      "variable": "ds1", 
+      "order": 1, 
+      "uid": "b8a21241-700e-2ebb-add1-2e4aef240beb"
+    }
+  }
+]

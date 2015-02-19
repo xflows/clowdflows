@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "74457dca-9fba-4d66-98dd-633df385a22b", 
+      "treeview_image": "", 
+      "uid": "71f13f6f-37c0-4b42-bbaa-fac6e57cb9aa", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ClusterDocumentVectors in package latino. The original function signature: ClusterDocumentVectors.", 
+      "static_image": "clustering_hub_image.png", 
+      "action": "latino_cluster_document_vectors", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 4, 
+      "name": "Clustering Hub"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "71f13f6f-37c0-4b42-bbaa-fac6e57cb9aa", 
+      "name": "Clusterer", 
+      "short_name": "cls", 
+      "default": "", 
+      "description": "LatinoClowdFlows.IClusterer", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "clusterer", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "2b67a699-e1be-2ba8-f3ef-d7aca6aa7999"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "71f13f6f-37c0-4b42-bbaa-fac6e57cb9aa", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.IUnlabeledExampleCollection`1[[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "9d3b1094-54ab-55d2-53e5-56b840e924d1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "71f13f6f-37c0-4b42-bbaa-fac6e57cb9aa", 
+      "name": "Clustering Results", 
+      "short_name": "cr", 
+      "description": "", 
+      "variable": "clustRes", 
+      "order": 1, 
+      "uid": "1c2b8946-b303-5a95-410c-19d069a2be4e"
+    }
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Lemmatization", 
+    "parent": "3f47e2a2-682f-4439-9b7c-e67c6506fd67", 
+    "order": 4, 
+    "uid": "21d0b931-ef97-43d1-9650-edd4eec2062f"
+  }
+}

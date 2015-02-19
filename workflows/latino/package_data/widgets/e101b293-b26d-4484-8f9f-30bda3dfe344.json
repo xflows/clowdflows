@@ -1,0 +1,245 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructSvmBinaryClassifier in package latino. The original function signature: ConstructSvmBinaryClassifier.", 
+      "static_image": "classifier_svm_image.png", 
+      "action": "latino_construct_svm_binary_classifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 3, 
+      "name": "SVM Binary Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "Max Iterations", 
+      "short_name": "int", 
+      "default": "100000", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxIter", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "189b1989-a282-605a-16dc-894a1f4561cf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "Kernel Parameter D", 
+      "short_name": "dbl", 
+      "default": "1", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "kernelParamD", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "32512a7e-6e2c-76de-94ba-61b70f9c6ac5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "Kernel Parameter C", 
+      "short_name": "dbl", 
+      "default": "0", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "kernelParamC", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "42583600-9253-fa64-557b-7e435aea5d73"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "Biased Hyperplane", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "biasedHyperplane", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "7892b4b0-9f15-4ab2-2ed3-88a37abd987c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "Kernel Parameter S", 
+      "short_name": "dbl", 
+      "default": "1", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "kernelParamS", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "84a0f438-e258-bb86-0a47-95aab9b37912"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "Kernel Parameter Gamma", 
+      "short_name": "dbl", 
+      "default": "1", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "kernelParamGamma", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "9febc0b2-4792-9a75-d078-06cba1fec00b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "C", 
+      "short_name": "dbl", 
+      "default": "0", 
+      "description": "zero implies default value ([avg. x*x]^-1)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "c", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "ed9be48d-dc9f-5496-b414-1abf8c077652"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "Kernel Type", 
+      "short_name": "typ", 
+      "default": "Linear", 
+      "description": "Latino.Model.SvmLightKernelType", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "kernelType", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "f63be5e5-9f93-fbba-c06e-d80de1d65191"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "Eps", 
+      "short_name": "dbl", 
+      "default": "0.001", 
+      "description": "System.Double", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "eps", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "f67237da-15fe-930d-4c54-f3da246953ac"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "Custom Parameter String", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.String", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "customParams", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "fdbde52d-2257-24a8-fec4-6b0b8aa0a414"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e101b293-b26d-4484-8f9f-30bda3dfe344", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "description": "", 
+      "variable": "classifier", 
+      "order": 1, 
+      "uid": "38ac61da-16cd-e318-28f7-bb8ec457bdf2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Polynomial", 
+      "uid": "2abcf4cd-6d46-f77f-532c-68f2d80b63d3", 
+      "value": "Polynomial", 
+      "abstract_input": "f63be5e5-9f93-fbba-c06e-d80de1d65191"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Linear", 
+      "uid": "82b349e8-5939-7427-8680-3b1fff526dc6", 
+      "value": "Linear", 
+      "abstract_input": "f63be5e5-9f93-fbba-c06e-d80de1d65191"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Sigmoid", 
+      "uid": "82d22a12-33de-af87-88c6-ed0eb99c084b", 
+      "value": "Sigmoid", 
+      "abstract_input": "f63be5e5-9f93-fbba-c06e-d80de1d65191"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Radial Basis Function", 
+      "uid": "f44c4e6e-7c0d-2af0-5f90-a810bb49beaf", 
+      "value": "RadialBasisFunction", 
+      "abstract_input": "f63be5e5-9f93-fbba-c06e-d80de1d65191"
+    }
+  }
+]

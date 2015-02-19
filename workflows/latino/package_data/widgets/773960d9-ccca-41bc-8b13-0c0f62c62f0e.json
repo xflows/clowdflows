@@ -1,0 +1,218 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "05c26564-86b5-4a73-aae9-f4dc14bc75d7", 
+      "treeview_image": "", 
+      "uid": "773960d9-ccca-41bc-8b13-0c0f62c62f0e", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function GetStopWords in package latino. The original function signature: GetStopWords.", 
+      "static_image": "get_stop_image.png", 
+      "action": "latino_get_stop_words", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 6, 
+      "name": "Get Stopword Set"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "773960d9-ccca-41bc-8b13-0c0f62c62f0e", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "English", 
+      "description": "Latino.TextMining.Language", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "language", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "773960d9-ccca-41bc-8b13-0c0f62c62f0e", 
+      "name": "StopWords", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "strings", 
+      "order": 1, 
+      "uid": "d601ddbb-a068-cda8-8963-4dc61c890a37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Italian", 
+      "uid": "08c09945-f0f1-d216-354d-e963dd9f19b8", 
+      "value": "Italian", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "German", 
+      "uid": "091f177e-767f-3361-10af-bd2f6e85d994", 
+      "value": "German", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Bulgarian", 
+      "uid": "2c472b88-5377-c473-bb7c-74612d9e8752", 
+      "value": "Bulgarian", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Hungarian", 
+      "uid": "39218bba-61fe-40a9-b34d-699b9f58c12e", 
+      "value": "Hungarian", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Dutch", 
+      "uid": "3d04e639-6b74-5bdd-ef00-3211be836630", 
+      "value": "Dutch", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Norwegian", 
+      "uid": "49138042-2c55-3b9f-a703-89745bf7ba86", 
+      "value": "Norwegian", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Danish", 
+      "uid": "5449a6c7-e8fd-8355-6447-70d41e87cfb9", 
+      "value": "Danish", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "5713ce63-336f-316a-6319-30263ea86f35", 
+      "value": "English", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Russian", 
+      "uid": "81b661f7-cf4a-fdc2-7519-268ad17e3b61", 
+      "value": "Russian", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Czech", 
+      "uid": "8c8245e9-ddc7-ddb7-48e8-83a1df62511a", 
+      "value": "Czech", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Finnish", 
+      "uid": "8f7a8ad5-c65b-b3ed-931e-4376d5699f5c", 
+      "value": "Finnish", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Romanian", 
+      "uid": "9ad4c287-f426-299d-17e0-b079df66d04c", 
+      "value": "Romanian", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Swedish", 
+      "uid": "bad16fe3-7af6-2e35-8728-61563526d77b", 
+      "value": "Swedish", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Spanish", 
+      "uid": "c038a6e7-e788-e0d5-7f89-cabf84920123", 
+      "value": "Spanish", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Portuguese", 
+      "uid": "cfeae8fc-9cee-e702-96b4-a59d7cdd598f", 
+      "value": "Portuguese", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovene", 
+      "uid": "d328b41f-7770-2db1-9bd3-0fa7e1682751", 
+      "value": "Slovene", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Serbian", 
+      "uid": "ecc8309f-87c2-de3f-757f-eebbbfeade29", 
+      "value": "Serbian", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "French", 
+      "uid": "f6d4c7e3-1514-6427-f155-9b14cab0d38c", 
+      "value": "French", 
+      "abstract_input": "6a6806de-1cbc-b670-82cc-498784c2d7f4"
+    }
+  }
+]

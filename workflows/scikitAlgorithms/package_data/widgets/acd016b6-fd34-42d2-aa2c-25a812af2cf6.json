@@ -1,0 +1,91 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "317018eb-3bc8-4862-bce8-273451a01de4", 
+      "treeview_image": "", 
+      "uid": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "penalty : {string} Used to specify the norm used in the penalization.\r\n\u2018l1\u2019 or \u2018l2\u2019\r\n\r\nC : {float} \r\nInverse of regularization strength; must be a positive float. Like in support vector machines, smaller values specify stronger regularization.", 
+      "static_image": "scikit_LogisticRegression.png", 
+      "action": "scikitAlgorithms_logiscticRegression", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Logistic Regression"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
+      "name": "C", 
+      "short_name": "par", 
+      "default": "1.0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cIn", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "78a44bbf-4da4-46e1-9be2-e3335b04c74b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
+      "name": "penalty", 
+      "short_name": "par", 
+      "default": "l1", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "penIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "fb0e5723-41b0-4ef3-9fbd-d88c0a987252"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "LRout", 
+      "order": 1, 
+      "uid": "6aa463be-9fdf-452f-a920-11d7ebd47f2e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "l2", 
+      "uid": "9eaf2578-db7b-4341-b9b9-8622aa4d8de8", 
+      "value": "l2", 
+      "abstract_input": "fb0e5723-41b0-4ef3-9fbd-d88c0a987252"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "l1", 
+      "uid": "f8542745-ec0d-4f8e-bd84-f686628fae30", 
+      "value": "l1", 
+      "abstract_input": "fb0e5723-41b0-4ef3-9fbd-d88c0a987252"
+    }
+  }
+]

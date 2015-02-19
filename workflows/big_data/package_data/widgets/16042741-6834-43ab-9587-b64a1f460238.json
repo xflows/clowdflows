@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0165a189-a6ea-4152-8b5c-f507d47bc0e6", 
+      "treeview_image": "", 
+      "uid": "16042741-6834-43ab-9587-b64a1f460238", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Logistic regression with MapReduce\r\n\r\nAlgorithm builds a model with continuous features and predicts binary target variable (1, 0). Learning is done by fitting theta parameters to the training data where the likelihood function is optimized by using Newton-Raphson to update theta parameters. The output of algorithm is consistent with implementation of logistic regression classifier in Orange.\r\n\r\nReference:\r\nMapReduce version of algorithm is proposed by Cheng-Tao Chu; Sang Kyun Kim, Yi-An Lin, YuanYuan Yu, Gary Bradski, Andrew Ng, and Kunle Olukotun. \"Map-Reduce for Machine Learning on Multicore\". NIPS 2006. ", 
+      "static_image": "", 
+      "action": "logreg_fit", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 5, 
+      "name": "Logistic regression"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "16042741-6834-43ab-9587-b64a1f460238", 
+      "name": "Convergence", 
+      "short_name": "con", 
+      "default": "1e-8", 
+      "description": "The value defines the convergence of the logistic regression.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "alpha", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "104f5edc-6029-4ae8-8a83-29557fa901fd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "16042741-6834-43ab-9587-b64a1f460238", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "29dd4a35-7639-493f-9e7b-a64f54f0d06d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "16042741-6834-43ab-9587-b64a1f460238", 
+      "name": "Max. number of iterations", 
+      "short_name": "itr", 
+      "default": "10", 
+      "description": "Define a maximum number of iterations. If the cost function converges it will stop sooner.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "itr", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "73fbdb1a-8889-46d9-8eed-907156de7956"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "16042741-6834-43ab-9587-b64a1f460238", 
+      "name": "Fit model", 
+      "short_name": "fit", 
+      "description": "Fit model URL", 
+      "variable": "fitmodel_url", 
+      "order": 1, 
+      "uid": "08ee7516-92b7-4096-8199-3fd5d397f1e1"
+    }
+  }
+]

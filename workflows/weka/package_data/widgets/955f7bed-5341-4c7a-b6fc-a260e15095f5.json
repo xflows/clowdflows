@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "6d75faa7-c547-475c-8b96-04b78d4ff402", 
+      "treeview_image": "", 
+      "uid": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "WEKA_ApplyClassifier.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "apply_classifier_get_instances", 
+      "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Apply classifier and get instances"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
+      "name": "instances", 
+      "short_name": "ins", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "5d68936c-6cfc-446e-95e7-2c3173a6232c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
+      "name": "classifier", 
+      "short_name": "cla", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "ddfb91ef-af1f-4f69-b169-1765166b99ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "ee7f6b67-f6ef-4801-afdc-e7aab6656dd7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "f706b0cf-0361-4bb6-b7d5-190d184802db"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "955f7bed-5341-4c7a-b6fc-a260e15095f5", 
+      "name": "instances", 
+      "short_name": "ins", 
+      "description": "", 
+      "variable": "instances", 
+      "order": 1, 
+      "uid": "0426dbe9-6d92-4b6d-8449-d40f6a7f23c5"
+    }
+  }
+]

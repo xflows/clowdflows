@@ -1,0 +1,108 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "treeview/ensemble-small.png", 
+      "uid": "e2faf966-57a8-4bd9-af66-bb7921be4431", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/ensemble-small.png", 
+      "description": "", 
+      "static_image": "ensemble-small.png", 
+      "action": "ensemble", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Ensemble"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2faf966-57a8-4bd9-af66-bb7921be4431", 
+      "name": "Ensemble Name", 
+      "short_name": "enn", 
+      "default": "Untitled Ensemble", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "ens_name", 
+      "parameter": true, 
+      "order": 0, 
+      "uid": "1fa7cc01-afac-4c8c-86d5-829662939661"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2faf966-57a8-4bd9-af66-bb7921be4431", 
+      "name": "Data Indices", 
+      "short_name": "dis", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "data_inds", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "7ab35883-9bb7-477b-a367-6c6ac95edc75"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e2faf966-57a8-4bd9-af66-bb7921be4431", 
+      "name": "Ensemble Type", 
+      "short_name": "ent", 
+      "default": "consensus", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "ens_type", 
+      "parameter": true, 
+      "order": 0, 
+      "uid": "d07ef228-561f-49d0-8ea5-5e4638d14b76"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e2faf966-57a8-4bd9-af66-bb7921be4431", 
+      "name": "Ensembled Indices", 
+      "short_name": "eni", 
+      "description": "", 
+      "variable": "ens_out", 
+      "order": 1, 
+      "uid": "63322ca1-401b-445e-bfef-c322121e018d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Majority", 
+      "uid": "08bd84cc-2333-411c-9645-d0ac1f85b1dc", 
+      "value": "majority", 
+      "abstract_input": "d07ef228-561f-49d0-8ea5-5e4638d14b76"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Consensus", 
+      "uid": "7f71a3e6-cb99-4161-a62e-988424dc4598", 
+      "value": "consensus", 
+      "abstract_input": "d07ef228-561f-49d0-8ea5-5e4638d14b76"
+    }
+  }
+]

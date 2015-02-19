@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "cf46e990-42b6-4027-b2f4-a95acaaed210", 
+      "treeview_image": "", 
+      "uid": "ec2a3509-f1d7-4e00-b2b3-c17f871d5c0f", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Calls the mapping to knowledge representation service", 
+      "static_image": "", 
+      "action": "MUSE_mapping_to_KR", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Mapping to Knowledge representation"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ec2a3509-f1d7-4e00-b2b3-c17f871d5c0f", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://vihar.ijs.si:8001/MUSE_services/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "2b6b393c-97c7-4827-94a5-042944382939"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ec2a3509-f1d7-4e00-b2b3-c17f871d5c0f", 
+      "name": "Input data", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Plain text file with special annotations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "input_data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "472a4149-0115-4f63-bf9b-1494fd0468b9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ec2a3509-f1d7-4e00-b2b3-c17f871d5c0f", 
+      "name": "Instantiated event templates", 
+      "short_name": "tpl", 
+      "description": "Instantiated event-templates with argument roles as defined in the domain.\r\n", 
+      "variable": "mapping", 
+      "order": 1, 
+      "uid": "610e7355-13ef-412f-b929-96b942020cf7"
+    }
+  }
+]

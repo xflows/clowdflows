@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "cf46e990-42b6-4027-b2f4-a95acaaed210", 
+      "treeview_image": "", 
+      "uid": "6ef97e78-1436-41fd-9096-b8915960f49b", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Returns the precomputed mapping to knowledge representation for Tuk story", 
+      "static_image": "", 
+      "action": "MUSE_mapping_to_KR_precomputed", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Mapping to Knowledge representation (precomputed)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6ef97e78-1436-41fd-9096-b8915960f49b", 
+      "name": "Input data", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Plain text file with special annotations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "input_data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "928407bb-a711-4d0f-84d3-9954618c9f3d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6ef97e78-1436-41fd-9096-b8915960f49b", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://vihar.ijs.si:8001/MUSE_services/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "c47d762d-b3a7-46b8-9bfd-7579bf0dcc56"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6ef97e78-1436-41fd-9096-b8915960f49b", 
+      "name": "Instantiated event templates", 
+      "short_name": "tpl", 
+      "description": "Instantiated event-templates with argument roles as defined in the domain.\r\n", 
+      "variable": "mapping", 
+      "order": 1, 
+      "uid": "1869c087-1dd8-42a3-bfb5-83592cc5a641"
+    }
+  }
+]

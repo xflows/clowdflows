@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "6d75faa7-c547-475c-8b96-04b78d4ff402", 
+      "treeview_image": "", 
+      "uid": "533bec7f-539a-4a95-b883-a841bf3b0118", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Build a clusterer based on provided learner and data.", 
+      "static_image": "WEKA_BuildClusterer.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "build_clusterer", 
+      "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Build Clusterer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "21155ff6-e3dc-4b73-99be-7070bc16a7ac"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
+      "name": "Instances", 
+      "short_name": "ins", 
+      "default": "", 
+      "description": "to be used by the provided learner to create a clusterer.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "da953155-8ed2-416b-b739-bed4fd748dda"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "db17d2bf-4d1e-49cd-863c-2055246de11c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
+      "name": "Learner", 
+      "short_name": "lea", 
+      "default": "", 
+      "description": "used to build the clusterer.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "learner", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "eec2f308-1c5e-4de3-b60d-59b4f19d7aa6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "533bec7f-539a-4a95-b883-a841bf3b0118", 
+      "name": "Clusterer", 
+      "short_name": "clu", 
+      "description": "based on the provided data and learner.", 
+      "variable": "clusterer", 
+      "order": 1, 
+      "uid": "777aeed1-65ad-478b-9b2f-058e2441f13f"
+    }
+  }
+]

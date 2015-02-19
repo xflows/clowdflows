@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "ScikitAlgorithms", 
+    "parent": null, 
+    "order": 1, 
+    "uid": "62f6171b-5448-424b-b5cc-88cd63883fd0"
+  }
+}

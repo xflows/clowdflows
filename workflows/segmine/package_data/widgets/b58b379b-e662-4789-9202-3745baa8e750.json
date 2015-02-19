@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "b58b379b-e662-4789-9202-3745baa8e750", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "BiomineVisualizer.png", 
+      "action": "segmine_biomine_visualizer", 
+      "visualization_view": "segmine_biomine_visualizer", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Biomine visualizer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b58b379b-e662-4789-9202-3745baa8e750", 
+      "name": "Graph", 
+      "short_name": "g", 
+      "default": "", 
+      "description": "Graph", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "graph", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "b786a3b5-4b26-4e7e-b7e5-0143a8877b72"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b58b379b-e662-4789-9202-3745baa8e750", 
+      "name": "Graph", 
+      "short_name": "g", 
+      "description": "Graph", 
+      "variable": "graph", 
+      "order": 1, 
+      "uid": "24e10d96-98e4-4c77-9399-0392885bf294"
+    }
+  }
+]

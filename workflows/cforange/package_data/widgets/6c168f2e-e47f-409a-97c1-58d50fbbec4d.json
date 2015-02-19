@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "8b90267f-c82d-4b62-bee3-66184f4db931", 
+      "treeview_image": "", 
+      "uid": "6c168f2e-e47f-409a-97c1-58d50fbbec4d", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "crossValidation.png", 
+      "action": "cforange_multiple_cross_validation", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Cross Validation (multiple learners)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6c168f2e-e47f-409a-97c1-58d50fbbec4d", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "16d1fe96-ce53-4a94-8c3e-90ac444b45f8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6c168f2e-e47f-409a-97c1-58d50fbbec4d", 
+      "name": "Folds", 
+      "short_name": "fld", 
+      "default": "10", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "folds", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "2b7ef618-6f7a-4f0c-ad5f-50000aa5ec0b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6c168f2e-e47f-409a-97c1-58d50fbbec4d", 
+      "name": "Learners", 
+      "short_name": "lrn", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "learners", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "499f4007-55c3-431c-93ca-5f493a9e592c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6c168f2e-e47f-409a-97c1-58d50fbbec4d", 
+      "name": "Results", 
+      "short_name": "res", 
+      "description": "", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "e966fc28-1217-4922-a0d7-d26cdc872872"
+    }
+  }
+]

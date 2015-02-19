@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Transcriptomic analysis utilities", 
+    "parent": "472a416b-b56a-4f6e-aae9-0ffb9cef240d", 
+    "order": 2, 
+    "uid": "9744d60c-c755-448a-930c-0c40236a4a05"
+  }
+}

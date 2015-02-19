@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "8b90267f-c82d-4b62-bee3-66184f4db931", 
+      "treeview_image": "", 
+      "uid": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Splits the data with a number of examples in the learning and the rest in the testing set. The test is repeated for a given number of times (default 10). Division is stratified by default. Function also accepts keyword arguments for randomization and storing classifiers.", 
+      "static_image": "proportionTest.png", 
+      "action": "cforange_proportion_test", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Proportion Test"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "2b2037f4-b240-4b26-81e5-8ca01a215193"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
+      "name": "learners", 
+      "short_name": "lrn", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "learners", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "b77f51b3-6c21-4d6a-922a-bbbb4679155d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
+      "name": "Number of repetitions", 
+      "short_name": "rep", 
+      "default": "100", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "times", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "da5ab14e-9e1c-4395-b6ce-8ff0d53de4c9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
+      "name": "Proportion", 
+      "short_name": "prp", 
+      "default": "0.7", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "learnProp", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "ff523b52-e08b-4da5-bb2c-7050731dcf16"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c605a0f4-a3b0-4394-8410-9da8854416a2", 
+      "name": "Results", 
+      "short_name": "res", 
+      "description": "", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "3e0d529d-53f2-4cbe-9df9-37903837eba5"
+    }
+  }
+]

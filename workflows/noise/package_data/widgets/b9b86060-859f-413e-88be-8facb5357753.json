@@ -1,0 +1,92 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "92fd265d-26cb-434f-bbfe-1780feb83dae", 
+      "treeview_image": "treeview/HARF_60-48-RF.png", 
+      "uid": "b9b86060-859f-413e-88be-8facb5357753", 
+      "is_streaming": false, 
+      "package": "noise", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/HARF_60-48-RF.png", 
+      "description": "High Agreement Random Forest", 
+      "static_image": "HARF_60-48-RF.png", 
+      "action": "harf", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "HARF"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b9b86060-859f-413e-88be-8facb5357753", 
+      "name": "Agreement Level", 
+      "short_name": "agl", 
+      "default": "70", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "agr_level", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "7903039a-7e1c-4cb2-a20a-1730431fd122"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b9b86060-859f-413e-88be-8facb5357753", 
+      "name": "HARF Classifier", 
+      "short_name": "hrf", 
+      "description": "", 
+      "variable": "harfout", 
+      "order": 1, 
+      "uid": "41a82b5f-22e9-4a98-9aa3-0173f36f5000"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "70", 
+      "uid": "58128fe8-5dde-4648-bead-d9dc0ef67a3a", 
+      "value": "70", 
+      "abstract_input": "7903039a-7e1c-4cb2-a20a-1730431fd122"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "80", 
+      "uid": "b857927d-26b1-4881-a1e0-e36b565f60fc", 
+      "value": "80", 
+      "abstract_input": "7903039a-7e1c-4cb2-a20a-1730431fd122"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "90", 
+      "uid": "c08b3596-348e-4999-9ccd-476ef087472d", 
+      "value": "90", 
+      "abstract_input": "7903039a-7e1c-4cb2-a20a-1730431fd122"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "60", 
+      "uid": "fd06328e-cb70-4ba1-ae9d-d62c9c77401d", 
+      "value": "60", 
+      "abstract_input": "7903039a-7e1c-4cb2-a20a-1730431fd122"
+    }
+  }
+]

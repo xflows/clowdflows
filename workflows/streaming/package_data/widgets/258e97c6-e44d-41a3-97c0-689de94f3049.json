@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "258e97c6-e44d-41a3-97c0-689de94f3049", 
+      "is_streaming": false, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "streaming_remove_words_from_tweets", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Remove words from tweets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "258e97c6-e44d-41a3-97c0-689de94f3049", 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "68692ac4-df32-432d-8b10-00ed68ec7c04"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "258e97c6-e44d-41a3-97c0-689de94f3049", 
+      "name": "Words", 
+      "short_name": "wrd", 
+      "default": "", 
+      "description": "One word or phrase per line", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "words", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "69b06741-8055-4dad-b677-3940d3434bc2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "258e97c6-e44d-41a3-97c0-689de94f3049", 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "description": "", 
+      "variable": "ltw", 
+      "order": 1, 
+      "uid": "fa942ac2-f92a-4f42-a806-56f359d41d93"
+    }
+  }
+]

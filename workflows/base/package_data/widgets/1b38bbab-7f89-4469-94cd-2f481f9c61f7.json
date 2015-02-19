@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "11865b03-cb06-4d50-9174-69d920cbe4ec", 
+      "treeview_image": "treeview/string.png", 
+      "uid": "1b38bbab-7f89-4469-94cd-2f481f9c61f7", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/string.png", 
+      "description": "Creates a string", 
+      "static_image": "string.png", 
+      "action": "create_string", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "Create String"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1b38bbab-7f89-4469-94cd-2f481f9c61f7", 
+      "name": "String", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "string", 
+      "parameter": true, 
+      "order": 0, 
+      "uid": "0f6fa6df-b8d1-4e12-a9ac-427233bb090a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1b38bbab-7f89-4469-94cd-2f481f9c61f7", 
+      "name": "String", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "c5b4663c-778a-4573-a0e1-bf321831f75d"
+    }
+  }
+]

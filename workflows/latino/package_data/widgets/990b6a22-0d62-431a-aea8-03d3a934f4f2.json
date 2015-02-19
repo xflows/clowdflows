@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "990b6a22-0d62-431a-aea8-03d3a934f4f2", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function AccuracyClaculation in package latino. The original function signature: AccuracyClaculation.", 
+      "static_image": "accuracy_calc_from_labels_image.png", 
+      "action": "latino_accuracy_claculation", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 10, 
+      "name": "Accuracy Claculation"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "990b6a22-0d62-431a-aea8-03d3a934f4f2", 
+      "name": "Predicted Labels", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.IList", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "list2", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "3865d2f0-cf4f-cacc-78dc-77a6b0071e45"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "990b6a22-0d62-431a-aea8-03d3a934f4f2", 
+      "name": "True Labels", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "System.Collections.IList", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "list1", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4337f7d3-5113-be91-9dcd-7f23d955ca3e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "990b6a22-0d62-431a-aea8-03d3a934f4f2", 
+      "name": "Accuracy", 
+      "short_name": "dbl", 
+      "description": "", 
+      "variable": "accuracy", 
+      "order": 1, 
+      "uid": "0d48ff94-0a42-3bfd-5b92-14c8d96a96e8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "990b6a22-0d62-431a-aea8-03d3a934f4f2", 
+      "name": "Statistics", 
+      "short_name": "obj", 
+      "description": "Statistics:confusionMatrix: first level of confusion matrix dictionary present true labels (first input) while the second, inner layer, presents predicted labels (second output).\r\nStataistics:additinalScores: dictionary's id presents the label that was considered positive for calculation and dictionary's value are actual additioanl scores.", 
+      "variable": "statistics", 
+      "order": 2, 
+      "uid": "4b9c7c60-639b-3ca5-682b-43b367f67cc3"
+    }
+  }
+]

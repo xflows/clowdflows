@@ -1,0 +1,108 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "8a8f2aee-dc2e-4e1e-85d5-c977dc5c2867", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Term extraction from totrtale annotations.", 
+      "static_image": "nlp.png", 
+      "action": "nlp_term_extraction", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Term extraction"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8a8f2aee-dc2e-4e1e-85d5-c977dc5c2867", 
+      "name": "Web service address", 
+      "short_name": "ws", 
+      "default": "http://vihar.ijs.si:8099", 
+      "description": "Web service address", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "wsdl", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "717b9e76-f0df-4f77-8edb-846f09226503"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8a8f2aee-dc2e-4e1e-85d5-c977dc5c2867", 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "default": "", 
+      "description": "ToTrTaLe annotations", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "annotations", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "73af8786-aff8-4e72-a2f4-84ac51b0f3cf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8a8f2aee-dc2e-4e1e-85d5-c977dc5c2867", 
+      "name": "Language", 
+      "short_name": "lan", 
+      "default": "en", 
+      "description": "Language", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "fbc7162b-9e62-478c-bc59-518cf061470c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "8a8f2aee-dc2e-4e1e-85d5-c977dc5c2867", 
+      "name": "Candidates", 
+      "short_name": "can", 
+      "description": "Term candidates", 
+      "variable": "candidates", 
+      "order": 1, 
+      "uid": "25b7e811-a131-4f49-a022-b6fc4f75750a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovene", 
+      "uid": "a41e7da2-cfcf-4cd1-b023-3b10909250f6", 
+      "value": "sl", 
+      "abstract_input": "fbc7162b-9e62-478c-bc59-518cf061470c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "c2824299-1dac-4db7-a59b-6d0ccf7d07f2", 
+      "value": "en", 
+      "abstract_input": "fbc7162b-9e62-478c-bc59-518cf061470c"
+    }
+  }
+]

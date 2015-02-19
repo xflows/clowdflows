@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "520d10ee-f1de-45d8-bcd8-01fa3e363222", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function CrossValidationPredefMultiSplits in package latino. The original function signature: CrossValidationPredefMultiSplits.", 
+      "static_image": "classif_cross_valid_predef_image.png", 
+      "action": "latino_cross_validation_predef_multi_splits", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 13, 
+      "name": "Multiple Splits Validation"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "520d10ee-f1de-45d8-bcd8-01fa3e363222", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "default": "", 
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "csf", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "299ac3d4-d939-9d43-349d-2f5be6e8647d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "520d10ee-f1de-45d8-bcd8-01fa3e363222", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "d9f20d4b-7d7a-b113-5e93-e52303416352"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "520d10ee-f1de-45d8-bcd8-01fa3e363222", 
+      "name": "Multiple Set Indexes", 
+      "short_name": "dct", 
+      "default": "", 
+      "description": "Dictionary with multiple predefined split element indexes. {\"train0\":[1,2,3],\"test0\":[4,5],\"train1\":[2,3,4],\"test1\":[5,6]}", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "multiSets", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "fc3ba46a-fdb2-f840-efd7-7d17e4b4f797"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "520d10ee-f1de-45d8-bcd8-01fa3e363222", 
+      "name": "Data Object with results", 
+      "short_name": "obj", 
+      "description": "", 
+      "variable": "obj", 
+      "order": 1, 
+      "uid": "7d4746d4-6587-a610-7344-93b6d93e6d49"
+    }
+  }
+]

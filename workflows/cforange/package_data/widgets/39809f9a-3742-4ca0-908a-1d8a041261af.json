@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "583debcb-5041-46b3-b464-e21875896710", 
+      "treeview_image": "treeview/Orange-BuildClassifier.png", 
+      "uid": "39809f9a-3742-4ca0-908a-1d8a041261af", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Orange-BuildClassifier.png", 
+      "description": "", 
+      "static_image": "Orange-BuildClassifier.png", 
+      "action": "build_classifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "Build Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "39809f9a-3742-4ca0-908a-1d8a041261af", 
+      "name": "learner", 
+      "short_name": "lrn", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "learner", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "24b03594-14c8-4534-98de-b4bf703fef63"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "39809f9a-3742-4ca0-908a-1d8a041261af", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "3de89884-15aa-40dd-a514-cb7e7d5298c5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "39809f9a-3742-4ca0-908a-1d8a041261af", 
+      "name": "classifier", 
+      "short_name": "clf", 
+      "description": "", 
+      "variable": "classifier", 
+      "order": 1, 
+      "uid": "d772a4c4-eb0a-4b4c-8386-f1eabd60f371"
+    }
+  }
+]

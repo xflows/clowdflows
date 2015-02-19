@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d8fee140-c280-4d6b-b0b9-7c02fd857b50", 
+      "treeview_image": "", 
+      "uid": "72e23039-fc1b-4072-9fd8-ef07b9814292", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function GetHeuristicStructure in package crossbee. The original function signature: GetHeuristicStructure.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_get_heuristic_structure", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 32, 
+      "name": "Get Heuristic Structure"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "72e23039-fc1b-4072-9fd8-ef07b9814292", 
+      "name": "Heurisitc(s)", 
+      "short_name": "heu", 
+      "default": "", 
+      "description": "CrossBeeInterfaces.Heurisitcs.Heuristics", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "heuristics", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "b6985a06-7bb7-b410-062f-e6ac08629c37"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "72e23039-fc1b-4072-9fd8-ef07b9814292", 
+      "name": "Structure of Heuristic(s)", 
+      "short_name": "obj", 
+      "description": "", 
+      "variable": "structure", 
+      "order": 1, 
+      "uid": "3a1dd0da-66cf-c720-6e41-b2dd7beada27"
+    }
+  }
+]

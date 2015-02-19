@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c0502e02-2e9e-4b93-8c93-9eb217b0799b", 
+      "treeview_image": "", 
+      "uid": "2f4a3645-673c-4b91-bd66-216d092df23f", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructLemmatizer in package lemmagen. The original function signature: ConstructLemmatizer.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_construct_lemmatizer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 8, 
+      "name": "Train Lemmatizer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2f4a3645-673c-4b91-bd66-216d092df23f", 
+      "name": "Example List", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "List of lemmatization examples which are used for initial lemmatizer training.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "exampleList", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "a9b4aceb-adbe-2ce5-48a5-e4b9e16fd04e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2f4a3645-673c-4b91-bd66-216d092df23f", 
+      "name": "Lemmatizer Settings", 
+      "short_name": "stt", 
+      "default": "", 
+      "description": "LemmaSharp.LemmatizerSettings", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "lemmatizerSettings", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d157b7c1-61ae-598d-2742-4ee71d74c2b8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2f4a3645-673c-4b91-bd66-216d092df23f", 
+      "name": "LemmaGen Lemmatizer", 
+      "short_name": "lmz", 
+      "description": "", 
+      "variable": "lemmatizer", 
+      "order": 1, 
+      "uid": "b5c40a94-0934-8b9b-13e9-b8cf677fc4ae"
+    }
+  }
+]

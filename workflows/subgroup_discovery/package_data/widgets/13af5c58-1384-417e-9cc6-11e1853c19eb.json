@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "", 
+      "uid": "13af5c58-1384-417e-9cc6-11e1853c19eb", 
+      "is_streaming": false, 
+      "package": "subgroup_discovery", 
+      "interaction_view": "table_from_sets", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "tablefromsets.png", 
+      "action": "table_from_sets", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "table_from_sets_finished", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Table from sets of examples"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "13af5c58-1384-417e-9cc6-11e1853c19eb", 
+      "name": "Data table", 
+      "short_name": "dat", 
+      "default": "", 
+      "description": "one set of examples", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "183384b7-3c8a-41e4-becf-25c852689b0a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "13af5c58-1384-417e-9cc6-11e1853c19eb", 
+      "name": "Data table", 
+      "short_name": "dat", 
+      "description": "new data table", 
+      "variable": "merged_data", 
+      "order": 1, 
+      "uid": "d95b0b32-fdc9-419b-9f7d-fde45587b4de"
+    }
+  }
+]

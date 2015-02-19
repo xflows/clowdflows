@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0ae049f7-6040-4992-bb03-f9134b8e63c7", 
+      "treeview_image": "", 
+      "uid": "5ac9aced-9520-4ea4-ac0d-bc58c8be2aef", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "WEKA_printModel.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "print_model", 
+      "wsdl": "http://vihar.ijs.si:8092/Utilities?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Print Model"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5ac9aced-9520-4ea4-ac0d-bc58c8be2aef", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "00fdd694-785f-4e96-a616-5feea30eec49"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5ac9aced-9520-4ea4-ac0d-bc58c8be2aef", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "2a81aa2c-58af-44e1-8b03-c2dc72225c5c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5ac9aced-9520-4ea4-ac0d-bc58c8be2aef", 
+      "name": "Model", 
+      "short_name": "mod", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "model", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "df7c8785-4e7f-4e74-b123-c86b7f380516"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5ac9aced-9520-4ea4-ac0d-bc58c8be2aef", 
+      "name": "Model as String", 
+      "short_name": "mod", 
+      "description": "", 
+      "variable": "model_as_string", 
+      "order": 1, 
+      "uid": "873ce128-d626-4490-a34e-1276f3048a8b"
+    }
+  }
+]

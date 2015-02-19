@@ -1,0 +1,198 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "03d64d6e-843e-4dac-941c-ab4f0a29c5e0", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Performs hierarchical clustering using the selected linkage.", 
+      "static_image": "", 
+      "action": "segmine_do_hclustering", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Hierarchical clustering"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "03d64d6e-843e-4dac-941c-ab4f0a29c5e0", 
+      "name": "Linkage", 
+      "short_name": "lin", 
+      "default": "4", 
+      "description": "Type of linkage", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "linkage", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a08686eb-acef-47c1-8fca-6693ac142754"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "03d64d6e-843e-4dac-941c-ab4f0a29c5e0", 
+      "name": "Distance metric", 
+      "short_name": "dm", 
+      "default": "1", 
+      "description": "Distance metric", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "metric", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e04bd4bb-a2d2-4e56-b986-5d4e605c8786"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "03d64d6e-843e-4dac-941c-ab4f0a29c5e0", 
+      "name": "Data table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Orange data table with examples", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "table", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f3424ab8-e105-4887-885d-68144fc59e13"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "03d64d6e-843e-4dac-941c-ab4f0a29c5e0", 
+      "name": "Hierarchical clustering", 
+      "short_name": "hcl", 
+      "description": "Orange hierarchical clustering data structure", 
+      "variable": "hcluster", 
+      "order": 1, 
+      "uid": "892c1e63-65d3-4ea2-89bd-123f967b6357"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "complete", 
+      "uid": "0ac1a67c-e7ab-4605-a34a-97d57e69c76c", 
+      "value": "3", 
+      "abstract_input": "a08686eb-acef-47c1-8fca-6693ac142754"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "single", 
+      "uid": "151310a4-6f9c-4940-b461-9ab4b43f872e", 
+      "value": "1", 
+      "abstract_input": "a08686eb-acef-47c1-8fca-6693ac142754"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Hamming", 
+      "uid": "28c5cd5f-6a30-4463-a34a-be2b1cb2cb8c", 
+      "value": "2", 
+      "abstract_input": "e04bd4bb-a2d2-4e56-b986-5d4e605c8786"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Spearman", 
+      "uid": "31cde594-d060-4e92-a715-2d667e9ed059", 
+      "value": "7", 
+      "abstract_input": "e04bd4bb-a2d2-4e56-b986-5d4e605c8786"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Euclidean", 
+      "uid": "771c3395-8fba-41f1-abbf-03f316b78de2", 
+      "value": "1", 
+      "abstract_input": "e04bd4bb-a2d2-4e56-b986-5d4e605c8786"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Mahalanobis", 
+      "uid": "9e892884-14be-4426-b11c-0c078d6b5ef4", 
+      "value": "8", 
+      "abstract_input": "e04bd4bb-a2d2-4e56-b986-5d4e605c8786"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Relief", 
+      "uid": "d479c184-c543-43cb-8b56-413142c1f2d0", 
+      "value": "5", 
+      "abstract_input": "e04bd4bb-a2d2-4e56-b986-5d4e605c8786"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Maximal", 
+      "uid": "e167209d-d284-49e4-983b-ccfc09afd5b3", 
+      "value": "3", 
+      "abstract_input": "e04bd4bb-a2d2-4e56-b986-5d4e605c8786"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "ward", 
+      "uid": "e1ee195d-707c-4d89-8f3f-eda86e6f047a", 
+      "value": "4", 
+      "abstract_input": "a08686eb-acef-47c1-8fca-6693ac142754"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Pearson", 
+      "uid": "e6ec8edd-0bc1-498b-8004-eac5a5679b10", 
+      "value": "6", 
+      "abstract_input": "e04bd4bb-a2d2-4e56-b986-5d4e605c8786"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "average", 
+      "uid": "eecdc5f2-5653-4792-99d9-cecf8dec5eb8", 
+      "value": "2", 
+      "abstract_input": "a08686eb-acef-47c1-8fca-6693ac142754"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Manhattan", 
+      "uid": "efa9d187-ce62-4cff-818c-d659786eeeaf", 
+      "value": "4", 
+      "abstract_input": "e04bd4bb-a2d2-4e56-b986-5d4e605c8786"
+    }
+  }
+]

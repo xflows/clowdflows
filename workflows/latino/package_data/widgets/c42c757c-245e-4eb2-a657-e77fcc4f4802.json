@@ -1,0 +1,141 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function CrossValidation in package latino. The original function signature: CrossValidation.", 
+      "static_image": "classif_cross_valid_image.png", 
+      "action": "latino_cross_validation", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 11, 
+      "name": "Cross Validation"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "default": "", 
+      "description": "Latino.Model.IModel`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "csf", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "06a3b7c8-681f-ab02-f171-75362b9ea5a0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
+      "name": "Random Seed", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "randomSeed", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "15d0d98c-b25b-e7fc-19f1-d547a0dddd14"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
+      "name": "Num of Sets", 
+      "short_name": "int", 
+      "default": "10", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "numOfSets", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "21ea2877-e44d-c8db-0612-b9bce6e62f36"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
+      "name": "Use Seed for Random", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useSeed", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "bdc7e5b8-00f1-d7bd-6927-fc91856a280a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
+      "name": "Dataset", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "Latino.Model.LabeledDataset`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Latino.SparseVector`1[[System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Latino, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ds", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "eeab1227-dfa8-31df-b27b-2a27efeda6b0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
+      "name": "Assign Sets Randomly", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "random", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "f7bb77e7-327e-5794-f330-186d669d6b1b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c42c757c-245e-4eb2-a657-e77fcc4f4802", 
+      "name": "Data Object with results", 
+      "short_name": "obj", 
+      "description": "", 
+      "variable": "obj", 
+      "order": 1, 
+      "uid": "43d23d99-8ac4-5b3e-c89c-43d63db3920e"
+    }
+  }
+]

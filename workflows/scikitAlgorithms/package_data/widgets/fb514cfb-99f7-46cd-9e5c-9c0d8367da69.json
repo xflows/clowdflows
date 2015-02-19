@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5888aa38-270f-423b-8d5f-e08f23c1a3b9", 
+      "treeview_image": "", 
+      "uid": "fb514cfb-99f7-46cd-9e5c-9c0d8367da69", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "scikit_applyClassifier.png", 
+      "action": "scikitAlgorithms_applyClassifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Apply Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fb514cfb-99f7-46cd-9e5c-9c0d8367da69", 
+      "name": "ScikitDataset", 
+      "short_name": "dts", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "data", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "2cf65003-ff21-4c06-8783-0473fe66195d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "fb514cfb-99f7-46cd-9e5c-9c0d8367da69", 
+      "name": "Classifier", 
+      "short_name": "cls", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "6b9238bf-af83-468d-83a7-dd59fc8e8bcd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "fb514cfb-99f7-46cd-9e5c-9c0d8367da69", 
+      "name": "Classes", 
+      "short_name": "dts", 
+      "description": "based on the provided classifier and data.", 
+      "variable": "classes", 
+      "order": 1, 
+      "uid": "37abe044-2c32-45ea-a61d-914ca3337680"
+    }
+  }
+]

@@ -1,0 +1,160 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed2728bc-3fd5-4244-9876-f6a757d1b922", 
+      "treeview_image": "treeview/viper600-60_1.png", 
+      "uid": "4098a678-2d14-4cbe-808d-2d150a7c2341", 
+      "is_streaming": false, 
+      "package": "perfeval", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/viper600-60_1.png", 
+      "description": "", 
+      "static_image": "", 
+      "action": "pr_space", 
+      "visualization_view": "pr_space_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "VIPER: Visual Performance Evaluation"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4098a678-2d14-4cbe-808d-2d150a7c2341", 
+      "name": "\u03b5-proximity evaluation parameter [%]", 
+      "short_name": "eps", 
+      "default": "0.05", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "eps", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4098a678-2d14-4cbe-808d-2d150a7c2341", 
+      "name": "Algorithm Performance", 
+      "short_name": "alp", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "performance", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "9bd36b53-7c9a-4ce7-a591-acecfe1bdc14"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "10", 
+      "uid": "60176291-79c8-4042-afc4-55c8a11209d7", 
+      "value": "0.1", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": " 5", 
+      "uid": "9003923c-73e9-4ab2-bb1a-c1cb5af8f289", 
+      "value": "0.05", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": " 1", 
+      "uid": "a10c7375-7021-4abb-8b50-3f8700806d9b", 
+      "value": "0.01", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": " 9", 
+      "uid": "a383432b-3b92-4293-8d1d-e747bcb4eeba", 
+      "value": "0.09", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Do not use \u03b5-proximity evaluation", 
+      "uid": "a82e638a-928d-4271-89a1-e511e50f43a4", 
+      "value": "0", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": " 3", 
+      "uid": "ba0813b6-23ba-4626-89df-04ce026a87c4", 
+      "value": "0.03", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": " 8", 
+      "uid": "c0be8ca7-3377-40bf-91a0-a6f2ce152078", 
+      "value": "0.08", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": " 4", 
+      "uid": "cdd0bfe5-1cf4-4988-8ea2-2f93bfffcde8", 
+      "value": "0.04", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": " 7", 
+      "uid": "d3b0473c-d8a3-46c9-8d8c-fa5ecd21461a", 
+      "value": "0.07", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": " 2", 
+      "uid": "d8a2826b-2dad-4544-bbce-6aa2434c7c02", 
+      "value": "0.02", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": " 6", 
+      "uid": "dcf68d77-c3aa-4044-9800-a3bc568d5b54", 
+      "value": "0.06", 
+      "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
+    }
+  }
+]

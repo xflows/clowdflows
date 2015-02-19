@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "8cdafccb-d925-4ed1-b90c-726efa2260b5", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructNaiveBayesClassifier in package latino. The original function signature: ConstructNaiveBayesClassifier.", 
+      "static_image": "classifier_naive_bayes_image.png", 
+      "action": "latino_construct_naive_bayes_classifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Naive Bayes Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8cdafccb-d925-4ed1-b90c-726efa2260b5", 
+      "name": "Normalize", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "normalize", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "20a4318d-7bae-6986-5036-ad156a89582b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8cdafccb-d925-4ed1-b90c-726efa2260b5", 
+      "name": "Log Sum Exp Trick", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "logSumExpTrick", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "c87a9f5d-59a8-83d9-b0e9-24ed978e0359"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "8cdafccb-d925-4ed1-b90c-726efa2260b5", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "description": "", 
+      "variable": "classifier", 
+      "order": 1, 
+      "uid": "145e8ccb-3cf5-1edc-a5f1-9373d8045669"
+    }
+  }
+]

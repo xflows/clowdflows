@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "59c7d09d-fe70-48f4-9700-4bff60e09a9f", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function GetSetIndexes in package lemmagen. The original function signature: GetSetIndexes.", 
+      "static_image": "helper_general.png", 
+      "action": "lemmagen_get_set_indexes", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Get Set Indexes"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "59c7d09d-fe70-48f4-9700-4bff60e09a9f", 
+      "name": "Selected Set Id", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "Determines indexes of which Set Id should be retrieved from the Set Id List", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "selectedSetId", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "2596a05a-b12f-2a65-1adb-a3ec965f91ac"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "59c7d09d-fe70-48f4-9700-4bff60e09a9f", 
+      "name": "Get Opposite Indexes", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "opposite", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "5470afdc-1cf8-d0d1-9358-b2dfb924b902"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "59c7d09d-fe70-48f4-9700-4bff60e09a9f", 
+      "name": "Set Id List", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "List fo Set Ids which are used for retrieving indexes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "setList", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "dca6e615-a35f-f132-6af1-53faa0014c74"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "59c7d09d-fe70-48f4-9700-4bff60e09a9f", 
+      "name": "Indexes of occurences of Selected Set Id in the Set Id List", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "setIndexes", 
+      "order": 1, 
+      "uid": "e2d5f558-d803-3d68-b92f-1e68409415a1"
+    }
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ef06ed94-c57a-4bb0-8f05-1212920c95a0", 
+      "treeview_image": "", 
+      "uid": "b3918a2b-afab-4225-9c17-5665d4c1a898", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "table.png", 
+      "action": "scikitAlgorithms_UCIDataset", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "UCI dataset to Scikit Dataset"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b3918a2b-afab-4225-9c17-5665d4c1a898", 
+      "name": "DataSet", 
+      "short_name": "ds", 
+      "default": "iris", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "dsIn", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "b29f0614-1db8-48a4-8645-9f28c5d05f66"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b3918a2b-afab-4225-9c17-5665d4c1a898", 
+      "name": "Dataset", 
+      "short_name": "dts", 
+      "description": "", 
+      "variable": "dtsOut", 
+      "order": 1, 
+      "uid": "1118a566-6963-483e-a0b2-78d66e07ac66"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Diabetes (regression)", 
+      "uid": "10f6c559-491a-471d-8853-5afa14489aa1", 
+      "value": "diabetes", 
+      "abstract_input": "b29f0614-1db8-48a4-8645-9f28c5d05f66"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Linnerud dataset (multivariate regression)", 
+      "uid": "31ac6a55-5935-42af-9033-b31769f28c6c", 
+      "value": " linnerud", 
+      "abstract_input": "b29f0614-1db8-48a4-8645-9f28c5d05f66"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Boston (regression)", 
+      "uid": "48f974a6-5a7e-45aa-9ce9-13d092ddcaf7", 
+      "value": "boston", 
+      "abstract_input": "b29f0614-1db8-48a4-8645-9f28c5d05f66"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Iris (classification)", 
+      "uid": "dd6bb693-a735-4d43-9680-71843f8f58d9", 
+      "value": "iris", 
+      "abstract_input": "b29f0614-1db8-48a4-8645-9f28c5d05f66"
+    }
+  }
+]

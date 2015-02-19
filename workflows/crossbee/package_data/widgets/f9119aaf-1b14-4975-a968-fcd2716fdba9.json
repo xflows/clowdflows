@@ -1,0 +1,208 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d8fee140-c280-4d6b-b0b9-7c02fd857b50", 
+      "treeview_image": "", 
+      "uid": "f9119aaf-1b14-4975-a968-fcd2716fdba9", 
+      "is_streaming": false, 
+      "package": "crossbee", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructStandardHeurisitc in package crossbee. The original function signature: ConstructStandardHeurisitc.", 
+      "static_image": "crossbee_widget.png", 
+      "action": "crossbee_construct_standard_heurisitc", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 11, 
+      "name": "Standard Heuristic"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9119aaf-1b14-4975-a968-fcd2716fdba9", 
+      "name": "Name", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "name", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "a90bdc28-ff1b-24c8-56ce-7f3e574961a2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9119aaf-1b14-4975-a968-fcd2716fdba9", 
+      "name": "Heurisitc Specification", 
+      "short_name": "hsp", 
+      "default": "random", 
+      "description": "CrossBeeInterfaces.Heurisitcs.StandardHeurisitc+Specification", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "heurisitcSpec", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f9119aaf-1b14-4975-a968-fcd2716fdba9", 
+      "name": "Heuristic", 
+      "short_name": "heu", 
+      "description": "", 
+      "variable": "heurisitc", 
+      "order": 1, 
+      "uid": "30214190-4bb6-bfd4-4631-b958353bb959"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "tfidfAvg: average tf idf of a term", 
+      "uid": "3f1621d3-7bc0-5e28-abc1-814bf77c0bd4", 
+      "value": "tfidfAvg", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "tfidfDomnSum: sum of a term\u2019s importance in both domains", 
+      "uid": "40d62620-22c5-84a6-79e3-9657e62eda10", 
+      "value": "tfidfDomnSum", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "freqDoc: document frequency across both domains", 
+      "uid": "515a4987-5332-bc92-9bf5-eb89ed885ae2", 
+      "value": "freqDoc", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "freqDomnProd: product of term frequencies in both domains", 
+      "uid": "6111af42-a16f-2bbb-d29c-2a2facc47368", 
+      "value": "freqDomnProd", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "freqTerm: term frequency across both domains", 
+      "uid": "66c8c1be-9678-5564-8722-62018610a66a", 
+      "value": "freqTerm", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "simDomnProd: product of a term\u2019s similarity to the centroids of both domains", 
+      "uid": "913318ee-6bb5-b7a4-31c4-93f379b48bb5", 
+      "value": "simDomnProd", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "simAvgTerm: similarity to an average term \u2013 the distance from the center of the cluster of all terms", 
+      "uid": "9704c8d8-bc29-9286-08f9-5c6191235203", 
+      "value": "simAvgTerm", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "simDomnRatioMin: minimum of a term\u2018s frequencies ratio between both domains", 
+      "uid": "a2521b2a-a074-d279-eb27-073ddd2ebe46", 
+      "value": "simDomnRatioMin", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "freqDomnRatioMin: minimum of term frequencies ratio between both domains", 
+      "uid": "a9a43380-128e-c1d4-f5e0-1c9061ea4d4f", 
+      "value": "freqDomnRatioMin", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "tfidfSum: sum of all tf idf weights of a term across both domains", 
+      "uid": "b8be1a09-27a9-80c5-55c4-2fe2ff2e9937", 
+      "value": "tfidfSum", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "appearInAllDomn: better baseline heuristic which can separate two classes of terms - the ones that appear in both domains and the ones that appear only in one", 
+      "uid": "baa0c2ee-cf9e-95c4-8512-a4f3f8a2afa0", 
+      "value": "appearInAllDomn", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "random: random baseline heuristic", 
+      "uid": "cc5decfa-9ed4-60e7-691e-c8f59bb9ca8a", 
+      "value": "random", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "freqDomnProdRel: product of term frequencies in both domains relative to the term frequency in all domains", 
+      "uid": "d650ea43-9e99-d228-3093-7b912391e8b3", 
+      "value": "freqDomnProdRel", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "tfidfDomnProd: product of a term\u2019s importance in both domains", 
+      "uid": "e3e72432-6cf2-47fb-50ef-f9cf73864874", 
+      "value": "tfidfDomnProd", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "freqRatio: term to document frequency ratio", 
+      "uid": "e85317e8-2193-ee9a-90b1-6320c5d301ee", 
+      "value": "freqRatio", 
+      "abstract_input": "ea0732f6-cc42-4b44-54cc-6ebc0062af17"
+    }
+  }
+]

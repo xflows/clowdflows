@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0803d58-35d4-4590-bb32-f2041e735247", 
+      "treeview_image": "", 
+      "uid": "c4dc0648-79b0-49e8-b670-aef1f511050d", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "graph.png", 
+      "action": "streaming_sentiment_graph", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "streaming_sentiment_graph", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Sentiment graph"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c4dc0648-79b0-49e8-b670-aef1f511050d", 
+      "name": "List of Tweets", 
+      "short_name": "ltw", 
+      "default": "", 
+      "description": "List of tweets (can be annotated or not)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "ltw", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "0413b69e-b954-4a77-a8ad-59dc559ee4c6"
+    }
+  }
+]

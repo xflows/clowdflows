@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "08c90036-fd13-4ff3-ac20-01982262a782", 
+      "treeview_image": "", 
+      "uid": "7615fc12-a575-4911-84d4-db498fc9fa98", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "bigdata_ca", 
+      "visualization_view": "bigdata_ca", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Classification Accuracy"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7615fc12-a575-4911-84d4-db498fc9fa98", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "1a7bab82-8d0f-4372-93ce-6abe6cba1779"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7615fc12-a575-4911-84d4-db498fc9fa98", 
+      "name": "Results", 
+      "short_name": "rst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "predictions", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "222215ac-e31f-46b3-bca9-eddb63fc0450"
+    }
+  }
+]

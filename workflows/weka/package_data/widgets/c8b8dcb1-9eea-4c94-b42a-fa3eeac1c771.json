@@ -1,0 +1,131 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "6d75faa7-c547-475c-8b96-04b78d4ff402", 
+      "treeview_image": "", 
+      "uid": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Creates data clusters based on the provided clusterer.", 
+      "static_image": "WEKA_ApplyClusterer.png", 
+      "action": "call_webservice", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "apply_clusterer", 
+      "wsdl": "http://vihar.ijs.si:8092/Evaluation?wsdl", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Apply Clusterer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
+      "name": "Timeout", 
+      "short_name": "to", 
+      "default": "60", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "timeout", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "09b6a103-7879-469c-bf8b-712f80de4b52"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
+      "name": "Instances", 
+      "short_name": "ins", 
+      "default": "", 
+      "description": "Provided data.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "278891e3-2530-4c9b-9871-57e6b6ad4070"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
+      "name": "Send empty strings to webservices", 
+      "short_name": "ses", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sendemptystrings", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "416696a5-40bf-41bb-afd6-dd9f89c4246f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
+      "name": "Clusterer", 
+      "short_name": "clu", 
+      "default": "", 
+      "description": "Clusterer provided for clustering data.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "clusterer", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "5b14518d-51a9-4638-9231-dd73d19b6b3c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
+      "name": "Clusters", 
+      "short_name": "clu", 
+      "description": "Clusters based on provided clusterer and data", 
+      "variable": "clusters", 
+      "order": 1, 
+      "uid": "10685da4-1505-46f5-aed3-30e7228eaaa6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
+      "name": "Centroids", 
+      "short_name": "cen", 
+      "description": "Number of centroids based on the clustering done", 
+      "variable": "centroids", 
+      "order": 3, 
+      "uid": "39951e7d-8354-49b6-aa26-cbbc5be2285a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c8b8dcb1-9eea-4c94-b42a-fa3eeac1c771", 
+      "name": "Number of Clusters", 
+      "short_name": "num", 
+      "description": "Number of data clusters based on the clustering done", 
+      "variable": "number_of_clusters", 
+      "order": 2, 
+      "uid": "618a6e7b-54a2-4ee0-8356-6819a88451c7"
+    }
+  }
+]

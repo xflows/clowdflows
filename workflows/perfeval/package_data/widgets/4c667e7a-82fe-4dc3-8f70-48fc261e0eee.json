@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed2728bc-3fd5-4244-9876-f6a757d1b922", 
+      "treeview_image": "treeview/Bar-chart-icon.png", 
+      "uid": "4c667e7a-82fe-4dc3-8f70-48fc261e0eee", 
+      "is_streaming": false, 
+      "package": "perfeval", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Bar-chart-icon.png", 
+      "description": "", 
+      "static_image": "", 
+      "action": "eval_bar_chart", 
+      "visualization_view": "eval_bar_chart_view", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Performance Chart"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4c667e7a-82fe-4dc3-8f70-48fc261e0eee", 
+      "name": "Evaluation Results", 
+      "short_name": "evr", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "eval_results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "cf7561c5-a1ff-42bf-905b-92330ff39ae4"
+    }
+  }
+]

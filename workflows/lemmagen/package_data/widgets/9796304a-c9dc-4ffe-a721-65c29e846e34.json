@@ -1,0 +1,236 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c0502e02-2e9e-4b93-8c93-9eb217b0799b", 
+      "treeview_image": "", 
+      "uid": "9796304a-c9dc-4ffe-a721-65c29e846e34", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructPrebuildLemmatizer in package lemmagen. The original function signature: ConstructPrebuildLemmatizer.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_construct_prebuild_lemmatizer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 7, 
+      "name": "Prebuild Lemmatizer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9796304a-c9dc-4ffe-a721-65c29e846e34", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "English", 
+      "description": "LemmaSharp.LanguagePrebuilt", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "language", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9796304a-c9dc-4ffe-a721-65c29e846e34", 
+      "name": "LemmaGen Lemmatizer", 
+      "short_name": "lmz", 
+      "description": "", 
+      "variable": "lemamtizer", 
+      "order": 1, 
+      "uid": "24208d82-d047-9bea-4091-0bf9ab47f69e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Hungarian  (trained on MULTEXT-East v4 resources)", 
+      "uid": "08a3121c-4705-cee1-6575-88483a5a7105", 
+      "value": "Hungarian", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Estonian   (trained on MULTEXT-East v4 resources)", 
+      "uid": "16ea0b07-a565-851b-4feb-2f217e49f9f7", 
+      "value": "Estonian", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Spanish    (trained on MULTEXT resources)", 
+      "uid": "3119b7e0-e42e-17ab-dd29-4b7678a46402", 
+      "value": "Spanish", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovene    (trained on MULTEXT-East v4 resources)", 
+      "uid": "4c5b91b6-c056-c693-1ed0-6d8880099cc5", 
+      "value": "Slovene", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Persian    (trained on MULTEXT-East v4 resources)", 
+      "uid": "4fc30fb2-816d-aece-f281-cb5d6cc4fdbf", 
+      "value": "Persian", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "French     (trained on MULTEXT-East v4 resources)", 
+      "uid": "50278c48-956a-32a2-761e-b5a195e8cf29", 
+      "value": "French", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "FrenchMT   (trained on MULTEXT resources)", 
+      "uid": "616ddeb6-86be-cf89-c5ff-0b04df7d3235", 
+      "value": "FrenchMT", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovak     (trained on MULTEXT-East v4 resources)", 
+      "uid": "6c117cab-06bd-be31-0d15-4ec6b7b5a8a1", 
+      "value": "Slovak", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Italian    (trained on MULTEXT resources)", 
+      "uid": "959c9cdb-aa93-7600-a08f-e1c8d9a63400", 
+      "value": "Italian", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "EnglishMT  (trained on MULTEXT resources)", 
+      "uid": "96e4b2dc-01ba-4565-4d70-329c04a3aa08", 
+      "value": "EnglishMT", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Ukrainian  (trained on MULTEXT-East v4 resources)", 
+      "uid": "a1e4a3b6-2f0a-1d96-65a5-99cafc66b2b6", 
+      "value": "Ukrainian", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Czech      (trained on MULTEXT-East v4 resources)", 
+      "uid": "a3505874-906b-da5e-5b90-58178db7381c", 
+      "value": "Czech", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Romanian   (trained on MULTEXT-East v4 resources)", 
+      "uid": "a5107bb6-d9a8-4103-7ecb-2bc79196c145", 
+      "value": "Romanian", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Russian    (trained on MULTEXT-East v4 resources)", 
+      "uid": "b68822dc-44c5-0d01-fca7-84a523f0f2f0", 
+      "value": "Russian", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Serbian    (trained on MULTEXT-East v4 resources)", 
+      "uid": "c711244e-ae1e-86b6-536b-c78b3890d4d9", 
+      "value": "Serbian", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Bulgarian  (trained on MULTEXT-East v4 resources)", 
+      "uid": "d2925cf1-2943-5aa3-6c2b-5b46caa6c3a6", 
+      "value": "Bulgarian", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "German     (trained on MULTEXT resources)", 
+      "uid": "d4fa9df0-c5b4-bd05-10ff-50243773b89e", 
+      "value": "German", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English    (trained on MULTEXT-East v4 resources)", 
+      "uid": "e529c7d6-83b7-9279-ee22-ecdf7295e5bf", 
+      "value": "English", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Macedonian (trained on MULTEXT-East v4 resources)", 
+      "uid": "e8d69c6b-b37f-874a-8dbf-714a4fa04279", 
+      "value": "Macedonian", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Polish     (trained on MULTEXT-East v4 resources)", 
+      "uid": "ebd5a5b6-3b46-2147-95e5-051633ba43c4", 
+      "value": "Polish", 
+      "abstract_input": "2452e058-506e-6f62-9f45-1d15de5824bb"
+    }
+  }
+]

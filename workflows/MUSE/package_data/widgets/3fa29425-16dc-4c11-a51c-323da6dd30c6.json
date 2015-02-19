@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "cf46e990-42b6-4027-b2f4-a95acaaed210", 
+      "treeview_image": "", 
+      "uid": "3fa29425-16dc-4c11-a51c-323da6dd30c6", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Calls the semantic role labeling service", 
+      "static_image": "", 
+      "action": "MUSE_semantic_role_labeling", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Semantic role labeling"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3fa29425-16dc-4c11-a51c-323da6dd30c6", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://vihar.ijs.si:8001/MUSE_services/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "814c5076-50b6-40de-a0d8-1b81aceb4f9f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3fa29425-16dc-4c11-a51c-323da6dd30c6", 
+      "name": "Input XML", 
+      "short_name": "xml", 
+      "default": "", 
+      "description": "MUSE XML file", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "xml", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "dab8f94f-b362-41fd-ba71-93c24d740409"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3fa29425-16dc-4c11-a51c-323da6dd30c6", 
+      "name": "Output XML", 
+      "short_name": "xml", 
+      "description": "XML with semantic roles added", 
+      "variable": "xml", 
+      "order": 1, 
+      "uid": "bfc299c1-d31f-4843-adf7-37066972e91c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3fa29425-16dc-4c11-a51c-323da6dd30c6", 
+      "name": "Input for KR", 
+      "short_name": "str", 
+      "description": "Input text file for mapping to knowledge representation", 
+      "variable": "txt", 
+      "order": 2, 
+      "uid": "f390bfa5-36f2-4cf4-92b5-804ac301da4f"
+    }
+  }
+]

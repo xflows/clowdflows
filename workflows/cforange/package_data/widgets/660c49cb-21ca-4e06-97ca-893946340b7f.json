@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "81efce93-b6c5-4270-bde9-ec946a394b10", 
+      "treeview_image": "", 
+      "uid": "660c49cb-21ca-4e06-97ca-893946340b7f", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Constructs and returns a new data set that includes a class and attributes from the list returned by function attMeasure that have the score above or equal to a specified threshold. data is used to pass an original data set. Parameter threshold is optional and defaults to 0.0.", 
+      "static_image": "selectAttrsAboveThreshold.png", 
+      "action": "cforange_atts_above_thresh", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Select Attributes Above Threshold"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "660c49cb-21ca-4e06-97ca-893946340b7f", 
+      "name": "Scores", 
+      "short_name": "sco", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "scores", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "2e60fc2e-3470-46d3-a64f-ab1e7c75487b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "660c49cb-21ca-4e06-97ca-893946340b7f", 
+      "name": "Threshold", 
+      "short_name": "thr", 
+      "default": "0.0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "thresh", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "2ee5a729-2e13-49c0-805b-120833d80909"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "660c49cb-21ca-4e06-97ca-893946340b7f", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ca1fcc61-3c66-4908-a381-0974fecda1a1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "660c49cb-21ca-4e06-97ca-893946340b7f", 
+      "name": "New Orange Data Table", 
+      "short_name": "odt", 
+      "description": "", 
+      "variable": "new_dataset", 
+      "order": 1, 
+      "uid": "5fe21797-fc14-4bb3-b7fb-de879279a533"
+    }
+  }
+]

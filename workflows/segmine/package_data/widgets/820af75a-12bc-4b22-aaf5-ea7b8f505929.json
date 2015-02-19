@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "820af75a-12bc-4b22-aaf5-ea7b8f505929", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "filter_unknown_genes_ath", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Filter unknown ATH genes"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "820af75a-12bc-4b22-aaf5-ea7b8f505929", 
+      "name": "Gene ranks", 
+      "short_name": "rnk", 
+      "default": "", 
+      "description": "list of pairs (gene, rank)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "gene_ranks", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ef46b1e3-82a3-4355-9385-0b53df4d4f07"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "820af75a-12bc-4b22-aaf5-ea7b8f505929", 
+      "name": "Filtered gene ranks", 
+      "short_name": "rnk", 
+      "description": "filtered list of pairs (gene, rank)", 
+      "variable": "filtered_ranks", 
+      "order": 1, 
+      "uid": "fe02fbd3-7127-4233-bdc3-235f546edd19"
+    }
+  }
+]

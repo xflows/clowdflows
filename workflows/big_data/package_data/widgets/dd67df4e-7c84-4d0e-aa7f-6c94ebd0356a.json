@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0165a189-a6ea-4152-8b5c-f507d47bc0e6", 
+      "treeview_image": "", 
+      "uid": "dd67df4e-7c84-4d0e-aa7f-6c94ebd0356a", 
+      "windows_queue": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "The logistic regression classifier is a binary classifier that uses numeric features. The classifier learns by fitting theta parameters to the training data using Newton-Raphson method to update theta parameters.", 
+      "static_image": "", 
+      "action": "log_reg_predict", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 6, 
+      "name": "Logistic regression predict"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "dd67df4e-7c84-4d0e-aa7f-6c94ebd0356a", 
+      "name": "Fit model", 
+      "short_name": "fit", 
+      "default": "", 
+      "description": "Fit model URL.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fitmodel_url", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ab0969e7-bed6-4381-926f-ac5a16a77c08"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "dd67df4e-7c84-4d0e-aa7f-6c94ebd0356a", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "ce059641-3abd-49e1-9c55-d3476e0db0ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "dd67df4e-7c84-4d0e-aa7f-6c94ebd0356a", 
+      "name": "Results", 
+      "short_name": "rst", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "ed188c69-7d64-4b52-9212-823283fc1665"
+    }
+  }
+]

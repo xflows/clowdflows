@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "e73346b1-803c-4d44-8230-52c499f11da6", 
+      "treeview_image": "", 
+      "uid": "5b6ead2a-2b78-4c97-ba65-d4c6eadaf028", 
+      "is_streaming": false, 
+      "package": "hbp", 
+      "interaction_view": "hbp_construct_query", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "hbp_search_criteria", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "hbp_search_criteria_post", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Search criteria"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5b6ead2a-2b78-4c97-ba65-d4c6eadaf028", 
+      "name": "Query", 
+      "short_name": "q", 
+      "description": "The query", 
+      "variable": "query", 
+      "order": 1, 
+      "uid": "2b61b4ca-b928-49bb-9193-71c53039668a"
+    }
+  }
+]

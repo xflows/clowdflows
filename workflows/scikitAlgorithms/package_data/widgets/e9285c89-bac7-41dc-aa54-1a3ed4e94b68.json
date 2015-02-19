@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "168025e9-edfe-44d0-9818-1ac1d7d5cfe3", 
+      "treeview_image": "", 
+      "uid": "e9285c89-bac7-41dc-aa54-1a3ed4e94b68", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Non-linear regression using Support Vector Machines (wrapper for libsvm)", 
+      "static_image": "scikit_svm.png", 
+      "action": "scikitAlgorithms_SVR", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Support Vector Regression"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e9285c89-bac7-41dc-aa54-1a3ed4e94b68", 
+      "name": "Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "out", 
+      "order": 1, 
+      "uid": "7a0b535f-807c-4d31-843c-545b7dcb6311"
+    }
+  }
+]

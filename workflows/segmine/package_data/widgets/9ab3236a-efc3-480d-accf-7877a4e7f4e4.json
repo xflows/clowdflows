@@ -1,0 +1,68 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "9ab3236a-efc3-480d-accf-7877a4e7f4e4", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Transform SEGS rules into an Orange ExampleTable. Useful for e.g., clustering.", 
+      "static_image": "", 
+      "action": "segmine_rules_as_table", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "SEGS rules as Orange table"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9ab3236a-efc3-480d-accf-7877a4e7f4e4", 
+      "name": "SEGS rules", 
+      "short_name": "rls", 
+      "default": "", 
+      "description": "Rules as returned by the SEGS widget", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "rules", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "9cfb8ad9-5a55-4e4d-8efc-63d7318ca42d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9ab3236a-efc3-480d-accf-7877a4e7f4e4", 
+      "name": "Term table", 
+      "short_name": "odt", 
+      "description": "Rules as rows, their terms as columns.", 
+      "variable": "term_table", 
+      "order": 1, 
+      "uid": "19670a6e-77a0-4299-9211-52c331ee5842"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9ab3236a-efc3-480d-accf-7877a4e7f4e4", 
+      "name": "Gene table", 
+      "short_name": "odt", 
+      "description": "Rules as rows, their genes as columns.", 
+      "variable": "gene_table", 
+      "order": 1, 
+      "uid": "664f5750-447c-4c3c-9870-a00af2ec101f"
+    }
+  }
+]

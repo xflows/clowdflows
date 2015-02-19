@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bc5a8211-0cdd-4c1e-82cc-5251672bfba3", 
+      "treeview_image": "", 
+      "uid": "78b1895b-362e-4416-a21c-ccf4df74334a", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Constructs a default Bio3graph vocabulary but with custom compounds.", 
+      "static_image": "", 
+      "action": "bio3graph_build_default_vocabulary_custom_compounds", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "Build default vocabulary with custom compounds"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "78b1895b-362e-4416-a21c-ccf4df74334a", 
+      "name": "Compounds", 
+      "short_name": "csv", 
+      "default": "", 
+      "description": "Compounds CSV file as string", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "compounds", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "bc2ce3d2-25d0-41ef-abf3-5de5f1eaaad9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "78b1895b-362e-4416-a21c-ccf4df74334a", 
+      "name": "Vocabulary", 
+      "short_name": "voc", 
+      "description": "Bio3graph vocabulary structure.", 
+      "variable": "vocabulary", 
+      "order": 1, 
+      "uid": "31050115-8233-4056-831e-2d09895afafb"
+    }
+  }
+]

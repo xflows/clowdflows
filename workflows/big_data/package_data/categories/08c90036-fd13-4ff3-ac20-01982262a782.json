@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Evaluation", 
+    "parent": "cf7b1d24-7c6d-4cd1-bcc9-16e43e1ab5a7", 
+    "order": 6, 
+    "uid": "08c90036-fd13-4ff3-ac20-01982262a782"
+  }
+}

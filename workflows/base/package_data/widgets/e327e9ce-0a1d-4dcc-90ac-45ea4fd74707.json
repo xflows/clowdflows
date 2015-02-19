@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9b145e48-9cc0-4a24-9ac7-0df48e879361", 
+      "treeview_image": "treeview/d914a910_2.png", 
+      "uid": "e327e9ce-0a1d-4dcc-90ac-45ea4fd74707", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/d914a910_2.png", 
+      "description": "", 
+      "static_image": "d914a910_2.png", 
+      "action": "add_multiple", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 2, 
+      "name": "Add multiple integers"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e327e9ce-0a1d-4dcc-90ac-45ea4fd74707", 
+      "name": "Integer List", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "integer", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "aa8cdbe8-041b-455e-b03c-30d662f34c7b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e327e9ce-0a1d-4dcc-90ac-45ea4fd74707", 
+      "name": "Sum", 
+      "short_name": "sum", 
+      "description": "", 
+      "variable": "sum", 
+      "order": 1, 
+      "uid": "512aa455-9fcc-462f-83bb-5203dec8ef7b"
+    }
+  }
+]

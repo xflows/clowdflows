@@ -1,0 +1,136 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c29ac8e0-5e9a-4058-959e-f51c59eaf58a", 
+      "treeview_image": "", 
+      "uid": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
+      "is_streaming": false, 
+      "package": "segmine", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "BiomineMedoids.png", 
+      "action": "segmine_biomine_medoid", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Biomine medoid search"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
+      "name": "Max nodes", 
+      "short_name": "mxn", 
+      "default": "0", 
+      "description": "Max nodes", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxNodes", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "1942dd52-a553-460b-bdba-4ef29b6a402c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
+      "name": "Database version", 
+      "short_name": "dbv", 
+      "default": "<latest>", 
+      "description": "Database version", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "databaseVersion", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "29d6ed65-55b8-4d68-8d7a-c19c0e91fe35"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
+      "name": "Single component", 
+      "short_name": "scm", 
+      "default": "", 
+      "description": "Single component", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "singleComponent", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "adbdd779-8bad-433b-835e-c14ba567d96f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
+      "name": "Start nodes", 
+      "short_name": "beg", 
+      "default": "", 
+      "description": "Start nodes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "startNodes", 
+      "parameter": false, 
+      "order": 5, 
+      "uid": "c68a9f13-92a1-4000-ae7d-bcf43311109e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
+      "name": "Group nodes", 
+      "short_name": "grn", 
+      "default": "", 
+      "description": "Group nodes", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "groupNodes", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e2effb53-e150-4833-956e-5c58b15f1eb6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
+      "name": "Result", 
+      "short_name": "g", 
+      "description": "Result graph", 
+      "variable": "result", 
+      "order": 1, 
+      "uid": "3f1c6a6d-b203-46ca-a243-f64bf2adb989"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "cfac0d3a-2eaf-4f5c-bb09-39c3752e68dc", 
+      "name": "Best path", 
+      "short_name": "pth", 
+      "description": "Best path", 
+      "variable": "bestPath", 
+      "order": 2, 
+      "uid": "a196316a-1b94-4c85-8915-2df0fd95ac22"
+    }
+  }
+]

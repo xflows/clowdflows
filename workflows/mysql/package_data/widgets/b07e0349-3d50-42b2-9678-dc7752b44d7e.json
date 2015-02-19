@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b66b71b1-99d6-4efc-b264-a914a3e42911", 
+      "treeview_image": "", 
+      "uid": "b07e0349-3d50-42b2-9678-dc7752b44d7e", 
+      "is_streaming": false, 
+      "package": "mysql", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "mysql.png", 
+      "action": "mysql_treeliker_converter", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Database To TreeLiker"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b07e0349-3d50-42b2-9678-dc7752b44d7e", 
+      "name": "context", 
+      "short_name": "cxt", 
+      "default": "", 
+      "description": "Database context object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "context", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "9056fe24-2a8a-40a6-a320-66889d89050c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b07e0349-3d50-42b2-9678-dc7752b44d7e", 
+      "name": "discretization intervals", 
+      "short_name": "itr", 
+      "default": "", 
+      "description": "dictionary of intervals for discretization", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "discr_intervals", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "ebda708e-1ef8-4326-8788-1c98611c7817"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b07e0349-3d50-42b2-9678-dc7752b44d7e", 
+      "name": "template", 
+      "short_name": "tpl", 
+      "description": "template", 
+      "variable": "template", 
+      "order": 1, 
+      "uid": "550272b4-d505-4764-b7af-019a87394198"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b07e0349-3d50-42b2-9678-dc7752b44d7e", 
+      "name": "dataset", 
+      "short_name": "dat", 
+      "description": "dataset", 
+      "variable": "dataset", 
+      "order": 1, 
+      "uid": "65c5c174-104b-4a48-b61d-55192c73fbe7"
+    }
+  }
+]

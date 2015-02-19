@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b86956c3-21f6-47bd-8379-edf6f6c2f351", 
+      "treeview_image": "", 
+      "uid": "a368eeb7-31a8-43c7-b7a3-e04ca8a669f2", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ExtractColumnAsList in package lemmagen. The original function signature: ExtractColumnAsList.", 
+      "static_image": "helper_table.png", 
+      "action": "lemmagen_extract_column_as_list", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 4, 
+      "name": "Extract Column as List"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a368eeb7-31a8-43c7-b7a3-e04ca8a669f2", 
+      "name": "Table", 
+      "short_name": "tbl", 
+      "default": "", 
+      "description": "System.Collections.Generic.Dictionary`2[[System.Collections.Generic.LinkedList`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "table", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "74835bed-8926-1811-6ca2-5c1308790386"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a368eeb7-31a8-43c7-b7a3-e04ca8a669f2", 
+      "name": "Selected Column Index", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "Zero based column index", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "columnIndex", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "9ce23548-2cfe-e042-3365-d81d9cc6bce2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a368eeb7-31a8-43c7-b7a3-e04ca8a669f2", 
+      "name": "Column Values List", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "columnValues", 
+      "order": 1, 
+      "uid": "2f6ba6b5-b5e4-c619-37bf-26c28656f0df"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a368eeb7-31a8-43c7-b7a3-e04ca8a669f2", 
+      "name": "Column Name", 
+      "short_name": "str", 
+      "description": "", 
+      "variable": "columnName", 
+      "order": 2, 
+      "uid": "8b0b4d0d-6c67-5975-81e6-2b87b164f203"
+    }
+  }
+]

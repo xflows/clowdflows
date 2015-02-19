@@ -1,0 +1,119 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "treeview/ilp.png", 
+      "uid": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "is_streaming": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/ilp.png", 
+      "description": "", 
+      "static_image": "ilp.png", 
+      "action": "ilp_wordification", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Wordification"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "name": "other_tables", 
+      "short_name": "lot", 
+      "default": "", 
+      "description": "List of Orange data tables", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "other_tables", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "72854a26-f7bf-46a3-988e-61caaeabdc7a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "name": "context", 
+      "short_name": "ctx", 
+      "default": "", 
+      "description": "Context", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "context", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "8f02978b-e0d7-45c5-ab74-6a0e8728654d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "name": "feature n-grams", 
+      "short_name": "fng", 
+      "default": "1", 
+      "description": "Construct words out of  upto n features", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "f_ngram_size", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "b5eea832-1712-4db1-a677-92deca4e7a75"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "name": "target_table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Orange data table", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "target_table", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f1b77c89-ed7b-4181-9f62-c2001fd7c388"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "name": "Document corpus", 
+      "short_name": "str", 
+      "description": "Result of wordification for main target table", 
+      "variable": "corpus", 
+      "order": 1, 
+      "uid": "43b6d258-31a8-4ec8-a22a-e8927eeca602"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "name": "Arff table with TF-IDF values", 
+      "short_name": "arf", 
+      "description": "Arff table with TF-IDF values", 
+      "variable": "arff", 
+      "order": 1, 
+      "uid": "703593f1-1cae-4dd0-96c0-47211d3f4dc1"
+    }
+  }
+]

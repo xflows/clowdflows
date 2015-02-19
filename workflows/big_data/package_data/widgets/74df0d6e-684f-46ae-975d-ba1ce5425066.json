@@ -1,0 +1,177 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1be7b5eb-c1b2-485a-8dbe-56abce63fc73", 
+      "treeview_image": "", 
+      "uid": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Decision trees with MapReduce\r\n\r\nFit phase\r\nDecision trees algorithm builds one decision tree on a subset of data and it estimates all attributes in every tree node.\r\n\r\nPredict phase\r\nEach tree votes and algorithm selects prediction with most votes.\r\n\r\nReference\r\nSimilar algorithm is proposed in Gongqing Wu, Haiguang Li, Xuegang Hu, Yuanjun Bi, Jing Zhang, and Xindong Wu. MRec4.5: C4. 5 ensemble classification with mapreduce.", 
+      "static_image": "", 
+      "action": "dt_fit", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Decision trees"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "0351b517-61f1-4856-8ee4-1acd7d04d599"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Measure", 
+      "short_name": "msr", 
+      "default": "info_gain", 
+      "description": "Select measure for estimation of attributes.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "measure", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "28f53666-76b0-4d44-acab-0824e603a848"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Discretization", 
+      "short_name": "spf", 
+      "default": "equal_freq", 
+      "description": "Select equal frequency discretization or random discretization for numeric attributes", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "split_fun", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "8b88d56c-6cbb-451f-a618-4a1a27993a90"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Max tree nodes", 
+      "short_name": "mtn", 
+      "default": "20", 
+      "description": "Max. number of decision tree nodes.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "tree_nodes", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "a91f5676-5c91-420a-b731-5cf60afd601b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Min samples split", 
+      "short_name": "lmi", 
+      "default": "5", 
+      "description": "Min. number of samples to split the node", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "leaf_min_inst", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "cde1d8a0-c312-4497-a07b-43f7cd7f95e2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Class majority", 
+      "short_name": "csm", 
+      "default": "1", 
+      "description": "Purity of a subset.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "majority", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "f31f0f86-238b-4ce1-b7e7-1ad6e88f55b0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Fit model", 
+      "short_name": "fit", 
+      "description": "Fit model URL", 
+      "variable": "fitmodel_url", 
+      "order": 1, 
+      "uid": "495262a9-980d-4648-b04f-b49862804937"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Information gain", 
+      "uid": "26d43f05-9008-48c1-bdaf-486c9e4f3213", 
+      "value": "info_gain", 
+      "abstract_input": "28f53666-76b0-4d44-acab-0824e603a848"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Minimum description length", 
+      "uid": "c633baf4-1a77-458c-8bd3-8f4fdb65e856", 
+      "value": "mdl", 
+      "abstract_input": "28f53666-76b0-4d44-acab-0824e603a848"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Equal frequency discretization", 
+      "uid": "dac3dd38-3a6c-408b-9135-77cb4380d543", 
+      "value": "equal_freq", 
+      "abstract_input": "8b88d56c-6cbb-451f-a618-4a1a27993a90"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Random discretization", 
+      "uid": "dafe6b7c-48e7-4cfb-a0aa-2b22788fceec", 
+      "value": "random", 
+      "abstract_input": "8b88d56c-6cbb-451f-a618-4a1a27993a90"
+    }
+  }
+]

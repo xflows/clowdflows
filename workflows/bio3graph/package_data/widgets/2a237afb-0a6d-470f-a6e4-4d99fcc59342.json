@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bc5a8211-0cdd-4c1e-82cc-5251672bfba3", 
+      "treeview_image": "", 
+      "uid": "2a237afb-0a6d-470f-a6e4-4d99fcc59342", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Normalises all triplets in the input list.", 
+      "static_image": "", 
+      "action": "bio3graph_normalise_triplets", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 16, 
+      "name": "Normalise triplets"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2a237afb-0a6d-470f-a6e4-4d99fcc59342", 
+      "name": "Triplets", 
+      "short_name": "trs", 
+      "default": "", 
+      "description": "List of triplet data structures.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "triplets", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "48a96bb2-73d7-433f-8d7a-4f4a27d467d0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "2a237afb-0a6d-470f-a6e4-4d99fcc59342", 
+      "name": "Vocabulary", 
+      "short_name": "voc", 
+      "default": "", 
+      "description": "Bio3graph vocabulary structure.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "vocabulary", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "c22ffaaf-ea30-4298-a83f-226276cb9097"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "2a237afb-0a6d-470f-a6e4-4d99fcc59342", 
+      "name": "Normalised triplets", 
+      "short_name": "ntr", 
+      "description": "List of normalised triplets.", 
+      "variable": "normalised_triplets", 
+      "order": 1, 
+      "uid": "d3426330-72d6-4c79-a0ed-e3b362241de0"
+    }
+  }
+]

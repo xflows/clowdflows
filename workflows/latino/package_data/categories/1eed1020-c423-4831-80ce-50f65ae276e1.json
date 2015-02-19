@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Data In/Out", 
+    "parent": "3f7d449c-9222-458b-9c4e-412b01bcbc6b", 
+    "order": 1, 
+    "uid": "1eed1020-c423-4831-80ce-50f65ae276e1"
+  }
+}

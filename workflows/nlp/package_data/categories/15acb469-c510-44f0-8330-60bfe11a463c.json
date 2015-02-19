@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "NLP", 
+    "parent": null, 
+    "order": 1, 
+    "uid": "15acb469-c510-44f0-8330-60bfe11a463c"
+  }
+}

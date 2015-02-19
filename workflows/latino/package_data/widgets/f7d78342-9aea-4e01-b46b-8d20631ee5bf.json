@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "f7d78342-9aea-4e01-b46b-8d20631ee5bf", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function GenerateIntegerRange in package latino. The original function signature: GenerateIntegerRange.", 
+      "static_image": "range_create_integers_image.png", 
+      "action": "latino_generate_integer_range", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 5, 
+      "name": "Generate Integer Range"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f7d78342-9aea-4e01-b46b-8d20631ee5bf", 
+      "name": "Start", 
+      "short_name": "int", 
+      "default": "0", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "start", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "4c165f6b-7698-65d2-f8fb-2d2cf104ba47"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f7d78342-9aea-4e01-b46b-8d20631ee5bf", 
+      "name": "Step", 
+      "short_name": "int", 
+      "default": "1", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "step", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "64dbf120-d027-0a31-a88d-e78bd15fb0c1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f7d78342-9aea-4e01-b46b-8d20631ee5bf", 
+      "name": "Stop", 
+      "short_name": "int", 
+      "default": "10", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "stop", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "c707764e-6ee4-8318-565e-3c4aab14cc45"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f7d78342-9aea-4e01-b46b-8d20631ee5bf", 
+      "name": "Range", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "range", 
+      "order": 1, 
+      "uid": "8eb96f55-f038-e517-5e11-8dbda6295b0f"
+    }
+  }
+]

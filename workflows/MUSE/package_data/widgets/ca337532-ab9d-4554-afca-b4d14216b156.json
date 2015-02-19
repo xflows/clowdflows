@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "2ea309eb-3f82-45cb-8b33-9d00cf3f5a35", 
+      "treeview_image": "", 
+      "uid": "ca337532-ab9d-4554-afca-b4d14216b156", 
+      "is_streaming": false, 
+      "package": "MUSE", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Displays XML in a modal window", 
+      "static_image": "", 
+      "action": "MUSE_view_xml", 
+      "visualization_view": "MUSE_view_xml", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "View XML"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca337532-ab9d-4554-afca-b4d14216b156", 
+      "name": "XML document", 
+      "short_name": "xml", 
+      "default": "", 
+      "description": "XML document as string", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "xml_data", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "2e451b23-c11d-4614-aa4f-57521a42ef83"
+    }
+  }
+]

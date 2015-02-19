@@ -1,0 +1,39 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "d0e46009-46b3-43ed-bff0-5fc986ff6b34", 
+      "treeview_image": "treeview/orange-SVMEasy-new.png", 
+      "uid": "d54a6cee-76d0-4ec6-9aab-556e233be366", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/orange-SVMEasy-new.png", 
+      "description": "Learning algorithm which helps with the data normalization and parameter tuning.", 
+      "static_image": "orange-SVMEasy-new.png", 
+      "action": "svmeasy", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 11, 
+      "name": "Support Vector Machine Easy"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d54a6cee-76d0-4ec6-9aab-556e233be366", 
+      "name": "Support Vector Machine Easy Learner", 
+      "short_name": "lrn", 
+      "description": "SVM Easy learning algorithm.", 
+      "variable": "svmeasyout", 
+      "order": 1, 
+      "uid": "5add6c11-7052-4b5a-975f-b5cf25aada99"
+    }
+  }
+]

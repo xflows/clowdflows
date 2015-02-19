@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "824c66d6-1525-4a50-b10b-fc50161d57d3", 
+      "treeview_image": "", 
+      "uid": "c8ae4ba7-f308-435b-8f2a-94dfb5b81f1a", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ExtractLemmatizerSettings in package lemmagen. The original function signature: ExtractLemmatizerSettings.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_extract_lemmatizer_settings", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 6, 
+      "name": "Extract Lemmatizer Settings"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c8ae4ba7-f308-435b-8f2a-94dfb5b81f1a", 
+      "name": "Lemmatizer", 
+      "short_name": "lmz", 
+      "default": "true", 
+      "description": "Lemmatizer", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "lmtz", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "8cd4bc64-2caf-dfa8-5b13-26a869a0b2bd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c8ae4ba7-f308-435b-8f2a-94dfb5b81f1a", 
+      "name": "Lemmatizer Settings", 
+      "short_name": "stt", 
+      "description": "", 
+      "variable": "lemmatizerSettings", 
+      "order": 1, 
+      "uid": "7107ae46-49f6-d28b-643b-9679d5bd255e"
+    }
+  }
+]

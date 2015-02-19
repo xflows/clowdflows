@@ -1,0 +1,158 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ca549cd5-2041-46f1-b175-a743b71b0e9b", 
+      "treeview_image": "", 
+      "uid": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "is_streaming": true, 
+      "package": "streaming", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Queries the twitter API for tweets. Also works in a streaming environment.", 
+      "static_image": "twitter.png", 
+      "action": "streaming_twitter", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Twitter"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "name": "Query", 
+      "short_name": "q", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "query", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "07b8a51c-41d9-48af-b823-92e94ce300d2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "name": "Access Token Secret", 
+      "short_name": "as", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "as", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "299ae040-2916-4b88-8a79-3ced689ef23f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "name": "Geocode", 
+      "short_name": "geo", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "geocode", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "80d1e542-7f7c-4a8e-b683-764d0a754b03"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "name": "Consumer Secret", 
+      "short_name": "cs", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cs", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "9b9d6268-675a-46c5-82d5-b143e5fdd326"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "name": "Access Token", 
+      "short_name": "at", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "at", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "a951f2d1-c2d1-40b3-afe9-799195e03aa0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "name": "Use ClowdFlows authentication (warning: not stable)", 
+      "short_name": "cfa", 
+      "default": "", 
+      "description": "If this is set, the default consumer and access tokens are used.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "cfauth", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "c78c8f03-92c4-4f6c-972d-c064baecd09a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "name": "Consumer Key", 
+      "short_name": "ck", 
+      "default": "", 
+      "description": "Go to http://dev.twitter.com and create an app. The consumer key and secret will be generated for you after.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "ck", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "ed2db381-2ed2-4a4d-bd6d-9f9dc0430a50"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "3a929977-0708-4f92-8296-2e109ff0566a", 
+      "name": "List of tweets", 
+      "short_name": "ltw", 
+      "description": "A list of Tweets.", 
+      "variable": "ltw", 
+      "order": 1, 
+      "uid": "212aab18-6058-4e35-b64c-f1e1fb1078b7"
+    }
+  }
+]

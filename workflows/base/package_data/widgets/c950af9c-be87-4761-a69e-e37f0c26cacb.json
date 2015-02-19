@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9b145e48-9cc0-4a24-9ac7-0df48e879361", 
+      "treeview_image": "", 
+      "uid": "c950af9c-be87-4761-a69e-e37f0c26cacb", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "multiply_integers", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 5, 
+      "name": "Multiply integers"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c950af9c-be87-4761-a69e-e37f0c26cacb", 
+      "name": "Integers", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "integers", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "258f48ec-bbd1-4adc-85bb-97d43e73debe"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c950af9c-be87-4761-a69e-e37f0c26cacb", 
+      "name": "Integer", 
+      "short_name": "int", 
+      "description": "", 
+      "variable": "integer", 
+      "order": 1, 
+      "uid": "66a00cb7-d9b9-4051-8d8a-2d46e707db19"
+    }
+  }
+]

@@ -1,0 +1,118 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5723a5b8-8c18-4b1f-9398-e93828556c3c", 
+      "treeview_image": "", 
+      "uid": "b10997be-0f5f-43e5-9483-3c6575461c73", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Computes the distances between the attributes in the data sets. Don\u2019t confuse it with a similar widget for computing the distances between examples.", 
+      "static_image": "AttributeDistance.png", 
+      "action": "cforange_attribute_distance", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Attribute distance"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b10997be-0f5f-43e5-9483-3c6575461c73", 
+      "name": "Orange Data Table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "A list of examples", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "b7706775-ed85-4094-b116-555043a1ebca"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b10997be-0f5f-43e5-9483-3c6575461c73", 
+      "name": "Measures for attributes", 
+      "short_name": "mat", 
+      "default": "0", 
+      "description": "The two kinds of attributes (discrete and continuous) have different measures of distance.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "classInteractions", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b10997be-0f5f-43e5-9483-3c6575461c73", 
+      "name": "Distance matrix", 
+      "short_name": "dm", 
+      "description": "A matrix of attribute distances.", 
+      "variable": "dm", 
+      "order": 1, 
+      "uid": "656e264b-7377-43c8-a4c5-0c26075f5acf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Pearson's chi-square", 
+      "uid": "103b7429-09b3-434f-a70b-40a6cc97326e", 
+      "value": "0", 
+      "abstract_input": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Pearson's correlation", 
+      "uid": "279e0d29-ca9a-4409-bf44-a34247125804", 
+      "value": "3", 
+      "abstract_input": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "3-way interactions - I(A;B;C)", 
+      "uid": "5f77005a-d387-4550-afc9-d333c114ed00", 
+      "value": "2", 
+      "abstract_input": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Spearman's correlation", 
+      "uid": "9740ed3e-036c-4972-890d-b8f9d05d995b", 
+      "value": "4", 
+      "abstract_input": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "2-way interactions - I(A;B)/H(A,B)", 
+      "uid": "fe39a54a-3b27-42eb-97eb-4c53b0d775ee", 
+      "value": "1", 
+      "abstract_input": "cc42fca8-68a7-4874-b369-49e4bb4fa85f"
+    }
+  }
+]

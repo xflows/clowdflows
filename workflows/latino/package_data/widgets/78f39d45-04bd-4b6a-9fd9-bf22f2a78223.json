@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c8fd491e-75ad-487d-b42f-b5ca07ec045a", 
+      "treeview_image": "", 
+      "uid": "78f39d45-04bd-4b6a-9fd9-bf22f2a78223", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructKnnClassifierFast in package latino. The original function signature: ConstructKnnClassifierFast.", 
+      "static_image": "classifier_knn_fast_image.png", 
+      "action": "latino_construct_knn_classifier_fast", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 9, 
+      "name": "Knn Fast Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "78f39d45-04bd-4b6a-9fd9-bf22f2a78223", 
+      "name": "K (Neighbourhood)", 
+      "short_name": "int", 
+      "default": "10", 
+      "description": "System.Int32", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "k", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "50732a27-8321-b266-db28-85cba65c7f21"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "78f39d45-04bd-4b6a-9fd9-bf22f2a78223", 
+      "name": "Soft Voting", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "System.Boolean", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "softVoting", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "70286a7a-bb2c-f5d7-9ffc-e838a3c880c1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "78f39d45-04bd-4b6a-9fd9-bf22f2a78223", 
+      "name": "Classifier", 
+      "short_name": "csf", 
+      "description": "", 
+      "variable": "classifier", 
+      "order": 1, 
+      "uid": "efcbe2f3-a6c4-032f-8c21-513b5470bd20"
+    }
+  }
+]

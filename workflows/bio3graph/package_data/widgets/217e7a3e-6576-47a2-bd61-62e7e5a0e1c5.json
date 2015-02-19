@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "bc5a8211-0cdd-4c1e-82cc-5251672bfba3", 
+      "treeview_image": "", 
+      "uid": "217e7a3e-6576-47a2-bd61-62e7e5a0e1c5", 
+      "is_streaming": false, 
+      "package": "bio3graph", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Creates a document object structure from a given file.", 
+      "static_image": "", 
+      "action": "bio3graph_create_document_from_file", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 7, 
+      "name": "Create document from file"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "217e7a3e-6576-47a2-bd61-62e7e5a0e1c5", 
+      "name": "Document file", 
+      "short_name": "fil", 
+      "default": "", 
+      "description": "Input document file", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "docfile", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "361bbbee-b8cf-4334-8f32-ddc4dd27a6cd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "217e7a3e-6576-47a2-bd61-62e7e5a0e1c5", 
+      "name": "Document object", 
+      "short_name": "obj", 
+      "description": "Document object structure", 
+      "variable": "document", 
+      "order": 1, 
+      "uid": "e21a3e0f-ea91-4083-bdcb-f7b455a05fb2"
+    }
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1eed1020-c423-4831-80ce-50f65ae276e1", 
+      "treeview_image": "", 
+      "uid": "136d957e-57e1-47da-a6f6-05423d5abb9e", 
+      "is_streaming": false, 
+      "package": "latino", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function LoadADCfromXml in package latino. The original function signature: LoadADCfromXml.", 
+      "static_image": "xml_to_adc_image.png", 
+      "action": "latino_load_adcfrom_xml", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 2, 
+      "name": "Convert XML String to Corpus"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "136d957e-57e1-47da-a6f6-05423d5abb9e", 
+      "name": "XML String", 
+      "short_name": "xml", 
+      "default": "", 
+      "description": "System.String", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "xml", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "7a3acca8-7b22-8d31-2dab-8dd606665cc1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "136d957e-57e1-47da-a6f6-05423d5abb9e", 
+      "name": "Annotated Document Corpus", 
+      "short_name": "adc", 
+      "description": "", 
+      "variable": "adc", 
+      "order": 1, 
+      "uid": "2933b0e7-2639-9cf0-dc73-c22e77e3263c"
+    }
+  }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9b145e48-9cc0-4a24-9ac7-0df48e879361", 
+      "treeview_image": "treeview/d914a910_1.png", 
+      "uid": "c6cf5c17-f6a6-4076-bf35-ecb06d72da86", 
+      "is_streaming": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/d914a910_1.png", 
+      "description": "Subtracts two integers", 
+      "static_image": "d914a910_1.png", 
+      "action": "subtract_integers", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 6, 
+      "name": "Subtract integers"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c6cf5c17-f6a6-4076-bf35-ecb06d72da86", 
+      "name": "Integer 2", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "integer2", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "10fdef7a-7c55-464d-bd7d-1e273759eda9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c6cf5c17-f6a6-4076-bf35-ecb06d72da86", 
+      "name": "Integer 1", 
+      "short_name": "int", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "integer1", 
+      "parameter": false, 
+      "order": 0, 
+      "uid": "77312adf-6969-407e-90bd-083c96d3983b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c6cf5c17-f6a6-4076-bf35-ecb06d72da86", 
+      "name": "Integer", 
+      "short_name": "int", 
+      "description": "", 
+      "variable": "integer", 
+      "order": 1, 
+      "uid": "4488e496-5b41-4081-8715-ec82404d2d98"
+    }
+  }
+]

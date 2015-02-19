@@ -1,0 +1,169 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "824c66d6-1525-4a50-b10b-fc50161d57d3", 
+      "treeview_image": "", 
+      "uid": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
+      "is_streaming": false, 
+      "package": "lemmagen", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Automatically generated widget from function ConstructLemmatizerSettings in package lemmagen. The original function signature: ConstructLemmatizerSettings.", 
+      "static_image": "lemmagen_widget.png", 
+      "action": "lemmagen_construct_lemmatizer_settings", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": true, 
+      "order": 5, 
+      "name": "Create Lemmatizer Settings"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
+      "name": "Msd Consideration", 
+      "short_name": "msd", 
+      "default": "Distinct", 
+      "description": "Specification how algorithm considers msd tags.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "msdConsider", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "207135dc-56cf-ed6b-257c-8c7368a9435c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
+      "name": "Max Rules Per Node", 
+      "short_name": "bol", 
+      "default": "0", 
+      "description": "How many of the best rules are kept in memory for each node. Zero means unlimited.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "maxRulesPerNode", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "2714046d-2c88-d885-86c1-fc0ed5008f53"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
+      "name": "Build Front Lemmatizer", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "True: build proccess uses few more hevristics to build first left to right lemmatizer (lemmatizes front of the word); False: (default) do not create additional front lemmatizer;", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "buildFrontLemmatizer", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "aeb49b24-f859-5694-c9ec-01d492504b0e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
+      "name": "Store All Full Known Words", 
+      "short_name": "bol", 
+      "default": "false", 
+      "description": "True: the model will store all known words in full -> the same as having lexicon to check each word before using lemmatizer and then use the lemmatizer only for unknown words; False: (default) the model will try to mimimize the size and will store the full forms of words only in the case if they add new knowledge;", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "storeAllFullKnownWords", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "d187e91f-21c8-6e37-3889-99ac0f503c61"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
+      "name": "Use From In Rules", 
+      "short_name": "bol", 
+      "default": "true", 
+      "description": "True if from string should be included in rule identifier ([from]->[to]). False if just length of from string is used ([#len]->[to]).", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "useFromInRules", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e7fb66dd-2d1e-7c8c-bd73-847d1b2fd5fd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bfd489bb-4d5d-426e-839c-a81792a62bf9", 
+      "name": "Lemmatizer Settings", 
+      "short_name": "stt", 
+      "description": "", 
+      "variable": "lemmatizerSettings", 
+      "order": 5, 
+      "uid": "3275f2bd-f8ca-3ae0-e054-160ab45c7220"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Ignore            (Completely ignores mds tags - join examples with different tags and sum their weihgts)", 
+      "uid": "33700f07-d037-d437-0f11-59edad4bfaf3", 
+      "value": "Ignore", 
+      "abstract_input": "207135dc-56cf-ed6b-257c-8c7368a9435c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "JoinAll           (Joins examples with different tags - concatenates all msd tags)", 
+      "uid": "6ce84c3b-4a8b-a1cf-ff81-b30c3c607a72", 
+      "value": "JoinAll", 
+      "abstract_input": "207135dc-56cf-ed6b-257c-8c7368a9435c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Distinct          (Same examples with different msd's are not considered equal and joined)", 
+      "uid": "84e5ff67-fbb1-9981-9092-6e9cbd036e99", 
+      "value": "Distinct", 
+      "abstract_input": "207135dc-56cf-ed6b-257c-8c7368a9435c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "JoinDistinct      (Joins examples with different tags - concatenates just distinct msd tags - somehow slower)", 
+      "uid": "e248f536-1e95-f653-e0d9-26fdde5b34c6", 
+      "value": "JoinDistinct", 
+      "abstract_input": "207135dc-56cf-ed6b-257c-8c7368a9435c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "JoinSameSubstring (Joins examples with different tags - new tag is the left to right substring that all joined examples share)", 
+      "uid": "ee6728f1-7f3e-0b3e-f4a0-db4dc7e6889c", 
+      "value": "JoinSameSubstring", 
+      "abstract_input": "207135dc-56cf-ed6b-257c-8c7368a9435c"
+    }
+  }
+]

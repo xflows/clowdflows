@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "2c4c8f68-33db-411c-a8ce-176096349eba", 
+      "treeview_image": "", 
+      "uid": "e21925ad-fdc3-487d-944e-5eb03caa2350", 
+      "is_streaming": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Computes the average probability assigned to the correct class.", 
+      "static_image": "CCAP.png", 
+      "action": "cforange_average_probability", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 6, 
+      "name": "Correct Class Average Probability"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e21925ad-fdc3-487d-944e-5eb03caa2350", 
+      "name": "Evaluation Results", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "Evaluation results", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "results", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "2b1e7d82-9c60-47be-8d27-d88d56de0c5d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e21925ad-fdc3-487d-944e-5eb03caa2350", 
+      "name": "Report Standard Error", 
+      "short_name": "rse", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "reportSE", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "3dfeb6f5-fe7a-461a-b965-de7daa0b61eb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e21925ad-fdc3-487d-944e-5eb03caa2350", 
+      "name": "Average Probability", 
+      "short_name": "ap", 
+      "description": "", 
+      "variable": "ap", 
+      "order": 1, 
+      "uid": "39018d38-5c76-41db-a08b-3d1e02793e8f"
+    }
+  }
+]

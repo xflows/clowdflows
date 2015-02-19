@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0165a189-a6ea-4152-8b5c-f507d47bc0e6", 
+      "treeview_image": "", 
+      "uid": "6d84bb32-e028-428c-ba2b-63218f800172", 
+      "is_streaming": false, 
+      "package": "big_data", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "lpsvm_predict", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Linear proximal SVM predict"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6d84bb32-e028-428c-ba2b-63218f800172", 
+      "name": "Dataset", 
+      "short_name": "dst", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataset", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "42897594-631a-415e-b71a-d92668c9e1cb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6d84bb32-e028-428c-ba2b-63218f800172", 
+      "name": "Fit model", 
+      "short_name": "fit", 
+      "default": "", 
+      "description": "Fit model URL.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "fitmodel_url", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c76297b2-e519-4c5b-b3eb-7a7f5f2835af"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6d84bb32-e028-428c-ba2b-63218f800172", 
+      "name": "Results", 
+      "short_name": "rst", 
+      "description": "", 
+      "variable": "string", 
+      "order": 1, 
+      "uid": "b4408e13-5950-4b13-b15e-7f6c1bcf8a00"
+    }
+  }
+]
