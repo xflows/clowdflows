@@ -141,9 +141,11 @@ class DBContext:
         '''
         con = self.connection.connect()
         cursor = con.cursor() 
+        print "SELECT %s FROM %s" % (self.fmt_cols(cols), table)
         cursor.execute("SELECT %s FROM %s" % (self.fmt_cols(cols), table))
+        result = [cols for cols in cursor]
         con.close()
-        return [cols for cols in cursor]
+        return result
 
     def rows(self, table, cols):
         '''
@@ -164,16 +166,18 @@ class DBContext:
         if self.orng_tables:
             data = []
             for ex in self.orng_tables[table]:
-                if ex[str(pk_att)] == pk:
+                if str(ex[str(pk_att)]) == str(pk):
                     data.append([ex[str(col)] for col in cols])
             return data
         else:
             con = self.connection.connect()
             cursor = con.cursor() 
             attributes = self.db.fmt_cols(cols)
+            print "SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, table, pk_att, pk)
             cursor.execute("SELECT %s FROM %s WHERE `%s`='%s'" % (attributes, table, pk_att, pk))
+            result = [cols for cols in cursor]
             con.close()
-            return [cols for cols in cursor]
+            return results
 
     def fetch_types(self, table, cols):
         '''

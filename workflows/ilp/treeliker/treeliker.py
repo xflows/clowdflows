@@ -33,7 +33,7 @@ class TreeLiker:
         self._copy_data()
         self._batch()
 
-        p = Popen(['java', '-Xmx1G', '-cp', 'bin/TreeLiker.jar', 
+        p = Popen(['java', '-Xmx3G', '-cp', 'bin/TreeLiker.jar', 
                    'ida.ilp.treeLiker.TreeLikerMain', '-batch', self.batch], 
                    cwd=self.tmpdir)
         stdout_str, stderr_str = p.communicate()
