@@ -27,6 +27,12 @@ class Connection(models.Model):
     input = models.ForeignKey("Input",related_name="connections")
     workflow = models.ForeignKey("Workflow",related_name="connections")
 
+    def export(self):
+        d = {}
+        d['output_id']=self.output.pk
+        d['input_id']=self.input.pk
+        return d
+
 class Category(models.Model):
     name = models.CharField(max_length=50)
     parent = models.ForeignKey('self',related_name="children",null=True,blank=True)
@@ -63,6 +69,19 @@ class Workflow(models.Model):
     description = models.TextField(blank=True,default='') # a field
     widget = models.OneToOneField('Widget',related_name="workflow_link",blank=True,null=True)
     template_parent = models.ForeignKey('Workflow',blank=True,null=True,default=None,on_delete=models.SET_NULL)
+
+    def export(self):
+        """ Exports the workflow to a dictionary that can be imported """
+        d = {}
+        d['name']=self.name
+        d['description']=self.description
+        d['widgets'] = []
+        for w in self.widgets.all():
+            d['widgets'].append(w.export())
+        d['connections'] = []
+        for c in self.connections.all():
+            d['connections'].append(c.export())
+        return d
 
     def can_be_streaming(self):
         """ Method checks if workflow can be streamed. Check if there is at least one widget with
@@ -545,6 +564,40 @@ class Widget(models.Model):
 
     progress = models.IntegerField(default=0)
 
+    def export(self):
+        d = {}
+        try:
+            #d['workflow']=self.workflow.export()
+            if self.workflow_link:
+                d['workflow']=self.workflow_link.export()
+            else:
+                d['workflow']=None
+        except Workflow.DoesNotExist:
+            d['workflow']=None
+        d['x']=self.x
+        d['y']=self.y
+        d['name']=self.name
+        if self.abstract_widget:
+            if self.abstract_widget.uid:
+                d['abstract_widget']=self.abstract_widget.uid
+            else:
+                raise Exception("Cannot export a widget that doesn't have a UID. ("+str(self.name)+")")
+        else:
+            d['abstract_widget']=None
+        d['finished']=self.finished
+        d['error']=self.error
+        d['running']=self.running
+        d['interaction_waiting']=self.interaction_waiting
+        d['type']=self.type
+        d['progress']=self.progress
+        d['inputs']=[]
+        d['outputs']=[]
+        for i in self.inputs.all():
+            d['inputs'].append(i.export())
+        for o in self.outputs.all():
+            d['outputs'].append(o.export())
+        return d
+
     def is_visualization(self):
         try:
             if self.abstract_widget.visualization_view != '':
@@ -943,6 +996,31 @@ class Input(models.Model):
     class Meta:
         ordering = ('order',)
 
+    def export(self):
+        d = {}
+        d['name']=self.name
+        d['short_name']=self.short_name
+        d['description']=self.description
+        d['variable']=self.variable
+        d['required']=self.required
+        d['parameter']=self.parameter
+        d['multi_id']=self.multi_id
+        d['parameter_type']=self.parameter_type
+        d['order']=self.order
+        d['options']=[]
+        d['pk']=self.pk
+        for o in self.options.all():
+            d['options'].append(o.export())
+        try:
+            d['inner_output']=self.inner_output.pk
+        except:
+            d['inner_output']=None
+        try:
+            d['outer_output']=self.outer_output.pk
+        except:
+            d['outer_output']=None
+        return d
+
     def __unicode__(self):
         return unicode(self.name)
 
@@ -995,6 +1073,12 @@ class Option(models.Model):
     name = models.CharField(max_length=200)
     value = models.TextField(blank=True,null=True)
 
+    def export(self):
+        d = {}
+        d['name']=self.name
+        d['value']=self.value
+        return d
+
     class Meta:
         ordering = ['name']
 
@@ -1008,6 +1092,25 @@ class Output(models.Model):
     inner_input = models.ForeignKey(Input,related_name="outer_output_rel",blank=True,null=True) #za subprocess
     outer_input = models.ForeignKey(Input,related_name="inner_output_rel",blank=True,null=True) #za subprocess
     order = models.PositiveIntegerField(default=1)
+
+
+    def export(self):
+        d = {}
+        d['name']=self.name
+        d['short_name']=self.short_name
+        d['description']=self.description
+        d['variable']=self.variable
+        d['order']=self.order
+        d['pk']=self.pk
+        try:
+            d['inner_input']=self.inner_input.pk
+        except:
+            d['inner_input']=None
+        try:
+            d['outer_input']=self.outer_input.pk
+        except:
+            d['outer_input']=None
+        return d
 
     class Meta:
         ordering = ('order',)
