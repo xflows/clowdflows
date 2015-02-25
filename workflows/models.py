@@ -1059,10 +1059,10 @@ class Input(models.Model):
         self.order = json_data['order']
         self.save()
         input_conversion[json_data['pk']]=self.pk
-        for o in json_data['options']:
+        for option in json_data['options']:
             o = Option()
             o.input = self
-            o.import_from_json(json_data,input_conversion,output_conversion)
+            o.import_from_json(option,input_conversion,output_conversion)
             o.save()
         if json_data['outer_output']:
             self.outer_output = Output.objects.get(pk=output_conversion[json_data['outer_output']])
