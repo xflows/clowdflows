@@ -229,12 +229,17 @@ class Orange_Converter(Converter):
 
     def target_Orange_table(self):
         table, cls_att = self.db.target_table, self.db.target_att
-        return self.convert_table(table, cls_att=cls_att)
+        if not self.db.orng_tables:
+            return self.convert_table(table, cls_att=cls_att)
+        else:
+            return self.db.orng_tables[table]
 
     def other_Orange_tables(self):
         target_table = self.db.target_table
-        return[ self.convert_table(table,None) for table in self.db.tables if table!=target_table]
-
+        if not self.db.orng_tables:
+            return [self.convert_table(table,None) for table in self.db.tables if table!=target_table]
+        else:
+            return [table for name, table in self.db.orng_tables.items() if name != target_table]
 
     def convert_table(self, table_name, cls_att=None):
         '''
