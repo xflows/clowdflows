@@ -293,7 +293,8 @@ class Workflow(models.Model):
             for i in range(input_fold):
                 output_train = input_list.select(indices, i, negate=1)
                 output_test = input_list.select(indices, i)
-		#print len(output_train), len(output_test)
+                output_train.name = input_list.name
+                output_test.name = input_list.name
                 folds.append((output_train, output_test))
         else:
             rand.seed(input_seed)
