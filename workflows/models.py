@@ -1057,6 +1057,8 @@ class Input(models.Model):
         self.multi_id = json_data['multi_id']
         self.parameter_type = json_data['parameter_type']
         self.order = json_data['order']
+        if self.parameter:
+            self.value = json_data['value']
         self.save()
         input_conversion[json_data['pk']]=self.pk
         for option in json_data['options']:
@@ -1078,6 +1080,9 @@ class Input(models.Model):
         d['variable']=self.variable
         d['required']=self.required
         d['parameter']=self.parameter
+        d['value']=None
+        if self.parameter:
+            d['value']=self.value
         d['multi_id']=self.multi_id
         d['parameter_type']=self.parameter_type
         d['order']=self.order
