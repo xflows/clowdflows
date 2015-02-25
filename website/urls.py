@@ -17,6 +17,8 @@ urlpatterns = patterns('',
     url(r'^make-private/(?P<workflow_id>[0-9]+)/$', 'website.views.make_private', name='make private'),
     url(r'^make-public/(?P<workflow_id>[0-9]+)/$', 'website.views.make_public', name='make public'),
 
+    url(r'^export-workflow/(?P<workflow_id>[0-9]+)/$', 'website.views.export_workflow', name='export workflow'),
+    url(r'^import-workflow/$', 'website.views.import_workflow', name='import workflow'),
     url(r'^workflow/(?P<workflow_id>[0-9]+)/$', 'website.views.workflow_information', name='workflow information'),
 
     url(r'^editor/$', 'website.views.editor', name='editor'),

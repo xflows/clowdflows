@@ -33,6 +33,11 @@ class Connection(models.Model):
         d['input_id']=self.input.pk
         return d
 
+    def import_from_json(self,json_data,input_conversion,output_conversion):
+        self.output_id = output_conversion[json_data['output_id']]
+        self.input_id = input_conversion[json_data['input_id']]
+        self.save()
+
 class Category(models.Model):
     name = models.CharField(max_length=50)
     parent = models.ForeignKey('self',related_name="children",null=True,blank=True)
@@ -69,6 +74,25 @@ class Workflow(models.Model):
     description = models.TextField(blank=True,default='') # a field
     widget = models.OneToOneField('Widget',related_name="workflow_link",blank=True,null=True)
     template_parent = models.ForeignKey('Workflow',blank=True,null=True,default=None,on_delete=models.SET_NULL)
+
+    def import_from_json(self,json_data,input_conversion,output_conversion):
+        self.name = json_data['name']
+        self.description = json_data['description']
+        self.save()
+        for widget in json_data['widgets']:
+            w = Widget()
+            w.workflow = self
+            w.import_from_json(widget,input_conversion,output_conversion)
+            if widget['workflow']:
+                subwidget_workflow = Workflow()
+                subwidget_workflow.user = self.user
+                subwidget_workflow.import_from_json(widget['workflow'],input_conversion,output_conversion)
+                subwidget_workflow.widget = w
+                subwidget_workflow.save()
+        for connection in json_data['connections']:
+            c = Connection()
+            c.workflow = self
+            c.import_from_json(connection,input_conversion,output_conversion)
 
     def export(self):
         """ Exports the workflow to a dictionary that can be imported """
@@ -132,11 +156,11 @@ class Workflow(models.Model):
         unfinished_list = []
         for w in widgets:
             if not w.finished and not w.running:
-                """ if widget isn't finished and is not running than true"""
                 ready_to_run = True
                 connections = self.connections.filter(input__widget=w)
                 for c in connections:
                     if not c.output.widget.finished:
+                        #print c.output.widget
                         ready_to_run = False
                         break
                 if ready_to_run:
@@ -147,7 +171,7 @@ class Workflow(models.Model):
         """ Method runs the workflow for loop. The use of [0] at the end of lines is because
         there can be only one for loop in one workflow. This way we take the first one. """
         #clear for_input and for_output
-        print("run_for_loop")
+        #print("run_for_loop")
         fi = self.widgets.filter(type='for_input')[0]
         fo = self.widgets.filter(type='for_output')[0]
         outer_output = fo.inputs.all()[0].outer_output
@@ -221,7 +245,7 @@ class Workflow(models.Model):
     def run_cross_validation(self):
         """ Method runs cross_validation. """
         #clear for_input and for_output
-        print("run_cross_validation")
+        #print("run_cross_validation")
         import random as rand
         fi = self.widgets.filter(type='cv_input')[0]
         fo = self.widgets.filter(type='cv_output')[0]
@@ -334,6 +358,7 @@ class Workflow(models.Model):
     def run(self):
         if not USE_CONCURRENCY or not self.widget:
             unfinished_list = self.get_runnable_widgets()
+            #print unfinished_list
             try:
                 total = self.widgets.count()
                 completed = self.widgets.filter(finished=True).count()
@@ -346,6 +371,7 @@ class Workflow(models.Model):
                             self.widget.progress = (int)(((completed*1.0)/total)*100)
                             self.widget.save()
                     unfinished_list = self.get_runnable_widgets()
+                    #print unfinished_list
             except:
                 raise
         else:
@@ -398,6 +424,10 @@ class Workflow(models.Model):
     @models.permalink
     def get_info_url(self):
         return ('workflow information', [str(self.id)])
+
+    @models.permalink
+    def get_export_url(self):
+        return ('export workflow', [str(self.id)])
 
     def __unicode__(self):
         return unicode(self.name)
@@ -564,6 +594,25 @@ class Widget(models.Model):
 
     progress = models.IntegerField(default=0)
 
+    def import_from_json(self,json_data,input_conversion,output_conversion):
+        self.x = json_data['x']
+        self.y = json_data['y']
+        self.name = json_data['name']
+        if json_data['abstract_widget']:
+            aw = AbstractWidget.objects.get(uid=json_data['abstract_widget'],package=json_data['abstract_widget_package'])
+            self.abstract_widget = aw
+        self.type = json_data['type']
+        self.save()
+        for i in json_data['inputs']:
+            new_i = Input()
+            new_i.widget = self
+            new_i.import_from_json(i,input_conversion,output_conversion)
+        for o in json_data['outputs']:
+            new_o = Output()
+            new_o.widget = self
+            new_o.import_from_json(o,input_conversion,output_conversion)
+
+
     def export(self):
         d = {}
         try:
@@ -580,16 +629,17 @@ class Widget(models.Model):
         if self.abstract_widget:
             if self.abstract_widget.uid:
                 d['abstract_widget']=self.abstract_widget.uid
+                d['abstract_widget_package']=self.abstract_widget.package
             else:
                 raise Exception("Cannot export a widget that doesn't have a UID. ("+str(self.name)+")")
         else:
             d['abstract_widget']=None
-        d['finished']=self.finished
-        d['error']=self.error
-        d['running']=self.running
-        d['interaction_waiting']=self.interaction_waiting
+        #d['finished']=self.finished
+        #d['error']=self.error
+        #d['running']=self.running
+        #d['interaction_waiting']=self.interaction_waiting
         d['type']=self.type
-        d['progress']=self.progress
+        #d['progress']=self.progress
         d['inputs']=[]
         d['outputs']=[]
         for i in self.inputs.all():
@@ -663,7 +713,7 @@ class Widget(models.Model):
 
     def proper_run(self,offline):
         """ This is the real start. """
-        print("proper_run_widget")
+        #print("proper_run_widget")
         if not self.ready_to_run():
             raise WidgetException("The prerequisites for running this widget have not been met.")
         self.running=True
@@ -715,7 +765,7 @@ class Widget(models.Model):
                     if self.workflow_link.is_for_loop():
                         """ if this is object is a for loop than true and run;
                         else false and run workflow """
-                        print("proper_run_is_for_loop")
+                        #print("proper_run_is_for_loop")
                         self.workflow_link.run_for_loop()
                         #print self.outputs.all()[0].value
                     elif self.workflow_link.is_cross_validation():
@@ -844,6 +894,7 @@ class Widget(models.Model):
             self.finished=True
             self.running=False
             self.error=False
+            self.save()
         return None
 
     def reset(self,offline):
@@ -996,6 +1047,29 @@ class Input(models.Model):
     class Meta:
         ordering = ('order',)
 
+    def import_from_json(self,json_data,input_conversion,output_conversion):
+        self.name = json_data['name']
+        self.short_name = json_data['short_name']
+        self.description = json_data['description']
+        self.variable = json_data['variable']
+        self.required = json_data['required']
+        self.parameter = json_data['parameter']
+        self.multi_id = json_data['multi_id']
+        self.parameter_type = json_data['parameter_type']
+        self.order = json_data['order']
+        self.save()
+        input_conversion[json_data['pk']]=self.pk
+        for o in json_data['options']:
+            o = Option()
+            o.input = self
+            o.import_from_json(json_data,input_conversion,output_conversion)
+            o.save()
+        if json_data['outer_output']:
+            self.outer_output = Output.objects.get(pk=output_conversion[json_data['outer_output']])
+            self.outer_output.inner_input = self
+            self.outer_output.save()
+            self.save()
+
     def export(self):
         d = {}
         d['name']=self.name
@@ -1073,6 +1147,11 @@ class Option(models.Model):
     name = models.CharField(max_length=200)
     value = models.TextField(blank=True,null=True)
 
+    def import_from_json(self,json_data,input_conversion,output_conversion):
+        self.name = json_data['name']
+        self.value = json_data['value']
+        self.save()
+
     def export(self):
         d = {}
         d['name']=self.name
@@ -1092,6 +1171,20 @@ class Output(models.Model):
     inner_input = models.ForeignKey(Input,related_name="outer_output_rel",blank=True,null=True) #za subprocess
     outer_input = models.ForeignKey(Input,related_name="inner_output_rel",blank=True,null=True) #za subprocess
     order = models.PositiveIntegerField(default=1)
+
+    def import_from_json(self,json_data,input_conversion,output_conversion):
+        self.name = json_data['name']
+        self.short_name = json_data['short_name']
+        self.description = json_data['description']
+        self.variable = json_data['variable']
+        self.order = json_data['order']
+        self.save()
+        output_conversion[json_data['pk']]=self.pk
+        if json_data['outer_input']:
+            self.outer_input = Input.objects.get(pk=input_conversion[json_data['outer_input']])
+            self.outer_input.inner_output = self
+            self.outer_input.save()        
+            self.save()
 
 
     def export(self):

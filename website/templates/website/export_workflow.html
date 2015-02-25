@@ -1,0 +1,16 @@
+{% extends 'website/base.html' %}
+{% load url from future %}
+{% block "yourworkflowsactive" %}class="active"{% endblock %}
+{% block "container" %}
+
+<div class="container">
+<h1>Export workflow</h1>
+
+<textarea style="width:100%;height:600px;font-family:monospace;">{{exported_data}}</textarea>
+
+<h2>What to do with this?</h2>
+<p>You can copy and paste this into another installation of ClowdFlows. Just make sure that the other installation has all the appropriate packages imported.</p>
+
+</div>
+
+{% endblock %}

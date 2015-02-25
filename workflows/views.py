@@ -29,6 +29,8 @@ from mothra.settings import DEBUG, FILES_FOLDER
 #ostalo
 import os
 
+import json
+
 from workflows import module_importer
 def setattr_local(name, value, package):
     setattr(sys.modules[__name__], name, value)

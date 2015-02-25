@@ -1,0 +1,17 @@
+{% extends 'website/base.html' %}
+{% load url from future %}
+{% block "yourworkflowsactive" %}class="active"{% endblock %}
+{% block "container" %}
+
+<div class="container">
+<h1>Import workflow</h1>
+<p>Paste your workflow data in the box below:</p>
+<form method="post">
+{%csrf_token%}
+{{form.as_p}}
+<button type="submit" class="btn btn-primary">Import</button>
+</form>
+
+</div>
+
+{% endblock %}

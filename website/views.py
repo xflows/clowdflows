@@ -19,6 +19,10 @@ from django.template.loader import get_template
 from django.template import TemplateDoesNotExist
 import os
 
+import json
+
+from website.forms import ImportForm
+
 def index(request):
     return render(request, 'website/index.html')
 
@@ -191,3 +195,21 @@ def editor(request):
         tutorial = False
     return render(request, 'website/editor.html', {'tutorial':tutorial})
 
+@login_required
+def export_workflow(request,workflow_id):
+    w = get_object_or_404(Workflow, pk=workflow_id)
+    exported_data = json.dumps(w.export(),indent=2)
+    return render(request,'website/export_workflow.html',{"workflow":w,'exported_data':exported_data})
+
+@login_required
+def import_workflow(request):
+    if request.method == "POST":
+        form = ImportForm(request.POST)
+        if form.is_valid():
+            new_workflow = Workflow()
+            new_workflow.user = request.user
+            new_workflow.import_from_json(json.loads(form.cleaned_data['data']),{},{})
+            return redirect(new_workflow.get_absolute_url())
+    else:
+        form = ImportForm()
+    return render(request,'website/import_workflow.html',{"form":form})

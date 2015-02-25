@@ -28,12 +28,14 @@
         {% else %}<a href="{% url 'start stream' w.pk %}" class="btn btn-info btn-xs">Start stream mining</a>{% endif %}
       {% else %}<span class="label label-default"><span class="glyphicon glyphicon-remove"></span> No streaming widgets</span>{% endif %}
     </td>
-    <td><a href="{{w.get_absolute_url}}">Edit</a> | <a href="{{w.get_copy_url}}">Open as new</a> | <a href="javascript:;" rel="{{w.pk}}" class="delete_workflow">Delete</a> | {% if not w.public %}<a href="{% url 'make public' w.pk %}">Make public</a>{% else %}<a href="{% url 'make private' w.pk %}">Make private</a>{% endif %}</td>
+    <td><a href="{{w.get_absolute_url}}">Edit</a> | <a href="{{w.get_copy_url}}">Open as new</a> | <a href="javascript:;" rel="{{w.pk}}" class="delete_workflow">Delete</a> | {% if not w.public %}<a href="{% url 'make public' w.pk %}">Make public</a>{% else %}<a href="{% url 'make private' w.pk %}">Make private</a>{% endif %} | <a href="{{w.get_export_url}}">Export</a></td>
   </tr>
   {% endfor %}
 </tbody>
 
 </table>
+
+<a href="{% url "import workflow" %}">Import a workflow from another installation of ClowdFlows</a>
 
 </div>
 
