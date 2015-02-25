@@ -29,8 +29,8 @@ class Connection(models.Model):
 
     def export(self):
         d = {}
-        d['output_id']=self.output.pk
-        d['input_id']=self.input.pk
+        d['output_id']=self.output_id
+        d['input_id']=self.input_id
         return d
 
     def import_from_json(self,json_data,input_conversion,output_conversion):
@@ -100,7 +100,7 @@ class Workflow(models.Model):
         d['name']=self.name
         d['description']=self.description
         d['widgets'] = []
-        for w in self.widgets.all():
+        for w in self.widgets.all().prefetch_related('inputs','outputs'):
             d['widgets'].append(w.export())
         d['connections'] = []
         for c in self.connections.all():
@@ -642,7 +642,7 @@ class Widget(models.Model):
         #d['progress']=self.progress
         d['inputs']=[]
         d['outputs']=[]
-        for i in self.inputs.all():
+        for i in self.inputs.all().prefetch_related('options'):
             d['inputs'].append(i.export())
         for o in self.outputs.all():
             d['outputs'].append(o.export())
