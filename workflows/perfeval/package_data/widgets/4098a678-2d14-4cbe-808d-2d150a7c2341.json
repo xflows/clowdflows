@@ -28,7 +28,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "4098a678-2d14-4cbe-808d-2d150a7c2341", 
-      "name": "\u03b5-proximity evaluation parameter [%]", 
+      "name": "eps-proximity evaluation parameter [%]",
       "short_name": "eps", 
       "default": "0.05", 
       "description": "", 
@@ -97,7 +97,7 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Do not use \u03b5-proximity evaluation", 
+      "name": "Do not use eps-proximity evaluation",
       "uid": "a82e638a-928d-4271-89a1-e511e50f43a4", 
       "value": "0", 
       "abstract_input": "1a17f990-5041-47c3-b47a-492a03fc6d21"
