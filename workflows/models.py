@@ -52,7 +52,7 @@ class Category(models.Model):
     def update_uid(self):
         import uuid
         if self.uid == '' or self.uid is None:
-            self.uid = uuid.uuid4()
+            self.uid = str(uuid.uuid4())
             self.save()
         if self.parent:
             self.parent.update_uid()
@@ -490,16 +490,16 @@ class AbstractWidget(models.Model):
     def update_uid(self):
         import uuid
         if self.uid == '' or self.uid is None:
-            self.uid = uuid.uuid4()
+            self.uid = str(uuid.uuid4())
             self.save()
         for i in self.inputs.filter(uid=''):
-            i.uid = uuid.uuid4()
+            i.uid = str(uuid.uuid4())
             i.save()
             for option in i.options.filter(uid=''):
-                option.uid = uuid.uuid4()
+                option.uid = str(uuid.uuid4())
                 option.save()
         for o in self.outputs.filter(uid=''):
-            o.uid = uuid.uuid4()
+            o.uid = str(uuid.uuid4())
             o.save()   
         self.category.update_uid()     
 
