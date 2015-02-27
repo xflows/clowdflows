@@ -38,8 +38,6 @@ def mysql_aleph_converter(input_dict):
     if not target_att_val:
         raise Exception('Please specify a target attribute value.')
     aleph = Aleph_Converter(input_dict['context'], target_att_val=target_att_val, discr_intervals=input_dict['discr_intervals'] or {})
-    with open('test_aleph.b', 'w') as f:
-        f.write(aleph.background_knowledge())
     return {'pos_examples' : aleph.positive_examples(), 'neg_examples' : aleph.negative_examples(), 'bk' : aleph.background_knowledge()}
 
 def mysql_treeliker_converter(input_dict):
