@@ -1,0 +1,125 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b349a089-0af7-4d86-838b-e8c93d9d6ca5", 
+      "treeview_image": "", 
+      "uid": "b8dcd7bf-cfed-42e0-8bf9-02149c499f1e", 
+      "windows_queue": false, 
+      "package": "mysql", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "mysql.png", 
+      "action": "ilp_map_treeliker", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Map examples to domain (TreeLiker)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8dcd7bf-cfed-42e0-8bf9-02149c499f1e", 
+      "name": "format", 
+      "short_name": "fmt", 
+      "default": "arff", 
+      "description": "output format", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "output_format", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "1b119724-6e2f-48f6-9cea-7712da9bd57f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8dcd7bf-cfed-42e0-8bf9-02149c499f1e", 
+      "name": "test data (context)", 
+      "short_name": "tst", 
+      "default": "", 
+      "description": "new examples' context", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "test_ctx", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "257dd7e7-66ac-48ac-a1f1-b3c4581e9bf6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8dcd7bf-cfed-42e0-8bf9-02149c499f1e", 
+      "name": "features", 
+      "short_name": "frs", 
+      "default": "", 
+      "description": "domain features", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "features", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "bdba5268-fa34-40c6-9416-aa9c5f7636ac"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b8dcd7bf-cfed-42e0-8bf9-02149c499f1e", 
+      "name": "training data (context)", 
+      "short_name": "trn", 
+      "default": "", 
+      "description": "training context", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "train_ctx", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e6a08ff3-39c5-40e2-8257-36107bd117cc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b8dcd7bf-cfed-42e0-8bf9-02149c499f1e", 
+      "name": "evaluations", 
+      "short_name": "evs", 
+      "description": "features evaluated on the test data", 
+      "variable": "evaluations", 
+      "order": 1, 
+      "uid": "203930d9-c52c-4f68-9aad-36fd7d35fa0a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "ARFF", 
+      "uid": "4cc81fb2-7fa6-4551-9381-01a02c83f288", 
+      "value": "arff", 
+      "abstract_input": "1b119724-6e2f-48f6-9cea-7712da9bd57f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "CSV", 
+      "uid": "718f9d12-baf9-4ca1-81f5-8186608f0c93", 
+      "value": "csv", 
+      "abstract_input": "1b119724-6e2f-48f6-9cea-7712da9bd57f"
+    }
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Domain mapping", 
+    "parent": "b66b71b1-99d6-4efc-b264-a914a3e42911", 
+    "order": 1, 
+    "uid": "b349a089-0af7-4d86-838b-e8c93d9d6ca5"
+  }
+}
