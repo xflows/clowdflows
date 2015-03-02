@@ -90,14 +90,14 @@ def ilp_sdmaleph(input_dict):
 def ilp_wordification(input_dict):
     target_table = input_dict.get('target_table',None)
     other_tables = input_dict.get('other_tables', None)
-    measure = input_dict.get('measure', None)
+    weighting_measure = input_dict.get('weighting_measure', 'tfidf')
     context = input_dict.get('context', None)
     word_att_length = int(input_dict.get('f_ngram_size', 1))
 
     for _ in range(1):
         wordification = Wordification(target_table,other_tables,context,word_att_length)
         wordification.run(1)
-        wordification.calculate_tf_idfs(measure)
+        wordification.calculate_tf_idfs(weighting_measure)
         #wordification.prune(50)
         #wordification.to_arff()
 

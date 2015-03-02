@@ -79,6 +79,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "name": "Weighting Measure", 
+      "short_name": "wgh", 
+      "default": "tfidf", 
+      "description": "Term Weighting Measure", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "weighting_measure", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "cc2a208c-bf6f-4f64-b51e-221c80366f8e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
       "name": "target_table", 
       "short_name": "odt", 
       "default": "", 
@@ -112,8 +129,26 @@
       "short_name": "arf", 
       "description": "Arff table with TF-IDF values", 
       "variable": "arff", 
-      "order": 1, 
+      "order": 2, 
       "uid": "703593f1-1cae-4dd0-96c0-47211d3f4dc1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "TF-IDF", 
+      "uid": "7a9b3f92-b830-49a9-8751-8f2acd133046", 
+      "value": "tfidf", 
+      "abstract_input": "cc2a208c-bf6f-4f64-b51e-221c80366f8e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Term Frequency", 
+      "uid": "f85efec2-38ba-441d-995e-845c6c95723d", 
+      "value": "tf", 
+      "abstract_input": "cc2a208c-bf6f-4f64-b51e-221c80366f8e"
     }
   }
 ]
