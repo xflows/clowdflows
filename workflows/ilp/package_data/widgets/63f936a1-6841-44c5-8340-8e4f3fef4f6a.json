@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "name": "Inverse Document Frequencies", 
+      "short_name": "idf", 
+      "default": "", 
+      "description": "Inverse Document Frequencies which will be used for feature calculation.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "idf", 
+      "parameter": false, 
+      "order": 6, 
+      "uid": "3a9a9e51-9ad2-4d6a-880a-8145b824a32b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
       "name": "other_tables", 
       "short_name": "lot", 
       "default": "", 
@@ -37,7 +54,7 @@
       "parameter_type": null, 
       "variable": "other_tables", 
       "parameter": false, 
-      "order": 3, 
+      "order": 4, 
       "uid": "72854a26-f7bf-46a3-988e-61caaeabdc7a"
     }
   }, 
@@ -54,7 +71,7 @@
       "parameter_type": null, 
       "variable": "context", 
       "parameter": false, 
-      "order": 4, 
+      "order": 5, 
       "uid": "8f02978b-e0d7-45c5-ab74-6a0e8728654d"
     }
   }, 
@@ -71,7 +88,7 @@
       "parameter_type": "text", 
       "variable": "f_ngram_size", 
       "parameter": true, 
-      "order": 2, 
+      "order": 3, 
       "uid": "b5eea832-1712-4db1-a677-92deca4e7a75"
     }
   }, 
@@ -88,7 +105,7 @@
       "parameter_type": "select", 
       "variable": "weighting_measure", 
       "parameter": true, 
-      "order": 1, 
+      "order": 2, 
       "uid": "cc2a208c-bf6f-4f64-b51e-221c80366f8e"
     }
   }, 
@@ -107,6 +124,18 @@
       "parameter": false, 
       "order": 1, 
       "uid": "f1b77c89-ed7b-4181-9f62-c2001fd7c388"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "63f936a1-6841-44c5-8340-8e4f3fef4f6a", 
+      "name": "Inverse Document Frequencies", 
+      "short_name": "idf", 
+      "description": "Calculated Inverse Document Frequencies", 
+      "variable": "idf", 
+      "order": 3, 
+      "uid": "3cea08cf-98d5-4be2-8f0a-68ec8cd13b90"
     }
   }, 
   {

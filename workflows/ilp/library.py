@@ -93,9 +93,10 @@ def ilp_wordification(input_dict):
     weighting_measure = input_dict.get('weighting_measure', 'tfidf')
     context = input_dict.get('context', None)
     word_att_length = int(input_dict.get('f_ngram_size', 1))
+    idf=input_dict.get('idf', None)
 
     for _ in range(1):
-        wordification = Wordification(target_table,other_tables,context,word_att_length)
+        wordification = Wordification(target_table,other_tables,context,word_att_length,idf)
         wordification.run(1)
         wordification.calculate_tf_idfs(weighting_measure)
         #wordification.prune(50)
@@ -105,7 +106,7 @@ def ilp_wordification(input_dict):
         from wordification import Wordification_features_test
         wft=Wordification_features_test(target_table,other_tables,context)
         wft.print_results()
-    return {'arff' : wordification.to_arff(),'corpus': wordification.wordify()}
+    return {'arff' : wordification.to_arff(),'corpus': wordification.wordify(),'idf':wordification.idf}
 
 
 def ilp_treeliker(input_dict):

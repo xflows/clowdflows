@@ -1,4 +1,5 @@
 from collections import defaultdict
+from math import log
 import string,itertools
 import multiprocessing
 
@@ -89,7 +90,7 @@ def att_to_s(att):
 
 class Wordification(object):
 
-    def __init__(self,target_table,other_tables,context,word_att_length):
+    def __init__(self,target_table,other_tables,context,word_att_length,idf=None):
         """
         Wordification object constructor.
         
@@ -100,6 +101,8 @@ class Wordification(object):
         self.other_tables=other_tables
         self.context=context
         self.word_att_length=word_att_length
+        self.idf=idf
+
         #self.minimum_word_frequency=minimum_word_frequency
 
         self.connecting_tables=defaultdict(list)
@@ -178,17 +181,11 @@ class Wordification(object):
         """
         from math import log
 
+        #TODO replace with spipy matrices (and calculate with scikit)
         print "compute tf-idf"
-        words = set()
-        for document in self.resulting_documents:
-            for word in document:
-                words.add(word)
 
-        for document in self.resulting_documents:
-            for word in set(document):
-                self.word_in_how_many_documents[word]+=1
-
-        no_of_documents=len(self.resulting_documents)
+        if measure=='tfidf':
+            self.calculate_idf()
 
         for doc_idx, document in enumerate(self.resulting_documents):
             #print str(doc_idx)
@@ -199,9 +196,27 @@ class Wordification(object):
 
             for word in document:
                 tf=train_word_count[word]
-                idf = 1 if measure=="tf" else log(no_of_documents / float(self.word_in_how_many_documents[word]))
+                idf = 1 if measure=="tf" else (self.idf[word] if word in self.idf else None)
+                if word=='Cars_Position_3':
+                    idf+=100
+                if idf!=None:
+                    self.tf_idfs[doc_idx][word] = tf * idf
 
-                self.tf_idfs[doc_idx][word] = tf * idf
+    def calculate_idf(self):
+        if self.idf:
+            return self.idf
+        elif len(self.word_in_how_many_documents)!=0:
+            raise Exception('Words in document occurence already calculated!')
+        else:
+            for document in self.resulting_documents:
+                for word in set(document):
+                    self.word_in_how_many_documents[word]+=1
+
+            no_of_documents=len(self.resulting_documents)
+            self.idf={}
+            for word,count in self.word_in_how_many_documents.items():
+                self.idf[word]=log(no_of_documents / float(self.word_in_how_many_documents[word]))
+
 
     def to_arff(self):
         print "begin to_arff"
