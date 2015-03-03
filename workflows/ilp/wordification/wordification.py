@@ -195,10 +195,13 @@ class Wordification(object):
                 train_word_count[word]+=1
 
             for word in document:
-                tf=train_word_count[word]
-                idf = 1 if measure=="tf" else (self.idf[word] if word in self.idf else None)
-                if word=='Cars_Position_3':
-                    idf+=100
+                if measure=="binary":
+                    tf=1
+                    idf=1
+                else:
+                    tf=train_word_count[word]
+                    idf = 1 if measure=="tf" else (self.idf[word] if word in self.idf else None)
+
                 if idf!=None:
                     self.tf_idfs[doc_idx][word] = tf * idf
 
