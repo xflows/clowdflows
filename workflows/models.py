@@ -157,7 +157,7 @@ class Workflow(models.Model):
         for w in widgets:
             if not w.finished and not w.running:
                 ready_to_run = True
-                connections = self.connections.filter(input__widget=w)
+                connections = self.connections.filter(input__widget=w).select_related('input__widget')
                 for c in connections:
                     if not c.output.widget.finished:
                         #print c.output.widget
@@ -168,16 +168,45 @@ class Workflow(models.Model):
         return unfinished_list
 
     def run_for_loop(self):
+        widgets = self.widgets.all().prefetch_related('inputs','outputs')
+        connections = self.connections.all().select_related('input','output','input__widget','output__widget')
+        fi = None
+        fo = None
+        for w in widgets:
+            if w.type=='for_input':
+                fi = w
+            if w.type=='for_output':
+                fo = w
+        outer_output = fo.inputs.all()[0].outer_output
+        outer_output.value=[]
+        outer_output.save()
+        total = len(widgets)
+        input_list = fi.outputs.all()[0].outer_input.value # get all inputs from outer part
+        progress_total = len(input_list) # for progress bar
+        current_iteration = 0
+        for i in input_list:
+            finished = []
+            unfinished_list = []
+            fi.finished = True
+            proper_output = fi.outputs.all()[0]
+
+    def run_for_loop_slow(self):
         """ Method runs the workflow for loop. The use of [0] at the end of lines is because
         there can be only one for loop in one workflow. This way we take the first one. """
         #clear for_input and for_output
         #print("run_for_loop")
-        fi = self.widgets.filter(type='for_input')[0]
-        fo = self.widgets.filter(type='for_output')[0]
+        widgets = self.widgets.all().prefetch_related('inputs','outputs')
+        fi = None
+        fo = None
+        for w in widgets:
+            if w.type=='for_input':
+                fi = w
+            if w.type=='for_output':
+                fo = w
         outer_output = fo.inputs.all()[0].outer_output
         outer_output.value=[]
         outer_output.save()
-
+        total = len(widgets)
         input_list = fi.outputs.all()[0].outer_input.value # get all inputs from outer part
         progress_total = len(input_list) # for progress bar
         current_iteration = 0
@@ -198,10 +227,12 @@ class Workflow(models.Model):
                     while len(unfinished_list)>0:
                         for w in unfinished_list:
                             w.run(True) # run the widget
-                            total = self.widgets.count()
-                            completed = self.widgets.filter(finished=True).count()
-                            self.widget.progress = (int)((current_iteration*100.0/progress_total)+(((completed*1.0)/total)*(100/progress_total)))
-                            self.widget.save()
+                            completed = 0
+                            for w in widgets:
+                                if w.finished:
+                                    completed = completed+1
+                        self.widget.progress = (int)((current_iteration*100.0/progress_total)+(((completed*1.0)/total)*(100/progress_total)))
+                        self.widget.save()                        
                         unfinished_list = self.get_runnable_widgets()
                 except:
                     raise
