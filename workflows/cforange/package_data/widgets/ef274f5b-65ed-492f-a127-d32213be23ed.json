@@ -5,7 +5,7 @@
       "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
       "treeview_image": "", 
       "uid": "ef274f5b-65ed-492f-a127-d32213be23ed", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "cforange", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,7 +19,7 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
       "name": "Dataset Discretization"
     }
@@ -79,6 +79,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
+      "name": "Discretization intervals", 
+      "short_name": "itr", 
+      "default": "", 
+      "description": "Pre-defined discretization intervals", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "intervals", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "96c9059a-7a17-4bfa-9a10-3fcecad946f2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ef274f5b-65ed-492f-a127-d32213be23ed", 
       "name": "Number of intervals", 
       "short_name": "nor", 
       "default": "", 
@@ -100,7 +117,7 @@
       "short_name": "itr", 
       "description": "Discretization intervals", 
       "variable": "discr_intervals", 
-      "order": 1, 
+      "order": 2, 
       "uid": "78154f38-95f1-47b9-bf82-b64858d8010a"
     }
   }, 
