@@ -167,7 +167,7 @@ class Workflow(models.Model):
                     unfinished_list.append(w)
         return unfinished_list
 
-    def run_for_loop(self):
+    """def run_for_loop(self):
         widgets = self.widgets.all().prefetch_related('inputs','outputs')
         connections = self.connections.all().select_related('input','output','input__widget','output__widget')
         fi = None
@@ -188,9 +188,9 @@ class Workflow(models.Model):
             finished = []
             unfinished_list = []
             fi.finished = True
-            proper_output = fi.outputs.all()[0]
+            proper_output = fi.outputs.all()[0]"""
 
-    def run_for_loop_slow(self):
+    def run_for_loop(self):
         """ Method runs the workflow for loop. The use of [0] at the end of lines is because
         there can be only one for loop in one workflow. This way we take the first one. """
         #clear for_input and for_output
