@@ -103,7 +103,6 @@ class WidgetRunner():
         for i in self.widget.inputs.all():
             i.save()
         for o in self.widget.outputs.all():
-            print o.value
             o.save()
         self.widget.save()
 
