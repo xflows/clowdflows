@@ -19,6 +19,8 @@ if USE_CONCURRENCY:
 
 from workflows.tasks import executeWidgetFunction, executeWidgetProgressBar, executeWidgetStreaming, executeWidgetWithRequest, runWidget, executeWidgetPostInteract
 
+from workflows.engine import WidgetRunner, WorkflowRunner
+
 class WidgetException(Exception):
     pass
 
@@ -157,7 +159,7 @@ class Workflow(models.Model):
         for w in widgets:
             if not w.finished and not w.running:
                 ready_to_run = True
-                connections = self.connections.filter(input__widget=w)
+                connections = self.connections.filter(input__widget=w).select_related('input__widget')
                 for c in connections:
                     if not c.output.widget.finished:
                         #print c.output.widget
@@ -167,17 +169,46 @@ class Workflow(models.Model):
                     unfinished_list.append(w)
         return unfinished_list
 
+    """def run_for_loop(self):
+        widgets = self.widgets.all().prefetch_related('inputs','outputs')
+        connections = self.connections.all().select_related('input','output','input__widget','output__widget')
+        fi = None
+        fo = None
+        for w in widgets:
+            if w.type=='for_input':
+                fi = w
+            if w.type=='for_output':
+                fo = w
+        outer_output = fo.inputs.all()[0].outer_output
+        outer_output.value=[]
+        outer_output.save()
+        total = len(widgets)
+        input_list = fi.outputs.all()[0].outer_input.value # get all inputs from outer part
+        progress_total = len(input_list) # for progress bar
+        current_iteration = 0
+        for i in input_list:
+            finished = []
+            unfinished_list = []
+            fi.finished = True
+            proper_output = fi.outputs.all()[0]"""
+
     def run_for_loop(self):
         """ Method runs the workflow for loop. The use of [0] at the end of lines is because
         there can be only one for loop in one workflow. This way we take the first one. """
         #clear for_input and for_output
         #print("run_for_loop")
-        fi = self.widgets.filter(type='for_input')[0]
-        fo = self.widgets.filter(type='for_output')[0]
+        widgets = self.widgets.all().prefetch_related('inputs','outputs')
+        fi = None
+        fo = None
+        for w in widgets:
+            if w.type=='for_input':
+                fi = w
+            if w.type=='for_output':
+                fo = w
         outer_output = fo.inputs.all()[0].outer_output
         outer_output.value=[]
         outer_output.save()
-
+        total = len(widgets)
         input_list = fi.outputs.all()[0].outer_input.value # get all inputs from outer part
         progress_total = len(input_list) # for progress bar
         current_iteration = 0
@@ -198,10 +229,12 @@ class Workflow(models.Model):
                     while len(unfinished_list)>0:
                         for w in unfinished_list:
                             w.run(True) # run the widget
-                            total = self.widgets.count()
-                            completed = self.widgets.filter(finished=True).count()
-                            self.widget.progress = (int)((current_iteration*100.0/progress_total)+(((completed*1.0)/total)*(100/progress_total)))
-                            self.widget.save()
+                            completed = 0
+                            for w in widgets:
+                                if w.finished:
+                                    completed = completed+1
+                        self.widget.progress = (int)((current_iteration*100.0/progress_total)+(((completed*1.0)/total)*(100/progress_total)))
+                        self.widget.save()                        
                         unfinished_list = self.get_runnable_widgets()
                 except:
                     raise
@@ -763,16 +796,9 @@ class Widget(models.Model):
                         """ else run abstract widget function """
                         outputs = function_to_call(input_dict)
                 else:
-                    if self.workflow_link.is_for_loop():
-                        """ if this is object is a for loop than true and run;
-                        else false and run workflow """
-                        #print("proper_run_is_for_loop")
-                        self.workflow_link.run_for_loop()
-                        #print self.outputs.all()[0].value
-                    elif self.workflow_link.is_cross_validation():
-                        self.workflow_link.run_cross_validation()
-                    else:
-                        self.workflow_link.run()
+                    wr = WidgetRunner(self,workflow_runner=WorkflowRunner(self.workflow,clean=False),standalone=True)
+                    wr.run()
+                    return
             except:
                 self.error=True
                 self.running=False
@@ -854,16 +880,23 @@ class Widget(models.Model):
         elif self.type == 'cv_output':
             """ if object is an output widget for cross validation, 
             then read output values and configure parameters"""
+            print "smo v cv_output"
             for i in self.inputs.all():
                 if not i.parameter:
                     """ if there is a connection than true and read the output value """
                     if i.connections.count() > 0:
                         if i.value is None:
+                            print "1"
                             i.value = [i.connections.all()[0].output.value]
                         else:
+                            print "2"
                             i.value = [i.connections.all()[0].output.value] + i.value
+                            print i.value
                         #print i.value
                         i.save()
+                        print "----"
+                        print i.outer_output.value
+                        print "----"
                         i.outer_output.value.append(i.value)
                         i.outer_output.save()
                         self.finished=True

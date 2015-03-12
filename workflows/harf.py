@@ -21,4 +21,4 @@ class HarfLearner(orngRFCons.RandomForestLearner):
         self.learner
 
 
-class HarfClassifier(orngRFCons.RandomForestClassifier):
+#class HarfClassifier(orngRFCons.RandomForestClassifier):
