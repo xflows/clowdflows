@@ -29,8 +29,8 @@ class WidgetRunner():
             try:
                 if self.widget.abstract_widget:
                     if self.widget.abstract_widget.wsdl != '':
-                        input_dict['wsdl']=self.abstract_widget.wsdl
-                        input_dict['wsdl_method']=self.abstract_widget.wsdl_method
+                        input_dict['wsdl']=self.widget.abstract_widget.wsdl
+                        input_dict['wsdl_method']=self.widget.abstract_widget.wsdl_method
                     if self.widget.abstract_widget.has_progress_bar:
                         outputs = function_to_call(input_dict,self.widget)
                     elif self.widget.abstract_widget.is_streaming:
