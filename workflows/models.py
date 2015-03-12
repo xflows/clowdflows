@@ -19,6 +19,8 @@ if USE_CONCURRENCY:
 
 from workflows.tasks import executeWidgetFunction, executeWidgetProgressBar, executeWidgetStreaming, executeWidgetWithRequest, runWidget, executeWidgetPostInteract
 
+from workflows.engine import WidgetRunner, WorkflowRunner
+
 class WidgetException(Exception):
     pass
 
@@ -794,16 +796,9 @@ class Widget(models.Model):
                         """ else run abstract widget function """
                         outputs = function_to_call(input_dict)
                 else:
-                    if self.workflow_link.is_for_loop():
-                        """ if this is object is a for loop than true and run;
-                        else false and run workflow """
-                        #print("proper_run_is_for_loop")
-                        self.workflow_link.run_for_loop()
-                        #print self.outputs.all()[0].value
-                    elif self.workflow_link.is_cross_validation():
-                        self.workflow_link.run_cross_validation()
-                    else:
-                        self.workflow_link.run()
+                    wr = WidgetRunner(self,workflow_runner=WorkflowRunner(self.workflow,clean=False),standalone=True)
+                    wr.run()
+                    return
             except:
                 self.error=True
                 self.running=False
@@ -885,16 +880,23 @@ class Widget(models.Model):
         elif self.type == 'cv_output':
             """ if object is an output widget for cross validation, 
             then read output values and configure parameters"""
+            print "smo v cv_output"
             for i in self.inputs.all():
                 if not i.parameter:
                     """ if there is a connection than true and read the output value """
                     if i.connections.count() > 0:
                         if i.value is None:
+                            print "1"
                             i.value = [i.connections.all()[0].output.value]
                         else:
+                            print "2"
                             i.value = [i.connections.all()[0].output.value] + i.value
+                            print i.value
                         #print i.value
                         i.save()
+                        print "----"
+                        print i.outer_output.value
+                        print "----"
                         i.outer_output.value.append(i.value)
                         i.outer_output.save()
                         self.finished=True
