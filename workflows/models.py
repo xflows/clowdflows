@@ -796,6 +796,8 @@ class Widget(models.Model):
                         """ else run abstract widget function """
                         outputs = function_to_call(input_dict)
                 else:
+                    Input.objects.filter(widget__workflow=self.workflow_link,parameter=False).update(value=None)
+                    Output.objects.filter(widget__workflow=self.workflow_link).update(value=None)
                     wr = WidgetRunner(self,workflow_runner=WorkflowRunner(self.workflow,clean=False),standalone=True)
                     wr.run()
                     return
