@@ -53,7 +53,7 @@ def domain_map(features, feature_format, train_context, test_context,
         f = tempfile.NamedTemporaryFile(delete=False)
         f.write(prolog_bk)
         f.close()
-        cmd_args = ['%s/mapper.pl' % THIS_DIR, f.name, train_context.target_table]
+        cmd_args = ['yap', '-L', '--', '%s/mapper.pl' % THIS_DIR, f.name, train_context.target_table]
         evaluations = subprocess.check_output(cmd_args)
         dataset = dump_dataset(features, feature_format, evaluations,
                                train_context,
