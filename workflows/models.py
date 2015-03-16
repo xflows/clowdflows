@@ -102,7 +102,30 @@ class Workflow(models.Model):
         d['name']=self.name
         d['description']=self.description
         d['widgets'] = []
-        for w in self.widgets.all().prefetch_related('inputs','outputs'):
+        inps = Input.objects.filter(widget__workflow=self).defer('value').prefetch_related('options')
+        outs = Output.objects.filter(widget__workflow=self).defer('value')
+        widgets = self.widgets.all().select_related('abstract_widget')
+        workflow_links = Workflow.objects.filter(widget__in=widgets)
+        inps_by_id = {}
+        outs_by_id = {}
+        for i in inps:
+            l = inps_by_id.get(i.widget_id,[])
+            l.append(i)
+            inps_by_id[i.widget_id] = l
+        for o in outs:
+            l = outs_by_id.get(o.widget_id,[])
+            l.append(o)
+            outs_by_id[o.widget_id] = l
+        for w in widgets:
+            for workflow in workflow_links:
+                if workflow.widget_id == w.id:
+                    w.workflow_link_data = workflow
+                    w.workflow_link_exists = True
+                    break
+            else:
+                w.workflow_link_exists = False
+            w.inputs_all = inps_by_id.get(w.id,[])
+            w.outputs_all = outs_by_id.get(w.id,[])
             d['widgets'].append(w.export())
         d['connections'] = []
         for c in self.connections.all():
@@ -649,13 +672,9 @@ class Widget(models.Model):
 
     def export(self):
         d = {}
-        try:
-            #d['workflow']=self.workflow.export()
-            if self.workflow_link:
-                d['workflow']=self.workflow_link.export()
-            else:
-                d['workflow']=None
-        except Workflow.DoesNotExist:
+        if self.workflow_link_exists:
+            d['workflow']=self.workflow_link_data.export()
+        else:
             d['workflow']=None
         d['x']=self.x
         d['y']=self.y
@@ -676,9 +695,9 @@ class Widget(models.Model):
         #d['progress']=self.progress
         d['inputs']=[]
         d['outputs']=[]
-        for i in self.inputs.all().prefetch_related('options'):
+        for i in self.inputs_all:
             d['inputs'].append(i.export())
-        for o in self.outputs.all():
+        for o in self.outputs_all:
             d['outputs'].append(o.export())
         return d
 
@@ -1127,11 +1146,11 @@ class Input(models.Model):
         for o in self.options.all():
             d['options'].append(o.export())
         try:
-            d['inner_output']=self.inner_output.pk
+            d['inner_output']=self.inner_output_id
         except:
             d['inner_output']=None
         try:
-            d['outer_output']=self.outer_output.pk
+            d['outer_output']=self.outer_output_id
         except:
             d['outer_output']=None
         return d
