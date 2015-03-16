@@ -42,9 +42,9 @@ def deploy():
             puts(yellow("[Restarting the run streams daemon"))
             run('supervisorctl restart runstreams')
 
-        with cd('/srv/django-projects/supervisor'):
-            puts(yellow("[Restarting the gunicorn daemon"))
-            run('supervisorctl restart mothra')
+        #with cd('/srv/django-projects/supervisor'):
+        #    puts(yellow("[Restarting the gunicorn daemon"))
+        #    run('supervisorctl restart mothra')
 
             #puts(yellow("[Compressing]"))
             #run('python manage.py compress')
