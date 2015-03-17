@@ -188,7 +188,11 @@ class WorkflowRunner():
         while len(runnable_widgets)>0:
             for w in runnable_widgets:
                 wr = WidgetRunner(w,self)
-                wr.run()
+                try:
+                    wr.run()
+                except:
+                    self.save()
+                    raise
             runnable_widgets = self.runnable_widgets
 
     def run(self):
