@@ -21,6 +21,9 @@ map_examples([Example|ExampleTail], Features):-
     map_examples(ExampleTail, Features),
     !.
 
+write_example(Example, []) :-
+    !.
+
 write_example(Example, [Feature]) :-
     write_example_feature(Example, Feature),
     !.
