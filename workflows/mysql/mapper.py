@@ -30,8 +30,8 @@ def domain_map(features, feature_format, train_context, test_context,
         train_rsd = RSD_Converter(train_context)
         test_rsd = RSD_Converter(test_context, discr_intervals=intervals)
         mapper_target_name = train_context.target_table + '_mapper'
-        train_examples = train_rsd.all_examples(target=mapper_target_name)
-        test_examples = test_rsd.all_examples(target=mapper_target_name)
+        train_examples = train_rsd.all_examples(pred_name=mapper_target_name)
+        test_examples = test_rsd.all_examples(pred_name=mapper_target_name)
         
         if feature_format == 'aleph':
             features = aleph_to_rsd_features(features)

@@ -117,11 +117,11 @@ class RSD_Converter(ILP_Converter):
     '''
     Converts the database context to RSD inputs.
     '''
-    def all_examples(self, target=None):
-        if not target:
-            target = self.db.target_table
+    def all_examples(self, pred_name=None):
+        target = self.db.target_table
+        pred_name = pred_name if pred_name else target
         examples = self.db.rows(target, [self.db.target_att, self.db.pkeys[target]])
-        return '\n'.join(["%s('%s', %s)." % (target, cls, pk) for cls, pk in examples])
+        return '\n'.join(["%s('%s', %s)." % (pred_name, cls, pk) for cls, pk in examples])
 
     def background_knowledge(self):
         modeslist, getters = [self.mode(self.db.target_table, [('+', self.db.target_table)], head=True)], []
