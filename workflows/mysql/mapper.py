@@ -61,6 +61,9 @@ def domain_map(features, feature_format, train_context, test_context,
                                format=format,
                                positive_class=positive_class)
 
+        # Cleanup
+        os.remove(f.name)
+
     elif feature_format == 'treeliker':
         # We provide treeliker with the test dataset
         # since it has a built-in ability to evaluate features
