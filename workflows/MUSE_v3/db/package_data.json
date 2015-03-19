@@ -1,0 +1,261 @@
+[
+  {
+    "pk": 20, 
+    "model": "workflows.category", 
+    "fields": {
+      "uid": "853d1bb3-3710-4fae-a95a-2955abd7b7fe",
+      "parent": null, 
+      "workflow": null, 
+      "user": null, 
+      "order": 1, 
+      "name": "MUSE_v3"
+    }
+  }, 
+  {
+    "pk": 98, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 20, 
+      "treeview_image": "", 
+      "name": "Create Integer List", 
+      "is_streaming": false, 
+      "uid": "5ff6a81e-c5c8-4f95-b7d3-c55c69af1997",
+      "interaction_view": "", 
+      "image": "", 
+      "package": "MUSE_v3", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "action": "MUSE_v3_create_integers", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 1, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 248, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 98, 
+      "name": "Integer List String", 
+      "short_name": "str", 
+      "uid": "043d99f3-117f-4678-aeff-f7536823510c",
+      "default": "3\r\n2\r\n1\r\n4", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "intStr", 
+      "parameter": true, 
+      "order": 1, 
+      "description": "Comma or new-line separated list of integers"
+    }
+  }, 
+  {
+    "pk": 253, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 98, 
+      "name": "Sort list", 
+      "short_name": "bol", 
+      "uid": "46440b57-a531-42c2-813d-7faacf61c53d",
+      "default": "true", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sort", 
+      "parameter": true, 
+      "order": 2, 
+      "description": "Should the list be sorted"
+    }
+  }, 
+  {
+    "pk": 104, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 98, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "variable": "intList", 
+      "uid": "5256b420-0263-4c53-a9ef-2fbbb504870f",
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 101, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 20, 
+      "treeview_image": "", 
+      "name": "Filter Integers", 
+      "is_streaming": false, 
+      "uid": "573e5851-454f-4f86-ae38-b1066d0427f6",
+      "interaction_view": "MUSE_v3_filter_integers", 
+      "image": "", 
+      "package": "MUSE_v3", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "MUSE_v3_post_filter_integers", 
+      "user": null, 
+      "visualization_view": "", 
+      "action": "MUSE_v3_pre_filter_integers", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": true, 
+      "has_progress_bar": false, 
+      "order": 2, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 250, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 101, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "uid": "12c980ea-31bf-472b-b977-154ecb27b460",
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "intList", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 106, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 101, 
+      "name": "Filtered Integer List", 
+      "short_name": "lst", 
+      "variable": "intList", 
+      "uid": "ff1b21a8-6c28-4e84-adbd-b15b03255dc3",
+      "order": 1, 
+      "description": "Filtered list of integers"
+    }
+  }, 
+  {
+    "pk": 99, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 20, 
+      "treeview_image": "", 
+      "name": "Sum Integers", 
+      "is_streaming": false, 
+      "uid": "4669c737-83d0-4c9f-8470-6c13606f62fb",
+      "interaction_view": "", 
+      "image": "", 
+      "package": "MUSE_v3", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "", 
+      "action": "MUSE_v3_sum_integers", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 3, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 249, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 99, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "uid": "2f960d52-6ca7-41bd-8136-a4068480c1d2",
+      "default": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "intList", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 105, 
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": 99, 
+      "name": "Sum", 
+      "short_name": "int", 
+      "variable": "sum", 
+      "uid": "3a482328-6fc4-4876-aa7f-e6770050d4a9",
+      "order": 1, 
+      "description": "Sum of integer list"
+    }
+  }, 
+  {
+    "pk": 100, 
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": 20, 
+      "treeview_image": "", 
+      "name": "Display Summation", 
+      "is_streaming": false, 
+      "uid": "53faa492-56ad-4102-9aee-5aec008aba16",
+      "interaction_view": "", 
+      "image": "", 
+      "package": "MUSE_v3", 
+      "static_image": "construction_work .png", 
+      "post_interact_action": "", 
+      "user": null, 
+      "visualization_view": "MUSE_v3_display_summation", 
+      "action": "MUSE_v3_pre_display_summation", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "has_progress_bar": false, 
+      "order": 4, 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 251, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 100, 
+      "name": "Integer List", 
+      "short_name": "lst", 
+      "uid": "59bed2f6-cef1-4e9f-b0e8-30c134fbf21f",
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "intList", 
+      "parameter": false, 
+      "order": 1, 
+      "description": "List of integers"
+    }
+  }, 
+  {
+    "pk": 252, 
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": 100, 
+      "name": "Sum", 
+      "short_name": "int", 
+      "uid": "397eeb5b-1fe7-485f-8898-f043115e11b9",
+      "default": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "sum", 
+      "parameter": false, 
+      "order": 2, 
+      "description": "Sum (possibly correct) of integer list"
+    }
+  }
+]

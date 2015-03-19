@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "MUSE_v3", 
+    "parent": null, 
+    "order": 1, 
+    "uid": "853d1bb3-3710-4fae-a95a-2955abd7b7fe"
+  }
+}
