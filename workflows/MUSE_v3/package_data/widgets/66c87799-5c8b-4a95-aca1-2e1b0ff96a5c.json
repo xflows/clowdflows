@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c0ecc61e-3fe1-4681-8ed7-8d45e796d9d0", 
+      "treeview_image": "", 
+      "uid": "66c87799-5c8b-4a95-aca1-2e1b0ff96a5c", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Preprocessing of raw text", 
+      "static_image": "", 
+      "action": "MUSE_preprocessing", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Preprocessing"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "66c87799-5c8b-4a95-aca1-2e1b0ff96a5c", 
+      "name": "Raw text", 
+      "short_name": "txt", 
+      "default": "", 
+      "description": "Input text file", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "7b49792b-1f95-4b4c-b065-4dc40f6f9ff3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "66c87799-5c8b-4a95-aca1-2e1b0ff96a5c", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "f43d9ba9-68b8-46ec-b42b-5fda61f4b3dc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "66c87799-5c8b-4a95-aca1-2e1b0ff96a5c", 
+      "name": "Tokens", 
+      "short_name": "tok", 
+      "description": "Tokenised text", 
+      "variable": "tokens", 
+      "order": 1, 
+      "uid": "e0d28f14-aca5-4bf6-837d-d57dc5aad06e"
+    }
+  }
+]

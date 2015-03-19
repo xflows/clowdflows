@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c0ecc61e-3fe1-4681-8ed7-8d45e796d9d0", 
+      "treeview_image": "", 
+      "uid": "5593ba7d-a153-4995-ac5d-e0831fe9b0a5", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This function performs coreference resolution on tokenised text.", 
+      "static_image": "", 
+      "action": "MUSE_coreference", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Coreference resolution"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5593ba7d-a153-4995-ac5d-e0831fe9b0a5", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "7f9f1745-fdd4-4c17-80f1-a355096d3ade"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5593ba7d-a153-4995-ac5d-e0831fe9b0a5", 
+      "name": "Tokens", 
+      "short_name": "tok", 
+      "default": "", 
+      "description": "Tokenised text", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "tokens", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d5a00ed7-7a9e-4a21-bdd8-f2921d722e59"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5593ba7d-a153-4995-ac5d-e0831fe9b0a5", 
+      "name": "Coreferences", 
+      "short_name": "cor", 
+      "description": "Coreferences found in the input tokenised text", 
+      "variable": "coreferences", 
+      "order": 1, 
+      "uid": "d57c1c85-be5e-4cc2-a976-24741ade0ad4"
+    }
+  }
+]
