@@ -21,3 +21,16 @@ def MUSE_preprocessing(input_dict):
     return {'tokens': tokens}
 #end
 
+
+def MUSE_coreference(input_dict):
+    url = input_dict['url']
+    tokens = input_dict['tokens']
+
+    import socket
+    socket.setdefaulttimeout(None)
+
+    cli = JSONWSPClient(url)
+    result = cli.coreference(tokens=tokens)
+    corefs = result.response_dict['result']
+    return {'coreferences': corefs}
+#end
