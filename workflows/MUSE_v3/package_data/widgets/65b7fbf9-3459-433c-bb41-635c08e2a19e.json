@@ -1,0 +1,107 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c0ecc61e-3fe1-4681-8ed7-8d45e796d9d0", 
+      "treeview_image": "", 
+      "uid": "65b7fbf9-3459-433c-bb41-635c08e2a19e", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Detection of direct speech.", 
+      "static_image": "", 
+      "action": "MUSE_directspeech", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Direct speech"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "65b7fbf9-3459-433c-bb41-635c08e2a19e", 
+      "name": "Entities", 
+      "short_name": "ent", 
+      "default": "", 
+      "description": "Entities for direct speech detection", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "entities", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "521e857d-d0aa-4a82-8f72-07b713f65ab4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "65b7fbf9-3459-433c-bb41-635c08e2a19e", 
+      "name": "Coreferences", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Coreferences as produced by the coreference function", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "coref", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "84adf867-26cd-4e74-884e-1c7f351c7238"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "65b7fbf9-3459-433c-bb41-635c08e2a19e", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "916b1832-7e59-4988-9bcc-3e64c6af4978"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "65b7fbf9-3459-433c-bb41-635c08e2a19e", 
+      "name": "Semantic role labels", 
+      "short_name": "srl", 
+      "default": "", 
+      "description": "Tokenised sentences with semantic roles", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "srl", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d7e6c005-383a-4df6-82c7-6b4bbe8ae37e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "65b7fbf9-3459-433c-bb41-635c08e2a19e", 
+      "name": "Direct speech", 
+      "short_name": "dsp", 
+      "description": "Detected direct speech", 
+      "variable": "directspeech", 
+      "order": 1, 
+      "uid": "0eb0be93-773c-438a-9a1b-b099d04b9d6f"
+    }
+  }
+]

@@ -34,3 +34,49 @@ def MUSE_coreference(input_dict):
     corefs = result.response_dict['result']
     return {'coreferences': corefs}
 #end
+
+
+def MUSE_SRL(input_dict):
+    url = input_dict['url']
+    tokens = input_dict['tokens']
+
+    import socket
+    socket.setdefaulttimeout(None)
+
+    cli = JSONWSPClient(url)
+    result = cli.SRL(tokens=tokens)
+    srl = result.response_dict['result']
+    return {'srl': srl}
+#end
+
+
+def MUSE_directspeech(input_dict):
+    url = input_dict['url']
+    srl = input_dict['srl']
+    coref = input_dict['coref']
+    entities = input_dict['entities']
+
+    import socket
+    socket.setdefaulttimeout(None)
+
+    cli = JSONWSPClient(url)
+    result = cli.direct_speech(srl=srl, coref=coref, entities=entities)
+    dspeech = result.response_dict['result']
+    return {'directspeech': dspeech}
+#end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

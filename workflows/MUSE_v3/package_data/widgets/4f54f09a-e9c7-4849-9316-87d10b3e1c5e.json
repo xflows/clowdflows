@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c0ecc61e-3fe1-4681-8ed7-8d45e796d9d0", 
+      "treeview_image": "", 
+      "uid": "4f54f09a-e9c7-4849-9316-87d10b3e1c5e", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This function performs semantic role labelling on tokenised text.", 
+      "static_image": "", 
+      "action": "MUSE_SRL", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Semantic role labelling"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f54f09a-e9c7-4849-9316-87d10b3e1c5e", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "4acb5124-4e76-49ad-b5cd-e86aea55cf70"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f54f09a-e9c7-4849-9316-87d10b3e1c5e", 
+      "name": "Tokens", 
+      "short_name": "tok", 
+      "default": "", 
+      "description": "Tokenised text", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "tokens", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f5d71cb7-1965-44c7-91d5-4cfd6cd27af7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4f54f09a-e9c7-4849-9316-87d10b3e1c5e", 
+      "name": "Semantic role labels", 
+      "short_name": "srl", 
+      "description": "Tokenised sentences with semantic roles and other information", 
+      "variable": "srl", 
+      "order": 1, 
+      "uid": "fad56b23-dd4b-41f7-91e3-460f9cee5883"
+    }
+  }
+]
