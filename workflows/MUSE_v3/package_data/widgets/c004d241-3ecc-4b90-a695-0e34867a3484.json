@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c0ecc61e-3fe1-4681-8ed7-8d45e796d9d0", 
+      "treeview_image": "", 
+      "uid": "c004d241-3ecc-4b90-a695-0e34867a3484", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This function prepares the input for the mapping to knowledge representation function.", 
+      "static_image": "", 
+      "action": "MUSE_prepare_mapping", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Prepare input for KR mapping"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c004d241-3ecc-4b90-a695-0e34867a3484", 
+      "name": "Processed SRL", 
+      "short_name": "srl", 
+      "default": "", 
+      "description": "SRL with pronoun resolution", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "srlp", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "3217eab4-6b5f-453c-b826-1ef849a7ffab"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c004d241-3ecc-4b90-a695-0e34867a3484", 
+      "name": "Direct speech", 
+      "short_name": "dsp", 
+      "default": "", 
+      "description": "Detected direct speech", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "quots", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "3d212521-c5dc-4245-aa31-506994bd0522"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c004d241-3ecc-4b90-a695-0e34867a3484", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "dee7cfb2-78e4-4663-8102-172459fc72d1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c004d241-3ecc-4b90-a695-0e34867a3484", 
+      "name": "KR input", 
+      "short_name": "ikr", 
+      "description": "Input for knowledge representation mapping", 
+      "variable": "imapping", 
+      "order": 1, 
+      "uid": "0739dcfe-fa7a-4d37-ba06-17733edecf41"
+    }
+  }
+]

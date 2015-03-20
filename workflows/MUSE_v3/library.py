@@ -54,7 +54,7 @@ def MUSE_directspeech(input_dict):
     url = input_dict['url']
     srl = input_dict['srl']
     coref = input_dict['coref']
-    entities = input_dict['entities']
+    entities = input_dict['entities'].replace(' ', '')
 
     import socket
     socket.setdefaulttimeout(None)
@@ -66,7 +66,35 @@ def MUSE_directspeech(input_dict):
 #end
 
 
+def MUSE_pronoun_resolution(input_dict):
+    url = input_dict['url']
+    srl = input_dict['srl']
+    coref = input_dict['coref']
+    entities = input_dict['entities'].replace(' ', '')
 
+    import socket
+    socket.setdefaulttimeout(None)
+
+    cli = JSONWSPClient(url)
+    result = cli.pronoun_resolution(srl=srl, coref=coref, entities=entities)
+    srlp = result.response_dict['result']
+    return {'srlpronouns': srlp}
+#end
+
+
+def MUSE_prepare_mapping(input_dict):
+    url = input_dict['url']
+    srlp = input_dict['srlp']
+    quots = input_dict['quots']
+
+    import socket
+    socket.setdefaulttimeout(None)
+
+    cli = JSONWSPClient(url)
+    result = cli.prepare_for_mapping(srlpronouns=srlp, quotations=quots)
+    imapping = result.response_dict['result']
+    return {'imapping': imapping}
+#end
 
 
 
