@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "c0ecc61e-3fe1-4681-8ed7-8d45e796d9d0", 
+      "treeview_image": "", 
+      "uid": "bc48dd88-9853-46c7-bf56-c851e453cbd6", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This function is used to detect events and temporal relations between these events", 
+      "static_image": "", 
+      "action": "MUSE_event_temprel_detection", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Event and temporal relation detection"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bc48dd88-9853-46c7-bf56-c851e453cbd6", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "3320bd29-de49-471c-a72d-0b4f5b422692"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bc48dd88-9853-46c7-bf56-c851e453cbd6", 
+      "name": "Raw text", 
+      "short_name": "txt", 
+      "default": "", 
+      "description": "Input text file", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f71a5751-8a54-4cc6-9375-53bae86e8cb8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bc48dd88-9853-46c7-bf56-c851e453cbd6", 
+      "name": "Events and temporal relations", 
+      "short_name": "xml", 
+      "description": "XML file with results", 
+      "variable": "xml", 
+      "order": 1, 
+      "uid": "b6323383-9067-427d-93d5-fb9698293df2"
+    }
+  }
+]

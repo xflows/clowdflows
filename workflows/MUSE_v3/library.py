@@ -97,6 +97,20 @@ def MUSE_prepare_mapping(input_dict):
 #end
 
 
+def MUSE_event_temprel_detection(input_dict):
+    text = input_dict['text']
+    url = input_dict['url']
+
+    import socket
+    socket.setdefaulttimeout(None)
+
+    cli = JSONWSPClient(url)
+    result = cli.event_temprel_detection(text=text)
+    result = result.response_dict['result']
+    return {'xml': result}
+#end
+
+
 
 
 
