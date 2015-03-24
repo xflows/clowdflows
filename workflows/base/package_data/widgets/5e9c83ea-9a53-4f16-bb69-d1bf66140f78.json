@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "", 
+      "uid": "5e9c83ea-9a53-4f16-bb69-d1bf66140f78", 
+      "windows_queue": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Unzips a list of tuples for the given index.\r\n\r\n    Example inputs:\r\n\r\n        index = 0\r\n        input_list = [(a, 1), (b, 2), (c, 3)]\r\n\r\n        result: [a, b, c]\r\n\r\n    or\r\n\r\n        index = 1\r\n        input_list = [(a, 1), (b, 2), (c, 3)]\r\n\r\n        result: [1, 2, 3]", 
+      "static_image": "", 
+      "action": "base_unzip_list", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Unzip list"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5e9c83ea-9a53-4f16-bb69-d1bf66140f78", 
+      "name": "List", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "Input list", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "input_list", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "40170147-20b9-4cb1-9c57-5d6b6fbde603"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5e9c83ea-9a53-4f16-bb69-d1bf66140f78", 
+      "name": "Index", 
+      "short_name": "idx", 
+      "default": "0", 
+      "description": "Tuple index to unzip", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "index", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "e01147cc-2c37-4155-85ce-d1f22a515de8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5e9c83ea-9a53-4f16-bb69-d1bf66140f78", 
+      "name": "List", 
+      "short_name": "lst", 
+      "description": "Output list", 
+      "variable": "unzipped_list", 
+      "order": 1, 
+      "uid": "af772a1c-6b82-4873-b385-63ab315bb13e"
+    }
+  }
+]
