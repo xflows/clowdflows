@@ -1,0 +1,85 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "3b5afcdf-231b-4484-8d0e-6a23852e0e95", 
+      "treeview_image": "", 
+      "uid": "352b025c-418f-41da-8a20-4adfc9cd6d16", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This function is used to tokenise text and detect information about its structure", 
+      "static_image": "", 
+      "action": "MUSE_PG_preprocessing", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "PG preprocessing"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "352b025c-418f-41da-8a20-4adfc9cd6d16", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "cd0de070-ce48-48b1-8a5a-addeac39cd40"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "352b025c-418f-41da-8a20-4adfc9cd6d16", 
+      "name": "Raw text", 
+      "short_name": "txt", 
+      "default": "", 
+      "description": "Input text file", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f608f877-4e65-42e0-ae09-e807f1639830"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "352b025c-418f-41da-8a20-4adfc9cd6d16", 
+      "name": "Tokens", 
+      "short_name": "tok", 
+      "description": "Tokenised text", 
+      "variable": "tokens", 
+      "order": 1, 
+      "uid": "401377a7-4808-4679-bda7-b230809d9780"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "352b025c-418f-41da-8a20-4adfc9cd6d16", 
+      "name": "Text structure", 
+      "short_name": "tsr", 
+      "description": "Recognised text structure", 
+      "variable": "structure", 
+      "order": 1, 
+      "uid": "bac34128-4b42-4cb4-a9ac-8c8bf7f94d98"
+    }
+  }
+]
