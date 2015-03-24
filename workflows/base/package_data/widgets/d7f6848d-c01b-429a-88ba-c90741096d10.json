@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "01ad639d-acb8-45c0-bc5e-bc8739bb4c95", 
+      "treeview_image": "", 
+      "uid": "d7f6848d-c01b-429a-88ba-c90741096d10", 
+      "windows_queue": false, 
+      "package": "base", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Computes the average of the given input list.", 
+      "static_image": "", 
+      "action": "base_average_list", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "List average"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "d7f6848d-c01b-429a-88ba-c90741096d10", 
+      "name": "List", 
+      "short_name": "lst", 
+      "default": "", 
+      "description": "Input list", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "input_list", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "863c108e-5908-446b-84e9-31478e36dea7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "d7f6848d-c01b-429a-88ba-c90741096d10", 
+      "name": "Average", 
+      "short_name": "avg", 
+      "description": "Average value", 
+      "variable": "average", 
+      "order": 1, 
+      "uid": "4cb1845d-17d9-4f0a-af27-5a64869d9881"
+    }
+  }
+]

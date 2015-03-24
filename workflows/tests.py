@@ -57,3 +57,4 @@ class WidgetEngineTest(TestCase):
         self.assertEqual(o,[[[[u'2'], [u'1']], [u'3'], 1],
                             [[[u'3'], [u'1']], [u'2'], 1],
                             [[[u'3'], [u'2']], [u'1'], 1]])
+

@@ -562,17 +562,6 @@ def add_cv(request):
                 output.outer_input = input
                 output.save()
 
-                # input: number of folds 
-                cv_input_fold = Widget()
-                cv_input_fold.workflow = workflow
-                cv_input_fold.x=int(request.POST['scrollLeft'])+50
-                y=int(request.POST['scrollTop'])+50
-                while workflow.widgets.filter(y=y,x=cv_input_fold.x).count()>0:
-                    y = y + 100
-                cv_input_fold.y=y
-                cv_input_fold.name = 'cv input2'
-                cv_input_fold.type = 'cv_input2'
-                cv_input_fold.save()
 
                 output = Output()
                 output.name = 'cv input data'
@@ -589,18 +578,6 @@ def add_cv(request):
                 input.save()
                 output.outer_input = input
                 output.save()
-
-                # input: seed
-                cv_input_fold = Widget()
-                cv_input_fold.workflow = workflow
-                cv_input_fold.x=int(request.POST['scrollLeft'])+50
-                y=int(request.POST['scrollTop'])+50
-                while workflow.widgets.filter(y=y,x=cv_input_fold.x).count()>0:
-                    y = y + 100
-                cv_input_fold.y=y
-                cv_input_fold.name = 'cv input3'
-                cv_input_fold.type = 'cv_input3'
-                cv_input_fold.save()
 
                 output = Output()
                 output.name = 'cv input data'

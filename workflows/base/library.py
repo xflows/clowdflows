@@ -182,3 +182,40 @@ def base_extract_results(input_dict):
     output_dict = {}
     output_dict['results']=results
     return output_dict
+
+def base_unzip_list(input_dict):
+    '''
+    Unzips a list of tuples for the given index.
+
+    Example inputs:
+
+        index = 0
+        input_list = [(a, 1), (b, 2), (c, 3)]
+
+        result: [a, b, c]
+
+    or
+
+        index = 1
+        input_list = [(a, 1), (b, 2), (c, 3)]
+
+        result: [1, 2, 3]
+    '''
+    idx = int(input_dict.get('index', 0))
+    input_list = input_dict['input_list']
+    unzipped_list = [el[idx] for el in input_list]
+
+    return {'unzipped_list': unzipped_list}
+
+def base_average_list(input_dict):
+    '''
+    Computes the average of the given input list.
+    '''
+    input_list = input_dict['input_list']
+
+    if input_list:
+        average = sum(input_list)/float(len(input_list))
+    else:
+        average = None
+
+    return {'average': average}

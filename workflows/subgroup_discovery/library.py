@@ -10,7 +10,7 @@ try:
     from SubgroupDiscovery.SDRule import SDRules
     import Orange
 except:
-    print logging.warning('Could not import subgroup discovery orange package.')
+    logging.warning('Could not import subgroup discovery orange package.')
 
 class SubgroupDiscovery:
     # Available algorithms and their parameters
