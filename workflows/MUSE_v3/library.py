@@ -111,6 +111,19 @@ def MUSE_event_temprel_detection(input_dict):
 #end
 
 
+def MUSE_PG_preprocessing(input_dict):
+    text = input_dict['text']
+    url = input_dict['url']
+
+    import socket
+    socket.setdefaulttimeout(None)
+
+    cli = JSONWSPClient(url)
+    result = cli.PG_preprocessing(text=text)
+    result = result.response_dict['result']
+    return {'structure': result[0], 'tokens': result[1]}
+#end
+
 
 
 
