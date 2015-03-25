@@ -549,7 +549,8 @@ def add_cv(request):
                 output = Output()
                 output.name = 'cv input data'
                 output.short_name = 'trn' # subproces inner input
-                output.variable = 'CVD'
+                output.variable = 'TRAIN'
+                output.order = 1
                 output.widget = cv_input_data
                 output.save()
                 input = Input()
@@ -558,6 +559,7 @@ def add_cv(request):
                 input.short_name = 'dat'  # subproces input
                 input.variable = 'CVD'
                 input.inner_output = output
+                input.order = 1
                 input.save()
                 output.outer_input = input
                 output.save()
@@ -566,7 +568,8 @@ def add_cv(request):
                 output = Output()
                 output.name = 'cv input data'
                 output.short_name = 'tst' # subproces inner input
-                output.variable = 'CVF'
+                output.variable = 'TEST'
+                output.order = 2
                 output.widget = cv_input_data
                 output.save()
                 input = Input()
@@ -575,6 +578,7 @@ def add_cv(request):
                 input.short_name = 'cvf'
                 input.variable = 'CVF'
                 input.inner_output = output
+                input.order = 2
                 input.save()
                 output.outer_input = input
                 output.save()
@@ -582,7 +586,8 @@ def add_cv(request):
                 output = Output()
                 output.name = 'cv input data'
                 output.short_name = 'sed' # subproces inner input
-                output.variable = 'CVS'
+                output.variable = 'SEED'
+                output.order = 3
                 output.widget = cv_input_data
                 output.save()
                 input = Input()
@@ -590,6 +595,7 @@ def add_cv(request):
                 input.name = 'cv input seed'
                 input.short_name = 'sed'
                 input.variable = 'CVS'
+                input.order = 3
                 input.inner_output = output
                 input.save()
                 output.outer_input = input
