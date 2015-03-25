@@ -30,6 +30,7 @@ from mothra.settings import DEBUG, FILES_FOLDER
 import os
 
 import json
+from django.db.models import Max
 
 from workflows import module_importer
 def setattr_local(name, value, package):
@@ -313,6 +314,7 @@ def add_connection(request):
                 if new_c.input.multi_id != 0:
                     i = new_c.input
                     j = Input()
+                    m = i.widget.inputs.aggregate(Max('order'))
                     j.name = i.name
                     j.short_name = i.short_name
                     j.description = i.description
@@ -323,7 +325,7 @@ def add_connection(request):
                     j.value = None
                     j.parameter_type = i.parameter_type
                     j.multi_id = i.multi_id
-                    j.order = i.order
+                    j.order = m['order__max']+1
                     j.save()
                     refresh = i.widget.id
                     refreshworkflow = i.widget.workflow.id
