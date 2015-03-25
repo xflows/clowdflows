@@ -1,6 +1,7 @@
 import workflows.library
 import time
 import random
+from workflows.tasks import *
 
 class WidgetRunner():
     def __init__(self,widget,workflow_runner,standalone=False):
@@ -31,12 +32,20 @@ class WidgetRunner():
                     if self.widget.abstract_widget.wsdl != '':
                         input_dict['wsdl']=self.widget.abstract_widget.wsdl
                         input_dict['wsdl_method']=self.widget.abstract_widget.wsdl_method
-                    if self.widget.abstract_widget.has_progress_bar:
-                        outputs = function_to_call(input_dict,self.widget)
-                    elif self.widget.abstract_widget.is_streaming:
-                        outputs = function_to_call(input_dict,self.widget,None)
+                    if self.abstract_widget.windows_queue and settings.USE_WINDOWS_QUEUE:
+                        if self.widget.abstract_widget.has_progress_bar:
+                            outputs = executeWidgetFunction.apply_async([self.widget,input_dict],queue="windows").wait()
+                        elif self.widget.abstract_widget.is_streaming:
+                            outputs = executeWidgetProgressBar.apply_async([self.widget,input_dict],queue="windows").wait()
+                        else:
+                            outputs = executeWidgetStreaming.apply_async([self.widget,input_dict],queue="windows").wait()
                     else:
-                        outputs = function_to_call(input_dict)
+                        if self.widget.abstract_widget.has_progress_bar:
+                            outputs = function_to_call(input_dict,self.widget)
+                        elif self.widget.abstract_widget.is_streaming:
+                            outputs = function_to_call(input_dict,self.widget,None)
+                        else:
+                            outputs = function_to_call(input_dict)
                 else:
                     """ we run the subprocess """
                     self.inner_workflow_runner = WorkflowRunner(self.widget.workflow_link,parent=self.workflow_runner)
