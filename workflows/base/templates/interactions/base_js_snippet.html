@@ -1,0 +1,27 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" title="{{widget.name}} interaction">
+
+    <p>Running code, yo.</p>
+
+    <form id="widget-form-{{widget.pk}}">
+        <input id="out-{{widget.pk}}" type="hidden" name="out"/>
+        <input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+    </form>
+
+    <!-- Behaviour -->
+    <script type="text/javascript">
+        function execCode() {
+            var inputs = {{ inputs|safe }};
+            
+            {{ snippet|safe }}
+
+            // To ensure that `out` is always json-serializable, always add it to a list
+            out = [out];
+            $('#out-{{widget.pk}}').val(JSON.stringify(out));
+
+            // Finish interaction after the code executes
+            $("#widgetinteract-{{widget.pk}}").parent().find('button').click();
+        };
+
+        setTimeout(execCode, 500);
+    </script>
+</div>
