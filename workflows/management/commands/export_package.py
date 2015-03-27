@@ -7,6 +7,7 @@ import uuid
 import os
 import sys
 from django.conf import settings
+from django.core.management.color import color_style
 import json
 
 def add_category(category,categories):
@@ -71,6 +72,9 @@ def serialize_category(c):
     return data
 
 def export_package(package_name,writer):
+
+    style = color_style()
+
     if 'workflows.'+package_name not in settings.INSTALLED_APPS:
         raise CommandError("Package not found in INSTALLED_APPS.")
 
@@ -89,6 +93,7 @@ def export_package(package_name,writer):
     package_directory = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../'+package_name+"/package_data/")
     ensure_dir(package_directory)
     widgets_directory = os.path.join(package_directory,"widgets")
+    deprecated_widgets_directory = os.path.join(package_directory,"deprecated_widgets")
     ensure_dir(widgets_directory)
     categories_directory = os.path.join(package_directory,"categories")
     ensure_dir(categories_directory)
@@ -102,6 +107,9 @@ def export_package(package_name,writer):
 
     for aw in aws:
         aw.update_uid()
+        if os.path.isfile(os.path.join(deprecated_widgets_directory,aw.uid+'.json')):            
+            writer.write(style.ERROR("     - Deprecated widget "+str(aw)+" found! Please import package to remove it. This widget has NOT been exported.\n"))
+            continue
         add_category(aw.category,categories)
         serialized_widget = serialize_widget(aw)
         

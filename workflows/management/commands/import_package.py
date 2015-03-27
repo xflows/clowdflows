@@ -1,6 +1,6 @@
 from unicodedata import category
 from django.core.management.base import BaseCommand, CommandError
-from workflows.models import Category, AbstractWidget, AbstractInput, AbstractOutput, AbstractOption
+from workflows.models import Category, AbstractWidget, AbstractInput, AbstractOutput, AbstractOption, Widget
 from django.core import serializers
 from optparse import make_option
 import uuid
@@ -9,6 +9,7 @@ import sys
 from django.conf import settings
 import json
 from .export_package import serialize_category, serialize_widget
+from django.core.management.color import color_style
 
 def parsewidgetdata(widget_data):
     widget = None
@@ -29,13 +30,19 @@ def parsewidgetdata(widget_data):
     return widget, inputs, outputs, options
 
 def import_package(package_name,writer):
+    style = color_style()
     package_directory = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../'+package_name+"/package_data/")
     widgets_directory = os.path.join(package_directory,"widgets")
+    deprecated_widgets_directory = os.path.join(package_directory,"deprecated_widgets")
     categories_directory = os.path.join(package_directory,"categories")        
 
     if not os.path.exists(package_directory) or not os.path.exists(widgets_directory) or not os.path.exists(categories_directory):
         raise CommandError("Cannot find package data. Are you sure this package has been exported already?")
 
+    try:
+        deprecated_widgets_files = os.listdir(deprecated_widgets_directory)
+    except:
+        deprecated_widgets_files = []
     widget_files = os.listdir(widgets_directory)
     category_files = os.listdir(categories_directory)
 
@@ -152,6 +159,24 @@ def import_package(package_name,writer):
             if stale_os:
                 stale_os.delete()
                 writer.write("     - Removing stale options\n")
+
+    if deprecated_widgets_files:
+        for deprecated_widget_file in deprecated_widgets_files:
+            wfilepath = os.path.join(deprecated_widgets_directory,deprecated_widget_file)
+            w_file = open(wfilepath,'r')
+            w_data = json.loads(w_file.read())
+            w_file.close()
+            widget, inputs, outputs, options = parsewidgetdata(w_data)
+            created = False
+            try:
+                aw = AbstractWidget.objects.get(uid=widget['fields']['uid'],package=package_name)
+                if Widget.objects.filter(abstract_widget=aw).count()==0:
+                    writer.write('   - Removing widget '+str(widget['fields']['name'])+'\n')
+                    aw.delete()
+                else:
+                    writer.write(style.ERROR('   - The widget '+str(widget['fields']['name'])+' is still used in workflows. It was not removed, but it is deprecated!\n'))
+            except AbstractWidget.DoesNotExist:
+                pass
 
     if not global_change:
         #writer.write("    No changes detected in the widgets.\n")
