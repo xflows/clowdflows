@@ -98,7 +98,7 @@ def export_package(package_name,writer,dest_folder=None):
 
     #first we check if package_data directory exists and make it if it doesn't
     if external:
-        package_directory = dest_folder
+        package_directory = os.path.join(dest_folder,'package_data')
     else:
         package_directory = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../'+package_name+"/package_data/")
     ensure_dir(package_directory)
