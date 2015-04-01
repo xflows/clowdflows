@@ -71,13 +71,18 @@ def serialize_category(c):
         data['fields'].pop('user')
     return data
 
-def export_package(package_name,writer):
+def export_package(package_name,writer,dest_folder=None):
     style = color_style()
-    
-    if package_name in settings.INSTALLED_APPS_EXTERNAL_PACKAGES:
-        raise CommandError("You cannot export external packages.")
 
-    if 'workflows.'+package_name not in settings.INSTALLED_APPS:
+    external = package_name in settings.INSTALLED_APPS_EXTERNAL_PACKAGES
+
+    if external and not dest_folder:
+        raise CommandError("You must provide a destination folder when exporting external packages.")
+    
+    if not external and dest_folder:
+        raise CommandError("You can't use a custom destination folder when exporting local packages.")
+
+    if 'workflows.'+package_name not in settings.INSTALLED_APPS and not external:
         raise CommandError("Package not found in INSTALLED_APPS.")
 
     #here we check the integrity of the package
@@ -92,7 +97,10 @@ def export_package(package_name,writer):
                     
 
     #first we check if package_data directory exists and make it if it doesn't
-    package_directory = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../'+package_name+"/package_data/")
+    if external:
+        package_directory = dest_folder
+    else:
+        package_directory = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../'+package_name+"/package_data/")
     ensure_dir(package_directory)
     widgets_directory = os.path.join(package_directory,"widgets")
     deprecated_widgets_directory = os.path.join(package_directory,"deprecated_widgets")
@@ -182,15 +190,19 @@ def export_package(package_name,writer):
 
 
 class Command(BaseCommand):
-    args = 'package_name'
+    args = 'package_name [external_destination_folder]'
     help = 'Exports the package "package_name".'
 
     def handle(self, *args, **options):
-        if (len(args) < 1):
+        if len(args) < 1:
             raise CommandError('Argument "package_name" is required.')
+
+        dest_folder = None
+        if len(args) == 2:
+            dest_folder = args[1]
 
         package_name = args[0]
         writer = self.stdout
 
-        export_package(package_name,writer)
+        export_package(package_name,writer,dest_folder=dest_folder)
         writer.write('Thanks for using the new export command. You rock.\n')

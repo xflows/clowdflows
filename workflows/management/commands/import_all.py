@@ -22,7 +22,6 @@ class Command(BaseCommand):
                 package_name = app.split('workflows.')[1]
                 packages.append(package_name)
             elif app in settings.INSTALLED_APPS_EXTERNAL_PACKAGES:
-                print app
                 extern_packages.append(app)
 
         for package in packages:
