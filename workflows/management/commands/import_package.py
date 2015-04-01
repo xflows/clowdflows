@@ -6,6 +6,7 @@ from optparse import make_option
 import uuid
 import os
 import sys
+import inspect
 from django.conf import settings
 import json
 from .export_package import serialize_category, serialize_widget
@@ -29,9 +30,16 @@ def parsewidgetdata(widget_data):
             raise CommandError("Wrong data in widget files!")
     return widget, inputs, outputs, options
 
-def import_package(package_name,writer):
+def import_package(package_name,writer,external=False):
     style = color_style()
-    package_directory = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../'+package_name+"/package_data/")
+    if external:
+        module = __import__(package_name)
+        if '.' in package_name:
+            cf_module = package_name.split('.')[-1]
+            module = getattr(module, cf_module)
+        package_directory = os.path.join(os.path.dirname(inspect.getfile(module)), 'package_data/')
+    else:
+        package_directory = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../'+package_name+"/package_data/")
     widgets_directory = os.path.join(package_directory,"widgets")
     deprecated_widgets_directory = os.path.join(package_directory,"deprecated_widgets")
     categories_directory = os.path.join(package_directory,"categories")        
@@ -193,12 +201,13 @@ class Command(BaseCommand):
             raise CommandError('Argument "package_name" is required.')
 
         package_name = args[0]
+        external = package_name in settings.INSTALLED_APPS_EXTERNAL_PACKAGES
 
-        if 'workflows.'+package_name not in settings.INSTALLED_APPS:
+        if 'workflows.'+package_name not in settings.INSTALLED_APPS and not external:
             raise CommandError("Package not found in INSTALLED_APPS.")
 
         writer = self.stdout
 
-        import_package(package_name,writer)
+        import_package(package_name,writer,external=external)
 
         writer.write('Thanks for using the new import command. You rock.\n')

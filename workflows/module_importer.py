@@ -1,9 +1,15 @@
-from mothra.settings import INSTALLED_APPS
+from mothra.settings import INSTALLED_APPS, INSTALLED_APPS_EXTERNAL_PACKAGES
 
 appName = 'workflows'
 
 def get_installed_apps():
+    return list(get_local_installed_apps()) + list(get_extern_installed_apps())
+
+def get_local_installed_apps():
     return [name[len(appName)+1:] for name in INSTALLED_APPS if name.startswith(appName+'.') and len(name)>len(appName)+1]
+
+def get_extern_installed_apps():
+    return INSTALLED_APPS_EXTERNAL_PACKAGES
 
 #Following functions deal with imports of libraries as dicts
 def import_all_packages_libs_as_dict(libName):
@@ -13,7 +19,10 @@ def import_all_packages_libs_as_dict(libName):
     return pckLibs
 
 def import_package_lib_as_dict(packageName, libName):
-    return dynamic_import_globals_as_dict(appName+"."+packageName + "." + libName, packageName)
+    if packageName in get_local_installed_apps():
+        return dynamic_import_globals_as_dict(appName+"."+packageName + "." + libName, packageName)
+    else:
+        return dynamic_import_globals_as_dict(packageName + "." + libName, packageName)
 
 def dynamic_import_globals_as_dict(name, package):
     try:
@@ -30,7 +39,11 @@ def import_all_packages_libs(libName, localSetAttrFunc):
         import_package_lib(pck, libName, localSetAttrFunc)
 
 def import_package_lib(packageName, libName, localSetAttrFunc):
-    dynamic_import_globals(appName+"."+packageName + "." + libName, packageName, localSetAttrFunc)
+    if packageName in get_local_installed_apps():
+        dynamic_import_globals(appName+"."+packageName + "." + libName, packageName, localSetAttrFunc)
+    else:
+        # External CF package
+        dynamic_import_globals(packageName + "." + libName, packageName, localSetAttrFunc)
 
 def dynamic_import_globals(name, package, localSetAttrFunc):
     m = None
@@ -49,5 +62,4 @@ def dynamic_import_globals(name, package, localSetAttrFunc):
     g = globals()
     for name in all_names:
         #g[name] = m.__dict__.get(name)
-        #print name
         localSetAttrFunc(name, m.__dict__.get(name), package)

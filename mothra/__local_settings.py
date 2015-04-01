@@ -43,7 +43,12 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     #'workflows.vipercharts',
     #'workflows.MUSE',
     #'workflows.hbp',
-    )
+)
+
+INSTALLED_APPS_EXTERNAL_PACKAGES = (
+    #'rdm.db',
+    #'rdm.wrappers'
+)
 
 BROKER_URL = 'django://'
 

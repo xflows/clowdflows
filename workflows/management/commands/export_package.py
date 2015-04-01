@@ -72,8 +72,10 @@ def serialize_category(c):
     return data
 
 def export_package(package_name,writer):
-
     style = color_style()
+    
+    if package_name in settings.INSTALLED_APPS_EXTERNAL_PACKAGES:
+        raise CommandError("You cannot export external packages.")
 
     if 'workflows.'+package_name not in settings.INSTALLED_APPS:
         raise CommandError("Package not found in INSTALLED_APPS.")

@@ -16,11 +16,19 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         packages = []
+        extern_packages = []
         for app in settings.INSTALLED_APPS:
             if 'workflows.' in app:
-                packages.append(app)
+                package_name = app.split('workflows.')[1]
+                packages.append(package_name)
+            elif app in settings.INSTALLED_APPS_EXTERNAL_PACKAGES:
+                print app
+                extern_packages.append(app)
 
         for package in packages:
-            package_name = package.split('workflows.')[1]
-            self.stdout.write("Importing package "+package_name+"\n")
-            import_package(package_name,self.stdout)
+            self.stdout.write("Importing package "+package+"\n")
+            import_package(package,self.stdout)
+
+        for package in extern_packages:
+            self.stdout.write("Importing external package "+package+"\n")
+            import_package(package,self.stdout, external=True)
