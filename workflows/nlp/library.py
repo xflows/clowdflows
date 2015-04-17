@@ -3,10 +3,11 @@ import os.path
 import base64
 from services.webservice import WebService
 from workflows.security import safeOpen
-import requests
+from requests import post
 import json
 import re
 import itertools
+
 
 webservices_url = "http://vihar.ijs.si:8104"
 
@@ -70,7 +71,7 @@ def load_corpus2(input_dict):
     params = {"filename": fname, "text": data} #set params
     
     #call web service
-    resp = requests.post(webservice_url, params=params)
+    resp = post(webservice_url, params=params)
     content = json.loads(resp.content)[u'parseFileResponse'][u'parseFileResult']
     
     if content[u"error"] != "":
@@ -88,34 +89,90 @@ def load_tagged_corpus(input_dict):
     data = f.read()
     return {'annotations': data}
 
-def nlp_totrtale2(input_dict):
+def totrtale_request(params):
+    webservice_url = webservices_url + "/runToTrTaLe"
+    return post(webservice_url, params=params)
+
+def nlp_totrtale2(input_dict, widget):
     '''
     Calls the totrtale web service.
     '''
-    corpus = input_dict['corpus']
-    lang = input_dict['lang']
-    xml = input_dict['xml']
-    postprocess = input_dict['postprocess']
-    bohoricica = input_dict['bohoricica']
-    antique = input_dict['antique']
-
-    #define web service
-    webservice_url = webservices_url + "/runToTrTaLe"
-    params = {"text":corpus, "language": lang, "postProcessing":postprocess, "bohoricica":bohoricica, "antique": antique, "outputAsXML":xml}
-
+    import multiprocessing
+    from xml.dom.minidom import parseString
     import time
-    start = time.time()
-    response = requests.post(webservice_url, params = params)
+    import math
 
-    content = json.loads(response.content)
-    if u'runToTrTaLeResponse' in content:
-        content = content[u'runToTrTaLeResponse'][u'runToTrTaLeResult']
-    else:
-        content = content[u"error"]
-    end = time.time()
-    print "ToTrTale execution time was ", end - start
-    return {'annotations': content[u'resp']}
+    progress_accumulator = 0
+    widget.progress= progress_accumulator
+    widget.save()
 
+    processes = 4
+    DOCUMENTS_SIZE = 3 * int(1e6) #Document size (MB) per process
+    corpus = parseString(input_dict['corpus'])
+    language = input_dict['lang'], 
+    postprocess = input_dict['postprocess'] == "true"
+    bohoricica = input_dict['bohoricica'] == "true"
+    antique = input_dict['antique'] == "true" 
+    xml = input_dict['xml'] == "true"
+             
+    params = {"language": language, 
+            "postprocess": postprocess, 
+            "bohoricica":bohoricica, 
+            "antique": antique, 
+            "xml":xml}
+
+    tei_corpus = corpus.getElementsByTagName('teiCorpus')
+    if tei_corpus:
+        tei_head = '<?xml version="1.0" encoding="utf-8"?>\n' + \
+                   '<teiCorpus xmlns="http://www.tei-c.org/ns/1.0">\n'
+        tei_header = corpus.getElementsByTagName('teiHeader')[0].toxml() + "\n"
+        tei_tail = '</teiCorpus>'
+
+    pool = multiprocessing.Pool(processes=processes)
+    documents = corpus.getElementsByTagName('TEI')
+    documents_size, document_num, process_num = 0, 0, 1
+
+    results, docs = [], [] 
+    for i, document in enumerate(documents):
+        docs.append(document.toxml())
+        documents_size += len(document.getElementsByTagName('body')[0].getElementsByTagName('p')[0].childNodes[0].nodeValue)
+        document_num+=1
+        if documents_size > DOCUMENTS_SIZE or (document_num) % 10 == 0 or i == len(documents)-1:
+            #print "Log:",process_num, "process added to queue with", document_num, "documents" 
+            documents_size = 0
+            document_num = 0
+            params["text"] = "\n".join(docs)
+            results.append(pool.apply_async(totrtale_request, args=[params]))
+            process_num += 1
+            docs = []
+    pool.close()
+
+    response = ["" for i in results]
+    progress = [True]
+    
+    while any(progress):
+        time.sleep(1)
+        progress = [not result.ready() for result in results]
+        for i, prog in enumerate(progress):
+            if not prog and response[i] == "":
+                resp=json.loads(results[i].get().content)[u'runToTrTaLeResponse'][u'runToTrTaLeResult']
+                if resp["error"] != "":
+                    progress = [False]
+                    raise Exception(resp["error"])
+                response[i] = resp["resp"]
+                progress_accumulator += 1/float(len(results))*100
+                #print "progress", progress_accumulator, math.floor(progress_accumulator)
+                widget.progress = math.floor(progress_accumulator)
+                widget.save()
+
+    widget.progress=100
+    widget.save()
+    
+    response = "".join(response)
+
+    if tei_corpus and xml:
+        response = tei_head + tei_header + response + tei_tail
+    return {'annotations': response}
 
 def nlp_totrtale(input_dict):
     '''
@@ -128,7 +185,7 @@ def nlp_totrtale(input_dict):
     postprocess = input_dict['postprocess'] == 'true'
     bohoricica = input_dict['bohoricica'] == 'true'
     antique = input_dict['antique'] == 'true'
-    print lang, wsdl, xml, postprocess, bohoricica, antique
+
     ws = WebService(wsdl, 60000)
     response = ws.client.runTotale(inFile=corpus, language=lang,
                                    postProcessing=postprocess,
