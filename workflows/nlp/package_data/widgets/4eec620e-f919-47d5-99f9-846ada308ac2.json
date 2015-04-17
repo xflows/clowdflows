@@ -8,7 +8,7 @@
       "is_streaming": false, 
       "package": "nlp", 
       "interaction_view": "", 
-      "has_progress_bar": false, 
+      "has_progress_bar": true, 
       "image": "", 
       "description": "A tool developed to process historical (Slovene) text, which annotates words in a TEI encoded corpus with their modern-day equivalents, morphosyntactic tags and lemmas. Such a tool is useful for developing historical corpora of highly-inflecting languages, enabling full text search in digital libraries of historical texts, for modernising such texts for today's readers and making it simpler to correct OCR transcriptions.", 
       "static_image": "nlp.png", 
