@@ -101,6 +101,7 @@ def nlp_totrtale2(input_dict, widget):
     from xml.dom.minidom import parseString
     import time
     import math
+    import copy
 
     progress_accumulator = 0
     widget.progress= progress_accumulator
@@ -108,19 +109,20 @@ def nlp_totrtale2(input_dict, widget):
 
     processes = 4
     DOCUMENTS_SIZE = 3 * int(1e6) #Document size (MB) per process
+    SINGLE_DOC_SIZE = 1* int(1e6)
     corpus = parseString(input_dict['corpus'])
     language = input_dict['lang'], 
     postprocess = input_dict['postprocess'] == "true"
     bohoricica = input_dict['bohoricica'] == "true"
     antique = input_dict['antique'] == "true" 
     xml = input_dict['xml'] == "true"
-             
+
     params = {"language": language, 
             "postprocess": postprocess, 
             "bohoricica":bohoricica, 
             "antique": antique, 
             "xml":xml}
-
+             
     tei_corpus = corpus.getElementsByTagName('teiCorpus')
     if tei_corpus:
         tei_head = '<?xml version="1.0" encoding="utf-8"?>\n' + \
@@ -132,19 +134,57 @@ def nlp_totrtale2(input_dict, widget):
     documents = corpus.getElementsByTagName('TEI')
     documents_size, document_num, process_num = 0, 0, 1
 
-    results, docs = [], [] 
+    results, docs, single_docs = [], [], []
     for i, document in enumerate(documents):
-        docs.append(document.toxml())
-        documents_size += len(document.getElementsByTagName('body')[0].getElementsByTagName('p')[0].childNodes[0].nodeValue)
-        document_num+=1
-        if documents_size > DOCUMENTS_SIZE or (document_num) % 10 == 0 or i == len(documents)-1:
-            #print "Log:",process_num, "process added to queue with", document_num, "documents" 
-            documents_size = 0
-            document_num = 0
-            params["text"] = "\n".join(docs)
-            results.append(pool.apply_async(totrtale_request, args=[params]))
-            process_num += 1
-            docs = []
+        doc_len = len(document.getElementsByTagName('body')[0].getElementsByTagName('p')[0].childNodes[0].nodeValue)
+        if doc_len > SINGLE_DOC_SIZE:
+            print "document was split"
+            predhead = '<TEI xmlns="http://www.tei-c.org/ns/1.0">\n'
+            head = '<text>\n<body>\n<p>\n'
+            header = document.getElementsByTagName('teiHeader')[0].toxml() + "\n"
+            tail = '\n</p>\n</body>\n</text>\n</TEI>'
+            
+
+            document_text = document.getElementsByTagName('body')[0].getElementsByTagName('p')[0].childNodes[0].nodeValue.strip().replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").replace("\"","&quot;")
+            prev_j, curr_j  = 0, SINGLE_DOC_SIZE
+            while (curr_j+2) < len(document_text):
+                while (curr_j+2) < len(document_text) and document_text[curr_j:curr_j+2] != ". ":
+                    curr_j+=1
+                sub_params = copy.deepcopy(params)
+                sub_params["text"] = predhead + head + document_text[prev_j: curr_j+2] + tail
+                results.append(pool.apply_async(totrtale_request, args=[sub_params]))
+                if prev_j == 0:
+                    single_docs.append(0)
+                else:
+                    single_docs.append(1)
+                prev_j = curr_j+2
+                curr_j += SINGLE_DOC_SIZE
+                document_num+=1
+                process_num += 1
+                
+                if curr_j > doc_len:
+                    sub_params = copy.deepcopy(params)
+                    sub_params["text"] = predhead + head + document_text[prev_j:] + tail
+                    results.append(pool.apply_async(totrtale_request, args=[sub_params]))
+                    document_num+=1
+                    process_num += 1
+                    single_docs.append(2)
+        else:
+            print "whole document was added"
+            docs.append(document.toxml())
+            document_num+=1
+            documents_size += doc_len
+            
+            if documents_size > DOCUMENTS_SIZE or (document_num)%10 == 0 or i == len(documents)-1:
+                #print "Log:",process_num, "process added to queue with", document_num, "documents" 
+                documents_size = 0
+                document_num = 0
+                sub_params = copy.deepcopy(params)
+                sub_params["text"] = "\n".join(docs)
+                results.append(pool.apply_async(totrtale_request, args=[sub_params]))
+                process_num += 1
+                docs = []
+                single_docs.append(-1)
     pool.close()
 
     response = ["" for i in results]
@@ -153,15 +193,33 @@ def nlp_totrtale2(input_dict, widget):
     while any(progress):
         time.sleep(1)
         progress = [not result.ready() for result in results]
+        print progress
         for i, prog in enumerate(progress):
             if not prog and response[i] == "":
                 resp=json.loads(results[i].get().content)[u'runToTrTaLeResponse'][u'runToTrTaLeResult']
                 if resp["error"] != "":
                     progress = [False]
                     raise Exception(resp["error"])
-                response[i] = resp["resp"]
+
+                if single_docs[i] == 0:
+                    print "remove back", i
+                    pos1 = resp["resp"].find("<s>")
+                    pos2 = resp["resp"].find("</p>")
+                    response[i] = predhead + header + head + resp["resp"][pos1:pos2]    
+                elif single_docs[i] == 2:
+                    print "remove front", i
+                    pos1 = resp["resp"].find("<s>")
+                    response[i] = resp["resp"][pos1:]
+                elif single_docs[i] == 1:
+                    print "remove both", i
+                    pos1 = resp["resp"].find("<s>")
+                    pos2 = resp["resp"].find("</p>")
+                    response[i] = resp["resp"][pos1:pos2]
+                else:
+                    print "nothing to remove"
+                    response[i] = resp["resp"]
+
                 progress_accumulator += 1/float(len(results))*100
-                #print "progress", progress_accumulator, math.floor(progress_accumulator)
                 widget.progress = math.floor(progress_accumulator)
                 widget.save()
 
