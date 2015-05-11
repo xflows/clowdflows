@@ -1315,7 +1315,10 @@ def finish_interaction(request):
                 w.interaction_waiting = False
                 w.save()
                 mimetype = 'application/javascript'
-                data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.','widget_id':w.id})
+                if w.abstract_widget.visualization_view!='':
+                    data = simplejson.dumps({'status':'visualize','message':'Visualizing widget '+w.name+'.','widget_id':w.id}) 
+                else:                
+                    data = simplejson.dumps({'status':'ok','message':'Widget '+w.name+' executed successfully.','widget_id':w.id})
             except Exception,e:
                 mimetype = 'application/javascript'
                 w.error = True
