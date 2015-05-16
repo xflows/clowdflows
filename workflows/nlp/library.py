@@ -109,8 +109,10 @@ def nlp_totrtale2(input_dict, widget):
 
     processes = 4
     DOCUMENTS_SIZE = 3 * int(1e6) #Document size (MB) per process
-    SINGLE_DOC_SIZE = 1* int(1e6)
+    SINGLE_DOC_SIZE = 1 * int(1e6)
+    
     corpus = parseString(input_dict['corpus'])
+    
     language = input_dict['lang'], 
     postprocess = input_dict['postprocess'] == "true"
     bohoricica = input_dict['bohoricica'] == "true"
@@ -133,25 +135,35 @@ def nlp_totrtale2(input_dict, widget):
     pool = multiprocessing.Pool(processes=processes)
     documents = corpus.getElementsByTagName('TEI')
     documents_size, document_num, process_num = 0, 0, 1
+    #titles = []
 
     results, docs, single_docs = [], [], []
     for i, document in enumerate(documents):
         doc_len = len(document.getElementsByTagName('body')[0].getElementsByTagName('p')[0].childNodes[0].nodeValue)
+        doc_title = document.getElementsByTagName('title')[0].firstChild.nodeValue
+        #titles.append(doc_title)
+        print doc_title
         if doc_len > SINGLE_DOC_SIZE:
-            print "document was split"
+            
             predhead = '<TEI xmlns="http://www.tei-c.org/ns/1.0">\n'
+            title = '<title>' + doc_title + '</title>\n'
             head = '<text>\n<body>\n<p>\n'
             header = document.getElementsByTagName('teiHeader')[0].toxml() + "\n"
             tail = '\n</p>\n</body>\n</text>\n</TEI>'
             
 
             document_text = document.getElementsByTagName('body')[0].getElementsByTagName('p')[0].childNodes[0].nodeValue.strip().replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").replace("\"","&quot;")
+
             prev_j, curr_j  = 0, SINGLE_DOC_SIZE
             while (curr_j+2) < len(document_text):
                 while (curr_j+2) < len(document_text) and document_text[curr_j:curr_j+2] != ". ":
                     curr_j+=1
                 sub_params = copy.deepcopy(params)
-                sub_params["text"] = predhead + head + document_text[prev_j: curr_j+2] + tail
+                if prev_j == 0:
+                    sub_params["text"] = predhead +title + head + document_text[prev_j: curr_j+2] +tail
+                else:
+                    sub_params["text"] = predhead + head + document_text[prev_j: curr_j+2] + tail
+
                 results.append(pool.apply_async(totrtale_request, args=[sub_params]))
                 if prev_j == 0:
                     single_docs.append(0)
@@ -166,21 +178,22 @@ def nlp_totrtale2(input_dict, widget):
                     sub_params = copy.deepcopy(params)
                     sub_params["text"] = predhead + head + document_text[prev_j:] + tail
                     results.append(pool.apply_async(totrtale_request, args=[sub_params]))
-                    document_num+=1
+                    document_num += 1
                     process_num += 1
                     single_docs.append(2)
+            print "document was split",doc_title, len(single_docs)
         else:
-            print "whole document was added"
             docs.append(document.toxml())
             document_num+=1
             documents_size += doc_len
             
-            if documents_size > DOCUMENTS_SIZE or (document_num)%10 == 0 or i == len(documents)-1:
+            if documents_size > DOCUMENTS_SIZE or (document_num) % 10==0 or i == len(documents)-1:
                 #print "Log:",process_num, "process added to queue with", document_num, "documents" 
                 documents_size = 0
                 document_num = 0
                 sub_params = copy.deepcopy(params)
                 sub_params["text"] = "\n".join(docs)
+                print "whole document was added", len(docs)
                 results.append(pool.apply_async(totrtale_request, args=[sub_params]))
                 process_num += 1
                 docs = []
@@ -196,41 +209,57 @@ def nlp_totrtale2(input_dict, widget):
         print progress
         for i, prog in enumerate(progress):
             if not prog and response[i] == "":
-                resp=json.loads(results[i].get().content)[u'runToTrTaLeResponse'][u'runToTrTaLeResult']
+                try:
+                    resp=json.loads(results[i].get().content)[u'runToTrTaLeResponse'][u'runToTrTaLeResult']
+                except Exception as e:
+                    raise Exception("There was a problem processing your file.")
+
                 if resp["error"] != "":
                     progress = [False]
                     raise Exception(resp["error"])
-
-                if single_docs[i] == 0:
-                    print "remove back", i
-                    pos1 = resp["resp"].find("<s>")
-                    pos2 = resp["resp"].find("</p>")
-                    response[i] = predhead + header + head + resp["resp"][pos1:pos2]    
-                elif single_docs[i] == 2:
-                    print "remove front", i
-                    pos1 = resp["resp"].find("<s>")
-                    response[i] = resp["resp"][pos1:]
-                elif single_docs[i] == 1:
-                    print "remove both", i
-                    pos1 = resp["resp"].find("<s>")
-                    pos2 = resp["resp"].find("</p>")
-                    response[i] = resp["resp"][pos1:pos2]
+                if xml:
+                    if single_docs[i] == 0:
+                        print "remove back", i
+                        pos1 = resp["resp"].find("<s>")
+                        pos2 = resp["resp"].find("</p>")
+                        response[i] = predhead + header + head + resp["resp"][pos1:pos2]    
+                    elif single_docs[i] == 2:
+                        print "remove front", i
+                        pos1 = resp["resp"].find("<s>")
+                        response[i] = resp["resp"][pos1:]
+                    elif single_docs[i] == 1:
+                        print "remove both", i
+                        pos1 = resp["resp"].find("<s>")
+                        pos2 = resp["resp"].find("</p>")
+                        response[i] = resp["resp"][pos1:pos2]
+                    else:
+                        print "nothing to remove"
+                        response[i] = resp["resp"]
                 else:
-                    print "nothing to remove"
-                    response[i] = resp["resp"]
+                    if single_docs[i] in [0,1]:
+                        #print "remove back", i, single_docs[i]
+                        #pos1 = resp["resp"].find("<p>")
+                        pos2 = resp["resp"].find("</TEXT>")
+                        response[i] = resp["resp"][:pos2]    
+                    else:
+                        print "nothing to remove"
+                        response[i] = resp["resp"]
 
                 progress_accumulator += 1/float(len(results))*100
+                print progress_accumulator
                 widget.progress = math.floor(progress_accumulator)
+
                 widget.save()
-
-    widget.progress=100
-    widget.save()
+    pool.join()
     
-    response = "".join(response)
+    if not any(progress):
+        widget.progress=100
+        widget.save()
+        response = "".join(response)
 
-    if tei_corpus and xml:
-        response = tei_head + tei_header + response + tei_tail
-    return {'annotations': response}
+        if tei_corpus and xml:
+            response = tei_head + tei_header + response + tei_tail
+        return {'annotations': response}
 
 def nlp_totrtale(input_dict):
     '''
@@ -266,7 +295,7 @@ def nlp_term_extraction(input_dict):
     wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8095/totale?wsdl')
 
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
-        annotations = XMLtoTEI(annotations)
+        annotations = TEItoTab(annotations)
 
     ws = WebService(wsdl, 60000)
     response = ws.client.TermExtraction(corpus=annotations, lang=lang,
@@ -283,7 +312,7 @@ def nlp_def_extraction_patterns(input_dict):
     wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8099')
 
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
-        annotations = XMLtoTEI(annotations)
+        annotations = TEItoTab(annotations)
 
     ws = WebService(wsdl, 60000)
     pattern = input_dict['pattern']
@@ -309,7 +338,7 @@ def nlp_def_extraction_terms(input_dict):
     term_beginning = input_dict['term_beginning']
 
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
-        annotations = XMLtoTEI(annotations)
+        annotations = TEItoTab(annotations)
     
     ws = WebService(wsdl, 60000)
     response = ws.client.GlossaryExtractionByTerms(corpus=annotations,
@@ -329,23 +358,35 @@ def nlp_def_extraction_wnet(input_dict):
     wsdl = input_dict.get('wsdl', 'http://vihar.ijs.si:8099')
     
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
-        annotations = XMLtoTEI(annotations)
+        annotations = TEItoTab(annotations)
 
     ws = WebService(wsdl, 60000)
     response = ws.client.GlossaryExtractionByWnet(corpus=annotations, lang=lang)
     return {'sentences': response['candidates']}
 
 
-def XMLtoTEI(text):    
+def TEItoTab(text):    
     mask1 = ["\tTOK\t", "\t", "\t\n"]
     pattern1 = "<w lemma=\"(?P<lemma>.*?)\" ana=\"(?P<ana>.*?)\">(?P<value>.*?)</w>"
     pattern2 = "<title>(.*?)</title>"
     pattern3 = "<pc>(.*?)</pc>"
+    
+    pattern4 = "(.*?)\t(TOK)\t(.*?)\t(Y)"
+    pattern5 = "(.*?)\t(TOK)\t(.*?)\t(Mdo|Mdc)"
     newText=[]
     for l in text.splitlines():
         if "<w" in l:
             match = [m.group("value", "lemma", "ana") for m in re.finditer(pattern1, l)][0]
-            newText.append(''.join(itertools.chain.from_iterable(zip(match, mask1))).decode("utf8"))
+            l = ''.join(itertools.chain.from_iterable(zip(match, mask1)))
+            if len(l) < 100:
+                value = re.findall(pattern4, l)
+                if len(value) > 0:
+                    l = "\t".join(value[0]).replace("TOK", "TOK_ABBR") + "\t\n"
+
+                value = re.findall(pattern5, l)
+                if len(value) > 0:
+                    l = "\t".join(value[0]).replace("TOK", "TOK_DIG") + "\t\n"
+            newText.append(l)
         elif "</s>" in l:
             newText.append("\t\t<S/>\t\n")
         elif "<pc>" in l:
