@@ -125,6 +125,18 @@ def MUSE_PG_preprocessing(input_dict):
 #end
 
 
+def MUSE_PG_SRL(input_dict):
+    url = input_dict['url']
+    tokens = input_dict['tokens']
+
+    import socket
+    socket.setdefaulttimeout(None)
+
+    cli = JSONWSPClient(url)
+    result = cli.PG_SRL(tokens=tokens)
+    srl = result.response_dict['result']
+    return {'srl': srl}
+#end
 
 
 
