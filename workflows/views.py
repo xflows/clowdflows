@@ -81,7 +81,7 @@ def open_workflow(request,workflow_id):
 
 @login_required
 def widget_progress(request):
-    w = get_object_or_404(Widget, pk=request.GET['widget_id'])
+    w = get_object_or_404(Widget, pk=request.POST['widget_id'])
     if w.running:
         return HttpResponse(w.progress)
     else:

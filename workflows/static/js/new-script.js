@@ -505,11 +505,11 @@ function resetWorkflow() {
 }
 
 function updateProgressBar(widgetId) {
-     $.get(url['widget-progress'], { 'widget_id':widgetId }, function(data) {
+     $.post(url['widget-progress'], { 'widget_id':widgetId }, function(data) {
         if (data!="-1") {
             $(".widget"+widgetId+"progressbar").css('width',data+'%');
             if (data!="100") {
-                setTimeout("updateProgressBar("+widgetId+")",1000);
+                setTimeout("updateProgressBar("+widgetId+")",2000);
             } else {
                 unfinishDescendants(widgetId);
                 $(".statusimage"+widgetId).hide()
