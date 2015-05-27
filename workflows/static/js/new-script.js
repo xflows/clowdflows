@@ -1055,9 +1055,28 @@ function updateWidgetListeners() {
         }
     });
 
+    var offsetsY = [];
+    var offsetsX = [];
+
     $(".canvas div.widget").draggable({
-        multiple: true,
+        multiple: false,
         handle: "div.widgetcenter, img.widgetimage",
+        start: function() {
+            var currentWidget = $(this);
+
+            var y = parseInt($(this).css('top'));
+            var x = parseInt($(this).css('left'));  
+                      
+            $(".ui-selected").each(function() {
+                //get the offset first
+                var selectedY = parseInt($(this).css('top'));
+                var selectedX = parseInt($(this).css('left'));
+                var offsetY = selectedY-y;
+                var offsetX = selectedX-x;
+                offsetsY[$(this).attr('rel')]=offsetY;
+                offsetsX[$(this).attr('rel')]=offsetX;
+            });
+        },
         drag: function() {
             // this function exectues every time the mouse moves and the user is holding down the left mouse button
             for (c in connections) {
@@ -1075,13 +1094,16 @@ function updateWidgetListeners() {
 
             }
 
-
+            var y = parseInt($(this).css('top'));
+            var x = parseInt($(this).css('left'));  
+                      
+            $(".ui-selected").each(function() {
+                //get the offset first
+                $(this).css('top',y+offsetsY[$(this).attr('rel')]);
+                $(this).css('left',x+offsetsX[$(this).attr('rel')]);
+            });
 
             resizeSvg();
-
-            /*var y = parseInt($(this).css('top'));
-            var x = parseInt($(this).css('left'));*/
-
 
 
         },
