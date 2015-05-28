@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "3b5afcdf-231b-4484-8d0e-6a23852e0e95", 
+      "treeview_image": "", 
+      "uid": "cc420045-88d0-438f-a9c7-788c5ca4a384", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This function is used to detect events and temporal relations between these events\r\n", 
+      "static_image": "", 
+      "action": "MUSE_PG_event_temprel_detection", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "PG event and temporal relation detection"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cc420045-88d0-438f-a9c7-788c5ca4a384", 
+      "name": "Preprocessed", 
+      "short_name": "pre", 
+      "default": "", 
+      "description": "A file containing tokens with additional preprocessing information", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "preproc", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "659c0d2d-5780-4c26-b176-023253b2e00a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "cc420045-88d0-438f-a9c7-788c5ca4a384", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "e46ac2b3-f75c-49f5-8fb5-361fbd94a9f0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "cc420045-88d0-438f-a9c7-788c5ca4a384", 
+      "name": "Events and temporal relations", 
+      "short_name": "xml", 
+      "description": "XML file with results", 
+      "variable": "xml", 
+      "order": 1, 
+      "uid": "19a41a8d-1b41-4baa-afd0-86dd127cd158"
+    }
+  }
+]

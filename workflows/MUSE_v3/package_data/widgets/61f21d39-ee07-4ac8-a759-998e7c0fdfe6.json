@@ -1,0 +1,124 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "3b5afcdf-231b-4484-8d0e-6a23852e0e95", 
+      "treeview_image": "", 
+      "uid": "61f21d39-ee07-4ac8-a759-998e7c0fdfe6", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This function performs mapping of the patient guideline text and its linguistic annotations to the set of templates provided by Teesside University. Developed @ KUL.", 
+      "static_image": "", 
+      "action": "MUSE_PG_mappingVWR", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "PG mapping"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "61f21d39-ee07-4ac8-a759-998e7c0fdfe6", 
+      "name": "Semantic role labels", 
+      "short_name": "srl", 
+      "default": "", 
+      "description": "Tokenised sentences with semantic roles", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "srl", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "260050a3-724d-461a-8676-80479627d673"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "61f21d39-ee07-4ac8-a759-998e7c0fdfe6", 
+      "name": "Events and temporal relations", 
+      "short_name": "xml", 
+      "default": "", 
+      "description": "Events and temporal relations between these events", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "events", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "c46851d0-d233-4825-967c-5ccdf00c9c79"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "61f21d39-ee07-4ac8-a759-998e7c0fdfe6", 
+      "name": "Text structure", 
+      "short_name": "tsr", 
+      "default": "", 
+      "description": "Recognised text structure", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "info", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "d920e78b-0f0b-44a7-ba26-47faf9165c18"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "61f21d39-ee07-4ac8-a759-998e7c0fdfe6", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "e8b0b049-bf1c-4bf9-96f9-16c0c9cb9811"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "61f21d39-ee07-4ac8-a759-998e7c0fdfe6", 
+      "name": "Coreferences", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Coreferences as produced by the coreference function", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "coref", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "fa1c1c78-ea3b-4db9-a7b8-0ceb7bf69dff"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "61f21d39-ee07-4ac8-a759-998e7c0fdfe6", 
+      "name": "Mapping", 
+      "short_name": "map", 
+      "description": "XML file which maps the text to the template (defined at TEES)", 
+      "variable": "mapping", 
+      "order": 1, 
+      "uid": "8f245400-19f0-41a1-a7fd-1efc63dfa504"
+    }
+  }
+]
