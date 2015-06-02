@@ -1,0 +1,108 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "3b5afcdf-231b-4484-8d0e-6a23852e0e95", 
+      "treeview_image": "", 
+      "uid": "b36cca2e-6a88-43c6-b16d-dc63d3283078", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This function calls the command line version of G-DEE (a document engineering environment for clinical guidelines).", 
+      "static_image": "", 
+      "action": "MUSE_PG_GDEE_text", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "G-DEE (text)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b36cca2e-6a88-43c6-b16d-dc63d3283078", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "3e208a4b-e5cc-4477-a4b7-cc317ef23266"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b36cca2e-6a88-43c6-b16d-dc63d3283078", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "en", 
+      "description": "Language (en or fr)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "5544f7e8-0d51-4317-9e68-91e51a6cc7af"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b36cca2e-6a88-43c6-b16d-dc63d3283078", 
+      "name": "Text", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "Medical guidelines text as string", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "text", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "ede3f033-948b-4090-8089-22fb9bb8bba7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b36cca2e-6a88-43c6-b16d-dc63d3283078", 
+      "name": "Annotations", 
+      "short_name": "xml", 
+      "description": "XML document with anotations", 
+      "variable": "xml", 
+      "order": 1, 
+      "uid": "929435a1-d1de-43ea-89f6-f928859bbf7b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "", 
+      "value": "en", 
+      "abstract_input": "5544f7e8-0d51-4317-9e68-91e51a6cc7af"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "French", 
+      "uid": "", 
+      "value": "fr", 
+      "abstract_input": "5544f7e8-0d51-4317-9e68-91e51a6cc7af"
+    }
+  }
+]

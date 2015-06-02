@@ -185,5 +185,44 @@ def MUSE_PG_event_temprel_detection(input_dict):
 #end
 
 
+def MUSE_PG_GDEE_text(input_dict):
+    url = input_dict['url']
+    text = input_dict['text']
+    lang = input_dict['lang']
+
+    import socket
+    socket.setdefaulttimeout(None)
+
+    cli = JSONWSPClient(url)
+    result = cli.PG_GDEE_text(text=text, lang=lang)
+    result = result.response_dict['result']
+    return {'xml': result}
+#end
+
+
+def PG_GDEE_path(input_dict):
+    url = input_dict['url']
+    path = input_dict['path']
+    lang = input_dict['lang']
+
+    import socket
+    socket.setdefaulttimeout(None)
+
+    cli = JSONWSPClient(url)
+    result = cli.PG_GDEE_path(path=path, lang=lang)
+    result = result.response_dict['result']
+    return {'xml': result}
+#end
+
+
+
+
+
+
+
+
+
+
+
 
 
