@@ -1,0 +1,13 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog"
+     title="{{widget.name}} wants your confirmation!" width=600 height=300 style="font-family:monospace;">
+
+        <div style="margin-bottom: 15px">The following file was created (click to access):</div>
+        <div style="font-size: 120%"><a href="{{ MEDIA_URL }}{{ fileURL }}">{{ MEDIA_URL }}{{ fileURL }}</a></div>
+    <div style="margin-top: 15px">Click <strong>"Apply"</strong> to send the link to the widget's output.</div>
+    <form id="fileURL_form{{widget.pk}}">
+        <input type="hidden" id="fileURL{{widget.pk}}" name="fileURL" value="{{ MEDIA_URL }}{{ fileURL }}"/>
+        <input type="hidden" name="widget_id" value="{{widget.pk}}"/>
+    </form>
+</div>
+
+

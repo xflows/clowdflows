@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "3D virtual environment", 
+    "parent": "853d1bb3-3710-4fae-a95a-2955abd7b7fe", 
+    "order": 1, 
+    "uid": "feb15899-59e3-46c8-994c-bbe806668fc8"
+  }
+}

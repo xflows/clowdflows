@@ -1,0 +1,12 @@
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization">
+
+<div id="XMLHolder"></div>
+<link href="{{STATIC_URL}}MUSE/XMLDisplay.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="{{STATIC_URL}}MUSE/XMLDisplay.js"> </script>
+<script> LoadXMLString('XMLHolder', "{{xml_data}}"); </script>
+
+<!--<div style="width:100%;font-family:monospace;">-->
+<!-- xml_data -->
+<!--</div>-->
+
+</div>

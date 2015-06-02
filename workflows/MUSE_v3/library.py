@@ -200,7 +200,7 @@ def MUSE_PG_GDEE_text(input_dict):
 #end
 
 
-def PG_GDEE_path(input_dict):
+def MUSE_PG_GDEE_path(input_dict):
     url = input_dict['url']
     path = input_dict['path']
     lang = input_dict['lang']
@@ -216,9 +216,34 @@ def PG_GDEE_path(input_dict):
 
 
 
+#### COPIED FROM OLD MUSE PACKAGE
+
+def MUSE_mapping_to_KR_precomputed(input_dict):
+    url = input_dict['url']
+    data = input_dict['input_data']
+
+    import socket
+    cli = JSONWSPClient(url)
+    result = cli.mapping_to_KR_precomputed(SRL=data)
+    mapping, xml = result.response_dict['result']
+
+    return {'mapping': mapping, 'xml': xml}
+#end
 
 
 
+def MUSE_mapping_to_KR(input_dict):
+    url = input_dict['url']
+    data = input_dict['input_data']
+
+    import socket
+    cli = JSONWSPClient(url)
+    socket.setdefaulttimeout(None)
+
+    result = cli.mapping_to_KR(SRL=data)
+    mapping, xml = result.response_dict['result']
+    return {'mapping': mapping, 'xml': xml}
+#end
 
 
 
