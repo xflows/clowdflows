@@ -1,0 +1,108 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "3b5afcdf-231b-4484-8d0e-6a23852e0e95", 
+      "treeview_image": "", 
+      "uid": "90fcbd7f-f046-4c28-8313-5d2df237bad0", 
+      "windows_queue": false, 
+      "package": "MUSE_v3", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This function calls the command line version of G-DEE (a document engineering environment for clinical guidelines).", 
+      "static_image": "", 
+      "action": "MUSE_PG_GDEE_path", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "G-DEE (url)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "90fcbd7f-f046-4c28-8313-5d2df237bad0", 
+      "name": "Service url", 
+      "short_name": "url", 
+      "default": "http://grom.ijs.si:8001/MUSE_services_V3/jsonwsp/description", 
+      "description": "URL of the MUSE service", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "url", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "04c44a3c-8370-4bed-988f-ed49406181b1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "90fcbd7f-f046-4c28-8313-5d2df237bad0", 
+      "name": "URL", 
+      "short_name": "url", 
+      "default": "", 
+      "description": "URL of the medical guidelines document", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "path", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "93cba747-47ba-42b2-a2f3-1631918a9553"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "90fcbd7f-f046-4c28-8313-5d2df237bad0", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "en", 
+      "description": "Language (en or fr)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "e692430c-d5fc-4ee6-890a-c8195673ae29"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "90fcbd7f-f046-4c28-8313-5d2df237bad0", 
+      "name": "Annotations", 
+      "short_name": "xml", 
+      "description": "XML document with anotations", 
+      "variable": "xml", 
+      "order": 1, 
+      "uid": "901ddbc5-2819-4577-87f9-535387c04402"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "", 
+      "value": "en", 
+      "abstract_input": "e692430c-d5fc-4ee6-890a-c8195673ae29"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "French", 
+      "uid": "", 
+      "value": "fr", 
+      "abstract_input": "e692430c-d5fc-4ee6-890a-c8195673ae29"
+    }
+  }
+]
