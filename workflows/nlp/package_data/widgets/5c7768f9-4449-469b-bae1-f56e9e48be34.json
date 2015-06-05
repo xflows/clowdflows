@@ -81,7 +81,7 @@
       "widget": "5c7768f9-4449-469b-bae1-f56e9e48be34", 
       "name": "Language", 
       "short_name": "lan", 
-      "default": "en", 
+      "default": "sl", 
       "description": "Language", 
       "required": true, 
       "multi": false, 

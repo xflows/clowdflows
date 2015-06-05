@@ -47,7 +47,7 @@
       "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
       "name": "Language", 
       "short_name": "lng", 
-      "default": "en", 
+      "default": "sl", 
       "description": "Language of the input corpus", 
       "required": true, 
       "multi": false, 
