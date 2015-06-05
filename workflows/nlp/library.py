@@ -8,9 +8,6 @@ import json
 import re
 import itertools
 
-
-webservices_url = "http://vihar.ijs.si:8104"
-
 def merge_sentences(input_dict):
     """
     Merges the input sentences in XML according to the specified method.
@@ -57,27 +54,33 @@ def load_corpus2(input_dict):
     '''
     Parses an input file and encodes it in base 64.
     '''
+    use_text = input_dict["use_text"] == "true"
 
-    if input_dict[u"text"] == "":
+    if use_text:
+        fname = "input_string.txt"
+        text = input_dict[u"text"].strip()
+        if len(text) == 0:
+            raise Exception("Please input text or uncheck the Use text checkbox.")
+        data = base64.b64encode(text)
+    else:
         f = safeOpen(input_dict['file'])
         fname = os.path.basename(input_dict['file'])
         data = base64.b64encode(f.read())
-    else:
-        fname = "input_string.txt"
-        data = base64.b64encode(input_dict[u"text"].strip())
     
     #define web service
+    webservices_url = "http://vihar.ijs.si:8104"
     webservice_url = webservices_url + "/parseFile"
     params = {"filename": fname, "text": data} #set params
     
     #call web service
     resp = post(webservice_url, params=params)
     content = json.loads(resp.content)[u'parseFileResponse'][u'parseFileResult']
-    
+    """
     if content[u"error"] != "":
         raise Exception(content[u"error"])
     else:
-        return {'corpus': content[u"resp"]}
+    """
+    return {'corpus': content[u"resp"]}
 
 def load_tagged_corpus(input_dict):
     """
@@ -90,6 +93,7 @@ def load_tagged_corpus(input_dict):
     return {'annotations': data}
 
 def totrtale_request(params):
+    webservices_url = "http://vihar.ijs.si:8104"
     webservice_url = webservices_url + "/runToTrTaLe"
     return post(webservice_url, params=params)
 
@@ -163,7 +167,7 @@ def nlp_totrtale2(input_dict, widget):
                     sub_params["text"] = predhead +title + head + document_text[prev_j: curr_j+2] +tail
                 else:
                     sub_params["text"] = predhead + head + document_text[prev_j: curr_j+2] + tail
-
+                
                 results.append(pool.apply_async(totrtale_request, args=[sub_params]))
                 if prev_j == 0:
                     single_docs.append(0)
@@ -188,7 +192,6 @@ def nlp_totrtale2(input_dict, widget):
             documents_size += doc_len
             
             if documents_size > DOCUMENTS_SIZE or (document_num) % 10==0 or i == len(documents)-1:
-                #print "Log:",process_num, "process added to queue with", document_num, "documents" 
                 documents_size = 0
                 document_num = 0
                 sub_params = copy.deepcopy(params)
@@ -199,6 +202,8 @@ def nlp_totrtale2(input_dict, widget):
                 docs = []
                 single_docs.append(-1)
     pool.close()
+
+
 
     response = ["" for i in results]
     progress = [True]
@@ -237,8 +242,6 @@ def nlp_totrtale2(input_dict, widget):
                         response[i] = resp["resp"]
                 else:
                     if single_docs[i] in [0,1]:
-                        #print "remove back", i, single_docs[i]
-                        #pos1 = resp["resp"].find("<p>")
                         pos2 = resp["resp"].find("</TEXT>")
                         response[i] = resp["resp"][:pos2]    
                     else:
@@ -302,6 +305,70 @@ def nlp_term_extraction(input_dict):
                                         threshold=0)
     return {'candidates': response['candidates']}
 
+def get_default_stop_word_list(lang):
+    if lang == "en":
+        return ["et al"]
+    elif lang == "sl":
+        return ["itd", "slon", "ovira", "zob"]
+
+def nlp_term_extraction2(input_dict):
+    '''
+    Term extraction from totrtale annotations.
+    '''
+    ws_url = "http://vihar.ijs.si:8081/call"
+    annotations = input_dict['annotations']
+    lang = input_dict['lang']
+    stop_list_checkbox = input_dict["stop_list"] == "true"
+    user_stop_words = []
+
+    if input_dict['stop_words_file'] != "":
+        user_stop_words = safeOpen(input_dict['stop_words_file']).read()
+        try:
+            user_stop_words.decode("utf-8")
+        except Exception:
+            raise Exception("Please make sure that your stop words list is encoded in UTF-8.")
+        user_stop_words = user_stop_words.split("\n")
+
+    if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
+        annotations = TEItoTab(annotations)
+    
+
+
+
+    if lang == "sl":
+        reference_corpus = input_dict["slovene_reference_corpus"]
+    elif lang == "en":
+        reference_corpus = input_dict["english_reference_corpus"]
+    
+    params = {"corpus":annotations,
+              "lang": lang,
+              "reference_corpus":reference_corpus}
+    response = post(ws_url, params=params)
+    resp = json.loads(response.content)[u'callResponse'][u'callResult']
+
+    stop_list = []
+    if stop_list_checkbox:
+        stop_list = get_default_stop_word_list(lang)
+    stop_list = set(stop_list + user_stop_words)
+
+    if len(stop_list) > 0:
+        resp = resp.split("\n")
+        i=0
+        while i < len(resp):
+            increase = True
+            line = resp[i]
+            if len(line) > 0:
+                term = line.split("\t")[1][1:-1]
+                for word in term.split(" "):
+                    if word.lower() in stop_list:
+                        increase = False
+                        resp.pop(i)
+                        break
+            if increase:
+                i+=1
+        resp = "\n".join(resp)
+    return {'candidates': resp}
+
 
 def nlp_def_extraction_patterns(input_dict):
     '''
@@ -320,6 +387,26 @@ def nlp_def_extraction_patterns(input_dict):
                                                       lang=lang, pattern=pattern)
     return {'sentences': response['candidates']}
 
+def nlp_def_extraction_patterns2(input_dict):
+    '''
+    Definition extraction using pre-defined patterns.
+    '''
+    annotations = input_dict['annotations']
+    lang = input_dict['lang']
+    pattern = input_dict['pattern']
+
+    if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
+        annotations = TEItoTab(annotations)
+
+    ws_url = "http://vihar.ijs.si:8081/patDefSent"
+    params = {"corpus":annotations,
+              "pattern":pattern,
+              "lang":lang}
+    
+    response = post(ws_url, params=params)
+    response = json.loads(response.content)[u'patDefSentResponse'][u'patDefSentResult']
+    
+    return {'sentences': response}
 
 def nlp_def_extraction_terms(input_dict):
     '''
@@ -348,6 +435,40 @@ def nlp_def_extraction_terms(input_dict):
         num_multiterms=num_multiterms, term_beginning=term_beginning)
     return {'sentences': response['candidates']}
 
+def nlp_def_extraction_terms2(input_dict):
+    '''
+    Definition extraction using terms.
+    '''
+    annotations = input_dict['annotations']
+    term_candidates = input_dict['term_candidates']
+    lang = input_dict['lang']
+    terms_per_sentence = input_dict['terms_per_sentence']
+    nominatives = input_dict['nominatives']
+    threshold = input_dict['threshold']
+    verb_two_terms = input_dict['verb_two_terms']
+    multiword_term = input_dict['multiword_term']
+    num_multiterms = input_dict['num_multiterms']
+    term_beginning = input_dict['term_beginning']
+
+    if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
+        annotations = TEItoTab(annotations)
+
+    ws_url = "http://vihar.ijs.si:8081/termDefSent"
+    params = {"corpus":annotations,
+              "candidates":term_candidates,
+              "lang":lang,
+              "nominatives":nominatives,
+              "terms_per_sentence":terms_per_sentence,
+              "select": threshold,
+              "verb_two_terms":verb_two_terms,
+              "multiword_term":multiword_term,
+              "num_multiterms":num_multiterms,
+              "term_beginning":term_beginning}
+    response = post(ws_url, params=params)
+    response = json.loads(response.content)[u'termDefSentResponse'][u'termDefSentResult']
+
+    return {'sentences': response}
+
 
 def nlp_def_extraction_wnet(input_dict):
     '''
@@ -364,6 +485,22 @@ def nlp_def_extraction_wnet(input_dict):
     response = ws.client.GlossaryExtractionByWnet(corpus=annotations, lang=lang)
     return {'sentences': response['candidates']}
 
+def nlp_def_extraction_wnet2(input_dict):
+    '''
+    Definition extraction using WordNet.
+    '''
+    annotations = input_dict['annotations']
+    lang = input_dict['lang']
+    
+    if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
+        annotations = TEItoTab(annotations)
+
+    ws_url = "http://vihar.ijs.si:8081/wnetDefSent"
+    params = {"corpus":annotations,
+              "lang":lang}
+    response = post(ws_url, params=params)
+    response = json.loads(response.content)[u'wnetDefSentResponse'][u'wnetDefSentResult']
+    return {'sentences': response}
 
 def TEItoTab(text):    
     mask1 = ["\tTOK\t", "\t", "\t\n"]
@@ -401,3 +538,5 @@ def TEItoTab(text):
         elif "</body>" in l:
             newText.append("</TEXT>\t\n")
     return "".join(newText)
+
+    
