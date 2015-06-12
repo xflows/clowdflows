@@ -1,1 +1,0 @@
-cl /EHsc /Ox /Ot /LD /Fegeniatagger.pyd main.cpp morph.cpp maxent.cpp tokenize.cpp bidir.cpp chunking.cpp namedentity.cpp  /link C:\Python26\libs\python26.lib

@@ -1,6 +1,0 @@
--r requirements.txt
-celery==2.5.3
-redis==2.4.11
-django-celery==2.5.5
-django-celery-with-redis==2.5
-
