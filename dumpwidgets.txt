@@ -1,1 +1,0 @@
-python manage.py dumpdata workflows.Category workflows.AbstractWidget workflows.AbstractInput workflows.AbstractOption workflows.AbstractOutput
