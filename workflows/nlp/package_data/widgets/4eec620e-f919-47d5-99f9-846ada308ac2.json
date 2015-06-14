@@ -28,23 +28,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
-      "name": "Antique slovenian", 
-      "short_name": "atq", 
-      "default": "false", 
-      "description": "Antique slovenian", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "antique", 
-      "parameter": true, 
-      "order": 6, 
-      "uid": "161bece4-5e34-4f47-821c-ffbb35f6069a"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
       "name": "Language", 
       "short_name": "lng", 
       "default": "sl", 
@@ -110,23 +93,6 @@
     }
   }, 
   {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
-      "name": "Bohoricica", 
-      "short_name": "boh", 
-      "default": "false", 
-      "description": "Bohoricica", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "bohoricica", 
-      "parameter": true, 
-      "order": 5, 
-      "uid": "f429eb2c-a5ac-44b8-a691-602c97a2b0da"
-    }
-  }, 
-  {
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "4eec620e-f919-47d5-99f9-846ada308ac2", 
@@ -141,8 +107,26 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
+      "name": "Slovene", 
+      "uid": "", 
+      "value": "sl", 
+      "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Historical Slovene (Bohori\u010d)", 
+      "uid": "", 
+      "value": "boho\r\n", 
+      "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
       "name": "English", 
-      "uid": "6400d9b2-72ff-48c2-b9d0-302cc62a08be", 
+      "uid": "", 
       "value": "en", 
       "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
     }
@@ -150,9 +134,9 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Slovene", 
-      "uid": "793cbfa7-36ea-430e-9965-3dec464743be", 
-      "value": "sl", 
+      "name": "Historical Slovene (Gaj)", 
+      "uid": "", 
+      "value": "gaji", 
       "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
     }
   }
