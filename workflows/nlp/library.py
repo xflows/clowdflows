@@ -119,14 +119,10 @@ def nlp_totrtale2(input_dict, widget):
     
     language = input_dict['lang'], 
     postprocess = input_dict['postprocess'] == "true"
-    bohoricica = input_dict['bohoricica'] == "true"
-    antique = input_dict['antique'] == "true" 
     xml = input_dict['xml'] == "true"
 
     params = {"language": language, 
             "postprocess": postprocess, 
-            "bohoricica":bohoricica, 
-            "antique": antique, 
             "xml":xml}
              
     tei_corpus = corpus.getElementsByTagName('teiCorpus')
@@ -167,7 +163,7 @@ def nlp_totrtale2(input_dict, widget):
                     sub_params["text"] = predhead +title + head + document_text[prev_j: curr_j+2] +tail
                 else:
                     sub_params["text"] = predhead + head + document_text[prev_j: curr_j+2] + tail
-                
+                sub_params["doc_id"] = str(len(results))
                 results.append(pool.apply_async(totrtale_request, args=[sub_params]))
                 if prev_j == 0:
                     single_docs.append(0)
@@ -181,6 +177,7 @@ def nlp_totrtale2(input_dict, widget):
                 if curr_j > doc_len:
                     sub_params = copy.deepcopy(params)
                     sub_params["text"] = predhead + head + document_text[prev_j:] + tail
+                    sub_params["doc_id"] = str(len(results))
                     results.append(pool.apply_async(totrtale_request, args=[sub_params]))
                     document_num += 1
                     process_num += 1
@@ -196,6 +193,7 @@ def nlp_totrtale2(input_dict, widget):
                 document_num = 0
                 sub_params = copy.deepcopy(params)
                 sub_params["text"] = "\n".join(docs)
+                sub_params["doc_id"] = str(len(results))
                 print "whole document was added", len(docs)
                 results.append(pool.apply_async(totrtale_request, args=[sub_params]))
                 process_num += 1
@@ -502,18 +500,42 @@ def nlp_def_extraction_wnet2(input_dict):
     response = json.loads(response.content)[u'wnetDefSentResponse'][u'wnetDefSentResult']
     return {'sentences': response}
 
-def TEItoTab(text):    
+def TEItoTab(text, doc_id=0):    
     mask1 = ["\tTOK\t", "\t", "\t\n"]
-    pattern1 = "<w lemma=\"(?P<lemma>.*?)\" ana=\"(?P<ana>.*?)\">(?P<value>.*?)</w>"
+    pattern1 = "<w (type=\"unknown\")| lemma=\"(?P<lemma>.*?)\" ana=\"(?P<ana>.*?)\">(?P<value>.*?)</w>"
     pattern2 = "<title>(.*?)</title>"
     pattern3 = "<pc>(.*?)</pc>"
     
     pattern4 = "(.*?)\t(TOK)\t(.*?)\t(Y)"
     pattern5 = "(.*?)\t(TOK)\t(.*?)\t(Mdo|Mdc)"
+
+    pattern6 = "<w>(.*)</w>"
     newText=[]
+    print "TEItoTab started"
+    sentence_id = 0
+    choice_found=False #if lang in ["gaji", "boho"]
+    local_s=""
     for l in text.splitlines():
+        
+        if "<choice>" in l:
+            choice_found=True
+            first = True
+            continue
+        elif choice_found and "<w" in l:
+            local_s = re.findall(pattern6, l)[0]
+            choice_found=False
+            continue
+
         if "<w" in l:
-            match = [m.group("value", "lemma", "ana") for m in re.finditer(pattern1, l)][0]
+            match = [m.group("value", "lemma", "ana") for m in re.finditer(pattern1, l)]
+            if len(match) == 0:
+                local_s += " " + re.findall(pattern6, l)[0]
+            
+            elif len(match) == 1:
+                match = match[0]
+                
+            elif len(match) == 2:
+                match = match[1]
             l = ''.join(itertools.chain.from_iterable(zip(match, mask1)))
             if len(l) < 100:
                 value = re.findall(pattern4, l)
@@ -523,20 +545,26 @@ def TEItoTab(text):
                 value = re.findall(pattern5, l)
                 if len(value) > 0:
                     l = "\t".join(value[0]).replace("TOK", "TOK_DIG") + "\t\n"
+            if len(local_s) > 0:
+                l = local_s + "|" + l
+                local_s = ""
             newText.append(l)
+        elif "<s>" in l:
+            newText.append("\t\t<S id=\"" + str(doc_id) + "_" + str(sentence_id) + "\">\t\n")
         elif "</s>" in l:
-            newText.append("\t\t<S/>\t\n")
+            newText.append("\t\t</S>\t\n")
+            sentence_id+=1
         elif "<pc>" in l:
             value = re.findall(pattern3, l)[0]
             if value == ".":
                 newText.append(value+"\t\tPUN_TERM\t\n")
             else:
+                value = value.replace("&amp;","&").replace("&lt;","<").replace("&gt;", ">").replace("&quot;","\"")
                 newText.append(value+"\t\tPUN\t\n")
         elif "<title>" in l:
             title = re.findall(pattern2, l)[0]
+            title = title.replace("&amp;","&").replace("&lt;","<").replace("&gt;", ">").replace("&quot;","\"")
             newText.append("<TEXT title=" + title + ">\t\n")
         elif "</body>" in l:
             newText.append("</TEXT>\t\n")
-    return "".join(newText)
-
-    
+    return "".join(newText)    
