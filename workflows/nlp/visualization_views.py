@@ -15,6 +15,19 @@ def definition_sentences_viewer(request, input_dict, output_dict, widget):
     sentences = nlp.parse_def_sentences(input_dict['candidates']) 
     return render(request, 'visualizations/def_sentences.html',{'widget' : widget, 'sentences' : sentences})
 
+def definition_sentences_viewer2(request, input_dict, output_dict, widget):
+    """
+    Parses the input XML and displays the definition sentences given as input.
+    
+    @author: Anze Vavpetic, 2012
+    """
+    ids_sentence = input_dict["ids_sentence"] == "true"
+    ids_article = input_dict["ids_article"] == "true"
+    text_sentence = input_dict["text_sentence"] == "true"
+
+    sentences = nlp.parse_def_sentences2(input_dict['candidates'])
+    return render(request, 'visualizations/def_sentences2.html',{'widget' : widget, 'sentences' : sentences, 'ids_sentence': ids_sentence, 'ids_article': ids_article, 'text_sentence':text_sentence})
+
 
 def term_candidate_viewer(request, input_dict, output_dict, widget):
     """

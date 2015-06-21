@@ -45,7 +45,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c47d5621-c5c4-464a-b502-5623c0193b34", 
-      "name": " ", 
+      "name": "Or input text", 
       "short_name": "tex", 
       "default": "", 
       "description": "Input text", 
@@ -54,25 +54,8 @@
       "parameter_type": "textarea", 
       "variable": "text", 
       "parameter": true, 
-      "order": 3, 
-      "uid": "26773c28-d88a-4671-aa06-cb7f1aea1296"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "c47d5621-c5c4-464a-b502-5623c0193b34", 
-      "name": "Use text", 
-      "short_name": "cht", 
-      "default": "false", 
-      "description": "Use input text", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "use_text", 
-      "parameter": true, 
       "order": 2, 
-      "uid": "49c2dc9b-e3c7-4534-9629-d14d72e1e082"
+      "uid": "26773c28-d88a-4671-aa06-cb7f1aea1296"
     }
   }, 
   {

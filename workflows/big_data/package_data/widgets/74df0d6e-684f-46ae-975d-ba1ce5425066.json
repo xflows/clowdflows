@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "Decision trees with MapReduce\r\n\r\nFit phase\r\nDecision trees algorithm builds one decision tree on a subset of data and it estimates all attributes in every tree node.\r\n\r\nPredict phase\r\nEach tree votes and algorithm selects prediction with most votes.\r\n\r\nReference\r\nSimilar algorithm is proposed in Gongqing Wu, Haiguang Li, Xuegang Hu, Yuanjun Bi, Jing Zhang, and Xindong Wu. MRec4.5: C4. 5 ensemble classification with mapreduce.", 
+      "description": "Forest of Distributed Decision Trees\r\n\r\nFit phase\r\nThe forest of Distributed Decision Trees constructs decision tree on a subset of data and it estimates all attributes in every tree node.\r\n\r\nPredict phase\r\nEach tree votes and algorithm selects prediction with most votes.\r\n\r\nReference\r\nSimilar algorithm is proposed in Gongqing Wu, Haiguang Li, Xuegang Hu, Yuanjun Bi, Jing Zhang, and Xindong Wu. MRec4.5: C4. 5 ensemble classification with mapreduce.", 
       "static_image": "", 
       "action": "dt_fit", 
       "visualization_view": "", 
@@ -21,7 +21,7 @@
       "interactive": false, 
       "windows_queue": false, 
       "order": 1, 
-      "name": "Decision trees"
+      "name": "Forest of Distributed Decision Trees"
     }
   }, 
   {
@@ -45,6 +45,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Bootstrap sampling", 
+      "short_name": "bsm", 
+      "default": "true", 
+      "description": "Bootstrap sampling", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "bootstrap", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "1df56f50-06f3-4486-ae5b-988a5cf48b92"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
       "name": "Measure", 
       "short_name": "msr", 
       "default": "info_gain", 
@@ -54,7 +71,7 @@
       "parameter_type": "select", 
       "variable": "measure", 
       "parameter": true, 
-      "order": 6, 
+      "order": 7, 
       "uid": "28f53666-76b0-4d44-acab-0824e603a848"
     }
   }, 
@@ -62,17 +79,51 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
-      "name": "Discretization", 
-      "short_name": "spf", 
-      "default": "equal_freq", 
-      "description": "Select equal frequency discretization or random discretization for numeric attributes", 
+      "name": "Random state", 
+      "short_name": "rst", 
+      "default": "None", 
+      "description": "", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "select", 
-      "variable": "split_fun", 
+      "parameter_type": "text", 
+      "variable": "seed", 
       "parameter": true, 
-      "order": 7, 
-      "uid": "8b88d56c-6cbb-451f-a618-4a1a27993a90"
+      "order": 10, 
+      "uid": "40bc0e36-427f-4517-ac56-55ef033a0e9c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Discretization accuracy", 
+      "short_name": "dac", 
+      "default": "1", 
+      "description": "Continuous attributes are converted to discrete intervals. For exact estimation use 0 (slowest) or increase the number to get an approximation (faster).", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "accuracy", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "45a0c36c-d61a-4708-b54a-6908494ee090"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Min samples in leaf", 
+      "short_name": "msl", 
+      "default": "5", 
+      "description": "The minimum number of samples in newly created leaves. A split is discarded if after the split, one of the leaves would contain less then min samples leaf samples", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "min_samples_leaf", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "739e0f16-2ac9-423e-8050-58778553ca48"
     }
   }, 
   {
@@ -81,7 +132,7 @@
       "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
       "name": "Max tree nodes", 
       "short_name": "mtn", 
-      "default": "20", 
+      "default": "100", 
       "description": "Max. number of decision tree nodes.", 
       "required": true, 
       "multi": false, 
@@ -96,17 +147,51 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
-      "name": "Min samples split", 
-      "short_name": "lmi", 
-      "default": "5", 
-      "description": "Min. number of samples to split the node", 
+      "name": "Trees per subset", 
+      "short_name": "tps", 
+      "default": "20", 
+      "description": "Number of trees per subset of data", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "leaf_min_inst", 
+      "variable": "trees_per_subset", 
       "parameter": true, 
-      "order": 4, 
+      "order": 2, 
+      "uid": "c3428a84-4bc2-404d-b411-99091101a4ff"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Min samples to split", 
+      "short_name": "lmi", 
+      "default": "10", 
+      "description": "The minimum number of samples required to split an internal node", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "min_samples_split", 
+      "parameter": true, 
+      "order": 5, 
       "uid": "cde1d8a0-c312-4497-a07b-43f7cd7f95e2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
+      "name": "Separate most present class", 
+      "short_name": "smp", 
+      "default": "true", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "separate_max", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "eac59b1f-c35d-4116-b4d7-9320d2b4b351"
     }
   }, 
   {
@@ -122,7 +207,7 @@
       "parameter_type": "text", 
       "variable": "majority", 
       "parameter": true, 
-      "order": 5, 
+      "order": 6, 
       "uid": "f31f0f86-238b-4ce1-b7e7-1ad6e88f55b0"
     }
   }, 
@@ -154,24 +239,6 @@
       "uid": "c633baf4-1a77-458c-8bd3-8f4fdb65e856", 
       "value": "mdl", 
       "abstract_input": "28f53666-76b0-4d44-acab-0824e603a848"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Equal frequency discretization", 
-      "uid": "dac3dd38-3a6c-408b-9135-77cb4380d543", 
-      "value": "equal_freq", 
-      "abstract_input": "8b88d56c-6cbb-451f-a618-4a1a27993a90"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Random discretization", 
-      "uid": "dafe6b7c-48e7-4cfb-a0aa-2b22788fceec", 
-      "value": "random", 
-      "abstract_input": "8b88d56c-6cbb-451f-a618-4a1a27993a90"
     }
   }
 ]

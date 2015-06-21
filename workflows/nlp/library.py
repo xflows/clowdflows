@@ -8,6 +8,9 @@ import json
 import re
 import itertools
 
+def definition_sentences2(input_dict):
+    return {}
+
 def merge_sentences(input_dict):
     """
     Merges the input sentences in XML according to the specified method.
@@ -36,6 +39,35 @@ def merge_sentences(input_dict):
                 # will be in the resulting set.
                 merged_sen = merged_sen | (ids_alt & ids)
     return {'merged_sentences': nlp.sentences_to_xml([id_to_sent[sid] for sid in merged_sen])}
+
+def merge_sentences2(input_dict):
+    """
+    Merges the input sentences in XML according to the specified method.
+    """
+    method = input_dict['method']
+    merged_sen, id_to_sent = set(), {}
+    ids_list = []
+    for i, sentsXML in enumerate(input_dict['sentences']):
+        sents = nlp.parse_def_sentences2(sentsXML)
+        ids = set(map(lambda x: x['id'], sents))
+        ids_list.append(ids)
+        # Save the map from id to sentence
+        for sent in sents:
+            id_to_sent[sent['id']] = sent
+        if i == 0 and method != 'intersection_two':
+            merged_sen = ids
+        if method == 'union':
+            merged_sen = merged_sen | ids
+        elif method == 'intersection':
+            merged_sen = merged_sen & ids
+        elif method == 'intersection_two':
+            # Skip the current set of sentences
+            # and intersect it with the others.
+            for ids_alt in ids_list[:i] + ids_list[i+1:]:
+                # As long as (at least) two sets agree with a sentence it 
+                # will be in the resulting set.
+                merged_sen = merged_sen | (ids_alt & ids)
+    return {'merged_sentences': nlp.sentences_to_xml2([id_to_sent[sid] for sid in merged_sen])}
 
 
 def load_corpus(input_dict):
@@ -330,9 +362,6 @@ def nlp_term_extraction2(input_dict):
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
         annotations = TEItoTab(annotations)
     
-
-
-
     if lang == "sl":
         reference_corpus = input_dict["slovene_reference_corpus"]
     elif lang == "en":
