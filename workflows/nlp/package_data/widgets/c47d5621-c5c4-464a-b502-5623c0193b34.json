@@ -45,7 +45,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "c47d5621-c5c4-464a-b502-5623c0193b34", 
-      "name": "Or input text", 
+      "name": " ", 
       "short_name": "tex", 
       "default": "", 
       "description": "Input text", 
@@ -56,6 +56,23 @@
       "parameter": true, 
       "order": 2, 
       "uid": "26773c28-d88a-4671-aa06-cb7f1aea1296"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c47d5621-c5c4-464a-b502-5623c0193b34", 
+      "name": "Use text", 
+      "short_name": "utx", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "use_text", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "cff8dc2d-6deb-494c-a391-118f80c32872"
     }
   }, 
   {
