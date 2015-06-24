@@ -218,7 +218,7 @@ def MUSE_PG_GDEE_path(input_dict):
 
 #### COPIED FROM OLD MUSE PACKAGE
 
-def MUSE_mapping_to_KR_precomputed(input_dict):
+def MUSE_mapping_to_KR_precomputed_V3(input_dict):
     url = input_dict['url']
     data = input_dict['input_data']
 
@@ -232,7 +232,7 @@ def MUSE_mapping_to_KR_precomputed(input_dict):
 
 
 
-def MUSE_mapping_to_KR(input_dict):
+def MUSE_mapping_to_KR_V3(input_dict):
     url = input_dict['url']
     data = input_dict['input_data']
 
@@ -247,7 +247,31 @@ def MUSE_mapping_to_KR(input_dict):
 
 
 
+def MUSE_string_to_file_V3(input_dict):
+    return {}
 
+
+def MUSE_string_to_file_finished_V3(postdata, input_dict, output_dict):
+    from socket import getfqdn
+    import sys
+
+    if len(sys.argv) > 1:
+        if len(sys.argv) > 2 and '.' in sys.argv[2] and ':' in sys.argv[2]:
+            port = sys.argv[2].split(':')[1]
+        else:
+            port = 8000
+        DEVSERVER = sys.argv[1].startswith('runserver')
+    else:
+        DEVSERVER = False
+    fqdn = '127.0.0.1:' + str(port) if DEVSERVER else getfqdn()
+    # dirty,dirty
+    if fqdn == 'workflow':
+        fqdn = 'workflow.ijs.si'
+
+    fqdn = 'http://' + fqdn
+
+    fileURL = fqdn + postdata.get('fileURL')[0]
+    return {'fileURL': fileURL}
 
 
 
