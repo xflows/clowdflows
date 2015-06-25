@@ -12,7 +12,7 @@
       "image": "", 
       "description": "Returns the precomputed mapping to knowledge representation for Tuk story", 
       "static_image": "", 
-      "action": "MUSE_mapping_to_KR_precomputed", 
+      "action": "MUSE_mapping_to_KR_precomputed_V3", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
       "post_interact_action": "", 
