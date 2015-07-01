@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "", 
-      "static_image": "", 
+      "static_image": "nlp.png", 
       "action": "load_tagged_corpus", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -22,6 +22,244 @@
       "windows_queue": false, 
       "order": 1, 
       "name": "Load tagged corpus"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "TEI format settings", 
+      "short_name": "tfs", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "tfs", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "1c044e6d-454f-41fd-85dd-26402d16c306"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Lemma name", 
+      "short_name": "lmn", 
+      "default": "lemma", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "lemma_name", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "23738c56-2b0e-4f49-92f7-ea3805e082e6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Start tag", 
+      "short_name": "stg", 
+      "default": "<S>", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "start_tag", 
+      "parameter": true, 
+      "order": 14, 
+      "uid": "35a13690-c7e2-424c-b724-2328b0701d91"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Sentence tag", 
+      "short_name": "sen", 
+      "default": "s", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "sentence_tag", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "463c90ce-3865-4b7f-8bd1-22c8f37f737a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "POS index", 
+      "short_name": "psi", 
+      "default": "4", 
+      "description": "Part of speech index.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "pos_index", 
+      "parameter": true, 
+      "order": 13, 
+      "uid": "5861150d-3e9c-4fcb-b08d-55e8ba3b99ea"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Word tag", 
+      "short_name": "wtg", 
+      "default": "w", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "word_tag", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "5ed28783-37ed-4790-8cba-7edeac35a1ba"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "End tag", 
+      "short_name": "etg", 
+      "default": "</S>", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "end_tag", 
+      "parameter": true, 
+      "order": 15, 
+      "uid": "7198fadf-38a0-4565-9bcc-6d11ccfd891f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Input format", 
+      "short_name": "ifr", 
+      "default": "tei_format", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "input_format", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "7e7ae32a-9512-479b-8c73-7f12b9312183"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Tab separated format settings", 
+      "short_name": "tss", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "tss", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "81b91f82-535b-4d00-9970-a95a4ee1727f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Separator", 
+      "short_name": "sep", 
+      "default": "\\t", 
+      "description": "Define regex expression", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "separator", 
+      "parameter": true, 
+      "order": 20, 
+      "uid": "83f4d974-0cee-4a2e-bddf-18f97d9d19ba"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Token index", 
+      "short_name": "tki", 
+      "default": "2", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "token_index", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "88714bc1-4489-40a7-b601-ada613d1fa99"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "POS name", 
+      "short_name": "psn", 
+      "default": "ana", 
+      "description": "Part of speech tag", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "pos_name", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "9f796b5c-6093-494a-abdd-46cfae74a90d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Lemma index", 
+      "short_name": "lmi", 
+      "default": "3", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "lemma_index", 
+      "parameter": true, 
+      "order": 12, 
+      "uid": "a9420c84-1f6d-430a-8370-77a6d2b7559b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ca48d481-e00f-46d7-b8a6-b27a06a2e24a", 
+      "name": "Word index", 
+      "short_name": "wdi", 
+      "default": "1", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "word_index", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "e5371a20-c9bd-44d8-a351-e40ad697fc79"
     }
   }, 
   {
@@ -51,6 +289,24 @@
       "variable": "annotations", 
       "order": 1, 
       "uid": "009be1e0-8ce5-4a33-be87-c9b38b25b192"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Tab separated format", 
+      "uid": "473ec8d3-15ad-4097-86b3-3f7078fbaa91", 
+      "value": "tab_format", 
+      "abstract_input": "7e7ae32a-9512-479b-8c73-7f12b9312183"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "TEI format", 
+      "uid": "ec1260b0-1adc-4ef2-a2aa-1806393e2490", 
+      "value": "tei_format", 
+      "abstract_input": "7e7ae32a-9512-479b-8c73-7f12b9312183"
     }
   }
 ]
