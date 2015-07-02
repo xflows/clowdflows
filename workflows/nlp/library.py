@@ -1,5 +1,5 @@
 import nlp
-import os.path
+import os
 import base64
 from services.webservice import WebService
 from workflows.security import safeOpen
@@ -7,6 +7,10 @@ from requests import post
 import json
 import re
 import itertools
+import subprocess
+
+def definition_sentences2(input_dict):
+    return {}
 
 def merge_sentences(input_dict):
     """
@@ -36,6 +40,35 @@ def merge_sentences(input_dict):
                 # will be in the resulting set.
                 merged_sen = merged_sen | (ids_alt & ids)
     return {'merged_sentences': nlp.sentences_to_xml([id_to_sent[sid] for sid in merged_sen])}
+
+def merge_sentences2(input_dict):
+    """
+    Merges the input sentences in XML according to the specified method.
+    """
+    method = input_dict['method']
+    merged_sen, id_to_sent = set(), {}
+    ids_list = []
+    for i, sentsXML in enumerate(input_dict['sentences']):
+        sents = nlp.parse_def_sentences2(sentsXML)
+        ids = set(map(lambda x: x['id'], sents))
+        ids_list.append(ids)
+        # Save the map from id to sentence
+        for sent in sents:
+            id_to_sent[sent['id']] = sent
+        if i == 0 and method != 'intersection_two':
+            merged_sen = ids
+        if method == 'union':
+            merged_sen = merged_sen | ids
+        elif method == 'intersection':
+            merged_sen = merged_sen & ids
+        elif method == 'intersection_two':
+            # Skip the current set of sentences
+            # and intersect it with the others.
+            for ids_alt in ids_list[:i] + ids_list[i+1:]:
+                # As long as (at least) two sets agree with a sentence it 
+                # will be in the resulting set.
+                merged_sen = merged_sen | (ids_alt & ids)
+    return {'merged_sentences': nlp.sentences_to_xml2([id_to_sent[sid] for sid in merged_sen])}
 
 
 def load_corpus(input_dict):
@@ -82,14 +115,116 @@ def load_corpus2(input_dict):
     """
     return {'corpus': content[u"resp"]}
 
+def parse_xml(path, lemma_name = "lemma", pos_name = "ana", word_tag = "w", sentence_tag = "s"):
+    from xml.dom import minidom
+
+    fname = os.path.basename(path)
+    xmldoc = minidom.parse(path)
+    sentences = xmldoc.getElementsByTagName(sentence_tag)
+
+    tab_separated_output = []
+    head = "<TEXT title="+fname+">\t\n"
+    foot = "</TEXT>\t\n"
+    tab_separated_output.append(head)
+
+    sentence_id = 0
+    for sentece in sentences:
+        line = "\t<S id=\"0_" +str(sentence_id) + "\">\t\n" 
+        tab_separated_output.append(line)
+        for s in sentece.getElementsByTagName(word_tag):
+            line = s.childNodes[0].nodeValue + "\tTOK\t" + s.attributes[lemma_name].value + "\t" + s.attributes[pos_name].value + "\t\n"
+            tab_separated_output.append(line)
+        line = "\t</S>\t\n"
+        tab_separated_output.append(line)
+        sentence_id +=1
+    tab_separated_output.append(foot)
+    return  "".join(tab_separated_output).encode("utf8", "ignore")
+
+def parse_tab_separated(path, word_index, token_index, lemma_index, pos_index, start_tag, end_tag, separator):
+    
+    fname = os.path.basename(path)
+    f = safeOpen(path)
+
+    data = []
+    head = "<TEXT title="+fname+">\t\n"
+    foot = "</TEXT>\t\n"
+    data.append(head)
+
+    sentence_counter = 0
+    for line in f:
+        splitted_line = re.split(separator, line.strip())#.split(separator)
+        if len(splitted_line) >= 4:
+            new_line = splitted_line[word_index] + "\t" + splitted_line[token_index] + "\t" + splitted_line[lemma_index] + "\t" + splitted_line[pos_index] + "\t\n"
+            data.append(new_line)
+        else:
+            added = False
+            for el in splitted_line:
+                if re.match(start_tag, el.strip()):
+                    data.append("\t<S id=\"0_" + str(sentence_counter)+"\">\t\n")
+                    added = True
+                    break
+                elif re.match(end_tag, el.strip()):
+                    data.append("\t</S>\t\n")
+                    sentence_counter+=1
+                    added = True
+                    break
+            if not added:
+                data.append("\t".join(splitted_line + ["\t\n"]))
+    data.append(foot)
+    return "".join(data)
+
 def load_tagged_corpus(input_dict):
     """
     Loads TEI file, which is output of totrtale
     """
-    f = safeOpen(input_dict['file'])
-    #fname = os.path.basename(input_dict['file'])
-    #subprocess.call(["java -jar jing.jar tei_imp.rng " + fname + " >" + "out.txt"],shell=True)
-    data = f.read()
+    data = ""
+    
+    
+    if input_dict["input_format"] == "tab_format":
+        try:
+            word_index = int(input_dict["word_index"]) - 1
+            lemma_index = int(input_dict["lemma_index"]) - 1
+            token_index = int(input_dict["token_index"]) - 1
+            pos_index = int(input_dict["pos_index"]) - 1
+        except ValueError:
+            raise Exception("Please specify a number in index fields.")
+
+        start_tag = input_dict["start_tag"]
+        end_tag = input_dict["end_tag"]
+        separator = input_dict["separator"]
+
+        if len(start_tag) < 1 or len(end_tag) < 1 or len(separator) < 1:
+            raise Exception("Please review start, end tag and separator parameters.")
+        
+        if word_index+1 == 1 and token_index+1 == 2 and lemma_index+1 == 3 and pos_index+1 == 4 and start_tag == u'<S>' and end_tag == '</S>':
+            f = safeOpen(input_dict['file'])
+            data = f.read()
+        else:
+            if len(set([word_index, lemma_index, token_index, pos_index])) != 4:
+                raise Exception("Field indices should be distinct.")
+            data = parse_tab_separated(input_dict['file'], word_index=word_index, token_index=token_index, lemma_index=lemma_index, pos_index=pos_index, start_tag=start_tag, end_tag=end_tag, separator=separator)
+
+    else:
+        #fname = os.path.basename(input_dict['file'])
+        #data = f.read()
+        
+        #path = os.path.dirname(os.path.abspath(__file__)) + os.sep
+        #subprocess.call(["java -jar " + path+"jing.jar " + path+ "tei_imp.rng  <" + data + " >" + "out.txt"],shell=True)
+        #f = open("out.txt", "r")
+        #error = f.read()
+        #if len(error) > 0:
+        #    raise Exception(error)
+
+        lemma_name = input_dict["lemma_name"]
+        pos_name = input_dict["pos_name"]
+        sentence_tag = input_dict["sentence_tag"]
+        word_tag = input_dict["word_tag"]
+
+        if len(lemma_name) < 1 or len(pos_name) < 1 or len(sentence_tag) < 1 or len(word_tag) < 1:
+            raise Exception("Please review parameters for TEI format.")
+
+        data = parse_xml(input_dict['file'], lemma_name = lemma_name, pos_name = pos_name, word_tag = word_tag, sentence_tag = sentence_tag)
+
     return {'annotations': data}
 
 def totrtale_request(params):
@@ -119,14 +254,10 @@ def nlp_totrtale2(input_dict, widget):
     
     language = input_dict['lang'], 
     postprocess = input_dict['postprocess'] == "true"
-    bohoricica = input_dict['bohoricica'] == "true"
-    antique = input_dict['antique'] == "true" 
     xml = input_dict['xml'] == "true"
 
     params = {"language": language, 
             "postprocess": postprocess, 
-            "bohoricica":bohoricica, 
-            "antique": antique, 
             "xml":xml}
              
     tei_corpus = corpus.getElementsByTagName('teiCorpus')
@@ -167,7 +298,7 @@ def nlp_totrtale2(input_dict, widget):
                     sub_params["text"] = predhead +title + head + document_text[prev_j: curr_j+2] +tail
                 else:
                     sub_params["text"] = predhead + head + document_text[prev_j: curr_j+2] + tail
-                
+                sub_params["doc_id"] = str(len(results))
                 results.append(pool.apply_async(totrtale_request, args=[sub_params]))
                 if prev_j == 0:
                     single_docs.append(0)
@@ -181,6 +312,7 @@ def nlp_totrtale2(input_dict, widget):
                 if curr_j > doc_len:
                     sub_params = copy.deepcopy(params)
                     sub_params["text"] = predhead + head + document_text[prev_j:] + tail
+                    sub_params["doc_id"] = str(len(results))
                     results.append(pool.apply_async(totrtale_request, args=[sub_params]))
                     document_num += 1
                     process_num += 1
@@ -196,6 +328,7 @@ def nlp_totrtale2(input_dict, widget):
                 document_num = 0
                 sub_params = copy.deepcopy(params)
                 sub_params["text"] = "\n".join(docs)
+                sub_params["doc_id"] = str(len(results))
                 print "whole document was added", len(docs)
                 results.append(pool.apply_async(totrtale_request, args=[sub_params]))
                 process_num += 1
@@ -332,9 +465,6 @@ def nlp_term_extraction2(input_dict):
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
         annotations = TEItoTab(annotations)
     
-
-
-
     if lang == "sl":
         reference_corpus = input_dict["slovene_reference_corpus"]
     elif lang == "en":
@@ -502,18 +632,43 @@ def nlp_def_extraction_wnet2(input_dict):
     response = json.loads(response.content)[u'wnetDefSentResponse'][u'wnetDefSentResult']
     return {'sentences': response}
 
-def TEItoTab(text):    
+def TEItoTab(text, doc_id=0):    
     mask1 = ["\tTOK\t", "\t", "\t\n"]
-    pattern1 = "<w lemma=\"(?P<lemma>.*?)\" ana=\"(?P<ana>.*?)\">(?P<value>.*?)</w>"
+    pattern1 = "<w (type=\"unknown\")| lemma=\"(?P<lemma>.*?)\" ana=\"(?P<ana>.*?)\">(?P<value>.*?)</w>"
     pattern2 = "<title>(.*?)</title>"
     pattern3 = "<pc>(.*?)</pc>"
     
     pattern4 = "(.*?)\t(TOK)\t(.*?)\t(Y)"
     pattern5 = "(.*?)\t(TOK)\t(.*?)\t(Mdo|Mdc)"
+
+    pattern6 = "<w>(.*)</w>"
     newText=[]
+    print "TEItoTab started"
+    sentence_id = 0
+    choice_found=False #if lang in ["gaji", "boho"]
+    local_s=""
     for l in text.splitlines():
+        print l
+        
+        if "<choice>" in l:
+            choice_found=True
+            first = True
+            continue
+        elif choice_found and "<w" in l:
+            local_s = re.findall(pattern6, l)[0]
+            choice_found=False
+            continue
+
         if "<w" in l:
-            match = [m.group("value", "lemma", "ana") for m in re.finditer(pattern1, l)][0]
+            match = [m.group("value", "lemma", "ana") for m in re.finditer(pattern1, l)]
+            if len(match) == 0:
+                local_s += " " + re.findall(pattern6, l)[0]
+            
+            elif len(match) == 1:
+                match = match[0]
+                
+            elif len(match) == 2:
+                match = match[1]
             l = ''.join(itertools.chain.from_iterable(zip(match, mask1)))
             if len(l) < 100:
                 value = re.findall(pattern4, l)
@@ -523,20 +678,26 @@ def TEItoTab(text):
                 value = re.findall(pattern5, l)
                 if len(value) > 0:
                     l = "\t".join(value[0]).replace("TOK", "TOK_DIG") + "\t\n"
+            if len(local_s) > 0:
+                l = local_s + "|" + l
+                local_s = ""
             newText.append(l)
+        elif "<s>" in l:
+            newText.append("\t\t<S id=\"" + str(doc_id) + "_" + str(sentence_id) + "\">\t\n")
         elif "</s>" in l:
-            newText.append("\t\t<S/>\t\n")
+            newText.append("\t\t</S>\t\n")
+            sentence_id+=1
         elif "<pc>" in l:
             value = re.findall(pattern3, l)[0]
             if value == ".":
                 newText.append(value+"\t\tPUN_TERM\t\n")
             else:
+                value = value.replace("&amp;","&").replace("&lt;","<").replace("&gt;", ">").replace("&quot;","\"")
                 newText.append(value+"\t\tPUN\t\n")
         elif "<title>" in l:
             title = re.findall(pattern2, l)[0]
+            title = title.replace("&amp;","&").replace("&lt;","<").replace("&gt;", ">").replace("&quot;","\"")
             newText.append("<TEXT title=" + title + ">\t\n")
         elif "</body>" in l:
             newText.append("</TEXT>\t\n")
-    return "".join(newText)
-
-    
+    return "".join(newText)    

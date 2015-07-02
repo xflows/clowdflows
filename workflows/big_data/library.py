@@ -69,32 +69,38 @@ def lwlr_fit_predict(input_dict):
     return {"string": predictions_url}
 
 def dt_fit(input_dict):
-    from discomll.ensemble import decision_trees
+    from discomll.ensemble import forest_distributed_decision_trees
     
+    random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
+    bootstrap = input_dict["bootstrap"] == "true"
 
-    fitmodel_url = decision_trees.fit(input = input_dict["dataset"],
+    fitmodel_url = forest_distributed_decision_trees.fit(input = input_dict["dataset"],
                                        max_tree_nodes = input_dict["tree_nodes"],
-                                       leaf_min_inst = input_dict["leaf_min_inst"],
+                                       min_samples_leaf = input_dict["min_samples_leaf"],
+                                       min_samples_split = input_dict["min_samples_split"],
                                        class_majority = input_dict["majority"],
-                                        measure = input_dict["measure"],
-                                        split_fun = input_dict["split_fun"],
+                                       bootstrap = bootstrap,
+                                       measure = input_dict["measure"],
+                                       accuracy = input_dict["accuracy"],
+                                       separate_max = input_dict["separate_max"],
+                                       random_state = random_state,
                                         save_results = True)
     return {"fitmodel_url" : fitmodel_url}
 
 def dt_predict(input_dict):
-    from discomll.ensemble import decision_trees
+    from discomll.ensemble import forest_distributed_decision_trees
 
-    predictions_url = decision_trees.predict(input_dict["dataset"],
+    predictions_url = forest_distributed_decision_trees.predict(input_dict["dataset"],
                                             fitmodel_url = input_dict["fitmodel_url"],
                                             save_results = True)
     return {"string": predictions_url}
 
 def rf_fit(input_dict):
-    from discomll.ensemble import random_forest
+    from discomll.ensemble import distributed_random_forest
 
     random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
 
-    fitmodel_url = random_forest.fit(input = input_dict["dataset"],
+    fitmodel_url = distributed_random_forest.fit(input = input_dict["dataset"],
                                         trees_per_chunk = input_dict["trees_per_subset"],
                                        max_tree_nodes = input_dict["tree_nodes"],
                                        leaf_min_inst = input_dict["leaf_min_inst"],
@@ -107,11 +113,11 @@ def rf_fit(input_dict):
     return {"fitmodel_url" : fitmodel_url}
 
 def rf_predict(input_dict):
-    from discomll.ensemble import random_forest
+    from discomll.ensemble import distributed_random_forest
     
     random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
 
-    predictions_url = random_forest.predict(input = input_dict["dataset"],
+    predictions_url = distributed_random_forest.predict(input = input_dict["dataset"],
                                             fitmodel_url = input_dict["fitmodel_url"],
                                             diff = input_dict["diff"],
                                             random_state = random_state,
@@ -119,11 +125,11 @@ def rf_predict(input_dict):
     return {"string": predictions_url}
 
 def wrf_fit(input_dict):
-    from discomll.ensemble import weighted_forest
+    from discomll.ensemble import distributed_weighted_forest
     
     random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
     
-    fitmodel_url = weighted_forest.fit(input = input_dict["dataset"],
+    fitmodel_url = distributed_weighted_forest.fit(input = input_dict["dataset"],
                                         trees_per_chunk = input_dict["trees_per_subset"],
                                        max_tree_nodes = input_dict["tree_nodes"],
                                        leaf_min_inst = input_dict["leaf_min_inst"],
@@ -135,9 +141,9 @@ def wrf_fit(input_dict):
     return {"fitmodel_url" : fitmodel_url}
 
 def wrf_predict(input_dict):
-    from discomll.ensemble import weighted_forest
+    from discomll.ensemble import distributed_weighted_forest
 
-    predictions_url = weighted_forest.predict(input = input_dict["dataset"],
+    predictions_url = distributed_weighted_forest.predict(input = input_dict["dataset"],
                                             fitmodel_url = input_dict["fitmodel_url"],
                                             save_results = True)
     return {"string": predictions_url}

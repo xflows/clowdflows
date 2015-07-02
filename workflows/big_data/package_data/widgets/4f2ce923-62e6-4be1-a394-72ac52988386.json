@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "Random forest with MapReduce\r\n\r\nFit phase\r\nRandom forest algorithm builds multiple decision trees with a bootstrap method on a subset of data. \r\nIn each tree node, it estimates sqrt(num. of attributes)+1 randomly selected attributes (without replacement).\r\nAll decision trees are merged in large ensemble.  \r\n\r\nPredict phase\r\nAlgorithm queries as many trees as needed for reliable prediction.\r\nFirstly, it randomly chooses without replacement 15 trees. If all trees vote for the same class, it outputs prediction. If there are multiple classes predicted, it chooses 15 trees again. Algorithm calculates difference in probability between most and second most probable prediction. If difference is greater than parameter diff, it outputs prediction. If a test sample is hard to predict (difference is never higher than diff), it queries whole ensemble to make a prediction.\r\n\r\nReference\r\nSimilar algorithm is proposed in: Justin D Basilico, M Arthur Munson, Tamara G Kolda, Kevin R Dixon, and W Philip Kegelmeyer. Comet: A recipe for learning and using large ensembles on massive data. \r\n", 
+      "description": "Distributed Random Forest\r\n\r\nFit phase\r\nRandom forest algorithm builds multiple decision trees with a bootstrap method on a subset of data. \r\nIn each tree node, it estimates sqrt(num. of attributes)+1 randomly selected attributes (without replacement).\r\nAll decision trees are merged in large ensemble.  \r\n\r\nPredict phase\r\nAlgorithm queries as many trees as needed for reliable prediction.\r\nFirstly, it randomly chooses without replacement 15 trees. If all trees vote for the same class, it outputs prediction. If there are multiple classes predicted, it chooses 15 trees again. Algorithm calculates difference in probability between most and second most probable prediction. If difference is greater than parameter diff, it outputs prediction. If a test sample is hard to predict (difference is never higher than diff), it queries whole ensemble to make a prediction.\r\n\r\nReference\r\nSimilar algorithm is proposed in: Justin D Basilico, M Arthur Munson, Tamara G Kolda, Kevin R Dixon, and W Philip Kegelmeyer. Comet: A recipe for learning and using large ensembles on massive data. ", 
       "static_image": "", 
       "action": "rf_fit", 
       "visualization_view": "", 
@@ -21,7 +21,7 @@
       "interactive": false, 
       "windows_queue": false, 
       "order": 1, 
-      "name": "Random forest"
+      "name": "Distributed Random Forest"
     }
   }, 
   {
@@ -37,7 +37,7 @@
       "parameter_type": "select", 
       "variable": "split_fun", 
       "parameter": true, 
-      "order": 8, 
+      "order": 7, 
       "uid": "00758cdf-2eb5-43c5-bedf-bd3b8b9c29d6"
     }
   }, 
@@ -54,7 +54,7 @@
       "parameter_type": "text", 
       "variable": "tree_nodes", 
       "parameter": true, 
-      "order": 4, 
+      "order": 3, 
       "uid": "5a915d8b-2c99-4661-aa20-325709b61b6b"
     }
   }, 
@@ -88,7 +88,7 @@
       "parameter_type": "select", 
       "variable": "measure", 
       "parameter": true, 
-      "order": 7, 
+      "order": 6, 
       "uid": "68cbccf9-7469-4b55-b96e-4f7c6a3c9cde"
     }
   }, 
@@ -105,7 +105,7 @@
       "parameter_type": "text", 
       "variable": "seed", 
       "parameter": true, 
-      "order": 9, 
+      "order": 8, 
       "uid": "8e6e2d96-3457-4b23-ac93-ab90b083920f"
     }
   }, 
@@ -122,7 +122,7 @@
       "parameter_type": "text", 
       "variable": "trees_per_subset", 
       "parameter": true, 
-      "order": 3, 
+      "order": 2, 
       "uid": "a0b28dbe-1cb8-4987-958e-e4d379c8d2ff"
     }
   }, 
@@ -139,7 +139,7 @@
       "parameter_type": "text", 
       "variable": "leaf_min_inst", 
       "parameter": true, 
-      "order": 5, 
+      "order": 4, 
       "uid": "a2f366a9-af74-4b3f-90ed-33c1fcad4c3a"
     }
   }, 
@@ -156,7 +156,7 @@
       "parameter_type": "text", 
       "variable": "majority", 
       "parameter": true, 
-      "order": 6, 
+      "order": 5, 
       "uid": "fe7f5d5a-c2e2-4ae9-b138-18b1de7c4e93"
     }
   }, 

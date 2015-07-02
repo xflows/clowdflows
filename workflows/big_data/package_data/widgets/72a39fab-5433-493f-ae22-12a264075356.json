@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "Weighted forest with MapReduce\r\n\r\nWeighted forest is a novel ensemble algorithm. \r\n\r\nFit phase\r\nWeighted forest algorithm builds multiple decision trees with a bootstrap method on a subset of data. In each tree node, it estimates sqrt(num. of attributes)+1 randomly selected attributes (without replacement). It uses decision tree to predict out-of-bag samples. For each prediction of an out-of-bag sample, it measures margin (classifier confidence in prediction) and leaf identifier that outputs prediction. Algorithm uses similarity matrix, where it stores similarities for each out-of-bag sample that was predicted with the same leaf. We assume that samples are similar, if the same leaf predicts them multiple times in multiple decision trees. \r\nAfter algorithm builds all decision trees, it passes similarity matrix to k-medoids algorithm. Similarity matrix presents distances between test samples. We set parameter k as sqrt(num. of attributes)+1. k-medoids algorithm outputs medoids, which are test samples in the cluster centers of the dataset. Medoids are actual samples in a dataset, unlike centroids which are centers of clusters. Algorithm measures average margin for all samples that are in the cluster of certain medoid. It saves the average margin of a decision tree in its model. Algorithm uses this scores as weights of decision trees in predict phase.\r\nAlgorithm builds a forest on each subset of the data and it merges them in large ensemble. Each forest has its own medoids.\r\n\r\nPredict phase \r\nAlgorithm selects a forest (or more, if it finds equal similarities with medoids in multiple forests), that contain most similar medoid with a test sample. Then it uses the same procedure like with small data. Algorithm calculates Gower similarity coefficient with a test sample and every medoid. Only decision trees with high margin on similar test samples output prediction and algorithm stores decision tree margin for each prediction. Algorithm calculates final values for each prediction: (number of margins) * avg(margins) and it selects prediction with highest value.", 
+      "description": "Distributed Weighted Forest\r\n\r\nWeighted forest is a novel ensemble algorithm. \r\n\r\nFit phase\r\nWeighted forest algorithm builds multiple decision trees with a bootstrap method on a subset of data. In each tree node, it estimates sqrt(num. of attributes)+1 randomly selected attributes (without replacement). It uses decision tree to predict out-of-bag samples. For each prediction of an out-of-bag sample, it measures margin (classifier confidence in prediction) and leaf identifier that outputs prediction. Algorithm uses similarity matrix, where it stores similarities for each out-of-bag sample that was predicted with the same leaf. We assume that samples are similar, if the same leaf predicts them multiple times in multiple decision trees. \r\nAfter algorithm builds all decision trees, it passes similarity matrix to k-medoids algorithm. Similarity matrix presents distances between test samples. We set parameter k as sqrt(num. of attributes)+1. k-medoids algorithm outputs medoids, which are test samples in the cluster centers of the dataset. Medoids are actual samples in a dataset, unlike centroids which are centers of clusters. Algorithm measures average margin for all samples that are in the cluster of certain medoid. It saves the average margin of a decision tree in its model. Algorithm uses this scores as weights of decision trees in predict phase.\r\nAlgorithm builds a forest on each subset of the data and it merges them in large ensemble. Each forest has its own medoids.\r\n\r\nPredict phase \r\nAlgorithm selects a forest (or more, if it finds equal similarities with medoids in multiple forests), that contain most similar medoid with a test sample. Then it uses the same procedure like with small data. Algorithm calculates Gower similarity coefficient with a test sample and every medoid. Only decision trees with high margin on similar test samples output prediction and algorithm stores decision tree margin for each prediction. Algorithm calculates final values for each prediction: (number of margins) * avg(margins) and it selects prediction with highest value.", 
       "static_image": "", 
       "action": "wrf_fit", 
       "visualization_view": "", 
@@ -21,7 +21,7 @@
       "interactive": false, 
       "windows_queue": false, 
       "order": 1, 
-      "name": "Weighted forest"
+      "name": "Distributed Weighted Forest"
     }
   }, 
   {
@@ -37,7 +37,7 @@
       "parameter_type": "text", 
       "variable": "majority", 
       "parameter": true, 
-      "order": 6, 
+      "order": 5, 
       "uid": "1b23ead1-b104-4d27-a6fd-b23de6efa28f"
     }
   }, 
@@ -54,7 +54,7 @@
       "parameter_type": "text", 
       "variable": "seed", 
       "parameter": true, 
-      "order": 9, 
+      "order": 8, 
       "uid": "31c68e34-3bff-41bb-bf77-925c6171a6f6"
     }
   }, 
@@ -88,7 +88,7 @@
       "parameter_type": "text", 
       "variable": "tree_nodes", 
       "parameter": true, 
-      "order": 4, 
+      "order": 3, 
       "uid": "3d48b0d0-a304-45d5-9d18-3ca17e8fcf05"
     }
   }, 
@@ -105,7 +105,7 @@
       "parameter_type": "text", 
       "variable": "trees_per_subset", 
       "parameter": true, 
-      "order": 3, 
+      "order": 2, 
       "uid": "8770ace6-4968-47cf-b7cc-4ad8bfff303c"
     }
   }, 
@@ -122,7 +122,7 @@
       "parameter_type": "select", 
       "variable": "measure", 
       "parameter": true, 
-      "order": 7, 
+      "order": 6, 
       "uid": "9a8f3c2c-265c-4b37-93c1-d58fee9dd7af"
     }
   }, 
@@ -139,7 +139,7 @@
       "parameter_type": "text", 
       "variable": "leaf_min_inst", 
       "parameter": true, 
-      "order": 5, 
+      "order": 4, 
       "uid": "ac032f38-f4a4-44ea-8c02-96506d4f8e86"
     }
   }, 
@@ -156,7 +156,7 @@
       "parameter_type": "select", 
       "variable": "split_fun", 
       "parameter": true, 
-      "order": 8, 
+      "order": 7, 
       "uid": "c43bfc92-e1af-42fc-8d73-f7348ebdaf40"
     }
   }, 
