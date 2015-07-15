@@ -65,7 +65,7 @@ def scikitAlgorithms_displayDS(request,input_dict,output_dict,widget):
     data = input_dict['data']
     output_dict={'data':data}
     return render(request, 'visualizations/scikitAlgorithms_displayDS.html',{'widget':widget,'input_dict':input_dict,'output_dict':helperDisplayDS(output_dict)})
-   
+
 def helperDisplayDS(data):
     #get data to fill table
     info = data['data']
@@ -80,11 +80,12 @@ def helperDisplayDS(data):
         csv.append(numpy.append(sample,n_feature[count])) #join n_sample and n_feature array
         count+=1
 
-    attrs = ["attribute" for i in range(len(n_sample[0]))] #name of attributes
+    attrs = info.feature_names if info.has_key("feature_names") else ["attribute" for i in range(len(n_sample[0]))] #name of attributes
+
     class_var = 'category'
-    metas = '' 
+    metas = ''
     data_new = csv #fill table with data
-    
+
     return {'attrs':attrs, 'metas':metas, 'data_new':data_new, 'class_var':class_var}
 
 # def helperDisplayDS(data):
