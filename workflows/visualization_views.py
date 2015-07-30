@@ -66,6 +66,14 @@ def scikitAlgorithms_displayDS(request,input_dict,output_dict,widget):
     output_dict={'data':data}
     return render(request, 'visualizations/scikitAlgorithms_displayDS.html',{'widget':widget,'input_dict':input_dict,'output_dict':helperDisplayDS(output_dict)})
 
+def scikitAlgorithms_displayDecisTree(request,input_dict,output_dict,widget):
+    pngFile = 'decisionTree-scikit.png'
+
+    import datetime
+    my_dict = {'pngfile':pngFile, 'param':str( datetime.datetime.now().time() )} # param: used to force reload of image
+
+    return render(request, 'visualizations/scikitAlgorithms_displayDecisTree.html',{'widget':widget,'input_dict':input_dict,'output_dict':my_dict })
+
 def helperDisplayDS(data):
     #get data to fill table
     info = data['data']

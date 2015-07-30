@@ -1,0 +1,7 @@
+<div id="widgetvisualization-{{widget.pk}}" width="700" height="500" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} results">
+<center>
+{#    {{output_dict.pngfile}}#}
+    <img src="{{STATIC_URL}}{{output_dict.pngfile}}?p={{ output_dict.param }}">
+</center>
+
+</div>
