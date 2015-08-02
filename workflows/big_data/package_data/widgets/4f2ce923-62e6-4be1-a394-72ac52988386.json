@@ -28,17 +28,51 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
-      "name": "Discretization", 
-      "short_name": "spf", 
-      "default": "equal_freq", 
-      "description": "Select equal frequency discretization or random discretization for numeric attributes", 
+      "name": "Discretization accuracy", 
+      "short_name": "dac", 
+      "default": "1", 
+      "description": "Continuous attributes are converted to discrete intervals. For exact estimation use 0 (slowest) or increase the number to get an approximation (faster).", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "select", 
-      "variable": "split_fun", 
+      "parameter_type": "text", 
+      "variable": "accuracy", 
       "parameter": true, 
-      "order": 7, 
+      "order": 8, 
       "uid": "00758cdf-2eb5-43c5-bedf-bd3b8b9c29d6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Separate most represented class", 
+      "short_name": "smp", 
+      "default": "true", 
+      "description": "separate_max", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "separate_max", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "21444978-142f-4f3d-947c-20e0b41a2c9b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
+      "name": "Min samples in leaf", 
+      "short_name": "msl", 
+      "default": "5", 
+      "description": "The minimum number of samples in newly created leaves. A split is discarded if after the split, one of the leaves would contain less then min samples leaf samples", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "min_samples_leaf", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "52591706-7f30-4def-a788-3e07d3f82876"
     }
   }, 
   {
@@ -47,7 +81,7 @@
       "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
       "name": "Max tree nodes", 
       "short_name": "mnt", 
-      "default": "20", 
+      "default": "100", 
       "description": "Max. number of decision tree nodes", 
       "required": true, 
       "multi": false, 
@@ -88,7 +122,7 @@
       "parameter_type": "select", 
       "variable": "measure", 
       "parameter": true, 
-      "order": 6, 
+      "order": 7, 
       "uid": "68cbccf9-7469-4b55-b96e-4f7c6a3c9cde"
     }
   }, 
@@ -105,7 +139,7 @@
       "parameter_type": "text", 
       "variable": "seed", 
       "parameter": true, 
-      "order": 8, 
+      "order": 10, 
       "uid": "8e6e2d96-3457-4b23-ac93-ab90b083920f"
     }
   }, 
@@ -132,7 +166,7 @@
       "widget": "4f2ce923-62e6-4be1-a394-72ac52988386", 
       "name": "Min samples split", 
       "short_name": "lmi", 
-      "default": "5", 
+      "default": "10", 
       "description": "Min. number of samples to split the node", 
       "required": true, 
       "multi": false, 
@@ -156,7 +190,7 @@
       "parameter_type": "text", 
       "variable": "majority", 
       "parameter": true, 
-      "order": 5, 
+      "order": 6, 
       "uid": "fe7f5d5a-c2e2-4ae9-b138-18b1de7c4e93"
     }
   }, 

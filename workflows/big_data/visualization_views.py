@@ -15,7 +15,6 @@ def measure_distribution(request,input_dict,output_dict,widget):
 
 def bigdata_ca(request,input_dict,output_dict,widget):
     from discomll.utils import accuracy
-    from disco.core import result_iterator
     import os.path
     from mothra.settings import MEDIA_ROOT
     from workflows.helpers import ensure_dir
@@ -32,7 +31,7 @@ def bigdata_ca(request,input_dict,output_dict,widget):
                                 predictions = input_dict["predictions"],
                                 measure = "ca")
         string = "Classification Accuracy \n" 
-        for k, v in result_iterator(results):
+        for k, v in results:
             string += str(v) + "\n"
         input_dict["string"] = string
 
@@ -67,7 +66,7 @@ def bigdata_mse(request,input_dict,output_dict,widget):
                                 predictions = input_dict["predictions"],
                                 measure = "mse")
         string = "Mean squared error\n"
-        for k, v in result_iterator(results):
+        for k, v in results:
             string += str(v) + "\n"
         input_dict["string"] = string
 

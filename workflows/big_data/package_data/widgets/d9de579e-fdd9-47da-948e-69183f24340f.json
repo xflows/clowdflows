@@ -71,7 +71,7 @@
       "parameter_type": "text", 
       "variable": "seed", 
       "parameter": true, 
-      "order": 4, 
+      "order": 3, 
       "uid": "8ec2b906-2b9e-4cda-9455-09ccd7d134fb"
     }
   }, 
@@ -96,16 +96,16 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "d9de579e-fdd9-47da-948e-69183f24340f", 
-      "name": "Random forest - difference", 
-      "short_name": "dff", 
-      "default": "0.3", 
-      "description": "Random forest calculates difference in probability between most and second most probable prediction. If difference is greater than parameter diff, it outputs prediction. If a test sample is hard to predict (difference is never higher than diff), it queries whole ensemble to make a prediction.", 
+      "name": "Weighted forest - similarity coeff", 
+      "short_name": "coe", 
+      "default": "0.5", 
+      "description": "Percentage of most similar treees to include in prediction (0 - 1)", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "diff", 
+      "variable": "coeff", 
       "parameter": true, 
-      "order": 3, 
+      "order": 4, 
       "uid": "d979ff23-eb11-40cf-9d81-2a71ddf5d790"
     }
   }, 

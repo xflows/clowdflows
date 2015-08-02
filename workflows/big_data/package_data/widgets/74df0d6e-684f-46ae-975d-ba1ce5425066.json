@@ -71,7 +71,7 @@
       "parameter_type": "select", 
       "variable": "measure", 
       "parameter": true, 
-      "order": 7, 
+      "order": 8, 
       "uid": "28f53666-76b0-4d44-acab-0824e603a848"
     }
   }, 
@@ -88,7 +88,7 @@
       "parameter_type": "text", 
       "variable": "seed", 
       "parameter": true, 
-      "order": 10, 
+      "order": 11, 
       "uid": "40bc0e36-427f-4517-ac56-55ef033a0e9c"
     }
   }, 
@@ -105,7 +105,7 @@
       "parameter_type": "text", 
       "variable": "accuracy", 
       "parameter": true, 
-      "order": 8, 
+      "order": 9, 
       "uid": "45a0c36c-d61a-4708-b54a-6908494ee090"
     }
   }, 
@@ -122,7 +122,7 @@
       "parameter_type": "text", 
       "variable": "min_samples_leaf", 
       "parameter": true, 
-      "order": 5, 
+      "order": 6, 
       "uid": "739e0f16-2ac9-423e-8050-58778553ca48"
     }
   }, 
@@ -181,7 +181,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "74df0d6e-684f-46ae-975d-ba1ce5425066", 
-      "name": "Separate most present class", 
+      "name": "Separate most represented class", 
       "short_name": "smp", 
       "default": "true", 
       "description": "", 
@@ -190,7 +190,7 @@
       "parameter_type": "checkbox", 
       "variable": "separate_max", 
       "parameter": true, 
-      "order": 9, 
+      "order": 10, 
       "uid": "eac59b1f-c35d-4116-b4d7-9320d2b4b351"
     }
   }, 
@@ -207,7 +207,7 @@
       "parameter_type": "text", 
       "variable": "majority", 
       "parameter": true, 
-      "order": 6, 
+      "order": 7, 
       "uid": "f31f0f86-238b-4ce1-b7e7-1ad6e88f55b0"
     }
   }, 
