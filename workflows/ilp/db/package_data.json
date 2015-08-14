@@ -35,7 +35,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "A widget which implements Aleph, an Inductive Logic Programming (ILP) system.\nhttp://www.cs.ox.ac.uk/activities/machlearn/Aleph/aleph.html"
     }
   }, 
   {
@@ -1487,7 +1487,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Displays SDM-SEGS rules."
     }
   }, 
   {
@@ -1794,7 +1794,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Widget which performs transformation of a relational database into a corpus of documents, where each document can be characterized by a set of properties describing the entries of a relational database."
     }
   }, 
   {

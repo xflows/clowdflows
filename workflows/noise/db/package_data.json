@@ -133,7 +133,7 @@
       "interactive": true, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Widget implementing an ensemble-based noise ranking methodology for explicit noise and outlier identification.\nReference: http://dx.doi.org/10.1007/s10618-012-0299-1"
     }
   }, 
   {
@@ -247,7 +247,7 @@
       "interactive": false, 
       "has_progress_bar": true, 
       "order": 1, 
-      "description": ""
+      "description": "A widget which uses a classifier as a tool for detecting noisy instances in data."
     }
   }, 
   {
@@ -525,7 +525,7 @@
       "interactive": false, 
       "has_progress_bar": true, 
       "order": 1, 
-      "description": ""
+      "description": "Widget implementing a saturation filter used to eliminate noisy training examples from labeled data.\nReference: http://www.researchgate.net/publication/228898399"
     }
   }, 
   {

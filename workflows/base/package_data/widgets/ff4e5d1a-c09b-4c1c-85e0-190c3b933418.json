@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/Upload-icon.png", 
-      "description": "", 
+      "description": "Uploads a file to the ClowdFlows server. Outputs the file name on the server.",
       "static_image": "Upload-icon.png", 
       "action": "load_file", 
       "visualization_view": "", 

@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/1688041475.png", 
-      "description": "", 
+      "description": "Downloads a file containing data or results from the ClowdFlows server.",
       "static_image": "1688041475.png", 
       "action": "string_to_file", 
       "visualization_view": "string_to_file", 

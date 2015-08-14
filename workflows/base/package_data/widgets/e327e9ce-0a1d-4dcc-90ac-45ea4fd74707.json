@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/d914a910_2.png", 
-      "description": "", 
+      "description": "Adds multiple integers and outputs their sum",
       "static_image": "d914a910_2.png", 
       "action": "add_multiple", 
       "visualization_view": "", 

@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Multiplies integers and outputs their product",
       "static_image": "", 
       "action": "multiply_integers", 
       "visualization_view": "", 

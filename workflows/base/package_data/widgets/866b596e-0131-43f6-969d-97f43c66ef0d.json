@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/Upload-icon_1.png", 
-      "description": "", 
+      "description": "Uploads a file to the server and outputs its contents.",
       "static_image": "Upload-icon_1.png", 
       "action": "load_to_string", 
       "visualization_view": "", 

@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/File.png", 
-      "description": "", 
+      "description": "Reads a file residing on the ClowdFlows server and outputs its contents.",
       "static_image": "File.png", 
       "action": "file_to_string", 
       "visualization_view": "", 
