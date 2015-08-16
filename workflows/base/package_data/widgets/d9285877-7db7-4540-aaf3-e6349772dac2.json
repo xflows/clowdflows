@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/Task-List-icon.png", 
-      "description": "", 
+      "description": "Creates a dictionary structure, by using 'key' and 'value' pairs.",
       "static_image": "Task-List-icon.png", 
       "action": "create_dictionary", 
       "visualization_view": "", 

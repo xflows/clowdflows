@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Appends the contents of the second list to the end of the first list.",
       "static_image": "", 
       "action": "base_concatenate_lists", 
       "visualization_view": "", 
