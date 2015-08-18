@@ -784,7 +784,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Scatter chart - ROC space. Provides an easy and intuitive visual performance evaluation in terms of Recall, Precision and F-measure. By introducing the F-isolines into the precision-recall space the 2-dimensional graphic representation reveals information about an additional, third evaluation measure. http://viper.ijs.si/types/scatter/"
     }
   }, 
   {
@@ -828,7 +828,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 7, 
-      "description": ""
+      "description": "Scatter chart - Precision-Recall space. Provides an easy and intuitive visual performance evaluation in terms of Recall, Precision and F-measure. By introducing the F-isolines into the precision-recall space the 2-dimensional graphic representation reveals information about an additional, third evaluation measure. http://viper.ijs.si/types/scatter/"
     }
   }, 
   {

@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Scatter chart - ROC space. Provides an easy and intuitive visual performance evaluation in terms of Recall, Precision and F-measure. By introducing the F-isolines into the precision-recall space the 2-dimensional graphic representation reveals information about an additional, third evaluation measure. http://viper.ijs.si/types/scatter/",
       "static_image": "", 
       "action": "vipercharts_roc_space", 
       "visualization_view": "vipercharts_roc_space_view", 
