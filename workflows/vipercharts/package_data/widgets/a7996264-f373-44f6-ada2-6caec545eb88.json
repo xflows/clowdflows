@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "The Rate-Driven chart widget plots the expected loss for the classifier as a function of the skew (fraction of positive examples multiplied by the cost of misclassifying a positive example) of the data on which it is deployed. The cost is calculated using the rate-driven threshold choice method. http://viper.ijs.si/types/curve/",
       "static_image": "", 
       "action": "vipercharts_rate_curve", 
       "visualization_view": "vipercharts_rate_curve_view", 

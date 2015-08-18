@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "The Cost curve widget plots the normalized expected cost of the classifier as a function of the skew (fraction of positive examples multiplied by the cost of misclassifying a positive example) of the data on which it is deployed. Lines and points on the cost curve correspond to points and lines on the ROC curve of the classifier. http://viper.ijs.si/types/curve/",
       "static_image": "", 
       "action": "vipercharts_cost_curve", 
       "visualization_view": "vipercharts_cost_curve_view", 

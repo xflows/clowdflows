@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Standard graphical presentation of algorithm performance. Also referred to as a bar chart. Visualizes the values of one or more performance measures of the evaluated algorithms.",
       "static_image": "", 
       "action": "vipercharts_column_chart", 
       "visualization_view": "vipercharts_column_chart_view", 

@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "The ROC Hull chart widget plots the upper convex hull of the ROC chart. Each point represents the classifier performance for a given threshold or ranking cut-off point. Points on the ROC Hull represent an optimal performance of the classifier for certain misclassification costs. http://viper.ijs.si/types/curve/",
       "static_image": "", 
       "action": "vipercharts_roc_hull", 
       "visualization_view": "vipercharts_roc_hull_view", 
