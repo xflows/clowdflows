@@ -35,7 +35,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Aggregates results of the detection of noisy instances in data"
     }
   }, 
   {
@@ -494,7 +494,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "VIPER: performance evaluation in the Precision-Recall (PR) space. An interactive widget showing the PR plot , which can also be saved as an image or printed."
     }
   }, 
   {

@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/aggregate-icon.png", 
-      "description": "", 
+      "description": "Aggregates results of the detection of noisy instances in data",
       "static_image": "", 
       "action": "aggr_results", 
       "visualization_view": "", 

@@ -2352,7 +2352,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Prints a WEKA decision tree. It outputs the textual representation of the tree."
     }
   }, 
   {
