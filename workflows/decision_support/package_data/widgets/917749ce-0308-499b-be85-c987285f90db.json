@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Interactive widget for sensitivity analysis: shows how each alternative's score changes while changing the importance of one attribute.",
       "static_image": "sensitivity.png", 
       "action": "decision_support_sensitivity_analysis", 
       "visualization_view": "decision_support_sensitivity_analysis_viewer", 

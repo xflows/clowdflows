@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": true, 
       "image": "images/CF-filter-black.png", 
-      "description": "", 
+      "description": "A widget which uses a classifier as a tool for detecting noisy instances in data.",
       "static_image": "CF-filter-black.png", 
       "action": "classification_filter", 
       "visualization_view": "", 

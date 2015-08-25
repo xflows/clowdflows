@@ -35,7 +35,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Reads a file residing on the ClowdFlows server and outputs its contents."
     }
   }, 
   {
@@ -93,7 +93,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 2, 
-      "description": ""
+      "description": "Uploads a big file to the ClowdFlows server."
     }
   }, 
   {
@@ -151,7 +151,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 2, 
-      "description": ""
+      "description": "Uploads a file to the ClowdFlows server. Outputs the file name on the server."
     }
   }, 
   {
@@ -209,7 +209,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 3, 
-      "description": ""
+      "description": "Uploads a file to the server and outputs its contents."
     }
   }, 
   {
@@ -267,7 +267,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 4, 
-      "description": ""
+      "description": "Downloads a file containing data or results from the ClowdFlows server."
     }
   }, 
   {
@@ -400,7 +400,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 2, 
-      "description": ""
+      "description": "Adds multiple integers and outputs their sum"
     }
   }, 
   {
@@ -574,7 +574,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 5, 
-      "description": ""
+      "description": "Multiplies integers and outputs their product"
     }
   }, 
   {
@@ -720,7 +720,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Appends the contents of the second list to the end of the first list."
     }
   }, 
   {
@@ -778,7 +778,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Creates a dictionary structure, by using 'key' and 'value' pairs."
     }
   }, 
   {
@@ -854,7 +854,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Creates a list structure, by using provided list elements."
     }
   }, 
   {
@@ -912,7 +912,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Creates a tuple structure of arbitrary length, by using provided elements."
     }
   }, 
   {
@@ -1194,7 +1194,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Merges two dictionary structures."
     }
   }, 
   {
@@ -1328,7 +1328,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 2, 
-      "description": ""
+      "description": "Creates a list of values ranging from 0 to n-1, where n is the range length."
     }
   }, 
   {
@@ -1621,7 +1621,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 6, 
-      "description": ""
+      "description": "Transform a ClowdFlows (or a Python) object into a format that can be stored."
     }
   }, 
   {
@@ -1679,7 +1679,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 7, 
-      "description": ""
+      "description": "Creates a ClowdFlows (or a Python) object from its pickled format."
     }
   }, 
   {

@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Displays SDM-SEGS rules.",
       "static_image": "ilp.png", 
       "action": "ilp_sdmsegs_rule_viewer", 
       "visualization_view": "ilp_sdmsegs_rule_viewer", 

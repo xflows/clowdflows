@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "The Lift curve widget plots the true positive rate (also found in ROC and PR curves) against the predicted positive rate (the fraction of examples, classified as positive). Each point represents the classifier performance for a given threshold or ranking cut-off point. http://viper.ijs.si/types/curve/",
       "static_image": "", 
       "action": "vipercharts_lift_curve", 
       "visualization_view": "vipercharts_lift_curve_view", 

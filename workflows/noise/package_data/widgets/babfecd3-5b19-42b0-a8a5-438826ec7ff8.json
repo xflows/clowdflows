@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": true, 
       "image": "images/SF-filter_1.png", 
-      "description": "", 
+      "description": "Widget implementing a saturation filter used to eliminate noisy training examples from labeled data.\nReference: http://www.researchgate.net/publication/228898399",
       "static_image": "SF-filter_1.png", 
       "action": "saturation_filter", 
       "visualization_view": "", 

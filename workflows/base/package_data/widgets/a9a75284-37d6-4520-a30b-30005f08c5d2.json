@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Uploads a big file to the ClowdFlows server.",
       "static_image": "", 
       "action": "base_load_big_file", 
       "visualization_view": "", 

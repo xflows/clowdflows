@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/Task-List-icon.png", 
-      "description": "", 
+      "description": "Creates a tuple structure of arbitrary length, by using provided elements.",
       "static_image": "Task-List-icon.png", 
       "action": "create_tuple", 
       "visualization_view": "", 

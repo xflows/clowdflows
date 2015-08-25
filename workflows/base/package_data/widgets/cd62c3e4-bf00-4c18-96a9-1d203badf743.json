@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Merges two dictionary structures.",
       "static_image": "", 
       "action": "base_merge_dictionaries", 
       "visualization_view": "", 

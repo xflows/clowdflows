@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/pickle.png", 
-      "description": "", 
+      "description": "Transform a ClowdFlows (or a Python) object into a format that can be stored.",
       "static_image": "pickle.png", 
       "action": "pickle_object", 
       "visualization_view": "", 

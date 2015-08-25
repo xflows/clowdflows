@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "The Kendall chart widget presents the difference between the normalized expected cost of the classifier and the normalized expected cost of an ideal classifier. Costs for both classifiers are calculated using the rate-driven threshold choice method. http://viper.ijs.si/types/curve/",
       "static_image": "", 
       "action": "vipercharts_kendall_curve", 
       "visualization_view": "vipercharts_kendall_curve_view", 

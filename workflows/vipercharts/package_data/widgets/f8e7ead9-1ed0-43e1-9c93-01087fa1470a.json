@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "A widget which illustrates the trade off between the true positive rate and the true negative rate of a classifier. Each point represents the classifier performance for a given threshold or ranking cut-off point. http://viper.ijs.si/types/curve/",
       "static_image": "", 
       "action": "vipercharts_roc_curve", 
       "visualization_view": "vipercharts_roc_curve_view", 

@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Widgets which provides charts useful for decision support, making reports and overviewing data.",
       "static_image": "piechart.png", 
       "action": "decision_support_charts", 
       "visualization_view": "decision_support_charts_viewer", 

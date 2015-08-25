@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "A widget which implements Aleph, an Inductive Logic Programming (ILP) system.\nhttp://www.cs.ox.ac.uk/activities/machlearn/Aleph/aleph.html",
       "static_image": "ilp.png", 
       "action": "ilp_aleph", 
       "visualization_view": "", 

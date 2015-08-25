@@ -517,7 +517,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Feedforward artificial neural network, using backpropagation to classify instances"
     }
   }, 
   {
@@ -611,7 +611,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Naive Bayes classifier. Naive Bayes is a simple probabilistic classifier based on applying the Bayes' theorem."
     }
   }, 
   {
@@ -705,7 +705,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Widget implementing a REP Tree, which is a fast decision tree learner. Builds a decision/regression tree using information gain/variance and prunes it using reduced-error pruning (with backfitting). Only sorts values for numeric attributes once. Missing values are dealt with by splitting the corresponding instances into pieces (i.e. as in C4.5)."
     }
   }, 
   {
@@ -799,7 +799,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "A tree that considers K randomly chosen attributes at each node, and performs no pruning."
     }
   }, 
   {
@@ -987,7 +987,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "A support vector classifier, trained using a sequential minimal optimization algorithm."
     }
   }, 
   {
@@ -1965,7 +1965,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Evaluate a model using cross validation."
     }
   }, 
   {
@@ -2146,7 +2146,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Reads a dataset into a format suitable for WEKA methods"
     }
   }, 
   {
@@ -2258,7 +2258,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Prepares a WEKA model for printing"
     }
   }, 
   {
@@ -2352,7 +2352,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Prints a WEKA decision tree. It outputs the textual representation of the tree."
     }
   }, 
   {
@@ -2522,7 +2522,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Transforms a dataset from the WEKA internal representation to ARFF textual format"
     }
   }, 
   {

@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/pickle_1.png", 
-      "description": "", 
+      "description": "Creates a ClowdFlows (or a Python) object from its pickled format.",
       "static_image": "pickle_1.png", 
       "action": "unpickle_object", 
       "visualization_view": "", 

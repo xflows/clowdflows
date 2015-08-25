@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "A widget which provides the PR (precision recall) curve. It presents the trade off between the precision (the fraction of examples classified as positive that are truly positive) and the recall or true positive rate. Each point represents the classifier performance for a given threshold or ranking cut-off point. http://viper.ijs.si/types/curve/",
       "static_image": "", 
       "action": "vipercharts_pr_curve", 
       "visualization_view": "vipercharts_pr_curve_view", 

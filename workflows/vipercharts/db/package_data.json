@@ -238,7 +238,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Standard graphical presentation of algorithm performance. Also referred to as a bar chart. Visualizes the values of one or more performance measures of the evaluated algorithms."
     }
   }, 
   {
@@ -294,7 +294,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "The Lift curve widget plots the true positive rate (also found in ROC and PR curves) against the predicted positive rate (the fraction of examples, classified as positive). Each point represents the classifier performance for a given threshold or ranking cut-off point. http://viper.ijs.si/types/curve/"
     }
   }, 
   {
@@ -356,7 +356,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 2, 
-      "description": ""
+      "description": "A widget which illustrates the trade off between the true positive rate and the true negative rate of a classifier. Each point represents the classifier performance for a given threshold or ranking cut-off point. http://viper.ijs.si/types/curve/"
     }
   }, 
   {
@@ -418,7 +418,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 3, 
-      "description": ""
+      "description": "The ROC Hull chart widget plots the upper convex hull of the ROC chart. Each point represents the classifier performance for a given threshold or ranking cut-off point. Points on the ROC Hull represent an optimal performance of the classifier for certain misclassification costs. http://viper.ijs.si/types/curve/"
     }
   }, 
   {
@@ -480,7 +480,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 4, 
-      "description": ""
+      "description": "A widget which provides the PR (precision recall) curve. It presents the trade off between the precision (the fraction of examples classified as positive that are truly positive) and the recall or true positive rate. Each point represents the classifier performance for a given threshold or ranking cut-off point. http://viper.ijs.si/types/curve/"
     }
   }, 
   {
@@ -542,7 +542,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 5, 
-      "description": ""
+      "description": "The Cost curve widget plots the normalized expected cost of the classifier as a function of the skew (fraction of positive examples multiplied by the cost of misclassifying a positive example) of the data on which it is deployed. Lines and points on the cost curve correspond to points and lines on the ROC curve of the classifier. http://viper.ijs.si/types/curve/"
     }
   }, 
   {
@@ -604,7 +604,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 6, 
-      "description": ""
+      "description": "The Kendall chart widget presents the difference between the normalized expected cost of the classifier and the normalized expected cost of an ideal classifier. Costs for both classifiers are calculated using the rate-driven threshold choice method. http://viper.ijs.si/types/curve/"
     }
   }, 
   {
@@ -666,7 +666,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 7, 
-      "description": ""
+      "description": "The Rate-Driven chart widget plots the expected loss for the classifier as a function of the skew (fraction of positive examples multiplied by the cost of misclassifying a positive example) of the data on which it is deployed. The cost is calculated using the rate-driven threshold choice method. http://viper.ijs.si/types/curve/"
     }
   }, 
   {
@@ -784,7 +784,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": ""
+      "description": "Scatter chart - ROC space. Provides an easy and intuitive visual performance evaluation in terms of Recall, Precision and F-measure. By introducing the F-isolines into the precision-recall space the 2-dimensional graphic representation reveals information about an additional, third evaluation measure. http://viper.ijs.si/types/scatter/"
     }
   }, 
   {
@@ -828,7 +828,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 7, 
-      "description": ""
+      "description": "Scatter chart - Precision-Recall space. Provides an easy and intuitive visual performance evaluation in terms of Recall, Precision and F-measure. By introducing the F-isolines into the precision-recall space the 2-dimensional graphic representation reveals information about an additional, third evaluation measure. http://viper.ijs.si/types/scatter/"
     }
   }, 
   {

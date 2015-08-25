@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/Create-Range_1.png", 
-      "description": "", 
+      "description": "Creates a list of values ranging from 0 to n-1, where n is the range length.",
       "static_image": "Create-Range_1.png", 
       "action": "create_range", 
       "visualization_view": "", 

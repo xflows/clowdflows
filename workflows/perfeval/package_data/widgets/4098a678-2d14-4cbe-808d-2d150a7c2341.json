@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "images/viper600-60_1.png", 
-      "description": "", 
+      "description": "VIPER: performance evaluation in the Precision-Recall (PR) space. An interactive widget showing the PR plot , which can also be saved as an image or printed.",
       "static_image": "", 
       "action": "pr_space", 
       "visualization_view": "pr_space_view", 
