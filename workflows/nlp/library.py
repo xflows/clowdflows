@@ -9,8 +9,7 @@ import re
 import itertools
 import subprocess
 
-def definition_sentences2(input_dict):
-    return {}
+webservices_totrtale_url = "http://vihar.ijs.si:8104"
 
 def merge_sentences(input_dict):
     """
@@ -89,20 +88,19 @@ def load_corpus2(input_dict):
     '''
     use_text = input_dict["use_text"] == "true"
 
-    if use_text:
+    if use_text: #checkbox is checked
         fname = "input_string.txt"
         text = input_dict[u"text"].strip()
         if len(text) == 0:
             raise Exception("Please input text or uncheck the Use text checkbox.")
         data = base64.b64encode(text)
-    else:
+    else: #checkbox is not checked
         f = safeOpen(input_dict['file'])
         fname = os.path.basename(input_dict['file'])
         data = base64.b64encode(f.read())
     
     #define web service
-    webservices_url = "http://vihar.ijs.si:8104"
-    webservice_url = webservices_url + "/parseFile"
+    webservice_url = webservices_totrtale_url + "/parseFile"
     params = {"filename": fname, "text": data} #set params
     
     #call web service
@@ -115,7 +113,10 @@ def load_corpus2(input_dict):
     """
     return {'corpus': content[u"resp"]}
 
-def parse_xml(path, lemma_name = "lemma", pos_name = "ana", word_tag = "w", sentence_tag = "s"):
+def parse_tei(path, lemma_name = "lemma", pos_name = "ana", word_tag = "w", sentence_tag = "s"):
+    """
+    Helper function for load tagged corpus. Function parses TEI format.
+    """
     from xml.dom import minidom
 
     fname = os.path.basename(path)
@@ -141,6 +142,9 @@ def parse_xml(path, lemma_name = "lemma", pos_name = "ana", word_tag = "w", sent
     return  "".join(tab_separated_output).encode("utf8", "ignore")
 
 def parse_tab_separated(path, word_index, token_index, lemma_index, pos_index, start_tag, end_tag, separator):
+    """
+    Helper function for load tagged corpus. Function parses tab separated format.
+    """
     
     fname = os.path.basename(path)
     f = safeOpen(path)
@@ -152,7 +156,7 @@ def parse_tab_separated(path, word_index, token_index, lemma_index, pos_index, s
 
     sentence_counter = 0
     for line in f:
-        splitted_line = re.split(separator, line.strip())#.split(separator)
+        splitted_line = re.split(separator, line.strip())
         if len(splitted_line) >= 4:
             new_line = splitted_line[word_index] + "\t" + splitted_line[token_index] + "\t" + splitted_line[lemma_index] + "\t" + splitted_line[pos_index] + "\t\n"
             data.append(new_line)
@@ -175,10 +179,9 @@ def parse_tab_separated(path, word_index, token_index, lemma_index, pos_index, s
 
 def load_tagged_corpus(input_dict):
     """
-    Loads TEI file, which is output of totrtale
+    Loads a file in TEI or XML format.
     """
     data = ""
-    
     
     if input_dict["input_format"] == "tab_format":
         try:
@@ -205,16 +208,6 @@ def load_tagged_corpus(input_dict):
             data = parse_tab_separated(input_dict['file'], word_index=word_index, token_index=token_index, lemma_index=lemma_index, pos_index=pos_index, start_tag=start_tag, end_tag=end_tag, separator=separator)
 
     else:
-        #fname = os.path.basename(input_dict['file'])
-        #data = f.read()
-        
-        #path = os.path.dirname(os.path.abspath(__file__)) + os.sep
-        #subprocess.call(["java -jar " + path+"jing.jar " + path+ "tei_imp.rng  <" + data + " >" + "out.txt"],shell=True)
-        #f = open("out.txt", "r")
-        #error = f.read()
-        #if len(error) > 0:
-        #    raise Exception(error)
-
         lemma_name = input_dict["lemma_name"]
         pos_name = input_dict["pos_name"]
         sentence_tag = input_dict["sentence_tag"]
@@ -223,18 +216,19 @@ def load_tagged_corpus(input_dict):
         if len(lemma_name) < 1 or len(pos_name) < 1 or len(sentence_tag) < 1 or len(word_tag) < 1:
             raise Exception("Please review parameters for TEI format.")
 
-        data = parse_xml(input_dict['file'], lemma_name = lemma_name, pos_name = pos_name, word_tag = word_tag, sentence_tag = sentence_tag)
+        data = parse_tei(input_dict['file'], lemma_name = lemma_name, pos_name = pos_name, word_tag = word_tag, sentence_tag = sentence_tag)
 
     return {'annotations': data}
 
 def totrtale_request(params):
-    webservices_url = "http://vihar.ijs.si:8104"
-    webservice_url = webservices_url + "/runToTrTaLe"
+    webservice_url = webservices_totrtale_url + "/runToTrTaLe"
     return post(webservice_url, params=params)
 
 def nlp_totrtale2(input_dict, widget):
     '''
     Calls the totrtale web service.
+
+    Function splits huge documents in smaller pieces and sends them separatly to totrtale webservice. If there is multiple smaller documents, this functions groups them and sends them together.
     '''
     import multiprocessing
     from xml.dom.minidom import parseString
@@ -242,16 +236,15 @@ def nlp_totrtale2(input_dict, widget):
     import math
     import copy
 
-    progress_accumulator = 0
-    widget.progress= progress_accumulator
+    progress_accumulator = 0 #progress for progress bar
+    widget.progress= progress_accumulator 
     widget.save()
 
-    processes = 4
-    DOCUMENTS_SIZE = 3 * int(1e6) #Document size (MB) per process
-    SINGLE_DOC_SIZE = 1 * int(1e6)
+    processes = 4 #number of processes for multiprocessing
+    DOCUMENTS_SIZE = 3 * int(1e6) #size of a group of documents in MB per process
+    SINGLE_DOC_SIZE = 1 * int(1e6) #size of a single document per process
     
     corpus = parseString(input_dict['corpus'])
-    
     language = input_dict['lang'], 
     postprocess = input_dict['postprocess'] == "true"
     xml = input_dict['xml'] == "true"
@@ -270,15 +263,14 @@ def nlp_totrtale2(input_dict, widget):
     pool = multiprocessing.Pool(processes=processes)
     documents = corpus.getElementsByTagName('TEI')
     documents_size, document_num, process_num = 0, 0, 1
-    #titles = []
 
     results, docs, single_docs = [], [], []
     for i, document in enumerate(documents):
         doc_len = len(document.getElementsByTagName('body')[0].getElementsByTagName('p')[0].childNodes[0].nodeValue)
         doc_title = document.getElementsByTagName('title')[0].firstChild.nodeValue
-        #titles.append(doc_title)
         print doc_title
         if doc_len > SINGLE_DOC_SIZE:
+            #split single huge document
             
             predhead = '<TEI xmlns="http://www.tei-c.org/ns/1.0">\n'
             title = '<title>' + doc_title + '</title>\n'
@@ -319,6 +311,7 @@ def nlp_totrtale2(input_dict, widget):
                     single_docs.append(2)
             print "document was split",doc_title, len(single_docs)
         else:
+            #group multiple smaller documents.
             docs.append(document.toxml())
             document_num+=1
             documents_size += doc_len
@@ -336,11 +329,9 @@ def nlp_totrtale2(input_dict, widget):
                 single_docs.append(-1)
     pool.close()
 
-
-
+    #we need to join results of totrtale processing back together. Funtion also updates progress bar.
     response = ["" for i in results]
     progress = [True]
-    
     while any(progress):
         time.sleep(1)
         progress = [not result.ready() for result in results]
@@ -356,6 +347,7 @@ def nlp_totrtale2(input_dict, widget):
                     progress = [False]
                     raise Exception(resp["error"])
                 if xml:
+                    #results are in xml
                     if single_docs[i] == 0:
                         print "remove back", i
                         pos1 = resp["resp"].find("<s>")
@@ -374,6 +366,7 @@ def nlp_totrtale2(input_dict, widget):
                         print "nothing to remove"
                         response[i] = resp["resp"]
                 else:
+                    #results are tab separated
                     if single_docs[i] in [0,1]:
                         pos2 = resp["resp"].find("</TEXT>")
                         response[i] = resp["resp"][:pos2]    
@@ -388,7 +381,8 @@ def nlp_totrtale2(input_dict, widget):
                 widget.save()
     pool.join()
     
-    if not any(progress):
+    #return output only if all processes are completed.
+    if not any(progress): 
         widget.progress=100
         widget.save()
         response = "".join(response)
@@ -417,7 +411,6 @@ def nlp_totrtale(input_dict):
                                    outputAsXML=xml)
     errors = response['error']
     if errors:
-        # todo report this as warning
         print errors
     return {'annotations': response['annotatedFile']}
 
@@ -440,9 +433,9 @@ def nlp_term_extraction(input_dict):
 
 def get_default_stop_word_list(lang):
     if lang == "en":
-        return ["et al"]
+        return ["et al", "example", "use", "source", "method", "approach", "table", "figure", "percentage"]
     elif lang == "sl":
-        return ["itd", "slon", "ovira", "zob"]
+        return ["itd", "primer", "uporaba", "vir", "metoda", "pristop", "tabela", "slika", "odstotek"]
 
 def nlp_term_extraction2(input_dict):
     '''
@@ -460,7 +453,7 @@ def nlp_term_extraction2(input_dict):
             user_stop_words.decode("utf-8")
         except Exception:
             raise Exception("Please make sure that your stop words list is encoded in UTF-8.")
-        user_stop_words = user_stop_words.split("\n")
+        user_stop_words = [word.strip() for word in user_stop_words.split("\n")]
 
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
         annotations = TEItoTab(annotations)
@@ -700,4 +693,8 @@ def TEItoTab(text, doc_id=0):
             newText.append("<TEXT title=" + title + ">\t\n")
         elif "</body>" in l:
             newText.append("</TEXT>\t\n")
-    return "".join(newText)    
+    return "".join(newText)
+
+def definition_sentences2(input_dict):
+    return {}
+    

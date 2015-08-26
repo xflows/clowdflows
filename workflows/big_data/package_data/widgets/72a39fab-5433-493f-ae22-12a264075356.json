@@ -37,8 +37,42 @@
       "parameter_type": "text", 
       "variable": "majority", 
       "parameter": true, 
-      "order": 5, 
+      "order": 7, 
       "uid": "1b23ead1-b104-4d27-a6fd-b23de6efa28f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
+      "name": "Randomly chosen medoids", 
+      "short_name": "rcm", 
+      "default": "3", 
+      "description": "Number of randomly chosen medoids to calculate similaty.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "num_medoids", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "1bbcbc2c-a9d5-4427-a8ef-e4dd58c22f86"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
+      "name": "Separate most represented class", 
+      "short_name": "smp", 
+      "default": "true", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "separate_max", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "2ccff5c1-7e06-4887-863d-7acf76209e50"
     }
   }, 
   {
@@ -54,7 +88,7 @@
       "parameter_type": "text", 
       "variable": "seed", 
       "parameter": true, 
-      "order": 8, 
+      "order": 11, 
       "uid": "31c68e34-3bff-41bb-bf77-925c6171a6f6"
     }
   }, 
@@ -79,9 +113,26 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "72a39fab-5433-493f-ae22-12a264075356", 
+      "name": "Min samples in leaf", 
+      "short_name": "msl", 
+      "default": "5", 
+      "description": "The minimum number of samples in newly created leaves. A split is discarded if after the split, one of the leaves would contain less then min samples leaf samples", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "min_samples_leaf", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "3a893a69-f22e-448b-9a92-222573c655ba"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
       "name": "Max tree nodes", 
       "short_name": "mnt", 
-      "default": "20", 
+      "default": "100", 
       "description": "Max. number of decision tree nodes", 
       "required": true, 
       "multi": false, 
@@ -90,6 +141,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "3d48b0d0-a304-45d5-9d18-3ca17e8fcf05"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
+      "name": "Discretization accuracy", 
+      "short_name": "dac", 
+      "default": "1", 
+      "description": "Continuous attributes are converted to discrete intervals. For exact estimation use 0 (slowest) or increase the number to get an approximation (faster).", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "accuracy", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "3ff0f040-3d11-413f-975a-1fde57bf289b"
     }
   }, 
   {
@@ -122,7 +190,7 @@
       "parameter_type": "select", 
       "variable": "measure", 
       "parameter": true, 
-      "order": 6, 
+      "order": 8, 
       "uid": "9a8f3c2c-265c-4b37-93c1-d58fee9dd7af"
     }
   }, 
@@ -132,32 +200,15 @@
       "widget": "72a39fab-5433-493f-ae22-12a264075356", 
       "name": "Min samples split", 
       "short_name": "lmi", 
-      "default": "5", 
+      "default": "10", 
       "description": "Min. number of samples to split the node", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
       "variable": "leaf_min_inst", 
       "parameter": true, 
-      "order": 4, 
+      "order": 5, 
       "uid": "ac032f38-f4a4-44ea-8c02-96506d4f8e86"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "72a39fab-5433-493f-ae22-12a264075356", 
-      "name": "Discretization", 
-      "short_name": "spf", 
-      "default": "equal_freq", 
-      "description": "Select equal frequency discretization or random discretization for numeric attributes", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "split_fun", 
-      "parameter": true, 
-      "order": 7, 
-      "uid": "c43bfc92-e1af-42fc-8d73-f7348ebdaf40"
     }
   }, 
   {
@@ -188,24 +239,6 @@
       "uid": "364fbb94-f200-4acc-a801-d29339f0d4c5", 
       "value": "info_gain", 
       "abstract_input": "9a8f3c2c-265c-4b37-93c1-d58fee9dd7af"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Equal frequency discretization", 
-      "uid": "4ea5c55a-92a8-4541-a1cc-9aabb0fd82c0", 
-      "value": "equal_freq", 
-      "abstract_input": "c43bfc92-e1af-42fc-8d73-f7348ebdaf40"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "Random discretization", 
-      "uid": "838f798d-e00e-4216-8990-ebc3c1929c0e", 
-      "value": "random", 
-      "abstract_input": "c43bfc92-e1af-42fc-8d73-f7348ebdaf40"
     }
   }
 ]
