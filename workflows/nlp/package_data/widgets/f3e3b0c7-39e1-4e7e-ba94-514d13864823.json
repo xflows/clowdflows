@@ -28,7 +28,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f3e3b0c7-39e1-4e7e-ba94-514d13864823", 
-      "name": "Pre-defined patterns", 
+      "name": "Predefined patterns", 
       "short_name": "pat", 
       "default": "begin_novar", 
       "description": "Pre-defined patterns", 
@@ -37,7 +37,7 @@
       "parameter_type": "select", 
       "variable": "pattern", 
       "parameter": true, 
-      "order": 1, 
+      "order": 3, 
       "uid": "687262b9-e21f-4279-8a72-e017b5ed9e72"
     }
   }, 
@@ -71,7 +71,7 @@
       "parameter_type": "select", 
       "variable": "lang", 
       "parameter": true, 
-      "order": 1, 
+      "order": 2, 
       "uid": "dcfab65d-8fe9-4b8f-b2c5-fe3a93274453"
     }
   }, 
@@ -108,7 +108,7 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Begin allvar", 
+      "name": "Begin allvar (only for English)", 
       "uid": "5c6c3598-8a05-4918-9c38-992202d16fc9", 
       "value": "begin_allvar", 
       "abstract_input": "687262b9-e21f-4279-8a72-e017b5ed9e72"

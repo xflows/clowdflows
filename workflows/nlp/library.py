@@ -518,6 +518,10 @@ def nlp_def_extraction_patterns2(input_dict):
     lang = input_dict['lang']
     pattern = input_dict['pattern']
 
+    if lang == "sl" and pattern == "begin_allvar":
+        raise Exception("Pattern begin_allvar is not supported for slovene language.")
+
+
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
         annotations = TEItoTab(annotations)
 
