@@ -14,7 +14,7 @@ Category Classification
 
 Widget: Naive Bayes
 ````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Naive Bayes with MapReduce
@@ -31,7 +31,7 @@ MapReduce version of algorithm is proposed by Cheng-Tao Chu; Sang Kyun Kim, Yi-A
 
 Widget: Gaussian Naive Bayes predict
 `````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Fit Model (Fit Model URL)
@@ -42,7 +42,7 @@ Widget: Gaussian Naive Bayes predict
 
 Widget: Linear SVM
 ```````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Linear proximal SVM with MapReduce
@@ -60,7 +60,7 @@ Algorithm is proposed by Glenn Fung, O. L. Mangasarian. Incremental Support Vect
 
 Widget: Linear proximal SVM predict
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Fit model (Fit model URL.)
@@ -70,7 +70,7 @@ Widget: Linear proximal SVM predict
 
 Widget: Logistic regression
 ````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Logistic regression with MapReduce
@@ -89,7 +89,7 @@ MapReduce version of algorithm is proposed by Cheng-Tao Chu; Sang Kyun Kim, Yi-A
 
 Widget: Logistic regression predict
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 The logistic regression classifier is a binary classifier that uses numeric features. The classifier learns by fitting theta parameters to the training data using Newton-Raphson method to update theta parameters.
@@ -101,7 +101,7 @@ The logistic regression classifier is a binary classifier that uses numeric feat
 
 Widget: Multinomial Naive Bayes fit
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 The NB classifier uses discrete features. The NB estimates conditional probabilities P(x_j = k|y = c) and prior probabilities P(y) from the training data, where k denotes the value of discrete feature x_j and c denotes a training label.
@@ -112,7 +112,7 @@ The NB classifier uses discrete features. The NB estimates conditional probabili
 
 Widget: Multinomial Naive Bayes predict
 ````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 The NB classifier uses discrete features. The NB estimates conditional probabilities P(x_j = k|y = c) and prior probabilities P(y) from the training data, where k denotes the value of discrete feature x_j and c denotes a training label.
@@ -127,7 +127,7 @@ Category Ensembles
 
 Widget: Distributed Random Forest
 ``````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Distributed Random Forest
@@ -168,7 +168,7 @@ Similar algorithm is proposed in: Justin D Basilico, M Arthur Munson, Tamara G K
 
 Widget: Distributed Weighted Forest
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Distributed Weighted Forest
@@ -207,7 +207,7 @@ Algorithm selects a forest (or more, if it finds equal similarities with medoids
 
 Widget: Forest of Distributed Decision Trees
 `````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Forest of Distributed Decision Trees
@@ -245,7 +245,7 @@ Category Clustering
 
 Widget: k-means
 ````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 kmeans with MapReduce
@@ -262,7 +262,7 @@ The k-means is a partitional clustering technique that attempts to find a user-s
 
 Widget: k-Means predict
 ````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Fit model (Fit Model URL)
@@ -274,7 +274,7 @@ Category Regression
 
 Widget: Linear regression
 ``````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Linear regression with MapReduce
@@ -291,7 +291,7 @@ MapReduce version of algorithm is proposed by Cheng-Tao Chu; Sang Kyun Kim, Yi-A
 
 Widget: Linear regression predict
 ``````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 The linear regression fits theta parameters to training data.
@@ -303,7 +303,7 @@ The linear regression fits theta parameters to training data.
 
 Widget: Locally weighted regression
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Locally weighted linear regression with MapReduce
@@ -321,7 +321,7 @@ Category Evaluation
 
 Widget: Apply Classifier
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Widget takes a model on input and applies it on test data
@@ -337,7 +337,7 @@ Widget takes a model on input and applies it on test data
 
 Widget: Classification Accuracy
 ````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Results
@@ -348,7 +348,7 @@ Widget: Classification Accuracy
 
 Widget: Mean squared error
 ```````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Results
@@ -361,7 +361,7 @@ Category Utilities
 
 Widget: Model View
 ```````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Widget takes a model on input and saves to a file that user can review.
@@ -373,7 +373,7 @@ Widget takes a model on input and saves to a file that user can review.
 
 Widget: Class distribution
 ```````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Widget measures distribution of classes in subsets of data.
@@ -385,7 +385,7 @@ Widget measures distribution of classes in subsets of data.
 
 Widget: Input Dataset
 ~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Parameter: Input URLs (Multiple URLs can be specified. An URL should be accessible via HTTP and not HTTPS. )
@@ -419,7 +419,7 @@ Widget: Input Dataset
 
 Widget: Results View
 ~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Results (Results URL)
@@ -434,7 +434,7 @@ Category Graph operations
 
 Widget: Biomine graph visualizer
 `````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/bio3graph/static/bio3graph/icons/widget/BiomineVisualizer.png
+.. image:: ../workflows/bio3graph/static/bio3graph/icons/widget/BiomineVisualizer.png
    :width: 50
    :height: 50
 Biomine graph visualizer which is run as a Java applet.
@@ -446,7 +446,7 @@ Biomine graph visualizer which is run as a Java applet.
 
 Widget: Colour relations
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Colours given relations in a given graph. Pink colour is used.
@@ -458,7 +458,7 @@ Colours given relations in a given graph. Pink colour is used.
 
 Widget: Construct triplet network
 ``````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Constructs a network from input triplets. Biomine's .bmg format as well as NetworkX data structure is produced.
@@ -470,7 +470,7 @@ Constructs a network from input triplets. Biomine's .bmg format as well as Netwo
 
 Widget: Find transitive relations
 ``````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Finds redundant transitive relations in the new network (which are already present in the given existing network).
@@ -482,7 +482,7 @@ Finds redundant transitive relations in the new network (which are already prese
 
 Widget: Incremental merge of networks
 ``````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Merges an exiting network and a new network and colours the relations accordingly: old: black colour, overlap: green colour, new: red colour.
@@ -495,7 +495,7 @@ Merges an exiting network and a new network and colours the relations accordingl
 
 Widget: Remove relations
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Removes given relations from a given network.
@@ -507,7 +507,7 @@ Removes given relations from a given network.
 
 Widget: Reset colours
 ``````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Resets colours of all relations to black.
@@ -518,7 +518,7 @@ Resets colours of all relations to black.
 
 Widget: Transform Biomine to NetworkX
 ``````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Transforms a Biomine graph into a NetworkX data structure.
@@ -530,7 +530,7 @@ Transforms a Biomine graph into a NetworkX data structure.
 
 Widget: Transform NetworkX to Biomine 
 ```````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Converts NetworkX data structure into a Biomine graph.
@@ -544,7 +544,7 @@ Category Transcriptomic analysis utilities
 
 Widget: Construct compounds csv file from gene synonyms
 ````````````````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Constructs a csv file from gene synonyms dictionary
@@ -555,7 +555,7 @@ Constructs a csv file from gene synonyms dictionary
 
 Widget: Get gene synonyms from GPSDB
 `````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Obtains all synonyms of all genes using the GPSDB service.
@@ -566,7 +566,7 @@ Obtains all synonyms of all genes using the GPSDB service.
 
 Widget: Map Entrez ID to NCBI symbol
 `````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Maps every Entrez gene ID in the input list to the corresponding NCBI gene symbol.
@@ -579,7 +579,7 @@ Category Triplet extraction
 
 Widget: Build default vocabulary
 `````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Constructs a default Bio3graph vocabulary.
@@ -589,7 +589,7 @@ Constructs a default Bio3graph vocabulary.
 
 Widget: Export triplets to text
 ````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Exports the input list of triplet structures into text.
@@ -600,7 +600,7 @@ Exports the input list of triplet structures into text.
 
 Widget: Build default vocabulary with custom compounds
 ```````````````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Constructs a default Bio3graph vocabulary but with custom compounds.
@@ -611,7 +611,7 @@ Constructs a default Bio3graph vocabulary but with custom compounds.
 
 Widget: Build vocabulary
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Constructs a Bio3graph vocabulary for triplet extraction using the provided files.
@@ -629,7 +629,7 @@ Constructs a Bio3graph vocabulary for triplet extraction using the provided file
 
 Widget: Create document from file
 ``````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Creates a document object structure from a given file.
@@ -640,7 +640,7 @@ Creates a document object structure from a given file.
 
 Widget: Create document from string
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Creates a document object structure from a string.
@@ -651,7 +651,7 @@ Creates a document object structure from a string.
 
 Widget: Extract triplets
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Bio3graph triplet extraction method.
@@ -663,7 +663,7 @@ Bio3graph triplet extraction method.
 
 Widget: Normalise triplets
 ```````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Normalises all triplets in the input list.
@@ -675,7 +675,7 @@ Normalises all triplets in the input list.
 
 Widget: Parse sentences
 ````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Parses document sentences using the GENIA POS tagger.
@@ -686,7 +686,7 @@ Parses document sentences using the GENIA POS tagger.
 
 Widget: Split sentences
 ````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Splits document text into sentences using NLTK's Punkt sentence splitter.
@@ -699,7 +699,7 @@ Category PMC utilities
 
 Widget: Filter non-OA PMC publications
 ```````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Removes ids of non-open access publications from the input list
@@ -711,7 +711,7 @@ Removes ids of non-open access publications from the input list
 
 Widget: Get XML of PMC article
 ```````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Downloads the XML document of the give article(s).
@@ -722,7 +722,7 @@ Downloads the XML document of the give article(s).
 
 Widget: Get fulltext of PMC article
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Downloads the full text of the given PMC article(s). Note: fulltext is available only for PMC OA subset!
@@ -734,7 +734,7 @@ Downloads the full text of the given PMC article(s). Note: fulltext is available
 
 Widget: XML to Fulltext
 ````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Create full texts of the given PMC article XMLs.
@@ -745,7 +745,7 @@ Create full texts of the given PMC article XMLs.
 
 Widget: Mesh filter
 ````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Output: Term Filter file (Text file with all mesh terms)
@@ -753,7 +753,7 @@ Widget: Mesh filter
 
 Widget: Search PubMed Central
 ``````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Performs a query to PubMed Central.
@@ -768,7 +768,7 @@ Category Decision Support
 
 Widget: Decision support charts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/decision_support/static/decision_support/icons/widget/piechart.png
+.. image:: ../workflows/decision_support/static/decision_support/icons/widget/piechart.png
    :width: 50
    :height: 50
 Widgets which provides charts useful for decision support, making reports and overviewing data.
@@ -780,7 +780,7 @@ Widgets which provides charts useful for decision support, making reports and ov
 
 Widget: Sensitivity analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/decision_support/static/decision_support/icons/widget/sensitivity.png
+.. image:: ../workflows/decision_support/static/decision_support/icons/widget/sensitivity.png
    :width: 50
    :height: 50
 Interactive widget for sensitivity analysis: shows how each alternative's score changes while changing the importance of one attribute.
@@ -792,7 +792,7 @@ Interactive widget for sensitivity analysis: shows how each alternative's score 
 
 Widget: Weighted Sum Model
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/decision_support/static/decision_support/icons/widget/wsm.png
+.. image:: ../workflows/decision_support/static/decision_support/icons/widget/wsm.png
    :width: 50
    :height: 50
 Interactive widget for calculating a weighted sum of a vector of numbers.
@@ -807,7 +807,7 @@ Category Files
 
 Widget: File to string
 ~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/File.png
+.. image:: ../workflows/base/static/base/icons/widget/File.png
    :width: 50
    :height: 50
 Reads a file residing on the ClowdFlows server and outputs its contents.
@@ -819,7 +819,7 @@ Reads a file residing on the ClowdFlows server and outputs its contents.
 
 Widget: Load big file
 ~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Uploads a big file to the ClowdFlows server.
@@ -830,7 +830,7 @@ Uploads a big file to the ClowdFlows server.
 
 Widget: Load file
 ~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/Upload-icon.png
+.. image:: ../workflows/base/static/base/icons/widget/Upload-icon.png
    :width: 50
    :height: 50
 Uploads a file to the ClowdFlows server. Outputs the file name on the server.
@@ -842,7 +842,7 @@ Uploads a file to the ClowdFlows server. Outputs the file name on the server.
 
 Widget: Load file to string
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/Upload-icon_1.png
+.. image:: ../workflows/base/static/base/icons/widget/Upload-icon_1.png
    :width: 50
    :height: 50
 Uploads a file to the server and outputs its contents.
@@ -854,7 +854,7 @@ Uploads a file to the server and outputs its contents.
 
 Widget: String to file
 ~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/1688041475.png
+.. image:: ../workflows/base/static/base/icons/widget/1688041475.png
    :width: 50
    :height: 50
 Downloads a file containing data or results from the ClowdFlows server.
@@ -868,7 +868,7 @@ Category HBP
 
 Widget: Interactive analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Dataset
@@ -878,7 +878,7 @@ Widget: Interactive analysis
 
 Widget: Search criteria
 ~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Output: Query (The query)
@@ -887,7 +887,7 @@ Widget: Search criteria
 
 Widget: Submit search criteria
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Query
@@ -899,7 +899,7 @@ Category ILP
 
 Widget: Aleph
 ~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/ilp/static/ilp/icons/widget/ilp.png
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
    :width: 50
    :height: 50
 A widget which implements Aleph, an Inductive Logic Programming (ILP) system.
@@ -950,7 +950,7 @@ http://www.cs.ox.ac.uk/activities/machlearn/Aleph/aleph.html
 
 Widget: RSD
 ~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/ilp/static/ilp/icons/widget/ilp.png
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
    :width: 50
    :height: 50
 Relational subgroup discovery by Zelezny et al.
@@ -1000,7 +1000,7 @@ Relational subgroup discovery by Zelezny et al.
 
 Widget: SDM-Aleph
 ~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/ilp/static/ilp/icons/widget/ws.png
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ws.png
    :width: 50
    :height: 50
 SDM-Aleph web service.
@@ -1037,7 +1037,7 @@ SDM-Aleph web service.
 
 Widget: SDM-SEGS
 ~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 SDM-SEGS web service.
@@ -1093,7 +1093,7 @@ SDM-SEGS web service.
 
 Widget: SDM-SEGS Rule Viewer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/ilp/static/ilp/icons/widget/ilp.png
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
    :width: 50
    :height: 50
 Displays SDM-SEGS rules.
@@ -1105,7 +1105,7 @@ Displays SDM-SEGS rules.
 
 Widget: TreeLiker
 ~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/ilp/static/ilp/icons/widget/ilp.png
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
    :width: 50
    :height: 50
 * Input: Template (Feature template)
@@ -1132,7 +1132,7 @@ Widget: TreeLiker
 
 Widget: Wordification
 ~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/ilp/static/ilp/icons/widget/ilp.png
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
    :width: 50
    :height: 50
 Widget which performs transformation of a relational database into a corpus of documents, where each document can be characterized by a set of properties describing the entries of a relational database.
@@ -1158,7 +1158,7 @@ Category Integers
 
 Widget: Add integers
 ~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/d914a910.png
+.. image:: ../workflows/base/static/base/icons/widget/d914a910.png
    :width: 50
    :height: 50
 Adds two integers
@@ -1171,7 +1171,7 @@ Adds two integers
 
 Widget: Add multiple integers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/d914a910_2.png
+.. image:: ../workflows/base/static/base/icons/widget/d914a910_2.png
    :width: 50
    :height: 50
 Adds multiple integers and outputs their sum
@@ -1182,7 +1182,7 @@ Adds multiple integers and outputs their sum
 
 Widget: Create Integer
 ~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/417px-Latex_integers.svg.png
+.. image:: ../workflows/base/static/base/icons/widget/417px-Latex_integers.svg.png
    :width: 50
    :height: 50
 Creates an integer object from a parameter.
@@ -1194,7 +1194,7 @@ Creates an integer object from a parameter.
 
 Widget: Filter integers
 ~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Filters some integers
@@ -1205,7 +1205,7 @@ Filters some integers
 
 Widget: Multiply integers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Multiplies integers and outputs their product
@@ -1216,7 +1216,7 @@ Multiplies integers and outputs their product
 
 Widget: Subtract integers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/d914a910_1.png
+.. image:: ../workflows/base/static/base/icons/widget/d914a910_1.png
    :width: 50
    :height: 50
 Subtracts two integers
@@ -1233,7 +1233,7 @@ Category 3D virtual environment
 
 Widget: Tuk the Hunter 3D demonstrator
 ```````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 3D demonstrator for the Tuk the Hunter children story
@@ -1246,7 +1246,7 @@ Widget: Tuk the Hunter 3D demonstrator
 
 Widget: Tuk the Hunter 3D demonstrator (local)
 ```````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Local copyt of the 3D demonstrator for the Tuk the Hunter children story
@@ -1259,7 +1259,7 @@ Local copyt of the 3D demonstrator for the Tuk the Hunter children story
 
 Widget: Virtual environment visualization
 ``````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: NLP data (Results of NLP processing)
@@ -1272,7 +1272,7 @@ Category NLP components
 
 Widget: Event extraction
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Calls the LIIR NLP annotation (TERENCE NLP service)
@@ -1283,7 +1283,7 @@ Calls the LIIR NLP annotation (TERENCE NLP service)
 
 Widget: Mapping to Knowledge representation
 ````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Calls the mapping to knowledge representation service
@@ -1296,7 +1296,7 @@ Calls the mapping to knowledge representation service
 
 Widget: Mapping to Knowledge representation
 ````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Calls the mapping to knowledge representation service
@@ -1309,7 +1309,7 @@ Calls the mapping to knowledge representation service
 
 Widget: Mapping to Knowledge representation (latest)
 `````````````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Calls the mapping to knowledge representation service
@@ -1324,7 +1324,7 @@ Calls the mapping to knowledge representation service
 
 Widget: Mapping to Knowledge representation (precomputed, latest)
 ``````````````````````````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Returns the precomputed mapping to knowledge representation for Tuk story
@@ -1339,7 +1339,7 @@ Returns the precomputed mapping to knowledge representation for Tuk story
 
 Widget: Mapping to Knowledge representation (precomputed)
 ``````````````````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Returns the precomputed mapping to knowledge representation for Tuk story
@@ -1352,7 +1352,7 @@ Returns the precomputed mapping to knowledge representation for Tuk story
 
 Widget: Mapping to Knowledge representation (Tuk, precomputed)
 ```````````````````````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Returns the precomputed mapping to knowledge representation for Tuk story
@@ -1366,7 +1366,7 @@ Returns the precomputed mapping to knowledge representation for Tuk story
 
 Widget: Mapping to KR golden standard
 ``````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 A link to the golden standard XML file for mapping to KR
@@ -1376,7 +1376,7 @@ A link to the golden standard XML file for mapping to KR
 
 Widget: Semantic role labeling
 ```````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Calls the semantic role labeling service
@@ -1390,7 +1390,7 @@ Calls the semantic role labeling service
 
 Widget: Semantic role labeling (Tuk specific)
 ``````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Calls the semantic role labeling service
@@ -1404,7 +1404,7 @@ Calls the semantic role labeling service
 
 Widget: Syntactic and semantic processing
 ``````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Calls the LIIR NLP annotation (TERENCE NLP service)
@@ -1418,7 +1418,7 @@ Category Utilities
 
 Widget: String to statically hosted file
 `````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Creates a statically served file from the given (text) content.
@@ -1431,7 +1431,7 @@ Creates a statically served file from the given (text) content.
 
 Widget: View XML
 `````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Displays XML in a modal window
@@ -1447,7 +1447,7 @@ Category 3D virtual environment
 
 Widget: Tuk the Hunter 3D demonstrator
 ```````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 3D demonstrator for the Tuk the Hunter children story
@@ -1459,7 +1459,7 @@ Widget: Tuk the Hunter 3D demonstrator
 
 Widget: Tuk the Hunter 3D demonstrator (local)
 ```````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Local copy of the 3D demonstrator for the Tuk the Hunter children story
@@ -1473,7 +1473,7 @@ Category NLP components
 
 Widget: Coreference resolution
 ```````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function performs coreference resolution on tokenised text.
@@ -1486,7 +1486,7 @@ This function performs coreference resolution on tokenised text.
 
 Widget: Direct speech detection
 ````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Detection of direct speech.
@@ -1501,7 +1501,7 @@ Detection of direct speech.
 
 Widget: Event and temporal relation detection
 ``````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function is used to detect events and temporal relations between these events
@@ -1513,7 +1513,7 @@ This function is used to detect events and temporal relations between these even
 
 Widget: Mapping to Knowledge representation
 ````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Calls the mapping to knowledge representation service
@@ -1528,7 +1528,7 @@ Calls the mapping to knowledge representation service
 
 Widget: Mapping to Knowledge representation (precomputed)
 ``````````````````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Returns the precomputed mapping to knowledge representation for Tuk story
@@ -1542,7 +1542,7 @@ Returns the precomputed mapping to knowledge representation for Tuk story
 
 Widget: Prepare input for KR mapping
 `````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function prepares the input for the mapping to knowledge representation function.
@@ -1556,7 +1556,7 @@ This function prepares the input for the mapping to knowledge representation fun
 
 Widget: Preprocessing
 ``````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Preprocessing of raw text
@@ -1569,7 +1569,7 @@ Preprocessing of raw text
 
 Widget: Semantic role labelling
 ````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function performs semantic role labelling on tokenised text.
@@ -1582,7 +1582,7 @@ This function performs semantic role labelling on tokenised text.
 
 Widget: SRL pronoun resolution
 ```````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Pronoun resolution (a preparation for producing mapping)
@@ -1599,7 +1599,7 @@ Category NLP components (PG)
 
 Widget: G-DEE (text)
 `````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function calls the command line version of G-DEE (a document engineering environment for clinical guidelines).
@@ -1617,7 +1617,7 @@ This function calls the command line version of G-DEE (a document engineering en
 
 Widget: G-DEE (url)
 ````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function calls the command line version of G-DEE (a document engineering environment for clinical guidelines).
@@ -1631,7 +1631,7 @@ This function calls the command line version of G-DEE (a document engineering en
 
 Widget: PG coreference resolution
 ``````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function provide coreference resolution.
@@ -1645,7 +1645,7 @@ This function provide coreference resolution.
 
 Widget: PG event and temporal relation detection
 `````````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function is used to detect events and temporal relations between these events
@@ -1658,7 +1658,7 @@ This function is used to detect events and temporal relations between these even
 
 Widget: PG mapping
 ```````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function performs mapping of the patient guideline text and its linguistic annotations to the set of templates provided by Teesside University. Developed @ KUL.
@@ -1674,7 +1674,7 @@ This function performs mapping of the patient guideline text and its linguistic 
 
 Widget: PG preprocessing
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function is used to tokenise text and detect information about its structure
@@ -1688,7 +1688,7 @@ This function is used to tokenise text and detect information about its structur
 
 Widget: PG semantic role labelling
 ```````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This function performs semantic role labelling on tokenised text for patient guidelines.
@@ -1703,7 +1703,7 @@ Category Utilities
 
 Widget: String to statically hosted file
 `````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Creates a statically served file from the given (text) content.
@@ -1716,7 +1716,7 @@ Creates a statically served file from the given (text) content.
 
 Widget: View XML
 `````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Displays XML in a modal window
@@ -1732,7 +1732,7 @@ Category Domain mapping
 
 Widget: Map examples to domain (Aleph features)
 ````````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/mysql/static/mysql/icons/widget/mysql.png
+.. image:: ../workflows/mysql/static/mysql/icons/widget/mysql.png
    :width: 50
    :height: 50
 * Input: positive class
@@ -1745,7 +1745,7 @@ Widget: Map examples to domain (Aleph features)
 
 Widget: Map examples to domain (RSD)
 `````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/mysql/static/mysql/icons/widget/mysql.png
+.. image:: ../workflows/mysql/static/mysql/icons/widget/mysql.png
    :width: 50
    :height: 50
 * Input: training data (context) (training context)
@@ -1762,7 +1762,7 @@ Widget: Map examples to domain (RSD)
 
 Widget: Map examples to domain (TreeLiker)
 ```````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/mysql/static/mysql/icons/widget/mysql.png
+.. image:: ../workflows/mysql/static/mysql/icons/widget/mysql.png
    :width: 50
    :height: 50
 * Input: training data (context) (training context)
@@ -1779,7 +1779,7 @@ Widget: Map examples to domain (TreeLiker)
 
 Widget: Database Context
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/mysql/static/mysql/icons/widget/mysql.png
+.. image:: ../workflows/mysql/static/mysql/icons/widget/mysql.png
    :width: 50
    :height: 50
 * Input: connection
@@ -1790,7 +1790,7 @@ Widget: Database Context
 
 Widget: Database To Aleph
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/mysql/static/mysql/icons/widget/mysql.png
+.. image:: ../workflows/mysql/static/mysql/icons/widget/mysql.png
    :width: 50
    :height: 50
 * Input: discretization intervals (dictionary of intervals for discretization)
@@ -1805,7 +1805,7 @@ Widget: Database To Aleph
 
 Widget: Database To Orange Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/mysql/static/mysql/icons/widget/mysql.png
+.. image:: ../workflows/mysql/static/mysql/icons/widget/mysql.png
    :width: 50
    :height: 50
 * Input: context (Database context object)
@@ -1815,7 +1815,7 @@ Widget: Database To Orange Table
 
 Widget: Database To RSD
 ~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/mysql/static/mysql/icons/widget/mysql.png
+.. image:: ../workflows/mysql/static/mysql/icons/widget/mysql.png
    :width: 50
    :height: 50
 * Input: context (Database context object)
@@ -1828,7 +1828,7 @@ Widget: Database To RSD
 
 Widget: Database To TreeLiker
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/mysql/static/mysql/icons/widget/mysql.png
+.. image:: ../workflows/mysql/static/mysql/icons/widget/mysql.png
    :width: 50
    :height: 50
 * Input: context (Database context object)
@@ -1840,7 +1840,7 @@ Widget: Database To TreeLiker
 
 Widget: MySQL Connect
 ~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/mysql/static/mysql/icons/widget/mysql.png
+.. image:: ../workflows/mysql/static/mysql/icons/widget/mysql.png
    :width: 50
    :height: 50
 * Parameter: user
@@ -1857,7 +1857,7 @@ Category Definition extraction
 
 Widget: Definition extraction by patterns
 ``````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: Annotations (Totrtale annotations)
@@ -1881,7 +1881,7 @@ Widget: Definition extraction by patterns
 
 Widget: Definition extraction by patterns2
 ```````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: Annotations (Totrtale annotations)
@@ -1903,7 +1903,7 @@ Widget: Definition extraction by patterns2
 
 Widget: Definition extraction by terms
 ```````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: Candidates (Term candidates)
@@ -1940,7 +1940,7 @@ Widget: Definition extraction by terms
 
 Widget: Definition extraction by terms2
 ````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: Candidates (Term candidates)
@@ -1975,7 +1975,7 @@ Widget: Definition extraction by terms2
 
 Widget: Definition extraction by wordnet
 `````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: Annotations (Totrtale annotations)
@@ -1992,7 +1992,7 @@ Widget: Definition extraction by wordnet
 
 Widget: Definition extraction by wordnet2
 ``````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: Annotations (Totrtale annotations)
@@ -2007,7 +2007,7 @@ Widget: Definition extraction by wordnet2
 
 Widget: Merge sentences
 ````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: Sentences
@@ -2023,7 +2023,7 @@ Widget: Merge sentences
 
 Widget: Merge sentences
 ````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: Sentences
@@ -2040,7 +2040,7 @@ Widget: Merge sentences
 
 Widget: Merge sentences2
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: Sentences
@@ -2056,7 +2056,7 @@ Widget: Merge sentences2
 
 Widget: Sentence viewer
 ````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: candidates
@@ -2066,7 +2066,7 @@ Widget: Sentence viewer
 
 Widget: Sentence viewer2
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: candidates
@@ -2078,7 +2078,7 @@ Widget: Sentence viewer2
 
 Widget: Load corpus
 ~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Parameter: Web service address
@@ -2089,7 +2089,7 @@ Widget: Load corpus
 
 Widget: Load corpus2
 ~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Parameter: File
@@ -2101,7 +2101,7 @@ Widget: Load corpus2
 
 Widget: Load tagged corpus
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Parameter: File
@@ -2129,7 +2129,7 @@ Widget: Load tagged corpus
 
 Widget: Term candidates viewer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 * Input: candidates
@@ -2139,7 +2139,7 @@ Widget: Term candidates viewer
 
 Widget: Term extraction
 ~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 Term extraction from totrtale annotations.
@@ -2158,7 +2158,7 @@ Term extraction from totrtale annotations.
 
 Widget: Term extraction2
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 Term extraction from totrtale annotations.
@@ -2192,7 +2192,7 @@ Term extraction from totrtale annotations.
 
 Widget: ToTrTaLe
 ~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 A tool developed to process historical (Slovene) text, which annotates words in a TEI encoded corpus with their modern-day equivalents, morphosyntactic tags and lemmas. Such a tool is useful for developing historical corpora of highly-inflecting languages, enabling full text search in digital libraries of historical texts, for modernising such texts for today's readers and making it simpler to correct OCR transcriptions.
@@ -2215,7 +2215,7 @@ A tool developed to process historical (Slovene) text, which annotates words in 
 
 Widget: ToTrTaLe2
 ~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/nlp/static/nlp/icons/widget/nlp.png
+.. image:: ../workflows/nlp/static/nlp/icons/widget/nlp.png
    :width: 50
    :height: 50
 A tool developed to process historical (Slovene) text, which annotates words in a TEI encoded corpus with their modern-day equivalents, morphosyntactic tags and lemmas. Such a tool is useful for developing historical corpora of highly-inflecting languages, enabling full text search in digital libraries of historical texts, for modernising such texts for today's readers and making it simpler to correct OCR transcriptions.
@@ -2239,7 +2239,7 @@ Category Noise Filters
 
 Widget: Classification Filter
 ``````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/noise/static/noise/icons/widget/CF-filter-black.png
+.. image:: ../workflows/noise/static/noise/icons/widget/CF-filter-black.png
    :width: 50
    :height: 50
 A widget which uses a classifier as a tool for detecting noisy instances in data.
@@ -2266,7 +2266,7 @@ A widget which uses a classifier as a tool for detecting noisy instances in data
 
 Widget: Matrix Factorization Filter
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/noise/static/noise/icons/widget/CF-filter-black.png
+.. image:: ../workflows/noise/static/noise/icons/widget/CF-filter-black.png
    :width: 50
    :height: 50
 * Input: Dataset
@@ -2276,7 +2276,7 @@ Widget: Matrix Factorization Filter
 
 Widget: Saturation Filter
 ``````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/noise/static/noise/icons/widget/SF-filter_1.png
+.. image:: ../workflows/noise/static/noise/icons/widget/SF-filter_1.png
    :width: 50
    :height: 50
 Widget implementing a saturation filter used to eliminate noisy training examples from labeled data.
@@ -2295,7 +2295,7 @@ Reference: http://www.researchgate.net/publication/228898399
 
 Widget: HARF
 ~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/noise/static/noise/icons/widget/HARF_60-48-RF.png
+.. image:: ../workflows/noise/static/noise/icons/widget/HARF_60-48-RF.png
    :width: 50
    :height: 50
 High Agreement Random Forest
@@ -2314,7 +2314,7 @@ High Agreement Random Forest
 
 Widget: NoiseRank
 ~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/noise/static/noise/icons/widget/NoiseRank3.png
+.. image:: ../workflows/noise/static/noise/icons/widget/NoiseRank3.png
    :width: 50
    :height: 50
 Widget implementing an ensemble-based noise ranking methodology for explicit noise and outlier identification.
@@ -2332,7 +2332,7 @@ Category Objects
 
 Widget: Concatenate lists
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Appends the contents of the second list to the end of the first list.
@@ -2344,7 +2344,7 @@ Appends the contents of the second list to the end of the first list.
 
 Widget: Create Dictionary
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/Task-List-icon.png
+.. image:: ../workflows/base/static/base/icons/widget/Task-List-icon.png
    :width: 50
    :height: 50
 Creates a dictionary structure, by using 'key' and 'value' pairs.
@@ -2356,7 +2356,7 @@ Creates a dictionary structure, by using 'key' and 'value' pairs.
 
 Widget: Create List
 ~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/Task-List-icon.png
+.. image:: ../workflows/base/static/base/icons/widget/Task-List-icon.png
    :width: 50
    :height: 50
 Creates a list structure, by using provided list elements.
@@ -2368,7 +2368,7 @@ Creates a list structure, by using provided list elements.
 
 Widget: Create Tuple
 ~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/Task-List-icon.png
+.. image:: ../workflows/base/static/base/icons/widget/Task-List-icon.png
    :width: 50
    :height: 50
 Creates a tuple structure of arbitrary length, by using provided elements.
@@ -2379,7 +2379,7 @@ Creates a tuple structure of arbitrary length, by using provided elements.
 
 Widget: Evaluate string
 ~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Safe evaluation of strings.
@@ -2390,7 +2390,7 @@ Safe evaluation of strings.
 
 Widget: Extract results
 ~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 This widget is useful for preparing results for visualization using the Viper widget.
@@ -2407,7 +2407,7 @@ This widget is useful for preparing results for visualization using the Viper wi
 
 Widget: Javascript Snippet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Input
@@ -2417,7 +2417,7 @@ Widget: Javascript Snippet
 
 Widget: List average
 ~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Computes the average of the given input list.
@@ -2428,7 +2428,7 @@ Computes the average of the given input list.
 
 Widget: Merge dictionaries
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Merges two dictionary structures.
@@ -2440,7 +2440,7 @@ Merges two dictionary structures.
 
 Widget: Ravel list
 ~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Ravels and removes empty sublists from the input list. Useful in for loops.
@@ -2451,7 +2451,7 @@ Ravels and removes empty sublists from the input list. Useful in for loops.
 
 Widget: Unzip list
 ~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Unzips a list of tuples for the given index.
@@ -2477,7 +2477,7 @@ Unzips a list of tuples for the given index.
 
 Widget: Create Range
 ~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/Create-Range_1.png
+.. image:: ../workflows/base/static/base/icons/widget/Create-Range_1.png
    :width: 50
    :height: 50
 Creates a list of values ranging from 0 to n-1, where n is the range length.
@@ -2489,7 +2489,7 @@ Creates a list of values ranging from 0 to n-1, where n is the range length.
 
 Widget: Delay
 ~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/482063585452602669.png
+.. image:: ../workflows/base/static/base/icons/widget/482063585452602669.png
    :width: 50
    :height: 50
 Delays for a certain amount of seconds
@@ -2502,7 +2502,7 @@ Delays for a certain amount of seconds
 
 Widget: Ensemble
 ~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/ensemble-small.png
+.. image:: ../workflows/base/static/base/icons/widget/ensemble-small.png
    :width: 50
    :height: 50
 * Input: Data Indices
@@ -2518,7 +2518,7 @@ Widget: Ensemble
 
 Widget: Object viewer
 ~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/glass_3.png
+.. image:: ../workflows/base/static/base/icons/widget/glass_3.png
    :width: 50
    :height: 50
 Displays any input.
@@ -2530,7 +2530,7 @@ Displays any input.
 
 Widget: Pickle object
 ~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/pickle.png
+.. image:: ../workflows/base/static/base/icons/widget/pickle.png
    :width: 50
    :height: 50
 Transform a ClowdFlows (or a Python) object into a format that can be stored.
@@ -2542,7 +2542,7 @@ Transform a ClowdFlows (or a Python) object into a format that can be stored.
 
 Widget: Unpickle object
 ~~~~~~~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/pickle_1.png
+.. image:: ../workflows/base/static/base/icons/widget/pickle_1.png
    :width: 50
    :height: 50
 Creates a ClowdFlows (or a Python) object from its pickled format.
@@ -2553,7 +2553,7 @@ Creates a ClowdFlows (or a Python) object from its pickled format.
 
 Widget: Stopwatch
 ~~~~~~~~~~~~~~~~~~
-.. image:: ../../mothra_master_fordoc/workflows/base/static/base/icons/widget/482063585452602669.png
+.. image:: ../workflows/base/static/base/icons/widget/482063585452602669.png
    :width: 50
    :height: 50
 Logs the moment of the signal passing this widget (widget beeing run). If there is datetime in the input, it also outputs timespan difference between current time and input datetime.
@@ -2571,7 +2571,7 @@ Category Classification and Regression
 
 Widget: C4.5 Tree Learner
 ``````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-C45.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-C45.png
    :width: 50
    :height: 50
 C4.5 learner by Ross Quinlan, this widget provides a graphical interface to the well-known Quinlan’s C4.5 algorithm for construction of classification tree.
@@ -2581,7 +2581,7 @@ C4.5 learner by Ross Quinlan, this widget provides a graphical interface to the 
 
 Widget: CN2 Rule Learner
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-CN2-small.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-CN2-small.png
    :width: 50
    :height: 50
 Use this widget to learn a set of if-then rules from data. The algorithm is based on CN2 algorithm.
@@ -2591,7 +2591,7 @@ Use this widget to learn a set of if-then rules from data. The algorithm is base
 
 Widget: Classification Tree
 ````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-ClassificationTree.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-ClassificationTree.png
    :width: 50
    :height: 50
 Classification Tree Learner.
@@ -2602,7 +2602,7 @@ Classification Tree Learner.
 
 Widget: Logistic Regression
 ````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-LogisticRegression.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-LogisticRegression.png
    :width: 50
    :height: 50
 Logistic regression is a statistical classification method that fits data to a logistic function. A logistic regression classification model stores estimated values of regression coefficients and their significances, and uses them to predict classes and class probabilities.
@@ -2612,7 +2612,7 @@ Logistic regression is a statistical classification method that fits data to a l
 
 Widget: Lookup Learner
 ```````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/lookup.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/lookup.png
    :width: 50
    :height: 50
 Lookup classifiers predict classes by looking into stored lists of cases. A learner sorts the data instances and merges those with the same feature values.
@@ -2622,7 +2622,7 @@ Lookup classifiers predict classes by looking into stored lists of cases. A lear
 
 Widget: Majority Learner
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-Majority.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-Majority.png
    :width: 50
    :height: 50
 A Learner that returns the majority class, disregarding the example’s attributes. Accuracy of classifiers is often compared with the “default accuracy”, that is, the accuracy of a classifier which classifies all instances to the majority class. The training of such classifier consists of computing the class distribution and its modus. This “learning algorithm” will most often be used as a baseline, that is, to determine if some other learning algorithm provides any information about the class.
@@ -2632,7 +2632,7 @@ A Learner that returns the majority class, disregarding the example’s attribut
 
 Widget: Naive Bayes
 ````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-NaiveBayes.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-NaiveBayes.png
    :width: 50
    :height: 50
 A Naive Bayes classifier is a probabilistic classifier that estimates conditional probabilities of the dependant variable from training data and uses them for classification of new data instances. The algorithm is very fast for discrete features, but runs slower for continuous features.
@@ -2643,7 +2643,7 @@ A Naive Bayes classifier is a probabilistic classifier that estimates conditiona
 
 Widget: Random Forest
 ``````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-RandomForest.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-RandomForest.png
    :width: 50
    :height: 50
 Random forest is a classification technique that, given the set of class-labeled data, builds a set of classification trees. Each tree is developed from a bootstrap sample from the training data. When developing individual trees, an arbitrary subset of attributes is drawn (hence the term “random”) from which the best attribute for the split is selected. The classification is based on the majority vote from individually developed tree classifiers in the forest.
@@ -2655,7 +2655,7 @@ Random forest is a classification technique that, given the set of class-labeled
 
 Widget: Rule Induction
 ```````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-Rule-Learner.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-Rule-Learner.png
    :width: 50
    :height: 50
 A base rule induction learner. The algorithm follows separate-and-conquer strategy, which has its origins in the AQ family of algorithms (Fuernkranz J.; Separate-and-Conquer Rule Learning, Artificial Intelligence Review 13, 3-54, 1999). Such algorithms search for the optimal rule for the current training set, remove the covered training instances (separate) and repeat the process (conquer) on the remaining data.
@@ -2665,7 +2665,7 @@ A base rule induction learner. The algorithm follows separate-and-conquer strate
 
 Widget: Support Vector Machine
 ```````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-SVM_1.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-SVM_1.png
    :width: 50
    :height: 50
 Support vector machine learner.
@@ -2676,7 +2676,7 @@ Support vector machine learner.
 
 Widget: Support Vector Machine Easy
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-SVMEasy-new.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-SVMEasy-new.png
    :width: 50
    :height: 50
 Learning algorithm which helps with the data normalization and parameter tuning.
@@ -2686,7 +2686,7 @@ Learning algorithm which helps with the data normalization and parameter tuning.
 
 Widget: k-Nearest Neighbours
 `````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/orange-kNN.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/orange-kNN.png
    :width: 50
    :height: 50
 The nearest neighbors algorithm is one of the most basic, lazy machine learning algorithms. The learner only stores the training data, and the classifier makes predictions based on the instances most similar to the data instance being classified.
@@ -2698,7 +2698,7 @@ Category SegMine
 
 Widget: Biomine connection search
 ``````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/BiomineConnections.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/BiomineConnections.png
    :width: 50
    :height: 50
 * Input: End nodes
@@ -2714,7 +2714,7 @@ Widget: Biomine connection search
 
 Widget: Biomine medoid search
 ``````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/BiomineMedoids.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/BiomineMedoids.png
    :width: 50
    :height: 50
 * Input: Start nodes
@@ -2728,7 +2728,7 @@ Widget: Biomine medoid search
 
 Widget: Biomine neighbourhood search
 `````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/BiomineNeighbourhood.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/BiomineNeighbourhood.png
    :width: 50
    :height: 50
 * Input: Start nodes
@@ -2744,7 +2744,7 @@ Widget: Biomine neighbourhood search
 
 Widget: Biomine search (plants)
 ````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Calls the Biomine search engine (for plant data, updated version at JSI).
@@ -2757,7 +2757,7 @@ Calls the Biomine search engine (for plant data, updated version at JSI).
 
 Widget: Biomine visualizer
 ```````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/BiomineVisualizer.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/BiomineVisualizer.png
    :width: 50
    :height: 50
 * Input: Graph
@@ -2767,7 +2767,7 @@ Widget: Biomine visualizer
 
 Widget: Biomine visualizer (js)
 ````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Graph visualization for Biomine in Javascript.
@@ -2778,7 +2778,7 @@ Graph visualization for Biomine in Javascript.
 
 Widget: Cutoff (logFC)
 ```````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Gene ranks (sorted list of pairs (geneID, rank))
@@ -2793,7 +2793,7 @@ Widget: Cutoff (logFC)
 
 Widget: Filter unknown ATH genes
 `````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Gene ranks (list of pairs (gene, rank))
@@ -2802,7 +2802,7 @@ Widget: Filter unknown ATH genes
 
 Widget: Filter unknown STU genes
 `````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: Gene ranks (list of pairs (gene, rank))
@@ -2811,7 +2811,7 @@ Widget: Filter unknown STU genes
 
 Widget: Fold change gene filter
 ````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/fc.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/fc.png
    :width: 50
    :height: 50
 Filters the genes according to FC threshold.
@@ -2823,7 +2823,7 @@ Filters the genes according to FC threshold.
 
 Widget: Gene Ranker
 ````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/GeneRanker.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/GeneRanker.png
    :width: 50
    :height: 50
 * Input: Microarray Table (Orange data table)
@@ -2836,7 +2836,7 @@ Widget: Gene Ranker
 
 Widget: Hierarchical clustering
 ````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Performs hierarchical clustering using the selected linkage.
@@ -2867,7 +2867,7 @@ Performs hierarchical clustering using the selected linkage.
 
 Widget: Map miRNA to gene (tarbase)
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: miRNA ranks (list of pairs (rna, rank))
@@ -2876,7 +2876,7 @@ Widget: Map miRNA to gene (tarbase)
 
 Widget: Map miRNA to gene (targetscan)
 ```````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Maps a the input list of ranked miRNA into a ranked list of genes using the Targetscan database.
@@ -2887,7 +2887,7 @@ Maps a the input list of ranked miRNA into a ranked list of genes using the Targ
 
 Widget: Rank plotter
 `````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/RankPlotter.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/RankPlotter.png
    :width: 50
    :height: 50
 * Input: Gene ranks (List of pairs (geneID, rank))
@@ -2897,7 +2897,7 @@ Widget: Rank plotter
 
 Widget: Read microarray data from file
 ```````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Reads a csv of gene expression data in SegMine specific format into an Orange data table.
@@ -2922,7 +2922,7 @@ Reads a csv of gene expression data in SegMine specific format into an Orange da
 
 Widget: Resolve gene synonyms
 ``````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/genesynonyms.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/genesynonyms.png
    :width: 50
    :height: 50
 * Input: gene ranks (list of pairs (gene, rank))
@@ -2932,7 +2932,7 @@ Widget: Resolve gene synonyms
 
 Widget: Resolve STU gene names
 ```````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Maps known probe STU gene names into GoMapMan/rep names
@@ -2943,7 +2943,7 @@ Maps known probe STU gene names into GoMapMan/rep names
 
 Widget: SEGS
 `````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/SEGS_HMR.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/SEGS_HMR.png
    :width: 50
    :height: 50
 * Input: Input data (List of pairs (geneID, rank))
@@ -2972,7 +2972,7 @@ Widget: SEGS
 
 Widget: SEGS ATH
 `````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/SEGS_HMR.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/SEGS_HMR.png
    :width: 50
    :height: 50
 * Input: Input data (List of pairs (geneID, rank))
@@ -3000,7 +3000,7 @@ Widget: SEGS ATH
 
 Widget: SEGS Rule browser
 ``````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/RuleBrowser.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/RuleBrowser.png
    :width: 50
    :height: 50
 * Input: SEGS set of rules
@@ -3010,7 +3010,7 @@ Widget: SEGS Rule browser
 
 Widget: SEGS rules as Orange table
 ```````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Transform SEGS rules into an Orange ExampleTable. Useful for e.g., clustering.
@@ -3022,7 +3022,7 @@ Transform SEGS rules into an Orange ExampleTable. Useful for e.g., clustering.
 
 Widget: SEGS STU
 `````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/SEGS_HMR.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/SEGS_HMR.png
    :width: 50
    :height: 50
 * Input: Input data (List of pairs (geneID, rank))
@@ -3050,7 +3050,7 @@ Widget: SEGS STU
 
 Widget: Select Biomine database
 ````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Calls the API of the new Biomine service to get the list of available databases.
@@ -3060,7 +3060,7 @@ Calls the API of the new Biomine service to get the list of available databases.
 
 Widget: Select hierarchical cluster
 ````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 A non-interactive variant of Hierarchical clustering for SegMine.
@@ -3071,7 +3071,7 @@ A non-interactive variant of Hierarchical clustering for SegMine.
 
 Widget: T-test gene filter
 ```````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/segmine/static/segmine/icons/widget/ttest.png
+.. image:: ../workflows/segmine/static/segmine/icons/widget/ttest.png
    :width: 50
    :height: 50
 Filters the genes according to t-test p-value threshold.
@@ -3083,7 +3083,7 @@ Filters the genes according to t-test p-value threshold.
 
 Widget: Union and intersection of attributes for SegMine rule table
 ````````````````````````````````````````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 Returns a set of strings computed as a union and intersection of all attributes of a SegMine rule table (genes or terms).
@@ -3097,7 +3097,7 @@ Category Subgroup discovery
 
 Widget: Build subgroups
 ````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/subgroup_discovery/static/subgroup_discovery/icons/widget/builder.png
+.. image:: ../workflows/subgroup_discovery/static/subgroup_discovery/icons/widget/builder.png
    :width: 50
    :height: 50
 * Input: Data table
@@ -3109,7 +3109,7 @@ Widget: Build subgroups
 
 Widget: RelSets
 ````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 The RelSets algorithm proposed by Garriga et al. (2008):
@@ -3127,7 +3127,7 @@ http://kt.ijs.si/petra_kralj/RelSets/
 
 Widget: Query data with subgroups
 ``````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/subgroup_discovery/static/subgroup_discovery/icons/widget/querydatawithsg.png
+.. image:: ../workflows/subgroup_discovery/static/subgroup_discovery/icons/widget/querydatawithsg.png
    :width: 50
    :height: 50
 * Input: Data table (data table)
@@ -3139,7 +3139,7 @@ Widget: Query data with subgroups
 
 Widget: Select subgroups
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/subgroup_discovery/static/subgroup_discovery/icons/widget/selectsg.png
+.. image:: ../workflows/subgroup_discovery/static/subgroup_discovery/icons/widget/selectsg.png
    :width: 50
    :height: 50
 * Input: SD rules (rules)
@@ -3149,7 +3149,7 @@ Widget: Select subgroups
 
 Widget: Subgroup measures
 ``````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+.. image:: ../workflows/static/widget-icons/question-mark.png
    :width: 50
    :height: 50
 * Input: SD rules (rules)
@@ -3158,7 +3158,7 @@ Widget: Subgroup measures
 
 Widget: Subgroup ROC visualization
 ```````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/subgroup_discovery/static/subgroup_discovery/icons/widget/roc.png
+.. image:: ../workflows/subgroup_discovery/static/subgroup_discovery/icons/widget/roc.png
    :width: 50
    :height: 50
 * Input: SD rules (rules)
@@ -3167,7 +3167,7 @@ Widget: Subgroup ROC visualization
 
 Widget: Subgroup bar visualization
 ```````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/subgroup_discovery/static/subgroup_discovery/icons/widget/bar.png
+.. image:: ../workflows/subgroup_discovery/static/subgroup_discovery/icons/widget/bar.png
    :width: 50
    :height: 50
 * Input: SD rules (rules)
@@ -3178,7 +3178,7 @@ Category Unsupervised
 
 Widget: Attribute distance
 ```````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/AttributeDistance.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/AttributeDistance.png
    :width: 50
    :height: 50
 Computes the distances between the attributes in the data sets. Don’t confuse it with a similar widget for computing the distances between examples.
@@ -3198,7 +3198,7 @@ Computes the distances between the attributes in the data sets. Don’t confuse 
 
 Widget: Example Distance
 `````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/ExampleDistance.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/ExampleDistance.png
    :width: 50
    :height: 50
 Computes the distances between the examples in the data set.
@@ -3220,7 +3220,7 @@ Computes the distances between the examples in the data set.
 
 Widget: Hierarchical clustering
 ````````````````````````````````
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/HierarchicalClustering_60.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/HierarchicalClustering_60.png
    :width: 50
    :height: 50
 The widget computes hierarchical clustering of arbitrary types of objects from the matrix of distances between them and shows the corresponding diagram. If the distances apply to examples, the widget offers some special functionality (adding cluster indices, outputting examples...).
@@ -3251,7 +3251,7 @@ Category Classification Statistics
 Widget: Area under curve (ROC analysis)
 '''''''''''''''''''''''''''''''''''''''
 
-.. image:: ../../mothra_master_fordoc/workflows/cforange/static/cforange/icons/widget/ROCAnalysis_60.png
+.. image:: ../workflows/cforange/static/cforange/icons/widget/ROCAnalysis_60.png
    :width: 50
    :height: 50
 * Input: Evaluation Results (Results of classifiers’ tests on data.)
