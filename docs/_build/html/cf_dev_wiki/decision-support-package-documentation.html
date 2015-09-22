@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ClowdFlows decision support package documentation &mdash; ClowdFlows documentation 1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="ClowdFlows documentation 1 documentation" href="../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> ClowdFlows documentation
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_doc_bycategory.html">ClowdFlows user documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-big-data">Category Big data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-classification">Category Classification</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-naive-bayes">Widget: Naive Bayes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-gaussian-naive-bayes-predict">Widget: Gaussian Naive Bayes predict</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-linear-svm">Widget: Linear SVM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-linear-proximal-svm-predict">Widget: Linear proximal SVM predict</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-logistic-regression">Widget: Logistic regression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-logistic-regression-predict">Widget: Logistic regression predict</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-multinomial-naive-bayes-fit">Widget: Multinomial Naive Bayes fit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-multinomial-naive-bayes-predict">Widget: Multinomial Naive Bayes predict</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-ensembles">Category Ensembles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-distributed-random-forest">Widget: Distributed Random Forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-distributed-weighted-forest">Widget: Distributed Weighted Forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-forest-of-distributed-decision-trees">Widget: Forest of Distributed Decision Trees</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-clustering">Category Clustering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-k-means">Widget: k-means</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-k-means-predict">Widget: k-Means predict</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-regression">Category Regression</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-linear-regression">Widget: Linear regression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-linear-regression-predict">Widget: Linear regression predict</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-locally-weighted-regression">Widget: Locally weighted regression</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-evaluation">Category Evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-apply-classifier">Widget: Apply Classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-classification-accuracy">Widget: Classification Accuracy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-mean-squared-error">Widget: Mean squared error</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-utilities">Category Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-model-view">Widget: Model View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-class-distribution">Widget: Class distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-input-dataset">Widget: Input Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-results-view">Widget: Results View</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-bio3graph">Category Bio3graph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-graph-operations">Category Graph operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-biomine-graph-visualizer">Widget: Biomine graph visualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-colour-relations">Widget: Colour relations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-construct-triplet-network">Widget: Construct triplet network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-find-transitive-relations">Widget: Find transitive relations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-incremental-merge-of-networks">Widget: Incremental merge of networks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-remove-relations">Widget: Remove relations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-reset-colours">Widget: Reset colours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-transform-biomine-to-networkx">Widget: Transform Biomine to NetworkX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-transform-networkx-to-biomine">Widget: Transform NetworkX to Biomine</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-transcriptomic-analysis-utilities">Category Transcriptomic analysis utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-construct-compounds-csv-file-from-gene-synonyms">Widget: Construct compounds csv file from gene synonyms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-get-gene-synonyms-from-gpsdb">Widget: Get gene synonyms from GPSDB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-map-entrez-id-to-ncbi-symbol">Widget: Map Entrez ID to NCBI symbol</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-triplet-extraction">Category Triplet extraction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-build-default-vocabulary">Widget: Build default vocabulary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-export-triplets-to-text">Widget: Export triplets to text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-build-default-vocabulary-with-custom-compounds">Widget: Build default vocabulary with custom compounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-build-vocabulary">Widget: Build vocabulary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-create-document-from-file">Widget: Create document from file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-create-document-from-string">Widget: Create document from string</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-extract-triplets">Widget: Extract triplets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-normalise-triplets">Widget: Normalise triplets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-parse-sentences">Widget: Parse sentences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-split-sentences">Widget: Split sentences</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-pmc-utilities">Category PMC utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-filter-non-oa-pmc-publications">Widget: Filter non-OA PMC publications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-get-xml-of-pmc-article">Widget: Get XML of PMC article</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-get-fulltext-of-pmc-article">Widget: Get fulltext of PMC article</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-xml-to-fulltext">Widget: XML to Fulltext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-mesh-filter">Widget: Mesh filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-search-pubmed-central">Widget: Search PubMed Central</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-decision-support">Category Decision Support</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-decision-support-charts">Widget: Decision support charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-sensitivity-analysis">Widget: Sensitivity analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-weighted-sum-model">Widget: Weighted Sum Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-files">Category Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-file-to-string">Widget: File to string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-load-big-file">Widget: Load big file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-load-file">Widget: Load file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-load-file-to-string">Widget: Load file to string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-string-to-file">Widget: String to file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-hbp">Category HBP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-interactive-analysis">Widget: Interactive analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-search-criteria">Widget: Search criteria</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-submit-search-criteria">Widget: Submit search criteria</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-ilp">Category ILP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-aleph">Widget: Aleph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-rsd">Widget: RSD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-sdm-aleph">Widget: SDM-Aleph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-sdm-segs">Widget: SDM-SEGS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-sdm-segs-rule-viewer">Widget: SDM-SEGS Rule Viewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-treeliker">Widget: TreeLiker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-wordification">Widget: Wordification</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-integers">Category Integers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-add-integers">Widget: Add integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-add-multiple-integers">Widget: Add multiple integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-create-integer">Widget: Create Integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-filter-integers">Widget: Filter integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-multiply-integers">Widget: Multiply integers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-subtract-integers">Widget: Subtract integers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-muse">Category MUSE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-3d-virtual-environment">Category 3D virtual environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-tuk-the-hunter-3d-demonstrator">Widget: Tuk the Hunter 3D demonstrator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-tuk-the-hunter-3d-demonstrator-local">Widget: Tuk the Hunter 3D demonstrator (local)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-virtual-environment-visualization">Widget: Virtual environment visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-nlp-components">Category NLP components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-event-extraction">Widget: Event extraction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-mapping-to-knowledge-representation">Widget: Mapping to Knowledge representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id22">Widget: Mapping to Knowledge representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-mapping-to-knowledge-representation-latest">Widget: Mapping to Knowledge representation (latest)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-mapping-to-knowledge-representation-precomputed-latest">Widget: Mapping to Knowledge representation (precomputed, latest)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-mapping-to-knowledge-representation-precomputed">Widget: Mapping to Knowledge representation (precomputed)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-mapping-to-knowledge-representation-tuk-precomputed">Widget: Mapping to Knowledge representation (Tuk, precomputed)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-mapping-to-kr-golden-standard">Widget: Mapping to KR golden standard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-semantic-role-labeling">Widget: Semantic role labeling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-semantic-role-labeling-tuk-specific">Widget: Semantic role labeling (Tuk specific)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-syntactic-and-semantic-processing">Widget: Syntactic and semantic processing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#id27">Category Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-string-to-statically-hosted-file">Widget: String to statically hosted file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-view-xml">Widget: View XML</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-muse-v3">Category MUSE_v3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#id30">Category 3D virtual environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id31">Widget: Tuk the Hunter 3D demonstrator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id32">Widget: Tuk the Hunter 3D demonstrator (local)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#id33">Category NLP components</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-coreference-resolution">Widget: Coreference resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-direct-speech-detection">Widget: Direct speech detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-event-and-temporal-relation-detection">Widget: Event and temporal relation detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id36">Widget: Mapping to Knowledge representation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id38">Widget: Mapping to Knowledge representation (precomputed)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-prepare-input-for-kr-mapping">Widget: Prepare input for KR mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-preprocessing">Widget: Preprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-semantic-role-labelling">Widget: Semantic role labelling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-srl-pronoun-resolution">Widget: SRL pronoun resolution</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-nlp-components-pg">Category NLP components (PG)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-g-dee-text">Widget: G-DEE (text)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-g-dee-url">Widget: G-DEE (url)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-pg-coreference-resolution">Widget: PG coreference resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-pg-event-and-temporal-relation-detection">Widget: PG event and temporal relation detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-pg-mapping">Widget: PG mapping</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-pg-preprocessing">Widget: PG preprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-pg-semantic-role-labelling">Widget: PG semantic role labelling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#id48">Category Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id49">Widget: String to statically hosted file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id51">Widget: View XML</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-mysql">Category MySQL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-domain-mapping">Category Domain mapping</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-map-examples-to-domain-aleph-features">Widget: Map examples to domain (Aleph features)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-map-examples-to-domain-rsd">Widget: Map examples to domain (RSD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-map-examples-to-domain-treeliker">Widget: Map examples to domain (TreeLiker)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-database-context">Widget: Database Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-database-to-aleph">Widget: Database To Aleph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-database-to-orange-table">Widget: Database To Orange Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-database-to-rsd">Widget: Database To RSD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-database-to-treeliker">Widget: Database To TreeLiker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-mysql-connect">Widget: MySQL Connect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-nlp">Category NLP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-definition-extraction">Category Definition extraction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-definition-extraction-by-patterns">Widget: Definition extraction by patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-definition-extraction-by-patterns2">Widget: Definition extraction by patterns2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-definition-extraction-by-terms">Widget: Definition extraction by terms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-definition-extraction-by-terms2">Widget: Definition extraction by terms2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-definition-extraction-by-wordnet">Widget: Definition extraction by wordnet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-definition-extraction-by-wordnet2">Widget: Definition extraction by wordnet2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-merge-sentences">Widget: Merge sentences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id60">Widget: Merge sentences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-merge-sentences2">Widget: Merge sentences2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-sentence-viewer">Widget: Sentence viewer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-sentence-viewer2">Widget: Sentence viewer2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-load-corpus">Widget: Load corpus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-load-corpus2">Widget: Load corpus2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-load-tagged-corpus">Widget: Load tagged corpus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-term-candidates-viewer">Widget: Term candidates viewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-term-extraction">Widget: Term extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-term-extraction2">Widget: Term extraction2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-totrtale">Widget: ToTrTaLe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-totrtale2">Widget: ToTrTaLe2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-noise-handling">Category Noise Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-noise-filters">Category Noise Filters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-classification-filter">Widget: Classification Filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-matrix-factorization-filter">Widget: Matrix Factorization Filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-saturation-filter">Widget: Saturation Filter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-harf">Widget: HARF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-noiserank">Widget: NoiseRank</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-objects">Category Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-concatenate-lists">Widget: Concatenate lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-create-dictionary">Widget: Create Dictionary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-create-list">Widget: Create List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-create-tuple">Widget: Create Tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-evaluate-string">Widget: Evaluate string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-extract-results">Widget: Extract results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-javascript-snippet">Widget: Javascript Snippet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-list-average">Widget: List average</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-merge-dictionaries">Widget: Merge dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-ravel-list">Widget: Ravel list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-unzip-list">Widget: Unzip list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-create-range">Widget: Create Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-delay">Widget: Delay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-ensemble">Widget: Ensemble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-object-viewer">Widget: Object viewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-pickle-object">Widget: Pickle object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-unpickle-object">Widget: Unpickle object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#widget-stopwatch">Widget: Stopwatch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_doc_bycategory.html#category-orange">Category Orange</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-classification-and-regression">Category Classification and Regression</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-c4-5-tree-learner">Widget: C4.5 Tree Learner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-cn2-rule-learner">Widget: CN2 Rule Learner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-classification-tree">Widget: Classification Tree</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id71">Widget: Logistic Regression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-lookup-learner">Widget: Lookup Learner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-majority-learner">Widget: Majority Learner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id72">Widget: Naive Bayes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-random-forest">Widget: Random Forest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-rule-induction">Widget: Rule Induction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-support-vector-machine">Widget: Support Vector Machine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-support-vector-machine-easy">Widget: Support Vector Machine Easy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-k-nearest-neighbours">Widget: k-Nearest Neighbours</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-segmine">Category SegMine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-biomine-connection-search">Widget: Biomine connection search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-biomine-medoid-search">Widget: Biomine medoid search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-biomine-neighbourhood-search">Widget: Biomine neighbourhood search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-biomine-search-plants">Widget: Biomine search (plants)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-biomine-visualizer">Widget: Biomine visualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-biomine-visualizer-js">Widget: Biomine visualizer (js)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-cutoff-logfc">Widget: Cutoff (logFC)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-filter-unknown-ath-genes">Widget: Filter unknown ATH genes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-filter-unknown-stu-genes">Widget: Filter unknown STU genes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-fold-change-gene-filter">Widget: Fold change gene filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-gene-ranker">Widget: Gene Ranker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-hierarchical-clustering">Widget: Hierarchical clustering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-map-mirna-to-gene-tarbase">Widget: Map miRNA to gene (tarbase)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-map-mirna-to-gene-targetscan">Widget: Map miRNA to gene (targetscan)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-rank-plotter">Widget: Rank plotter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-read-microarray-data-from-file">Widget: Read microarray data from file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-resolve-gene-synonyms">Widget: Resolve gene synonyms</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-resolve-stu-gene-names">Widget: Resolve STU gene names</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-segs">Widget: SEGS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-segs-ath">Widget: SEGS ATH</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-segs-rule-browser">Widget: SEGS Rule browser</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-segs-rules-as-orange-table">Widget: SEGS rules as Orange table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-segs-stu">Widget: SEGS STU</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-select-biomine-database">Widget: Select Biomine database</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-select-hierarchical-cluster">Widget: Select hierarchical cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-t-test-gene-filter">Widget: T-test gene filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-union-and-intersection-of-attributes-for-segmine-rule-table">Widget: Union and intersection of attributes for SegMine rule table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-subgroup-discovery">Category Subgroup discovery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-build-subgroups">Widget: Build subgroups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-relsets">Widget: RelSets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-query-data-with-subgroups">Widget: Query data with subgroups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-select-subgroups">Widget: Select subgroups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-subgroup-measures">Widget: Subgroup measures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-subgroup-roc-visualization">Widget: Subgroup ROC visualization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-subgroup-bar-visualization">Widget: Subgroup bar visualization</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#category-unsupervised">Category Unsupervised</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-attribute-distance">Widget: Attribute distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#widget-example-distance">Widget: Example Distance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#id88">Widget: Hierarchical clustering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_doc_bycategory.html#id89">Category Evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_doc_bycategory.html#category-classification-statistics">Category Classification Statistics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev-doc-home.html">ClowdFlows developer documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev-doc-home.html#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev-doc-home.html#advanced">Advanced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev-doc-home.html#widget-packages-docs">Widget packages docs</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">ClowdFlows documentation</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>ClowdFlows decision support package documentation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/cf_dev_wiki/decision-support-package-documentation.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="clowdflows-decision-support-package-documentation">
+<h1>ClowdFlows decision support package documentation<a class="headerlink" href="#clowdflows-decision-support-package-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This document provides a short overview of the decision support package.
+The first section describes the organization, while the second section
+describes the individual widgets and how they can be used.</p>
+<div class="section" id="organization">
+<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
+<p>The package follows the recommended code structure of ClowdFlows
+packages:</p>
+<div class="highlight-python"><div class="highlight"><pre>workflows/decision_support/
+├── db
+│   └── package_data.json
+├── __init__.py
+├── interaction_views.py
+├── library.py
+├── settings.py
+├── static
+│   └── decision_support
+│       └── icons
+│           ├── treeview
+│           │   ├── piechart.png
+│           │   ├── sensitivity.png
+│           │   └── wsm.png
+│           └── widget
+│               ├── piechart.png
+│               ├── sensitivity.png
+│               └── wsm.png
+├── templates
+│   ├── interactions
+│   │   └── wsm.html
+│   └── visualizations
+│       ├── ds_charts.html
+│       └── sensitivity_analysis.html
+├── visualization_views.py
+└── wsm.py
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">db</span></code> folder contains the exported package data (widgets, inputs,
+outputs and categories) in json. If changes are made to local widgets or
+new widgets are created, the package data must be updated using the
+<code class="docutils literal"><span class="pre">export_package</span></code> management command.</p>
+<p>The <code class="docutils literal"><span class="pre">settings.py</span></code> file contains package level settings, same as for
+any ClowdFlows package, e.g., path to the package data file.</p>
+<p>The <code class="docutils literal"><span class="pre">static</span></code> folder contains static files used by the package.
+Currently these include only the icons.</p>
+<p>The <code class="docutils literal"><span class="pre">templates</span></code> folder contains Django template HTML files. These are
+divided into <code class="docutils literal"><span class="pre">interactions</span></code> and <code class="docutils literal"><span class="pre">visualizations</span></code>.</p>
+<p>Most widgets in ClowdFlows can be divided into three categories:
+<em>regular</em>, <em>interactive</em> and <em>visualization</em> widgets. Regular widgets
+simply take an input and produce an output, while interactive widgets
+take an input, request some additional input from the user (e.g.,
+setting weights of attributes) and produce an output. Visualization
+widgets take an input and output a certain visualization based on the
+input (e.g., displaying a chart or a dataset).</p>
+<p>The widget views, i.e., functions which are called when a widget is
+executed by the user, are divided into:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">library.py</span></code></li>
+<li><code class="docutils literal"><span class="pre">interaction_views.py</span></code></li>
+<li><code class="docutils literal"><span class="pre">visualization_views.py</span></code></li>
+</ul>
+<p>which reflect the categories listed above.</p>
+<p>Of course the code can be divided into other Python modules. For
+example, the <code class="docutils literal"><span class="pre">wsm.py</span></code> module includes the class implementing the
+<em>Weighted sum model</em>, which is used in the views.</p>
+<p>Interaction and visualization widgets have corresponding templates.
+These (usually) also contain JavaScript for handling their GUIs.</p>
+</div>
+<div class="section" id="widgets">
+<h2>Widgets<a class="headerlink" href="#widgets" title="Permalink to this headline">¶</a></h2>
+<p>The package includes the following widgets:</p>
+<ul class="simple">
+<li>Weighted sum model*, implementing a simple decision support model,</li>
+<li>Sensitivity analysis*, offering the mechanism to see how each alternative&#8217;s score changes while changing the importance of one attribute,</li>
+<li>Decision support charts*, implementing several charts, which are useful for making reports and overviewing the data.</li>
+</ul>
+<p>An example workflow can be found at:
+<a class="reference external" href="http://clowdflows.org/workflow/383/">http://clowdflows.org/workflow/383/</a>.</p>
+<div class="section" id="weighted-sum-model">
+<h3>Weighted sum model<a class="headerlink" href="#weighted-sum-model" title="Permalink to this headline">¶</a></h3>
+<p><strong>Inputs:</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">odt</span></code>: Orange data table, with an optional <code class="docutils literal"><span class="pre">label</span></code> meta attribute</li>
+</ul>
+<p><strong>Outputs:</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">odt</span></code>: Orange data table, with an added <code class="docutils literal"><span class="pre">score</span></code> column and with normalized attribute values</li>
+<li><code class="docutils literal"><span class="pre">mdl</span></code>: the WSM model object, which can be pickled and saved or used in the next two widgets.</li>
+</ul>
+<p><strong>Functionality:</strong></p>
+<p>When the widget is executed a popup is displayed, where the user can
+assign a <em>weight</em> to each attribute, as well as the range of values of
+the attribute and if the attribute should be <em>maximized</em> or <em>minimized</em>.</p>
+<p>Weights can be <em>normalized</em> (so that they sum up to 100%) by clicking
+the <code class="docutils literal"><span class="pre">Normalize</span> <span class="pre">weights</span></code> button and <em>reset</em> by clicking the <code class="docutils literal"><span class="pre">Reset</span></code>
+button. After clicking the <code class="docutils literal"><span class="pre">Apply</span></code> button, the new table and the model
+are produced.</p>
+</div>
+<div class="section" id="sensitivity-analysis">
+<h3>Sensitivity analysis<a class="headerlink" href="#sensitivity-analysis" title="Permalink to this headline">¶</a></h3>
+<p><strong>Inputs:</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">mdl</span></code>: A decision support model, e.g.: a WSM object.</li>
+</ul>
+<p><strong>Outputs:</strong></p>
+<p>None.</p>
+<p><strong>Functionality:</strong></p>
+<p>When the widget is executed a popup is displayed, where the user can
+choose which attribute to vary. After the selection, a graph
+corresponding to the sensitivity analysis of this attribute is shown.
+Thanks to the <a class="reference external" href="http://www.highcharts.com/">Highcharts library</a>, the
+graph can be modified by deselecting certain alternatives and it can be
+saved in various formats (like PNG, PDF, SVG).</p>
+</div>
+<div class="section" id="decision-support-charts">
+<h3>Decision support charts<a class="headerlink" href="#decision-support-charts" title="Permalink to this headline">¶</a></h3>
+<p><strong>Inputs:</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">mdl</span></code>: A decision support model, e.g.: a WSM object.</li>
+</ul>
+<p><strong>Outputs:</strong></p>
+<p>None.</p>
+<p><strong>Functionality:</strong></p>
+<p>When the widget is executed a popup is displayed, where the user can
+choose between four charts:</p>
+<ul class="simple">
+<li>Weights pie chart*: The assigned weights visualized as a pie chart.</li>
+<li>Weights bar chart*: The assigned weights visualized as a bar chart.</li>
+<li>Alternatives column chart*: The scores of the alternatives visualized as a column chart.</li>
+<li>Attribute values chart*: The values for each attribute for each alternative visualized as a bar chart.</li>
+</ul>
+<p>Each chart can be saved in various formats (like PNG, PDF, SVG).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, ClowdFlows Team.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
