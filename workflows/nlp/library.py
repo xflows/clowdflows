@@ -9,7 +9,8 @@ import re
 import itertools
 import subprocess
 
-webservices_totrtale_url = "http://vihar.ijs.si:8104"
+webservices_totrtale_url = "http://172.20.0.154/totrtale"
+webservice_def_ex_url = "http://172.20.0.154/definition"
 
 def merge_sentences(input_dict):
     """
@@ -441,7 +442,7 @@ def nlp_term_extraction2(input_dict):
     '''
     Term extraction from totrtale annotations.
     '''
-    ws_url = "http://vihar.ijs.si:8081/call"
+    ws_url = webservice_def_ex_url + "/call"
     annotations = input_dict['annotations']
     lang = input_dict['lang']
     stop_list_checkbox = input_dict["stop_list"] == "true"
@@ -518,10 +519,14 @@ def nlp_def_extraction_patterns2(input_dict):
     lang = input_dict['lang']
     pattern = input_dict['pattern']
 
+    if lang == "sl" and pattern == "begin_allvar":
+        raise Exception("Pattern begin_allvar is not supported for slovene language.")
+
+
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
         annotations = TEItoTab(annotations)
 
-    ws_url = "http://vihar.ijs.si:8081/patDefSent"
+    ws_url = webservice_def_ex_url + "/patDefSent"
     params = {"corpus":annotations,
               "pattern":pattern,
               "lang":lang}
@@ -576,7 +581,7 @@ def nlp_def_extraction_terms2(input_dict):
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
         annotations = TEItoTab(annotations)
 
-    ws_url = "http://vihar.ijs.si:8081/termDefSent"
+    ws_url = webservice_def_ex_url + "/termDefSent"
     params = {"corpus":annotations,
               "candidates":term_candidates,
               "lang":lang,
@@ -618,7 +623,7 @@ def nlp_def_extraction_wnet2(input_dict):
     if '<TEI xmlns="http://www.tei-c.org/ns/1.0">' in annotations:
         annotations = TEItoTab(annotations)
 
-    ws_url = "http://vihar.ijs.si:8081/wnetDefSent"
+    ws_url = webservice_def_ex_url + "/wnetDefSent"
     params = {"corpus":annotations,
               "lang":lang}
     response = post(ws_url, params=params)

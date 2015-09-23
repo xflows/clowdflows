@@ -147,7 +147,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "09d72ebd-2eaf-47f6-95e0-2f2ed0c51ea2", 
-      "name": "Nominatives", 
+      "name": "Nominatives (only for Slovene)", 
       "short_name": "nom", 
       "default": "0", 
       "description": "", 
