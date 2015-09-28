@@ -105,7 +105,9 @@ def load_corpus2(input_dict):
     params = {"filename": fname, "text": data} #set params
     
     #call web service
-    resp = post(webservice_url, params=params)
+    #print webservice_url
+    resp = post(webservice_url, data=params)
+    #print resp.content
     content = json.loads(resp.content)[u'parseFileResponse'][u'parseFileResult']
     """
     if content[u"error"] != "":
@@ -223,7 +225,7 @@ def load_tagged_corpus(input_dict):
 
 def totrtale_request(params):
     webservice_url = webservices_totrtale_url + "/runToTrTaLe"
-    return post(webservice_url, params=params)
+    return post(webservice_url, data=params)
 
 def nlp_totrtale2(input_dict, widget):
     '''
@@ -467,7 +469,7 @@ def nlp_term_extraction2(input_dict):
     params = {"corpus":annotations,
               "lang": lang,
               "reference_corpus":reference_corpus}
-    response = post(ws_url, params=params)
+    response = post(ws_url, data=params)
     resp = json.loads(response.content)[u'callResponse'][u'callResult']
 
     stop_list = []
@@ -531,7 +533,7 @@ def nlp_def_extraction_patterns2(input_dict):
               "pattern":pattern,
               "lang":lang}
     
-    response = post(ws_url, params=params)
+    response = post(ws_url, data=params)
     response = json.loads(response.content)[u'patDefSentResponse'][u'patDefSentResult']
     
     return {'sentences': response}
@@ -592,7 +594,7 @@ def nlp_def_extraction_terms2(input_dict):
               "multiword_term":multiword_term,
               "num_multiterms":num_multiterms,
               "term_beginning":term_beginning}
-    response = post(ws_url, params=params)
+    response = post(ws_url, data=params)
     response = json.loads(response.content)[u'termDefSentResponse'][u'termDefSentResult']
 
     return {'sentences': response}
@@ -626,7 +628,7 @@ def nlp_def_extraction_wnet2(input_dict):
     ws_url = webservice_def_ex_url + "/wnetDefSent"
     params = {"corpus":annotations,
               "lang":lang}
-    response = post(ws_url, params=params)
+    response = post(ws_url, data=params)
     response = json.loads(response.content)[u'wnetDefSentResponse'][u'wnetDefSentResult']
     return {'sentences': response}
 
