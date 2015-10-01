@@ -17,7 +17,7 @@ def MUSE_view_xmlOLD(request, input_dict, output_dict, widget):
                   {'widget': widget, 'xml_data': input_dict['xml_data']})
 
 
-def MUSE_view_xml(request, input_dict, output_dict, widget):
+def MUSE_view_xml_V3(request, input_dict, output_dict, widget):
     from mothra.settings import MEDIA_ROOT
     from workflows.helpers import ensure_dir
 
@@ -49,7 +49,7 @@ def MUSE_virtual_environment_visualization(request, input_dict, output_dict, wid
                    })
 
 
-def MUSE_virtual_environment_demonstrator_tuk(request, input_dict, output_dict, widget):
+def MUSE_virtual_environment_demonstrator_tuk_V3(request, input_dict, output_dict, widget):
     from urllib import urlencode
     params = urlencode({'filename': str(input_dict['mappingLink'])})
     unityLink = '%s?%s' % (str(input_dict['unityLink']), params)
@@ -61,7 +61,7 @@ def MUSE_virtual_environment_demonstrator_tuk(request, input_dict, output_dict, 
                   )
 
 
-def MUSE_virtual_environment_demonstrator_tuk_local(request, input_dict, output_dict, widget):
+def MUSE_virtual_environment_demonstrator_tuk_local_V3(request, input_dict, output_dict, widget):
     from urllib import urlencode
     params = urlencode({'filename': str(input_dict['mappingLink'])})
     unityLink = '%s?%s' % (str(input_dict['unityLink']), params)
