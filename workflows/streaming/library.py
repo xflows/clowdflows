@@ -301,7 +301,7 @@ def streaming_triplet_extraction(input_dict,widget,stream=None):
     from pysimplesoap.client import SoapClient, SoapFault
     import pysimplesoap
     import re
-    client = SoapClient(location = "http://95.87.154.167:8008/",action = 'http://95.87.154.167:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
+    client = SoapClient(location = "http://95.87.154.23:8008/",action = 'http://95.87.154.23:8008/',namespace = "http://example.com/tweetsentiment.wsdl",soap_ns='soap',trace = False,ns = False)
     pysimplesoap.client.TIMEOUT = 36000
 
     text = input_dict['text']
