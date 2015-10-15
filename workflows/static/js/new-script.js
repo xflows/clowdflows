@@ -1065,7 +1065,8 @@ function updateWidgetListeners() {
             var currentWidget = $(this);
 
             var y = parseInt($(this).css('top'));
-            var x = parseInt($(this).css('left'));  
+            var x = parseInt($(this).css('left'));
+
                       
             $(".ui-selected").each(function() {
                 //get the offset first
@@ -1141,7 +1142,7 @@ function updateWidgetListeners() {
         }}
     );
 
-    $(".canvas div.widget").click(function(e) {
+    $(".canvas div.widget").mousedown(function(e) {
         selectedWidget = $(this).attr('rel');
         if (!(e.ctrlKey || e.metaKey || e.shiftKey))
         {
