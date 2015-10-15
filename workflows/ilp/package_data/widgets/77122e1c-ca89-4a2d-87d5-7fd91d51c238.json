@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "77122e1c-ca89-4a2d-87d5-7fd91d51c238", 
+      "windows_queue": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": true, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "ilp_cardinalization", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Cardinalization"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "77122e1c-ca89-4a2d-87d5-7fd91d51c238", 
+      "name": "context", 
+      "short_name": "cxt", 
+      "default": "", 
+      "description": "Database context object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "context", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "37154783-19c3-4173-9b19-abe705b5a323"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "77122e1c-ca89-4a2d-87d5-7fd91d51c238", 
+      "name": "context", 
+      "short_name": "cxt", 
+      "description": "", 
+      "variable": "context", 
+      "order": 1, 
+      "uid": "cb6536c6-19a5-468f-b588-29e816f8965e"
+    }
+  }
+]

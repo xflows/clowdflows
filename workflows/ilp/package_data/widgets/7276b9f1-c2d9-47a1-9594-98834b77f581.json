@@ -1,0 +1,277 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "windows_queue": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "ilp_tertius", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Tertius"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Max Var", 
+      "short_name": "var", 
+      "default": "3", 
+      "description": "Max Variables", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_variable", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "19cb37ac-3d43-4b51-a365-aceac4a14bd0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Test File", 
+      "short_name": "tst", 
+      "default": "", 
+      "description": "Test File", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "test_file", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "3a99c057-39fb-4598-b27c-19fef081ce5c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Confirmation threshold (-1 if nb. results)", 
+      "short_name": "cft", 
+      "default": "-1", 
+      "description": "Confirmation threshold (-1 if nb. results)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "conf_thres", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "533aa8f9-239c-402e-b243-7a0c42ad80cf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Number of results (-1 if conf. thres.)", 
+      "short_name": "nbr", 
+      "default": "10", 
+      "description": "Number of results (-1 if conf. thres.)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "nb_results", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "56b9231e-0253-4387-a47b-cd6782d87527"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Attribute list", 
+      "short_name": "att", 
+      "default": "", 
+      "description": "Attribute name, Number of intervals the attribute has to be discretised in, and a kind of discretisation (sdm: standard deviation centered on the mean, eqb: equal bins)\r\nFormat: \r\ncol1 nbIntervalCol1 sdm, col2 nbInstanceCol2 eqb", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "attribute_list", 
+      "parameter": true, 
+      "order": 14, 
+      "uid": "56e167cd-9dfd-4b86-8a57-c77594c6ed50"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Count instances in a bottom-up manner", 
+      "short_name": "bot", 
+      "default": "", 
+      "description": "Count instances in a bottom-up manner", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "count_bottom_up", 
+      "parameter": true, 
+      "order": 13, 
+      "uid": "5f293035-2fac-4271-a687-5104fae2006d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Fct File", 
+      "short_name": "fct", 
+      "default": "", 
+      "description": "Fct File", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "fct_file", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "61a3c256-8186-49ae-bb4b-9ba27f077534"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Language bias: Horn", 
+      "short_name": "hor", 
+      "default": "", 
+      "description": "Language bias: Horn", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "lang_horn", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Nb. of structural results (-1 if not used)", 
+      "short_name": "nbs", 
+      "default": "-1", 
+      "description": "Nb. of structural results (-1 if not used)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "struct_nb_properties", 
+      "parameter": true, 
+      "order": 12, 
+      "uid": "880159ba-22b8-48ba-89f1-1a51b22f005c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Satisfied clauses only", 
+      "short_name": "sat", 
+      "default": "", 
+      "description": "Satisfied clauses only", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sat_clauses", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "8c42b176-2a0a-4948-9095-a52eaf39b762"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Language bias: Pos Class", 
+      "short_name": "pos", 
+      "default": "", 
+      "description": "Language bias: Pos Class", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "lang_pos_class", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "8ecd6621-9382-461e-bd9c-a2c97fb5ee24"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Noise Percent Threshold", 
+      "short_name": "noi", 
+      "default": "", 
+      "description": "Noise Percent Threshold", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "noise_percent_thres", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "b489f288-a7ef-47cb-b83e-76eb9471651b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Prd File", 
+      "short_name": "prd", 
+      "default": "", 
+      "description": "Prd File", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "prd_file", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "beeffa19-914e-4172-b4e0-64e8ecf446e5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Max Lit", 
+      "short_name": "lit", 
+      "default": "3", 
+      "description": "Max Literals", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_literal", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "f5538763-4f9d-4053-8c28-2d0df9d9e13c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "results", 
+      "short_name": "res", 
+      "description": "Results", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "e9a032b7-5f87-424d-b298-c184531f8f05"
+    }
+  }
+]

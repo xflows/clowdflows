@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "c20e0772-d6b9-4dc5-ba3a-595b82001e4c", 
+      "windows_queue": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": true, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "ilp_quantiles", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Quantiles"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c20e0772-d6b9-4dc5-ba3a-595b82001e4c", 
+      "name": "Context", 
+      "short_name": "cxt", 
+      "default": "", 
+      "description": "Database context object", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "context", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "4f91da80-7e58-496b-b1e7-51f8698792fa"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c20e0772-d6b9-4dc5-ba3a-595b82001e4c", 
+      "name": "Discretize parts", 
+      "short_name": "dpa", 
+      "default": "20", 
+      "description": "Discretize parts", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "discretize_parts", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "a2160bd5-fd85-4182-aeb1-1d981cbfbe22"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c20e0772-d6b9-4dc5-ba3a-595b82001e4c", 
+      "name": "context", 
+      "short_name": "cxt", 
+      "description": "", 
+      "variable": "context", 
+      "order": 1, 
+      "uid": "3d46a66e-47f5-47d4-a003-2c62eb966b67"
+    }
+  }
+]

@@ -4,6 +4,7 @@ Classes for handling DBContexts for ILP systems.
 @author: Anze Vavpetic <anze.vavpetic@ijs.si>
 '''
 import re
+import itertools
 
 class Converter:
     '''
@@ -217,9 +218,9 @@ class Orange_Converter(Converter):
     '''
     Converts the selected tables in the given context to orange example tables.
     '''
-    continuous_types = ('FLOAT','DOUBLE','DECIMAL','NEWDECIMAL')
-    integer_types = ('TINY','SHORT','LONG','LONGLONG','INT24')
-    ordinal_types = ('YEAR','VARCHAR','SET','VAR_STRING','STRING','BIT')
+    continuous_types = ('FLOAT','DOUBLE','DECIMAL','NEWDECIMAL','double precision')
+    integer_types = ('TINY','SHORT','LONG','LONGLONG','INT24','integer')
+    ordinal_types = ('YEAR','VARCHAR','SET','VAR_STRING','STRING','BIT','text','character varying')
     
     def __init__(self, *args, **kwargs):
         Converter.__init__(self, *args, **kwargs)
@@ -467,6 +468,73 @@ class TreeLikerConverter(Converter):
     def default_template(self):
         return '[%s]' % (', '.join(self._template))
 
+class PrdFctConverter(Converter):
+    '''
+    Converts the selected tables in the given context to prd and fct files.
+    '''
+    
+    def __init__(self, *args, **kwargs):
+        Converter.__init__(self, *args, **kwargs)
+        self.types={}
+        for table in self.db.tables:
+            self.types[table]= self.db.fetch_types(table, self.db.cols[table])
+        self.db.compute_col_vals()
+        
+    def create_prd_file(self):
+        prd_str=''
+        prd_str+='--INDIVIDUAL\n'
+        prd_str+='%s 1 %s cwa\n' % (self.db.target_table,self.db.target_table)
+        prd_str+='--STRUCTURAL\n'
+        for ftable,ptable in self.db.reverse_fkeys.iteritems():
+            prd_str+='%s2%s 2 1:%s *:%s 1 cwa li\n' % (ptable,ftable[0],ptable,ftable[0])
+        prd_str+='--PROPERTIES\n'
+        prd_str+='class 2 %s #class cwa\n' % self.db.target_table
+        for table, cols in self.db.cols.iteritems():
+            for col in cols:
+                if col != self.db.pkeys[table] and col not in self.db.fkeys[table] and (table != self.db.target_table or col != self.db.target_att):
+                    prd_str+='%s_%s 2 %s #%s_%s 1 cwa\n' % (table,col,table,table,col)
+        return prd_str
+
+    def create_fct_file(self):
+        fct_str=''
+        fct_str+=self.fct_rec(self.db.target_table)
+        return fct_str
+
+    def fct_rec(self,table,prev_table=None,prev_fcol=None,prev_val=None):
+        fct_str = ''
+            
+        data = self.db.orng_tables[table]
+
+        pkey_name = str(self.db.pkeys[table]);
+         
+        # for all pkey value
+        for inst in xrange(len(data)):
+            i = inst
+            val_id = data[inst][pkey_name]
+            # if it is the main table or is the child of the previous table
+            if not prev_table or (prev_table and prev_fcol and data[inst][prev_fcol].value == prev_val):
+                # if main table:        
+                if not prev_table:
+                    # add an '!'
+                    fct_str+='!\n'
+                    # add class(current id, target class)
+                    fct_str+='class(%s,%s).\n'%(val_id,data[i][str(self.db.target_att)])
+                # if child table
+                else:
+                    # add main table + '2' + current table(main id, current id)
+                    fct_str+='%s2%s(%s,%s).\n'%(prev_table,table,prev_val,val_id)
+                # for all values
+                for col_orng in data.domain.variables:
+                    col = col_orng.name
+                    val_col = data[i][col]
+                    # if (child table or not target attribute) and col not a pkey and not a foreign key
+                    if (prev_table or col != str(self.db.target_att)) and col != self.db.pkeys[table] and (not prev_fcol or col != prev_fcol):
+                        # add table_colName(id, colValue)
+                        fct_str+='%s_%s(%s,%s).\n'%(table,col,val_id,val_col) 
+                for next_table,curr_table in self.db.reverse_fkeys.iteritems():
+                    if curr_table == table:
+                        fct_str+=self.fct_rec(str(next_table[0]),table,str(next_table[1]),val_id)                            
+        return fct_str
 
 if __name__ == '__main__':
     from context import DBConnection, DBContext

@@ -1,0 +1,209 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "windows_queue": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "ilp_1bc", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "1BC"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "Attribute List", 
+      "short_name": "att", 
+      "default": "", 
+      "description": "Attribute name, Number of intervals the attribute has to be discretised in, and a kind of discretisation (sdm: standard deviation centered on the mean, eqb: equal bins)\r\nFormat: \r\ncol1 nbIntervalCol1 sdm, col2 nbInstanceCol2 eqb", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "attribute_list", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "19fc4c6e-e49c-49f3-9f1b-1685544d41ad"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "Cross validation folds", 
+      "short_name": "crs", 
+      "default": "1", 
+      "description": "the number of partition to apply a cross-validation on the dataset", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cross_number", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "26573dfd-cdc1-42d3-bb62-a21a0b12e18a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "Max Lit", 
+      "short_name": "lit", 
+      "default": "3", 
+      "description": "Max Literals", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_literal", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "2db3fc25-b7fa-4349-b8cb-3d4bc352580f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "Load partitions incrementally", 
+      "short_name": "inc", 
+      "default": "", 
+      "description": "load partitions incrementaly, useful when the training set is too to be loaded in one go", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "load_part_inc", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "33a3f52a-94e5-4c16-b66d-fd7ad7bd7f18"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "ROC nb folds (-1 if no ROC)", 
+      "short_name": "rcn", 
+      "default": "-1", 
+      "description": "number_of_folds to find the best threshold using an internal cross-validation according to roc curve for Bayesian classification", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "roc_nb_folds", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "47ea1809-c83c-43e7-bd33-c243b5b89141"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "Fct File", 
+      "short_name": "fct", 
+      "default": "", 
+      "description": "Fct File", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "fct_file", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "49a21062-1173-48b9-b232-de7c7e0cbabc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "Random seed", 
+      "short_name": "ran", 
+      "default": "0", 
+      "description": "an integer for initialising the random seed", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "srand", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "512c8d04-9f18-43e2-8e42-16b6555cdbbc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "Test File", 
+      "short_name": "tst", 
+      "default": "", 
+      "description": "Test File", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "test_file", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "a83a68e7-d4a4-45bf-936c-d12056dfcb15"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "Prd File", 
+      "short_name": "prd", 
+      "default": "", 
+      "description": "Prd File", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "prd_file", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c6a46925-27af-4a4a-a47d-2ed97428ed81"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "Max Var", 
+      "short_name": "var", 
+      "default": "2", 
+      "description": "Max Variables", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_variable", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "f7e0b5bd-4b8b-447f-a6ac-1ec1218f2d90"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "results", 
+      "short_name": "res", 
+      "description": "Results", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "63fa4451-4f98-406c-ba4a-d2feb83c2eaa"
+    }
+  }
+]

@@ -5,7 +5,7 @@
       "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
       "treeview_image": "", 
       "uid": "4eec620e-f919-47d5-99f9-846ada308ac2", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "nlp", 
       "interaction_view": "", 
       "has_progress_bar": true, 
@@ -19,7 +19,7 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
       "name": "ToTrTaLe2"
     }
@@ -107,17 +107,8 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Historical Slovene (Bohori\u010d)", 
-      "uid": "", 
-      "value": "boho", 
-      "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
       "name": "Historical Slovene (Gaj)", 
-      "uid": "", 
+      "uid": "3c9e3579-1bb2-4e95-b124-d87c5ab4ac8a", 
       "value": "gaji", 
       "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
     }
@@ -137,6 +128,15 @@
       "name": "Slovene", 
       "uid": "793cbfa7-36ea-430e-9965-3dec464743be", 
       "value": "sl", 
+      "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Historical Slovene (Bohori\u010d)", 
+      "uid": "8545bbd2-bc06-4897-ae13-48d0564afa6f", 
+      "value": "boho", 
       "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
     }
   }

@@ -165,15 +165,6 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Binary", 
-      "uid": "", 
-      "value": "binary", 
-      "abstract_input": "cc2a208c-bf6f-4f64-b51e-221c80366f8e"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
       "name": "TF-IDF", 
       "uid": "7a9b3f92-b830-49a9-8751-8f2acd133046", 
       "value": "tfidf", 
