@@ -487,15 +487,8 @@ def harf(input_dict):
     output_dict = {}
     output_dict['harfout']= harfout
     return output_dict
-    
-# CLASSIFICATION NOISE FILTER
 
-def classification_filter(input_dict, widget):
-    import noiseAlgorithms4lib    
-    output_dict = {}
-    output_dict['noise_dict']= noiseAlgorithms4lib.cfdecide(input_dict, widget)
-    return output_dict    
-    
+
 def send_filename(input_dict):
     output_dict = {}
     output_dict['filename']=input_dict['fileloc'].strip('\"').replace('\\', '\\\\')
@@ -516,15 +509,7 @@ def load_dataset_from_arff_string(input_dict):
     output_dict = {}
     output_dict['dataset'] = orange.ExampleTable(f.name)
     return output_dict
-    
-# SATURATION NOISE FILTER
 
-def saturation_filter(input_dict, widget):
-    import noiseAlgorithms4lib    
-    output_dict = {}
-    output_dict['noise_dict']= noiseAlgorithms4lib.saturation_type(input_dict, widget)
-    return output_dict
-    
 # NOISE RANK
     
 def noiserank(input_dict):
