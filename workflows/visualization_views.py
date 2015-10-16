@@ -60,11 +60,11 @@ def object_viewer(request,input_dict,output_dict,widget):
     output_dict = {'object_string':pprint.pformat(input_dict['object'])}
     return render(request, 'visualizations/object_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
 
-#YOU HAVE TO MOVE THIS FUNCTION TO ScikitAlgorithms/visualization_views.py
-def scikitAlgorithms_displayDS(request,input_dict,output_dict,widget):
-    data = input_dict['data']
-    output_dict={'data':data}
-    return render(request, 'visualizations/scikitAlgorithms_displayDS.html',{'widget':widget,'input_dict':input_dict,'output_dict':helperDisplayDS(output_dict)})
+
+# def scikitAlgorithms_displayDS(request,input_dict,output_dict,widget):
+#     data = input_dict['data']
+#     output_dict={'data':data}
+#     return render(request, 'visualizations/scikitAlgorithms_displayDS.html',{'widget':widget,'input_dict':input_dict,'output_dict':helperDisplayDS(output_dict)})
 
 def scikitAlgorithms_displayDecisTree(request,input_dict,output_dict,widget):
     pngFile = 'decisionTree-scikit.png'
