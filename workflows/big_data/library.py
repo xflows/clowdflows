@@ -75,7 +75,7 @@ def dt_fit(input_dict):
     
     random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
 
-    fitmodel_url = forest_distributed_decision_trees.fit(input = input_dict["dataset"],
+    fitmodel_url = forest_distributed_decision_trees.fit(input_dict["dataset"],
                                        trees_per_chunk = input_dict["trees_per_subset"],
                                        max_tree_nodes = input_dict["tree_nodes"],
                                        min_samples_leaf = input_dict["min_samples_leaf"],
@@ -102,7 +102,7 @@ def rf_fit(input_dict):
 
     random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
 
-    fitmodel_url = distributed_random_forest.fit(input = input_dict["dataset"],
+    fitmodel_url = distributed_random_forest.fit(input_dict["dataset"],
                                         trees_per_chunk = input_dict["trees_per_subset"],
                                         max_tree_nodes = input_dict["tree_nodes"],
                                         min_samples_leaf = input_dict["min_samples_leaf"],
@@ -121,7 +121,7 @@ def rf_predict(input_dict):
     
     random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
 
-    predictions_url = distributed_random_forest.predict(input = input_dict["dataset"],
+    predictions_url = distributed_random_forest.predict(input_dict["dataset"],
                                             fitmodel_url = input_dict["fitmodel_url"],
                                             random_state = random_state,
                                             save_results = True)
@@ -132,7 +132,7 @@ def wrf_fit(input_dict):
     
     random_state = None if input_dict["seed"] == "None" else int(input_dict["seed"])
     
-    fitmodel_url = distributed_weighted_forest_rand.fit(input = input_dict["dataset"],
+    fitmodel_url = distributed_weighted_forest_rand.fit(input_dict["dataset"],
                                         trees_per_chunk = input_dict["trees_per_subset"],
                                         max_tree_nodes = input_dict["tree_nodes"],
                                         num_medoids = input_dict["num_medoids"],
@@ -149,7 +149,7 @@ def wrf_fit(input_dict):
 def wrf_predict(input_dict):
     from discomll.ensemble import distributed_weighted_forest_rand
 
-    predictions_url = distributed_weighted_forest_rand.predict(input = input_dict["dataset"],
+    predictions_url = distributed_weighted_forest_rand.predict(input_dict["dataset"],
                                             fitmodel_url = input_dict["fitmodel_url"],
                                             coeff = input_dict["coeff"],
                                             save_results = True)
@@ -236,7 +236,7 @@ def naivebayes_predict(input_dict):
     from discomll.classification import naivebayes
     m = 1 if input_dict["m"] == "" else input_dict["m"]
     
-    predictions_url = naivebayes.predict(input = input_dict["dataset"], 
+    predictions_url = naivebayes.predict(input_dict["dataset"],
                                 fitmodel_url = input_dict["fitmodel_url"],
                                  m = input_dict["m"],
                                 save_results = True )
