@@ -5,7 +5,7 @@
       "category": "1be7b5eb-c1b2-485a-8dbe-56abce63fc73", 
       "treeview_image": "", 
       "uid": "72a39fab-5433-493f-ae22-12a264075356", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "big_data", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,7 +19,7 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
       "name": "Distributed Weighted Forest"
     }
@@ -205,7 +205,7 @@
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "leaf_min_inst", 
+      "variable": "min_samples_split", 
       "parameter": true, 
       "order": 5, 
       "uid": "ac032f38-f4a4-44ea-8c02-96506d4f8e86"
