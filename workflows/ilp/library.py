@@ -13,7 +13,8 @@ from services.webservice import WebService
 import shutil
 import os
 from subprocess import Popen, PIPE
-from security import SafePopen
+import time
+
 
 def ilp_aleph(input_dict):
     aleph = Aleph()
@@ -128,16 +129,16 @@ def ilp_treeliker(input_dict):
     arff_train, arff_test = treeliker.run()
     return {'arff': arff_train, 'treeliker': treeliker}
 
-def ilp_cardinalization(input_dict,widget):
-    return cardinalization(input_dict,widget,False)
+def ilp_cardinalization(input_dict):
+    return cardinalization(input_dict,False)
 
-def ilp_quantiles(input_dict,widget):
-    return cardinalization(input_dict,widget,False)
+def ilp_quantiles(input_dict):
+    return cardinalization(input_dict,False)
 
-def ilp_relaggs(input_dict,widget):
-    return cardinalization(input_dict,widget,True)
+def ilp_relaggs(input_dict):
+    return cardinalization(input_dict,True)
 
-def cardinalization(input_dict,widget,is_relaggs):
+def cardinalization(input_dict,is_relaggs):
     output_dict = {}
     excluded_fields = parse_excluded_fields(input_dict['context'])
     args_list = ['java', '-Xmx512m', '-jar', 'proper/properLauncher.jar']
@@ -146,7 +147,9 @@ def cardinalization(input_dict,widget,is_relaggs):
     else:
         args_list += ['-cardinalizer']
 
-    result_table = '_%s_%s_%s' % (('relaggs' if is_relaggs else ('quantiles' if 'discretize_parts' in input_dict else 'cardinalize' )), str(widget.workflow_id), str(widget.id))
+    result_table = '_%s_%s' % (('relaggs' if is_relaggs else ('quantiles' if 'discretize_parts' in input_dict else 'cardinalize' )), int(round(time.time() * 1000)) )
+    #progress bar issue
+    #result_table = '_%s_%s_%s' % (('relaggs' if is_relaggs else ('quantiles' if 'discretize_parts' in input_dict else 'cardinalize' )), str(widget.workflow_id), str(widget.id))
 
     args_list += [
             '-use_foreign_keys',
@@ -166,19 +169,9 @@ def cardinalization(input_dict,widget,is_relaggs):
     except KeyError:
         pass
 
-    p = SafePopen(args_list,cwd=os.path.dirname(os.path.abspath(__file__)), stdout=PIPE).safe_run()
+    p = Popen(args_list,cwd=os.path.dirname(os.path.abspath(__file__)), stdout=PIPE)
     stdout_str, stderr_str = p.communicate()
-    #while True:
-    #    line = p.stdout.readline()
-    #    match_obj = re.match( r'(\d*)/(\d*) rows', line, re.I)
-    #    if match_obj:
-    #        current_percent = (float(match_obj.group(1))/float(match_obj.group(2)))*100
-    #        widget.progress = current_percent
-    #        widget.save()
-    #    if not line:
-    #        break
-    widget.progress=100
-    widget.save()
+    
     output_dict['context'] = input_dict['context'].change_table(result_table)        
     return output_dict
 

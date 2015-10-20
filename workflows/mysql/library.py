@@ -4,6 +4,8 @@ MySQL connectivity library.
 @author: Anze Vavpetic <anze.vavpetic@ijs.si>
 '''
 import os
+import tempfile
+import time
 from context import DBConnection, DBContext, MySqlDAL, PgSqlDAL
 from converters import RSD_Converter, Aleph_Converter, Orange_Converter, TreeLikerConverter, PrdFctConverter
 from mapper import domain_map
@@ -60,37 +62,30 @@ def mysql_orange_converter(input_dict):
     orange = Orange_Converter(context)
     return {'target_table_dataset' : orange.target_Orange_table(),'other_table_datasets': orange.other_Orange_tables()}
 
-def mysql_prd_fct_converter(input_dict, widget):  
-    widget.progress=0
-    widget.save() 
+def mysql_prd_fct_converter(input_dict):   
     context = input_dict['context']
     prd_fct = PrdFctConverter(context)
     
+
+    #progress bar issue
     url=os.path.dirname(os.path.abspath(__file__))
     url=os.path.normpath(os.path.join(url,'..','..','mothra','public','files'))
-    if not os.path.exists(url):
-        os.makedirs(url)  
-    url=os.path.normpath(os.path.join(url,str(widget.workflow_id)))
-    if not os.path.exists(url):
-        os.makedirs(url)
-        
-    widget.progress=20
-    widget.save()
+    #if not os.path.exists(url):
+    #    os.makedirs(url)  
+    #url=os.path.normpath(os.path.join(url,str(widget.workflow_id)))
+    #if not os.path.exists(url):
+    #    os.makedirs(url)
 
-    prd_file_url=os.path.join(url,"prdFctTemp%s.prd"%str(widget.id))
+    url = tempfile.mkdtemp(dir=url)
+    timenow = int(round(time.time() * 1000))
+    prd_file_url=os.path.join(url,"prdFctTemp%s.prd"%str(timenow))
     with open(prd_file_url, "w") as prd:
         prd.write( prd_fct.create_prd_file());   
 
-    widget.progress=40
-    widget.save()
-
-    fct_file_url=os.path.join(url,"prdFctTemp%s.fct"%str(widget.id))
+    fct_file_url=os.path.join(url,"prdFctTemp%s.fct"%str(timenow))
     with open(fct_file_url, "w") as fct:
         fct.write( prd_fct.create_fct_file());      
 
-    widget.progress=100
-    widget.save()
-    
     return {'prd_file' : prd_file_url,'fct_file': fct_file_url}
 
 def ilp_map_rsd(input_dict):

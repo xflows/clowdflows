@@ -8,7 +8,7 @@
       "windows_queue": false, 
       "package": "mysql", 
       "interaction_view": "", 
-      "has_progress_bar": true, 
+      "has_progress_bar": false, 
       "image": "", 
       "description": "", 
       "static_image": "mysql.png", 
