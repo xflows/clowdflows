@@ -1,0 +1,8 @@
+--INDIVIDUAL
+ind 1 set cwa
+--STRUCTURAL
+in 2 *:object 1:set cwa
+inside 2 1:object 1:object cwa
+--PROPERTIES
+true 1 set cwa
+shape 2 object #shape cwa
