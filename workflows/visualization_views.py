@@ -11,11 +11,6 @@ module_importer.import_all_packages_libs("visualization_views",setattr_local)
 def display_string(request,input_dict,output_dict,widget):
     return render(request, 'visualizations/display_string.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
 
-def object_viewer(request,input_dict,output_dict,widget):
-    import pprint
-    output_dict = {'object_string':pprint.pformat(input_dict['object'])}
-    return render(request, 'visualizations/object_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
-
 def orng_table_to_dict(data):
     import Orange
     attrs, metas, data_new = [], [], []

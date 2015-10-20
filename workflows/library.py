@@ -118,9 +118,6 @@ def add_integers(input_dict):
     output_dict['integer'] = int(input_dict['integer1'])+int(input_dict['integer2'])
     return output_dict
 
-def object_viewer(input_dict):
-    return {}
-
 def table_viewer(input_dict):
     return {}
 

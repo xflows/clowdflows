@@ -36,32 +36,7 @@ def select_attrs(request, input_dict, output_dict, widget):
     input_dict = {'ca':classes, 'ma':metas, 'attrs':attrs, 'data':input_dict['data'],'sorted_attrs':sorted_attrs}
     return render(request, 'interactions/select_attrs.html',{'widget':widget, 'input_dict':input_dict})
 
-def select_data(request, input_dict, output_dict, widget):
-    import Orange
 
-    data = Orange.data.Table(input_dict['data'])
-    attrs = {}
-    for att in data.domain.variables:
-        values = att.values if hasattr(att, 'values') else []
-        attrs[att.name] = {'feature' : 1, 'type' : str(att.var_type), 
-                           'values' : list(values)}
-
-    for att in data.domain.get_metas():
-        meta = data.domain.get_meta(att)
-        values = meta.values if hasattr(meta, 'values') else []
-        attrs[meta.name] = {'feature' : 0, 'type' : str(meta.var_type), 
-                            'values' : list(values)}
-
-    cls = data.domain.class_var
-    if cls:
-        values = cls.values if hasattr(cls, 'values') else []
-        attrs[cls.name] = {'feature' : 1, 'type':str(cls.var_type), 
-                           'values': list(values)}
-
-    sorted_attrs = sorted(attrs.items())
-    return render(request, 'interactions/select_data.html', 
-                  {'widget' : widget, 'attrs' : sorted_attrs})
-    
 def alter_table(request, input_dict, output_dict, widget):
     from visualization_views import orng_table_to_dict
     data = input_dict['data']
