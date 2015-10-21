@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "", 
-      "static_image": "", 
+      "static_image": "ilp.png", 
       "action": "ilp_cardinalization", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
