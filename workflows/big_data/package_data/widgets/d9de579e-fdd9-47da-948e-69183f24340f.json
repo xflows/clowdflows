@@ -5,7 +5,7 @@
       "category": "08c90036-fd13-4ff3-ac20-01982262a782", 
       "treeview_image": "", 
       "uid": "d9de579e-fdd9-47da-948e-69183f24340f", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "big_data", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,7 +19,7 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
       "name": "Apply Classifier"
     }
@@ -37,7 +37,7 @@
       "parameter_type": null, 
       "variable": "dataset", 
       "parameter": false, 
-      "order": 5, 
+      "order": 4, 
       "uid": "0c174cfd-0d61-44ff-8ce2-9c32f8791293"
     }
   }, 
@@ -62,23 +62,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "d9de579e-fdd9-47da-948e-69183f24340f", 
-      "name": "Random forest  - random state", 
-      "short_name": "rds", 
-      "default": "None", 
-      "description": "Define a random state for predict phase.", 
-      "required": true, 
-      "multi": false, 
-      "parameter_type": "text", 
-      "variable": "seed", 
-      "parameter": true, 
-      "order": 3, 
-      "uid": "8ec2b906-2b9e-4cda-9455-09ccd7d134fb"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "d9de579e-fdd9-47da-948e-69183f24340f", 
       "name": "Naive Bayes - m estimate", 
       "short_name": "m", 
       "default": "1", 
@@ -96,7 +79,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "d9de579e-fdd9-47da-948e-69183f24340f", 
-      "name": "Weighted forest - similarity coeff", 
+      "name": "Distributed Weighted forest - similarity coeff", 
       "short_name": "coe", 
       "default": "0.5", 
       "description": "Percentage of most similar treees to include in prediction (0 - 1)", 
@@ -105,7 +88,7 @@
       "parameter_type": "text", 
       "variable": "coeff", 
       "parameter": true, 
-      "order": 4, 
+      "order": 3, 
       "uid": "d979ff23-eb11-40cf-9d81-2a71ddf5d790"
     }
   }, 

@@ -5,7 +5,7 @@
       "category": "1be7b5eb-c1b2-485a-8dbe-56abce63fc73", 
       "treeview_image": "", 
       "uid": "4f2ce923-62e6-4be1-a394-72ac52988386", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "big_data", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,7 +19,7 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
       "name": "Distributed Random Forest"
     }
@@ -171,7 +171,7 @@
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
-      "variable": "leaf_min_inst", 
+      "variable": "min_samples_split", 
       "parameter": true, 
       "order": 4, 
       "uid": "a2f366a9-af74-4b3f-90ed-33c1fcad4c3a"
