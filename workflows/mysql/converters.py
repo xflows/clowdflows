@@ -220,7 +220,7 @@ class Orange_Converter(Converter):
     '''
     continuous_types = ('FLOAT','DOUBLE','DECIMAL','NEWDECIMAL','double precision')
     integer_types = ('TINY','SHORT','LONG','LONGLONG','INT24','integer')
-    ordinal_types = ('YEAR','VARCHAR','SET','VAR_STRING','STRING','BIT','text','character varying')
+    ordinal_types = ('YEAR','VARCHAR','SET','VAR_STRING','STRING','BIT','text','character varying', 'character')
     
     def __init__(self, *args, **kwargs):
         Converter.__init__(self, *args, **kwargs)
