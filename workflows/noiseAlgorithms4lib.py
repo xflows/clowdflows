@@ -397,6 +397,69 @@ def toARFFstring(table,try_numericize=0):#filename,table,try_numericize=0):
         
     return f
 
+def toKDICheader(table,try_numericize=0):
+    import cStringIO, string    
+    t = table
+
+    f = cStringIO.StringIO()
+    f.write('\nDictionary\t%s\n'%t.name)
+    f.write('{\n')
+    # attributes
+    ats = [i for i in t.domain.attributes]
+    ats.append(t.domain.classVar)
+    for i in ats:
+        real = True
+        if i.varType == 1:
+            if try_numericize:
+                # try if all values numeric
+                for j in i.values:
+                    try:
+                        x = string.atof(j)
+                    except:
+                        real = False # failed
+                        break
+            else:
+                real = False
+        iname = str(i.name)
+        if string.find(iname," ") != -1:
+            iname = "'%s'"%iname
+        if real:
+            f.write('\tNumerical\t%s\t\t;\n'%iname)
+        else:
+            f.write('\tCategorical\t%s\t\t;\n'%iname)
+    f.write('};\n')
+        
+    return f
+
+def toKDICstring(table,try_numericize=0):
+    import cStringIO, string    
+    t = table
+
+    f = cStringIO.StringIO()
+
+    # attributes
+    ats = [i for i in t.domain.attributes]
+    ats.append(t.domain.classVar)
+
+    for i in ats:
+        iname = str(i.name)
+        f.write('%s\t'%iname)
+    f.write('\n')
+        
+    for j in t:
+        x = []
+        for i in range(len(ats)):
+            s = str(j[i])
+            if string.find(s," ") == -1:
+                x.append("%s"%s)
+            else:
+                x.append("'%s'"%s)
+        for i in x[:-1]:
+            f.write('%s\t'%i)
+        f.write('%s\n'%x[-1])
+        
+    return f
+
 def getWekaName(name):
     #print name
     if name == None:

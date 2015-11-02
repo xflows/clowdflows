@@ -205,5 +205,17 @@
       "order": 1, 
       "uid": "63fa4451-4f98-406c-ba4a-d2feb83c2eaa"
     }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "score", 
+      "short_name": "scr", 
+      "description": "Score", 
+      "variable": "score", 
+      "order": 2, 
+      "uid": "77c361d0-7a91-48b1-b1c5-ec72e3063cb0"
+    }
   }
 ]

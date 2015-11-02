@@ -1,5 +1,6 @@
 import os
 import shutil
+import re
 
 def handle_files(fct_file_path,test_file_path, url):
     if os.path.normpath(fct_file_path) != os.path.normpath(url + '.fct'):
@@ -18,6 +19,18 @@ def create_attribute_list(attribute_str):
         if attribute_list:
             #map & strip e.g. : ['-d col1 5 eqb','-d col2 6 eqb']
             #join e.g. : '-d col1 5 eqb -d col2 6 eqb'
-            #split e.g. : ['-d','col1','5','eqb','-d','col2','6','eqb']
-            return ' '.join(map(lambda field: '-d ' + str(field).strip(), attribute_list)).split(' ')
+            res = check_attributes(' '.join(map(lambda field: '-d ' + str(field).strip(), attribute_list)))
+            if res is None:
+                return ''
+            else:
+                #split e.g. : ['-d','col1','5','eqb','-d','col2','6','eqb']
+                return res.split(' ')
     return ''
+
+def check_attributes(attribute_str):
+    print attribute_str
+    if re.search('^(-d \w+ \d+ (eqb|sdm))( -d \w+ \d+ (eqb|sdm))*$',attribute_str):
+        return attribute_str
+    else :
+        raise Exception('Attribute list is not correct')
+    return None

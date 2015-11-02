@@ -1019,7 +1019,11 @@ int call_recursive_1BC(long *a_num_success,long *a_num_test,int status,int a_fol
 		      the_list->next = *a_roc_list;
 		      *a_roc_list = the_list;
 		      /* display the id, the actual and the predicted classes, and the "ratio" of probabilities */
-		      fprintf(stderr,"%s, %d, %d, %lf\n",the_roc->individual,the_actual_class,the_predicted_class,the_probabilities[0]-the_probabilities[1]);
+		      fprintf(stderr,"%s, %d",the_roc->individual,the_actual_class);
+		      for (i=0;i<the_num_classes;i++){
+                        fprintf(stderr,",%lf",the_probabilities[i]);
+		      }
+                      fprintf(stderr,"\n");
 		    } /* (the_error == 0) */
 		  } /* (the_error == 0) */
 		} /* (the_error == 0) */

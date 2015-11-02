@@ -30,10 +30,18 @@ class Proper(object):
                 '-database', input_dict['context'].connection.database,                    
                 '-table', input_dict['context'].target_table]
         
+               
         try:
-            args_list += ['-discretize', '1','-discretize-parts', input_dict['discretize_parts'] ]
+            discretize_parts = input_dict['discretize_parts']
         except KeyError:
             pass
+        else:
+            try:
+                int(discretize_parts)
+            except ValueError:
+                raise Exception('Discretize parts should be an integer')
+            else:
+                args_list += ['-discretize', '1','-discretize-parts', discretize_parts]
     
         return args_list        
         

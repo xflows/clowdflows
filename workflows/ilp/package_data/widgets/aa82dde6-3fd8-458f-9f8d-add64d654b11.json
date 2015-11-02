@@ -1,0 +1,221 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "windows_queue": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "ilp.png", 
+      "action": "ilp_1bc2", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "1BC2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "ROC nb folds (-1 if no ROC)", 
+      "short_name": "rcn", 
+      "default": "-1", 
+      "description": "number_of_folds to find the best threshold using an internal cross-validation according to roc curve for Bayesian classification", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "roc_nb_folds", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "506d0550-666b-48f4-af20-4bdd85c02484"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "Random seed", 
+      "short_name": "ran", 
+      "default": "0", 
+      "description": "an integer for initialising the random seed", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "srand", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "5a725dfb-4483-4055-bd9c-d6b6203cc907"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "Max Var", 
+      "short_name": "var", 
+      "default": "2", 
+      "description": "Max Variables", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_variable", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "5ca34e43-8a57-4ee0-8318-752ed340c38b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "Test File", 
+      "short_name": "tst", 
+      "default": "", 
+      "description": "Test File", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "test_file", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "70bb70dd-5e79-4ff5-9e8e-bc246fc56b9c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "Prd File", 
+      "short_name": "prd", 
+      "default": "", 
+      "description": "Prd File", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "prd_file", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "755c70bd-6334-4acd-83e8-32bc9edb0d43"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "Cross validation folds", 
+      "short_name": "crs", 
+      "default": "1", 
+      "description": "the number of partition to apply a cross-validation on the dataset", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cross_number", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "93c979ee-ba3c-4cee-bf35-36b76f472c47"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "Load partitions incrementally", 
+      "short_name": "inc", 
+      "default": "", 
+      "description": "load partitions incrementaly, useful when the training set is too to be loaded in one go", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "load_part_inc", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "a32768ef-1fa9-481b-920c-cae19e08ce38"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "Fct File", 
+      "short_name": "fct", 
+      "default": "", 
+      "description": "Fct File", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "fct_file", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "c007ef3d-661d-4059-836d-b92469098036"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "Attribute List", 
+      "short_name": "att", 
+      "default": "", 
+      "description": "Attribute name, Number of intervals the attribute has to be discretised in, and a kind of discretisation (sdm: standard deviation centered on the mean, eqb: equal bins)\r\nFormat: \r\ncol1 nbIntervalCol1 sdm, col2 nbInstanceCol2 eqb", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "attribute_list", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "d9cef934-fa7f-4d7d-9d0a-68b6760770ef"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "Max Lit", 
+      "short_name": "lit", 
+      "default": "3", 
+      "description": "Max Literals", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_literal", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "dbf24de4-1b1a-4541-954f-1f68f0311055"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "score", 
+      "short_name": "scr", 
+      "description": "Score", 
+      "variable": "score", 
+      "order": 1, 
+      "uid": "79614373-8265-464d-8ce0-6aa6d998388f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
+      "name": "results", 
+      "short_name": "res", 
+      "description": "Results", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "bde592a0-c2c3-4bb0-a79e-71d317676180"
+    }
+  }
+]

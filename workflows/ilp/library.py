@@ -141,7 +141,12 @@ def ilp_relaggs(input_dict):
     return output_dict
 
 def ilp_1bc(input_dict):
-    onebc = OneBC(input_dict)
+    onebc = OneBC(input_dict,False)
+    output_dict = onebc.run()
+    return output_dict
+
+def ilp_1bc2(input_dict):
+    onebc = OneBC(input_dict,True)
     output_dict = onebc.run()
     return output_dict
 
