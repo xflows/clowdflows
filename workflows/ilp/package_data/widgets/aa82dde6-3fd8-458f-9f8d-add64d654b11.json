@@ -200,7 +200,7 @@
       "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
       "name": "score", 
       "short_name": "scr", 
-      "description": "Score", 
+      "description": "", 
       "variable": "score", 
       "order": 1, 
       "uid": "79614373-8265-464d-8ce0-6aa6d998388f"
@@ -212,9 +212,9 @@
       "widget": "aa82dde6-3fd8-458f-9f8d-add64d654b11", 
       "name": "results", 
       "short_name": "res", 
-      "description": "Results", 
+      "description": "", 
       "variable": "results", 
-      "order": 1, 
+      "order": 2, 
       "uid": "bde592a0-c2c3-4bb0-a79e-71d317676180"
     }
   }

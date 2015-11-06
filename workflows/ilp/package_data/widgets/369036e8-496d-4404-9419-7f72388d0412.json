@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "treeview_image": "", 
+      "uid": "369036e8-496d-4404-9419-7f72388d0412", 
+      "windows_queue": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "", 
+      "action": "ilp_multiple_class_to_one_binary_score", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Multiple class to one binary score"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "369036e8-496d-4404-9419-7f72388d0412", 
+      "name": "multiple class", 
+      "short_name": "scr", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "multiple_class", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "66f97096-762b-471e-8e83-c24c8cf331b6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "369036e8-496d-4404-9419-7f72388d0412", 
+      "name": "negative column", 
+      "short_name": "neg", 
+      "default": "4", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "neg_col", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "a17fb1d6-78e6-4d59-874f-779c62ad6e2c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "369036e8-496d-4404-9419-7f72388d0412", 
+      "name": "positive column", 
+      "short_name": "pos", 
+      "default": "3", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "pos_col", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "dd7651d2-68e0-4a11-8ed0-faddaac6e40a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "369036e8-496d-4404-9419-7f72388d0412", 
+      "name": "binary score", 
+      "short_name": "scr", 
+      "description": "", 
+      "variable": "binary_score", 
+      "order": 1, 
+      "uid": "bb59537b-e424-4ce9-a017-095791dd29b5"
+    }
+  }
+]

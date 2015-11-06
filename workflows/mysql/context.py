@@ -86,7 +86,7 @@ class PgSqlDAL:
     
     def list_tables(self, cursor, database):
         cursor.execute("SELECT table_name FROM information_schema.tables WHERE table_schema=\'public\' \
-                        AND table_type=\'BASE TABLE\' AND table_catalog='%s' AND table_name NOT LIKE \'\\\\_%%\'" % (database)) # to escape this sql command: ... NOT LIKE '\\_%'
+                        AND table_type=\'BASE TABLE\' AND table_catalog='%s' AND table_name NOT LIKE \'\\_%%\'" % (database)) # to escape this sql command: ... NOT LIKE '\_%'
 
     def list_columns(self, cursor, table, database):
         cursor.execute("SELECT column_name FROM information_schema.columns \
