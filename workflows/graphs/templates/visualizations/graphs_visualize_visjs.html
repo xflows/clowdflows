@@ -1,0 +1,73 @@
+<div id="widgetvisualization-{{ widget.pk }}" rel="{{ widget.pk }}"
+     class="widgetvisualizationdialog" title="{{ widget.name }} visualization" width="800" height="600">
+
+    <div id="networkvis">
+    </div>
+</div>
+
+
+<style>
+    #networkvis{
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+</style>
+
+<script>
+    $('head').append('<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.9.0/vis.min.css">');
+
+    $("#widgetvisualization-{{ widget.pk }}").bind("dialogresize", function (event, ui) {
+        $('#networkvis').height($('#networkvis').parent().height());
+        $('#networkvis').width($('#networkvis').parent().width());
+    });
+</script>
+
+<script>
+    $.getScript('https://cdn.rawgit.com/ryanve/verge/master/verge.min.js', function () {
+        $('#networkvis').height($('#networkvis').parent().height());
+        $('#networkvis').width($('#networkvis').parent().width());
+        $.getScript("https://cdnjs.cloudflare.com/ajax/libs/vis/4.9.0/vis.min.js", function () {
+            var network = null;
+            var nodes = new vis.DataSet();
+            var edges = new vis.DataSet();
+            nodes.add({{ nodes|safe }});
+            edges.add({{ edges|safe }});
+
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+
+            var options = {
+                autoResize: true,
+                edges: {
+                  smooth: {
+                    //type: 'dynamic'
+                      type: 'continuous'
+                  }
+                },
+                nodes: {
+                    color: {
+                      background: '#D2E5FF',
+                      hover: {
+                        background: '#97C2FC'
+                      }
+                    }
+                },
+                interaction: {
+                    hover: true     
+                },
+                physics: {
+                    enabled: true,
+                    stabilization: {
+                        enabled: false
+                    }
+                }
+            };
+            var container = document.getElementById('networkvis');
+            network = new vis.Network(container, data, options);
+        });
+    });
+
+</script>
+
