@@ -14,7 +14,7 @@
 </style>
 
 <script>
-    $('head').append('<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.9.0/vis.min.css">');
+    $('head').append('<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/almende/vis/v4.9.0/dist/vis.min.css">');
 
     $("#widgetvisualization-{{ widget.pk }}").bind("dialogresize", function (event, ui) {
         $('#networkvis').height($('#networkvis').parent().height());
@@ -26,7 +26,7 @@
     $.getScript('https://cdn.rawgit.com/ryanve/verge/master/verge.min.js', function () {
         $('#networkvis').height($('#networkvis').parent().height());
         $('#networkvis').width($('#networkvis').parent().width());
-        $.getScript("https://cdnjs.cloudflare.com/ajax/libs/vis/4.9.0/vis.min.js", function () {
+        $.getScript("https://cdn.rawgit.com/almende/vis/v4.9.0/dist/vis.min.js", function () {
             var network = null;
             var nodes = new vis.DataSet();
             var edges = new vis.DataSet();
@@ -42,8 +42,8 @@
                 autoResize: true,
                 edges: {
                   smooth: {
-                    //type: 'dynamic'
-                      type: 'continuous'
+                    type: 'dynamic'
+//                      type: 'continuous'
                   }
                 },
                 nodes: {
@@ -57,17 +57,43 @@
                 interaction: {
                     hover: true     
                 },
+                manipulation: {
+                    enabled: true,
+                    initiallyActive: false,
+                    addNode: function(nodeData,callback) {
+                        nodeData.label = 'new node';
+                        var name = prompt('Enter node label', nodeData.label);
+                        if (name != null) {
+                            nodeData.label = name;
+                        };
+                        callback(nodeData);
+                        }                                            
+                },
                 physics: {
                     enabled: true,
                     stabilization: {
                         enabled: false
                     }
-                }
+                },
+            layout: {
+                randomSeed: undefined,
+                improvedLayout:true,
+              }                
             };
+            
             var container = document.getElementById('networkvis');
             network = new vis.Network(container, data, options);
+        }).fail(function( jqxhr, settings, exception ) {
+                alert("Network error: cannot load verge JS library!");
+            });
+    }).fail(function( jqxhr, settings, exception ) {
+        alert("Network error: cannot load verge JS library!");
         });
-    });
 
+
+    function getFromIframe(eid) {
+        return $('iframe').contents().find(eid)[0];
+    }
+    
 </script>
 
