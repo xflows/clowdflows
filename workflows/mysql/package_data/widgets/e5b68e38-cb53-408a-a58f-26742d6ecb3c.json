@@ -5,7 +5,7 @@
       "category": "b66b71b1-99d6-4efc-b264-a914a3e42911", 
       "treeview_image": "", 
       "uid": "e5b68e38-cb53-408a-a58f-26742d6ecb3c", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "mysql", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,8 +19,8 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
-      "order": 1, 
+      "is_streaming": false, 
+      "order": 6, 
       "name": "Database To RSD"
     }
   }, 

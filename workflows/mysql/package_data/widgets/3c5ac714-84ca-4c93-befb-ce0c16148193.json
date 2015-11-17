@@ -5,7 +5,7 @@
       "category": "b66b71b1-99d6-4efc-b264-a914a3e42911", 
       "treeview_image": "", 
       "uid": "3c5ac714-84ca-4c93-befb-ce0c16148193", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "mysql", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,8 +19,8 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
-      "order": 1, 
+      "is_streaming": false, 
+      "order": 3, 
       "name": "Database To Aleph"
     }
   }, 

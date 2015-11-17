@@ -2,7 +2,7 @@
   {
     "model": "workflows.abstractwidget", 
     "fields": {
-      "category": "1b800757-2c72-4663-b3e4-2f2b61f609ff", 
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
       "treeview_image": "", 
       "uid": "369036e8-496d-4404-9419-7f72388d0412", 
       "windows_queue": false, 
@@ -34,7 +34,7 @@
       "description": "", 
       "required": true, 
       "multi": false, 
-      "parameter_type": null, 
+      "parameter_type": "file", 
       "variable": "multiple_class", 
       "parameter": false, 
       "order": 1, 
@@ -47,14 +47,14 @@
       "widget": "369036e8-496d-4404-9419-7f72388d0412", 
       "name": "negative column", 
       "short_name": "neg", 
-      "default": "4", 
+      "default": "3", 
       "description": "", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
       "variable": "neg_col", 
       "parameter": true, 
-      "order": 3, 
+      "order": 2, 
       "uid": "a17fb1d6-78e6-4d59-874f-779c62ad6e2c"
     }
   }, 
@@ -64,14 +64,14 @@
       "widget": "369036e8-496d-4404-9419-7f72388d0412", 
       "name": "positive column", 
       "short_name": "pos", 
-      "default": "3", 
+      "default": "4", 
       "description": "", 
       "required": true, 
       "multi": false, 
       "parameter_type": "text", 
       "variable": "pos_col", 
       "parameter": true, 
-      "order": 2, 
+      "order": 3, 
       "uid": "dd7651d2-68e0-4a11-8ed0-faddaac6e40a"
     }
   }, 
