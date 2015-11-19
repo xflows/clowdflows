@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Visualization", 
+    "parent": "d67b50ed-fd8a-4f91-aeb4-a9a19678f3fa", 
+    "order": 1, 
+    "uid": "09b22013-3469-497c-86e7-6d71ce9c78cd"
+  }
+}

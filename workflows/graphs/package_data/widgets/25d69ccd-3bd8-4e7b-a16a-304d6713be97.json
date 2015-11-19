@@ -1,0 +1,61 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "09b22013-3469-497c-86e7-6d71ce9c78cd", 
+      "treeview_image": "", 
+      "uid": "25d69ccd-3bd8-4e7b-a16a-304d6713be97", 
+      "windows_queue": false, 
+      "package": "graphs", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Interactive graph visualization using vis.js", 
+      "static_image": "", 
+      "action": "graphs_visualize_visjs", 
+      "visualization_view": "graphs_visualize_visjs", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "graph visualization (vis.js)"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "25d69ccd-3bd8-4e7b-a16a-304d6713be97", 
+      "name": "Graph object", 
+      "short_name": "nxg", 
+      "default": "", 
+      "description": "Graph as a networkx graph object.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "graph", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "00b3c79f-f8bb-42c9-94bf-472fb891aa1a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "25d69ccd-3bd8-4e7b-a16a-304d6713be97", 
+      "name": "Graph as text (Pajek format)", 
+      "short_name": "paj", 
+      "default": "*network test\r\n*vertices 4\r\n1 \"A\"\r\n2 \"B\"\r\n3 \"C\"\r\n4 \"D\"\r\n*arcs\r\n2 1 0.1 label \"one\"\r\n3 1 0.2 label \"two\"\r\n4 1 0.3 label \"three\"", 
+      "description": "Graph as a text in Pajek format. IMPORTANT: this is IGNORED if workflow input is present!", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "gtext", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "ae0e4cce-6cbb-4b6d-8ee2-2d421ffe071b"
+    }
+  }
+]
