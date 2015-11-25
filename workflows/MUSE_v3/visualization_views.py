@@ -55,7 +55,7 @@ def MUSE_virtual_environment_demonstrator_tuk_V3(request, input_dict, output_dic
     unityLink = '%s?%s' % (str(input_dict['unityLink']), params)
     # print unityLink
     return render(request,
-                  'visualizations/MUSE_Tuk_demonstrator.html',
+                  'visualizations/MUSE_Tuk_demonstrator_V3.html',
                   {'widget': widget,
                    'unityLink': unityLink}
                   )
@@ -67,7 +67,7 @@ def MUSE_virtual_environment_demonstrator_tuk_local_V3(request, input_dict, outp
     unityLink = '%s?%s' % (str(input_dict['unityLink']), params)
     # print unityLink
     return render(request,
-                  'visualizations/MUSE_Tuk_demonstrator_local.html',
+                  'visualizations/MUSE_Tuk_demonstrator_local_V3.html',
                   {'widget': widget,
                    'unityLink': unityLink}
                   )

@@ -34,7 +34,7 @@
       "description": "URL of the MUSE service", 
       "required": true, 
       "multi": false, 
-      "parameter_type": "checkbox", 
+      "parameter_type": "text", 
       "variable": "url", 
       "parameter": true, 
       "order": 2, 
