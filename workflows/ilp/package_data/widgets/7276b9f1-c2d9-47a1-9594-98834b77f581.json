@@ -261,7 +261,7 @@
     "model": "workflows.abstractoption", 
     "fields": {
       "name": "Horn", 
-      "uid": "", 
+      "uid": "8584fe8a-5668-4e7d-b377-64665ca16c8d", 
       "value": "horn", 
       "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
     }
@@ -270,7 +270,7 @@
     "model": "workflows.abstractoption", 
     "fields": {
       "name": "Class", 
-      "uid": "", 
+      "uid": "7ee6179c-592d-4284-8716-bd2568e62816", 
       "value": "class", 
       "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
     }
@@ -279,7 +279,7 @@
     "model": "workflows.abstractoption", 
     "fields": {
       "name": "Pos Class", 
-      "uid": "", 
+      "uid": "5b61cd61-e1ec-4481-98b1-9f51455f420f", 
       "value": "pos_class", 
       "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
     }
@@ -288,7 +288,7 @@
     "model": "workflows.abstractoption", 
     "fields": {
       "name": "Pos Horn Class", 
-      "uid": "", 
+      "uid": "b4349cda-5f52-4574-80e3-707cd837808c", 
       "value": "pos_horn_class", 
       "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
     }
