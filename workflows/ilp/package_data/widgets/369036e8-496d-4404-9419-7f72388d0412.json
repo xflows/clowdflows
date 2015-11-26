@@ -12,7 +12,7 @@
       "image": "", 
       "description": "", 
       "static_image": "", 
-      "action": "ilp_multiple_class_to_one_binary_score", 
+      "action": "ilp_multiple_classes_to_one_binary_score", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
       "post_interact_action": "", 
@@ -21,7 +21,7 @@
       "interactive": false, 
       "is_streaming": false, 
       "order": 1, 
-      "name": "Multiple class to one binary score"
+      "name": "Multiple classes to one binary score"
     }
   }, 
   {

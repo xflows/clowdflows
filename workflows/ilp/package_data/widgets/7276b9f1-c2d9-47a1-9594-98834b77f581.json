@@ -147,14 +147,14 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
-      "name": "Language bias: Horn", 
-      "short_name": "hor", 
+      "name": "Language bias", 
+      "short_name": "lbi", 
       "default": "", 
-      "description": "Language bias: Horn", 
+      "description": "Language bias", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "lang_horn", 
+      "parameter_type": "select", 
+      "variable": "lang_bias", 
       "parameter": true, 
       "order": 8, 
       "uid": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
@@ -192,23 +192,6 @@
       "parameter": true, 
       "order": 7, 
       "uid": "8c42b176-2a0a-4948-9095-a52eaf39b762"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
-      "name": "Language bias: Pos Class", 
-      "short_name": "pos", 
-      "default": "", 
-      "description": "Language bias: Pos Class", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "checkbox", 
-      "variable": "lang_pos_class", 
-      "parameter": true, 
-      "order": 9, 
-      "uid": "8ecd6621-9382-461e-bd9c-a2c97fb5ee24"
     }
   }, 
   {
@@ -272,6 +255,42 @@
       "variable": "results", 
       "order": 1, 
       "uid": "e9a032b7-5f87-424d-b298-c184531f8f05"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Horn", 
+      "uid": "", 
+      "value": "horn", 
+      "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Class", 
+      "uid": "", 
+      "value": "class", 
+      "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Pos Class", 
+      "uid": "", 
+      "value": "pos_class", 
+      "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Pos Horn Class", 
+      "uid": "", 
+      "value": "pos_horn_class", 
+      "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
     }
   }
 ]

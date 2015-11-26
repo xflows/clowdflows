@@ -155,7 +155,7 @@ def ilp_tertius(input_dict):
     output_dict = tertiusInst.run()
     return output_dict
 
-def ilp_multiple_class_to_one_binary_score(input_dict):
+def ilp_multiple_classes_to_one_binary_score(input_dict):
     output_dict = {}
     try:
         pos_col = int(input_dict['pos_col'])

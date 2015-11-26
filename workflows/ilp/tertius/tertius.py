@@ -64,13 +64,15 @@ class Tertius(object):
             if noise_percent_thres >= 0:
                 args_list += ['-n', str(noise_percent_thres)]   
                 
-        if input_dict['lang_horn'] and input_dict['lang_pos_class']:
-            args_list += ['-b', 'horn_pos_class']   
-        elif input_dict['lang_horn']:
+        if str(input_dict['lang_bias']) == 'horn':
             args_list += ['-b', 'horn']   
-        elif input_dict['lang_pos_class']:
+        elif str(input_dict['lang_bias']) == 'horn_pos_class':
+            args_list += ['-b', 'horn_pos_class']   
+        elif str(input_dict['lang_bias']) == 'pos_class':
             args_list += ['-b', 'pos_class']   
-            
+        elif str(input_dict['lang_bias']) == 'class':
+            args_list += ['-b', 'class']   
+                               
         att_list = helper.create_attribute_list(input_dict['attribute_list'])
         if att_list:
             args_list += att_list  
