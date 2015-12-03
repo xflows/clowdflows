@@ -2,7 +2,7 @@ import os
 import shutil
 import re
 
-def handle_files(fct_file_path,test_file_path, url):
+def handle_files(fct_file_path, url, test_file_path=None):
     if os.path.normpath(fct_file_path) != os.path.normpath(url + '.fct'):
         shutil.copy(os.path.normpath(fct_file_path),os.path.normpath(url + '.fct'));
 

@@ -7,7 +7,6 @@ class Tertius(object):
     def __init__(self,input_dict):
         self.prd_file_path = input_dict['prd_file']
         self.url = os.path.normpath(re.sub('\..*$', '', self.prd_file_path))
-        self.test_file_path = input_dict['test_file']
         self.fct_file_path = input_dict['fct_file']
         self.args_list = self.init_args_list(input_dict)
         
@@ -66,12 +65,12 @@ class Tertius(object):
                 
         if str(input_dict['lang_bias']) == 'horn':
             args_list += ['-b', 'horn']   
-        elif str(input_dict['lang_bias']) == 'horn_pos_class':
-            args_list += ['-b', 'horn_pos_class']   
+        elif str(input_dict['lang_bias']) == 'pos_horn_class':
+            args_list += ['-b', 'pos_horn_class']   
         elif str(input_dict['lang_bias']) == 'pos_class':
             args_list += ['-b', 'pos_class']   
         elif str(input_dict['lang_bias']) == 'class':
-            args_list += ['-b', 'class']   
+            args_list += ['-b', 'class']
                                
         att_list = helper.create_attribute_list(input_dict['attribute_list'])
         if att_list:
@@ -84,7 +83,7 @@ class Tertius(object):
     def run(self):
         output_dict = {}
         
-        helper.handle_files(self.fct_file_path, self.test_file_path, self.url)
+        helper.handle_files(self.fct_file_path, self.url)
         
         p = Popen(self.args_list,cwd=os.path.dirname(os.path.abspath(__file__)), stdout=PIPE)   
         stdout_str, stderr_str = p.communicate()       

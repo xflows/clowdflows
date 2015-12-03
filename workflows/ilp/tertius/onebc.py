@@ -65,7 +65,7 @@ class OneBC(object):
     def run(self):
         output_dict = {}
         
-        helper.handle_files(self.fct_file_path, self.test_file_path, self.url)
+        helper.handle_files(self.fct_file_path, self.url, self.test_file_path)
 
         p = Popen(self.args_list,cwd=os.path.dirname(os.path.abspath(__file__)), stderr=PIPE, stdout=PIPE)   
         stdout_str, stderr_str = p.communicate()      

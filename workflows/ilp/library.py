@@ -173,13 +173,23 @@ def ilp_multiple_classes_to_one_binary_score(input_dict):
         if neg_col < 0:
             raise Exception('"Negative column number" should be a positive integer')
     
-    output_dict['binary_score'] = to_binary_score(input_dict['multiple_class'],int(input_dict['pos_col'])-1,int(input_dict['neg_col'])-1)
+    output_dict['binary_score'] = to_binary_score(input_dict['multiple_classes'],int(input_dict['pos_col']),int(input_dict['neg_col']))
     return output_dict
 
 def to_binary_score(multiple_score,pos_col,neg_col):
     score_line = multiple_score.strip().split('\n')
     score_arr = [x.split(',') for x in score_line]
-    actual = [int(x[1]) for x in score_arr if int(x[1]) == 0 or int(x[1]) == 1]
-    predicted = [float(x[pos_col]) - float(x[neg_col])  for x in score_arr if int(x[1]) == 0 or int(x[1]) == 1]
+    pos_tag = pos_col - 3
+    neg_tag = neg_col - 3
+    actual = []
+    predicted = []
+    for x in score_arr:
+        if int(x[1]) == pos_tag:
+            actual.append(1)
+            predicted.append(float(x[pos_col-1]) - float(x[neg_col-1]))
+        elif int(x[1]) == neg_tag:
+            actual.append(0)            
+            predicted.append(float(x[pos_col-1]) - float(x[neg_col-1]))
+
     res = {"name":"Curve", "actual":actual, "predicted":predicted}
     return res

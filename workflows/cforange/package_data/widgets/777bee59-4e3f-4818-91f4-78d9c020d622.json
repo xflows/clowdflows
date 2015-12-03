@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "It generates files for khiops.", 
       "static_image": "", 
       "action": "odt_to_kdic", 
       "visualization_view": "", 
@@ -28,7 +28,7 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "777bee59-4e3f-4818-91f4-78d9c020d622", 
-      "name": "Orange Data Table", 
+      "name": "orange data table", 
       "short_name": "odt", 
       "default": "", 
       "description": "Orange Data Table", 
@@ -47,7 +47,7 @@
       "widget": "777bee59-4e3f-4818-91f4-78d9c020d622", 
       "name": "KDIC", 
       "short_name": "kdc", 
-      "description": "", 
+      "description": "Header file", 
       "variable": "kdic", 
       "order": 1, 
       "uid": "075d553f-5133-4023-8148-5a2edc520af3"
@@ -59,7 +59,7 @@
       "widget": "777bee59-4e3f-4818-91f4-78d9c020d622", 
       "name": "TXT", 
       "short_name": "txt", 
-      "description": "", 
+      "description": "CSV file", 
       "variable": "txt", 
       "order": 2, 
       "uid": "8d0df2c8-5969-4a82-b752-376534beea04"

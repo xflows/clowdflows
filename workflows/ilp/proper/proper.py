@@ -5,7 +5,7 @@ import os
 class Proper(object):
     def __init__(self,input_dict,is_relaggs):
         self.context = input_dict['context'];
-        self.result_table = '_%s_%s' % (('relaggs' if is_relaggs else ('quantiles' if 'discretize_parts' in input_dict else 'cardinalize' )), int(round(time.time() * 1000)) )
+        self.result_table = '_%s_%s' % (('relaggs' if is_relaggs else ('quantiles' if 'quantiles_number' in input_dict else 'cardinalize' )), int(round(time.time() * 1000)) )
         self.args_list = self.init_args_list(input_dict,is_relaggs)
     
     def init_args_list(self, input_dict,is_relaggs):
@@ -32,16 +32,16 @@ class Proper(object):
         
                
         try:
-            discretize_parts = input_dict['discretize_parts']
+            quantiles_number = input_dict['quantiles_number']
         except KeyError:
             pass
         else:
             try:
-                int(discretize_parts)
+                int(quantiles_number)
             except ValueError:
-                raise Exception('Discretize parts should be an integer')
+                raise Exception('Number of quantiles should be an integer')
             else:
-                args_list += ['-discretize', '1','-discretize-parts', discretize_parts]
+                args_list += ['-discretize', '1','-discretize-parts', quantiles_number]
     
         return args_list        
         

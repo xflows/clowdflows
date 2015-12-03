@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "It generates input files from a database to the Prd and Fct files used by Tertius, 1BC and 1BC2 widget. Its input is a Database context widget.", 
       "static_image": "mysql.png", 
       "action": "mysql_prd_fct_converter", 
       "visualization_view": "", 
@@ -31,7 +31,7 @@
       "name": "context", 
       "short_name": "cxt", 
       "default": "", 
-      "description": "Database context object", 
+      "description": "from a Database context widget", 
       "required": true, 
       "multi": false, 
       "parameter_type": null, 
@@ -45,9 +45,9 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "bc0ddb08-f4d2-4c72-90d8-845122ecb41c", 
-      "name": "Fct file", 
+      "name": "fct file", 
       "short_name": "fct", 
-      "description": "Fct file", 
+      "description": "a fct file to Tertius, 1BC or 1BC2", 
       "variable": "fct_file", 
       "order": 2, 
       "uid": "5af7e830-209d-4059-bfda-1b47b3e1c5b8"
@@ -57,9 +57,9 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "bc0ddb08-f4d2-4c72-90d8-845122ecb41c", 
-      "name": "Prd file", 
+      "name": "prd file", 
       "short_name": "prd", 
-      "description": "Prd file", 
+      "description": "a prd file to Tertius, 1BC or 1BC2", 
       "variable": "prd_file", 
       "order": 1, 
       "uid": "eeb809b7-2135-484e-aa9d-cdb53be44155"
