@@ -272,6 +272,20 @@ def MUSE_string_to_file_finished_V3(postdata, input_dict, output_dict):
 
     fileURL = fqdn + postdata.get('fileURL')[0]
     return {'fileURL': fileURL}
+#end
+
+
+def MUSE_view_xml_V3(input_dict):
+    return {'xml_data': input_dict.get('xml_data', None)}
+
+
+def MUSE_virtual_environment_demonstrator_tuk_V3(input_dict):
+    return {'mappingLink': str(input_dict['mappingLink']), 'unityLink': input_dict['unityLink']}
+
+
+def MUSE_virtual_environment_demonstrator_tuk_local_V3(input_dict):
+    return {'mappingLink': str(input_dict['mappingLink']), 'unityLink': input_dict['unityLink']}
+
 
 
 

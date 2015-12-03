@@ -1,0 +1,190 @@
+<div id="widgetvisualization-{{ widget.pk }}" rel="{{ widget.pk }}"
+     class="widgetvisualizationdialog" title="{{ widget.name }} visualization" width="800" height="600">
+
+    <div id="controls">
+        <button id="freezeBtn" class='controlElement' type="button"></button>
+        <label for="etype">edge type</label>
+        <select name="etype" id="etypeSelect" class='controlElement'>
+          <option selected="selected">continuous</option>
+          <option>dynamic</option>
+          <option>straight</option>
+        </select>
+    
+    </div>
+    <div id="networkvis">
+    </div>
+    
+</div>
+
+
+<style>
+    #networkvis{
+        overflow-y: hidden;
+        overflow-x: hidden;
+        float: right;
+/*        display: block;*/
+    }
+    #controls {
+        width: 85px;
+        text-align:center;
+        padding-top: 11px;
+        float: left;
+/*        display: block;*/
+        font-size: 80%;
+    }
+    .controlElement {
+/*        margin: 0 auto;*/
+        margin-bottom: 5px;
+    }
+    
+</style>
+
+<script>
+    $('head').append('<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/almende/vis/v4.9.0/dist/vis.min.css">');
+
+    $("#widgetvisualization-{{ widget.pk }}").bind("dialogresize", function (event, ui) {
+        $('#networkvis').height($('#networkvis').parent().height());
+        $('#networkvis').width($('#networkvis').parent().width()-100);
+    });
+    
+    $('#freezeBtn').button({
+        label: 'freeze'
+    });
+    $('#redrawBtn').button({
+        label: 'redraw'
+    });
+    
+//    $('#etypeSelect').selectmenu();
+
+</script>
+
+<script>
+    $.getScript('https://cdn.rawgit.com/ryanve/verge/master/verge.min.js', function () {
+        $('#networkvis').height($('#networkvis').parent().height());
+        $('#networkvis').width($('#networkvis').parent().width()-100);
+        $.getScript("https://cdn.rawgit.com/almende/vis/v4.9.0/dist/vis.min.js", function () {
+
+            function onDragStart(obj) {
+                if (obj.hasOwnProperty('nodes') && obj.nodes.length==1) {
+                    var nid = obj.nodes[0];
+                    nodes.update({id: nid, fixed: false});
+                }
+
+            }
+
+            function onDragEnd(obj) {
+                if (isFrozen==false)
+                    return
+                var nid = obj.nodes;
+                if (obj.hasOwnProperty('nodes') && obj.nodes.length==1) {
+                    var nid = obj.nodes[0];
+                    nodes.update({id: nid, fixed: true});
+                }
+            }        
+            
+            function freezeNodes(state){
+                nodes.forEach(function(node, id){
+                    nodes.update({id: id, fixed: state});
+                });
+            }
+            
+            $('#freezeBtn').on('click', function () {
+                if ($(this).find('span').text()=='release'){
+                    isFrozen = false;
+                    freezeNodes(false);
+                    $(this).find('span').text('freeze');
+                }
+                else {
+                    isFrozen = true;
+                    freezeNodes(true);
+                    $(this).find('span').text('release');
+                }
+            });
+            
+            $("#etypeSelect").change(function() {
+                var t = $(this).val();
+                if (t=='continuous') {
+                    network.setOptions({edges: {smooth: {type: 'continuous'}}});
+                }
+                else if (t=='dynamic') {
+                    network.setOptions({edges: {smooth: {type: 'dynamic'}}})
+                }
+                else if (t=='straight') {
+                    network.setOptions({edges: {smooth: false}})
+                }
+            });
+            
+            var network = null;
+            var nodes = new vis.DataSet();
+            var edges = new vis.DataSet();
+            var isFrozen = false;
+            nodes.add({{ nodes|safe }});
+            edges.add({{ edges|safe }});
+
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+
+            var options = {
+                autoResize: true,
+                edges: {
+                  smooth: {
+//                    type: 'dynamic'
+                      type: 'continuous'
+                  }
+                },
+                nodes: {
+                    color: {
+                      background: '#D2E5FF',
+                      hover: {
+                        background: '#97C2FC'
+                      }
+                    }
+                },
+                interaction: {
+                    hover: true,
+                    navigationButtons: true
+                },
+                manipulation: {
+                    enabled: true,
+                    initiallyActive: false,
+                    addNode: function(nodeData,callback) {
+                        nodeData.label = 'new node';
+                        var name = prompt('Enter node label', nodeData.label);
+                        if (name != null) {
+                            nodeData.label = name;
+                        };
+                        callback(nodeData);
+                        }                                            
+                },
+                physics: {
+                    enabled: true,
+                    stabilization: {
+                        enabled: false
+                    }
+                },
+            layout: {
+                randomSeed: undefined,
+                improvedLayout: true
+              }
+            };
+            
+            var container = document.getElementById('networkvis');
+            network = new vis.Network(container, data, options);
+            network.on('dragStart', onDragStart);
+            network.on('dragEnd', onDragEnd);
+        }).fail(function( jqxhr, settings, exception ) {
+                alert("Network error: cannot load verge JS library!");
+            });
+    }).fail(function( jqxhr, settings, exception ) {
+        alert("Network error: cannot load verge JS library!");
+        });
+
+
+    function getFromIframe(eid) {
+        return $('iframe').contents().find(eid)[0];
+    }
+    
+</script>
+

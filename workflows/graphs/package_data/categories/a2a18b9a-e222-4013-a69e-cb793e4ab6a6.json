@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Transformation", 
+    "parent": "d67b50ed-fd8a-4f91-aeb4-a9a19678f3fa", 
+    "order": 1, 
+    "uid": "a2a18b9a-e222-4013-a69e-cb793e4ab6a6"
+  }
+}
