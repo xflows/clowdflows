@@ -31,7 +31,7 @@
       "name": "multiple classes", 
       "short_name": "scr", 
       "default": "", 
-      "description": "A string containing the identifiers, true classes and scores for all classes of test instances. From a scorer such as the 1BC and 1BC2 first-order bayesian classifiers.", 
+      "description": "from a scorer such as the 1BC and 1BC2 first-order bayesian classifiers", 
       "required": true, 
       "multi": false, 
       "parameter_type": "file", 
@@ -81,7 +81,7 @@
       "widget": "369036e8-496d-4404-9419-7f72388d0412", 
       "name": "binary score", 
       "short_name": "scr", 
-      "description": "To the Prepare Performance curve data widget", 
+      "description": "to the Prepare Performance curve data widget", 
       "variable": "binary_score", 
       "order": 1, 
       "uid": "bb59537b-e424-4ce9-a017-095791dd29b5"

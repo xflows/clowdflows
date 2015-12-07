@@ -47,7 +47,7 @@
       "widget": "bc0ddb08-f4d2-4c72-90d8-845122ecb41c", 
       "name": "fct file", 
       "short_name": "fct", 
-      "description": "a fct file to Tertius, 1BC or 1BC2", 
+      "description": "to Tertius, 1BC or 1BC2", 
       "variable": "fct_file", 
       "order": 2, 
       "uid": "5af7e830-209d-4059-bfda-1b47b3e1c5b8"
@@ -59,7 +59,7 @@
       "widget": "bc0ddb08-f4d2-4c72-90d8-845122ecb41c", 
       "name": "prd file", 
       "short_name": "prd", 
-      "description": "a prd file to Tertius, 1BC or 1BC2", 
+      "description": "to Tertius, 1BC or 1BC2", 
       "variable": "prd_file", 
       "order": 1, 
       "uid": "eeb809b7-2135-484e-aa9d-cdb53be44155"

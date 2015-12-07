@@ -31,7 +31,7 @@
       "name": "orange data table", 
       "short_name": "odt", 
       "default": "", 
-      "description": "Orange Data Table", 
+      "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": null, 
@@ -47,7 +47,7 @@
       "widget": "70718b14-851b-40ed-9091-3e83a95bee5e", 
       "name": "fct file", 
       "short_name": "fct", 
-      "description": "a fct file to Tertius, 1BC or 1BC2", 
+      "description": "to Tertius, 1BC or 1BC2", 
       "variable": "fct", 
       "order": 2, 
       "uid": "1f6c8d49-771c-4614-87fe-d8b973d02caf"
@@ -59,7 +59,7 @@
       "widget": "70718b14-851b-40ed-9091-3e83a95bee5e", 
       "name": "prd file", 
       "short_name": "prd", 
-      "description": "a prd file to Tertius, 1BC or 1BC2", 
+      "description": "to Tertius, 1BC or 1BC2", 
       "variable": "prd", 
       "order": 1, 
       "uid": "5b7b93f9-6596-4840-8461-b52718c0bce9"

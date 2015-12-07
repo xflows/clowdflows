@@ -31,7 +31,7 @@
       "name": "orange data table", 
       "short_name": "odt", 
       "default": "", 
-      "description": "Orange Data Table", 
+      "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": null, 
@@ -59,7 +59,7 @@
       "widget": "777bee59-4e3f-4818-91f4-78d9c020d622", 
       "name": "TXT", 
       "short_name": "txt", 
-      "description": "CSV file", 
+      "description": "containing CSV data", 
       "variable": "txt", 
       "order": 2, 
       "uid": "8d0df2c8-5969-4a82-b752-376534beea04"
