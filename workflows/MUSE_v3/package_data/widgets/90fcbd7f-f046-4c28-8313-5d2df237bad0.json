@@ -86,5 +86,23 @@
       "order": 1, 
       "uid": "901ddbc5-2819-4577-87f9-535387c04402"
     }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "", 
+      "value": "en", 
+      "abstract_input": "e692430c-d5fc-4ee6-890a-c8195673ae29"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "French", 
+      "uid": "", 
+      "value": "fr", 
+      "abstract_input": "e692430c-d5fc-4ee6-890a-c8195673ae29"
+    }
   }
 ]

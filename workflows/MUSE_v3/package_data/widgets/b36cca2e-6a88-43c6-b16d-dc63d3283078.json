@@ -90,6 +90,15 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
+      "name": "English", 
+      "uid": "", 
+      "value": "en", 
+      "abstract_input": "5544f7e8-0d51-4317-9e68-91e51a6cc7af"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
       "name": "French", 
       "uid": "", 
       "value": "fr", 
