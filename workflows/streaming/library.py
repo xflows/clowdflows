@@ -351,6 +351,7 @@ def streaming_summarize_url(input_dict,widget,stream=None):
         output_dict = {}
         output_dict['summary']=" ".join(summaries)
     except:
+        output_dict = {}
         output_dict['summary']=''
     return output_dict
 
