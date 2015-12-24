@@ -346,13 +346,9 @@ def streaming_triplet_extraction(input_dict,widget,stream=None):
 
 def streaming_summarize_url(input_dict,widget,stream=None):
     import pyteaser
-    try:
-        summaries = pyteaser.SummarizeUrl(input_dict['url'])
-        output_dict = {}
-        output_dict['summary']=" ".join(summaries)
-    except:
-        output_dict = {}
-        output_dict['summary']=''
+    summaries = pyteaser.SummarizeUrl(input_dict['url'])
+    output_dict = {}
+    output_dict['summary']=" ".join(summaries)
     return output_dict
 
 def streaming_get_article_text(input_dict,widget,stream=None):
