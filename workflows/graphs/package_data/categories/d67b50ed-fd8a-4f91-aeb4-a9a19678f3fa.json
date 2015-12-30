@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Graphs", 
+    "parent": null, 
+    "order": 1, 
+    "uid": "d67b50ed-fd8a-4f91-aeb4-a9a19678f3fa"
+  }
+}

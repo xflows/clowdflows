@@ -1,0 +1,41 @@
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization" width="650px">
+<div style="width:600px;white-space:pre-wrap;font-family:monospace;">
+<pre style="width:600px !important;white-space:pre-wrap">
+
+{% if not ids_sentence and not ids_article and not text_sentence %}
+Please select one column with checkbox to print out. 
+
+{% else %}
+<table class="datasetTable">
+    <tr>
+        {% if ids_sentence %}
+            <th class="tablecellcenter">Sentence ID</th>
+        {% endif %}
+        
+        {% if ids_article %}
+            <th class="tablecellcenter">Article ID</th>
+        {% endif %}
+        {% if text_sentence %}
+            <th class="tablecellcenter">Sentence</th>      
+        {% endif %}
+    </tr>
+    {% for sent in sentences %}
+    <tr class="tablerow">
+        {% if ids_sentence %}
+            <td class="tablecellcenter">{{sent.id}}</td>
+        {% endif %}
+        
+        {% if ids_article %}
+            <td class="tablecellleft">{{sent.aid}}</td>
+        {% endif %}
+
+        {% if text_sentence %}
+            <td class="tablecellleft">{{sent.txt}}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+</pre>
+{% endif %}
+</div>
+</div>

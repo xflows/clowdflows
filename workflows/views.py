@@ -686,17 +686,18 @@ def add_input(request):
                 widget.name = 'Input'
                 widget.type = 'input'
                 widget.save()
+                variable_name = 'Input'+str(widget.pk)
                 output = Output()
                 output.name = 'Input'
                 output.short_name = 'inp'
-                output.variable = 'Input'
+                output.variable = variable_name
                 output.widget = widget
                 output.save()
                 input = Input()
                 input.widget = workflow.widget
                 input.name = 'Input'
                 input.short_name = 'inp'
-                input.variable = 'Input'
+                input.variable = variable_name
                 input.inner_output = output
                 input.save()
                 output.outer_input = input
@@ -733,17 +734,18 @@ def add_output(request):
                 widget.name = 'Output'
                 widget.type = 'output'
                 widget.save()
+                variable_name = 'Output'+str(widget.pk)
                 input = Input()
                 input.name = 'Output'
                 input.short_name = 'out'
-                input.variable = 'Output'
+                input.variable = variable_name
                 input.widget = widget
                 input.save()
                 output = Output()
                 output.widget = workflow.widget
                 output.name = 'Output'
                 output.short_name = 'out'
-                output.variable = 'Output'
+                output.variable = variable_name
                 output.inner_input = input
                 output.save()
                 input.outer_output = output
@@ -1243,7 +1245,7 @@ def widget_results(request):
 
     if request.is_ajax() or DEBUG:
         w = get_object_or_404(Widget, pk=request.POST['widget_id'])
-        if (w.workflow.user == request.user):
+        if request.user == w.workflow.user:
             import pprint
             input_dict = {}
             output_dict = {}

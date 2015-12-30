@@ -1,0 +1,100 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9a30eafc-37b8-48f2-8a92-692c4b324dff", 
+      "treeview_image": "treeview/nlp.png", 
+      "uid": "e9434119-06a8-4426-b839-f520e80da8c2", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/nlp_6.png", 
+      "description": "", 
+      "static_image": "nlp.png", 
+      "action": "merge_sentences", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Merge sentences"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e9434119-06a8-4426-b839-f520e80da8c2", 
+      "name": "Sentences", 
+      "short_name": "sen", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "sentences", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "04373e12-bcb5-41e6-9cc3-cb57bed48beb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e9434119-06a8-4426-b839-f520e80da8c2", 
+      "name": "Method", 
+      "short_name": "mth", 
+      "default": "union", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "method", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "3b9d9f40-1a35-4ad2-a7fe-0c15418c7982"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e9434119-06a8-4426-b839-f520e80da8c2", 
+      "name": "Merged Sentences", 
+      "short_name": "sen", 
+      "description": "", 
+      "variable": "merged_sentences", 
+      "order": 1, 
+      "uid": "45360578-f7e8-42bb-b021-d951ca952aab"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Intersection", 
+      "uid": "05ab33c9-f73a-4d82-a901-cd1d8c995e8c", 
+      "value": "intersection", 
+      "abstract_input": "3b9d9f40-1a35-4ad2-a7fe-0c15418c7982"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Intersection by two", 
+      "uid": "1e278cf2-8c3b-4674-a0f4-d47bf4e306e7", 
+      "value": "intersection_two", 
+      "abstract_input": "3b9d9f40-1a35-4ad2-a7fe-0c15418c7982"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Union", 
+      "uid": "865a8feb-c9fc-4629-97e8-86a25546bf5d", 
+      "value": "union", 
+      "abstract_input": "3b9d9f40-1a35-4ad2-a7fe-0c15418c7982"
+    }
+  }
+]

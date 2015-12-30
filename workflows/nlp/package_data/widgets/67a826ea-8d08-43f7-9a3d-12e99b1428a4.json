@@ -1,0 +1,100 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9a30eafc-37b8-48f2-8a92-692c4b324dff", 
+      "treeview_image": "", 
+      "uid": "67a826ea-8d08-43f7-9a3d-12e99b1428a4", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "nlp.png", 
+      "action": "merge_sentences2", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Merge sentences2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "67a826ea-8d08-43f7-9a3d-12e99b1428a4", 
+      "name": "Sentences", 
+      "short_name": "sen", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "sentences", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c3ffb24f-2c43-4272-ba69-19121cbe11b8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "67a826ea-8d08-43f7-9a3d-12e99b1428a4", 
+      "name": "Method", 
+      "short_name": "mth", 
+      "default": "union", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "method", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "cf6fa968-c2cc-47f3-a885-2035d75f4e4f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "67a826ea-8d08-43f7-9a3d-12e99b1428a4", 
+      "name": "Merged Sentences", 
+      "short_name": "sen", 
+      "description": "", 
+      "variable": "merged_sentences", 
+      "order": 1, 
+      "uid": "e233225c-cae5-48c7-b3f6-30f7651759cc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Intersection by two", 
+      "uid": "38178fed-0bdc-4348-99ad-9ebd58eaedac", 
+      "value": "intersection_two", 
+      "abstract_input": "cf6fa968-c2cc-47f3-a885-2035d75f4e4f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Intersection", 
+      "uid": "79493939-9852-42e7-a4e5-288fd3ca89cf", 
+      "value": "intersection", 
+      "abstract_input": "cf6fa968-c2cc-47f3-a885-2035d75f4e4f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Union", 
+      "uid": "f886975d-05e8-4940-921c-a891fddeb879", 
+      "value": "union", 
+      "abstract_input": "cf6fa968-c2cc-47f3-a885-2035d75f4e4f"
+    }
+  }
+]

@@ -1,0 +1,95 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "9a30eafc-37b8-48f2-8a92-692c4b324dff", 
+      "treeview_image": "", 
+      "uid": "ae9ed336-c8ad-4dd8-ae81-d839482830cc", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "nlp.png", 
+      "action": "definition_sentences2", 
+      "visualization_view": "definition_sentences_viewer2", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Sentence viewer2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ae9ed336-c8ad-4dd8-ae81-d839482830cc", 
+      "name": "Show sentence IDs", 
+      "short_name": "ssi", 
+      "default": "true", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "ids_sentence", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "0a4fc0ae-6cde-4d7b-88d5-67066fa6bef6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ae9ed336-c8ad-4dd8-ae81-d839482830cc", 
+      "name": "Show article IDs", 
+      "short_name": "sai", 
+      "default": "true", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "ids_article", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "745a1bb7-6941-4108-843f-5423ab995cd2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ae9ed336-c8ad-4dd8-ae81-d839482830cc", 
+      "name": "candidates", 
+      "short_name": "can", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "candidates", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d37e4592-22ca-4e5e-846e-60e777a389f5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ae9ed336-c8ad-4dd8-ae81-d839482830cc", 
+      "name": "Show sentences", 
+      "short_name": "shw", 
+      "default": "true", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "text_sentence", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "e4fb7865-9549-47b7-88a0-38c094acbfc9"
+    }
+  }
+]

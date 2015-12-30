@@ -42,6 +42,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     #'workflows.noise',
     #'workflows.vipercharts',
     #'workflows.MUSE',
+    #'workflows.MUSE_v3',
     #'workflows.hbp',
 )
 
