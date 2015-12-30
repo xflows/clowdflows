@@ -7,34 +7,6 @@ def setattr_local(name, value, package):
     setattr(sys.modules[__name__], name, value)
 module_importer.import_all_packages_libs("visualization_views",setattr_local)
 
-
-def display_string(request,input_dict,output_dict,widget):
-    return render(request, 'visualizations/display_string.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
-
-def orng_table_to_dict(data):
-    import Orange
-    attrs, metas, data_new = [], [], []
-    try:
-        class_var = data.domain.class_var.name
-    except:
-        class_var = ''
-    for m in data.domain.get_metas():
-        metas.append(data.domain.get_meta(m).name)
-    for a in data.domain.attributes:
-        attrs.append(a.name)
-    pretty_float = lambda x, a: '%.3f' % x if a.var_type == Orange.feature.Type.Continuous and x!='?' else x
-    for inst in xrange(len(data)):
-        inst_new = []
-        for a in data.domain.variables:
-            value = data[inst][a.name].value
-            inst_new.append((a.name, pretty_float(value, a)))
-        for m in data.domain.get_metas():
-            value = data[inst][m].value
-            a = data.domain.get_meta(m)
-            inst_new.append((a.name, pretty_float(value, a)))
-        data_new.append(inst_new)
-    return {'attrs':attrs, 'metas':metas, 'data':data_new, 'class_var':class_var}
-
 def table_viewer(request,input_dict,output_dict,widget):
     data = input_dict['data']
     return render(request, 'visualizations/table_viewer.html',{'widget':widget,'input_dict':input_dict,'output_dict':orng_table_to_dict(data)})

@@ -20,7 +20,7 @@ USE_CONCURRENCY = False
 FILES_FOLDER = os.path.join(PUBLIC_DIR, 'files/')
 
 INSTALLED_APPS_WORKFLOWS_SUB = (
-    'workflows.base',
+    #'workflows.base',
     #'workflows.latino',
     #'workflows.decision_support',
     #'workflows.segmine',
@@ -47,7 +47,10 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
 
 INSTALLED_APPS_EXTERNAL_PACKAGES = (
     #'rdm.db',
-    #'rdm.wrappers'
+    #'rdm.wrappers',
+    'cf_base',
+    'cf_datamining',
+    'cf_weka_local'
 )
 
 BROKER_URL = 'django://'

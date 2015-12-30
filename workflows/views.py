@@ -1127,7 +1127,7 @@ def run_tree(request):
                     o.save()
                 data = simplejson.dumps({'status': 'error',
                                          'message': 'Error occurred when trying to execute widget ' + w.name + ': ' + str(
-                                             type(e)) + ' ' + str(e)})
+                                             type(e)) + ' ' + str(e.message)})
             return HttpResponse(data, mimetype)
         else:
             return HttpResponse(status=400)
