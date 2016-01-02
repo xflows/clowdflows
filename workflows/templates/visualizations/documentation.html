@@ -1,10 +1,17 @@
 <div id="widgetdocumentation-{{widget.pk}}" rel="{{widget.pk}}" class="widgetdocumentationdialog" title="{{widget.abstract_widget.name}} documentation">
 <div style="width:580px;white-space:pre-wrap;font-family:monospace;">
-Name: {{widget.abstract_widget.name}}
-<br />
-{{widget.abstract_widget.description}}
-<br />
-Package: {{widget.abstract_widget.package}}
-Category: {{widget.abstract_widget.category}}
+{% if widget.abstract_widget %}
+Name: {{ widget.abstract_widget.name }}
+{% else %}
+Name: Subprocess widget
+{% endif %}
+<br/>
+{{ widget.abstract_widget.description }}
+<br/>
+
+{% if widget.abstract_widget %}
+Package: {{ widget.abstract_widget.package }}
+Category: {{ widget.abstract_widget.category }}
+{% endif %}
 </div>
 </div>
