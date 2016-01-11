@@ -1,0 +1,35 @@
+
+extern int the_max_var;
+extern int the_max_lit;
+extern int the_search_bias;
+extern double the_consistency_threshold;
+extern long the_node_counter;
+extern FILE *the_state_file;
+extern int test_subsumption;
+extern int k_best;
+extern int consistency;
+extern int DO_NOT_DELETE_CURRENT_CUBE;
+extern int unification_form;
+extern int search_approach;
+extern double confirmation_level;
+extern double khi_level;
+extern int verbose;
+extern tcube *the_global_clause;
+extern double the_frequency_threshold;
+extern int individual_based;
+extern int structure_based;
+extern int starting_clause;
+extern int bayes;
+
+void signal_deal_with(int sig);
+int search(tlist *a_list_nodes, tlist **a_list_results);
+int refine_cube(tcube *a_cube, tlist **its_children);
+int initialise_unified_variables(tcube *a_cube);
+int rename_variables(tcube* a_cube);
+int build_children_predicate(tcube *a_cube,int a_pred,int a_sign,int an_indice,int a_nb_new_args,int *a_subset,tlist **a_children_list);
+int build_subsets(int global_n,int new_n,int global_p,int new_p,tlist **a_list);
+int build_brother(tcube *a_cube,int an_indice,int a_flip,int an_arg,int a_value, tlist **a_list_brothers);
+int initialise_search(tlist **a_node,FILE *a_clause_file);
+int build_children_unify(tcube *a_cube,int a_first_var,int a_second_var, tlist **a_list_children);
+int initialise_expansed_form(tcube *a_cube,tcube *a_parent);
+int test_refine(tlist *a_list_nodes, tlist **a_list_results);

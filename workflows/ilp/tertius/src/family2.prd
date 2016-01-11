@@ -1,0 +1,12 @@
+--INDIVIDUAL
+person 1 person cwa
+couple 1 couple cwa
+--STRUCTURAL
+first 2 *:couple 1:person 2 cwa
+second 2 *:couple 1:person 2 cwa
+--PROPERTIES
+parent 1 couple cwa
+daughter 1 couple cwa
+son 1 couple cwa
+male 1 person cwa
+female 1 person cwa

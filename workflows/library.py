@@ -721,6 +721,24 @@ def odt_to_arff(input_dict):
     output_dict['arff'] = f.getvalue()
     return output_dict  
 
+def odt_to_kdic(input_dict):
+    from noiseAlgorithms4lib import toKDICstring, toKDICheader
+    output_dict = {}
+    f = toKDICheader(input_dict['odt'])
+    output_dict['kdic'] = f.getvalue()
+    f2 = toKDICstring(input_dict['odt'])
+    output_dict['txt'] = f2.getvalue()
+    return output_dict  
+
+def odt_to_prd_fct(input_dict):
+    from noiseAlgorithms4lib import toPRDstring, toFCTstring
+    output_dict = {}
+    f = toPRDstring(input_dict['odt'])
+    output_dict['prd'] = f.getvalue()
+    f2 = toFCTstring(input_dict['odt'])
+    output_dict['fct'] = f2.getvalue()
+    return output_dict  
+
 def string_to_file(input_dict):
     return {}
 

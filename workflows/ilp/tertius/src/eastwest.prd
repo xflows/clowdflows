@@ -1,0 +1,15 @@
+--INDIVIDUAL
+train 1 train cwa
+--STRUCTURAL
+car 2 1:train *:car cwa li
+load 2 1:car 1:load cwa li
+--PROPERTIES
+class 2 train #class cwa
+shape 2 car #shape cwa
+length 2 car #length cwa
+wall 2 car #wall cwa
+roof 2 car #kind cwa
+wheels 2 car #nb_wheels cwa
+object 2 load #object cwa
+number 2 load #number cwa
+

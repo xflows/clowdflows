@@ -1,0 +1,288 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "windows_queue": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Tertius learns rules in first-order logic. It can deal with a relational database thanks to the Database To Prd and Fct files widget.\r\n\r\nIt takes several files as inputs. All of them should have the same name but different extensions:\r\n- prd: this file contains the langage bias, roughly defining the target individual (i.e. primary table), the structural predicates (i.e. foreign keys between tables) and properties (i.e. other columns)\r\n- fct: this file contains facts (i.e. lines of tables), often grouped into partitions by individuals (this grouping enable to use the incremental loading and learning).\r\n\r\nIt outputs its results as a string that can be sent to the Display String widget or String to file widget.\r\n\r\nIt is an supervised learner that learns rules having the best confirmation as explained in:\r\nP. Flach, N. Lachiche. Confirmation-Guided Discovery of First-Order Rules with Tertius, Machine Learning, Springer Verlag (Germany) (IF : 1.689), pages 61--95, Volume 42, No 1/2, 2001, doi:10.1023/A:1007656703224\r\n\r\nSeveral langage biases can be selected, namely\u00a0:\r\n- none\r\n- Horn clauses only\r\n- class\u00a0: use the first property of the prd file as head of rules\r\n- pos class\u00a0: use the first property of the prd file as a positive literal in the head of rules\r\n- pos horn class\u00a0: use the first property of the prd file as a positive literal in the head of horn clauses", 
+      "static_image": "ilp.png", 
+      "action": "ilp_tertius", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Tertius"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "max var", 
+      "short_name": "var", 
+      "default": "3", 
+      "description": "The maximum number of variables", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_variable", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "19cb37ac-3d43-4b51-a365-aceac4a14bd0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "confirmation threshold (-1 if nb. results)", 
+      "short_name": "cft", 
+      "default": "-1", 
+      "description": "Minimum threshold on the confirmation (-1 if Number of Results is used)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "conf_thres", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "533aa8f9-239c-402e-b243-7a0c42ad80cf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "number of results (-1 if conf. thres.)", 
+      "short_name": "nbr", 
+      "default": "10", 
+      "description": "Number of results (-1 if the confirmation threshold is used)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "nb_results", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "56b9231e-0253-4387-a47b-cd6782d87527"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "Attribute list", 
+      "short_name": "att", 
+      "default": "", 
+      "description": "Attribute name, Number of intervals the attribute has to be discretised in, and a kind of discretisation (sdm: standard deviation centered on the mean, eqb: equal bins)\r\nFormat: col1 nbIntervalCol1 sdm, col2 nbIntervalCol2 eqb", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "attribute_list", 
+      "parameter": true, 
+      "order": 12, 
+      "uid": "56e167cd-9dfd-4b86-8a57-c77594c6ed50"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "count instances in a bottom-up manner", 
+      "short_name": "bot", 
+      "default": "", 
+      "description": "Count instances in a bottom-up manner", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "count_bottom_up", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "5f293035-2fac-4271-a687-5104fae2006d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "fct file", 
+      "short_name": "fct", 
+      "default": "", 
+      "description": "from a Load file widget or a Database to Prd and Fct files widget (it contains the training set)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "fct_file", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "61a3c256-8186-49ae-bb4b-9ba27f077534"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "language bias", 
+      "short_name": "lbi", 
+      "default": "", 
+      "description": "Language bias", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang_bias", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "nb. of structural results (-1 if not used)", 
+      "short_name": "nbs", 
+      "default": "-1", 
+      "description": "Switch the use of the ISP (Individual, Structural, Properties in the prd file) declarations on, and set the maximum number of properties in an hypothesis (-1 if not used)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "struct_nb_properties", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "880159ba-22b8-48ba-89f1-1a51b22f005c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "satisfied clauses only", 
+      "short_name": "sat", 
+      "default": "", 
+      "description": "Satisfied clauses only", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "sat_clauses", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "8c42b176-2a0a-4948-9095-a52eaf39b762"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "noise percent threshold", 
+      "short_name": "noi", 
+      "default": "", 
+      "description": "Noise Percent Threshold", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "noise_percent_thres", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "b489f288-a7ef-47cb-b83e-76eb9471651b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "prd file", 
+      "short_name": "prd", 
+      "default": "", 
+      "description": "from a Load file widget or a Database to Prd and Fct files widget", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "prd_file", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "beeffa19-914e-4172-b4e0-64e8ecf446e5"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "max lit", 
+      "short_name": "lit", 
+      "default": "3", 
+      "description": "The maximum number of literals", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_literal", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "f5538763-4f9d-4053-8c28-2d0df9d9e13c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7276b9f1-c2d9-47a1-9594-98834b77f581", 
+      "name": "results", 
+      "short_name": "res", 
+      "description": "to send to the Display String widget or a String to file widget", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "e9a032b7-5f87-424d-b298-c184531f8f05"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "None", 
+      "uid": "43d81584-0228-4342-b297-9ed2f3ac33a0", 
+      "value": "none", 
+      "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Pos Class", 
+      "uid": "5b61cd61-e1ec-4481-98b1-9f51455f420f", 
+      "value": "pos_class", 
+      "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Class", 
+      "uid": "7ee6179c-592d-4284-8716-bd2568e62816", 
+      "value": "class", 
+      "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Horn", 
+      "uid": "8584fe8a-5668-4e7d-b377-64665ca16c8d", 
+      "value": "horn", 
+      "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Pos Horn Class", 
+      "uid": "b4349cda-5f52-4574-80e3-707cd837808c", 
+      "value": "pos_horn_class", 
+      "abstract_input": "7d681fa2-ebdd-4c50-9abf-eb5f41d0bc95"
+    }
+  }
+]

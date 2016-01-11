@@ -3,18 +3,26 @@ MySQL connectivity library.
 
 @author: Anze Vavpetic <anze.vavpetic@ijs.si>
 '''
-import mysql.connector as sql
-from context import DBConnection, DBContext
-from converters import RSD_Converter, Aleph_Converter, Orange_Converter, TreeLikerConverter
+import os
+import tempfile
+import time
+from context import DBConnection, DBContext, MySqlDAL, PgSqlDAL
+from converters import RSD_Converter, Aleph_Converter, Orange_Converter, TreeLikerConverter, PrdFctConverter
 from mapper import domain_map
 
-
-def mysql_connect(input_dict):
+def database_connect(input_dict):
     user = str(input_dict['user'])
     password = str(input_dict['password'])
     host = str(input_dict['host'])
     db = str(input_dict['database'])
-    con = DBConnection(user, password, host, db)
+    dal = None
+    
+    if str(input_dict['vendor']) == 'mysql':
+        dal = MySqlDAL()
+    else:
+        dal = PgSqlDAL()
+    
+    con = DBConnection(user, password, host, db, dal)
     return {'connection' : con}
 
 def mysql_db_context(input_dict):
@@ -53,6 +61,32 @@ def mysql_orange_converter(input_dict):
     context = input_dict['context']
     orange = Orange_Converter(context)
     return {'target_table_dataset' : orange.target_Orange_table(),'other_table_datasets': orange.other_Orange_tables()}
+
+def mysql_prd_fct_converter(input_dict):   
+    context = input_dict['context']
+    prd_fct = PrdFctConverter(context)
+    
+
+    #progress bar issue
+    url=os.path.dirname(os.path.abspath(__file__))
+    url=os.path.normpath(os.path.join(url,'..','..','mothra','public','files'))
+    #if not os.path.exists(url):
+    #    os.makedirs(url)  
+    #url=os.path.normpath(os.path.join(url,str(widget.workflow_id)))
+    #if not os.path.exists(url):
+    #    os.makedirs(url)
+
+    url = tempfile.mkdtemp(dir=url)
+    timenow = int(round(time.time() * 1000))
+    prd_file_url=os.path.join(url,"prdFctTemp%s.prd"%str(timenow))
+    with open(prd_file_url, "w") as prd:
+        prd.write( prd_fct.create_prd_file());   
+
+    fct_file_url=os.path.join(url,"prdFctTemp%s.fct"%str(timenow))
+    with open(fct_file_url, "w") as fct:
+        fct.write( prd_fct.create_fct_file());      
+
+    return {'prd_file' : prd_file_url,'fct_file': fct_file_url}
 
 def ilp_map_rsd(input_dict):
     return do_map(input_dict, 'rsd')

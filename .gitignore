@@ -22,6 +22,8 @@ atlassian-ide-plugin.xml
 /mothra/backup
 mothra-env/
 build/
+/workflows/ilp/tertius/bin/
+/workflows/ilp/tertius/src/*.res
 
 # SQLite
 /mothra/mothra.db

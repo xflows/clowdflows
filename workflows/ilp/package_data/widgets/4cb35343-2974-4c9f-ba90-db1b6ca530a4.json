@@ -1,0 +1,226 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "windows_queue": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "wordification.jpg", 
+      "action": "ilp_wordification", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Wordification"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "noise", 
+      "short_name": "noi", 
+      "default": "0", 
+      "description": "Set an upper bound on the number of negative examples allowed to be covered by an acceptable clause.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "noise", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "2a5f9df6-1ab1-4c0b-ae1a-8fa2ba9fcc92"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "language", 
+      "short_name": "lan", 
+      "default": "inf", 
+      "description": "Specifies the number of occurences of a predicate symbol in any clause (inf or > 0).", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "language", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "2ddde27d-f3fe-4fc5-a8c1-73e5a8d6354e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "evalfn", 
+      "short_name": "efn", 
+      "default": "coverage", 
+      "description": "Sets the evaluation function for a search.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "evalfn", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "4cf0000d-c4c7-4af3-bb6b-9d571d2a18d1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "target_table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "Orange data table", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "target_table", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "81dce274-b516-4121-b7a2-f6352da1183b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "m", 
+      "short_name": "m", 
+      "default": "1", 
+      "description": "Sets a value for \"m-estimate\" calculations.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "m", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "835b85dd-7047-4f05-b60c-649e4814a711"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "other_tables", 
+      "short_name": "lot", 
+      "default": "", 
+      "description": "List of Orange data tables", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "other_tables", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "8bf57c55-4c0c-451a-91e4-36fca2e61cfe"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "clauselength", 
+      "short_name": "cln", 
+      "default": "4", 
+      "description": " Sets upper bound on number of literals in an acceptable clause.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "clauselength", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "8c282c42-ad00-4cdc-b4ef-e788f329702e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "i", 
+      "short_name": "i", 
+      "default": "2", 
+      "description": "Set upper bound on layers of new variables.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "i", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "ae429c42-e945-4191-a576-f2a5ad5defe8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "depth", 
+      "short_name": "dpt", 
+      "default": "10", 
+      "description": "Sets an upper bound on the proof depth to which theorem-proving proceeds.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "depth", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "b9cdf1a0-65c1-44ba-8203-873392939fbc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "context", 
+      "short_name": "ctx", 
+      "default": "", 
+      "description": "Context", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "context", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "d3035919-8ecf-408f-812b-2d5cb84029e9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "max_features", 
+      "short_name": "mxf", 
+      "default": "inf", 
+      "description": "Sets an upper bound on the maximum number of boolean features constructed by searching for good clauses (inf or > 0).", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_features", 
+      "parameter": true, 
+      "order": 11, 
+      "uid": "e4a6db3f-2610-4cdd-b75f-5f8bf9939473"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "4cb35343-2974-4c9f-ba90-db1b6ca530a4", 
+      "name": "Document corpus", 
+      "short_name": "crp", 
+      "description": "Result of wordification for main target table", 
+      "variable": "corpus", 
+      "order": 1, 
+      "uid": "c9c147fe-f3f1-43fb-909d-cb20c65ae098"
+    }
+  }
+]

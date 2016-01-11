@@ -1,0 +1,68 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b66b71b1-99d6-4efc-b264-a914a3e42911", 
+      "treeview_image": "", 
+      "uid": "bc0ddb08-f4d2-4c72-90d8-845122ecb41c", 
+      "windows_queue": false, 
+      "package": "mysql", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "It generates input files from a database to the Prd and Fct files used by Tertius, 1BC and 1BC2 widget. Its input is a Database context widget.", 
+      "static_image": "mysql.png", 
+      "action": "mysql_prd_fct_converter", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 5, 
+      "name": "Database To Prd and Fct files"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "bc0ddb08-f4d2-4c72-90d8-845122ecb41c", 
+      "name": "context", 
+      "short_name": "cxt", 
+      "default": "", 
+      "description": "from a Database context widget", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "context", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "16bb8eaa-6000-41a9-904c-790e86035603"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bc0ddb08-f4d2-4c72-90d8-845122ecb41c", 
+      "name": "fct file", 
+      "short_name": "fct", 
+      "description": "to Tertius, 1BC or 1BC2", 
+      "variable": "fct_file", 
+      "order": 2, 
+      "uid": "5af7e830-209d-4059-bfda-1b47b3e1c5b8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "bc0ddb08-f4d2-4c72-90d8-845122ecb41c", 
+      "name": "prd file", 
+      "short_name": "prd", 
+      "description": "to Tertius, 1BC or 1BC2", 
+      "variable": "prd_file", 
+      "order": 1, 
+      "uid": "eeb809b7-2135-484e-aa9d-cdb53be44155"
+    }
+  }
+]

@@ -1,0 +1,45 @@
+--INDIVIDUAL
+controlc1 1 controlc1 cwa
+--STRUCTURAL
+controlc2 2 1:controlc1 *:controlc2 1 cwa li
+--PROPERTIES
+ico 2 controlc1 #numico 1 cwa
+rokvys 2 controlc1 #numrokvys 1 cwa
+mesvys 2 controlc1 #nummesvys 1 cwa
+poradk 2 controlc1 #numporadk 1 cwa
+zmcharza 2 controlc1 #numzmcharza 1 cwa
+zmtelakt 2 controlc1 #numzmtelakt 1 cwa
+aktpozam 2 controlc1 #numaktpozam 1 cwa
+zmdiet 2 controlc1 #numzmdiet 1 cwa
+lekchol 2 controlc1 #numlekchol 1 cwa
+lektlak 2 controlc1 #numlektlak 1 cwa
+zmkour 2 controlc1 #numzmkour 1 cwa
+poccig 2 controlc1 #numpoccig 1 cwa
+pracnes 2 controlc1 #numpracnes 1 cwa
+srdce 2 controlc1 #numsrdce 1 cwa
+hypert 2 controlc1 #numhypert 1 cwa
+cevmoz 2 controlc1 #numcevmoz 1 cwa
+diab 2 controlc1 #numdiab 1 cwa
+jinaone 2 controlc1 #numjinaone 1 cwa
+bolhr 2 controlc1 #numbolhr 1 cwa
+boldk 2 controlc1 #numboldk 1 cwa
+c2_ico 2 controlc2 #num_ico 1 cwa
+c2_rokvys 2 controlc2 #num_rokvys 1 cwa
+c2_mesvys 2 controlc2 #num_mesvys 1 cwa
+c2_poradk 2 controlc2 #num_poradk 1 cwa
+c2_zmcharza 2 controlc2 #num_zmcharza 1 cwa
+c2_zmtelakt 2 controlc2 #num_zmtelakt 1 cwa
+c2_aktpozam 2 controlc2 #num_aktpozam 1 cwa
+c2_zmdiet 2 controlc2 #num_zmdiet 1 cwa
+c2_lekchol 2 controlc2 #num_lekchol 1 cwa
+c2_lektlak 2 controlc2 #num_lektlak 1 cwa
+c2_zmkour 2 controlc2 #num_zmkour 1 cwa
+c2_poccig 2 controlc2 #num_poccig 1 cwa
+c2_pracnes 2 controlc2 #num_pracnes 1 cwa
+c2_srdce 2 controlc2 #num_srdce 1 cwa
+c2_hypert 2 controlc2 #num_hypert 1 cwa
+c2_cevmoz 2 controlc2 #num_cevmoz 1 cwa
+c2_diab 2 controlc2 #num_diab 1 cwa
+c2_jinaone 2 controlc2 #num_jinaone 1 cwa
+c2_bolhr 2 controlc2 #num_bolhr 1 cwa
+c2_boldk 2 controlc2 #num_boldk 1 cwa

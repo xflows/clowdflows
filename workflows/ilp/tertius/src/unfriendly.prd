@@ -1,0 +1,20 @@
+--INDIVIDUAL
+mol 1 mol cwa
+atom 1 atom cwa
+bond 1 bond cwa
+--STRUCTURAL
+atm 2 1:mol *:atom 1 cwa li
+bond2atom1 2 *:bond 1:atom 1 cwa li
+bond2atom2 2 *:bond 1:atom 1 cwa li
+--PROPERTIES
+class 2 mol #class cwa
+ind1 2 mol #num1 1 cwa
+inda 2 mol #numa 1 cwa
+lumo 2 mol #lumo 1 cwa
+logp 2 mol #logp 1 cwa
+act 2 mol #act 0 cwa
+prop_atom 2 atom #patom 0 cwa
+atomel 2 atom #letter 1 cwa
+atomty 2 atom #number 1 cwa
+atomch 2 atom #charge 1 cwa
+bondtype 2 bond #type 1 cwa

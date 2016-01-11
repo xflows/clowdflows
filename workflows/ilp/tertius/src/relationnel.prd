@@ -1,0 +1,7 @@
+--INDIVIDUAL
+patient 1 patient cwa
+--STRUCTURAL
+p2m 2 1:patient 1:malade cwa li
+--PROPERTIES
+classe 2 patient #classe cwa
+iml 2  malade #iml cwa

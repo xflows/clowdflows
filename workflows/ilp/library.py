@@ -1,14 +1,14 @@
 import re
 import json
 import tempfile
-from string import ascii_lowercase as chars
-from random import choice
 
 from aleph import Aleph
 from rsd import RSD
 from wordification import Wordification
 from treeliker import TreeLiker
 from security import check_input
+from proper import Proper
+from tertius import Tertius, OneBC
 
 from services.webservice import WebService
 
@@ -34,7 +34,7 @@ def ilp_aleph(input_dict):
 
 def ilp_rsd(input_dict):
     rsd = RSD()
-    settings = input_dict.get('settings',None)
+    settings = input_dict.get('settings', None)
     pos = input_dict.get('pos', None)
     neg = input_dict.get('neg', None)
     examples = input_dict.get('examples', None)
@@ -88,25 +88,25 @@ def ilp_sdmaleph(input_dict):
 
 
 def ilp_wordification(input_dict):
-    target_table = input_dict.get('target_table',None)
+    target_table = input_dict.get('target_table', None)
     other_tables = input_dict.get('other_tables', None)
     weighting_measure = input_dict.get('weighting_measure', 'tfidf')
     context = input_dict.get('context', None)
     word_att_length = int(input_dict.get('f_ngram_size', 1))
-    idf=input_dict.get('idf', None)
+    idf = input_dict.get('idf', None)
 
     for _ in range(1):
-        wordification = Wordification(target_table,other_tables,context,word_att_length,idf)
+        wordification = Wordification(target_table, other_tables, context, word_att_length, idf)
         wordification.run(1)
         wordification.calculate_tf_idfs(weighting_measure)
-        #wordification.prune(50)
-        #wordification.to_arff()
+        # wordification.prune(50)
+        # wordification.to_arff()
 
-    if 1==0:
+    if 1 == 0:
         from wordification import Wordification_features_test
-        wft=Wordification_features_test(target_table,other_tables,context)
+        wft = Wordification_features_test(target_table, other_tables, context)
         wft.print_results()
-    return {'arff' : wordification.to_arff(),'corpus': wordification.wordify(),'idf':wordification.idf}
+    return {'arff' : wordification.to_arff(), 'corpus': wordification.wordify(), 'idf':wordification.idf}
 
 
 def ilp_treeliker(input_dict):
@@ -124,3 +124,72 @@ def ilp_treeliker(input_dict):
     treeliker = TreeLiker(dataset, template, settings=settings)
     arff_train, arff_test = treeliker.run()
     return {'arff': arff_train, 'treeliker': treeliker}
+
+def ilp_cardinalization(input_dict):
+    proper = Proper(input_dict,False)
+    output_dict = proper.run()
+    return output_dict
+
+def ilp_quantiles(input_dict):
+    proper = Proper(input_dict,False)
+    output_dict = proper.run()
+    return output_dict
+
+def ilp_relaggs(input_dict):
+    proper = Proper(input_dict,True)
+    output_dict = proper.run()
+    return output_dict
+
+def ilp_1bc(input_dict):
+    onebc = OneBC(input_dict,False)
+    output_dict = onebc.run()
+    return output_dict
+
+def ilp_1bc2(input_dict):
+    onebc = OneBC(input_dict,True)
+    output_dict = onebc.run()
+    return output_dict
+
+def ilp_tertius(input_dict):
+    tertiusInst = Tertius(input_dict)
+    output_dict = tertiusInst.run()
+    return output_dict
+
+def ilp_multiple_classes_to_one_binary_score(input_dict):
+    output_dict = {}
+    try:
+        pos_col = int(input_dict['pos_col'])
+    except ValueError:
+        raise Exception('"Positive column number" should be an integer')
+    else:
+        if pos_col < 0:
+            raise Exception('"Positive column number" should be a positive integer')
+
+    try:
+        neg_col = int(input_dict['neg_col'])
+    except ValueError:
+        raise Exception('"Negative column number" should be an integer')
+    else:
+        if neg_col < 0:
+            raise Exception('"Negative column number" should be a positive integer')
+    
+    output_dict['binary_score'] = to_binary_score(input_dict['multiple_classes'],int(input_dict['pos_col']),int(input_dict['neg_col']))
+    return output_dict
+
+def to_binary_score(multiple_score,pos_col,neg_col):
+    score_line = multiple_score.strip().split('\n')
+    score_arr = [x.split(',') for x in score_line]
+    pos_tag = pos_col - 3
+    neg_tag = neg_col - 3
+    actual = []
+    predicted = []
+    for x in score_arr:
+        if int(x[1]) == pos_tag:
+            actual.append(1)
+            predicted.append(float(x[pos_col-1]) - float(x[neg_col-1]))
+        elif int(x[1]) == neg_tag:
+            actual.append(0)            
+            predicted.append(float(x[pos_col-1]) - float(x[neg_col-1]))
+
+    res = {"name":"Curve", "actual":actual, "predicted":predicted}
+    return res

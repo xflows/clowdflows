@@ -1,7 +1,7 @@
 {
   "model": "workflows.category", 
   "fields": {
-    "name": "MySQL", 
+    "name": "DBMS", 
     "parent": null, 
     "order": 1, 
     "uid": "b66b71b1-99d6-4efc-b264-a914a3e42911"

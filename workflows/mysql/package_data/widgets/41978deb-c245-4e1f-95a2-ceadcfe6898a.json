@@ -5,23 +5,23 @@
       "category": "b66b71b1-99d6-4efc-b264-a914a3e42911", 
       "treeview_image": "", 
       "uid": "41978deb-c245-4e1f-95a2-ceadcfe6898a", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "mysql", 
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
       "description": "", 
       "static_image": "mysql.png", 
-      "action": "mysql_connect", 
+      "action": "database_connect", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
       "post_interact_action": "", 
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
-      "name": "MySQL Connect"
+      "name": "Database Connect"
     }
   }, 
   {
@@ -39,6 +39,23 @@
       "parameter": true, 
       "order": 1, 
       "uid": "0f36f10b-066f-4ad3-9fa8-39205440076a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "41978deb-c245-4e1f-95a2-ceadcfe6898a", 
+      "name": "vendor", 
+      "short_name": "vdr", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "vendor", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "5b2354a6-ec5a-47b1-9af7-42664943c93e"
     }
   }, 
   {
@@ -102,6 +119,24 @@
       "variable": "connection", 
       "order": 1, 
       "uid": "4858c86c-c53e-4722-9747-635af56bd4dd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "PostgreSQL", 
+      "uid": "39cc138f-ff10-4e80-997d-f8fa3a30deb0", 
+      "value": "postgresql", 
+      "abstract_input": "5b2354a6-ec5a-47b1-9af7-42664943c93e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "MySQL", 
+      "uid": "df2eacd2-095d-4226-8abf-0f7ca4fde229", 
+      "value": "mysql", 
+      "abstract_input": "5b2354a6-ec5a-47b1-9af7-42664943c93e"
     }
   }
 ]

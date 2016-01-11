@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "369036e8-496d-4404-9419-7f72388d0412", 
+      "windows_queue": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "It extracts a binary score from multiple class scores.\r\n\r\nThe input is a string containing a table. Each line corresponds to a test instance and contains its identifier, its true class, the scores for every classes. It can be connected to 1BC and 1BC2 widgets.\r\n\r\nIt generates a string containing the list of true classes and the list of one binary score. It is intended to be connected to the Prepare Performance curve data widget to display a ROC curve.\r\n\r\nIts parameters are the indexes (starting from 3) of the classes considered as the positive and negative classes.", 
+      "static_image": "", 
+      "action": "ilp_multiple_classes_to_one_binary_score", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Multiple classes to one binary score"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "369036e8-496d-4404-9419-7f72388d0412", 
+      "name": "multiple classes", 
+      "short_name": "scr", 
+      "default": "", 
+      "description": "from a scorer such as the 1BC and 1BC2 first-order bayesian classifiers", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "multiple_classes", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "66f97096-762b-471e-8e83-c24c8cf331b6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "369036e8-496d-4404-9419-7f72388d0412", 
+      "name": "negative column", 
+      "short_name": "neg", 
+      "default": "3", 
+      "description": "The number of the column of scores to be considered as the negative class.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "neg_col", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a17fb1d6-78e6-4d59-874f-779c62ad6e2c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "369036e8-496d-4404-9419-7f72388d0412", 
+      "name": "positive column", 
+      "short_name": "pos", 
+      "default": "4", 
+      "description": "The number of the column of scores to be considered as the positive class.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "pos_col", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "dd7651d2-68e0-4a11-8ed0-faddaac6e40a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "369036e8-496d-4404-9419-7f72388d0412", 
+      "name": "binary score", 
+      "short_name": "scr", 
+      "description": "to the Prepare Performance curve data widget", 
+      "variable": "binary_score", 
+      "order": 1, 
+      "uid": "bb59537b-e424-4ce9-a017-095791dd29b5"
+    }
+  }
+]

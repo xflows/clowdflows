@@ -1,0 +1,221 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "ed859be5-cc13-46b9-b249-c8f026732c1c", 
+      "treeview_image": "", 
+      "uid": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "windows_queue": false, 
+      "package": "ilp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "1BC is a 1st-order logic naive Bayesian Classifier. It can deal with a relational database thanks to the Database To Prd and Fct files widget.\r\n\r\nIt takes several files as inputs. All of them should have the same name but different extensions\u00a0:\r\n- prd: this file contains the langage bias, roughly defining the target individual (i.e. primary table), the structural predicates (i.e. foreign keys between tables) and properties (i.e. other columns)\r\n- fct: this file contains facts (i.e. lines of tables), often grouped into partitions by individuals (this grouping enable to use the incremental loading and learning).\r\n- tst: actually it is another fact file that is used for testing the model learned from the fct file.\r\n\r\n1BC outputs\u00a0:\r\n- res: It is a string that can be sent to the Display String widget or the String to file widget. It contains the interval limits for each discretised type if any, the conditional probabilities of all first-order features and the accuracy.\r\n- scr: It is a string that can be sent to the Display String widget or to the Multiple Classes to One Binary Score widget to prepare a ROC curve. It lists, for each test instance, its identifier, its true class, and the predicted score for every classes.\r\n\r\n1BC can be seen as a propositionalisation into elementary first-order features, similar to wordification, followed by a standard attribute-value naive bayesian classifier:\r\nP. Flach, N. Lachiche. 1BC: A first-order bayesian classifier, Proceedings of the ninth international workshop on inductive logic programming (ILP'99), pages 92-103, Saso Dzeroski and Peter Flach (Eds.), Springer, LNCS, Volume 1634, 1999, http://dx.doi.org/10.1007/3-540-48751-4_10\r\nP. Flach, N. Lachiche. Naive Bayesian classification of structured data, Machine Learning, Springer Verlag (Germany) (IF : 1.689), pages 233--269, Volume 57, No 3, 2004, http://dx.doi.org/doi:10.1023/B:MACH.0000039778.69032.ab", 
+      "static_image": "ilp.png", 
+      "action": "ilp_1bc", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "1BC"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "attribute List", 
+      "short_name": "att", 
+      "default": "", 
+      "description": "Attribute name, Number of intervals the attribute has to be discretised in, and a kind of discretisation (sdm: standard deviation centered on the mean, eqb: equal bins)\r\nFormat: col1 nbIntervalCol1 sdm, col2 nbIntervalCol2 eqb", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "textarea", 
+      "variable": "attribute_list", 
+      "parameter": true, 
+      "order": 10, 
+      "uid": "19fc4c6e-e49c-49f3-9f1b-1685544d41ad"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "cross validation folds", 
+      "short_name": "crs", 
+      "default": "1", 
+      "description": "The number of folds to apply a cross-validation on the dataset (from the fct file)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "cross_number", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "26573dfd-cdc1-42d3-bb62-a21a0b12e18a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "max lit", 
+      "short_name": "lit", 
+      "default": "3", 
+      "description": "The maximum number of literals. Usually the number of kinds of objects (i.e. tables) plus 1.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_literal", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "2db3fc25-b7fa-4349-b8cb-3d4bc352580f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "load partitions incrementally", 
+      "short_name": "inc", 
+      "default": "", 
+      "description": "Load partitions (a partition contains all facts about an individual)  incrementaly, useful when the training set is too to be loaded in one go", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "load_part_inc", 
+      "parameter": true, 
+      "order": 6, 
+      "uid": "33a3f52a-94e5-4c16-b66d-fd7ad7bd7f18"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "ROC nb folds (-1 if no ROC)", 
+      "short_name": "rcn", 
+      "default": "-1", 
+      "description": "Number of folds to find the best threshold using an internal cross-validation according to ROC curve", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "roc_nb_folds", 
+      "parameter": true, 
+      "order": 9, 
+      "uid": "47ea1809-c83c-43e7-bd33-c243b5b89141"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "fct file", 
+      "short_name": "fct", 
+      "default": "", 
+      "description": "from a Load file widget or a Database to Prd and Fct files widget (it contains the training set)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "fct_file", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "49a21062-1173-48b9-b232-de7c7e0cbabc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "random seed", 
+      "short_name": "ran", 
+      "default": "0", 
+      "description": "An integer for initialising the random generator", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "srand", 
+      "parameter": true, 
+      "order": 8, 
+      "uid": "512c8d04-9f18-43e2-8e42-16b6555cdbbc"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "test file", 
+      "short_name": "tst", 
+      "default": "", 
+      "description": "from a Load file widget or a Database to Prd and Fct files widget (it is a fct file for testing)", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "test_file", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "a83a68e7-d4a4-45bf-936c-d12056dfcb15"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "prd file", 
+      "short_name": "prd", 
+      "default": "", 
+      "description": "from a Load file widget or a Database to Prd and Fct files widget", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "prd_file", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "c6a46925-27af-4a4a-a47d-2ed97428ed81"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "max var", 
+      "short_name": "var", 
+      "default": "2", 
+      "description": "The maximum number of variables. Usually the number of kinds of objects (i.e. tables). ", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "max_variable", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "f7e0b5bd-4b8b-447f-a6ac-1ec1218f2d90"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "results", 
+      "short_name": "res", 
+      "description": "to send to the Display String widget or a String to file widget", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "63fa4451-4f98-406c-ba4a-d2feb83c2eaa"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "508c9bf5-a874-4027-beb3-3f4f4320e5a0", 
+      "name": "score", 
+      "short_name": "scr", 
+      "description": "to send to any widget for strings or to the Multiple Classes to One Binary Score widget to prepare a ROC curve.", 
+      "variable": "score", 
+      "order": 2, 
+      "uid": "77c361d0-7a91-48b1-b1c5-ec72e3063cb0"
+    }
+  }
+]

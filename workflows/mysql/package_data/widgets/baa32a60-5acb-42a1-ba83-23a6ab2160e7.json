@@ -5,7 +5,7 @@
       "category": "b66b71b1-99d6-4efc-b264-a914a3e42911", 
       "treeview_image": "", 
       "uid": "baa32a60-5acb-42a1-ba83-23a6ab2160e7", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "mysql", 
       "interaction_view": "mysql_orange_converter", 
       "has_progress_bar": false, 
@@ -19,8 +19,8 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
-      "order": 1, 
+      "is_streaming": false, 
+      "order": 4, 
       "name": "Database To Orange Table"
     }
   }, 
