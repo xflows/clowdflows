@@ -51,3 +51,50 @@ def weka_get_attr_list(input_dict):
     for row in dataset['data']:
         attr_list.append(row[attr_idx])
     return {'attr_list': attr_list}
+
+def weka_arff_to_weka_instances(input_dict):
+    '''
+    Reads a dataset into a format suitable for WEKA methods
+    '''
+    import jpype as jp
+    import common
+
+    if not jp.isThreadAttachedToJVM():
+        jp.attachThreadToJVM()
+
+    tmp = common.TemporaryFile(suffix='.arff')
+    tmp.writeString(input_dict['arff'])
+
+    try:
+        class_index = int(input_dict['class_index'])
+    except:
+        class_index = None
+
+    source = jp.JClass('weka.core.converters.ConverterUtils$DataSource')(tmp.name)
+    instances = source.getDataSet()
+
+    if class_index is None:
+        print 'Warning: class is set to the last attribute!'
+        class_index = instances.numAttributes() - 1
+    elif class_index == -1:
+        class_index = instances.numAttributes() - 1
+
+    instances.setClassIndex(class_index)
+
+    return {'instances':common.serialize_weka_object(instances)}
+
+def weka_instances_to_arff(input_dict):
+    '''
+    Reads a dataset into a format suitable for WEKA methods
+    '''
+    import jpype as jp
+    import common
+
+    if not jp.isThreadAttachedToJVM():
+        jp.attachThreadToJVM()
+
+    instances = common.deserialize_weka_object(input_dict['instances'])
+
+    arff = instances.toString()
+
+    return {'arff':arff}
