@@ -1,0 +1,68 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "aa3ed779-1e0b-4c6b-883e-24d85b9a6009", 
+      "treeview_image": "", 
+      "uid": "70718b14-851b-40ed-9091-3e83a95bee5e", 
+      "windows_queue": false, 
+      "package": "cforange", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "It transforms a Orange Data Table into the Prd and Fct files used by Tertius, 1BC and 1BC2 widget. Its input is a Database context widget.", 
+      "static_image": "", 
+      "action": "cforange_odt_to_prd_fct", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Orange Data Table to Prd and Fct"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "70718b14-851b-40ed-9091-3e83a95bee5e", 
+      "name": "orange data table", 
+      "short_name": "odt", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "odt", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4845f9a5-1068-4669-9feb-54a0edf80e7d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "70718b14-851b-40ed-9091-3e83a95bee5e", 
+      "name": "fct file", 
+      "short_name": "fct", 
+      "description": "to Tertius, 1BC or 1BC2", 
+      "variable": "fct", 
+      "order": 2, 
+      "uid": "1f6c8d49-771c-4614-87fe-d8b973d02caf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "70718b14-851b-40ed-9091-3e83a95bee5e", 
+      "name": "prd file", 
+      "short_name": "prd", 
+      "description": "to Tertius, 1BC or 1BC2", 
+      "variable": "prd", 
+      "order": 1, 
+      "uid": "5b7b93f9-6596-4840-8461-b52718c0bce9"
+    }
+  }
+]
