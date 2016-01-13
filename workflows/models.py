@@ -1,23 +1,20 @@
-from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.conf import settings
-import workflows.library
-
-import time
 import random
+import time
 
+from django.conf import settings
+from django.contrib.auth.models import User
+from django.db import models
+from django.db.models.signals import post_save
+
+import workflows.library
+from mothra.settings import USE_CONCURRENCY
 from picklefield.fields import PickledObjectField
-
 from workflows.thumbs import ThumbnailField
 
-from mothra.settings import DEBUG
-from mothra.settings import USE_CONCURRENCY
-
 if USE_CONCURRENCY:
-    from workflows.tasks import runWidgetAsync, runForLoopIteration
+    from workflows.tasks import runWidgetAsync
 
-from workflows.tasks import executeWidgetFunction, executeWidgetProgressBar, executeWidgetStreaming, executeWidgetWithRequest, runWidget, executeWidgetPostInteract
+from workflows.tasks import runWidget, executeWidgetPostInteract
 
 from workflows.engine import WidgetRunner, WorkflowRunner
 

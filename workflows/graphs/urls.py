@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns
 
 urlpatterns = patterns('',
     #url(r'^get-adc-index/widget(?P<widget_id>[0-9]+)/nx/Index.html$', 'workflows.latino.views.get_adc_index', name='get adc index'),

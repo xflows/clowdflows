@@ -1,10 +1,8 @@
-# helperji, context stvari
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import Http404, HttpResponse
-from django.contrib import messages
+# helpers, context stuff
 from django.core import serializers
-from django.utils import simplejson
-from workflows.urls import *
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect
+
 from workflows.helpers import *
 import workflows.interaction_views
 import workflows.visualization_views
@@ -14,25 +12,24 @@ from django.views.decorators.cache import never_cache
 
 from jsonview.decorators import json_view
 
-# modeli
 from workflows.models import *
-from django.contrib.auth.models import User
 
 from workflows.utils import *
 
-# auth fore
+# auth stuff
 from django.contrib.auth.decorators import login_required
 
 # settings
 from mothra.settings import DEBUG, FILES_FOLDER
 
-# ostalo
-import os
 
-import json
+
 from django.db.models import Max
 
 from workflows import module_importer
+
+# simplejson - Django 1.8
+import json as simplejson
 
 
 def setattr_local(name, value, package):
@@ -1572,8 +1569,9 @@ def widget_inputs(request, widget_id):
                 input_dict[i.variable] = []
             if not i.value == None:
                 input_dict[i.variable].append(i.value)
-    return input_dict
-
+    # return input_dict
+    from django.http import JsonResponse
+    return JsonResponse(input_dict)
 
 @never_cache
 def workflow_results(request, workflow_id):

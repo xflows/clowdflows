@@ -172,15 +172,15 @@ INSTALLED_APPS_DEFAULT = (
     #'rest_framework',
     'djcelery',
     #'kombu.transport.django',
-    'discover_runner',
+    #'discover_runner',
     'rest_framework',
-    'south',    
+    #'south',    
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()
 INSTALLED_APPS_EXTERNAL_PACKAGES = ()
 
-TEST_RUNNER = 'discover_runner.DiscoverRunner'
+#TEST_RUNNER = 'discover_runner.DiscoverRunner'
 
 USE_WINDOWS_QUEUE = True
 

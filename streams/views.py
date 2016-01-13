@@ -1,35 +1,19 @@
-# helperji, context stvari
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import Http404, HttpResponse
-from django.contrib import messages
-from django.core import serializers
-from django.utils import simplejson
-from workflows.urls import *
-from workflows.helpers import *
+# helpers, context stuff
+from django.http import Http404
+from django.shortcuts import get_object_or_404
+
 import workflows.interaction_views
 import workflows.visualization_views
-import sys
-import traceback
 
-# modeli
 from workflows.models import *
-from django.contrib.auth.models import User
 
 from workflows.utils import *
-
-# auth fore
-from django.contrib.auth.decorators import login_required
-
-#settings
-from mothra.settings import DEBUG, FILES_FOLDER
 
 from streams.models import Stream
 
 import workflows.views
 
-#ostalo
-import os
-
+# rest
 def stream_widget_visualization(request,stream_id,widget_id):
     stream = get_object_or_404(Stream,pk=stream_id)
     widget = get_object_or_404(Widget,pk=widget_id)
