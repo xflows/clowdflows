@@ -1,4 +1,4 @@
-def toKDICheader(table):
+def toKDICheader(table, try_numericize = 0):
     import cStringIO, string    
     t = table
     f = cStringIO.StringIO()
