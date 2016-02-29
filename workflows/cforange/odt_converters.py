@@ -1,4 +1,4 @@
-def toKDICheader(table,try_numericize=0):
+def toKDICheader(table):
     import cStringIO, string    
     t = table
     f = cStringIO.StringIO()
@@ -33,17 +33,21 @@ def toKDICheader(table,try_numericize=0):
         
     return f
 
-def toKDICstring(table,try_numericize=0):
+def toKDICstring(table):
     import cStringIO, string    
     t = table
     f = cStringIO.StringIO()
 
     ats = [i for i in t.domain.attributes]
     ats.append(t.domain.classVar)
-
-    for i in ats:
-        iname = str(i.name)
-        f.write('%s\t'%iname)
+    # recuperate the attributes'names
+    for i,e in enumerate(ats):
+        iname = str(e.name)
+        if i<len(ats)-1 :
+            f.write('%s\t'%iname)
+        else:  
+        # remove the tabulation after the last item 
+            f.write('%s'%iname) 
     f.write('\n')
         
     for j in t:
@@ -60,7 +64,7 @@ def toKDICstring(table,try_numericize=0):
         
     return f
 
-def toPRDstring(table,try_numericize=0):
+def toPRDstring(table):
     import cStringIO, string    
     t = table
     f = cStringIO.StringIO()
@@ -80,7 +84,7 @@ def toPRDstring(table,try_numericize=0):
 
     return f
 
-def toFCTstring(table,try_numericize=0):
+def toFCTstring(table):
     import cStringIO, string    
     t = table
     f = cStringIO.StringIO()
