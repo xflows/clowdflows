@@ -12,6 +12,10 @@ from security import check_input
 
 from services.webservice import WebService
 
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__)))
+
 def ilp_aleph(input_dict):
     aleph = Aleph()
     settings = input_dict['settings']
@@ -124,3 +128,52 @@ def ilp_treeliker(input_dict):
     treeliker = TreeLiker(dataset, template, settings=settings)
     arff_train, arff_test = treeliker.run()
     return {'arff': arff_train, 'treeliker': treeliker}
+
+
+def ilp_hedwig(input_dict):
+    import hedwig
+
+    format = input_dict['format']
+    suffix = '.' + format
+    bk_suffix = suffix
+    if format == 'csv':
+        bk_suffix = '.tsv'
+    # Writes examples file
+    data_file = tempfile.NamedTemporaryFile(delete=False, suffix=format)
+    data_file.write(input_dict['examples'])
+    data_file.close()
+
+    # Write BK files to BK dir
+    bk_dir = tempfile.mkdtemp()
+    if format == 'csv':
+        suffix = 'tsv'
+    for bk_file in input_dict['bk_file']:
+        tmp_bk_file = tempfile.NamedTemporaryFile(delete=False, dir=bk_dir, suffix=bk_suffix)
+        tmp_bk_file.write(bk_file)
+        tmp_bk_file.close()
+
+    output_file = tempfile.NamedTemporaryFile(delete=False)
+    hedwig.run({
+        'bk_dir': bk_dir,
+        'data': data_file.name,
+        'format': format,
+        'output': output_file.name,
+        'mode': 'subgroups',
+        'target': input_dict['target'] if 'target' in input_dict else None,
+        'score': input_dict['score'],
+        'negations': input_dict['negations'] == 'true',
+        'alpha': float(input_dict['alpha']),
+        'adjust': input_dict['adjust'],
+        'FDR': float(input_dict['fdr']),
+        'leaves': input_dict['leaves'] == 'true',
+        'learner': 'heuristic',
+        'optimalsubclass': input_dict['optimalsubclass'] == 'true',
+        'uris': input_dict['uris'] == 'true',
+        'beam': int(input_dict['beam']),
+        'support': float(input_dict['support']),
+        'depth': int(input_dict['depth']),
+        'nocache': True,
+        'covered': None
+    })
+    rules = open(output_file.name).read()
+    return {'rules': rules}
