@@ -523,6 +523,23 @@ def cforange_hierarchical_clustering_finished(postdata, input_dict, output_dict)
         centroids, selected_table, unselected_table = None, None, None
     return {'centroids' : centroids, 'selected_examples' : selected_table, 'unselected_examples' : unselected_table}
 
+def cforange_odt_to_kdic(input_dict):
+    from odt_converters import toKDICstring, toKDICheader
+    output_dict = {}
+    f = toKDICheader(input_dict['odt'])
+    output_dict['kdic'] = f.getvalue()
+    f2 = toKDICstring(input_dict['odt'])
+    output_dict['txt'] = f2.getvalue()
+    return output_dict  
+
+def cforange_odt_to_prd_fct(input_dict):
+    from odt_converters import toPRDstring, toFCTstring
+    output_dict = {}
+    f = toPRDstring(input_dict['odt'])
+    output_dict['prd'] = f.getvalue()
+    f2 = toFCTstring(input_dict['odt'])
+    output_dict['fct'] = f2.getvalue()
+    return output_dict  
 
 def filter_table(input_dict):
     return {'altered_data' : None}
