@@ -174,13 +174,13 @@ INSTALLED_APPS_DEFAULT = (
     #'kombu.transport.django',
     'discover_runner',
     'rest_framework',
-    'south',    
+    #'south',
     )
 
 INSTALLED_APPS_WORKFLOWS_SUB = ()
 INSTALLED_APPS_EXTERNAL_PACKAGES = ()
 
-TEST_RUNNER = 'discover_runner.DiscoverRunner'
+# TEST_RUNNER = 'discover_runner.DiscoverRunner'
 
 USE_WINDOWS_QUEUE = True
 
@@ -196,6 +196,13 @@ REST_FRAMEWORK = {
     ),
     'PAGINATE_BY': None,
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)    
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
 }
 
 TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS

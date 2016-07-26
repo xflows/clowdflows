@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404, HttpResponse
 from django.contrib import messages
 from django.core import serializers
-from django.utils import simplejson
+import json as simplejson
 from workflows.urls import *
 from workflows.helpers import *
 import workflows.interaction_views

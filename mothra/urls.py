@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, include, url
 from mothra.settings import LOGIN_URL
 from mothra.settings import DEBUG, STATIC_DOC_ROOT
 

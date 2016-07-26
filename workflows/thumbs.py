@@ -5,7 +5,7 @@ from django.core.files.base import ContentFile
 import cStringIO
 
 #za south
-from south.modelsinspector import add_introspection_rules
+#from south.modelsinspector import add_introspection_rules
 
 def generate_thumb(img, thumb_size, format):
     """
@@ -88,4 +88,4 @@ class ThumbnailField(ImageField):
         super(ImageField, self).__init__(**kwargs)
         
 #south introspection
-add_introspection_rules([], ["^workflows\.thumbs\.ThumbnailField"])
+# add_introspection_rules([], ["^workflows\.thumbs\.ThumbnailField"])

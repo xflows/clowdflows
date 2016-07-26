@@ -3,11 +3,11 @@ from rest_framework import routers
 from workflows import api_views
 
 router = routers.DefaultRouter()
-router.register(r'workflows', api_views.WorkflowViewSet)
-router.register(r'widgets', api_views.WidgetViewSet)
-router.register(r'connections', api_views.ConnectionViewSet)
-router.register(r'inputs', api_views.InputViewSet)
-router.register(r'outputs', api_views.OutputViewSet)
+router.register(r'workflows', api_views.WorkflowViewSet, base_name='workflows')
+router.register(r'widgets', api_views.WidgetViewSet, base_name='widgets')
+router.register(r'connections', api_views.ConnectionViewSet, base_name='connections')
+router.register(r'inputs', api_views.InputViewSet, base_name='inputs')
+router.register(r'outputs', api_views.OutputViewSet, base_name='outputs')
 
 
 urlpatterns = patterns('',
