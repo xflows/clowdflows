@@ -3,13 +3,13 @@ from django.contrib import admin
 from django.forms import TextInput, Textarea
 from django.db import models
 
-from orderable_inlines import OrderableTabularInline
+#from orderable_inlines import OrderableTabularInline
 
 admin.ModelAdmin.save_as = True #adds "Save as new" button to all admin interfaces
 admin.ModelAdmin.save_on_top = True #adds admin buttons also on the top of the page
 admin.ModelAdmin.search_fields = ['name'] #adds search button on top of admin lists (allways searches by name)
 
-class OrderableTabularInlineStyled(OrderableTabularInline):
+class OrderableTabularInlineStyled(admin.TabularInline):
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size':10})},
         models.TextField: {'widget': Textarea(attrs={'rows':1, 'cols':20})},
