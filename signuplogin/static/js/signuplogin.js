@@ -139,16 +139,19 @@ $(function() {
                                             }
                                             else if($.trim(html) == "TAKEN")
                                             {
+                                                    alert('Username already in use.');
                                                     $("#taken_error").show();
                                                     $.fancybox.resize();
                                             }
                                             else if($.trim(html) == "MAILTAKEN")
                                             {
+                                                    alert('This email is already in use.');
                                                     $("#mailtaken_error").show();
                                                     $.fancybox.resize();
                                             }
                                             else
                                             {
+                                                    alert("An unknown error has occured.");
                                                     $("#unknown_error").show();
                                                     $.fancybox.resize();
                                             }
