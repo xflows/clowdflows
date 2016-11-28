@@ -1,6 +1,10 @@
-import StringIO
 import arff
 from services.webservice import WebService
+from scipy.io import arff as scipy_arff
+from cStringIO import StringIO
+import lda
+import numpy
+from sklearn.decomposition import LatentDirichletAllocation
 
 
 def weka_statistics(input_dict):
@@ -51,3 +55,48 @@ def weka_get_attr_list(input_dict):
     for row in dataset['data']:
         attr_list.append(row[attr_idx])
     return {'attr_list': attr_list}
+
+def weka_lda(input_dict):
+    arff_file = StringIO(input_dict['arff'])
+    data, meta = scipy_arff.loadarff(arff_file)
+    n_topics = int(input_dict['n_topics'])
+    n_iter = int(input_dict['n_iter'])
+    relation_name = input_dict['relation_name']
+    random_state = int(input_dict['random_state'])
+    model = LatentDirichletAllocation(n_topics=n_topics, max_iter=n_iter, random_state=random_state)
+    dataTable = []
+    yTable = []
+    for instance in data:
+        row = []
+        for attribute in instance:
+            try:
+                row.append(attribute)
+            except:
+                pass
+        dataTable.append(row[:-1])
+        yTable.append(instance[-1])
+    
+    X = numpy.array(dataTable)
+    fitted_model= model.fit_transform(X)
+    lda_list = fitted_model.tolist()
+    for i, row in enumerate(lda_list):
+        row.append(yTable[i])
+    attributes = []
+    for i in range(n_topics):
+        attributes.append(('topic_' + str(i), u'REAL'))
+    attributes.append(('class' , list(set(yTable))))
+    data_dict = {}
+    data_dict['attributes'] = attributes
+    data_dict['data'] = lda_list
+    data_dict['description'] = u''
+    data_dict['relation'] = relation_name
+
+    return {'arff': arff.dumps(data_dict)}
+
+    
+
+
+
+
+
+

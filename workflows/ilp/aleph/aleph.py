@@ -116,6 +116,7 @@ class Aleph(object):
 
         # Run the aleph script.
         p = SafePopen(['yap', '-s50000', '-h200000', '-L', Aleph.SCRIPT], cwd=self.tmpdir).safe_run()
+        print p
         stdout_str, stderr_str = p.communicate()
 
         logger.info("Done.")

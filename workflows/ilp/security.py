@@ -55,6 +55,7 @@ class SafePopen(threading.Thread):
         self.kwargs = kwargs
     
     def run(self):
+        print self.args
         self.p = Popen(self.args, **self.kwargs)
         self.p.wait()
 
