@@ -2,7 +2,6 @@ import arff
 from services.webservice import WebService
 from scipy.io import arff as scipy_arff
 from cStringIO import StringIO
-import lda
 import numpy
 from sklearn.decomposition import LatentDirichletAllocation
 
