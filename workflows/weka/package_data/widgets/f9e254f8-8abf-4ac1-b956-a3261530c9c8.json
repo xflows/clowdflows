@@ -28,17 +28,34 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
-      "name": "arff file", 
-      "short_name": "arf", 
+      "name": "fit", 
+      "short_name": "fit", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "arff", 
+      "variable": "fit", 
       "parameter": false, 
       "order": 4, 
       "uid": "00ca592d-cf1a-4824-adcd-2fd7d54858f6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "Keep original dimensions", 
+      "short_name": "kod", 
+      "default": "False", 
+      "description": "Concatenate new dimensions with original", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "keep_original", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "2ea8ad31-e9e1-428d-a1b4-2f83074df85d"
     }
   }, 
   {
@@ -107,6 +124,23 @@
       "parameter": true, 
       "order": 3, 
       "uid": "cd28ab50-0710-462b-946e-5e48a863ae89"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "transform", 
+      "short_name": "trf", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "transform", 
+      "parameter": false, 
+      "order": 6, 
+      "uid": "cf4db26a-bdf8-4c6d-a240-d047c4cef9e3"
     }
   }, 
   {

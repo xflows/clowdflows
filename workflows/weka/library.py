@@ -56,39 +56,72 @@ def weka_get_attr_list(input_dict):
     return {'attr_list': attr_list}
 
 def weka_lda(input_dict):
-    arff_file = StringIO(input_dict['arff'])
-    data, meta = scipy_arff.loadarff(arff_file)
+    arff_file_fit = StringIO(input_dict['fit'])
+    arff_file_transform = StringIO(input_dict['transform'])
+    data_fit, meta_fit = scipy_arff.loadarff(arff_file_fit)
+    data_transform, meta_transform = scipy_arff.loadarff(arff_file_transform)
     n_topics = int(input_dict['n_topics'])
     n_iter = int(input_dict['n_iter'])
     relation_name = input_dict['relation_name']
     random_state = int(input_dict['random_state'])
+    keep_original_dimensions = input_dict['keep_original']
     model = LatentDirichletAllocation(n_topics=n_topics, max_iter=n_iter, random_state=random_state)
-    dataTable = []
+    dataTable_fit = []
+    dataTable_transform = []
     yTable = []
-    for instance in data:
+    for instance in data_fit:
         row = []
         for attribute in instance:
+            row.append(attribute)
+        dataTable_fit.append(row[:-1])
+
+
+    meta_transform = list(meta_transform)
+    for instance in data_transform:
+        row = []
+        '''print '\n\ntransform'
+        print list(meta_transform)
+        print instance'''
+        for attribute in meta_fit:
             try:
-                row.append(attribute)
+                idx = meta_transform.index(attribute)
+                row.append(instance[idx])
             except:
-                pass
-        dataTable.append(row[:-1])
+                row.append(0.0)
+        '''print 'fit'
+        print list(meta_fit)
+        print row'''
+        dataTable_transform.append(row[:-1])
         yTable.append(instance[-1])
-    
-    X = numpy.array(dataTable)
-    fitted_model= model.fit_transform(X)
-    lda_list = fitted_model.tolist()
-    for i, row in enumerate(lda_list):
-        row.append(yTable[i])
+
+    train = numpy.array(dataTable_fit)
+    test = numpy.array(dataTable_transform)
+    model= model.fit(train)
+    model= model.transform(test)
+    lda_list = model.tolist()
     attributes = []
     for i in range(n_topics):
         attributes.append(('topic_' + str(i), u'REAL'))
+    if keep_original_dimensions:
+        for attribute in meta_transform[:-1]:
+            attributes.append((attribute, u'REAL'))
+        for i, row in enumerate(lda_list):
+            print row
+            for old_attribute in list(data_transform[i])[:-1]:
+                row.append(old_attribute)
+
+    for i, row in enumerate(lda_list):
+        row.append(yTable[i])
     attributes.append(('class' , list(set(yTable))))
+
     data_dict = {}
     data_dict['attributes'] = attributes
     data_dict['data'] = lda_list
     data_dict['description'] = u''
     data_dict['relation'] = relation_name
+
+
+   
 
     return {'arff': arff.dumps(data_dict)}
 
