@@ -4,6 +4,7 @@ from scipy.io import arff as scipy_arff
 from cStringIO import StringIO
 import numpy
 from sklearn.decomposition import LatentDirichletAllocation
+from sklearn.decomposition import TruncatedSVD
 
 
 def weka_statistics(input_dict):
@@ -55,75 +56,96 @@ def weka_get_attr_list(input_dict):
         attr_list.append(row[attr_idx])
     return {'attr_list': attr_list}
 
+
 def weka_lda(input_dict):
-    arff_file_fit = StringIO(input_dict['fit'])
-    arff_file_transform = StringIO(input_dict['transform'])
-    data_fit, meta_fit = scipy_arff.loadarff(arff_file_fit)
-    data_transform, meta_transform = scipy_arff.loadarff(arff_file_transform)
+    arff_file_train = StringIO(input_dict['train'])
+    arff_file_test = StringIO(input_dict['test'])
+    data_train, meta_train = scipy_arff.loadarff(arff_file_train)
+    data_test, meta_test = scipy_arff.loadarff(arff_file_test)
     n_topics = int(input_dict['n_topics'])
     n_iter = int(input_dict['n_iter'])
     relation_name = input_dict['relation_name']
     random_state = int(input_dict['random_state'])
     keep_original_dimensions = input_dict['keep_original']
     model = LatentDirichletAllocation(n_topics=n_topics, max_iter=n_iter, random_state=random_state)
-    dataTable_fit = []
-    dataTable_transform = []
+    #model = TruncatedSVD(n_components=n_topics, n_iter=n_iter, random_state=random_state)
+    data_train, meta_train, data_test, meta_test = list(data_train), list(meta_train), list(data_test), list(meta_test) 
+    dataTable = []
     yTable = []
-    for instance in data_fit:
+    
+    #add missing attributes from testset to trainset
+    for instance in data_train:
         row = []
         for attribute in instance:
             row.append(attribute)
-        dataTable_fit.append(row[:-1])
+        row = row[:-1]
+        for attribute_name in meta_test:
+            if attribute_name not in meta_train:
+                row.append(0.0)
+        dataTable.append(row)
+        yTable.append(instance[-1])
 
+    splitIndex = len(dataTable)
 
-    meta_transform = list(meta_transform)
-    for instance in data_transform:
+    #add missing attributes from trainset to testset
+    for instance in data_test:
         row = []
-        '''print '\n\ntransform'
-        print list(meta_transform)
-        print instance'''
-        for attribute in meta_fit:
+        for attribute in meta_train:
             try:
-                idx = meta_transform.index(attribute)
+                idx = meta_test.index(attribute)
                 row.append(instance[idx])
             except:
                 row.append(0.0)
-        '''print 'fit'
-        print list(meta_fit)
-        print row'''
-        dataTable_transform.append(row[:-1])
+        row = row[:-1]
+        for i, attribute_name in enumerate(meta_test):
+            if attribute_name not in meta_train:
+                row.append(instance[i])
+        dataTable.append(row)
         yTable.append(instance[-1])
 
-    train = numpy.array(dataTable_fit)
-    test = numpy.array(dataTable_transform)
-    model= model.fit(train)
-    model= model.transform(test)
+    
+    dataset = numpy.array(dataTable)
+    model= model.fit_transform(dataset)
     lda_list = model.tolist()
     attributes = []
+    attributes_train = []
+    attributes_test = []
     for i in range(n_topics):
         attributes.append(('topic_' + str(i), u'REAL'))
     if keep_original_dimensions:
-        for attribute in meta_transform[:-1]:
-            attributes.append((attribute, u'REAL'))
-        for i, row in enumerate(lda_list):
-            print row
-            for old_attribute in list(data_transform[i])[:-1]:
+        attributes_train = []
+        attributes_test = []
+        for attribute in meta_train[:-1]:
+            attributes_train.append((attribute, u'REAL'))
+        for attribute in meta_test[:-1]:
+            attributes_test.append((attribute, u'REAL'))
+        for i, row in enumerate(lda_list[:splitIndex]):
+            for old_attribute in list(data_train[i])[:-1]:
+                row.append(old_attribute)
+        for i, row in enumerate(lda_list[splitIndex:]):
+            for old_attribute in list(data_test[i])[:-1]:
                 row.append(old_attribute)
 
     for i, row in enumerate(lda_list):
         row.append(yTable[i])
-    attributes.append(('class' , list(set(yTable))))
+    attributes_train = attributes + attributes_train
+    attributes_test  = attributes + attributes_test
+    attributes_train.append(('class' , list(set(yTable))))
+    attributes_test.append(('class' , list(set(yTable))))
 
-    data_dict = {}
-    data_dict['attributes'] = attributes
-    data_dict['data'] = lda_list
-    data_dict['description'] = u''
-    data_dict['relation'] = relation_name
+    data_dict_train = {}
+    data_dict_train['attributes'] = attributes_train
+    data_dict_train['data'] = lda_list[:splitIndex]
+    data_dict_train['description'] = u''
+    data_dict_train['relation'] = relation_name
 
+    data_dict_test = {}
+    data_dict_test['attributes'] = attributes_test
+    data_dict_test['data'] = lda_list[splitIndex:]
+    data_dict_test['description'] = u''
+    data_dict_test['relation'] = relation_name
 
-   
-
-    return {'arff': arff.dumps(data_dict)}
+    return {'test': arff.dumps(data_dict_test), 'train': arff.dumps(data_dict_train)}
 
     
 

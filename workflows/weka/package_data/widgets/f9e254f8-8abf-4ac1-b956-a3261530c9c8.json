@@ -28,14 +28,14 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
-      "name": "fit", 
-      "short_name": "fit", 
+      "name": "train", 
+      "short_name": "tra", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "fit", 
+      "variable": "train", 
       "parameter": false, 
       "order": 4, 
       "uid": "00ca592d-cf1a-4824-adcd-2fd7d54858f6"
@@ -130,14 +130,14 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
-      "name": "transform", 
-      "short_name": "trf", 
+      "name": "test", 
+      "short_name": "tes", 
       "default": "", 
       "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "transform", 
+      "variable": "test", 
       "parameter": false, 
       "order": 6, 
       "uid": "cf4db26a-bdf8-4c6d-a240-d047c4cef9e3"
@@ -147,12 +147,24 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
-      "name": "arff file", 
-      "short_name": "arf", 
+      "name": "train", 
+      "short_name": "tra", 
       "description": "", 
-      "variable": "arff", 
+      "variable": "train", 
       "order": 1, 
       "uid": "028ae236-f48f-4943-9bb9-beebf4ce141b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "test", 
+      "short_name": "tes", 
+      "description": "", 
+      "variable": "test", 
+      "order": 1, 
+      "uid": "2406ddba-5318-49a8-9c57-ee3c4b15486c"
     }
   }
 ]
