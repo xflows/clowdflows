@@ -115,10 +115,10 @@ def weka_lda(input_dict):
     if keep_original_dimensions:
         attributes_train = []
         attributes_test = []
-        for attribute in meta_train[:-1]:
-            attributes_train.append((attribute.replace('"', ""), u'REAL'))
-        for attribute in meta_test[:-1]:
-            attributes_test.append((attribute.replace('"', ""), u'REAL'))
+        for i, attribute in enumerate(meta_train[:-1]):
+            attributes_train.append(("old_attribute_" + str(i), u'REAL'))
+        for i, attribute in enumerate(meta_test[:-1]):
+            attributes_test.append(("old_attribute_" + str(i), u'REAL'))
         for i, row in enumerate(lda_list[:splitIndex]):
             for old_attribute in list(data_train[i])[:-1]:
                 row.append(old_attribute)
