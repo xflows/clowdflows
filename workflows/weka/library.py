@@ -72,6 +72,11 @@ def weka_lda(input_dict):
     data_train, meta_train, data_test, meta_test = list(data_train), list(meta_train), list(data_test), list(meta_test) 
     dataTable = []
     yTable = []
+
+    print data_train
+    print meta_train
+    print data_test
+    print meta_test
     
     #add missing attributes from testset to trainset
     for instance in data_train:
@@ -103,6 +108,7 @@ def weka_lda(input_dict):
         dataTable.append(row)
         yTable.append(instance[-1])
 
+    print dataTable
     
     dataset = numpy.array(dataTable)
     model= model.fit_transform(dataset)

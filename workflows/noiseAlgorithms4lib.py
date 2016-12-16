@@ -367,9 +367,9 @@ def toARFFstring(table,try_numericize=0):#filename,table,try_numericize=0):
         if string.find(iname," ") != -1:
             iname = "'%s'"%iname
         if real==1:
-            f.write('@attribute %s real\n'%iname)
+            f.write('@attribute "%s" real\n'%iname)
         else:
-            f.write('@attribute %s { '%iname)
+            f.write('@attribute "%s" { '%iname)
             x = []
             for j in i.values:
                 s = str(j)
