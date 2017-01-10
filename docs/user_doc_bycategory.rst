@@ -896,6 +896,127 @@ Widget: Submit search criteria
 
 Category ILP
 ------------
+Category Semantic Data Mining
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Widget: Hedwig
+```````````````
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
+   :width: 50
+   :height: 50
+A subgroup discovery tool that can use ontological domain knowledge (RDF graphs) in the learning process. Subgroup descriptions contain terms from the given domain knowledge and enable potentially better generalizations.
+
+* Input: Examples (Learning examples)
+* Input: Background knowledge (Background knowledge file (e.g., a n3 file))
+* Parameter: Input format (Input file format of examples)
+
+  * Possible values:
+
+    * csv
+    * n3
+* Parameter: Learner variant (Type of learner to use)
+
+  * Possible values:
+
+    * heuristic
+    * optimal
+* Parameter: Score function
+
+  * Possible values:
+
+    * chisq
+    * leverage
+    * lift
+    * precision
+    * t_score
+    * wracc
+    * z_score
+* Parameter: Minimum support (Minimum rule support)
+* Parameter: Beam size
+* Parameter: Rule depth (Maximum number of conjunctions)
+* Parameter: Use negations (Use negations in rules)
+* Parameter: Optimal subclass specialization (In each step the full hierarchy under a particular concept is searched)
+* Parameter: P-value threshold (P-value threshold; applies if fwer is used)
+* Parameter: Multiple-hypothesis testing correction method (Adjustment method for the multiple-testing problem)
+
+  * Possible values:
+
+    * fdr
+    * fwer
+* Parameter: Maximum FDR rate (Max false discovery rate; applies if fdr is used)
+* Parameter: Show URIs in rules (Show URIs in rule conjunctions)
+* Output: Rules
+
+
+Widget: 1BC
+~~~~~~~~~~~~
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
+   :width: 50
+   :height: 50
+1BC is a 1st-order logic naive Bayesian Classifier. It can deal with a relational database thanks to the Database To Prd and Fct files widget.
+
+It takes several files as inputs. All of them should have the same name but different extensions :
+- prd: this file contains the langage bias, roughly defining the target individual (i.e. primary table), the structural predicates (i.e. foreign keys between tables) and properties (i.e. other columns)
+- fct: this file contains facts (i.e. lines of tables), often grouped into partitions by individuals (this grouping enable to use the incremental loading and learning).
+- tst: actually it is another fact file that is used for testing the model learned from the fct file.
+
+1BC outputs :
+- res: It is a string that can be sent to the Display String widget or the String to file widget. It contains the interval limits for each discretised type if any, the conditional probabilities of all first-order features and the accuracy.
+- scr: It is a string that can be sent to the Display String widget or to the Multiple Classes to One Binary Score widget to prepare a ROC curve. It lists, for each test instance, its identifier, its true class, and the predicted score for every classes.
+
+1BC can be seen as a propositionalisation into elementary first-order features, similar to wordification, followed by a standard attribute-value naive bayesian classifier:
+P. Flach, N. Lachiche. 1BC: A first-order bayesian classifier, Proceedings of the ninth international workshop on inductive logic programming (ILP'99), pages 92-103, Saso Dzeroski and Peter Flach (Eds.), Springer, LNCS, Volume 1634, 1999, http://dx.doi.org/10.1007/3-540-48751-4_10
+P. Flach, N. Lachiche. Naive Bayesian classification of structured data, Machine Learning, Springer Verlag (Germany) (IF : 1.689), pages 233--269, Volume 57, No 3, 2004, http://dx.doi.org/doi:10.1023/B:MACH.0000039778.69032.ab
+
+* Input: prd file (from a Load file widget or a Database to Prd and Fct files widget)
+* Input: fct file (from a Load file widget or a Database to Prd and Fct files widget (it contains the training set))
+* Input: test file (from a Load file widget or a Database to Prd and Fct files widget (it is a fct file for testing))
+* Parameter: max lit (The maximum number of literals. Usually the number of kinds of objects (i.e. tables) plus 1.)
+* Parameter: max var (The maximum number of variables. Usually the number of kinds of objects (i.e. tables). )
+* Parameter: load partitions incrementally (Load partitions (a partition contains all facts about an individual)  incrementaly, useful when the training set is too to be loaded in one go)
+* Parameter: cross validation folds (The number of folds to apply a cross-validation on the dataset (from the fct file))
+* Parameter: random seed (An integer for initialising the random generator)
+* Parameter: ROC nb folds (-1 if no ROC) (Number of folds to find the best threshold using an internal cross-validation according to ROC curve)
+* Parameter: attribute List (Attribute name, Number of intervals the attribute has to be discretised in, and a kind of discretisation (sdm: standard deviation centered on the mean, eqb: equal bins)
+  Format: col1 nbIntervalCol1 sdm, col2 nbIntervalCol2 eqb)
+* Output: results (to send to the Display String widget or a String to file widget)
+* Output: score (to send to any widget for strings or to the Multiple Classes to One Binary Score widget to prepare a ROC curve.)
+
+
+Widget: 1BC2
+~~~~~~~~~~~~~
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
+   :width: 50
+   :height: 50
+1BC2 is a 1st-order logic naive Bayesian Classifier too. It can deal with a relational database thanks to the Database To Prd and Fct files widget.
+
+It takes several files as inputs. All of them should have the same name but different extensions :
+- prd: this file contains the langage bias, roughly defining the target individual (i.e. primary table), the structural predicates (i.e. foreign keys between tables) and properties (i.e. other columns)
+- fct: this file contains facts (i.e. lines of tables), often grouped into partitions by individuals (this grouping enable to use the incremental loading and learning).
+- tst: actually it is another fact file that is used for testing the model learned from the fct file.
+
+1BC2 outputs :
+- res: It is a string that can be sent to the Display String widget or the String to file widget. It contains the interval limits for each discretised type if any, the conditional probabilities of all first-order features and the accuracy.
+- scr: It is a string that can be sent to the Display String widget or to the Multiple Classes to One Binary Score widget to prepare a ROC curve. It lists, for each test instance, its identifier, its true class, and the predicted score for every classes.
+
+1BC2 estimates probabilities of sets of elements recursively:
+N. Lachiche, P. Flach. 1BC2: a true first-order Bayesian classifier, Proceedings of the Thirteenth International Workshop on Inductive Logic Programming (ILP'02), Sydney, Australia, pages 133-148, Claude Sammut and Stan Matwin (Eds.), Springer-Verlag, Lecture Notes in Artificial Intelligence, Volume 2583, January 2002, http://dx.doi.org/10.1007/3-540-36468-4₉
+P. Flach, N. Lachiche. Naive Bayesian classification of structured data, Machine Learning, Springer Verlag (Germany) (IF : 1.689), pages 233--269, Volume 57, No 3, 2004, http://dx.doi.org/doi:10.1023/B:MACH.0000039778.69032.ab
+
+* Input: prd file (from a Load file widget or a Database to Prd and Fct files widget)
+* Input: fct file (from a Load file widget or a Database to Prd and Fct files widget (it contains the training set))
+* Input: test file (from a Load file widget or a Database to Prd and Fct files widget (it is a fct file for testing))
+* Parameter: max lit (The maximum number of literals. Usually the number of kinds of objects (i.e. tables) plus 1.)
+* Parameter: max var (The maximum number of variables. Usually the number of kinds of objects (i.e. tables). )
+* Parameter: load partitions incrementally (Load partitions (a partition contains all facts about an individual)  incrementaly, useful when the training set is too to be loaded in one go)
+* Parameter: cross validation folds (The number of folds to apply a cross-validation on the dataset (from the fct file))
+* Parameter: random seed (An integer for initialising the random generator)
+* Parameter: ROC nb folds (-1 if no ROC) (Number of folds to find the best threshold using an internal cross-validation according to ROC curve)
+* Parameter: attribute List (Attribute name, Number of intervals the attribute has to be discretised in, and a kind of discretisation (sdm: standard deviation centered on the mean, eqb: equal bins)
+  Format: col1 nbIntervalCol1 sdm, col2 nbIntervalCol2 eqb)
+* Output: results (to send to the Display String widget or a String to file widget)
+* Output: score (to send to any widget for strings or to the Multiple Classes to One Binary Score widget to prepare a ROC curve.)
+
 
 Widget: Aleph
 ~~~~~~~~~~~~~~
@@ -948,6 +1069,83 @@ http://www.cs.ox.ac.uk/activities/machlearn/Aleph/aleph.html
 * Example usage: `ILP - Aleph <http://clowdflows.org/workflow/480/>`_
 
 
+Widget: Caraf
+~~~~~~~~~~~~~~
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
+   :width: 50
+   :height: 50
+More information about Caraf is available here:
+https://link.springer.com/chapter/10.1007/978-3-319-23708-4_4#page-1
+
+* Input: Prd file
+* Input: Fct file
+* Parameter: Test file
+* Parameter: Cross Validation Folds
+* Parameter: Random Seed
+* Parameter: Forest Size
+* Parameter: Min Leaf Size
+* Parameter: Heuristic
+
+  * Possible values:
+
+    * Global
+    * RRHCCA
+    * Random
+* Parameter: Target Predicate
+* Parameter: Count
+* Parameter: Minimum
+* Parameter: Maximum
+* Parameter: Sum
+* Parameter: Mean
+* Parameter: Ratio
+* Parameter: Standard Deviation
+* Parameter: Median
+* Parameter: First Quartile
+* Parameter: Third Quartile
+* Parameter: Interquartile Range
+* Parameter: First Decile
+* Parameter: Ninth Decile
+* Output: Model file
+* Output: Eval file
+* Output: Predictions file
+
+
+Widget: Cardinalization
+~~~~~~~~~~~~~~~~~~~~~~~~
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
+   :width: 50
+   :height: 50
+A propositionalistion algorithm that takes a Database Context widget as input and outputs a context that can be used by any of the Database to (Aleph, Orange Table, Prd and Fct files, RSD, TreeLiker, …) widgets.
+
+The ouput context points to a new table generated by the algorithm.
+
+Cardinalization adds columns to the target table related to every numeric attributes of the secondary table as detailed in :
+C. Ahmed, N. Lachiche, C. Charnay, S. El Jelali, A. Braud. Flexible Propositionalization of Continuous Attributes in Relational Data Mining, Expert Systems with Applications, Elsevier (IF : 1.965), pages 7698--7709, Volume 42, No 21, November 2015, http://dx.doi.org/10.1016/j.eswa.2015.05.053
+S. El Jelali, A. Braud, N. Lachiche. Propositionalisation of continuous attributes beyond simple aggregation, 22nd International Conference on Inductive Logic Programming (ILP 2012), Croatia, pages 32--44, Fabrizio Riguzzi and Filip Zelezny (Eds.), Springer, Lecture Notes in Computer Science, Volume 7842, March 2013, http://dx.doi.org/10.1007/978-3-642-38812-5_3
+
+* Input: context (from a Database Context widget)
+* Parameter: threshold number
+* Output: context (to a Database to *** widget)
+
+
+Widget: Quantiles
+~~~~~~~~~~~~~~~~~~
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
+   :width: 50
+   :height: 50
+A propositionalistion algorithm that takes a Database Context widget as input and outputs a context that can be used by any of the Database to (Aleph, Orange Table, Prd and Fct files, RSD, TreeLiker, …) widgets.
+
+The ouput context points to a new table generated by the algorithm.
+
+The required number of quantiles are computed for each numeric attribute of the secondary table as detailed in :
+C. Ahmed, N. Lachiche, C. Charnay, S. El Jelali, A. Braud. Flexible Propositionalization of Continuous Attributes in Relational Data Mining, Expert Systems with Applications, Elsevier (IF : 1.965), pages 7698--7709, Volume 42, No 21, November 2015, http://dx.doi.org/10.1016/j.eswa.2015.05.053
+S. El Jelali, A. Braud, N. Lachiche. Propositionalisation of continuous attributes beyond simple aggregation, 22nd International Conference on Inductive Logic Programming (ILP 2012), Croatia, pages 32--44, Fabrizio Riguzzi and Filip Zelezny (Eds.), Springer, Lecture Notes in Computer Science, Volume 7842, March 2013, http://dx.doi.org/10.1007/978-3-642-38812-5_3
+
+* Input: Context (from a Database Context widget)
+* Parameter: Number of quantiles (Number of quantiles that will be generated for each numeric attribute of the secondary table)
+* Output: context (to a Database to *** widget)
+
+
 Widget: RSD
 ~~~~~~~~~~~~
 .. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
@@ -996,6 +1194,22 @@ Relational subgroup discovery by Zelezny et al.
 * Output: arff (arff file of the propositionalized data)
 * Output: rules (rules as prolog facts)
 * Example usage: `ILP - RSD using MySQL (ECML demo) <http://clowdflows.org/workflow/611/>`_
+
+
+Widget: Relaggs
+~~~~~~~~~~~~~~~~
+.. image:: ../workflows/ilp/static/ilp/icons/widget/ilp.png
+   :width: 50
+   :height: 50
+A propositionalistion algorithm that takes a Database Context widget as input and outputs a context that can be used by any of the Database to (Aleph, Orange Table, Prd and Fct files, RSD, TreeLiker, …) widgets.
+
+The ouput context points to a new table generated by the algorithm.
+
+Relaggs applies the usual aggregation functions (min, max, …) to every attributes of the secondary table as detailed in :
+Mark-A. Krogel, Stefan Wrobel:Transformation-Based Learning Using Multirelational Aggregation. ILP 2001: 142-155, http://dx.doi.org/10.1007/3-540-44797-0_12
+
+* Input: context (from a Database Context widget)
+* Output: context (to a Database to *** widget)
 
 
 Widget: SDM-Aleph
@@ -1101,6 +1315,53 @@ Displays SDM-SEGS rules.
 * Input: SDM-SEGS rules
 * Outputs: Popup window which shows widget's results
 * Example usage: `SDM-SEGS example <http://clowdflows.org/workflow/575/>`_
+
+
+Widget: Tertius
+~~~~~~~~~~~~~~~~
+.. image:: ../../mothra_master_fordoc/workflows/static/widget-icons/question-mark.png
+   :width: 50
+   :height: 50
+Tertius learns rules in first-order logic. It can deal with a relational database thanks to the Database To Prd and Fct files widget.
+
+It takes several files as inputs. All of them should have the same name but different extensions:
+- prd: this file contains the langage bias, roughly defining the target individual (i.e. primary table), the structural predicates (i.e. foreign keys between tables) and properties (i.e. other columns)
+- fct: this file contains facts (i.e. lines of tables), often grouped into partitions by individuals (this grouping enable to use the incremental loading and learning).
+
+It outputs its results as a string that can be sent to the Display String widget or String to file widget.
+
+It is an supervised learner that learns rules having the best confirmation as explained in:
+P. Flach, N. Lachiche. Confirmation-Guided Discovery of First-Order Rules with Tertius, Machine Learning, Springer Verlag (Germany) (IF : 1.689), pages 61--95, Volume 42, No 1/2, 2001, doi:10.1023/A:1007656703224
+
+Several langage biases can be selected, namely :
+- none
+- Horn clauses only
+- class : use the first property of the prd file as head of rules
+- pos class : use the first property of the prd file as a positive literal in the head of rules
+- pos horn class : use the first property of the prd file as a positive literal in the head of horn clauses
+
+* Input: prd file (from a Load file widget or a Database to Prd and Fct files widget)
+* Input: fct file (from a Load file widget or a Database to Prd and Fct files widget (it contains the training set))
+* Parameter: max lit (The maximum number of literals)
+* Parameter: max var (The maximum number of variables)
+* Parameter: noise percent threshold (-1 if not used) (Noise Percent Threshold)
+* Parameter: satisfied clauses only (Satisfied clauses only)
+* Parameter: language bias (Language bias)
+
+  * Possible values:
+
+    * Class
+    * Horn
+    * None
+    * Pos Class
+    * Pos Horn Class
+* Parameter: number of results (-1 if conf. thres.) (Number of results (-1 if the confirmation threshold is used))
+* Parameter: confirmation threshold (-1 if nb. results) (Minimum threshold on the confirmation (-1 if Number of Results is used))
+* Parameter: nb. of structural results (-1 if not used) (Switch the use of the ISP (Individual, Structural, Properties in the prd file) declarations on, and set the maximum number of properties in an hypothesis (-1 if not used))
+* Parameter: count instances in a bottom-up manner (Count instances in a bottom-up manner)
+* Parameter: attribute list (Attribute name, Number of intervals the attribute has to be discretised in, and a kind of discretisation (sdm: standard deviation centered on the mean, eqb: equal bins)
+  Format: col1 nbIntervalCol1 sdm, col2 nbIntervalCol2 eqb)
+* Output: results (to send to the Display String widget or a String to file widget)
 
 
 Widget: TreeLiker
