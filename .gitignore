@@ -30,3 +30,5 @@ build/
 celerybeat-schedule
 .coverage
 htmlcov
+
+docs/_build/
