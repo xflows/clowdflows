@@ -4,7 +4,7 @@ RDM package
 The aim of the Relational Data Mining (RDM) package and tool is to make relational learning and inductive logic programming approaches publicly accessible.
 The tool offers a common and easy-to-use interface to several relational learning algorithms and provides data access to several relational database management systems.
 
-This RDM package ClowdFlows is an external package: the `Python-RDM <http://rdm.readthedocs.io/en/latest/index.html>`_ it should be installed with pip and then included in ClowdFlows.
+The RDM ClowdFlows package is an external package: the `Python-RDM <http://rdm.readthedocs.io/en/latest/index.html>`_ package should be first installed with pip and then the RDM ClowdFlows package should be included in ClowdFlows.
 
 Prerequisites
 -------------
