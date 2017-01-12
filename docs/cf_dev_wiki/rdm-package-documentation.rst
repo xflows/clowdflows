@@ -4,7 +4,7 @@ RDM package
 The aim of the Relational Data Mining (RDM) package and tool is to make relational learning and inductive logic programming approaches publicly accessible.
 The tool offers a common and easy-to-use interface to several relational learning algorithms and provides data access to several relational database management systems.
 
-This RDM package ClowdFlows is an external package: it should be installed with pip and then included in ClowdFlows.
+This RDM package ClowdFlows is an external package: the `Python-RDM <http://rdm.readthedocs.io/en/latest/index.html>`_ it should be installed with pip and then included in ClowdFlows.
 
 Prerequisites
 -------------
@@ -102,14 +102,21 @@ Depending on what algorithms you wish to use, these are their dependencies.
 Aleph and RSD
 ^^^^^^^^^^^^^
 
-* yap prolog (preferably with ``--tabling`` enabled)
+* Yap prolog (preferably compiled with ``--tabling`` enabled for speedups)
 
-TreeLiker
-^^^^^^^^^
+There are sources as well as binaries for Windows and OS X available `here <https://www.dcc.fc.up.pt/~vsc/Yap/downloads.html>`_.
 
-* Java VM
+On Debian-based systems you can simply install it as::
 
-Wordification
-^^^^^^^^^^^^^
+    apt install yap
 
-* orange 2.5 (this is planned to be dropped in favor of scikit-learn)
+TreeLiker, Caraf, Cardinalization, Quantiles, Relaggs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Java
+
+1BC, 1BC2, Tertius
+^^^^^^^^^^^^^^^^^^
+
+These approaches depend on one original C program which must be compiled.
+The sources are included with python-rdm in ``rdm/wrappers/tertius/src/``.
