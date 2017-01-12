@@ -25,10 +25,4 @@ External packages
 ~~~~~~~~~~~~~~~~~
 `Creating external packages <external-packages.html>`__
 
-`Working with external packages: Relational Data Mining (RDM) package <rdm-package-documentation.html>`__
-
-`Installing requirements for the RDM and MySQL
-packages <installing-requirements-for-the-ilp-package.html>`__
-
-
-
+`Working with external packages: RDM package <rdm-package-documentation.html>`__
