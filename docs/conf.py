@@ -49,8 +49,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'ClowdFlows documentation'
-copyright = u'2015, ClowdFlows Team'
+project = u'ClowdFlows'
+copyright = u'2017, ClowdFlows Team'
 author = u''
 
 # The version info for the project you're documenting, acts as replacement for
