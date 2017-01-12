@@ -1,5 +1,5 @@
-ClowdFlows developer documentation
-==================================
+Developer documentation
+=======================
 
 Basics
 ------

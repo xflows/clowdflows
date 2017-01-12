@@ -1,5 +1,5 @@
-ClowdFlows documentation for users
-==================================
+User documentation
+==================
 
 Tutorial
 --------
