@@ -18,4 +18,6 @@ feedparser==5.1.2
 networkx==1.8.1
 unidecode==0.04.13
 nltk==2.0.4
-
+psycopg2==2.6.1
+python-rdm>=0.1.5
+https://github.com/anzev/hedwig/archive/master.zip
