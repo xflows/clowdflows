@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a668bef4-45a9-40a3-b3e3-d29203ccfada", 
+      "treeview_image": "", 
+      "uid": "50ea6b8c-c528-433b-9062-a62691902103", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Reads a dataset into a format suitable for WEKA methods", 
+      "static_image": "WEKA_arff.png", 
+      "action": "weka_local_arff_to_weka_instances", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Arff to Weka Instances"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "50ea6b8c-c528-433b-9062-a62691902103", 
+      "name": "Class index", 
+      "short_name": "cla", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "class_index", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "1e067896-7006-4b44-82af-b03a61727080"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "50ea6b8c-c528-433b-9062-a62691902103", 
+      "name": "arff file", 
+      "short_name": "arf", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "arff", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "b027ab99-adb6-44fb-96ab-08deb7db7f5d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "50ea6b8c-c528-433b-9062-a62691902103", 
+      "name": "Instances", 
+      "short_name": "ins", 
+      "description": "", 
+      "variable": "instances", 
+      "order": 1, 
+      "uid": "110f9834-3e44-419b-a3af-39622417ecd6"
+    }
+  }
+]
