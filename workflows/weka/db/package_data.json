@@ -517,7 +517,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "Feedforward artificial neural network, using backpropagation to classify instances"
+      "description": ""
     }
   }, 
   {
@@ -611,7 +611,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "Naive Bayes classifier. Naive Bayes is a simple probabilistic classifier based on applying the Bayes' theorem."
+      "description": ""
     }
   }, 
   {
@@ -705,7 +705,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "Widget implementing a REP Tree, which is a fast decision tree learner. Builds a decision/regression tree using information gain/variance and prunes it using reduced-error pruning (with backfitting). Only sorts values for numeric attributes once. Missing values are dealt with by splitting the corresponding instances into pieces (i.e. as in C4.5)."
+      "description": ""
     }
   }, 
   {
@@ -799,7 +799,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "A tree that considers K randomly chosen attributes at each node, and performs no pruning."
+      "description": ""
     }
   }, 
   {
@@ -987,7 +987,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "A support vector classifier, trained using a sequential minimal optimization algorithm."
+      "description": ""
     }
   }, 
   {
@@ -1965,7 +1965,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "Evaluate a model using cross validation."
+      "description": ""
     }
   }, 
   {
@@ -2140,13 +2140,13 @@
       "user": 1, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
-      "action": "weka_arff_to_weka_instances",
-      "wsdl_method": "",
-      "wsdl": "",
+      "action": "call_webservice", 
+      "wsdl_method": "arff_to_weka_instances", 
+      "wsdl": "http://vihar.ijs.si:8092/Utilities?wsdl", 
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "Reads a dataset into a format suitable for WEKA methods"
+      "description": ""
     }
   }, 
   {
@@ -2258,7 +2258,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "Prepares a WEKA model for printing"
+      "description": ""
     }
   }, 
   {
@@ -2352,7 +2352,7 @@
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "Prints a WEKA decision tree. It outputs the textual representation of the tree."
+      "description": ""
     }
   }, 
   {
@@ -2516,13 +2516,13 @@
       "user": 1, 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
-      "action": "weka_instances_to_arff",
-      "wsdl_method": "",
-      "wsdl": "",
+      "action": "call_webservice", 
+      "wsdl_method": "weka_instances_to_arff", 
+      "wsdl": "http://vihar.ijs.si:8092/Utilities?wsdl", 
       "interactive": false, 
       "has_progress_bar": false, 
       "order": 1, 
-      "description": "Transforms a dataset from the WEKA internal representation to ARFF textual format"
+      "description": ""
     }
   }, 
   {
