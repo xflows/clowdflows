@@ -20,7 +20,7 @@
       "wsdl": "", 
       "interactive": false, 
       "is_streaming": false, 
-      "order": 1, 
+      "order": 4, 
       "name": "KStar"
     }
   }, 

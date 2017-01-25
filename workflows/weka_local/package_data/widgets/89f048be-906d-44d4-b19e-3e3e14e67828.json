@@ -81,11 +81,11 @@
       "widget": "89f048be-906d-44d4-b19e-3e3e14e67828", 
       "name": "Class Index", 
       "short_name": "ci", 
-      "default": "", 
+      "default": "-1", 
       "description": "Class index. If -1, it will return a weighted average.", 
       "required": false, 
       "multi": false, 
-      "parameter_type": null, 
+      "parameter_type": "text", 
       "variable": "classIndex", 
       "parameter": true, 
       "order": 2, 
@@ -112,7 +112,7 @@
       "short_name": "tp", 
       "description": "", 
       "variable": "tp_rate", 
-      "order": 1, 
+      "order": 9, 
       "uid": "60c5ad33-19e7-4948-afbb-f61d0223c683"
     }
   }, 
@@ -136,7 +136,7 @@
       "short_name": "con", 
       "description": "", 
       "variable": "confusion_matrix", 
-      "order": 2, 
+      "order": 3, 
       "uid": "b6b27c8f-ce52-4e01-bdf2-de6011a42f44"
     }
   }, 
@@ -148,7 +148,7 @@
       "short_name": "auc", 
       "description": "", 
       "variable": "auc", 
-      "order": 1, 
+      "order": 8, 
       "uid": "c031b8d0-2953-43dd-aa87-bfff57f62c85"
     }
   }, 
@@ -157,10 +157,10 @@
     "fields": {
       "widget": "89f048be-906d-44d4-b19e-3e3e14e67828", 
       "name": "Accuracy by class", 
-      "short_name": "acc", 
+      "short_name": "acl", 
       "description": "", 
       "variable": "accuracy_by_class", 
-      "order": 3, 
+      "order": 2, 
       "uid": "ca272653-396e-4a43-a94c-dc86029728eb"
     }
   }, 
@@ -172,7 +172,7 @@
       "short_name": "fp", 
       "description": "", 
       "variable": "fp_rate", 
-      "order": 1, 
+      "order": 10, 
       "uid": "d05540f1-7f6f-4e47-b1e9-4b6cb4fd57ff"
     }
   }, 
@@ -184,7 +184,7 @@
       "short_name": "f", 
       "description": "", 
       "variable": "f", 
-      "order": 1, 
+      "order": 7, 
       "uid": "e3c166b8-0188-403a-912d-fa0fa2de4adc"
     }
   }, 
@@ -196,7 +196,7 @@
       "short_name": "pre", 
       "description": "", 
       "variable": "precision", 
-      "order": 1, 
+      "order": 5, 
       "uid": "efb1ff5f-8e26-416e-a0c8-f6abd7793cf4"
     }
   }, 
@@ -208,7 +208,7 @@
       "short_name": "rec", 
       "description": "", 
       "variable": "recall", 
-      "order": 1, 
+      "order": 6, 
       "uid": "f9a420a1-3bc8-4179-8127-65f23f24d611"
     }
   }
