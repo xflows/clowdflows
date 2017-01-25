@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Prepares a WEKA model for printing",
       "static_image": "WEKA_printModel.png", 
       "action": "call_webservice", 
       "visualization_view": "", 

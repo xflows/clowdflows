@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Reads a dataset into a format suitable for WEKA methods",
       "static_image": "WEKA_arff.png", 
       "action": "call_webservice", 
       "visualization_view": "", 

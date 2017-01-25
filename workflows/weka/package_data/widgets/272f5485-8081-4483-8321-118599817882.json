@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "", 
+      "description": "Evaluate a model using cross validation.",
       "static_image": "WEKA_CrossVal.png", 
       "action": "call_webservice", 
       "visualization_view": "", 
