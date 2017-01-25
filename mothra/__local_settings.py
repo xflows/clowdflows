@@ -29,6 +29,7 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     #'workflows.nl_toolkit',
     #'workflows.ilp',
     #'workflows.weka',
+    #'workflows.weka_local',
     #'workflows.cforange',
     #'workflows.perfeval',
     #'workflows.mysql',
