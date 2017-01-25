@@ -123,6 +123,13 @@ def weka_local_libsvm(input_dict):
     sclassifier = common.serialize_weka_object(model)
     return {'LibSVM_learner': sclassifier}
 
+def weka_local_generic_learner(input_dict):
+    if not jp.isThreadAttachedToJVM():
+        jp.attachThreadToJVM()
+    model = jp.JClass(input_dict['weka_class'])()
+    model.setOptions(common.parse_options(input_dict['params']))
+    sclassifier = common.serialize_weka_object(model)
+    return {'Generic_Weka_learner': sclassifier}
 
 # ++++++++++++ rules ++++++++++++
 

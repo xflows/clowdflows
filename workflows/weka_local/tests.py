@@ -43,19 +43,19 @@ def test2():
     instances = instances['instances']
     iris_instances = common.deserialize_weka_object(instances)
 
-    classAttribute = iris_instances.classAttribute()
+    class_attribute = iris_instances.classAttribute()
 
     for learner in learners:
         print("Learner: " + str(learner))
         model = common.deserialize_weka_object(learner)
         model.buildClassifier(iris_instances)
-        print 'algorithm: %s' % repr(type(model))[::-1][2:repr(type(model))[::-1].index('.')][::-1]
+        print '\nalgorithm: %s' % repr(type(model))[::-1][2:repr(type(model))[::-1].index('.')][::-1]
         for instance in iris_instances:
             original = int(instance.classValue())
             new = int(model.classifyInstance(instance))
             if original != new:
                 print 'misclassified training example: %s was predicted as: %s' % (
-                    str(instance), classAttribute.value(new))
+                    str(instance), class_attribute.value(new))
         print
 
 def test3():
@@ -80,8 +80,34 @@ def test3():
                 if type(cv_res[k]) is float:
                     print "     %20s : %.4f" % (k , cv_res[k])
 
+def test4():
+    generic_learners = ["weka.classifiers.bayes.BayesNet", "weka.classifiers.trees.HoeffdingTree"]
+
+    fn = normpath(join(dirname(__file__), 'weka', 'data', 'iris.arff'))
+    instances = library.weka_local_arff_to_weka_instances({'arff': open(fn).read()})
+    instances = instances['instances']
+    iris_instances = common.deserialize_weka_object(instances)
+    class_attribute = iris_instances.classAttribute()
+
+    for generic_learner in generic_learners:
+        learner = library.weka_local_generic_learner({'weka_class':generic_learner,'params':None})
+        learner = learner['Generic_Weka_learner']
+
+        model = common.deserialize_weka_object(learner)
+        model.buildClassifier(iris_instances)
+
+        print '\nalgorithm: %s' % repr(type(model))[::-1][2:repr(type(model))[::-1].index('.')][::-1]
+        for instance in iris_instances:
+            original = int(instance.classValue())
+            new = int(model.classifyInstance(instance))
+            if original != new:
+                print 'misclassified training example: %s was predicted as: %s' % (
+                    str(instance), class_attribute.value(new))
+
+
 
 if __name__ == '__main__':
     test1()
     test2()
     test3()
+    test4()
