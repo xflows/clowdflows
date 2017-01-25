@@ -340,13 +340,82 @@ def weka_local_apply_classifier_and_get_instances(input_dict):
 
 
 def weka_local_apply_mapped_classifier(input_dict):
-    # TODO
-    return {}
+    if not jp.isThreadAttachedToJVM():
+        jp.attachThreadToJVM()
+
+    MAPPING_REPORT_START = 'Attribute mappings:'
+
+    classifier = common.deserialize_weka_object(input_dict['classifier'])
+    original_training_instances = common.deserialize_weka_object(input_dict['original_training_instances'])
+    instances = common.deserialize_weka_object(input_dict['instances'])
+
+    # serialize classifier with original instances to a file once again for the Mapped classifier
+    tfile = common.TemporaryFile(flags='wb+')
+    s = jp.JClass('weka.core.SerializationHelper')
+    s.writeAll(tfile.name, [classifier, original_training_instances])
+
+    # construct a MappedClassifier
+    mappedClassifier = jp.JClass('weka.classifiers.misc.InputMappedClassifier')()
+    mappedClassifier.setIgnoreCaseForNames(True)
+    mappedClassifier.setTrim(True)
+    #mappedClassifier.setSuppressMappingReport(True)
+    #mc.setModelHeader(original_training_instances)
+    mappedClassifier.setModelPath(tfile.name)
+
+    # use the mapped classifier on new data
+    classes = []
+    classIndex = instances.classIndex()
+    if classIndex == -1:
+        raise ValueError('Class not set!')
+    classAttribute = instances.classAttribute()
+    for instance in instances:
+        label = int(mappedClassifier.classifyInstance(instance))
+        classes.append(classAttribute.value(label))
+
+    report = mappedClassifier.toString()
+    if MAPPING_REPORT_START in report:
+        report = report[report.index(MAPPING_REPORT_START):]
+
+    return {'mapping_report':report, 'classes':classes}
 
 
 def weka_local_apply_mapped_classifier_get_instances(input_dict):
-    # TODO
-    return {}
+    if not jp.isThreadAttachedToJVM():
+        jp.attachThreadToJVM()
+
+    MAPPING_REPORT_START = 'Attribute mappings:'
+
+    classifier = common.deserialize_weka_object(input_dict['classifier'])
+    original_training_instances = common.deserialize_weka_object(input_dict['original_training_instances'])
+    instances = common.deserialize_weka_object(input_dict['instances'])
+
+    # serialize classifier with original instances to a file once again for the Mapped classifier
+    tfile = common.TemporaryFile(flags='wb+')
+    s = jp.JClass('weka.core.SerializationHelper')
+    s.writeAll(tfile.name, [classifier, original_training_instances])
+
+    # construct a MappedClassifier
+    mappedClassifier = jp.JClass('weka.classifiers.misc.InputMappedClassifier')()
+    mappedClassifier.setIgnoreCaseForNames(True)
+    mappedClassifier.setTrim(True)
+    #mappedClassifier.setSuppressMappingReport(True)
+    #mc.setModelHeader(original_training_instances)
+    mappedClassifier.setModelPath(tfile.name)
+
+    # use the mapped classifier on new data
+    classIndex = instances.classIndex()
+    if classIndex == -1:
+        raise ValueError('Class not set!')
+    classAttribute = instances.classAttribute()
+    for instance in instances:
+        label = int(mappedClassifier.classifyInstance(instance))
+        instance.setClassValue(classAttribute.value(label))
+
+    report = mappedClassifier.toString()
+    if MAPPING_REPORT_START in report:
+        report = report[report.index(MAPPING_REPORT_START):]
+
+    return {'mapping_report':report, 'instances':common.serialize_weka_object(instances)}
 
 
 def weka_local_cross_validate(input_dict):
@@ -400,4 +469,4 @@ def weka_local_cross_validate(input_dict):
                 'tp_rate': tp_r,
                 'fp_rate': fp_r}
     except:
-        raise Exception("Error in weka_local_cross_validate().")
+        raise Exception("Error in weka_local_cross_validate()")
