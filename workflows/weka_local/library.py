@@ -123,6 +123,7 @@ def weka_local_libsvm(input_dict):
     sclassifier = common.serialize_weka_object(model)
     return {'LibSVM_learner': sclassifier}
 
+
 # ++++++++++++ rules ++++++++++++
 
 def weka_local_jrip(input_dict):
@@ -134,7 +135,7 @@ def weka_local_jrip(input_dict):
     model = jp.JClass('weka.classifiers.rules.JRip')()
     model.setOptions(common.parse_options(input_dict['params']))
     sclassifier = common.serialize_weka_object(model)
-    return {'JRip_learner':sclassifier}
+    return {'JRip_learner': sclassifier}
 
 
 def weka_local_zeror(input_dict):
@@ -146,7 +147,7 @@ def weka_local_zeror(input_dict):
     model = jp.JClass('weka.classifiers.rules.ZeroR')()
     model.setOptions(common.parse_options(input_dict['params']))
     sclassifier = common.serialize_weka_object(model)
-    return {'classifier':sclassifier}
+    return {'classifier': sclassifier}
 
 
 # ==================
@@ -349,6 +350,11 @@ def weka_local_cross_validate(input_dict):
     except:
         num_folds = 10
 
+    try:
+        class_index = int(input_dict['classIndex'])
+    except:
+        class_index = -1
+
     instances = common.deserialize_weka_object(input_dict['instances'])
 
     if instances.classIndex() == -1:
@@ -360,9 +366,31 @@ def weka_local_cross_validate(input_dict):
         eval = jp.JClass('weka.classifiers.Evaluation')(instances)
         rand = jp.JClass('java.util.Random')(1)
         eval.crossValidateModel(classifier, instances, num_folds, rand, [])
+
+        if class_index == -1:
+            pre, rec, f, auc, tp_r, fp_r = (eval.weightedPrecision(),
+                                            eval.weightedRecall(),
+                                            eval.weightedFMeasure(),
+                                            eval.weightedAreaUnderROC(),
+                                            eval.weightedTruePositiveRate(),
+                                            eval.weightedTrueNegativeRate())
+        else:
+            pre, rec, f, auc, tp_r, fp_r = (eval.precision(class_index),
+                                            eval.recall(class_index),
+                                            eval.fMeasure(class_index),
+                                            eval.areaUnderROC(class_index),
+                                            eval.truePositiveRate(class_index),
+                                            eval.trueNegativeRate(class_index))
+
         return {'confusion_matrix': eval.toMatrixString(),
                 'accuracy': 100 * (1 - eval.errorRate()),
                 'summary': eval.toSummaryString("=== Summary ===", True),
-                'accuracy_by_class': eval.toClassDetailsString()}
+                'accuracy_by_class': eval.toClassDetailsString(),
+                'precision': pre,
+                'recall': rec,
+                'f': f,
+                'auc': auc,
+                'tp_rate': tp_r,
+                'fp_rate': fp_r}
     except:
         raise Exception("Error in weka_local_cross_validate().")
