@@ -1,0 +1,46 @@
+{
+  "widgets": [
+    {
+      "inputs": [
+        {
+          "name": "dataset_id",
+          "short_name": "id",
+          "inner_output": null,
+          "multi_id": 0,
+          "required": true,
+          "value": "",
+          "options": [],
+          "parameter_type": "text",
+          "variable": "dataset_id",
+          "pk": 1,
+          "outer_output": null,
+          "parameter": true,
+          "order": 1,
+          "description": "The ID of the PD_Manager dataset."
+        }
+      ],
+      "name": "Import PD_Manager data",
+      "abstract_widget": "6ca99fb5-e8c4-4649-80e1-7e1872e2b819",
+      "workflow": null,
+      "outputs": [
+        {
+          "name": "Imported Data",
+          "short_name": "dat",
+          "outer_input": null,
+          "variable": "data",
+          "pk": 1,
+          "inner_input": null,
+          "order": 1,
+          "description": "Imported data"
+        }
+      ],
+      "abstract_widget_package": "pdmanager",
+      "y": 40,
+      "x": 32,
+      "type": "regular"
+    }
+  ],
+  "connections": [],
+  "name": "PD_Manager Workflow - Data analysis - pdm_112",
+  "description": ""
+}
