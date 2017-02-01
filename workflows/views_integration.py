@@ -7,7 +7,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Workflow
+from .models import Workflow, Widget, AbstractWidget, Input
 
 
 def is_pd_man_admin(user):
@@ -78,7 +78,7 @@ class RegisterPdManUserRESTView(APIView):
 
     def post(self, request, *args, **kw):
         if request.user.is_authenticated() and is_pd_man_admin(request.user):
-            # see custom DRF permission
+            # see custom DRF permissions
 
             # check size of group [PD_Manager_Researcher]
             n = len(Group.objects.get(name='PD_Manager_Researcher').user_set.all())
@@ -104,26 +104,34 @@ class RegisterPdManUserRESTView(APIView):
         return response
 
 
-class DatasetCreatedPdManRESTView(APIView):
+class ModifyPdManDatasetIdRESTView(APIView):
     """
     Integration with PD_Manager Researcher's App: Update the id of the dataset
     """
     def post(self, request, *args, **kw):
+        aw = AbstractWidget.objects.filter(name='Import PD_Manager data', package='pdmanager')[0]
+
         if request.user.is_authenticated() and is_pd_man_admin(request.user):
-            # See custom DRF permission
+            # See custom DRF permissions
 
-            # Find the workflow, find the widget [Import PD_Manager data] and update its setting
-
-            data = {'username': request.POST.get('username', None),
+            data = {'dataset_id': request.POST.get('dataset_id', None),
                     'workflow_id': request.POST.get('workflow_id', None)}
 
-            registerPdManUserClass = RegisterPdManUser(data)
-            registerPdManUserClass.do_register()
-            workflow_id = registerPdManUserClass.create_empty_workflow()
+            # Find the workflow, find the widget [Import PD_Manager data] and update its setting
+            wf = Workflow.objects.get(id=data['workflow_id'])
+            if wf:
+                import_data_widget = Widget.objects.filter(workflow__id=wf.id, abstract_widget=aw)[0]
 
-            response = Response({'workflow_id': workflow_id}, status=status.HTTP_200_OK)
+                inp_param_dataset_id = Input.objects.filter(widget=import_data_widget)[0]
+                inp_param_dataset_id.value = data['dataset_id']
+                inp_param_dataset_id.save()
+
+                response = Response({'detail': 'OK'}, status=status.HTTP_200_OK)
+            else:
+                response = Response({'detail': 'Wrong workflow ID'}, status=status.HTTP_401_UNAUTHORIZED)
+
         else:
-            response = Response({}, status=status.HTTP_401_UNAUTHORIZED)
+            response = Response({'detail': 'Authentication/authorization problem'}, status=status.HTTP_401_UNAUTHORIZED)
 
         return response
 
@@ -138,26 +146,18 @@ def login_and_edit_workflow(request, workflow_id, username, password):
             'password': password,
             'workflow_id': workflow_id}
 
-    # workflow_id = request.POST.get("workflow_id")
-
-    # expect and check username and password od [PD_Man_res] user..
+    # expect and check username and password of [PD_Man_res] user..
     from views_integration import is_pd_man_researcher
 
     list_users = User.objects.filter(username=data['username'])
-    if not(len(list_users) == 1):
-        raise Exception("User not found")
-    user = list_users[0]
+    if len(list_users) >= 1:
 
-    if user.check_password(data['password']):
-        if is_pd_man_researcher(user):
-
+        user = list_users[0]
+        if user.check_password(data['password']) and is_pd_man_researcher(user):
             list_workflows = Workflow.objects.filter(id=workflow_id, user__username=data['username'])
+            if len(list_workflows) >= 1:
+                workflow = list_workflows[0]
 
-            if not(len(list_workflows) == 1):
-                raise Exception("Wrong workflow ID")
-
-            workflow = list_workflows[0]
-            if workflow:
                 user = workflow.user
 
                 user.backend = settings.AUTHENTICATION_BACKENDS[0]
@@ -167,3 +167,13 @@ def login_and_edit_workflow(request, workflow_id, username, password):
                 user.userprofile.active_workflow = workflow
                 user.userprofile.save()
                 return redirect('editor')
+            else:
+                response = Response({'detail': 'Wrong workflow ID'}, status=status.HTTP_303_SEE_OTHER)
+
+        else:
+            response = Response({'detail': 'Authentication/authorization problem'}, status=status.HTTP_303_SEE_OTHER)
+
+    else:
+        response = Response({'detail': 'User not found'}, status=status.HTTP_303_SEE_OTHER)
+
+    return response

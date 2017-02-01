@@ -14,6 +14,7 @@ router.register(r'outputs', api_views.OutputViewSet)
 urlpatterns = patterns('',
     # ----------------------
     url(r'^register_pd_man_user[/]?$', views_integration.RegisterPdManUserRESTView.as_view(), name='register_pd_man_user'),
+    url(r'^modify_pd_man_dataset[/]?$', views_integration.ModifyPdManDatasetIdRESTView.as_view(), name='modify_pd_man_dataset_id'),
     # ----------------------
 
     url(r'^', include(router.urls)),

@@ -79,5 +79,4 @@ urlpatterns += patterns('',
     # ----------------------
     url(r'^login_and_edit_workflow/(?P<workflow_id>[0-9]+)/(?P<username>[0-9A-Za-z_]+)/(?P<password>[0-9A-Za-z_]+)/$', 'workflows.views_integration.login_and_edit_workflow', name='login_edit_workflow'),
     # ----------------------
-
 )
