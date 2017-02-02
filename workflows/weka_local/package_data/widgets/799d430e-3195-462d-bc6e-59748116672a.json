@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a668bef4-45a9-40a3-b3e3-d29203ccfada", 
+      "treeview_image": "", 
+      "uid": "799d430e-3195-462d-bc6e-59748116672a", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Returns attribute values for a single attribute from the dataset. Defaults to the last attribute. E.g., useful for calculating classification statistics.\r\n", 
+      "static_image": "", 
+      "action": "weka_local_get_attr_list", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 4, 
+      "name": "Weka Get Attribute List"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "799d430e-3195-462d-bc6e-59748116672a", 
+      "name": "Arff dataset", 
+      "short_name": "arf", 
+      "default": "", 
+      "description": "Arff dataset", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "arff_file", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "cb2a88ea-8ffa-4776-b91e-6e6a608e1cbd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "799d430e-3195-462d-bc6e-59748116672a", 
+      "name": "Attribute name", 
+      "short_name": "atr", 
+      "default": "", 
+      "description": "Attribute name to extract as list", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "attr_name", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "cbc6708b-6932-4858-8522-a7fa705af1fd"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "799d430e-3195-462d-bc6e-59748116672a", 
+      "name": "List of attr-values", 
+      "short_name": "lst", 
+      "description": "", 
+      "variable": "attr_list", 
+      "order": 1, 
+      "uid": "6c4e0b43-fd91-422b-a01b-3cbbd2c387c2"
+    }
+  }
+]

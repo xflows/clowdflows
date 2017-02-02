@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0e0f6307-dcd8-4462-85c7-aa593492bb54", 
+      "treeview_image": "", 
+      "uid": "93bc0759-70ad-4b39-906a-f07fa5d7589b", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "WEKA_ApplyClassifier.png", 
+      "action": "weka_local_apply_classifier_and_get_instances", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 2, 
+      "name": "Apply Classifier and Get Instances"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "93bc0759-70ad-4b39-906a-f07fa5d7589b", 
+      "name": "instances", 
+      "short_name": "ins", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "5d68936c-6cfc-446e-95e7-2c3173a6232c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "93bc0759-70ad-4b39-906a-f07fa5d7589b", 
+      "name": "classifier", 
+      "short_name": "cla", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "ddfb91ef-af1f-4f69-b169-1765166b99ee"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "93bc0759-70ad-4b39-906a-f07fa5d7589b", 
+      "name": "instances", 
+      "short_name": "ins", 
+      "description": "", 
+      "variable": "instances", 
+      "order": 1, 
+      "uid": "0426dbe9-6d92-4b6d-8449-d40f6a7f23c5"
+    }
+  }
+]

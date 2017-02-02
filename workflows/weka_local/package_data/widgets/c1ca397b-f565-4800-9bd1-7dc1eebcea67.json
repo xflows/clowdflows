@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b2e34b78-1731-4b53-95f2-f782fcfed273", 
+      "treeview_image": "", 
+      "uid": "c1ca397b-f565-4800-9bd1-7dc1eebcea67", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "A Weka learner where the user specifies a classifier from Weka. The exact class name of the Weka Classifier, and its parameters need to be entered.", 
+      "static_image": "WEKA_J48.png", 
+      "action": "weka_local_generic_learner", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 12, 
+      "name": "Generic Weka Learner"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c1ca397b-f565-4800-9bd1-7dc1eebcea67", 
+      "name": "Weka Class", 
+      "short_name": "wcl", 
+      "default": "weka.classifiers.bayes.BayesNet", 
+      "description": "A subclass of Weka's Classifier, specified with a full name of the Java class.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weka_class", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "702b781c-c1a1-474c-9554-3dafaf63b844"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c1ca397b-f565-4800-9bd1-7dc1eebcea67", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "fbd439ac-767f-4923-b9d9-7be4c61e254a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c1ca397b-f565-4800-9bd1-7dc1eebcea67", 
+      "name": "Generic Weka Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "Generic_Weka_learner", 
+      "order": 1, 
+      "uid": "fdb2e4fb-85e1-41b7-b1af-96e3779ff752"
+    }
+  }
+]

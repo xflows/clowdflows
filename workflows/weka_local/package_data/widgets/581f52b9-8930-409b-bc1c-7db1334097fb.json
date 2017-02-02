@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0e0f6307-dcd8-4462-85c7-aa593492bb54", 
+      "treeview_image": "", 
+      "uid": "581f52b9-8930-409b-bc1c-7db1334097fb", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Apply the provided classifier on the provided data.", 
+      "static_image": "WEKA_ApplyClassifier.png", 
+      "action": "weka_local_apply_classifier", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Apply Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "581f52b9-8930-409b-bc1c-7db1334097fb", 
+      "name": "Classifier", 
+      "short_name": "cla", 
+      "default": "", 
+      "description": "to be applied on data.\r\n\r\nProvided by:\r\nWeka Build Classifier", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "09c54f59-0beb-4300-b682-47ebd63b71c9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "581f52b9-8930-409b-bc1c-7db1334097fb", 
+      "name": "Instances", 
+      "short_name": "ins", 
+      "default": "", 
+      "description": "to be classified.\r\n\r\nProvided by:\r\nArff to Weka Instances", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "c22197af-f60b-4b76-b40e-516c17c9e1ab"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "581f52b9-8930-409b-bc1c-7db1334097fb", 
+      "name": "Classes", 
+      "short_name": "cls", 
+      "description": "based on the provided classifier and data.", 
+      "variable": "classes", 
+      "order": 1, 
+      "uid": "9b29be8c-d5e9-46c5-84a8-530275037210"
+    }
+  }
+]

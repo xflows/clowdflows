@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b2e34b78-1731-4b53-95f2-f782fcfed273", 
+      "treeview_image": "", 
+      "uid": "8c791748-d8a8-438f-a1c5-bfbdca56e053", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/Toolbar_-_Loop.png", 
+      "description": "A tree that considers K randomly chosen attributes at each node, and performs no pruning.", 
+      "static_image": "WEKA_RandomTree.png", 
+      "action": "weka_local_random_tree", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 10, 
+      "name": "Random Tree"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "8c791748-d8a8-438f-a1c5-bfbdca56e053", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "b38f475d-34b7-4892-9ae2-2f1c0fbcd753"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "8c791748-d8a8-438f-a1c5-bfbdca56e053", 
+      "name": "RandomTree Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "RandomTree_learner", 
+      "order": 1, 
+      "uid": "26150fbf-2b4c-4ab4-b227-df9c941febed"
+    }
+  }
+]

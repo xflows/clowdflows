@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b2e34b78-1731-4b53-95f2-f782fcfed273", 
+      "treeview_image": "", 
+      "uid": "90e92fe2-5899-47da-bb5a-1f6fd5755629", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "A clone of the C4.5 decision tree learner.", 
+      "static_image": "WEKA_J48.png", 
+      "action": "weka_local_j48", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 2, 
+      "name": "J48"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "90e92fe2-5899-47da-bb5a-1f6fd5755629", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "d9b876f1-5346-43e4-b6f9-183ba17d04ac"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "90e92fe2-5899-47da-bb5a-1f6fd5755629", 
+      "name": "J48 Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "J48_learner", 
+      "order": 1, 
+      "uid": "f853af74-d660-4450-ada4-fb32fc6aae86"
+    }
+  }
+]
