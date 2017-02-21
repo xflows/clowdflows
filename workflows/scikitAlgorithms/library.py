@@ -195,17 +195,9 @@ def scikitAlgorithms_displayDS(input_dict):
 
 
 def scikitAlgorithms_displayDecisionTree(input_dict):
-    from sklearn import tree
-    from StringIO import StringIO
-    out = StringIO()
-    out = tree.export_graphviz(input_dict['classifier'], out_file=out)
-    import StringIO, pydot 
-    from os import system
-    dot_data = StringIO.StringIO() 
-    dotfile = open("decisionTreeJ48-scikit.dot", 'w')
-    dotfile = tree.export_graphviz(input_dict['classifier'], out_file=dotfile) 
-    dotfile.close()
-    system("dot -Tpng decisionTreeJ48-scikit.dot -o decisionTreeJ48-scikit.png") #CORRECT SO THAT IMAGE IS GOING TO BE SAVED IN THE CORRECT DIRECTORY
+    return {}
+
+
 
 
 #     dataset = input_dict["data"]

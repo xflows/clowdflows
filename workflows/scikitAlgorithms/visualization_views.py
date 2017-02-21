@@ -35,3 +35,29 @@ def scikitDataset_table_to_dict(data):
         data_new.append(inst_new)
     return {'attrs':attrs, 'metas':metas, 'data':data_new, 'class_var':class_var}
 
+
+def scikitAlgorithms_displayDecisionTree(request, input_dict, output_dict, widget):
+    """Visualization displaying a decision tree"""
+
+    import subprocess
+    from sklearn import tree
+
+    # dot_data = StringIO.StringIO()
+    dotfile = open("decisionTreeJ48-scikit.dot", 'w')
+    tree.export_graphviz(input_dict['classifier'], out_file=dotfile)
+    dotfile.close()
+
+    from mothra.settings import MEDIA_ROOT
+    from workflows.helpers import ensure_dir
+
+    filename = '/'.join([str(request.user.id), 'decisionTreeJ48-scikit-' + str(widget.id) + '.png'])
+    destination = '/'.join([MEDIA_ROOT, filename])
+    ensure_dir(destination)
+
+    subprocess.call("dot -Tpng decisionTreeJ48-scikit.dot -o %s" % destination, shell=True)
+
+    return render(request,
+                  'visualizations/scikitAlgorithms_display_decision_tree.html',
+                  {'filename': filename,
+                   'widget': widget,
+                   'input_dict': input_dict})
