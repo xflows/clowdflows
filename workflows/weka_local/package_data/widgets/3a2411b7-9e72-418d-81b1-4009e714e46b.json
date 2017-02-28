@@ -1,0 +1,79 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a668bef4-45a9-40a3-b3e3-d29203ccfada", 
+      "treeview_image": "", 
+      "uid": "3a2411b7-9e72-418d-81b1-4009e714e46b", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Displays a decision tree built by WEKA. \r\nHint: to download the image, right click on it and select open image in new tab/window.",
+      "static_image": "TreeVisualization.png", 
+      "action": "weka_local_display_decision_tree", 
+      "visualization_view": "weka_local_display_decision_tree", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Display WEKA Decision Tree"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a2411b7-9e72-418d-81b1-4009e714e46b", 
+      "name": "Classifier", 
+      "short_name": "cls", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "2311d1d3-03a5-4b5a-b176-28a6b9e2e077"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3a2411b7-9e72-418d-81b1-4009e714e46b", 
+      "name": "Image type", 
+      "short_name": "imt", 
+      "default": "vector", 
+      "description": "Whether to create a raster (PNG) or vector (SVG) image", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "img_type", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "c08a2d89-29d8-48e8-83f1-e27ac5d673a0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Vector image (SVG file)", 
+      "uid": "1241a62d-b6a1-4067-aaff-4cc2829eed27", 
+      "value": "vector", 
+      "abstract_input": "c08a2d89-29d8-48e8-83f1-e27ac5d673a0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Raster image (PNG file)", 
+      "uid": "4e381403-0d4c-458b-ba49-985abd2cff81", 
+      "value": "raster", 
+      "abstract_input": "c08a2d89-29d8-48e8-83f1-e27ac5d673a0"
+    }
+  }
+]

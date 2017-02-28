@@ -270,6 +270,8 @@ def weka_local_print_model(input_dict):
     except:
         raise Exception("Only WEKA classifiers/models supported. Please provide a valid WEKA model.")
 
+def weka_local_display_decision_tree(input_dict):
+    return {}
 
 # ==================
 # Evaluation
