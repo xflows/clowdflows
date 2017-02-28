@@ -1,5 +1,6 @@
+{% load urlize_target_blank %}
 <div id="widgetdocumentation-{{widget.pk}}" rel="{{widget.pk}}" class="widgetdocumentationdialog" title="{{widget.name}} documentation">
 <div style="width:420px;white-space:pre-wrap;font-family:monospace;">
-{{widget.abstract_widget.description}}
+{{widget.abstract_widget.description|urlize_target_blank:40}}
 </div>
 </div>
