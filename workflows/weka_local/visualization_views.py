@@ -6,6 +6,8 @@ def weka_local_display_decision_tree(request, input_dict, output_dict, widget):
     """Visualization displaying a decision tree"""
 
     import subprocess
+    from mothra.settings import MEDIA_ROOT
+    from workflows.helpers import ensure_dir
 
     if not jp.isThreadAttachedToJVM():
         jp.attachThreadToJVM()
@@ -17,22 +19,27 @@ def weka_local_display_decision_tree(request, input_dict, output_dict, widget):
     classifier = common.deserialize_weka_object(input_dict['classifier'])
     dot_text = classifier.graph()
 
-    with open("decisionTree-weka.dot", 'w') as dot_file:
+    filename = '/'.join([str(request.user.id), 'decisionTree-weka-%d.dot' % widget.id])
+    destination_dot = '/'.join([MEDIA_ROOT, filename])
+    ensure_dir(destination_dot)
+
+    with open(destination_dot, 'w') as dot_file:
         dot_file.write(dot_text)
 
-    from mothra.settings import MEDIA_ROOT
-    from workflows.helpers import ensure_dir
 
+    # png/svg file
     filename = '/'.join([str(request.user.id),
                          'decisionTree-weka-%d.%s' % (widget.id, img_type)
                          ])
-    destination = '/'.join([MEDIA_ROOT, filename])
-    ensure_dir(destination)
+    destination_img = '/'.join([MEDIA_ROOT, filename])
+    ensure_dir(destination_img)
 
-    subprocess.call("dot -T%s decisionTree-weka.dot -o %s" % (img_type, destination), shell=True)
+    subprocess.call("dot -T%s %s -o %s" % (img_type, destination_dot, destination_img), shell=True)
 
     return render(request,
                   'visualizations/weka_local_display_decision_tree.html',
                   {'filename': filename,
                    'widget': widget,
                    'input_dict': input_dict})
+
+
