@@ -41,20 +41,19 @@ def scikitAlgorithms_displayDecisionTree(request, input_dict, output_dict, widge
 
     import subprocess
     from sklearn import tree
-
-    # dot_data = StringIO.StringIO()
-    dotfile = open("decisionTreeJ48-scikit.dot", 'w')
-    tree.export_graphviz(input_dict['classifier'], out_file=dotfile)
-    dotfile.close()
-
     from mothra.settings import MEDIA_ROOT
     from workflows.helpers import ensure_dir
 
-    filename = '/'.join([str(request.user.id), 'decisionTreeJ48-scikit-' + str(widget.id) + '.png'])
-    destination = '/'.join([MEDIA_ROOT, filename])
-    ensure_dir(destination)
+    # dot_data = StringIO.StringIO()
+    filename = '/'.join([str(request.user.id), 'decisionTree-scikit-%d.dot' % widget.id])
+    destination_dot = '/'.join([MEDIA_ROOT, filename])
+    ensure_dir(destination_dot)
+    tree.export_graphviz(input_dict['classifier'], out_file=destination_dot)
 
-    subprocess.call("dot -Tpng decisionTreeJ48-scikit.dot -o %s" % destination, shell=True)
+    filename = '/'.join([str(request.user.id), 'decisionTree-scikit-%d.png' % widget.id])
+    destination_img = '/'.join([MEDIA_ROOT, filename])
+    ensure_dir(destination_img)
+    subprocess.call("dot -Tpng %s -o %s" % (destination_dot, destination_img), shell=True)
 
     return render(request,
                   'visualizations/scikitAlgorithms_display_decision_tree.html',
