@@ -460,6 +460,41 @@ def weka_local_cross_validate(input_dict):
                                             eval.truePositiveRate(class_index),
                                             eval.trueNegativeRate(class_index))
 
+        # collect predictions and their probabilities
+        classAttribute = instances.classAttribute()
+        classifier.buildClassifier(instances)
+        actual_classes = []
+        predicted_classes = []
+        predicted_classes_probs = []
+        for instance in instances:
+            actual = classAttribute.value(int(instance.classValue()))
+            predicted = classAttribute.value(int(classifier.classifyInstance(instance)))
+            probs = classifier.distributionForInstance(instance)
+            actual_classes.append(actual)
+            predicted_classes.append(predicted)
+            predicted_classes_probs.append({classAttribute.value(i): p for i,p in enumerate(probs)})
+
+        target = input_dict.get('target')
+        if not target:
+            target = classAttribute.value(0)
+            print('Warning: observing the first class value {}'.format(target))
+
+        # compute input for Viper
+        mname = str(classifier.__getattribute__('class'))
+        mname = mname[mname.find('weka'):-2]
+        name = 'target class "{}": {}'.format(target, mname)
+        apv = {'actual':[], 'predicted':[], 'name': name}
+        for i, (actual, predicted) in enumerate(zip(actual_classes, predicted_classes)):
+            if target == actual:
+                apv['actual'].append(1)
+            else:
+                apv['actual'].append(0)
+            if predicted_classes[i] == target:
+                apv['predicted'].append(predicted_classes_probs[i][target])
+            else:
+                apv['predicted'].append(0)
+
+
         return {'confusion_matrix': eval.toMatrixString(),
                 'accuracy': 100 * (1 - eval.errorRate()),
                 'summary': eval.toSummaryString("=== Summary ===", True),
@@ -469,6 +504,7 @@ def weka_local_cross_validate(input_dict):
                 'f': f,
                 'auc': auc,
                 'tp_rate': tp_r,
-                'fp_rate': fp_r}
-    except:
-        raise Exception("Error in weka_local_cross_validate()")
+                'fp_rate': fp_r,
+                'apv': apv}
+    except Exception, e:
+        raise Exception("Error in weka_local_cross_validate() : "+str(e))

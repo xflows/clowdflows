@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "89f048be-906d-44d4-b19e-3e3e14e67828", 
+      "name": "Target class", 
+      "short_name": "cls", 
+      "default": "", 
+      "description": "Target class index, used by the \"Prepare performance curve data\" widget from the ViperCharts category", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "target", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "1a4477e7-21a3-4d74-8f97-cceca7f39c35"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "89f048be-906d-44d4-b19e-3e3e14e67828", 
       "name": "Folds", 
       "short_name": "fol", 
       "default": "", 
@@ -126,6 +143,18 @@
       "variable": "summary", 
       "order": 4, 
       "uid": "997d0a9d-273d-47df-8aaf-3e74e35d6b7d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "89f048be-906d-44d4-b19e-3e3e14e67828", 
+      "name": "Actual and predicted values", 
+      "short_name": "apv", 
+      "description": "\r\nUsed by the \"Prepare performance curve data\" widget from the ViperCharts category", 
+      "variable": "apv", 
+      "order": 11, 
+      "uid": "a3556b22-9564-46ed-aa2a-40f610b41d25"
     }
   }, 
   {
