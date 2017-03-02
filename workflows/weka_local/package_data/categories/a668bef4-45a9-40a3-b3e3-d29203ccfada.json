@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "Utilities", 
+    "parent": "287b4410-b793-4d22-927b-d3072742a571", 
+    "order": 3, 
+    "uid": "a668bef4-45a9-40a3-b3e3-d29203ccfada"
+  }
+}

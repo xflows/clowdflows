@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b2e34b78-1731-4b53-95f2-f782fcfed273", 
+      "treeview_image": "", 
+      "uid": "da49827e-a779-4718-b744-35b6d1cc25dc", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Feedforward artificial neural network, using backpropagation to classify instances", 
+      "static_image": "WEKA_MultilPerceptron.png", 
+      "action": "weka_local_multilayer_perceptron", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 6, 
+      "name": "Multilayer Perceptron"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "da49827e-a779-4718-b744-35b6d1cc25dc", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "f1f2a5e7-40c7-485f-a592-0d7a13bafa30"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "da49827e-a779-4718-b744-35b6d1cc25dc", 
+      "name": "Multilayer Perceptron Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "Multilayer_Perceptron_learner", 
+      "order": 1, 
+      "uid": "8174e40c-d895-4db1-a51b-d9b83aa3fa42"
+    }
+  }
+]

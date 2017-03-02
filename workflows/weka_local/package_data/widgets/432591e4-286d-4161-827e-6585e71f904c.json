@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b2e34b78-1731-4b53-95f2-f782fcfed273", 
+      "treeview_image": "", 
+      "uid": "432591e4-286d-4161-827e-6585e71f904c", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "images/120px-Gears_icon.png", 
+      "description": "Random Forest learner.", 
+      "static_image": "WEKA_RandomForest.png", 
+      "action": "weka_local_random_forest", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 9, 
+      "name": "Random Forest"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "432591e4-286d-4161-827e-6585e71f904c", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "7e7e0abe-932b-48e0-937b-cc6285f08ac7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "432591e4-286d-4161-827e-6585e71f904c", 
+      "name": "RandomForest Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "RandomForest_learner", 
+      "order": 1, 
+      "uid": "5fcca051-bda1-44b3-b8d9-199fef38d0b4"
+    }
+  }
+]

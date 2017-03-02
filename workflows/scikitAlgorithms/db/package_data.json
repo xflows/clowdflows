@@ -817,7 +817,7 @@
       "variable": "learner", 
       "parameter": false, 
       "order": 1, 
-      "description": "used to build the classifier.\r\n\r\nProvided by:\r\na Weka Classification widget"
+      "description": "used to build the classifier."
     }
   }, 
   {
@@ -835,7 +835,7 @@
       "variable": "instances", 
       "parameter": false, 
       "order": 2, 
-      "description": "to be used by the provided learner to create a classifier.\r\n\r\nProvided by:\r\nArff to Weka Instances"
+      "description": "to be used by the provided learner to create a classifier."
     }
   }, 
   {
@@ -848,7 +848,7 @@
       "variable": "classifier", 
       "uid": "21f0bf7d-7415-4c4e-b68f-053155c015c2", 
       "order": 1, 
-      "description": "based on the provided data and learner.\r\n\r\nUsed by:\r\nWeka Apply Classifier"
+      "description": "based on the provided data and learner."
     }
   }, 
   {

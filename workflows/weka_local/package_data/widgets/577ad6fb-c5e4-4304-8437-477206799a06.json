@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b2e34b78-1731-4b53-95f2-f782fcfed273", 
+      "treeview_image": "", 
+      "uid": "577ad6fb-c5e4-4304-8437-477206799a06", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Instance-Based learner.", 
+      "static_image": "WEKA_KStar.png", 
+      "action": "weka_local_k_star", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 4, 
+      "name": "KStar"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "577ad6fb-c5e4-4304-8437-477206799a06", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "26fe9a12-9917-4a3f-822e-7f9c64260e9c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "577ad6fb-c5e4-4304-8437-477206799a06", 
+      "name": "KStar Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "KStar_learner", 
+      "order": 1, 
+      "uid": "b82ceb0d-5430-40f7-9dbc-e1b981ee959d"
+    }
+  }
+]

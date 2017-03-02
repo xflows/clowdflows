@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b2e34b78-1731-4b53-95f2-f782fcfed273", 
+      "treeview_image": "", 
+      "uid": "536f439c-7f8b-477a-a48d-a690e40c5616", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Widget implementing a REP Tree, which is a fast decision tree learner. Builds a decision/regression tree using information gain/variance and prunes it using reduced-error pruning (with backfitting). Only sorts values for numeric attributes once. Missing values are dealt with by splitting the corresponding instances into pieces (i.e. as in C4.5).", 
+      "static_image": "WEKA_REPTree.png", 
+      "action": "weka_local_rep_tree", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 8, 
+      "name": "REP Tree"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "536f439c-7f8b-477a-a48d-a690e40c5616", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "0cd58b20-a46d-42ba-b1ea-e63f77bce087"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "536f439c-7f8b-477a-a48d-a690e40c5616", 
+      "name": "REPTree Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "REPTree_learner", 
+      "order": 1, 
+      "uid": "6b3e9710-6b9b-492c-808a-52a9f4476c65"
+    }
+  }
+]

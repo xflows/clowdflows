@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a668bef4-45a9-40a3-b3e3-d29203ccfada", 
+      "treeview_image": "", 
+      "uid": "c28cff77-8aa7-45f4-8462-8e6d3bed1258", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Prepares a WEKA model for printing", 
+      "static_image": "WEKA_printModel.png", 
+      "action": "weka_local_print_model", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 2, 
+      "name": "Print Model"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c28cff77-8aa7-45f4-8462-8e6d3bed1258", 
+      "name": "Model", 
+      "short_name": "mod", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "model", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "df7c8785-4e7f-4e74-b123-c86b7f380516"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c28cff77-8aa7-45f4-8462-8e6d3bed1258", 
+      "name": "Model as String", 
+      "short_name": "mod", 
+      "description": "", 
+      "variable": "model_as_string", 
+      "order": 1, 
+      "uid": "873ce128-d626-4490-a34e-1276f3048a8b"
+    }
+  }
+]

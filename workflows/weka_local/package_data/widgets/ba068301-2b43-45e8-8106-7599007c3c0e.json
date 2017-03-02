@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a668bef4-45a9-40a3-b3e3-d29203ccfada", 
+      "treeview_image": "", 
+      "uid": "ba068301-2b43-45e8-8106-7599007c3c0e", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Transforms a dataset from the WEKA internal representation to ARFF textual format", 
+      "static_image": "WEKA_arff.png", 
+      "action": "weka_local_instances_to_arff", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 5, 
+      "name": "Weka Instances to Arff"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "ba068301-2b43-45e8-8106-7599007c3c0e", 
+      "name": "Instances", 
+      "short_name": "ins", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "0ba276f9-f0c5-4d1e-ada8-7398e3ea3d72"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "ba068301-2b43-45e8-8106-7599007c3c0e", 
+      "name": "arff file", 
+      "short_name": "arf", 
+      "description": "", 
+      "variable": "arff", 
+      "order": 1, 
+      "uid": "bfbd3109-e756-4a38-bcaf-b2d5883eda77"
+    }
+  }
+]

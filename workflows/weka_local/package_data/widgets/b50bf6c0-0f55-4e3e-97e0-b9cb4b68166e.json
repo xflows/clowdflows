@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b2e34b78-1731-4b53-95f2-f782fcfed273", 
+      "treeview_image": "", 
+      "uid": "b50bf6c0-0f55-4e3e-97e0-b9cb4b68166e", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "A support vector classifier, trained using a sequential minimal optimization algorithm.", 
+      "static_image": "WEKA_SMO.png", 
+      "action": "weka_local_smo", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 11, 
+      "name": "SMO"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "b50bf6c0-0f55-4e3e-97e0-b9cb4b68166e", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "fbd439ac-767f-4923-b9d9-7be4c61e2c4a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "b50bf6c0-0f55-4e3e-97e0-b9cb4b68166e", 
+      "name": "SMO Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "SMO_learner", 
+      "order": 1, 
+      "uid": "fdb2e4fb-85e1-41b7-b1af-96e3779ff751"
+    }
+  }
+]

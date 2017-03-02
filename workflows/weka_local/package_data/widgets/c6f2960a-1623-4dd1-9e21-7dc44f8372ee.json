@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "b2e34b78-1731-4b53-95f2-f782fcfed273", 
+      "treeview_image": "", 
+      "uid": "c6f2960a-1623-4dd1-9e21-7dc44f8372ee", 
+      "windows_queue": false, 
+      "package": "weka_local", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "A clone of the RIPPER rule learner.", 
+      "static_image": "WEKA_JRip.png", 
+      "action": "weka_local_jrip", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 3, 
+      "name": "JRip"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c6f2960a-1623-4dd1-9e21-7dc44f8372ee", 
+      "name": "Params", 
+      "short_name": "par", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "params", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "30e65c8c-04a3-4cea-a503-fa836c8f8222"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c6f2960a-1623-4dd1-9e21-7dc44f8372ee", 
+      "name": "JRip Learner", 
+      "short_name": "lrn", 
+      "description": "", 
+      "variable": "JRip_learner", 
+      "order": 1, 
+      "uid": "022a1a8a-ad2b-49bb-9ec9-05f0903bda5d"
+    }
+  }
+]
