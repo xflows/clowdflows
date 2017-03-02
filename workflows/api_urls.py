@@ -12,11 +12,9 @@ router.register(r'outputs', api_views.OutputViewSet)
 
 
 urlpatterns = patterns('',
-    # ----------------------
-    url(r'^register_pd_man_user[/]?$', views_integration.RegisterPdManUserRESTView.as_view(), name='register_pd_man_user'),
-    url(r'^modify_pd_man_dataset[/]?$', views_integration.ModifyPdManDatasetIdRESTView.as_view(), name='modify_pd_man_dataset_id'),
-    # ----------------------
+                       url(r'^register_user[/]?$', views_integration.RegisterUserAndCreateWorkflowAPIView.as_view(), name='register_user'),
+                       url(r'^modify_widget[/]?$', views_integration.ModifyWidgetRESTView.as_view(), name='modify_widget'),
 
-    url(r'^', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-)
+                       url(r'^', include(router.urls)),
+                       url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+                       )

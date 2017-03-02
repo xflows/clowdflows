@@ -6,6 +6,9 @@ from django.shortcuts import redirect
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import BasePermission
+
+from rest_framework.decorators import permission_classes
 
 from .models import Workflow, Widget, AbstractWidget, Input
 
@@ -16,18 +19,20 @@ def is_pd_man_admin(user):
 def is_pd_man_researcher(user):
     return user.groups.filter(name='PD_Manager_Researcher').exists()
 
-
-class RegisterPdManUser(object):
+# ====================
+# Helper classes
+# ====================
+class RegisterUserAndCreateWorkflow(object):
     """
-    Helper class for registering a new PD_Manager user and creating a workflow
+    Helper class for registering a new user and creating a workflow
     """
 
     def __init__(self, data):
         self.data = data
         pass
 
-    def add_user_to_pd_man_researcher_group(self):
-        g = Group.objects.get(name='PD_Manager_Researcher')
+    def add_user_to_group(self, group_name):
+        g = Group.objects.get(name=group_name)
         g.user_set.add(self.user)
         g.save()
 
@@ -50,10 +55,12 @@ class RegisterPdManUser(object):
             self.user.set_password(p)
             self.user.save()
 
-            self.add_user_to_pd_man_researcher_group()
+            if self.data['group'] is not None:
+                self.add_user_to_group(self.data['group'])
             self.user.save()
         else:
             raise Exception("A user with username %s already exists" % self.data['username'])
+
 
     def create_workflow(self):
         # STEP 2 : Create a workflow
@@ -70,71 +77,90 @@ class RegisterPdManUser(object):
 
         return w.id
 
+# ====================
+# Permissions
+# ====================
 
-class RegisterPdManUserRESTView(APIView):
+class RegisterUserPermission(BasePermission):
+
+    def has_permission(self, request, view):
+
+        return 'auth.add_user' in request.user.get_all_permissions()
+        # return request.user.is_authenticated() and 'auth.add_user' in request.user.get_all_permissions()
+
+
+# ====================
+# API Views
+# ====================
+
+class RegisterUserAndCreateWorkflowAPIView(APIView):
     """
-    Integration with PD_Manager Researcher's App: Registers a new PD_Manager user and creates a workflow
+    An API view which registers a new user, puts it in a given group, and creates its first workflow
     """
+
+    permission_classes = (RegisterUserPermission, )
 
     def post(self, request, *args, **kw):
-        if request.user.is_authenticated() and is_pd_man_admin(request.user):
-            # see custom DRF permissions
 
-            # check size of group [PD_Manager_Researcher]
-            n = len(Group.objects.get(name='PD_Manager_Researcher').user_set.all())
-            print("Num [PD_Manager_Researcher] users: %d" % n)
-            if len(Group.objects.get(name='PD_Manager_Researcher').user_set.all()) > 200:
-                response = Response({'detail': 'Too many researchers registered'}, status=status.HTTP_303_SEE_OTHER)
-                return response
+        data = {'username': request.POST.get('username', None),
+                'password': request.POST.get('password', None),
+                'first_name': request.POST.get('first_name', None),
+                'last_name': request.POST.get('last_name', None),
+                'email': request.POST.get('email', None),
+                'group': request.POST.get('group', None)}  #'PD_Manager_Researcher'
 
-            data = {'username': request.POST.get('username', None),
-                    'password': request.POST.get('password', None),
-                    'first_name': request.POST.get('first_name', None),
-                    'last_name': request.POST.get('last_name', None),
-                    'email': request.POST.get('email', None)}
+        # check size of group
+        n = len(Group.objects.get(name=data['group']).user_set.all())
+        print("Num [%s] users: %d" % (data['group'], n))
+        if n > 200:
+            response = Response({'detail': 'Too many users in group'}, status=status.HTTP_303_SEE_OTHER)
+            return response
 
-            registerPdManUserClass = RegisterPdManUser(data)
-            registerPdManUserClass.do_register()
-            workflow_id = registerPdManUserClass.create_workflow()
+        registerHelperClass = RegisterUserAndCreateWorkflow(data)
+        registerHelperClass.do_register()
+        workflow_id = registerHelperClass.create_workflow()
 
-            response = Response({'workflow_id': workflow_id}, status=status.HTTP_200_OK)
-        else:
-            response = Response({'detail': 'Not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
+        response = Response({'workflow_id': workflow_id}, status=status.HTTP_200_OK)
 
         return response
 
 
-class ModifyPdManDatasetIdRESTView(APIView):
+class ModifyWidgetRESTView(APIView):
     """
-    Integration with PD_Manager Researcher's App: Update the id of the dataset
+    An API view which modifies one widget of a workflow
     """
+
+    permission_classes = (RegisterUserPermission, )
+
     def post(self, request, *args, **kw):
+
+        data = {'widget_name': request.POST.get('widget_name', None),
+                'workflow_id': request.POST.get('workflow_id', None),
+                'dataset_id': request.POST.get('dataset_id', None)}
+
         aw = AbstractWidget.objects.filter(name='Import PD_Manager data', package='pdmanager')[0]
 
-        if request.user.is_authenticated() and is_pd_man_admin(request.user):
-            # See custom DRF permissions
+        # Find the workflow, find the widget [Import PD_Manager data] and update its setting
+        wf = Workflow.objects.get(id=data['workflow_id'])
+        if wf:
+            import_data_widget = Widget.objects.filter(workflow__id=wf.id, abstract_widget=aw)[0]
 
-            data = {'dataset_id': request.POST.get('dataset_id', None),
-                    'workflow_id': request.POST.get('workflow_id', None)}
+            # TODO Filter input by name ?
+            inp_param_dataset_id = Input.objects.filter(widget=import_data_widget)[0]
+            inp_param_dataset_id.value = data['dataset_id']
+            inp_param_dataset_id.save()
 
-            # Find the workflow, find the widget [Import PD_Manager data] and update its setting
-            wf = Workflow.objects.get(id=data['workflow_id'])
-            if wf:
-                import_data_widget = Widget.objects.filter(workflow__id=wf.id, abstract_widget=aw)[0]
-
-                inp_param_dataset_id = Input.objects.filter(widget=import_data_widget)[0]
-                inp_param_dataset_id.value = data['dataset_id']
-                inp_param_dataset_id.save()
-
-                response = Response({'detail': 'OK'}, status=status.HTTP_200_OK)
-            else:
-                response = Response({'detail': 'Wrong workflow ID'}, status=status.HTTP_401_UNAUTHORIZED)
-
+            response = Response({'detail': 'OK'}, status=status.HTTP_200_OK)
         else:
-            response = Response({'detail': 'Authentication/authorization problem'}, status=status.HTTP_401_UNAUTHORIZED)
+            response = Response({'detail': 'Wrong workflow ID'}, status=status.HTTP_401_UNAUTHORIZED)
+
 
         return response
 
+
+# ====================
+# Views
+# ====================
 
 def login_and_edit_workflow(request, workflow_id, username, password):
 
