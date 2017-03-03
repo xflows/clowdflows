@@ -217,29 +217,27 @@ def weka_local_arff_to_weka_instances(input_dict):
     Reads a dataset into a format suitable for WEKA methods
     '''
 
+    return {}
+
+def weka_local_arff_to_weka_instances_post(postdata,input_dict,output_dict):
+    '''
+    Reads a dataset into a format suitable for WEKA methods
+    '''
+
     if not jp.isThreadAttachedToJVM():
         jp.attachThreadToJVM()
 
     tmp = common.TemporaryFile(suffix='.arff')
     tmp.writeString(input_dict['arff'])
 
-    try:
-        class_index = int(input_dict['class_index'])
-    except:
-        class_index = None
-
     source = jp.JClass('weka.core.converters.ConverterUtils$DataSource')(tmp.name)
     instances = source.getDataSet()
 
-    if class_index is None:
-        print 'Warning: class is set to the last attribute!'
-        class_index = instances.numAttributes() - 1
-    elif class_index == -1:
-        class_index = instances.numAttributes() - 1
-
+    class_index = int(postdata['attribute_selected'][0])
     instances.setClassIndex(class_index)
 
     return {'instances': common.serialize_weka_object(instances)}
+
 
 
 def weka_local_instances_to_arff(input_dict):

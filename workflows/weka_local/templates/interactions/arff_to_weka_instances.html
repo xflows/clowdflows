@@ -1,0 +1,15 @@
+<div id="widgetinteract-{{widget.pk}}" rel="{{widget.pk}}" class="widgetinteractdialog" align="center" title="{{widget.name}} wants your input!">
+<form id="interactionform-{{widget.pk}}" name="interactionform-{{widget.pk}}">
+    Select the attribute to use as class:
+    <select name="attribute_selected" title="Select the attribute to use as class">
+        {% for att_tup in list_atts %}
+            {% if forloop.last %}
+                <option value={{att_tup.0}} selected>{{att_tup.1}}</option>
+            {% else %}
+                <option value={{att_tup.0}}>{{att_tup.1}}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+<input type="hidden" name="widget_id" value="{{widget.pk}}">
+</form>
+</div>
