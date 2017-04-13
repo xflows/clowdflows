@@ -1153,6 +1153,14 @@ class Input(models.Model):
             d['outer_output']=self.outer_output_id
         except:
             d['outer_output']=None
+
+        # Include abstract input and output ids for importing to cf2.0
+        abstract_input_id = None
+        if self.widget.abstract_widget:
+            abstract_input = AbstractInput.objects.filter(widget=self.widget.abstract_widget, variable=self.variable)[0]
+            abstract_input_id = abstract_input.id
+        d['abstract_input_id'] = abstract_input_id
+
         return d
 
     def __unicode__(self):
@@ -1263,6 +1271,15 @@ class Output(models.Model):
             d['outer_input']=self.outer_input.pk
         except:
             d['outer_input']=None
+
+        # Include abstract input and output ids for importing to cf2.0
+        abstract_output_id = None
+        if self.widget.abstract_widget:
+            abstract_output = AbstractOutput.objects.filter(widget=self.widget.abstract_widget, variable=self.variable)[
+                0]
+            abstract_output_id = abstract_output.id
+        d['abstract_output_id'] = abstract_output_id
+
         return d
 
     class Meta:
