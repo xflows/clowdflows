@@ -1,0 +1,100 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "0c278bb4-5fbb-4260-84ab-631faae74d87", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "POS tagger and lemmatizer for Slovene, Croatian and Serbian.", 
+      "static_image": "nlp.png", 
+      "action": "nlp_reldi_tagger", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Reldi tagger"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0c278bb4-5fbb-4260-84ab-631faae74d87", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "b46c9c65-fbc1-4edf-b86a-b88b20476f07"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0c278bb4-5fbb-4260-84ab-631faae74d87", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "sl", 
+      "description": "Language of the input corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "b88d1692-884d-4a11-a696-9e017f637908"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0c278bb4-5fbb-4260-84ab-631faae74d87", 
+      "name": "Annotations", 
+      "short_name": "ann", 
+      "description": "Annotations", 
+      "variable": "annotations", 
+      "order": 1, 
+      "uid": "31eb10fb-6365-4aef-9bb5-85a10a518a2b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Serbian", 
+      "uid": "5ed73de0-64c2-48d0-bfd1-e9c068643fc4", 
+      "value": "sr", 
+      "abstract_input": "b88d1692-884d-4a11-a696-9e017f637908"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Croatian", 
+      "uid": "678257ee-2646-4320-95be-6e7fc5581a4b", 
+      "value": "hr", 
+      "abstract_input": "b88d1692-884d-4a11-a696-9e017f637908"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovenian", 
+      "uid": "9edf76fa-83ef-4a4c-ad76-22599782127c", 
+      "value": "sl", 
+      "abstract_input": "b88d1692-884d-4a11-a696-9e017f637908"
+    }
+  }
+]

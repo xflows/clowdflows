@@ -702,6 +702,86 @@ def TEItoTab(text, doc_id=0):
             newText.append("</TEXT>\t\n")
     return "".join(newText)
 
+
 def definition_sentences2(input_dict):
     return {}
+
+
+
+from reldi.restorer import DiacriticRestorer
+from reldi.tagger import Tagger as reldiTagger
+from reldi.parser import Parser
+import json
+
+
+def nlp_reldi_tagger(input_dict):
+    user = 'user'
+    passwd = 'user'
+    coding = 'utf8'
+    corpus = input_dict['corpus']
+    lang = input_dict['lang']
+    tagger = reldiTagger(lang)
+    tagger.authorize(user, passwd)
+    result = json.loads(tagger.tagLemmatise(corpus.decode(coding).encode(coding)))
+    final = set()
+    final_text = ""
+    for sentence in result['sentences']['sentence']:
+        final.add(sentence['tokenIDs'].split(' ')[-1])
+    for token, lemma, tag in zip(result['tokens']['token'], result['lemmas']['lemma'], result['POStags']['tag']):
+        text = (token['text'] + '\t' + lemma['text'] + '\t' + tag['text'] + '\n').encode(coding)
+        if token['ID'] in final:
+            text = text + '\n'
+        final_text += text
+    return {'annotations': final_text.encode(coding)}
+
+
+def nlp_diacritic_restoration(input_dict):
+    user = 'user'
+    passwd = 'user'
+    coding = 'utf8'
+    corpus = input_dict['corpus']
+    lang = input_dict['lang']
+    restorer = DiacriticRestorer(lang)
+    restorer.authorize(user, passwd)
+    result = json.loads(restorer.restore(corpus.decode(coding).encode('utf8')))
+    text = result['text']
+    for token, norm in zip(result['tokens']['token'], result['orthography']['correction']):
+        if token['text'] != norm['text']:
+            text = text[:int(token['startChar']) - 1] + norm['text'] + text[int(token['endChar']):]
+    return {'corpus': text.encode('utf8')}
+
+
+def nlp_reldi_parser(input_dict):
+    user = 'user'
+    passwd = 'user'
+    coding = 'utf8'
+    corpus = input_dict['corpus']
+    lang = input_dict['lang']
+    parser = Parser(lang)
+    parser.authorize(user, passwd)
+    result = json.loads(parser.tagLemmatiseParse(corpus.decode(coding).encode('utf8')))
+
+    final = set()
+    for sentence in result['sentences']['sentence']:
+        final.add(sentence['tokenIDs'].split(' ')[-1])
+    sent_offset = 0
+    token_num = 0
+    parses = []
+    final_text = ''
+    for tree in result['depparsing']['parse']:
+        parses.extend(tree['dependency'])
+    for token, lemma, tag, parse in zip(result['tokens']['token'], result['lemmas']['lemma'], result['POStags']['tag'], parses):
+        if 'govIDs' not in parse:
+            head = '0'
+        else:
+            head = int(parse['govIDs'].split('_')[-1]) + 1 - sent_offset
+        text = (token['text'] + '\t' + lemma['text'] + '\t' + tag['text'] + '\t' + str(head) + ':' + parse[
+            'func'] + '\n').encode(coding)
+        token_num += 1
+        if token['ID'] in final:
+            text += '\n'
+            sent_offset += token_num
+            token_num = 0
+        final_text += text
+    return {'annotations': final_text.encode('utf8')}
     
