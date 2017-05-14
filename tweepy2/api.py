@@ -5,10 +5,10 @@
 import os
 import mimetypes
 
-from tweepy.binder import bind_api
-from tweepy.error import TweepError
-from tweepy.parsers import ModelParser
-from tweepy.utils import list_to_csv
+from tweepy2.binder import bind_api
+from tweepy2.error import TweepError
+from tweepy2.parsers import ModelParser
+from tweepy2.utils import list_to_csv
 
 
 class API(object):
