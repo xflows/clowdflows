@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import nlp
 import os
 import base64
@@ -8,6 +9,8 @@ import json
 import re
 import itertools
 import subprocess
+from tweetcat import *
+from time import sleep,time
 
 webservices_totrtale_url = "http://172.20.0.154/totrtale"
 webservice_def_ex_url = "http://172.20.0.154/definition"
@@ -783,5 +786,100 @@ def nlp_reldi_parser(input_dict):
             sent_offset += token_num
             token_num = 0
         final_text += text
-    return {'annotations': final_text.encode('utf8')}
+    return {'annotations': final_text.encode('utf8')}   
+
+
+def streaming_tweetcat(input_dict, widget, stream=None):
+    from streams.models import StreamWidgetData
+    from streams.models import HaltStream
+
+    # you can obtain the four values required below by registering your app at https://apps.twitter.com
+    if input_dict['cfauth'] == "true":
+        consumer_key="zmK41mqxU3ZNJTFQpYwTdg"
+        consumer_secret="9StnKNAe20ebDOREQjsVjAjBEiz5R9feZJTGUYWqLo"
+        access_token="45210078-VydgdJMwhWYjZRvlNbrKj6jfqicUIsdMnRbnaPElL"
+        access_token_secret="uLvIN3MMxFSxdK4M8P5RYojjUkbc2reqNydYtpT7Ks"
+    else:
+        consumer_key = input_dict['ck']
+        consumer_secret = input_dict['cs']
+        access_token = input_dict['at']
+        access_token_secret = input_dict['as']
+
+    consumer_key = "vYiHhOzqVv4fy1ajJm9MumqKj"
+    consumer_secret = "Lb1GZexj06NTSFH1JnOLvd0Jm96ontvVFY0Cs3bILulfk2dRtN"
+    access_token = "3384286005-ws1tw8lbWjeQVUaQYkCq5a7Qa1s4gmWTl9yllmZ"
+    access_token_secret = "r1o0O4xj5Bek9AnUsyOdG9bHiAR4D5LdqzAmT1Il5vsZV"
+    
+
+    langid_lang= [code.strip() for code in input_dict['lc'].split(',')]
+    #MODE='GEO'
+    MODE = input_dict['mod']
+
+    # define if MODE is GEO, ignore if MODE is LANG
+    # lower left corner, can be obtained from http://www.latlong.net
+    coordinates = (int(cor.strip()) for cor in input_dict['geo'].split(','))
+    MINLAT, MINLON, MAXLAT, MAXLON = coordinates
+   
+    # authorization
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    if stream is not None:
+        try:
+            swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
+            data = swd.value
+        except Exception as e:
+            swd = StreamWidgetData()
+            swd.stream = stream
+            swd.widget = widget
+            data = {}
+            swd.value = data
+            swd.save()
+
+    if MODE=='LANG':
+        seedw = [e.decode('utf8').strip() for e in input_dict['sd'].split(',')]
+        user_index = {}
+
+        try:
+            ltw = tweepy.API(auth_handler=auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, retry_count=3, retry_delay=10)
+        except Exception as e:
+            raise HaltStream("The Twitter API returned an error: " + str(e))
+
+        if stream is not None:
+            if data.has_key('authors'):
+                user_index = data['authors']
+            if data.has_key('seed'):
+                idx = seedw.index(data['seed'])
+                if idx < len(seedw) - 1:
+                    seedw = seedw[idx + 1:]
+        
+        tweets, users, seed = lang_mode(seedw, user_index, ltw, langid_lang)
+
+        if stream is not None and users:
+            swd.value = {'authors': users, 'seed': seed}
+            swd.save()
+
+    elif MODE=='GEO':  
+        timeout = time() + 60 * 1    
+        l=StdOutListener()
+        auth=OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_token_secret)
+        while time() < timeout:
+            try:
+                stream=tweepy.Stream(auth,l)
+                stream.filter(locations=[MINLON,MINLAT,MAXLON,MAXLAT])
+            except:
+                print(str(sys.exc_info())+'\n')
+                print(datetime.now().isoformat()+'\tSleeping 0 and restarting\n')
+                continue
+         
+        tweets = l.tweetList
+
+    output_dict = {}
+    output_dict['ltw'] = tweets
+    return output_dict
+        
+
+
+    
     
