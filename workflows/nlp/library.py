@@ -805,12 +805,6 @@ def streaming_tweetcat(input_dict, widget, stream=None):
         access_token = input_dict['at']
         access_token_secret = input_dict['as']
 
-    consumer_key = "vYiHhOzqVv4fy1ajJm9MumqKj"
-    consumer_secret = "Lb1GZexj06NTSFH1JnOLvd0Jm96ontvVFY0Cs3bILulfk2dRtN"
-    access_token = "3384286005-ws1tw8lbWjeQVUaQYkCq5a7Qa1s4gmWTl9yllmZ"
-    access_token_secret = "r1o0O4xj5Bek9AnUsyOdG9bHiAR4D5LdqzAmT1Il5vsZV"
-    
-
     langid_lang= [code.strip() for code in input_dict['lc'].split(',')]
     #MODE='GEO'
     MODE = input_dict['mod']
@@ -839,6 +833,7 @@ def streaming_tweetcat(input_dict, widget, stream=None):
     if MODE=='LANG':
         seedw = [e.decode('utf8').strip() for e in input_dict['sd'].split(',')]
         user_index = {}
+        user_lang = {}
 
         try:
             ltw = tweepy.API(auth_handler=auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, retry_count=3, retry_delay=10)
@@ -852,11 +847,13 @@ def streaming_tweetcat(input_dict, widget, stream=None):
                 idx = seedw.index(data['seed'])
                 if idx < len(seedw) - 1:
                     seedw = seedw[idx + 1:]
+            if data.has_key('user_lang'):
+                user_lang = data['user_lang']
         
-        tweets, users, seed = lang_mode(seedw, user_index, ltw, langid_lang)
+        tweets, users, seed, user_lang = lang_mode(seedw, user_index, ltw, langid_lang, user_lang)
 
         if stream is not None and users:
-            swd.value = {'authors': users, 'seed': seed}
+            swd.value = {'authors': users, 'seed': seed, 'user_lang': user_lang}
             swd.save()
 
     elif MODE=='GEO':  
@@ -869,8 +866,8 @@ def streaming_tweetcat(input_dict, widget, stream=None):
                 stream=tweepy.Stream(auth,l)
                 stream.filter(locations=[MINLON,MINLAT,MAXLON,MAXLAT])
             except:
-                print(str(sys.exc_info())+'\n')
-                print(datetime.now().isoformat()+'\tSleeping 0 and restarting\n')
+                #print(str(sys.exc_info())+'\n')
+                #print(datetime.now().isoformat()+'\tSleeping 0 and restarting\n')
                 continue
          
         tweets = l.tweetList

@@ -23,7 +23,9 @@ def lang_id(timeline, langid_lang):
   timeline=clean(timeline)
   lang=langid.classify(timeline)[0]
   #print(datetime.now().isoformat()+'\t'+repr(timeline[:200])+' identified as '+lang+'\n')
-  return lang in langid_lang
+  if lang in langid_lang:
+    return lang
+  return False
 
 
 def search(term, api):
@@ -58,7 +60,8 @@ def new_user_timeline(screen_name, api, langid_lang):
   if len(timeline)<100:
     #print(datetime.now().isoformat()+'\tNew user '+screen_name+' did not pass the tweet number threshold ('+str(len(timeline))+') for accurate language identification.\n')
     return False
-  if lang_id(timeline, langid_lang):
+  language = lang_id(timeline, langid_lang)
+  if language:
     timeline=[]
     try:
       for page in tweepy.Cursor(api.user_timeline,id=screen_name,count=200).pages(16):
@@ -66,7 +69,7 @@ def new_user_timeline(screen_name, api, langid_lang):
     except:
       #print(datetime.now().isoformat()+'\tNew user '+screen_name+' did pass the language filter, but could not be retrieved at this point. He will come up again...\n')
       return None
-    return sorted(timeline,key=lambda x:x.id)
+    return (sorted(timeline,key=lambda x:x.id), language)
   else:
     return False
 
@@ -78,26 +81,28 @@ def user_timeline(screen_name,since_id, api):
     return
 
 
-def write_tweets(tweets):
+def write_tweets(tweets, user_lang=None):
     tweetlist = []
     for tw in tweets:
         tweet = {}
         tweet['id'] = tw.id
         tweet['created_at'] = tw.created_at
         tweet['text'] = unicode(tw.text).encode("utf-8")
-        try:
-            tweet['user'] = tw.user['screen_name']
-            tweet['lang'] = tweet.lang
-        except:
-            tweet['user'] = ""
+        tweet['user'] = tw.user.screen_name
+        if user_lang:
+          tweet['lang'] = user_lang[tweet['user']]
+        else:
+          try:
+            tweet['lang'] = tw.lang
+          except:
             tweet['lang'] = ""
         tweetlist.append(tweet)
     return tweetlist
 
 
-def lang_mode(seedw, user_index, api, langid_lang):
+def lang_mode(seedw, user_index, api, langid_lang, user_lang):
   no_tweets = 0
-  timeout = time() + 60 * 1
+  timeout = time() + 20 * 1
   tweets=[]
   last_seed = seedw[0]
   
@@ -111,7 +116,7 @@ def lang_mode(seedw, user_index, api, langid_lang):
         break
       
       if hit.author.screen_name not in user_index:
-        fetched_timeline=new_user_timeline(hit.author.screen_name, api, langid_lang)
+        fetched_timeline = new_user_timeline(hit.author.screen_name, api, langid_lang)
         if fetched_timeline is False:
           #print(datetime.now().isoformat()+'\tNew user '+hit.author.screen_name+' found by searching did not pass the language filter.\n')
           pass
@@ -120,6 +125,8 @@ def lang_mode(seedw, user_index, api, langid_lang):
           pass
         else:
           #print(datetime.now().isoformat()+'\tFound new user by searching: '+hit.author.screen_name+'\n')
+          fetched_timeline, language = fetched_timeline
+          user_lang[hit.author.screen_name] = language
           user_index[hit.author.screen_name]=fetched_timeline[-1].id
           tweets.extend(fetched_timeline)
           no_tweets+=len(fetched_timeline)
@@ -129,7 +136,7 @@ def lang_mode(seedw, user_index, api, langid_lang):
               last_seed = seed
               break
             if follower.screen_name not in user_index:
-              fetched_timeline=new_user_timeline(follower.screen_name, api, langid_lang)
+              fetched_timeline = new_user_timeline(follower.screen_name, api, langid_lang)
               if fetched_timeline is False:
                 #print(datetime.now().isoformat()+'\tNew user '+follower.screen_name+' found as follower did not pass the language filter.\n')
                 pass
@@ -138,6 +145,8 @@ def lang_mode(seedw, user_index, api, langid_lang):
                 pass
               else:
                 #print(datetime.now().isoformat()+'\tFound new user through followers: '+follower.screen_name+'\n')
+                fetched_timeline, language = fetched_timeline
+                user_lang[follower.screen_name] = language
                 user_index[follower.screen_name]=fetched_timeline[-1].id
                 tweets.extend(fetched_timeline)
                 if time() > timeout:
@@ -149,7 +158,7 @@ def lang_mode(seedw, user_index, api, langid_lang):
               last_seed = seed
               break
             if friend.screen_name not in user_index:
-              fetched_timeline=new_user_timeline(friend.screen_name, api, langid_lang)
+              fetched_timeline = new_user_timeline(friend.screen_name, api, langid_lang)
               if fetched_timeline is False:
                 #print(datetime.now().isoformat()+'\tNew user '+friend.screen_name+' found as friend did not pass the language filter.\n')
                 pass
@@ -158,6 +167,8 @@ def lang_mode(seedw, user_index, api, langid_lang):
                 pass
               else:
                 #print(datetime.now().isoformat()+'\tFound new user through friends: '+friend.screen_name+'\n')
+                fetched_timeline, language = fetched_timeline
+                user_lang[friend.screen_name] = language
                 user_index[friend.screen_name]=fetched_timeline[-1].id
                 tweets.extend(fetched_timeline)
                 no_tweets+=len(fetched_timeline)
@@ -184,8 +195,8 @@ def lang_mode(seedw, user_index, api, langid_lang):
         pass
         #print(datetime.now().isoformat()+'\tKnown user\'s '+screen_name+' timeline fetched with no new tweets.\n')
 
-  tweets=write_tweets(tweets)
-  return (tweets, user_index, last_seed)
+  tweets=write_tweets(tweets, user_lang)
+  return (tweets, user_index, last_seed, user_lang)
 
 
 class StdOutListener(StreamListener):
