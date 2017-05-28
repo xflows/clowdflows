@@ -714,44 +714,50 @@ def definition_sentences2(input_dict):
 from reldi.restorer import DiacriticRestorer
 from reldi.tagger import Tagger as reldiTagger
 from reldi.parser import Parser
+from redi import restore_diacritic
+from reldi_tokenizer import generate_tokenizer, represent_tomaz, sentence_split, sentence_split_nonstd, tokenize
+from reldi_tagger import tag_main
 import json
+
+def nlp_reldi_tokenizer(input_dict):
+    lang = input_dict['lang']
+    not_standard = input_dict['standard']
+    corpus = input_dict['corpus']
+    if not_standard:
+        mode='nonstandard'
+    else:
+        mode='standard'
+  
+    tokenizer=generate_tokenizer(lang)
+    process={'standard':lambda x,y,z:sentence_split(tokenize(x,y),z),'nonstandard':lambda x,y,z:sentence_split_nonstd(tokenize(x,y),z)}
+    par_id=0 #tole za dokumente preured - for loop skos dokumente
+    tokens = process[mode](tokenizer,corpus.decode('utf8'),lang)
+    print(tokens)
+    return {'tokens': tokens}
 
 
 def nlp_reldi_tagger(input_dict):
-    user = 'user'
-    passwd = 'user'
-    coding = 'utf8'
-    corpus = input_dict['corpus']
+    reldir = os.path.join('workflows', 'nlp', 'models', 'reldi_tagger')
+    tokens = input_dict['tokens']
     lang = input_dict['lang']
-    tagger = reldiTagger(lang)
-    tagger.authorize(user, passwd)
-    result = json.loads(tagger.tagLemmatise(corpus.decode(coding).encode(coding)))
-    final = set()
-    final_text = ""
-    for sentence in result['sentences']['sentence']:
-        final.add(sentence['tokenIDs'].split(' ')[-1])
-    for token, lemma, tag in zip(result['tokens']['token'], result['lemmas']['lemma'], result['POStags']['tag']):
-        text = (token['text'] + '\t' + lemma['text'] + '\t' + tag['text'] + '\n').encode(coding)
-        if token['ID'] in final:
-            text = text + '\n'
-        final_text += text
-    return {'annotations': final_text.encode(coding)}
+    pos_tags = tag_main(tokens, lang)
+    return {'pos_tags': pos_tags}
+
+
+def nlp_reldi_lemmatizer(input_dict):
+    reldir = os.path.join('workflows', 'nlp', 'models', 'reldi_tagger')
+    tokens = input_dict['tokens']
+    lang = input_dict['lang']
+    pos_tags = tag_main(tokens, lang, True)
+    return {'lemmas': pos_tags}
 
 
 def nlp_diacritic_restoration(input_dict):
-    user = 'user'
-    passwd = 'user'
-    coding = 'utf8'
     corpus = input_dict['corpus']
     lang = input_dict['lang']
-    restorer = DiacriticRestorer(lang)
-    restorer.authorize(user, passwd)
-    result = json.loads(restorer.restore(corpus.decode(coding).encode('utf8')))
-    text = result['text']
-    for token, norm in zip(result['tokens']['token'], result['orthography']['correction']):
-        if token['text'] != norm['text']:
-            text = text[:int(token['startChar']) - 1] + norm['text'] + text[int(token['endChar']):]
-    return {'corpus': text.encode('utf8')}
+    lexicon=pickle.load(open(os.path.join('workflows', 'nlp', 'models', 'redi', 'wikitweetweb.'+lang+'.tm'), 'rb'))
+    restored_tokens = restore_diacritic(corpus, lexicon)
+    return {'tokens': restored_tokens}
 
 
 def nlp_reldi_parser(input_dict):
@@ -804,6 +810,12 @@ def streaming_tweetcat(input_dict, widget, stream=None):
         consumer_secret = input_dict['cs']
         access_token = input_dict['at']
         access_token_secret = input_dict['as']
+
+    consumer_key = "vYiHhOzqVv4fy1ajJm9MumqKj"
+    consumer_secret = "Lb1GZexj06NTSFH1JnOLvd0Jm96ontvVFY0Cs3bILulfk2dRtN"
+    access_token = "3384286005-ws1tw8lbWjeQVUaQYkCq5a7Qa1s4gmWTl9yllmZ"
+    access_token_secret = "r1o0O4xj5Bek9AnUsyOdG9bHiAR4D5LdqzAmT1Il5vsZV"
+    
 
     langid_lang= [code.strip() for code in input_dict['lc'].split(',')]
     #MODE='GEO'
