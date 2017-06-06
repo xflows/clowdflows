@@ -12,8 +12,10 @@ lm_lambda=0.8
 def get_uppers(token_list):
   uppers=[]
   for token in token_list:
+    print(token)
     uppers.append([])
     for index,char in enumerate(token):
+      print(char)
       if char.isupper():
         uppers[-1].append(index)
   return uppers
@@ -51,9 +53,10 @@ def redi(token_list,lexicon,lm=None):
 def restore_diacritic(tokens, lexicon):
   result = []
   for sent in tokens:
-      token_list = redi([e[0] for e in sent], lexicon)
+      token_list = redi([e[0].decode('utf8').encode('utf8') for e in sent], lexicon)
       position_list = [(start, finish) for tok, start, finish in sent]
       sent = [(tok, pos[0], pos[1]) for tok, pos in zip(token_list, position_list)]
       result.append(sent)
   return result
+
 

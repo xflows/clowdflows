@@ -1,0 +1,90 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "7962e2b1-0b20-46a1-85f9-87b7ab6df2b6", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Feature union from scikit learn. Combine different types of features", 
+      "static_image": "Load-ODT.png", 
+      "action": "feature_union", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Feature Union"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7962e2b1-0b20-46a1-85f9-87b7ab6df2b6", 
+      "name": "Vectorizer", 
+      "short_name": "vec", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "features", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "1419dff1-05e8-4000-a239-1176c2be12a3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7962e2b1-0b20-46a1-85f9-87b7ab6df2b6", 
+      "name": "Weights", 
+      "short_name": "wei", 
+      "default": "", 
+      "description": "List of weights for features. Should be inputed as a list of floats separated by comma, with the length of number of features. Order of floats should match the order of features inputs. By default all features are 1.0. E.g. 1.0, 1.0, 0.8", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weights", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "871c7bf4-e865-4ead-9c47-eabf5e7621c8"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "7962e2b1-0b20-46a1-85f9-87b7ab6df2b6", 
+      "name": "Target Value", 
+      "short_name": "y", 
+      "default": "", 
+      "description": "Target Value", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "y", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "f1afd541-3500-423d-adb7-5d17b6aa817d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "7962e2b1-0b20-46a1-85f9-87b7ab6df2b6", 
+      "name": "Matrix", 
+      "short_name": "mat", 
+      "description": "Matrix of features", 
+      "variable": "matrix", 
+      "order": 1, 
+      "uid": "b241a805-cc1a-47d0-83b2-a3fe8f6743e9"
+    }
+  }
+]

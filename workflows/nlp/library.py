@@ -11,6 +11,14 @@ import itertools
 import subprocess
 from tweetcat import *
 from time import sleep,time
+import pandas as pd
+import multiprocessing
+from functools import partial
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.pipeline import FeatureUnion
+from sklearn import pipeline
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.svm import SVC
 
 webservices_totrtale_url = "http://172.20.0.154/totrtale"
 webservice_def_ex_url = "http://172.20.0.154/definition"
@@ -241,6 +249,7 @@ def nlp_totrtale2(input_dict, widget):
     import time
     import math
     import copy
+    from xml.dom.minidom import getDOMImplementation
 
     progress_accumulator = 0 #progress for progress bar
     widget.progress= progress_accumulator 
@@ -249,8 +258,24 @@ def nlp_totrtale2(input_dict, widget):
     processes = 4 #number of processes for multiprocessing
     DOCUMENTS_SIZE = 3 * int(1e6) #size of a group of documents in MB per process
     SINGLE_DOC_SIZE = 1 * int(1e6) #size of a single document per process
+    corpus = input_dict['corpus']
+    if type(corpus) is list:  
+        fname = "input_list.txt"
+        text = "\n".join(input_dict['corpus']).strip()
+        data = base64.b64encode(text)
     
-    corpus = parseString(input_dict['corpus'])
+        #define web service
+        webservice_url = webservices_totrtale_url + "/parseFile"
+        params = {"filename": fname, "text": data} #set params
+        
+        #call web service
+        #print webservice_url
+        resp = post(webservice_url, data=params)
+        #print resp.content
+        content = json.loads(resp.content)[u'parseFileResponse'][u'parseFileResult']
+        corpus = parseString(content[u"resp"])
+    else:
+        corpus = parseString(input_dict['corpus'])
     language = input_dict['lang'], 
     postprocess = input_dict['postprocess'] == "true"
     xml = input_dict['xml'] == "true"
@@ -723,24 +748,47 @@ def nlp_reldi_tokenizer(input_dict):
     lang = input_dict['lang']
     not_standard = input_dict['standard']
     corpus = input_dict['corpus']
+    flatten = input_dict['flatten']
     if not_standard:
         mode='nonstandard'
     else:
         mode='standard'
-  
-    tokenizer=generate_tokenizer(lang)
-    process={'standard':lambda x,y,z:sentence_split(tokenize(x,y),z),'nonstandard':lambda x,y,z:sentence_split_nonstd(tokenize(x,y),z)}
-    par_id=0 #tole za dokumente preured - for loop skos dokumente
-    tokens = process[mode](tokenizer,corpus.decode('utf8'),lang)
-    print(tokens)
-    return {'tokens': tokens}
+    all_tokenized_docs = []
+    tokenizer = generate_tokenizer(lang)
+    process = {'standard':lambda x,y,z:sentence_split(tokenize(x,y),z),'nonstandard':lambda x,y,z:sentence_split_nonstd(tokenize(x,y),z)}
+    if type(corpus) is list:
+        for doc in corpus:
+            tokens = process[mode](tokenizer,doc.decode('utf8'),lang)
+            if flatten:
+                tokens = " ".join([token for sentence in tokens for token, begin, end in sentence if ' ' not in token])
+            all_tokenized_docs.append(tokens)
+    else:
+        tokens = process[mode](tokenizer,corpus.decode('utf8'),lang)
+        if flatten:
+            tokens = " ".join([token for sentence in tokens for token, begin, end in sentence if ' ' not in token])
+        all_tokenized_docs.append(tokens)
+    return {'tokens': all_tokenized_docs}
 
 
 def nlp_reldi_tagger(input_dict):
     reldir = os.path.join('workflows', 'nlp', 'models', 'reldi_tagger')
     tokens = input_dict['tokens']
     lang = input_dict['lang']
-    pos_tags = tag_main(tokens, lang)
+    all_tagged_docs = []
+    #pos_tags = tag_main(tokens, lang)
+
+    pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
+
+    #parallel for document in tokens:
+    pos_tags=pool.map(
+        partial(tag_main,
+                lang=lang),
+        tokens,
+        1 #chunksize, constructs list of this size which are passed to pool workers
+    )
+    pool.close()
+    pool.join()
+
     return {'pos_tags': pos_tags}
 
 
@@ -748,16 +796,33 @@ def nlp_reldi_lemmatizer(input_dict):
     reldir = os.path.join('workflows', 'nlp', 'models', 'reldi_tagger')
     tokens = input_dict['tokens']
     lang = input_dict['lang']
-    pos_tags = tag_main(tokens, lang, True)
-    return {'lemmas': pos_tags}
+    all_lemmatized_docs = []
+    #lemmas = tag_main(tokens, lang, True)
+
+    pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
+
+    #parallel for document in tokens:
+    lemmas=pool.map(
+        partial(tag_main,
+                lang=lang,
+                lemmatiser=True),
+        tokens,
+        1 #chunksize, constructs list of this size which are passed to pool workers
+    )
+    pool.close()
+    pool.join()
+    return {'lemmas': lemmas}
 
 
 def nlp_diacritic_restoration(input_dict):
-    corpus = input_dict['corpus']
+    tokens = input_dict['tokens']
     lang = input_dict['lang']
     lexicon=pickle.load(open(os.path.join('workflows', 'nlp', 'models', 'redi', 'wikitweetweb.'+lang+'.tm'), 'rb'))
-    restored_tokens = restore_diacritic(corpus, lexicon)
-    return {'tokens': restored_tokens}
+    all_docs = []
+    for doc in tokens:
+        restored_tokens = restore_diacritic(doc, lexicon)
+        all_docs.append(restored_tokens)
+    return {'tokens': all_docs}
 
 
 def nlp_reldi_parser(input_dict):
@@ -887,6 +952,79 @@ def streaming_tweetcat(input_dict, widget, stream=None):
     output_dict = {}
     output_dict['ltw'] = tweets
     return output_dict
+
+
+def load_corpus_from_csv(input_dict):
+    df = pd.read_csv(input_dict['file'], sep='\t')
+    return {'dataframe': df}
+
+
+def select_corpus_attribute(input_dict):
+    df = input_dict['dataframe']
+    attribute = input_dict['attribute']
+    column = df[attribute]
+    return {'attribute': column.tolist()}
+
+def tokenize(text):
+    return text.split()
+
+
+def tfidf_vectorizer(input_dict):
+    corpus = input_dict['corpus']
+    lowercase = True if input_dict['low'] == 'true' else False
+    max_df = input_dict['max_df']
+    min_df = input_dict['min_df']
+    max_df = float(max_df) if '.' in max_df else int(max_df)
+    min_df = float(min_df) if '.' in min_df else int(min_df)
+    try:
+        max_features = int(input_dict['max_features'])
+    except:
+        max_features = None
+    smooth_idf = True if input_dict['smooth_idf'] == 'true' else False
+    sublinear_tf = True if input_dict['sublinear_tf'] == 'true' else False
+    min_ngram = int(input_dict['min_ngram'])
+    max_ngram = int(input_dict['max_ngram'])
+    analyzer = input_dict['analyzer'].encode('utf8')
+
+    tfidf_vec = TfidfVectorizer(tokenizer=tokenize, min_df=min_df, max_df=max_df, lowercase=lowercase, max_features=max_features, smooth_idf=smooth_idf, sublinear_tf=sublinear_tf, ngram_range=(min_ngram, max_ngram), analyzer=analyzer)
+    
+    return {'tfidf': {'vectorizer': tfidf_vec, 'data': corpus}}
+
+class Transformer(BaseEstimator, TransformerMixin):
+    def __init__(self, index):
+        self.index = index
+    def fit(self, x, y=None):
+        return self
+    def transform(self, data_list):
+        return data_list[self.index]
+
+
+def feature_union(input_dict):
+    y = input_dict['y']
+    weights = input_dict['weights'].split(',')
+    vec_and_data = input_dict['features']
+    vectorizers = [x['vectorizer'] for x in vec_and_data]
+    data = [x['data'] for x in vec_and_data]
+    length = len(vectorizers)
+    features = [('feature' + str(i), pipeline.Pipeline([('t' + str(i), Transformer(index=i)), ('f' + str(i), vectorizers[i])])) for i in range(length)]
+    weights_dict = {}
+    if len(weights) > 1 and len(weights) == length:
+        weights = [float(weight) for weight in input_dict['weights'].split(',')]
+        for i in range(length):
+            weights_dict[features[i][0]] = weights[i]
+    else:
+        for i in range(length):
+            weights_dict[features[i][0]] = 1.0
+    
+    
+    featureUnion = FeatureUnion(transformer_list = features, transformer_weights = weights_dict)
+    featureUnion = featureUnion.fit(data).transform(data)
+    svm = SVC(kernel="linear")
+    svm.fit(featureUnion, y)
+    return {'matrix': {'data': featureUnion, 'target':y}}
+                       
+
+
         
 
 

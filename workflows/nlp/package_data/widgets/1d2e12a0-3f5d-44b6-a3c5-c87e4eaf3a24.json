@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "1d2e12a0-3f5d-44b6-a3c5-c87e4eaf3a24", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Select just one column from corpus in dataframe form", 
+      "static_image": "Load-ODT.png", 
+      "action": "select_corpus_attribute", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Select Corpus Attribute"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1d2e12a0-3f5d-44b6-a3c5-c87e4eaf3a24", 
+      "name": "Pandas dataframe", 
+      "short_name": "pd", 
+      "default": "", 
+      "description": "", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataframe", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "76131848-3924-4a04-98bf-97deef81d67d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "1d2e12a0-3f5d-44b6-a3c5-c87e4eaf3a24", 
+      "name": "Attribute Name", 
+      "short_name": "nam", 
+      "default": "text", 
+      "description": "Name of the attribute you wish to extract", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "attribute", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "8e4a40c4-6df0-4f80-a8f6-7b0c2786b9d1"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "1d2e12a0-3f5d-44b6-a3c5-c87e4eaf3a24", 
+      "name": "Attribute", 
+      "short_name": "att", 
+      "description": "One column from dataframe in a form of a list", 
+      "variable": "attribute", 
+      "order": 1, 
+      "uid": "0f5d4c75-840b-417a-9671-ccb67bb33445"
+    }
+  }
+]

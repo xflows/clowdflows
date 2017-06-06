@@ -102,7 +102,7 @@ def write_tweets(tweets, user_lang=None):
 
 def lang_mode(seedw, user_index, api, langid_lang, user_lang):
   no_tweets = 0
-  timeout = time() + 20 * 1
+  timeout = time() + 1 * 1
   tweets=[]
   last_seed = seedw[0]
   

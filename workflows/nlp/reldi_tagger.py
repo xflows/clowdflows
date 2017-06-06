@@ -17,7 +17,6 @@ import re
 import codecs
 from sklearn.tree import DecisionTreeClassifier
 
-
 def tag_sent(sent):
     return tagger.tag(extract_features_msd(sent, trie))
 
@@ -104,6 +103,10 @@ def tag_main(tokens, lang, lemmatiser=False):
                     tags_proper.append((token, tags[tag_counter][0], tags[tag_counter][1]))
                 tag_counter += 1
             tagged_sents.append(tags_proper)
+    if not lemmatiser:
+        tagged_sents = " ".join([pos for sentence in tagged_sents for word, pos in sentence if word != ' '])
+    else:
+        tagged_sents = " ".join([lemma for sentence in tagged_sents for word, pos, lemma in sentence if word != ' '])
     return tagged_sents
         
 def load_models(lang):

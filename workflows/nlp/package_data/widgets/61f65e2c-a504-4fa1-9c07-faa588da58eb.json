@@ -45,14 +45,14 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "61f65e2c-a504-4fa1-9c07-faa588da58eb", 
-      "name": "Corpus", 
-      "short_name": "cor", 
+      "name": "Tokens", 
+      "short_name": "tok", 
       "default": "", 
-      "description": "Corpus", 
+      "description": "Tokens", 
       "required": true, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "corpus", 
+      "variable": "tokens", 
       "parameter": false, 
       "order": 1, 
       "uid": "c4b52d4a-f253-47c7-9a96-6b2702138903"
@@ -62,10 +62,10 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "61f65e2c-a504-4fa1-9c07-faa588da58eb", 
-      "name": "Corpus", 
-      "short_name": "cor", 
-      "description": "Corpus", 
-      "variable": "corpus", 
+      "name": "Tokens", 
+      "short_name": "tok", 
+      "description": "Tokenized corpus", 
+      "variable": "tokens", 
       "order": 1, 
       "uid": "c630d327-fec7-4912-a155-1c80d0e4bcc8"
     }

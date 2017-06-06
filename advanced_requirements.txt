@@ -20,4 +20,5 @@ unidecode==0.04.13
 nltk==2.0.4
 psycopg2==2.6.1
 python-rdm>=0.1.7
+pandas==0.20.1
 https://github.com/anzev/hedwig/archive/master.zip

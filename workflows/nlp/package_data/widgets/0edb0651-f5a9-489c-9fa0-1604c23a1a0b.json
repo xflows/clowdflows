@@ -1,0 +1,134 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "0edb0651-f5a9-489c-9fa0-1604c23a1a0b", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Tokenizer for Slovene, Croatian and Serbian.", 
+      "static_image": "nlp.png", 
+      "action": "nlp_reldi_tokenizer", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Reldi Tokenizer"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0edb0651-f5a9-489c-9fa0-1604c23a1a0b", 
+      "name": "Language", 
+      "short_name": "lng", 
+      "default": "sl", 
+      "description": "Language of the input corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "31a84d3c-9221-4d1e-b085-356d234cd5eb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0edb0651-f5a9-489c-9fa0-1604c23a1a0b", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "465eeed0-03b2-41d9-88ed-995cef04bebe"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0edb0651-f5a9-489c-9fa0-1604c23a1a0b", 
+      "name": "Flatten output", 
+      "short_name": "fla", 
+      "default": "False", 
+      "description": "If checked, the output is flattened, just a list of tokens is returned and information about sentences is lost. Makes it compatible with TF-IDF Vectorizer widget.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "flatten", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "95449042-2eca-48c5-bf5d-22e4c60d2caf"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0edb0651-f5a9-489c-9fa0-1604c23a1a0b", 
+      "name": "Non-standard text", 
+      "short_name": "std", 
+      "default": "", 
+      "description": "Select this if the input corpus is non standard (e.g. tweets)", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "standard", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "bae58b0e-c1f3-4d47-b86f-2592fdf027df"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "0edb0651-f5a9-489c-9fa0-1604c23a1a0b", 
+      "name": "Tokens", 
+      "short_name": "tok", 
+      "description": "Tokenized text", 
+      "variable": "tokens", 
+      "order": 1, 
+      "uid": "ed7ca504-e837-4479-95e6-7ed4dc2e20fe"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovenian", 
+      "uid": "3315f5de-4918-4701-86dc-f3fb650bfee5", 
+      "value": "sl", 
+      "abstract_input": "31a84d3c-9221-4d1e-b085-356d234cd5eb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Croatian", 
+      "uid": "45188497-593b-443b-bf1f-a6757c563be9", 
+      "value": "hr", 
+      "abstract_input": "31a84d3c-9221-4d1e-b085-356d234cd5eb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Serbian", 
+      "uid": "6d416614-e2fb-4a65-8ba6-0695d5758e70", 
+      "value": "sr", 
+      "abstract_input": "31a84d3c-9221-4d1e-b085-356d234cd5eb"
+    }
+  }
+]
