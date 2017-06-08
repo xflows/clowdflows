@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "e019f79d-fa40-4279-8fcf-9bc702d45755", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Get sentiment of documents in the corpus by adding the sentiment value of emojis in the document. Sentiment values are obtained from https://www.clarin.eu/blog/sentiment-emoji-clarinsi.", 
+      "static_image": "nlp.png", 
+      "action": "emoji_sentiment", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Emoji sentiment"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "e019f79d-fa40-4279-8fcf-9bc702d45755", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d67ef3c0-8856-490a-8928-61416ef8b00a"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "e019f79d-fa40-4279-8fcf-9bc702d45755", 
+      "name": "Document sentiments", 
+      "short_name": "sen", 
+      "description": "List of documents sentiments", 
+      "variable": "sentiments", 
+      "order": 1, 
+      "uid": "8653291c-d0d8-4569-ba1d-01d18c9618bd"
+    }
+  }
+]

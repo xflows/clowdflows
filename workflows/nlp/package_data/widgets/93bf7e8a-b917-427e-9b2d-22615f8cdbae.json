@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "93bf7e8a-b917-427e-9b2d-22615f8cdbae", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Remove punctuation from document.", 
+      "static_image": "nlp.png", 
+      "action": "remove_punctuation", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Remove punctuation"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "93bf7e8a-b917-427e-9b2d-22615f8cdbae", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "e4b00c32-888b-456d-80d8-e9b906153809"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "93bf7e8a-b917-427e-9b2d-22615f8cdbae", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "description": "Corpus", 
+      "variable": "corpus", 
+      "order": 1, 
+      "uid": "6aacb9af-a117-487c-87b5-8611ec224917"
+    }
+  }
+]

@@ -96,13 +96,13 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3515df45-45c1-4987-a056-c9fcf527b217", 
-      "name": "Analyzer", 
+      "name": "N-gram type", 
       "short_name": "ana", 
       "default": "word", 
-      "description": "Define the type of n-grams, can be 'word', 'char' or 'char-wb'. default is 'word'", 
+      "description": "Define the type of n-grams, can be word, character or word bound character ngrams.", 
       "required": false, 
       "multi": false, 
-      "parameter_type": "text", 
+      "parameter_type": "select", 
       "variable": "analyzer", 
       "parameter": true, 
       "order": 4, 
@@ -204,6 +204,33 @@
       "variable": "tfidf", 
       "order": 1, 
       "uid": "04999ece-78ae-48fb-ab1d-8e6742324f6f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "word", 
+      "uid": "", 
+      "value": "word", 
+      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "character", 
+      "uid": "", 
+      "value": "char", 
+      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "word bound character", 
+      "uid": "", 
+      "value": "char_wb", 
+      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
     }
   }
 ]

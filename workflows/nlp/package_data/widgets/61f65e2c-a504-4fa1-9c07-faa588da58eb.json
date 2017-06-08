@@ -28,6 +28,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "61f65e2c-a504-4fa1-9c07-faa588da58eb", 
+      "name": "Flatten", 
+      "short_name": "fla", 
+      "default": "", 
+      "description": "Input looks like a list of sentences, makes it compatible with TF-IDF vectorizer widget", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "flatten", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "93b8f2eb-9679-41b5-8f93-3a682e6d2a35"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "61f65e2c-a504-4fa1-9c07-faa588da58eb", 
       "name": "Language", 
       "short_name": "lng", 
       "default": "sl", 

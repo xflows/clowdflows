@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
 import nlp
 import os
 import base64
@@ -19,6 +19,8 @@ from sklearn.pipeline import FeatureUnion
 from sklearn import pipeline
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.svm import SVC
+from nltk.corpus import stopwords
+import numpy as np
 
 webservices_totrtale_url = "http://172.20.0.154/totrtale"
 webservice_def_ex_url = "http://172.20.0.154/definition"
@@ -740,7 +742,7 @@ from reldi.restorer import DiacriticRestorer
 from reldi.tagger import Tagger as reldiTagger
 from reldi.parser import Parser
 from redi import restore_diacritic
-from reldi_tokenizer import generate_tokenizer, represent_tomaz, sentence_split, sentence_split_nonstd, tokenize
+from reldi_tokenizer import generate_tokenizer, sentence_split, sentence_split_nonstd, tokenize
 from reldi_tagger import tag_main
 import json
 
@@ -749,10 +751,7 @@ def nlp_reldi_tokenizer(input_dict):
     not_standard = input_dict['standard']
     corpus = input_dict['corpus']
     flatten = input_dict['flatten']
-    if not_standard:
-        mode='nonstandard'
-    else:
-        mode='standard'
+    mode = 'nonstandard' if not_standard else 'standard'
     all_tokenized_docs = []
     tokenizer = generate_tokenizer(lang)
     process = {'standard':lambda x,y,z:sentence_split(tokenize(x,y),z),'nonstandard':lambda x,y,z:sentence_split_nonstd(tokenize(x,y),z)}
@@ -817,10 +816,13 @@ def nlp_reldi_lemmatizer(input_dict):
 def nlp_diacritic_restoration(input_dict):
     tokens = input_dict['tokens']
     lang = input_dict['lang']
+    flatten = input_dict['flatten']
     lexicon=pickle.load(open(os.path.join('workflows', 'nlp', 'models', 'redi', 'wikitweetweb.'+lang+'.tm'), 'rb'))
     all_docs = []
     for doc in tokens:
         restored_tokens = restore_diacritic(doc, lexicon)
+        if flatten:
+            restored_tokens = " ".join([token for sentence in restored_tokens for token, begin, end in sentence if ' ' not in token])
         all_docs.append(restored_tokens)
     return {'tokens': all_docs}
 
@@ -955,7 +957,7 @@ def streaming_tweetcat(input_dict, widget, stream=None):
 
 
 def load_corpus_from_csv(input_dict):
-    df = pd.read_csv(input_dict['file'], sep='\t')
+    df = pd.read_csv(input_dict['file'], sep='\t', encoding="utf-8",)
     return {'dataframe': df}
 
 
@@ -965,7 +967,10 @@ def select_corpus_attribute(input_dict):
     column = df[attribute]
     return {'attribute': column.tolist()}
 
-def tokenize(text):
+def tfidf_tokenizer(text):
+    #hopefuly this sequence is not used in any text more than 3 times or tokenization will go horribly worng :). 
+    if text.count('###$$$') > 3:
+        return text.split('###$$$')
     return text.split()
 
 
@@ -986,7 +991,7 @@ def tfidf_vectorizer(input_dict):
     max_ngram = int(input_dict['max_ngram'])
     analyzer = input_dict['analyzer'].encode('utf8')
 
-    tfidf_vec = TfidfVectorizer(tokenizer=tokenize, min_df=min_df, max_df=max_df, lowercase=lowercase, max_features=max_features, smooth_idf=smooth_idf, sublinear_tf=sublinear_tf, ngram_range=(min_ngram, max_ngram), analyzer=analyzer)
+    tfidf_vec = TfidfVectorizer(tokenizer=tfidf_tokenizer, min_df=min_df, max_df=max_df, lowercase=lowercase, max_features=max_features, smooth_idf=smooth_idf, sublinear_tf=sublinear_tf, ngram_range=(min_ngram, max_ngram), analyzer=analyzer)
     
     return {'tfidf': {'vectorizer': tfidf_vec, 'data': corpus}}
 
@@ -1003,25 +1008,178 @@ def feature_union(input_dict):
     y = input_dict['y']
     weights = input_dict['weights'].split(',')
     vec_and_data = input_dict['features']
-    vectorizers = [x['vectorizer'] for x in vec_and_data]
-    data = [x['data'] for x in vec_and_data]
-    length = len(vectorizers)
-    features = [('feature' + str(i), pipeline.Pipeline([('t' + str(i), Transformer(index=i)), ('f' + str(i), vectorizers[i])])) for i in range(length)]
+    features = []
+    dataset = []
+    for i, instance in enumerate(vec_and_data):
+        try:
+            vectorizer = instance['vectorizer']
+            data = instance['data']
+            dataset.append(data)
+            feature = ('feature' + str(i), pipeline.Pipeline([('t' + str(i), Transformer(index=i)), ('f' + str(i), vectorizer)]))
+            features.append(feature)
+        except:
+            feature = ('feature' + str(i), Transformer(index=i))
+            features.append(feature)
+            dataset.append(np.transpose(np.array([instance])))
+
     weights_dict = {}
-    if len(weights) > 1 and len(weights) == length:
+    if len(weights) > 1 and len(weights) == len(features):
         weights = [float(weight) for weight in input_dict['weights'].split(',')]
-        for i in range(length):
+        for i in range(len(weights)):
             weights_dict[features[i][0]] = weights[i]
     else:
-        for i in range(length):
+        for i in range(len(features)):
             weights_dict[features[i][0]] = 1.0
     
     
     featureUnion = FeatureUnion(transformer_list = features, transformer_weights = weights_dict)
-    featureUnion = featureUnion.fit(data).transform(data)
+    featureUnion = featureUnion.fit(dataset).transform(dataset)
     svm = SVC(kernel="linear")
     svm.fit(featureUnion, y)
     return {'matrix': {'data': featureUnion, 'target':y}}
+
+
+def affix_extractor(input_dict):
+    corpus = input_dict['corpus']
+    affixes_tokens = []
+    affix_type = input_dict['affix_type']
+    affix_length = int(input_dict['affix_length'])
+    for text in corpus:
+        if affix_type == 'suffix':
+            affixes = " ".join([word[-affix_length:] if len(word) >= affix_length else word for word in text.split()])
+        elif affix_type == 'prefix':
+            affixes = " ".join([word[0:affix_length] for word in text.split() if len(word) > affix_length])
+        else:
+            punct = '!"$%&()*+,-./:;<=>?[\]^_`{|}~'
+            ngrams = []
+            for i, character in enumerate(text[0:-affix_length - 1]):
+                ngram = text[i:i+affix_length]
+                if ngram[0]  in punct:
+                    for p in punct:
+                        if p in ngram[1:]:
+                            break
+                    else:
+                        ngrams.append(ngram)
+            affixes = "###$$$".join(ngrams)
+        affixes_tokens.append(affixes)
+    return {'affixes': affixes_tokens}
+
+
+def tweet_clean(input_dict):
+    mode = input_dict['mode']
+    if mode == 'remove':
+        mention_replace_token, hashtag_replace_token, url_replace_token = '', '', ''
+    else:
+        mention_replace_token, hashtag_replace_token, url_replace_token = 'TWEETMENTION', 'HASHTAG', 'HTTPURL'
+    corpus = input_dict['corpus']
+    cleaned_docs = []
+    url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+    for doc in corpus:
+        doc = re.sub(r'(?:@[\w_]+)', mention_replace_token, doc)
+        doc = re.sub(r"(?:\#+[\w_]+[\w\'_\-]*[\w_]+)", hashtag_replace_token, doc)
+        doc = re.sub(url_regex, url_replace_token, doc)
+        cleaned_docs.append(doc)
+    return {'corpus': cleaned_docs}
+
+
+def remove_stopwords(input_dict):
+    lang = input_dict['lang']
+    corpus = input_dict['corpus']
+    cleaned_docs = []
+    if lang == 'es':
+        stops = set(stopwords.words("spanish"))
+    elif lang == 'en':
+        stops = set(stopwords.words("english"))
+    elif lang == 'pt':
+        stops = set(stopwords.words("portuguese"))
+    else:
+        return corpus
+    for doc in corpus:
+        doc = [x.lower() for x in doc.split() if x.lower() not in stops]
+        cleaned_docs.append(" ".join(doc))
+    return {'corpus': corpus}
+
+
+def remove_punctuation(input_dict):
+    corpus = input_dict['corpus']
+    punctuation = '!"$%&()*+,-./:;<=>?[\]^_`{|}~' + "'"
+    cleaned_docs = []
+    for doc in corpus:
+        doc = doc.translate(None, punctuation)
+        cleaned_docs.append(doc)
+    return {'corpus': cleaned_docs}
+
+
+def count(text, l):
+    cnt = 0
+    for pattern in l:
+        cnt += text.count(pattern)
+    return cnt
+
+
+def count_patterns(input_dict):
+    from itertools import groupby
+    corpus = input_dict['corpus']
+    mode = input_dict['mode']
+    wordlist = input_dict['custom'].split(',')
+    wordlist = [word.strip() for word in wordlist]
+    if mode == 'emojis':
+        path = os.path.join('workflows', 'nlp', 'models', 'emoji_dataset.csv')
+        df_emojis = pd.read_csv(path, encoding="utf-8", delimiter=",")
+        emoji_list = set(df_emojis['Emoji'].tolist())
+    counts = []
+    for doc in corpus:
+        doc_length = len(doc) 
+        if doc_length == 0:
+            counts.append(0)
+            continue
+        cnt = 0
+        if mode == 'floods':
+            text = ''.join(doc.split())
+            groups = groupby(text)
+            for label, group in groups:
+                char_cnt = sum(1 for _ in group)
+                if char_cnt > 2:
+                    cnt += 1
+        elif mode == 'emojis':
+            cnt = count(doc, emoji_list)
+        else:
+            cnt = count(doc, wordlist)
+        counts.append(float(cnt)/doc_length)
+    return {'counts': counts}
+
+
+def emoji_sentiment(input_dict):
+    corpus = input_dict['corpus']
+    emoji_dict = {}
+    path = os.path.join('workflows', 'nlp', 'models', 'emoji_dataset.csv')
+    df_emojis = pd.read_csv(path, delimiter=",", encoding="utf-8")
+    for index, row in df_emojis.iterrows():
+        occurrences = float(row['Occurrences'])
+        pos = (float(row['Positive']) + 1) / (occurrences + 3)
+        neg = (float(row['Negative']) + 1) / (occurrences + 3)
+        sent = pos - neg
+        emoji_dict[row['Emoji']] = sent
+    print(emoji_dict.items())
+    sentiments = []
+    for doc in corpus:
+        sentiment = 0
+        l = emoji_dict.keys()
+        for pattern in l:
+            text_cnt = doc.count(pattern)
+            sentiment += float(emoji_dict[pattern]) * text_cnt
+        sentiments.append(sentiment)
+    return {'sentiments': sentiments}
+        
+
+        
+
+
+
+
+
+
+
                        
 
 

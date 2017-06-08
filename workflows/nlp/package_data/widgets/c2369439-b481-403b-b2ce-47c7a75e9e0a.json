@@ -1,0 +1,100 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "c2369439-b481-403b-b2ce-47c7a75e9e0a", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Remove stopwords from document.", 
+      "static_image": "nlp.png", 
+      "action": "remove_stopwords", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Remove stopwords"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c2369439-b481-403b-b2ce-47c7a75e9e0a", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "d4f9d235-d5b3-467f-92e2-beea9bf608cb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "c2369439-b481-403b-b2ce-47c7a75e9e0a", 
+      "name": "Language", 
+      "short_name": "lan", 
+      "default": "en", 
+      "description": "Language", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "e4d94a4d-ce02-44ff-8d60-fe9a9e6c22c4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "c2369439-b481-403b-b2ce-47c7a75e9e0a", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "description": "Corpus", 
+      "variable": "corpus", 
+      "order": 1, 
+      "uid": "3000df96-69fd-42c9-b72d-7931d2379cd7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Spanish", 
+      "uid": "1a10b4e0-540c-4dea-b784-29528f20ed80", 
+      "value": "es", 
+      "abstract_input": "e4d94a4d-ce02-44ff-8d60-fe9a9e6c22c4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "7f7c281f-0fc3-4b83-8682-f052bc7f2056", 
+      "value": "en", 
+      "abstract_input": "e4d94a4d-ce02-44ff-8d60-fe9a9e6c22c4"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Portuguese", 
+      "uid": "d9c1b288-592c-43eb-992c-5ac3ea6f9432", 
+      "value": "pt", 
+      "abstract_input": "e4d94a4d-ce02-44ff-8d60-fe9a9e6c22c4"
+    }
+  }
+]

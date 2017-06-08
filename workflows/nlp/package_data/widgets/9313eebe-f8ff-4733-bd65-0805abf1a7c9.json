@@ -1,0 +1,117 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "9313eebe-f8ff-4733-bd65-0805abf1a7c9", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Extract affixes from corpus", 
+      "static_image": "Load-ODT.png", 
+      "action": "affix_extractor", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Affix_extractor"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9313eebe-f8ff-4733-bd65-0805abf1a7c9", 
+      "name": "Affix length", 
+      "short_name": "len", 
+      "default": "3", 
+      "description": "Define the length of the affix. Default is 3.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "affix_length", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "7035fbf3-9d0f-4077-bdab-5c10bedd741d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9313eebe-f8ff-4733-bd65-0805abf1a7c9", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "List of documents", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "file", 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "70ddf5b1-046a-49c6-8fd2-8f946bbc8aa0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9313eebe-f8ff-4733-bd65-0805abf1a7c9", 
+      "name": "Affix type", 
+      "short_name": "min", 
+      "default": "prefix", 
+      "description": "Define minimum n for n-gram generation, default is 1", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "affix_type", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a8bcdd41-2ea7-49d0-a5ce-0fbfc901ce6f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "9313eebe-f8ff-4733-bd65-0805abf1a7c9", 
+      "name": "affixes", 
+      "short_name": "aff", 
+      "description": "List of affixes", 
+      "variable": "affixes", 
+      "order": 1, 
+      "uid": "eac32be1-c4c5-4b95-a518-8b954b5a1651"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "suffix", 
+      "uid": "aef68000-97e3-4d1a-ad2d-90cab05651f9", 
+      "value": "suffix", 
+      "abstract_input": "a8bcdd41-2ea7-49d0-a5ce-0fbfc901ce6f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "prefix", 
+      "uid": "d04f0930-b45e-441b-9e1e-194e9070f2f5", 
+      "value": "prefix", 
+      "abstract_input": "a8bcdd41-2ea7-49d0-a5ce-0fbfc901ce6f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "punctuation prefix", 
+      "uid": "f33356a7-cf44-4bb0-a0ac-d7a81d90c5c7", 
+      "value": "punctuation_prefix", 
+      "abstract_input": "a8bcdd41-2ea7-49d0-a5ce-0fbfc901ce6f"
+    }
+  }
+]
