@@ -1159,7 +1159,7 @@ class Input(models.Model):
         if self.widget.abstract_widget:
             abstract_input = AbstractInput.objects.filter(widget=self.widget.abstract_widget, variable=self.variable)[0]
             abstract_input_uid = abstract_input.uid
-        d['abstract_input_id'] = abstract_input_uid
+        d['abstract_input_uid'] = abstract_input_uid
 
         return d
 
@@ -1278,7 +1278,7 @@ class Output(models.Model):
             abstract_output = AbstractOutput.objects.filter(widget=self.widget.abstract_widget, variable=self.variable)[
                 0]
             abstract_output_uid = abstract_output.uid
-        d['abstract_output_id'] = abstract_output_uid
+        d['abstract_output_uid'] = abstract_output_uid
 
         return d
 
