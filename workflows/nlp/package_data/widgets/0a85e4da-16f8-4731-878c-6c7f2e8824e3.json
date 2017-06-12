@@ -1,0 +1,159 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "0a85e4da-16f8-4731-878c-6c7f2e8824e3", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Display statistics for specific corpus attribute or annotation. Widget takes a list of documents as input and calculates token frequencies and collocations.", 
+      "static_image": "", 
+      "action": "display_corpus_statistic", 
+      "visualization_view": "display_corpus_statistic", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Display Corpus Statistics"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0a85e4da-16f8-4731-878c-6c7f2e8824e3", 
+      "name": "N-gram", 
+      "short_name": "str", 
+      "default": "1", 
+      "description": "Choose what kind of n-gram features you would like to score.", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "n_gram", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "48c5c9f0-2302-43d0-9b46-f689d0f5f063"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0a85e4da-16f8-4731-878c-6c7f2e8824e3", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": " Corpus", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "75d57dba-1c76-4982-9362-23b41c0b37c0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "0a85e4da-16f8-4731-878c-6c7f2e8824e3", 
+      "name": "Statistic type", 
+      "short_name": "str", 
+      "default": "frequency", 
+      "description": "Choose what kind of statistics you would like to show", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "stat_type", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "a721b27b-3576-44ab-8039-7f7827e6067e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Trigram collocations", 
+      "uid": "27922e8e-9348-499f-906e-f51c90aa1d0f", 
+      "value": "pmi_trigrams", 
+      "abstract_input": "a721b27b-3576-44ab-8039-7f7827e6067e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "2", 
+      "uid": "39beea0e-6363-4b1d-86cc-ff4bd6001013", 
+      "value": "2", 
+      "abstract_input": "48c5c9f0-2302-43d0-9b46-f689d0f5f063"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "6", 
+      "uid": "612f2d64-ce12-4644-ad6d-485341b9fcae", 
+      "value": "6", 
+      "abstract_input": "48c5c9f0-2302-43d0-9b46-f689d0f5f063"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "1", 
+      "uid": "8e741644-47c6-443a-a44b-3f559382dfe1", 
+      "value": "1", 
+      "abstract_input": "48c5c9f0-2302-43d0-9b46-f689d0f5f063"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Frequency", 
+      "uid": "9ca86893-039d-4824-bb63-3c89e3c8a650", 
+      "value": "frequency", 
+      "abstract_input": "a721b27b-3576-44ab-8039-7f7827e6067e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Bigram collocations", 
+      "uid": "d3124c05-f011-4aa7-9c54-c9a885a27dee", 
+      "value": "pmi_bigrams", 
+      "abstract_input": "a721b27b-3576-44ab-8039-7f7827e6067e"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "5", 
+      "uid": "ec21fcc3-f4bb-4281-b75e-0f342802b3c5", 
+      "value": "5", 
+      "abstract_input": "48c5c9f0-2302-43d0-9b46-f689d0f5f063"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "4", 
+      "uid": "f3bfb8aa-efc4-4bee-9cca-aebd35bc2572", 
+      "value": "4", 
+      "abstract_input": "48c5c9f0-2302-43d0-9b46-f689d0f5f063"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "3", 
+      "uid": "f3d0e14f-793d-449c-95ab-c0bfa806d684", 
+      "value": "3", 
+      "abstract_input": "48c5c9f0-2302-43d0-9b46-f689d0f5f063"
+    }
+  }
+]

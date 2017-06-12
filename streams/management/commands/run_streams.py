@@ -8,8 +8,9 @@ class Command(NoArgsCommand):
         import time
         self.stdout.write("Working on streams...")
         self.stdout.flush()
+
         while True:
-            streams = Stream.objects.filter(active=True)
+            streams = Stream.objects.filter(active=True).exclude(workflow__widgets__abstract_widget__uid='74421454-58ad-4dad-bac9-e1a78d147be6')
             for stream in streams:
                 #self.stdout.write(u"\nChecking stream "+unicode(stream)+"...\n")
                 #self.stdout.flush()

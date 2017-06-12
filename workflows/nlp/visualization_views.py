@@ -5,6 +5,8 @@ NLP visualization views.
 '''
 from django.shortcuts import render
 import nlp
+import nltk
+from nltk.collocations import *
 
 def definition_sentences_viewer(request, input_dict, output_dict, widget):
     """
@@ -47,4 +49,87 @@ def term_candidate_viewer(request, input_dict, output_dict, widget):
                       })
     terms = sorted(terms, key = lambda x: x['score'], reverse=True)
     return render(request, 'visualizations/terms.html', {'widget' : widget, 'terms' : terms})
+
+
+def display_corpus_statistic(request, input_dict, output_dict, widget, narrow_doc='n'):
+    """
+    Display POS statistics, basicaly frequencies of specific tags
+    """
+    
+    corpus = input_dict['corpus']
+    stat_type = input_dict['stat_type']
+    allAnnotations = 0
+    result_list = []
+    n = int(input_dict['n_gram'])
+    if stat_type == 'frequency':
+        annotation_dict = {}
+        for doc in corpus:
+            if doc.count('###') > 3:
+                annotations = doc.split('###')
+            else:
+                annotations = doc.split()
+            length = len(annotations)
+            for i in range(0, length - n + 1):
+                combo = ""
+                for j in range(i, i + n):
+                    value = annotations[j]
+                    if j > i:
+                        combo += " "
+                    combo += value
+                            
+                if len(combo) > 0:
+                    allAnnotations += 1
+                    if combo in annotation_dict:
+                        annotation_dict[combo] = annotation_dict[combo] + 1
+                    else:
+                        annotation_dict[combo] = 1
+            title = "N-gram"
+            measure = 'Frequency'
+        
+        allAnnotations = float(allAnnotations)
+        for pos, number in annotation_dict.items():
+            try:
+                pos = pos.encode('utf8')
+                result_list.append((pos, "{0:.4f}".format(float(number)/allAnnotations)))
+            except:
+                continue
+
+        result_list = sorted(result_list, key=lambda x: x[1], reverse=True)
+        if len(result_list) > 100:
+            result_list = result_list[:100]
+        print(result_list)
+
+    else:
+        all_annotations = []
+        for doc in corpus:
+            if doc.count('###') > 3:
+                annotations = doc.split('###')
+            else:
+                annotations = doc.split()
+            all_annotations.extend(annotations)
+
+        if stat_type == 'pmi_bigrams':
+            bigram_measures = nltk.collocations.BigramAssocMeasures()
+            finder = BigramCollocationFinder.from_words(all_annotations)
+            best = sorted(finder.score_ngrams(bigram_measures.pmi), key=lambda x: x[1], reverse=True)
+            if len(best) > 100:
+                best = best[:100]
+            for tags, score in best:
+                tag1, tag2 = tags
+                result_list.append((tag1 + "\t" + tag2, "{0:.4f}".format(score)))
+            title = "Bigram collocations"
+
+        elif stat_type == 'pmi_trigrams':
+            trigram_measures = nltk.collocations.TrigramAssocMeasures()
+            finder = TrigramCollocationFinder.from_words(all_annotations)
+            best = sorted(finder.score_ngrams(trigram_measures.pmi), key=lambda x: x[1], reverse=True)
+            if len(best) > 100:
+                best = best[:100]
+            for tags, score in best:
+                tag1, tag2, tag3 = tags
+                result_list.append((tag1 + " " + tag2 + " " + tag3, "{0:.4f}".format(score)))
+            title = "Trigram collocations"
+        measure = 'PMI score'
+
+    return render(request, 'visualizations/corpus_statistics.html', {'widget': widget, 'data': [result_list, title, measure], 'narrow_doc': narrow_doc})
 

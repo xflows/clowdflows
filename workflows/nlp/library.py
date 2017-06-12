@@ -885,7 +885,6 @@ def streaming_tweetcat(input_dict, widget, stream=None):
     
 
     langid_lang= [code.strip() for code in input_dict['lc'].split(',')]
-    #MODE='GEO'
     MODE = input_dict['mod']
 
     # define if MODE is GEO, ignore if MODE is LANG
@@ -913,6 +912,7 @@ def streaming_tweetcat(input_dict, widget, stream=None):
         seedw = [e.decode('utf8').strip() for e in input_dict['sd'].split(',')]
         user_index = {}
         user_lang = {}
+        state = {'seeds': seedw, 'hits': None, 'followers': None, 'friends': None}
 
         try:
             ltw = tweepy.API(auth_handler=auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, retry_count=3, retry_delay=10)
@@ -922,33 +922,30 @@ def streaming_tweetcat(input_dict, widget, stream=None):
         if stream is not None:
             if data.has_key('authors'):
                 user_index = data['authors']
-            if data.has_key('seed'):
-                idx = seedw.index(data['seed'])
-                if idx < len(seedw) - 1:
-                    seedw = seedw[idx + 1:]
+            if data.has_key('state'):
+                state = data['state']
             if data.has_key('user_lang'):
                 user_lang = data['user_lang']
         
-        tweets, users, seed, user_lang = lang_mode(seedw, user_index, ltw, langid_lang, user_lang)
-
-        if stream is not None and users:
-            swd.value = {'authors': users, 'seed': seed, 'user_lang': user_lang}
+        if state['seeds'] == None:
+            tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang, True)
+            state['seeds'] = seedw
+        else:
+            tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang)
+        print('hits ', state['hits'] is None)
+        print('followers ', state['followers'] is None)
+        print('friends ', state['friends'] is None)
+        if stream is not None:
+            swd.value = {'authors': user_index, 'state': state, 'user_lang': user_lang}
             swd.save()
 
     elif MODE=='GEO':  
-        timeout = time() + 60 * 1    
+        timeout = time() + 20 * 1    
         l=StdOutListener()
         auth=OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_token_secret)
-        while time() < timeout:
-            try:
-                stream=tweepy.Stream(auth,l)
-                stream.filter(locations=[MINLON,MINLAT,MAXLON,MAXLAT])
-            except:
-                #print(str(sys.exc_info())+'\n')
-                #print(datetime.now().isoformat()+'\tSleeping 0 and restarting\n')
-                continue
-         
+        stream=tweepy.Stream(auth,l)
+        stream.filter(locations=[MINLON,MINLAT,MAXLON,MAXLAT])
         tweets = l.tweetList
 
     output_dict = {}
@@ -956,9 +953,44 @@ def streaming_tweetcat(input_dict, widget, stream=None):
     return output_dict
 
 
+def tweet_collector(input_dict,widget,stream=None):
+    from streams.models import Stream
+    from streams.models import StreamWidgetData
+    if stream is None:
+        stream = Stream.objects.filter(workflow__widgets=widget)[0]
+        tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
+        tweets = []
+        for tweet in tweet_data:
+            tweet = tweet.value
+            tweets.append(tweet)
+        df = pd.DataFrame(tweets)
+        return {'pd': df}
+    else:
+        new_tweets = []
+        for tweet in input_dict['ltw']:
+            new_tweets.append(StreamWidgetData(stream=stream,widget=widget,value=tweet))
+        StreamWidgetData.objects.bulk_create(new_tweets)
+        tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
+        tweets = []
+        for tweet in tweet_data:
+            tweet = tweet.value
+            tweets.append(tweet)
+        df = pd.DataFrame(tweets)
+        return {'pd': df}
+
+
 def load_corpus_from_csv(input_dict):
-    df = pd.read_csv(input_dict['file'], sep='\t', encoding="utf-8",)
-    return {'dataframe': df}
+    import gc
+    separator = input_dict['separator']
+    print(separator)
+    data_iterator = pd.read_csv(input_dict['file'], encoding="utf-8", delimiter=separator, chunksize=1000)
+    df_data = pd.DataFrame()
+    for sub_data in data_iterator:
+        df_data = pd.concat([df_data, sub_data], axis=0)
+        gc.collect()
+    print(df_data.columns.tolist())
+    print("Data shape:", df_data.shape)
+    return {'dataframe': df_data}
 
 
 def select_corpus_attribute(input_dict):
@@ -968,9 +1000,9 @@ def select_corpus_attribute(input_dict):
     return {'attribute': column.tolist()}
 
 def tfidf_tokenizer(text):
-    #hopefuly this sequence is not used in any text more than 3 times or tokenization will go horribly worng :). 
-    if text.count('###$$$') > 3:
-        return text.split('###$$$')
+    #hopefuly this sequence is not used in any document more than 3 times or tokenization will go horribly wrong :). 
+    if text.count('###') > 3:
+        return text.split('###')
     return text.split()
 
 
@@ -1044,13 +1076,13 @@ def affix_extractor(input_dict):
     affixes_tokens = []
     affix_type = input_dict['affix_type']
     affix_length = int(input_dict['affix_length'])
+    punct = '!"$%&()*+,-./:;<=>?[\]^_`{|}~'
     for text in corpus:
         if affix_type == 'suffix':
             affixes = " ".join([word[-affix_length:] if len(word) >= affix_length else word for word in text.split()])
         elif affix_type == 'prefix':
             affixes = " ".join([word[0:affix_length] for word in text.split() if len(word) > affix_length])
         else:
-            punct = '!"$%&()*+,-./:;<=>?[\]^_`{|}~'
             ngrams = []
             for i, character in enumerate(text[0:-affix_length - 1]):
                 ngram = text[i:i+affix_length]
@@ -1060,7 +1092,7 @@ def affix_extractor(input_dict):
                             break
                     else:
                         ngrams.append(ngram)
-            affixes = "###$$$".join(ngrams)
+            affixes = "###".join(ngrams)
         affixes_tokens.append(affixes)
     return {'affixes': affixes_tokens}
 
@@ -1102,8 +1134,9 @@ def remove_stopwords(input_dict):
 
 def remove_punctuation(input_dict):
     corpus = input_dict['corpus']
-    punctuation = '!"$%&()*+,-./:;<=>?[\]^_`{|}~' + "'"
+    punctuation = '#@!"$%&()*+,-./:;<=>?[\]^_`{|}~' + "'"
     cleaned_docs = []
+    translate_table = dict((ord(char), None) for char in punctuation)   
     for doc in corpus:
         doc = doc.translate(None, punctuation)
         cleaned_docs.append(doc)
@@ -1160,7 +1193,6 @@ def emoji_sentiment(input_dict):
         neg = (float(row['Negative']) + 1) / (occurrences + 3)
         sent = pos - neg
         emoji_dict[row['Emoji']] = sent
-    print(emoji_dict.items())
     sentiments = []
     for doc in corpus:
         sentiment = 0
@@ -1170,6 +1202,39 @@ def emoji_sentiment(input_dict):
             sentiment += float(emoji_dict[pattern]) * text_cnt
         sentiments.append(sentiment)
     return {'sentiments': sentiments}
+
+
+def display_corpus_statistic(input_dict):
+    #implemented in visualization_views.py
+    return {}
+
+def filter_corpus(input_dict):
+    corpus = input_dict['dataframe']
+    query = input_dict['query']
+    if '>' in query:
+        query = query.split('>')
+        column_name, value = query[0].strip(), float(query[1].strip())
+        corpus = corpus[corpus[column_name] > value]
+    elif '<' in query:
+        query = query.split('<')
+        column_name, value = query[0].strip(), float(query[1].strip())
+        corpus = corpus[corpus[column_name] < value]
+    elif '==' in query:
+        query = query.split('==')
+        column_name, value = query[0].strip(), query[1].strip()
+        corpus = corpus[corpus[column_name] == value]
+    elif '!=' in query:
+        query = query.split('!=')
+        column_name, value = query[0].strip(), query[1].strip()
+        corpus = corpus[corpus[column_name] != value]
+    elif 'in' in query:
+        query = query.split(' in ', 1)
+        value, column_name = query[0].strip(), query[1].strip()
+        corpus = corpus[corpus[column_name].isin([value])]
+    return {'dataframe': corpus}
+
+
+
         
 
         

@@ -1,0 +1,20 @@
+{% load static %}
+
+<div id="widgetvisualization-{{widget.pk}}" rel="{{widget.pk}}" class="widgetvisualizationdialog" title="{{widget.name}} visualization" width="650px" height="500px">
+
+    <div style="position:absolute; top:5px; left:75px;">
+        <p style="padding-top:5px; padding-bottom:10px; width:400px; float:left"><b>{{data.1}}</b></p>
+        <p style="padding-top:5px; padding-bottom:10px; width:100px; float:left"><b>{{data.2}}</b></p>
+        <ul>
+        
+        {% for i,j in data.0 %}
+
+            <li style="padding-top:3px;">
+                <p style="width:400px; float:left"><b>{{i}}</b></p>
+                <p style="width:100px; float:left">{{j|floatformat:"4"}}</p>
+            </li>
+
+        {% endfor %}
+        </ul>
+    </div>
+</div>

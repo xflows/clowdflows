@@ -205,32 +205,5 @@
       "order": 1, 
       "uid": "04999ece-78ae-48fb-ab1d-8e6742324f6f"
     }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "word", 
-      "uid": "", 
-      "value": "word", 
-      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "character", 
-      "uid": "", 
-      "value": "char", 
-      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
-      "name": "word bound character", 
-      "uid": "", 
-      "value": "char_wb", 
-      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
-    }
   }
 ]
