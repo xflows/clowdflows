@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Widgets for counting patterns in text. It has 3 modes: return number of emojis in the text, return number of character floods (repetitions of 3 or more characters), return number of custom patterns defined by user. User defined patterns should be separated by commas, e.g. pattern1, pattern2. All counts are normalized by dividing them with the number of characters in the document.", 
-      "static_image": "nlp.png", 
+      "static_image": "count.png", 
       "action": "count_patterns", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -80,8 +80,8 @@
     "fields": {
       "widget": "98ff0d64-1e09-475c-afc8-1aafe9d42b1b", 
       "name": "Pattern counts", 
-      "short_name": "pat", 
-      "description": "List of pattern counts", 
+      "short_name": "vec", 
+      "description": "Vector of pattern counts", 
       "variable": "counts", 
       "order": 1, 
       "uid": "587893fa-8d31-4c93-bd54-f11de94d47f2"

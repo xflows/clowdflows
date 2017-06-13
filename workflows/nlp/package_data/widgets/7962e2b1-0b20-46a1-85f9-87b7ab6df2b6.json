@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Feature union from scikit learn. Combine different types of features", 
-      "static_image": "Load-ODT.png", 
+      "static_image": "union.png", 
       "action": "feature_union", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -80,7 +80,7 @@
     "fields": {
       "widget": "7962e2b1-0b20-46a1-85f9-87b7ab6df2b6", 
       "name": "Matrix", 
-      "short_name": "mat", 
+      "short_name": "dts", 
       "description": "Matrix of features", 
       "variable": "matrix", 
       "order": 1, 

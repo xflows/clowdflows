@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "", 
-      "static_image": "Load-ODT.png", 
+      "static_image": "Upload-icon.png", 
       "action": "load_corpus_from_csv", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 

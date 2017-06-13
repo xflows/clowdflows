@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Tokenizer for Slovene, Croatian and Serbian.", 
-      "static_image": "nlp.png", 
+      "static_image": "token.png", 
       "action": "nlp_reldi_tokenizer", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 

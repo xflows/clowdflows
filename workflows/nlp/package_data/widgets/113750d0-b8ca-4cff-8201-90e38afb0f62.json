@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "POS tagger and lemmatizer for Slovene, Croatian and Serbian.", 
-      "static_image": "nlp.png", 
+      "static_image": "stem.png", 
       "action": "nlp_reldi_lemmatizer", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -63,8 +63,8 @@
     "fields": {
       "widget": "113750d0-b8ca-4cff-8201-90e38afb0f62", 
       "name": "lemmas", 
-      "short_name": "lem", 
-      "description": "Lemmas", 
+      "short_name": "cor", 
+      "description": "List of lemmatized Lemmas", 
       "variable": "lemmas", 
       "order": 1, 
       "uid": "c86cf4f0-651c-40b5-aec1-4c9442351963"

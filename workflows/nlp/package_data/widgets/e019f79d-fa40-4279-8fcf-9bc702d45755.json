@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Get sentiment of documents in the corpus by adding the sentiment value of emojis in the document. Sentiment values are obtained from https://www.clarin.eu/blog/sentiment-emoji-clarinsi.", 
-      "static_image": "nlp.png", 
+      "static_image": "sentiment.png", 
       "action": "emoji_sentiment", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -46,8 +46,8 @@
     "fields": {
       "widget": "e019f79d-fa40-4279-8fcf-9bc702d45755", 
       "name": "Document sentiments", 
-      "short_name": "sen", 
-      "description": "List of documents sentiments", 
+      "short_name": "vec", 
+      "description": "Vector of documents sentiments", 
       "variable": "sentiments", 
       "order": 1, 
       "uid": "8653291c-d0d8-4569-ba1d-01d18c9618bd"

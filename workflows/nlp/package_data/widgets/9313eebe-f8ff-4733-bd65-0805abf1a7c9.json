@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Extract affixes from corpus", 
-      "static_image": "Load-ODT.png", 
+      "static_image": "affix.png", 
       "action": "affix_extractor", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -80,7 +80,7 @@
     "fields": {
       "widget": "9313eebe-f8ff-4733-bd65-0805abf1a7c9", 
       "name": "affixes", 
-      "short_name": "aff", 
+      "short_name": "cor", 
       "description": "List of affixes", 
       "variable": "affixes", 
       "order": 1, 

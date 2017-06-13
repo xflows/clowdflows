@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Collects all tweet we get with streaming into a dataset. Input is any Twitter streaming widget, output is a tweet corpus in the form of pandas dataframe with follwoing columns: 'id', 'text', 'user',  'created_at', 'lang'", 
-      "static_image": "display-tweets.png", 
+      "static_image": "collect_tweets.png", 
       "action": "tweet_collector", 
       "visualization_view": "", 
       "streaming_visualization_view": "streaming_collect_and_display_visualization", 
@@ -46,8 +46,8 @@
     "fields": {
       "widget": "3f0dd931-03b4-4784-958b-818edd281c2f", 
       "name": "Corpus of tweets", 
-      "short_name": "pd", 
-      "description": "Corpus of tweets", 
+      "short_name": "df", 
+      "description": "Corpus of tweets in the form of pandas dataframe", 
       "variable": "pd", 
       "order": 1, 
       "uid": "adcfaa9e-9448-400d-8139-46ada6d45f60"

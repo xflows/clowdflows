@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Select just one column from corpus in dataframe form", 
-      "static_image": "Load-ODT.png", 
+      "static_image": "select_attribute.png", 
       "action": "select_corpus_attribute", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -29,7 +29,7 @@
     "fields": {
       "widget": "1d2e12a0-3f5d-44b6-a3c5-c87e4eaf3a24", 
       "name": "Pandas dataframe", 
-      "short_name": "pd", 
+      "short_name": "df", 
       "default": "", 
       "description": "", 
       "required": true, 
@@ -62,8 +62,8 @@
     "model": "workflows.abstractoutput", 
     "fields": {
       "widget": "1d2e12a0-3f5d-44b6-a3c5-c87e4eaf3a24", 
-      "name": "Attribute", 
-      "short_name": "att", 
+      "name": "Column", 
+      "short_name": "cor", 
       "description": "One column from dataframe in a form of a list", 
       "variable": "attribute", 
       "order": 1, 

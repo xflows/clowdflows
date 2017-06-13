@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Remove punctuation from document.", 
-      "static_image": "nlp.png", 
+      "static_image": "no_punctuation.png", 
       "action": "remove_punctuation", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 

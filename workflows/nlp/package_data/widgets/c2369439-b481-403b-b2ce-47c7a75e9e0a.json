@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Remove stopwords from document.", 
-      "static_image": "nlp.png", 
+      "static_image": "stopwords.png", 
       "action": "remove_stopwords", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -68,6 +68,15 @@
       "variable": "corpus", 
       "order": 1, 
       "uid": "3000df96-69fd-42c9-b72d-7931d2379cd7"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovenian", 
+      "uid": "", 
+      "value": "sl", 
+      "abstract_input": "e4d94a4d-ce02-44ff-8d60-fe9a9e6c22c4"
     }
   }, 
   {

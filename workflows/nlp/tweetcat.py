@@ -134,16 +134,13 @@ def lang_mode(state, user_index, api, langid_lang, user_lang, seeds_searched=Fal
     hits = state['hits']
     foll = state['followers']
     fri = state['friends']
-    print(seeds[0])
     if hits == None:
       hits = search(seeds[0], api)
     for i, hit in enumerate(hits):
       if hit.author.screen_name not in user_index:
-        print('hit zanka', len(hits))
         if foll == None and fri == None:
           fetched_timeline = new_user_timeline(hit.author.screen_name, api, langid_lang)
         if foll == None and fri == None and (fetched_timeline is False or fetched_timeline is None):
-          print('hit false')
           if len(hits) == i +1:
             data = set_search_state(seeds=(seeds, 1), hits=(hits, i + 1))
           else:
@@ -156,17 +153,13 @@ def lang_mode(state, user_index, api, langid_lang, user_lang, seeds_searched=Fal
             user_index[hit.author.screen_name]=fetched_timeline[-1].id
             tweets.extend(write_tweets(fetched_timeline, user_lang))
             foll = followers(hit.author)
-            print('hit timeout')
-            print(foll !=None)
             data = set_search_state((seeds, 0), (hits, i), (foll, 0), (fri, 0))
             return (tweets, user_index, user_lang, data)
           if fri == None:
             for j, follower in enumerate(foll):
-              print('follower zanka', len(foll))
               if follower.screen_name not in user_index:
                 fetched_timeline = new_user_timeline(follower.screen_name, api, langid_lang)
                 if fetched_timeline is False or fetched_timeline is None:
-                  print('follower false')
                   data = set_search_state((seeds, 0), (hits, i), (foll, j + 1), (fri, 0))
                   return (tweets, user_index, user_lang, data)
                 else:
@@ -176,13 +169,11 @@ def lang_mode(state, user_index, api, langid_lang, user_lang, seeds_searched=Fal
                   tweets.extend(write_tweets(fetched_timeline, user_lang))
                   if j == len(foll) - 1:
                     fri = friends(hit.author)
-                  print('follower timeout')
                   data = set_search_state((seeds, 0), (hits, i), (foll, j + 1), (fri, 0))
                   return (tweets, user_index, user_lang, data)
             if fri == None:
               fri = friends(hit.author)
           for j, friend in enumerate(fri):
-            print('friend zanka', len(fri))
             if friend.screen_name not in user_index:
               fetched_timeline = new_user_timeline(friend.screen_name, api, langid_lang)
               if fetched_timeline is False or fetched_timeline is None:
@@ -194,15 +185,11 @@ def lang_mode(state, user_index, api, langid_lang, user_lang, seeds_searched=Fal
                 user_index[friend.screen_name]=fetched_timeline[-1].id
                 tweets.extend(write_tweets(fetched_timeline, user_lang))
                 data = set_search_state((seeds, 0), (hits, i), (foll, 0), (fri, j + 1))
-                print('friend')
                 return (tweets, user_index, user_lang, data)
           foll = None
-          fri = None
-          print('konc podzank')
-      
+          fri = None     
     data = set_search_state(seeds=(seeds, 1))
     return (tweets, user_index, user_lang, data)
-
   else:
     # iterating through all known users
     for screen_name,since_id in user_index.items():
@@ -221,7 +208,7 @@ class StdOutListener(StreamListener):
 
   def __init__(self):
     self.start_time = time()
-    self.limit = 20
+    self.limit = 1
     super(StdOutListener, self).__init__()
     self.tweets=[]
     self.tweetList = []
@@ -237,7 +224,6 @@ class StdOutListener(StreamListener):
 
 
   def on_error(self,status):
-    #print(datetime.now().isoformat()+'\tERROR 420, sleeping '+str(5)+'\n')
     sleep(5)
    
 

@@ -1076,12 +1076,12 @@ def affix_extractor(input_dict):
     affixes_tokens = []
     affix_type = input_dict['affix_type']
     affix_length = int(input_dict['affix_length'])
-    punct = '!"$%&()*+,-./:;<=>?[\]^_`{|}~'
+    punct = '#@!"$%&()*+,-./:;<=>?[\]^_`{|}~' + "'"
     for text in corpus:
         if affix_type == 'suffix':
-            affixes = " ".join([word[-affix_length:] if len(word) >= affix_length else word for word in text.split()])
+            affixes = " ".join([word[-affix_length:] for word in text.split() if len(word) >= affix_length])
         elif affix_type == 'prefix':
-            affixes = " ".join([word[0:affix_length] for word in text.split() if len(word) > affix_length])
+            affixes = " ".join([word[0:affix_length] for word in text.split() if len(word) >= affix_length])
         else:
             ngrams = []
             for i, character in enumerate(text[0:-affix_length - 1]):
@@ -1114,7 +1114,10 @@ def tweet_clean(input_dict):
     return {'corpus': cleaned_docs}
 
 
+
+
 def remove_stopwords(input_dict):
+    sl_stops = []
     lang = input_dict['lang']
     corpus = input_dict['corpus']
     cleaned_docs = []
@@ -1124,6 +1127,10 @@ def remove_stopwords(input_dict):
         stops = set(stopwords.words("english"))
     elif lang == 'pt':
         stops = set(stopwords.words("portuguese"))
+    elif lang == 'sl':
+        path = os.path.join('workflows', 'nlp', 'models', 'stopwords_slo.txt')
+        with open(path) as f:
+            stops = set([line.strip().decode('utf8').encode('utf8') for line in f])
     else:
         return corpus
     for doc in corpus:
@@ -1136,9 +1143,9 @@ def remove_punctuation(input_dict):
     corpus = input_dict['corpus']
     punctuation = '#@!"$%&()*+,-./:;<=>?[\]^_`{|}~' + "'"
     cleaned_docs = []
-    translate_table = dict((ord(char), None) for char in punctuation)   
     for doc in corpus:
-        doc = doc.translate(None, punctuation)
+        for p in punctuation:
+            doc = doc.replace(p, "")
         cleaned_docs.append(doc)
     return {'corpus': cleaned_docs}
 

@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Filter corpus widget takes corpus as an input. There are five basic filter queries:\r\n1. is equal query will only keep rows in dataset where value in a column matches the given phrase: \r\nexample: column_name == phrase\r\n2. is not equal query will only keep rows where value in a column does not match the given phrase:\r\nexample: column_name != phrase\r\n3. is larger query. Same as above, only different operator. Works only on columns with numeric values:\r\nexample: column_name > 1\r\n4. is smaller query. Same as above, only different operator.\r\nexample: column_name < 1\r\n5. is in query. Will return a row if a phrase is inside a text in the column. Works only on text columns\r\nexample: phrase in column_name  ", 
-      "static_image": "Load-ODT.png", 
+      "static_image": "filter_corpus.png", 
       "action": "filter_corpus", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 

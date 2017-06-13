@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "TfidfVectorizer from Scikit learn.", 
-      "static_image": "Load-ODT.png", 
+      "static_image": "matrix.png", 
       "action": "tfidf_vectorizer", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -199,11 +199,38 @@
     "fields": {
       "widget": "3515df45-45c1-4987-a056-c9fcf527b217", 
       "name": "TFIDF matrix", 
-      "short_name": "mat", 
+      "short_name": "vec", 
       "description": "Matrix of TFIDF vectors", 
       "variable": "tfidf", 
       "order": 1, 
       "uid": "04999ece-78ae-48fb-ab1d-8e6742324f6f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Word", 
+      "uid": "", 
+      "value": "word", 
+      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Character", 
+      "uid": "", 
+      "value": "char", 
+      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Word bound character", 
+      "uid": "", 
+      "value": "char_wb", 
+      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
     }
   }
 ]

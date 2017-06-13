@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "POS tagger and lemmatizer for Slovene, Croatian and Serbian.", 
-      "static_image": "nlp.png", 
+      "static_image": "tag_pos.png", 
       "action": "nlp_reldi_tagger", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -63,8 +63,8 @@
     "fields": {
       "widget": "0c278bb4-5fbb-4260-84ab-631faae74d87", 
       "name": "pos_tags", 
-      "short_name": "pos", 
-      "description": "POS tags", 
+      "short_name": "cor", 
+      "description": "List of document POS tags", 
       "variable": "pos_tags", 
       "order": 1, 
       "uid": "31eb10fb-6365-4aef-9bb5-85a10a518a2b"

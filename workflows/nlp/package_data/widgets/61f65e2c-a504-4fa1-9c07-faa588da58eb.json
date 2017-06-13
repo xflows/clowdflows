@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Diacritic restoration for Slovene, Croatian and Serbian.", 
-      "static_image": "nlp.png", 
+      "static_image": "diacritic.png", 
       "action": "nlp_diacritic_restoration", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 

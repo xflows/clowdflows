@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Can be used with tweet corpora. Removes or replaces, hashtags, mentions and url-s with HASHTAG, TWEETMENTION, HTTPURL tokens, respectively.", 
-      "static_image": "nlp.png", 
+      "static_image": "clean_tweets.png", 
       "action": "tweet_clean", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
