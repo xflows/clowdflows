@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "6717acfa-0875-45c4-b3d9-a9223b5e4457", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "glass.png", 
+      "action": "display_result", 
+      "visualization_view": "display_result", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 3, 
+      "name": "Display Result"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6717acfa-0875-45c4-b3d9-a9223b5e4457", 
+      "name": "Result", 
+      "short_name": "res", 
+      "default": "", 
+      "description": "Displays the result so that it is readable", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "result", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "a89fe4a7-7543-4abf-9e4f-783bcfa687c5"
+    }
+  }
+]

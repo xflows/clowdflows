@@ -494,11 +494,6 @@ def streaming_twitter(input_dict,widget,stream=None):
         access_token = input_dict['at']
         access_token_secret = input_dict['as']
 
-    consumer_key = "vYiHhOzqVv4fy1ajJm9MumqKj"
-    consumer_secret = "Lb1GZexj06NTSFH1JnOLvd0Jm96ontvVFY0Cs3bILulfk2dRtN"
-    access_token = "3384286005-ws1tw8lbWjeQVUaQYkCq5a7Qa1s4gmWTl9yllmZ"
-    access_token_secret = "r1o0O4xj5Bek9AnUsyOdG9bHiAR4D5LdqzAmT1Il5vsZV"
-
     auth = tweepy2.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
 

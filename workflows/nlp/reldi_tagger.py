@@ -118,7 +118,6 @@ def tag_main(data):
         else:
             tagged_sents = " ".join([lemma for sentence in tagged_sents for word, pos, lemma in sentence if word != ' '])
         tagged_docs.append(tagged_sents)
-    print('done')
     return tagged_docs
         
 def load_models(lang):

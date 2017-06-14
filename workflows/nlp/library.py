@@ -770,7 +770,6 @@ def nlp_reldi_tokenizer(input_dict):
 def split_list(seq, size):
     newseq = []
     splitsize = 1.0 / size * len(seq)
-    print(splitsize)
     for i in range(size):
         newseq.append(seq[int(round(i * splitsize)):int(round((i + 1) * splitsize))])
     return newseq
@@ -871,12 +870,6 @@ def streaming_tweetcat(input_dict, widget, stream=None):
         access_token = input_dict['at']
         access_token_secret = input_dict['as']
 
-    consumer_key = "vYiHhOzqVv4fy1ajJm9MumqKj"
-    consumer_secret = "Lb1GZexj06NTSFH1JnOLvd0Jm96ontvVFY0Cs3bILulfk2dRtN"
-    access_token = "3384286005-ws1tw8lbWjeQVUaQYkCq5a7Qa1s4gmWTl9yllmZ"
-    access_token_secret = "r1o0O4xj5Bek9AnUsyOdG9bHiAR4D5LdqzAmT1Il5vsZV"
-    
-
     langid_lang= [code.strip() for code in input_dict['lc'].split(',')]
     MODE = input_dict['mod']
 
@@ -900,6 +893,7 @@ def streaming_tweetcat(input_dict, widget, stream=None):
             data = {}
             swd.state = data
             swd.save()
+
         if MODE=='LANG':
             seedw = [e.decode('utf8').strip() for e in input_dict['sd'].split(',')]
             user_index = {}
@@ -917,17 +911,13 @@ def streaming_tweetcat(input_dict, widget, stream=None):
                 state = data['state']
             if data.has_key('user_lang'):
                 user_lang = data['user_lang']
-
-            
             if state['seeds'] == None:
                 tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang, True)
                 state['seeds'] = seedw
             else:
                 tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang)
-            
             swd.state = {'authors': user_index, 'state': state, 'user_lang': user_lang}
             swd.save()
-            print(state['seeds'][0])
 
         elif MODE=='GEO':  
             timeout = time() + 20 * 1    
@@ -962,7 +952,7 @@ def load_corpus_from_csv(input_dict):
     separator = str(input_dict['separator'])
     if separator.startswith('\\'):
         separator = '\t'
-    data_iterator = pd.read_csv(input_dict['file'], encoding="utf-8", delimiter=separator, chunksize=1000, index_col=False)
+    data_iterator = pd.read_csv(input_dict['file'], delimiter=separator, chunksize=1000, index_col=0)
     df_data = pd.DataFrame()
     for sub_data in data_iterator:
         df_data = pd.concat([df_data, sub_data], axis=0)
@@ -978,6 +968,7 @@ def select_corpus_attribute(input_dict):
     column = df[attribute].tolist()
     column = [unicode(doc, 'utf-8') for doc in column]
     return {'attribute': column}
+
 
 def tfidf_tokenizer(text):
     #hopefuly this sequence is not used in any document more than 3 times or tokenization will go horribly wrong :). 
@@ -1006,6 +997,7 @@ def tfidf_vectorizer(input_dict):
     tfidf_vec = TfidfVectorizer(tokenizer=tfidf_tokenizer, min_df=min_df, max_df=max_df, lowercase=lowercase, max_features=max_features, smooth_idf=smooth_idf, sublinear_tf=sublinear_tf, ngram_range=(min_ngram, max_ngram), analyzer=analyzer)
     
     return {'tfidf': {'vectorizer': tfidf_vec, 'data': corpus}}
+
 
 class Transformer(BaseEstimator, TransformerMixin):
     def __init__(self, index):
@@ -1092,8 +1084,6 @@ def tweet_clean(input_dict):
         doc = re.sub(url_regex, url_replace_token, doc)
         cleaned_docs.append(doc)
     return {'corpus': cleaned_docs}
-
-
 
 
 def remove_stopwords(input_dict):
@@ -1223,6 +1213,9 @@ def filter_corpus(input_dict):
 def corpus_to_csv(input_dict):
     return {}
 
+
+def display_result(input_dict):
+    return {}
 
 
         

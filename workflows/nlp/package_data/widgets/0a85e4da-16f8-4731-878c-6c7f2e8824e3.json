@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Display statistics for specific corpus attribute or annotation. Widget takes a list of documents as input and calculates token frequencies and collocations.", 
-      "static_image": "", 
+      "static_image": "stats.png", 
       "action": "display_corpus_statistic", 
       "visualization_view": "display_corpus_statistic", 
       "streaming_visualization_view": "", 
@@ -37,7 +37,7 @@
       "parameter_type": "select", 
       "variable": "n_gram", 
       "parameter": true, 
-      "order": 4, 
+      "order": 3, 
       "uid": "48c5c9f0-2302-43d0-9b46-f689d0f5f063"
     }
   }, 

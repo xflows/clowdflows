@@ -8,6 +8,7 @@ import nlp
 import nltk
 from nltk.collocations import *
 import pandas
+import numpy as np
 
 def definition_sentences_viewer(request, input_dict, output_dict, widget):
     """
@@ -143,4 +144,10 @@ def corpus_to_csv(request,input_dict,output_dict,widget):
     filename = str(request.user.id)+'/'+str(widget.id)+'.csv'
     output_dict['filename'] = filename
     return render(request, 'visualizations/string_to_file.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
+
+
+def display_result(request,input_dict,output_dict,widget):
+    score = input_dict['result']
+    result = {'accuracy': str(score.mean()), 'std': str(score.std())}
+    return render(request, 'visualizations/display_result.html',{'widget':widget,'result':result})
 
