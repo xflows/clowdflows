@@ -1,8 +1,4 @@
-#!/usr/bin/python
 #-*-coding:utf8-*-
-
-import warnings
-warnings.filterwarnings("ignore")
 
 import sys
 import os
@@ -16,16 +12,19 @@ from sklearn.pipeline import Pipeline
 import re
 import codecs
 from sklearn.tree import DecisionTreeClassifier
+import sys
+import warnings
+warnings.filterwarnings("ignore")
 
-def tag_sent(sent):
+def tag_sent(sent, trie, tagger):
     return tagger.tag(extract_features_msd(sent, trie))
 
 
-def tag_lemmatise_sent(sent):
-    return [(a, get_lemma(b, a)) for a, b in zip(tag_sent(sent), sent)]
+def tag_lemmatise_sent(sent, trie, tagger, lemmatiser):
+    return [(a, get_lemma(b, a, lemmatiser)) for a, b in zip(tag_sent(sent, trie, tagger), sent)]
 
 
-def get_lemma(token, msd):
+def get_lemma(token, msd, lemmatiser):
     lexicon = lemmatiser['lexicon']
     key = token.lower() + '_' + msd
     if key in lexicon:
@@ -34,10 +33,10 @@ def get_lemma(token, msd):
         for i in range(len(msd) - 1):
             for key in lexicon.keys(key[:-(i + 1)]):
                 return lexicon[key][0].decode('utf8')
-    return guess_lemma(token, msd)
+    return guess_lemma(token, msd, lemmatiser)
 
 
-def guess_lemma(token, msd):
+def guess_lemma(token, msd, lemmatiser):
     if len(token) < 3:
         return apply_rule(token, "(0,'',0,'')", msd)
     model = lemmatiser['model']
@@ -71,54 +70,65 @@ def apply_rule(token, rule, msd):
     return lemma
 
 
-def tag_main(tokens, lang, lemmatiser=False):
-    load_models(lang)
-    tagged_sents = []
-    for sent in tokens:
-        sent = [token[0] for token in sent]
-        tag_counter = 0
-        if not lemmatiser:
-            tags = tag_sent(sent)
-            tags_proper = []
-            for token in sent:
-                if ' ' in token:
-                    if len(token) == 1:
-                        tags_proper.append(' ')
+def tag_main(data):
+    reload(sys)  # Reload does the trick!
+    sys.setdefaultencoding('UTF8')
+    docs, lang, lemmatize = data
+    trie, tagger, lemmatiser = load_models(lang)
+    tagged_docs=[]
+    for tokens in docs:
+        tagged_sents = []
+        for s in tokens:
+            sent = []
+            for token in s:
+              try:
+                sent.append(token[0].decode('utf'))
+              except:
+                sent.append(' ')
+            tag_counter = 0
+            if not lemmatize:
+                tags = tag_sent(sent, trie, tagger)
+
+                tags_proper = []
+                for token in sent:
+                    if ' ' in token:
+                        if len(token) == 1:
+                            tags_proper.append(' ')
+                        else:
+                            tags_proper.append(token)
                     else:
-                        tags_proper.append(token)
-                else:
-                    tags_proper.append(tags[tag_counter])
-                tag_counter += 1
-            tagged_sents.append(zip(sent, tags_proper))
+                        tags_proper.append(tags[tag_counter])
+                    tag_counter += 1
+                tagged_sents.append(zip(sent, tags_proper))
+            else:
+                tags = tag_lemmatise_sent(sent, trie, tagger, lemmatiser)
+                tags_proper = []
+                for token in sent:
+                    if ' ' in token:
+                        if len(token) == 1:
+                            tags_proper.append((' ',' ', ' '))
+                        else:
+                            tags_proper.append((token, token, token))
+                    else:
+                        tags_proper.append((token, tags[tag_counter][0], tags[tag_counter][1]))
+                    tag_counter += 1
+                tagged_sents.append(tags_proper)
+        if not lemmatize:
+            tagged_sents = " ".join([pos for sentence in tagged_sents for word, pos in sentence if word != ' '])
         else:
-            tags = tag_lemmatise_sent(sent)
-            tags_proper = []
-            for token in sent:
-                if ' ' in token:
-                    if len(token) == 1:
-                        tags_proper.append((' ',' ', ' '))
-                    else:
-                        tags_proper.append((token, token, token))
-                else:
-                    tags_proper.append((token, tags[tag_counter][0], tags[tag_counter][1]))
-                tag_counter += 1
-            tagged_sents.append(tags_proper)
-    if not lemmatiser:
-        tagged_sents = " ".join([pos for sentence in tagged_sents for word, pos in sentence if word != ' '])
-    else:
-        tagged_sents = " ".join([lemma for sentence in tagged_sents for word, pos, lemma in sentence if word != ' '])
-    return tagged_sents
+            tagged_sents = " ".join([lemma for sentence in tagged_sents for word, pos, lemma in sentence if word != ' '])
+        tagged_docs.append(tagged_sents)
+    print('done')
+    return tagged_docs
         
 def load_models(lang):
-    global trie
-    global tagger
-    global lemmatiser
     reldir = os.path.join('workflows', 'nlp', 'models', 'reldi_tagger')
     trie = pickle.load(open(os.path.join(reldir, lang + '.marisa'), 'rb'))
     tagger = pycrfsuite.Tagger()
     tagger.open(os.path.join(reldir, lang + '.msd.model'))
     lemmatiser = {'model': pickle.load(open(os.path.join(reldir, lang + '.lexicon.guesser'), 'rb')),
                   'lexicon': pickle.load(open(os.path.join(reldir, lang + '.lexicon'), 'rb'))}
+    return (trie, tagger, lemmatiser)
 				  
 
 #train lemmatizer				  

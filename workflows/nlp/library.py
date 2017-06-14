@@ -14,6 +14,7 @@ from time import sleep,time
 import pandas as pd
 import multiprocessing
 from functools import partial
+from itertools import repeat
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import FeatureUnion
 from sklearn import pipeline
@@ -737,9 +738,6 @@ def definition_sentences2(input_dict):
     return {}
 
 
-
-from reldi.restorer import DiacriticRestorer
-from reldi.tagger import Tagger as reldiTagger
 from reldi.parser import Parser
 from redi import restore_diacritic
 from reldi_tokenizer import generate_tokenizer, sentence_split, sentence_split_nonstd, tokenize
@@ -769,25 +767,26 @@ def nlp_reldi_tokenizer(input_dict):
     return {'tokens': all_tokenized_docs}
 
 
+def split_list(seq, size):
+    newseq = []
+    splitsize = 1.0 / size * len(seq)
+    print(splitsize)
+    for i in range(size):
+        newseq.append(seq[int(round(i * splitsize)):int(round((i + 1) * splitsize))])
+    return newseq
+
+
 def nlp_reldi_tagger(input_dict):
     reldir = os.path.join('workflows', 'nlp', 'models', 'reldi_tagger')
     tokens = input_dict['tokens']
     lang = input_dict['lang']
-    all_tagged_docs = []
-    #pos_tags = tag_main(tokens, lang)
-
-    pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
-
-    #parallel for document in tokens:
-    pos_tags=pool.map(
-        partial(tag_main,
-                lang=lang),
-        tokens,
-        1 #chunksize, constructs list of this size which are passed to pool workers
-    )
-    pool.close()
-    pool.join()
-
+    lemmatize = False
+    processes=multiprocessing.cpu_count()
+    tokens = split_list(tokens, processes)
+    
+    pool = multiprocessing.Pool()
+    results = pool.map(tag_main, zip(tokens, repeat(lang), repeat(lemmatize)))
+    pos_tags = [tweet for subseq in results for tweet in subseq]
     return {'pos_tags': pos_tags}
 
 
@@ -795,21 +794,13 @@ def nlp_reldi_lemmatizer(input_dict):
     reldir = os.path.join('workflows', 'nlp', 'models', 'reldi_tagger')
     tokens = input_dict['tokens']
     lang = input_dict['lang']
-    all_lemmatized_docs = []
-    #lemmas = tag_main(tokens, lang, True)
-
-    pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
-
-    #parallel for document in tokens:
-    lemmas=pool.map(
-        partial(tag_main,
-                lang=lang,
-                lemmatiser=True),
-        tokens,
-        1 #chunksize, constructs list of this size which are passed to pool workers
-    )
-    pool.close()
-    pool.join()
+    lemmatize = True
+    processes=multiprocessing.cpu_count()
+    tokens = split_list(tokens, processes)
+    
+    pool = multiprocessing.Pool()
+    results = pool.map(tag_main, zip(tokens, repeat(lang), repeat(lemmatize)))
+    lemmas = [tweet for subseq in results for tweet in subseq]
     return {'lemmas': lemmas}
 
 
@@ -864,7 +855,9 @@ def nlp_reldi_parser(input_dict):
 
 def streaming_tweetcat(input_dict, widget, stream=None):
     from streams.models import StreamWidgetData
+    from streams.models import StreamWidgetState
     from streams.models import HaltStream
+    from streams.models import Stream
 
     # you can obtain the four values required below by registering your app at https://apps.twitter.com
     if input_dict['cfauth'] == "true":
@@ -898,92 +891,78 @@ def streaming_tweetcat(input_dict, widget, stream=None):
 
     if stream is not None:
         try:
-            swd = StreamWidgetData.objects.get(stream=stream,widget=widget)
-            data = swd.value
+            swd = StreamWidgetState.objects.get(stream=stream,widget=widget)
+            data = swd.state
         except Exception as e:
-            swd = StreamWidgetData()
+            swd = StreamWidgetState()
             swd.stream = stream
             swd.widget = widget
             data = {}
-            swd.value = data
+            swd.state = data
             swd.save()
+        if MODE=='LANG':
+            seedw = [e.decode('utf8').strip() for e in input_dict['sd'].split(',')]
+            user_index = {}
+            user_lang = {}
+            state = {'seeds': seedw, 'hits': None, 'followers': None, 'friends': None}
 
-    if MODE=='LANG':
-        seedw = [e.decode('utf8').strip() for e in input_dict['sd'].split(',')]
-        user_index = {}
-        user_lang = {}
-        state = {'seeds': seedw, 'hits': None, 'followers': None, 'friends': None}
+            try:
+                ltw = tweepy.API(auth_handler=auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, retry_count=3, retry_delay=10)
+            except Exception as e:
+                raise HaltStream("The Twitter API returned an error: " + str(e))
 
-        try:
-            ltw = tweepy.API(auth_handler=auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True, retry_count=3, retry_delay=10)
-        except Exception as e:
-            raise HaltStream("The Twitter API returned an error: " + str(e))
-
-        if stream is not None:
             if data.has_key('authors'):
                 user_index = data['authors']
             if data.has_key('state'):
                 state = data['state']
             if data.has_key('user_lang'):
                 user_lang = data['user_lang']
-        
-        if state['seeds'] == None:
-            tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang, True)
-            state['seeds'] = seedw
-        else:
-            tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang)
-        print('hits ', state['hits'] is None)
-        print('followers ', state['followers'] is None)
-        print('friends ', state['friends'] is None)
-        if stream is not None:
-            swd.value = {'authors': user_index, 'state': state, 'user_lang': user_lang}
+
+            
+            if state['seeds'] == None:
+                tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang, True)
+                state['seeds'] = seedw
+            else:
+                tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang)
+            
+            swd.state = {'authors': user_index, 'state': state, 'user_lang': user_lang}
             swd.save()
+            print(state['seeds'][0])
 
-    elif MODE=='GEO':  
-        timeout = time() + 20 * 1    
-        l=StdOutListener()
-        auth=OAuthHandler(consumer_key, consumer_secret)
-        auth.set_access_token(access_token, access_token_secret)
-        stream=tweepy.Stream(auth,l)
-        stream.filter(locations=[MINLON,MINLAT,MAXLON,MAXLAT])
-        tweets = l.tweetList
+        elif MODE=='GEO':  
+            timeout = time() + 20 * 1    
+            l=StdOutListener()
+            auth=OAuthHandler(consumer_key, consumer_secret)
+            auth.set_access_token(access_token, access_token_secret)
+            stream=tweepy.Stream(auth,l)
+            stream.filter(locations=[MINLON,MINLAT,MAXLON,MAXLAT])
+            tweets = l.tweetList
 
-    output_dict = {}
-    output_dict['ltw'] = tweets
-    return output_dict
+        new_tweets = []
+        for tweet in tweets:
+            new_tweets.append(StreamWidgetData(stream=stream,widget=widget,value=tweet))
+        StreamWidgetData.objects.bulk_create(new_tweets)
+        return {}
 
-
-def tweet_collector(input_dict,widget,stream=None):
-    from streams.models import Stream
-    from streams.models import StreamWidgetData
-    if stream is None:
+    else:
         stream = Stream.objects.filter(workflow__widgets=widget)[0]
         tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
         tweets = []
+        if len(tweet_data) == 0:
+            raise Exception('It appears no data was collected yet. Try it again in couple of minutes. Also, make sure stream is activated - if not, go to "your workflows" and activate it')
         for tweet in tweet_data:
             tweet = tweet.value
             tweets.append(tweet)
         df = pd.DataFrame(tweets)
-        return {'pd': df}
-    else:
-        new_tweets = []
-        for tweet in input_dict['ltw']:
-            new_tweets.append(StreamWidgetData(stream=stream,widget=widget,value=tweet))
-        StreamWidgetData.objects.bulk_create(new_tweets)
-        tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
-        tweets = []
-        for tweet in tweet_data:
-            tweet = tweet.value
-            tweets.append(tweet)
-        df = pd.DataFrame(tweets)
-        return {'pd': df}
+        return {'df': df}
 
 
 def load_corpus_from_csv(input_dict):
     import gc
-    separator = input_dict['separator']
-    print(separator)
-    data_iterator = pd.read_csv(input_dict['file'], encoding="utf-8", delimiter=separator, chunksize=1000)
+    separator = str(input_dict['separator'])
+    if separator.startswith('\\'):
+        separator = '\t'
+    data_iterator = pd.read_csv(input_dict['file'], encoding="utf-8", delimiter=separator, chunksize=1000, index_col=False)
     df_data = pd.DataFrame()
     for sub_data in data_iterator:
         df_data = pd.concat([df_data, sub_data], axis=0)
@@ -996,8 +975,9 @@ def load_corpus_from_csv(input_dict):
 def select_corpus_attribute(input_dict):
     df = input_dict['dataframe']
     attribute = input_dict['attribute']
-    column = df[attribute]
-    return {'attribute': column.tolist()}
+    column = df[attribute].tolist()
+    column = [unicode(doc, 'utf-8') for doc in column]
+    return {'attribute': column}
 
 def tfidf_tokenizer(text):
     #hopefuly this sequence is not used in any document more than 3 times or tokenization will go horribly wrong :). 
@@ -1239,6 +1219,9 @@ def filter_corpus(input_dict):
         value, column_name = query[0].strip(), query[1].strip()
         corpus = corpus[corpus[column_name].isin([value])]
     return {'dataframe': corpus}
+
+def corpus_to_csv(input_dict):
+    return {}
 
 
 

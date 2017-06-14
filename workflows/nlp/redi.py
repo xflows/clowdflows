@@ -12,10 +12,8 @@ lm_lambda=0.8
 def get_uppers(token_list):
   uppers=[]
   for token in token_list:
-    print(token)
     uppers.append([])
     for index,char in enumerate(token):
-      print(char)
       if char.isupper():
         uppers[-1].append(index)
   return uppers

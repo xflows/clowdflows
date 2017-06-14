@@ -7,6 +7,7 @@ from django.shortcuts import render
 import nlp
 import nltk
 from nltk.collocations import *
+import pandas
 
 def definition_sentences_viewer(request, input_dict, output_dict, widget):
     """
@@ -97,8 +98,6 @@ def display_corpus_statistic(request, input_dict, output_dict, widget, narrow_do
         result_list = sorted(result_list, key=lambda x: x[1], reverse=True)
         if len(result_list) > 100:
             result_list = result_list[:100]
-        print(result_list)
-
     else:
         all_annotations = []
         for doc in corpus:
@@ -132,4 +131,16 @@ def display_corpus_statistic(request, input_dict, output_dict, widget, narrow_do
         measure = 'PMI score'
 
     return render(request, 'visualizations/corpus_statistics.html', {'widget': widget, 'data': [result_list, title, measure], 'narrow_doc': narrow_doc})
+
+
+def corpus_to_csv(request,input_dict,output_dict,widget):
+    from mothra.settings import MEDIA_ROOT
+    from workflows.helpers import ensure_dir
+    destination = MEDIA_ROOT+'/'+str(request.user.id)+'/'+str(widget.id)+'.csv'
+    ensure_dir(destination)
+    df = input_dict['df']
+    df.to_csv(destination, encoding='utf-8', sep=',')
+    filename = str(request.user.id)+'/'+str(widget.id)+'.csv'
+    output_dict['filename'] = filename
+    return render(request, 'visualizations/string_to_file.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
 

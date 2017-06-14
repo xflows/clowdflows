@@ -30,7 +30,7 @@
       "widget": "4f8745f5-8a11-4311-883b-eb9e19302ef9", 
       "name": "Query", 
       "short_name": "que", 
-      "default": ",", 
+      "default": "", 
       "description": "Define a query, click help to see how", 
       "required": false, 
       "multi": false, 

@@ -1,0 +1,44 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "9365c1c2-33f2-4193-bf2f-bcda064c17c2", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Downloads a corpus in the csv form from the ClowdFlows server.", 
+      "static_image": "1688041475.png", 
+      "action": "corpus_to_csv", 
+      "visualization_view": "corpus_to_csv", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 4, 
+      "name": "Corpus to CSV"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "9365c1c2-33f2-4193-bf2f-bcda064c17c2", 
+      "name": "Dataframe", 
+      "short_name": "df", 
+      "default": "", 
+      "description": "Corpus in pandas dataframe form", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "df", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "bd5e402d-a0a6-4dd2-9c04-cee861d022fb"
+    }
+  }
+]

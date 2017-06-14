@@ -1,5 +1,6 @@
 from django.core.management.base import NoArgsCommand
 from streams.models import *
+from workflows import library
 
 class Command(NoArgsCommand):
     help = 'check for streams that need to be executed and execute them'
@@ -24,16 +25,38 @@ class Command(NoArgsCommand):
                     stream.save()
                     self.stdout.write(u"Executing "+unicode(stream)+"...")
                     self.stdout.flush()
-                    try:
-                        stream.execute()
-                    except:
-                        import traceback
-                        self.stdout.write("\n ERROR in executing stream:\n")
-                        traceback.print_exc(file=self.stdout)
+                    
+                    widgets = stream.workflow.widgets.filter(abstract_widget__is_streaming=True)
+                    outputs = {}
+                    for w in widgets:
+                        print(w)
+                        input_dict = {}
+                        output_dict = {}
+                        finish = True
+                        try:
+                            for i in w.inputs.all():
+                                #gremo pogledat ce obstaja povezava in ce obstaja gremo value prebrat iz outputa
+                                if not i.parameter:
+                                    if i.connections.count() > 0:
+                                        #preberemo value iz output_dicta
+                                        i.value = outputs[i.connections.all()[0].output.pk][1]
+                                    else:
+                                        i.value = None
+                                if i.multi_id == 0:
+                                    input_dict[i.variable]=i.value
+                                else:
+                                    if not i.variable in input_dict:
+                                        input_dict[i.variable]=[]
+                                    if not i.value==None:
+                                        input_dict[i.variable].append(i.value)
+                            
+                            function_to_call = getattr(workflows.library,w.abstract_widget.action)
+                            function_to_call(input_dict,w,stream)                         
+                        except:
+                            print('something went wrong')
+                            continue    
                     self.stdout.write("done!\n")
                     self.stdout.flush()
-                    #print stream.execute()
             time.sleep(1)
-            #self.stdout.write(".")
-            #self.stdout.flush()
+            
 

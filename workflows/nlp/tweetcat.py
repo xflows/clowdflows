@@ -208,7 +208,7 @@ class StdOutListener(StreamListener):
 
   def __init__(self):
     self.start_time = time()
-    self.limit = 1
+    self.limit = 5
     super(StdOutListener, self).__init__()
     self.tweets=[]
     self.tweetList = []

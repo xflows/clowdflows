@@ -14,7 +14,7 @@
       "static_image": "twitter.png", 
       "action": "streaming_tweetcat", 
       "visualization_view": "", 
-      "streaming_visualization_view": "", 
+      "streaming_visualization_view": "streaming_collect_and_display_visualization", 
       "post_interact_action": "", 
       "wsdl_method": "", 
       "wsdl": "", 
@@ -182,9 +182,9 @@
     "fields": {
       "widget": "74421454-58ad-4dad-bac9-e1a78d147be6", 
       "name": "List of tweets", 
-      "short_name": "ltw", 
-      "description": "A list of Tweets.", 
-      "variable": "ltw", 
+      "short_name": "df", 
+      "description": "Corpus of Tweets in the form of pandas dataframe", 
+      "variable": "df", 
       "order": 1, 
       "uid": "3b9e6d5d-5100-40a7-a164-29de28647fcf"
     }
