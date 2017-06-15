@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "5524d708-aa5f-416e-b60f-2ece998205e0", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Concatenate corpora in dataframe from. Example:\r\n\r\nCorpora 1:\r\nColumn1 Column2\r\nA            B\r\n\r\nCorpora 2:\r\nColumn1 Column2\r\nC            D\r\n\r\nConcatenated corpora:\r\nColumn1 Column2\r\nA            B\r\nC            D\r\n\r\n", 
+      "static_image": "", 
+      "action": "concatenate_corpora", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Concatenate Corpora"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "5524d708-aa5f-416e-b60f-2ece998205e0", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Corpus column", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "91eb9495-418a-4327-abc6-086b73632aca"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "5524d708-aa5f-416e-b60f-2ece998205e0", 
+      "name": "Dataframe", 
+      "short_name": "df", 
+      "description": "Pandas dataframe", 
+      "variable": "df", 
+      "order": 1, 
+      "uid": "962e96e3-404c-40e9-a9b4-6a3d328b013f"
+    }
+  }
+]

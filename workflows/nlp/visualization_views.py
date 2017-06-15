@@ -85,14 +85,14 @@ def display_corpus_statistic(request, input_dict, output_dict, widget, narrow_do
                         annotation_dict[combo] = annotation_dict[combo] + 1
                     else:
                         annotation_dict[combo] = 1
-            title = "N-gram"
-            measure = 'Frequency'
+        title = "N-gram"
+        measure = 'Frequency'
         
         allAnnotations = float(allAnnotations)
         for pos, number in annotation_dict.items():
             try:
                 pos = pos.encode('utf8')
-                result_list.append((pos, "{0:.4f}".format(float(number)/allAnnotations)))
+                result_list.append((pos, number, "{0:.4f}".format(float(number)/allAnnotations)))
             except:
                 continue
 

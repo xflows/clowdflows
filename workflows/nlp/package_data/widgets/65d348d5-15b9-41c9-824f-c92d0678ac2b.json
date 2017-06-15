@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "65d348d5-15b9-41c9-824f-c92d0678ac2b", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Join columns into pandas dataframe", 
+      "static_image": "union.png", 
+      "action": "build_dataframe_from_columns", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Build Dataframe From Columns"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "65d348d5-15b9-41c9-824f-c92d0678ac2b", 
+      "name": "Corpus", 
+      "short_name": "cor", 
+      "default": "", 
+      "description": "Corpus column", 
+      "required": true, 
+      "multi": true, 
+      "parameter_type": null, 
+      "variable": "corpus", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "de0b3c73-a4ec-4785-b984-765a2c4f7cc3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "65d348d5-15b9-41c9-824f-c92d0678ac2b", 
+      "name": "Columns name", 
+      "short_name": "nam", 
+      "default": "", 
+      "description": "List of column names. Should be inputed as a list of strings separated by comma, with the same length as there are number of columns. Order of strings should match the order of column inputs. By default columns are marked as 'column_1', 'column_2' ...", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "names", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "e1d867d1-9086-4989-a0fa-928da81b567b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "65d348d5-15b9-41c9-824f-c92d0678ac2b", 
+      "name": "Dataframe", 
+      "short_name": "df", 
+      "description": "Pandas dataframe", 
+      "variable": "df", 
+      "order": 1, 
+      "uid": "9d563e11-e68e-4eb2-9f54-1b5bfd17ce66"
+    }
+  }
+]

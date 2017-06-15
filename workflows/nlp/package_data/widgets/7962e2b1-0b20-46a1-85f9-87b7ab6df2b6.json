@@ -10,7 +10,7 @@
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
-      "description": "Feature union from scikit learn. Combine different types of features", 
+      "description": "Feature union from scikit learn. Combine different types of features.", 
       "static_image": "union.png", 
       "action": "feature_union", 
       "visualization_view": "", 

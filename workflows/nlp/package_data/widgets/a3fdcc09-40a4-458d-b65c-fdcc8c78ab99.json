@@ -1,0 +1,73 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "a3fdcc09-40a4-458d-b65c-fdcc8c78ab99", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Group dataframe by a specified column in the dataframe. Columns get concatenated with space. Example transformation:\r\n\r\ninput dataframe:\r\n'author'    'text'\r\nJohn         text1\r\nEmily        text2\r\nJohn         text3\r\n\r\noutput dataframe grouped by author:\r\n'author'    'text'\r\nJohn         text1 text3\r\nEmily        text2", 
+      "static_image": "", 
+      "action": "group_by_column", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Group by Column"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a3fdcc09-40a4-458d-b65c-fdcc8c78ab99", 
+      "name": "Group by column:", 
+      "short_name": "col", 
+      "default": "", 
+      "description": "Choose the column to group the dataframe by", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "column", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "1a32c07a-913e-4a0f-a088-297ecd8e0585"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "a3fdcc09-40a4-458d-b65c-fdcc8c78ab99", 
+      "name": "Corpus", 
+      "short_name": "df", 
+      "default": "", 
+      "description": "Corpus in a dataframe form", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "df", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "4a7fab0f-8c0a-48bd-b232-fb922b6fab58"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "a3fdcc09-40a4-458d-b65c-fdcc8c78ab99", 
+      "name": "Corpus", 
+      "short_name": "df", 
+      "description": "Corpus grouped by a chosen column", 
+      "variable": "df", 
+      "order": 1, 
+      "uid": "abb2fc5a-394a-4409-b833-f201fb9d83f9"
+    }
+  }
+]

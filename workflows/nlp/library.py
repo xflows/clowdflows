@@ -1010,7 +1010,7 @@ class Transformer(BaseEstimator, TransformerMixin):
 
 def feature_union(input_dict):
     y = input_dict['y']
-    weights = input_dict['weights'].split(',')
+    weights = [float(weight) for weight in input_dict['weights'].split(',')]
     vec_and_data = input_dict['features']
     features = []
     dataset = []
@@ -1028,7 +1028,6 @@ def feature_union(input_dict):
 
     weights_dict = {}
     if len(weights) > 1 and len(weights) == len(features):
-        weights = [float(weight) for weight in input_dict['weights'].split(',')]
         for i in range(len(weights)):
             weights_dict[features[i][0]] = weights[i]
     else:
@@ -1207,7 +1206,7 @@ def filter_corpus(input_dict):
     elif 'in' in query:
         query = query.split(' in ', 1)
         value, column_name = query[0].strip(), query[1].strip()
-        corpus = corpus[corpus[column_name].isin([value])]
+        corpus = corpus[corpus[column_name].str.contains(value)]
     return {'dataframe': corpus}
 
 def corpus_to_csv(input_dict):
@@ -1216,6 +1215,52 @@ def corpus_to_csv(input_dict):
 
 def display_result(input_dict):
     return {}
+
+
+def build_dataframe_from_columns(input_dict):
+    columns = input_dict['corpus']
+    names = [str(name).strip() for name in input_dict['names'].split(',')]
+    if len(names) != len(columns):
+        names = ['Column_' + str(i+1) for i in range(len(columns))]
+    df = pd.DataFrame(columns)
+    df = df.transpose()
+    df.columns = names
+    return {'df':df}
+
+
+def group_by_column(input_dict):
+    chosen_column = input_dict['column']
+    df = input_dict['df']
+    columns = df.columns.tolist()
+    #print(columns)
+    columns.remove(chosen_column)
+    group_dict = {}
+    for index, row in df.iterrows():
+        if row[chosen_column] not in group_dict:
+            chosen_column_dict = {}
+            for column in columns:
+                chosen_column_dict[column] = [row[column]]
+        else:
+            chosen_column_dict = group_dict[row[chosen_column]]
+            for column in columns:
+                chosen_column_dict[column].append(row[column])
+        group_dict[row[chosen_column]] = chosen_column_dict 
+    df_list = []
+    for key, value in group_dict.items():
+        end_dict = {}
+        end_dict[chosen_column] = key
+        for column in columns:
+            end_dict[column] = " ".join([str(x) for x in value[column]]).replace('\n', ' ')
+        df_list.append(end_dict)
+    df_grouped = pd.DataFrame(df_list)
+    return {'df':df_grouped}   
+     
+
+def concatenate_corpora(input_dict):
+    dfs = input_dict['df']
+    return {'df': pd.concat(dfs)}
+
+
 
 
         
