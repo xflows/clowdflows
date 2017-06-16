@@ -1010,7 +1010,8 @@ class Transformer(BaseEstimator, TransformerMixin):
 
 def feature_union(input_dict):
     y = input_dict['y']
-    weights = [float(weight) for weight in input_dict['weights'].split(',')]
+    weights = input_dict['weights'].split(',')
+    weights = [float(weight) for weight in weights if len(weights) > 1]
     vec_and_data = input_dict['features']
     features = []
     dataset = []
@@ -1257,7 +1258,7 @@ def group_by_column(input_dict):
      
 
 def concatenate_corpora(input_dict):
-    dfs = input_dict['df']
+    dfs = input_dict['dfs']
     return {'df': pd.concat(dfs)}
 
 
