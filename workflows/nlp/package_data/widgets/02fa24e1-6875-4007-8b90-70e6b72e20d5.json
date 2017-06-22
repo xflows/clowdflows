@@ -1,0 +1,135 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "15acb469-c510-44f0-8330-60bfe11a463c", 
+      "treeview_image": "", 
+      "uid": "02fa24e1-6875-4007-8b90-70e6b72e20d5", 
+      "is_streaming": false, 
+      "package": "nlp", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "This widget predicts the gender of the author of the text. Classifier is trained on tweets and if you wish to predict the gender of the tweet's author usually more than one tweet from the author is needed (ideally around 100) to give the classifier enough information. It takes dataframe as an input and it outputs a dataframe with an additional column containing gender predictions.\r\n", 
+      "static_image": "", 
+      "action": "gender_classification", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Gender Classifier"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "02fa24e1-6875-4007-8b90-70e6b72e20d5", 
+      "name": "Language", 
+      "short_name": "lan", 
+      "default": "en", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "lang", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "4bb0bebc-b02a-4c54-8812-348b194d69d0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "02fa24e1-6875-4007-8b90-70e6b72e20d5", 
+      "name": "Dataframe", 
+      "short_name": "df", 
+      "default": "", 
+      "description": "Corpus in the form of Pandas dataframe", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "dataframe", 
+      "parameter": false, 
+      "order": 3, 
+      "uid": "8b136cdf-e0d4-4976-ab79-013466f47af2"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "02fa24e1-6875-4007-8b90-70e6b72e20d5", 
+      "name": "Text Column", 
+      "short_name": "col", 
+      "default": "", 
+      "description": "Name of the column in the dataframe that contains the text which author's gender you wish to predict", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "column", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "aaf2ffac-dc91-4b0d-a10b-c5b63a935fb3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "02fa24e1-6875-4007-8b90-70e6b72e20d5", 
+      "name": "Dataframe", 
+      "short_name": "df", 
+      "description": "Corpus in the form of Pandas dataframe", 
+      "variable": "df", 
+      "order": 1, 
+      "uid": "c41aba0d-a28b-42e2-befb-67110883d116"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovenian", 
+      "uid": "2f8d5309-3911-4053-a128-bb8c0e7e4f5f", 
+      "value": "sl", 
+      "abstract_input": "4bb0bebc-b02a-4c54-8812-348b194d69d0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Arabic", 
+      "uid": "65c1e799-0a5e-4362-9445-ac1351f6b2ff", 
+      "value": "ar", 
+      "abstract_input": "4bb0bebc-b02a-4c54-8812-348b194d69d0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Spanish", 
+      "uid": "b19e67b8-d7eb-4dcf-8dbd-3545cb50123b", 
+      "value": "es", 
+      "abstract_input": "4bb0bebc-b02a-4c54-8812-348b194d69d0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Portuguese", 
+      "uid": "b7a47947-1aea-4c2a-8027-112777238616", 
+      "value": "pt", 
+      "abstract_input": "4bb0bebc-b02a-4c54-8812-348b194d69d0"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "English", 
+      "uid": "e600faed-b8ee-4744-b08c-05fc0ac52878", 
+      "value": "en", 
+      "abstract_input": "4bb0bebc-b02a-4c54-8812-348b194d69d0"
+    }
+  }
+]
