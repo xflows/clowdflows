@@ -21,7 +21,14 @@ from sklearn import pipeline
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.svm import SVC
 from nltk.corpus import stopwords
+import nltk
+from nltk.tag import PerceptronTagger
+from nltk.corpus import floresta
+from nltk.corpus import cess_esp as cess
 import numpy as np
+from sklearn.externals import joblib
+import sys
+import gender_classification as genclass
 
 webservices_totrtale_url = "http://172.20.0.154/totrtale"
 webservice_def_ex_url = "http://172.20.0.154/definition"
@@ -1260,6 +1267,69 @@ def group_by_column(input_dict):
 def concatenate_corpora(input_dict):
     dfs = input_dict['dfs']
     return {'df': pd.concat(dfs)}
+
+
+def gender_classification(input_dict):
+    from gender_classification import preprocess, createFeatures, simplify_tag
+    lang = input_dict['lang']
+    df = input_dict['dataframe']
+    column = input_dict['column']
+    corpus = df[column].tolist()
+    path = os.path.join('workflows', 'nlp', 'models', 'gender_classification', 'lr_clf_' + lang + '_gender_python2.pkl')
+    sys.modules['gender_classification'] = genclass
+    
+    #get pos tags
+    if lang == 'en':
+        sent_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+        pos_tags = PerceptronTagger()
+    elif lang == 'sl':
+        mode = 'standard'
+        all_tokenized_docs = []
+        tokenizer = generate_tokenizer(lang)
+        process = {'standard':lambda x,y,z:sentence_split(tokenize(x,y),z),'nonstandard':lambda x,y,z:sentence_split_nonstd(tokenize(x,y),z)} 
+        for doc in corpus:
+            tokens = process[mode](tokenizer,doc.decode('utf8'),lang)
+            all_tokenized_docs.append(tokens)
+        tokens = all_tokenized_docs
+        reldir = os.path.join('workflows', 'nlp', 'models', 'reldi_tagger')
+        lemmatize = False
+        processes=multiprocessing.cpu_count()
+        tokens = split_list(tokens, processes)
+        pool = multiprocessing.Pool()
+        results = pool.map(tag_main, zip(tokens, repeat(lang), repeat(lemmatize)))
+        pos_tags = [tweet for subseq in results for tweet in subseq]
+        sent_tokenizer = None
+    else:
+        pos_tags = PerceptronTagger(load=False)
+        if lang == 'es':
+            sent_tokenizer = nltk.data.load('tokenizers/punkt/spanish.pickle')
+            pos_tags.train(list(cess.tagged_sents()))
+        elif lang == 'pt':
+            sent_tokenizer = nltk.data.load('tokenizers/punkt/portuguese.pickle')
+            tsents = floresta.tagged_sents()
+            tsents = [[(w.lower(), simplify_tag(t)) for (w, t) in sent] for sent in tsents if sent]
+            pos_tags.train(tsents)
+        elif lang == 'sl':
+            path = os.path.join('workflows', 'nlp', 'models', 'stopwords_slo.txt')
+            with open(path) as f:
+                stops = set([line.strip().decode('utf8').encode('utf8') for line in f])
+        else:
+            sent_tokenizer = None
+
+    corpus = [unicode(doc, 'utf-8') for doc in corpus]
+    df_data = pd.DataFrame({column: corpus})
+
+    
+    df_prep = preprocess(df_data, lang, pos_tags, sent_tokenizer)
+    df_data = createFeatures(df_prep)
+    
+    X = df_data
+    
+    clf = joblib.load(path)
+    y_pred_gender = clf.predict(X)
+
+    df_results = pd.DataFrame({"gender": y_pred_gender})
+    return {'df': pd.concat([df, df_results], axis=1)}
 
 
 
