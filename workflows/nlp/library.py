@@ -832,6 +832,8 @@ def nlp_reldi_parser(input_dict):
     lang = input_dict['lang']
     parser = Parser(lang)
     parser.authorize(user, passwd)
+    if type(corpus) is list:  
+        corpus = "\n".join(input_dict['corpus']).strip()
     result = json.loads(parser.tagLemmatiseParse(corpus.decode(coding).encode('utf8')))
 
     final = set()
@@ -942,7 +944,10 @@ def streaming_tweetcat(input_dict, widget, stream=None):
         return {}
 
     else:
-        stream = Stream.objects.filter(workflow__widgets=widget)[0]
+        try:
+            stream = Stream.objects.filter(workflow__widgets=widget)[0]
+        except:
+            raise Exception('It appears no data was collected yet. Try it again in couple of minutes. Also, make sure stream is activated - if not, go to "your workflows" and activate it')
         tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
         tweets = []
         if len(tweet_data) == 0:
