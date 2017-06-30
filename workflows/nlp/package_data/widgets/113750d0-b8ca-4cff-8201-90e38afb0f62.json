@@ -69,5 +69,32 @@
       "order": 1, 
       "uid": "c86cf4f0-651c-40b5-aec1-4c9442351963"
     }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Slovenian", 
+      "uid": "", 
+      "value": "sl", 
+      "abstract_input": "8beabdea-b29b-402b-8783-60f4c887e676"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Croatian", 
+      "uid": "", 
+      "value": "hr", 
+      "abstract_input": "8beabdea-b29b-402b-8783-60f4c887e676"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "Serbian", 
+      "uid": "", 
+      "value": "sr", 
+      "abstract_input": "8beabdea-b29b-402b-8783-60f4c887e676"
+    }
   }
 ]

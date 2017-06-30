@@ -96,23 +96,6 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3515df45-45c1-4987-a056-c9fcf527b217", 
-      "name": "N-gram type", 
-      "short_name": "ana", 
-      "default": "word", 
-      "description": "Define the type of n-grams, can be word, character or word bound character ngrams.", 
-      "required": false, 
-      "multi": false, 
-      "parameter_type": "select", 
-      "variable": "analyzer", 
-      "parameter": true, 
-      "order": 4, 
-      "uid": "54771b58-097d-487d-9325-20a97e332314"
-    }
-  }, 
-  {
-    "model": "workflows.abstractinput", 
-    "fields": {
-      "widget": "3515df45-45c1-4987-a056-c9fcf527b217", 
       "name": "Lowercase", 
       "short_name": "low", 
       "default": "true", 
@@ -181,6 +164,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "3515df45-45c1-4987-a056-c9fcf527b217", 
+      "name": "N-gram type", 
+      "short_name": "ana", 
+      "default": "word", 
+      "description": "Define the type of n-grams, can be word, character or word bound character ngrams.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "analyzer", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "b23032be-1ebd-48ad-93f6-aa47bc778afe"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "3515df45-45c1-4987-a056-c9fcf527b217", 
       "name": "Max n-grams", 
       "short_name": "max", 
       "default": "1", 
@@ -210,27 +210,27 @@
     "model": "workflows.abstractoption", 
     "fields": {
       "name": "Word", 
-      "uid": "", 
+      "uid": "1ad05e0b-3045-4815-8193-88788fa0949c", 
       "value": "word", 
-      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
+      "abstract_input": "b23032be-1ebd-48ad-93f6-aa47bc778afe"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
       "name": "Character", 
-      "uid": "", 
+      "uid": "3a5bbfbd-a70d-4b1c-9403-edf6139ae45c", 
       "value": "char", 
-      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
+      "abstract_input": "b23032be-1ebd-48ad-93f6-aa47bc778afe"
     }
   }, 
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Word bound chracter", 
-      "uid": "", 
+      "name": "Word bound character", 
+      "uid": "8081740c-dde4-44ac-9201-633d8062e762", 
       "value": "char_wb", 
-      "abstract_input": "54771b58-097d-487d-9325-20a97e332314"
+      "abstract_input": "b23032be-1ebd-48ad-93f6-aa47bc778afe"
     }
   }
 ]
