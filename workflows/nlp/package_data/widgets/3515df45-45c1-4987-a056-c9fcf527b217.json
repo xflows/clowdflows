@@ -227,7 +227,7 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Word bound character", 
+      "name": "Word bound chracter", 
       "uid": "", 
       "value": "char_wb", 
       "abstract_input": "54771b58-097d-487d-9325-20a97e332314"

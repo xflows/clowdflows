@@ -107,15 +107,6 @@
   {
     "model": "workflows.abstractoption", 
     "fields": {
-      "name": "Historical Slovene (Gaj)", 
-      "uid": "", 
-      "value": "gaji", 
-      "abstract_input": "1f55805e-08de-4fe0-8bc9-3896da7cbcfd"
-    }
-  }, 
-  {
-    "model": "workflows.abstractoption", 
-    "fields": {
       "name": "English", 
       "uid": "6400d9b2-72ff-48c2-b9d0-302cc62a08be", 
       "value": "en", 

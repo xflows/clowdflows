@@ -923,6 +923,9 @@ def streaming_tweetcat(input_dict, widget, stream=None):
             if state['seeds'] == None:
                 tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang, True)
                 state['seeds'] = seedw
+            elif not set(state['seeds']) <= set(seedw):
+                state['seeds'] = seedw
+                tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang)
             else:
                 tweets, user_index, user_lang, state = lang_mode(state, user_index, ltw, langid_lang, user_lang)
             swd.state = {'authors': user_index, 'state': state, 'user_lang': user_lang}
@@ -964,11 +967,16 @@ def load_corpus_from_csv(input_dict):
     separator = str(input_dict['separator'])
     if separator.startswith('\\'):
         separator = '\t'
-    data_iterator = pd.read_csv(input_dict['file'], delimiter=separator, chunksize=1000, index_col=0)
-    df_data = pd.DataFrame()
-    for sub_data in data_iterator:
-        df_data = pd.concat([df_data, sub_data], axis=0)
-        gc.collect()
+    try:
+        data_iterator = pd.read_csv(input_dict['file'], delimiter=separator, chunksize=1000, index_col=None, encoding = 'utf8')
+        df_data = pd.DataFrame()
+        for sub_data in data_iterator:
+            df_data = pd.concat([df_data, sub_data], axis=0)
+            gc.collect()
+    except:
+        raise Exception("Ups, we are having problem uploading your corpus. Please make sure it's encoded in utf-8.")
+    df_data = df_data.dropna(axis=1, how='all')
+    df_data = df_data.dropna(axis=0, how='all')
     print(df_data.columns.tolist())
     print("Data shape:", df_data.shape)
     return {'dataframe': df_data}
@@ -978,7 +986,6 @@ def select_corpus_attribute(input_dict):
     df = input_dict['dataframe']
     attribute = input_dict['attribute']
     column = df[attribute].tolist()
-    column = [unicode(doc, 'utf-8') for doc in column]
     return {'attribute': column}
 
 
@@ -1038,7 +1045,6 @@ def feature_union(input_dict):
             feature = ('feature' + str(i), Transformer(index=i))
             features.append(feature)
             dataset.append(np.transpose(np.array([instance])))
-
     weights_dict = {}
     if len(weights) > 1 and len(weights) == len(features):
         for i in range(len(weights)):
@@ -1112,13 +1118,11 @@ def remove_stopwords(input_dict):
     elif lang == 'sl':
         path = os.path.join('workflows', 'nlp', 'models', 'stopwords_slo.txt')
         with open(path) as f:
-            stops = set([line.strip().decode('utf8').encode('utf8') for line in f])
-    else:
-        return corpus
+            stops = set([unicode(line.strip().lower(), 'utf-8') for line in f])
     for doc in corpus:
         doc = [x.lower() for x in doc.split() if x.lower() not in stops]
         cleaned_docs.append(" ".join(doc))
-    return {'corpus': corpus}
+    return {'corpus': cleaned_docs}
 
 
 def remove_punctuation(input_dict):
@@ -1321,8 +1325,7 @@ def gender_classification(input_dict):
         else:
             sent_tokenizer = None
 
-    corpus = [unicode(doc, 'utf-8') for doc in corpus]
-    df_data = pd.DataFrame({column: corpus})
+    df_data = pd.DataFrame({'text': corpus})
 
     
     df_prep = preprocess(df_data, lang, pos_tags, sent_tokenizer)

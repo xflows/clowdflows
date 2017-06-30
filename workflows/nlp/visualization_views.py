@@ -54,16 +54,28 @@ def term_candidate_viewer(request, input_dict, output_dict, widget):
 
 
 def display_corpus_statistic(request, input_dict, output_dict, widget, narrow_doc='n'):
-    """
-    Display POS statistics, basicaly frequencies of specific tags
-    """
-    
+  
     corpus = input_dict['corpus']
     stat_type = input_dict['stat_type']
     allAnnotations = 0
     result_list = []
     n = int(input_dict['n_gram'])
-    if stat_type == 'frequency':
+
+    #get some general stats
+    general_stats = {}
+    general_stats['num_doc'] = len(corpus)
+    doc_lengths = []
+    all_tokens = set()
+    for doc in corpus:
+        doc = doc.split()
+        doc_lengths.append(len(doc))
+        for tok in doc:
+            all_tokens.add(tok)
+    general_stats['num_tokens'] = sum(doc_lengths)
+    general_stats['avg_doc_length'] = float(general_stats['num_tokens'])/general_stats['num_doc']
+    general_stats['ttr'] = len(all_tokens)/float(general_stats['num_tokens'])
+
+    if stat_type == 'frequency' or stat_type == 'dis_legomena' or stat_type == 'hapax_legomena':
         annotation_dict = {}
         for doc in corpus:
             if doc.count('###') > 3:
@@ -88,17 +100,31 @@ def display_corpus_statistic(request, input_dict, output_dict, widget, narrow_do
         title = "N-gram"
         measure = 'Frequency'
         
-        allAnnotations = float(allAnnotations)
-        for pos, number in annotation_dict.items():
-            try:
-                pos = pos.encode('utf8')
-                result_list.append((pos, number, "{0:.4f}".format(float(number)/allAnnotations)))
-            except:
-                continue
+        if stat_type == 'frequency':
+            allAnnotations = float(allAnnotations)
+            for pos, number in annotation_dict.items():
+                try:
+                    pos = pos.encode('utf8')
+                    result_list.append((pos, number, "{0:.4f}".format(float(number)/allAnnotations)))
+                except:
+                    continue
 
-        result_list = sorted(result_list, key=lambda x: x[1], reverse=True)
-        if len(result_list) > 100:
-            result_list = result_list[:100]
+            result_list = sorted(result_list, key=lambda x: x[1], reverse=True)
+            if len(result_list) > 100:
+                result_list = result_list[:100]
+        else:
+            allAnnotations = float(allAnnotations)
+            for pos, number in annotation_dict.items():
+                if stat_type == 'dis_legomena':
+                    if number == 2:
+                        pos = pos.encode('utf8')
+                        result_list.append((pos, number, "{0:.4f}".format(float(number)/allAnnotations)))
+                else:
+                    if number == 1:
+                        pos = pos.encode('utf8')
+                        result_list.append((pos, number, "{0:.4f}".format(float(number)/allAnnotations)))
+            if len(result_list) > 300:
+                result_list = result_list[:300]
     else:
         all_annotations = []
         for doc in corpus:
@@ -131,7 +157,7 @@ def display_corpus_statistic(request, input_dict, output_dict, widget, narrow_do
             title = "Trigram collocations"
         measure = 'PMI score'
 
-    return render(request, 'visualizations/corpus_statistics.html', {'widget': widget, 'data': [result_list, title, measure], 'narrow_doc': narrow_doc})
+    return render(request, 'visualizations/corpus_statistics.html', {'widget': widget, 'data': [result_list, title, measure, general_stats], 'narrow_doc': narrow_doc})
 
 
 def corpus_to_csv(request,input_dict,output_dict,widget):
@@ -140,7 +166,7 @@ def corpus_to_csv(request,input_dict,output_dict,widget):
     destination = MEDIA_ROOT+'/'+str(request.user.id)+'/'+str(widget.id)+'.csv'
     ensure_dir(destination)
     df = input_dict['df']
-    df.to_csv(destination, encoding='utf-8', sep=',')
+    df.to_csv(destination, encoding='utf-8', sep=',', index=False)
     filename = str(request.user.id)+'/'+str(widget.id)+'.csv'
     output_dict['filename'] = filename
     return render(request, 'visualizations/string_to_file.html',{'widget':widget,'input_dict':input_dict,'output_dict':output_dict})
