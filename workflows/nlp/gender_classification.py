@@ -44,6 +44,10 @@ def remove_stopwords(text, lang):
         stops = set(stopwords.words("english"))
     elif lang == 'pt':
         stops = set(stopwords.words("portuguese"))
+    elif lang == 'sl':
+        path = os.path.join('workflows', 'nlp', 'models', 'stopwords_slo.txt')
+        with open(path) as f:
+            stops = set([line.strip().decode('utf8').encode('utf8') for line in f])
     else:
         return text
     text = text.split()
@@ -191,12 +195,7 @@ def preprocess(df_data, lang, pos_tagger, sent_tokenizer):
     df_data['text_clean'] = df_data['text'].map(lambda x: remove_hashtags(x, ''))
     df_data['text_clean'] = df_data['text_clean'].map(lambda x: remove_url(x, ""))
     df_data['text_clean'] = df_data['text_clean'].map(lambda x: remove_mentions(x, ''))
-
-    if lang != 'sl':
-        df_data['pos_tag'] = df_data['text_clean'].map(lambda x: tag(pos_tagger, x, sent_tokenizer, lang))
-    else:
-        df_data['pos_tag'] = pd.Series(pos_tagger)
-
+    df_data['pos_tag'] = df_data['text_clean'].map(lambda x: tag(pos_tagger, x, sent_tokenizer, lang))
     df_data['no_punctuation'] = df_data['text_clean'].map(lambda x: remove_punctuation(x))
     df_data['no_stopwords'] = df_data['no_punctuation'].map(lambda x: remove_stopwords(x, lang))
     df_data['text_clean'] = df_data['text_clean_r']

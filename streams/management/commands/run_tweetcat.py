@@ -29,7 +29,6 @@ class Command(NoArgsCommand):
                     widgets = stream.workflow.widgets.filter(abstract_widget__is_streaming=True)
                     outputs = {}
                     for w in widgets:
-                        print(w)
                         input_dict = {}
                         output_dict = {}
                         finish = True
@@ -51,10 +50,9 @@ class Command(NoArgsCommand):
                                         input_dict[i.variable].append(i.value)
                             
                             function_to_call = getattr(workflows.library,w.abstract_widget.action)
-                            function_to_call(input_dict,w,stream)                         
-                        except:
-                            print('something went wrong')
-                            continue    
+                            function_to_call(input_dict,w,stream)
+                        except Exception as e:                         
+                            print('Something went wrong: ', e)
                     self.stdout.write("done!\n")
                     self.stdout.flush()
             time.sleep(1)

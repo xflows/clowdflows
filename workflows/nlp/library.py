@@ -936,10 +936,9 @@ def streaming_tweetcat(input_dict, widget, stream=None):
             swd.save()
 
         elif MODE=='GEO':  
-            timeout = time() + 20 * 1    
             l=StdOutListener()
-            stream=tweepy.Stream(auth,l)
-            stream.filter(locations=[MINLON,MINLAT,MAXLON,MAXLAT])
+            tweepy_stream=tweepy.Stream(auth,l)
+            tweepy_stream.filter(locations=[MINLON,MINLAT,MAXLON,MAXLAT])
             tweets = l.tweetList
 
         new_tweets = []
@@ -959,6 +958,7 @@ def streaming_tweetcat(input_dict, widget, stream=None):
             raise Exception('It appears no data was collected yet. Try it again in couple of minutes. Also, make sure your Tweet API credentials are correct.')
         for tweet in tweet_data:
             tweet = tweet.value
+            tweet['text'] = unicode(tweet['text'], 'utf-8')
             tweets.append(tweet)
         df = pd.DataFrame(tweets)
         return {'df': df}
@@ -1267,7 +1267,7 @@ def group_by_column(input_dict):
         end_dict = {}
         end_dict[chosen_column] = key
         for column in columns:
-            end_dict[column] = " ".join([str(x) for x in value[column]]).replace('\n', ' ')
+            end_dict[column] = " ".join([unicode(str(x), 'utf8') for x in value[column]]).replace('\n', ' ')
         df_list.append(end_dict)
     df_grouped = pd.DataFrame(df_list)
     return {'df':df_grouped}   
@@ -1291,25 +1291,6 @@ def gender_classification(input_dict):
     if lang == 'en':
         sent_tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
         pos_tags = PerceptronTagger()
-    elif lang == 'sl':
-        mode = 'standard'
-        all_tokenized_docs = []
-        tokenizer = generate_tokenizer(lang)
-        process = {'standard':lambda x,y,z:sentence_split(tokenize(x,y),z),'nonstandard':lambda x,y,z:sentence_split_nonstd(tokenize(x,y),z)} 
-        for doc in corpus:
-            tokens = process[mode](tokenizer,doc.decode('utf8'),lang)
-            all_tokenized_docs.append(tokens)
-        tokens = all_tokenized_docs
-        reldir = os.path.join('workflows', 'nlp', 'models', 'reldi_tagger')
-        lemmatize = False
-        processes=multiprocessing.cpu_count()
-        tokens = split_list(tokens, processes)
-        pool = multiprocessing.Pool()
-        results = pool.map(tag_main, zip(tokens, repeat(lang), repeat(lemmatize)))
-        pos_tags = [tweet for subseq in results for tweet in subseq]
-        pool.close()
-        pool.terminate()
-        sent_tokenizer = None
     else:
         pos_tags = PerceptronTagger(load=False)
         if lang == 'es':
@@ -1319,11 +1300,7 @@ def gender_classification(input_dict):
             sent_tokenizer = nltk.data.load('tokenizers/punkt/portuguese.pickle')
             tsents = floresta.tagged_sents()
             tsents = [[(w.lower(), simplify_tag(t)) for (w, t) in sent] for sent in tsents if sent]
-            pos_tags.train(tsents)
-        elif lang == 'sl':
-            path = os.path.join('workflows', 'nlp', 'models', 'stopwords_slo.txt')
-            with open(path) as f:
-                stops = set([line.strip().decode('utf8').encode('utf8') for line in f])
+            pos_tags.train(tsents)    
         else:
             sent_tokenizer = None
 
