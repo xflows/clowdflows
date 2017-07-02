@@ -72,9 +72,14 @@ def display_corpus_statistic(request, input_dict, output_dict, widget, narrow_do
         for tok in doc:
             all_tokens.add(tok)
     general_stats['num_tokens'] = sum(doc_lengths)
-    general_stats['avg_doc_length'] = float(general_stats['num_tokens'])/general_stats['num_doc']
-    general_stats['ttr'] = len(all_tokens)/float(general_stats['num_tokens'])
-
+    if general_stats['num_doc'] > 0:
+        general_stats['avg_doc_length'] = float(general_stats['num_tokens'])/general_stats['num_doc']
+    else:
+        general_stats['avg_doc_length'] = 0
+    if general_stats['num_tokens'] > 0:
+        general_stats['ttr'] = len(all_tokens)/float(general_stats['num_tokens'])
+    else:
+        general_stats['ttr'] = 0
     if stat_type == 'frequency' or stat_type == 'dis_legomena' or stat_type == 'hapax_legomena':
         annotation_dict = {}
         for doc in corpus:

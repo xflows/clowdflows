@@ -793,6 +793,8 @@ def nlp_reldi_tagger(input_dict):
     pool = multiprocessing.Pool()
     results = pool.map(tag_main, zip(tokens, repeat(lang), repeat(lemmatize)))
     pos_tags = [tweet for subseq in results for tweet in subseq]
+    pool.close()
+    pool.terminate()
     return {'pos_tags': pos_tags}
 
 
@@ -807,6 +809,8 @@ def nlp_reldi_lemmatizer(input_dict):
     pool = multiprocessing.Pool()
     results = pool.map(tag_main, zip(tokens, repeat(lang), repeat(lemmatize)))
     lemmas = [tweet for subseq in results for tweet in subseq]
+    pool.close()
+    pool.terminate()
     return {'lemmas': lemmas}
 
 
@@ -934,8 +938,6 @@ def streaming_tweetcat(input_dict, widget, stream=None):
         elif MODE=='GEO':  
             timeout = time() + 20 * 1    
             l=StdOutListener()
-            auth=OAuthHandler(consumer_key, consumer_secret)
-            auth.set_access_token(access_token, access_token_secret)
             stream=tweepy.Stream(auth,l)
             stream.filter(locations=[MINLON,MINLAT,MAXLON,MAXLAT])
             tweets = l.tweetList
@@ -950,11 +952,11 @@ def streaming_tweetcat(input_dict, widget, stream=None):
         try:
             stream = Stream.objects.filter(workflow__widgets=widget)[0]
         except:
-            raise Exception('It appears no data was collected yet. Try it again in couple of minutes. Also, make sure stream is activated - if not, go to "your workflows" and activate it')
+            raise Exception('It appears no data was collected yet. Try it again in couple of minutes. Also, make sure stream is activated - if not, go to "Your workflows" and activate it.')
         tweet_data = StreamWidgetData.objects.filter(widget=widget,stream=stream)
         tweets = []
         if len(tweet_data) == 0:
-            raise Exception('It appears no data was collected yet. Try it again in couple of minutes. Also, make sure stream is activated - if not, go to "your workflows" and activate it')
+            raise Exception('It appears no data was collected yet. Try it again in couple of minutes. Also, make sure your Tweet API credentials are correct.')
         for tweet in tweet_data:
             tweet = tweet.value
             tweets.append(tweet)
@@ -977,8 +979,6 @@ def load_corpus_from_csv(input_dict):
         raise Exception("Ups, we are having problem uploading your corpus. Please make sure it's encoded in utf-8.")
     df_data = df_data.dropna(axis=1, how='all')
     df_data = df_data.dropna(axis=0, how='all')
-    print(df_data.columns.tolist())
-    print("Data shape:", df_data.shape)
     return {'dataframe': df_data}
 
 
@@ -1307,6 +1307,8 @@ def gender_classification(input_dict):
         pool = multiprocessing.Pool()
         results = pool.map(tag_main, zip(tokens, repeat(lang), repeat(lemmatize)))
         pos_tags = [tweet for subseq in results for tweet in subseq]
+        pool.close()
+        pool.terminate()
         sent_tokenizer = None
     else:
         pos_tags = PerceptronTagger(load=False)
