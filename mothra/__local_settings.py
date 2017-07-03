@@ -25,7 +25,6 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
     #'workflows.decision_support',
     #'workflows.segmine',
     #'workflows.subgroup_discovery',
-    #'workflows.nlp',
     #'workflows.nl_toolkit',
     #'workflows.ilp',
     #'workflows.weka',
@@ -49,7 +48,8 @@ INSTALLED_APPS_WORKFLOWS_SUB = (
 
 INSTALLED_APPS_EXTERNAL_PACKAGES = (
     #'rdm.db',
-    #'rdm.wrappers'
+    #'rdm.wrappers',
+    #'nlp'
 )
 
 BROKER_URL = 'django://'
