@@ -198,6 +198,33 @@ def scikitAlgorithms_displayDecisionTree(input_dict):
     return {}
 
 
+def scikitAlgorithms_crossValidation(input_dict):
+    from sklearn import model_selection
+    clf = input_dict['classifier']
+    data = input_dict['instances']
+    n_sample = data["data"]
+    n_feature = data["target"]
+    seed = input_dict['seed']
+    scorer = input_dict['scorer']
+    folds = int(input_dict['folds'])
+    seed = int(seed) if len(seed) > 0 else None
+
+    if scorer != 'accuracy':
+        target_value_set = set(n_feature)
+        if len(target_value_set) > 2:
+            scorer = scorer + '_micro'
+        else:
+            n_feature = [1 if x == n_feature[0] else 0 for x in n_feature]
+
+    kfold = model_selection.KFold(n_splits=folds, random_state=seed)
+    results = model_selection.cross_val_score(clf, n_sample, n_feature, cv=kfold, scoring=scorer)
+
+    output_dict = {'results': results}
+    return output_dict
+
+
+
+
 
 
 #     dataset = input_dict["data"]

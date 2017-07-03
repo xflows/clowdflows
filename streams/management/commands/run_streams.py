@@ -8,6 +8,7 @@ class Command(NoArgsCommand):
         import time
         self.stdout.write("Working on streams...")
         self.stdout.flush()
+
         while True:
             streams = Stream.objects.filter(active=True)
             for stream in streams:

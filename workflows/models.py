@@ -794,7 +794,7 @@ class Widget(models.Model):
                 else:
                     if not i.variable in input_dict:
                         input_dict[i.variable]=[]
-                    if not i.value==None:
+                    if i.value is not None:
                         input_dict[i.variable].append(i.value)
             start = time.time()
             try:

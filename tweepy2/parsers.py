@@ -2,9 +2,9 @@
 # Copyright 2009-2010 Joshua Roesslein
 # See LICENSE for details.
 
-from tweepy.models import ModelFactory
-from tweepy.utils import import_simplejson
-from tweepy.error import TweepError
+from tweepy2.models import ModelFactory
+from tweepy2.utils import import_simplejson
+from tweepy2.error import TweepError
 
 
 class Parser(object):
