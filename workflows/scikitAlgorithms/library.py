@@ -158,6 +158,18 @@ def scikitAlgorithms_buildClassifier(input_dict):
     output_dict = {'classifier': classifier}
     return output_dict
 
+def scikitAlgorithms_buildMultiLabelClassifier(input_dict):
+    from sklearn.multiclass import OneVsRestClassifier
+    learner = input_dict['learner']
+    data = input_dict['instances']
+    n_sample = data["data"]
+    n_feature = data["target"]
+
+    classifier = OneVsRestClassifier(learner).fit(n_sample, n_feature)
+
+    output_dict = {'classifier': classifier}
+    return output_dict
+
 def scikitAlgorithms_applyClassifier(input_dict):
 
     classifier = input_dict['classifier']
@@ -168,6 +180,15 @@ def scikitAlgorithms_applyClassifier(input_dict):
    
     output_dict = {'classes':data}
     return output_dict
+
+
+def scikit_algorithms_apply_multilabel_classifier(input_dict):
+    classifier = input_dict['classifier']
+    data = input_dict['data']
+    prob_predictions = classifier.predict_proba(data['data'])
+
+    return {'result': prob_predictions}
+
 
 def scikitAlgorithms_scikitDatasetToCSV(input_dict):
     output_dict={}
