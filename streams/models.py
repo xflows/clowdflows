@@ -165,4 +165,9 @@ class StreamWidgetData(models.Model):
     widget = models.ForeignKey(Widget, related_name="stream_data")
     value = PickledObjectField(null=True)
 
+class StreamWidgetState(models.Model):
+    stream = models.ForeignKey(Stream, related_name="widget_state")
+    widget = models.ForeignKey(Widget, related_name="stream_state")
+    state = PickledObjectField(null=True)
+
 

@@ -1,0 +1,160 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "5888aa38-270f-423b-8d5f-e08f23c1a3b9", 
+      "treeview_image": "", 
+      "uid": "978f1347-20e1-46f1-a36e-4bf1e2153ebb", 
+      "is_streaming": false, 
+      "package": "scikitAlgorithms", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "", 
+      "static_image": "scikit_buildClassifier.png", 
+      "action": "scikitAlgorithms_crossValidation", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Cross Validation"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "978f1347-20e1-46f1-a36e-4bf1e2153ebb", 
+      "name": "Number of folds", 
+      "short_name": "fol", 
+      "default": "10", 
+      "description": "Number of folds in which to split the data set", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "folds", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "16b872fd-4f88-4aa5-95c1-0fb5a770a1bb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "978f1347-20e1-46f1-a36e-4bf1e2153ebb", 
+      "name": "Classifier", 
+      "short_name": "cls", 
+      "default": "", 
+      "description": "Classifier", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "classifier", 
+      "parameter": false, 
+      "order": 1, 
+      "uid": "32275bbf-67b9-4b4a-808b-6e2ac3e37e07"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "978f1347-20e1-46f1-a36e-4bf1e2153ebb", 
+      "name": "Scorer", 
+      "short_name": "sco", 
+      "default": "accuracy", 
+      "description": "Choose what evaluation metric to use in cross validation.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "select", 
+      "variable": "scorer", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "5c5890eb-c56d-4047-89ef-ee3c6062110c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "978f1347-20e1-46f1-a36e-4bf1e2153ebb", 
+      "name": "Seed", 
+      "short_name": "sed", 
+      "default": "", 
+      "description": "Insert seed to keep constant split, e.g. 1000", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "seed", 
+      "parameter": true, 
+      "order": 4, 
+      "uid": "df1ca2ce-aad7-4ddc-9f8b-3c8a55d8cbe9"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "978f1347-20e1-46f1-a36e-4bf1e2153ebb", 
+      "name": "Instances", 
+      "short_name": "dts", 
+      "default": "", 
+      "description": "Data", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "instances", 
+      "parameter": false, 
+      "order": 2, 
+      "uid": "fbd6865d-aa12-4205-a248-c6b3f4a8c4b6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "978f1347-20e1-46f1-a36e-4bf1e2153ebb", 
+      "name": "Results", 
+      "short_name": "res", 
+      "description": "Results of cross validation", 
+      "variable": "results", 
+      "order": 1, 
+      "uid": "cef88b4d-7e1d-4800-86b8-caf79bda084b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "precision", 
+      "uid": "0e84c9e0-228d-486b-beba-b4f3b7ba1aca", 
+      "value": "precision", 
+      "abstract_input": "5c5890eb-c56d-4047-89ef-ee3c6062110c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "recall", 
+      "uid": "5e318364-7a15-4610-95ad-a0a73bc4bfba", 
+      "value": "recall", 
+      "abstract_input": "5c5890eb-c56d-4047-89ef-ee3c6062110c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "f1", 
+      "uid": "c6058c51-afb1-4495-ab15-48c3c3823268", 
+      "value": "f1", 
+      "abstract_input": "5c5890eb-c56d-4047-89ef-ee3c6062110c"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoption", 
+    "fields": {
+      "name": "accuracy", 
+      "uid": "fad70153-ffae-4a6e-8059-19509190a82d", 
+      "value": "accuracy", 
+      "abstract_input": "5c5890eb-c56d-4047-89ef-ee3c6062110c"
+    }
+  }
+]

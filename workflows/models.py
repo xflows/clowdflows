@@ -794,7 +794,7 @@ class Widget(models.Model):
                 else:
                     if not i.variable in input_dict:
                         input_dict[i.variable]=[]
-                    if not i.value==None:
+                    if i.value is not None:
                         input_dict[i.variable].append(i.value)
             start = time.time()
             try:
@@ -1155,11 +1155,11 @@ class Input(models.Model):
             d['outer_output']=None
 
         # Include abstract input and output ids for importing to cf2.0
-        abstract_input_id = None
+        abstract_input_uid = None
         if self.widget.abstract_widget:
             abstract_input = AbstractInput.objects.filter(widget=self.widget.abstract_widget, variable=self.variable)[0]
-            abstract_input_id = abstract_input.id
-        d['abstract_input_id'] = abstract_input_id
+            abstract_input_uid = abstract_input.uid
+        d['abstract_input_uid'] = abstract_input_uid
 
         return d
 
@@ -1273,12 +1273,12 @@ class Output(models.Model):
             d['outer_input']=None
 
         # Include abstract input and output ids for importing to cf2.0
-        abstract_output_id = None
+        abstract_output_uid = None
         if self.widget.abstract_widget:
             abstract_output = AbstractOutput.objects.filter(widget=self.widget.abstract_widget, variable=self.variable)[
                 0]
-            abstract_output_id = abstract_output.id
-        d['abstract_output_id'] = abstract_output_id
+            abstract_output_uid = abstract_output.uid
+        d['abstract_output_uid'] = abstract_output_uid
 
         return d
 

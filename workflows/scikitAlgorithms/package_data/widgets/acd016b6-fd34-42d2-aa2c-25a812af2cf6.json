@@ -45,6 +45,23 @@
     "model": "workflows.abstractinput", 
     "fields": {
       "widget": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
+      "name": "Fit intercept", 
+      "short_name": "fit", 
+      "default": "true", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "fit_intercept", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "8209425f-ee9f-4a9c-b398-d8da9a44a32f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
       "name": "penalty", 
       "short_name": "par", 
       "default": "l1", 

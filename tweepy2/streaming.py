@@ -7,11 +7,11 @@ from socket import timeout
 from threading import Thread
 from time import sleep
 
-from tweepy.models import Status
-from tweepy.api import API
-from tweepy.error import TweepError
+from tweepy2.models import Status
+from tweepy2.api import API
+from tweepy2.error import TweepError
 
-from tweepy.utils import import_simplejson, urlencode_noplus
+from tweepy2.utils import import_simplejson, urlencode_noplus
 json = import_simplejson()
 
 STREAM_VERSION = '1.1'

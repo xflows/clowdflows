@@ -479,7 +479,7 @@ def streaming_sentiment_analysis(input_dict,widget,stream=None):
     return output_dict
 
 def streaming_twitter(input_dict,widget,stream=None):
-    import tweepy
+    import tweepy2
     from streams.models import StreamWidgetData
     from streams.models import HaltStream
 
@@ -494,10 +494,10 @@ def streaming_twitter(input_dict,widget,stream=None):
         access_token = input_dict['at']
         access_token_secret = input_dict['as']
 
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth = tweepy2.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
 
-    api = tweepy.API(auth)
+    api = tweepy2.API(auth)
 
     query = input_dict['query']
 

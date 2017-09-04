@@ -10,7 +10,6 @@ httplib2==0.7.5
 wsgiref==0.1.2
 unidecode==0.04.13
 django-jsonview==0.3.0
-django-celery==3.1.9
 ladon==0.8.9
 django-discover-runner==1.0
 liac-arff==2.0.1
