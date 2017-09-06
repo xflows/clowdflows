@@ -4,15 +4,15 @@
     "fields": {
       "category": "5888aa38-270f-423b-8d5f-e08f23c1a3b9", 
       "treeview_image": "", 
-      "uid": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
+      "uid": "5dd6a184-0281-4da2-a5c5-404f6ffe8d23", 
       "is_streaming": false, 
       "package": "scikitAlgorithms", 
       "interaction_view": "", 
       "has_progress_bar": false, 
       "image": "", 
       "description": "", 
-      "static_image": "scikit_buildClassifier.png", 
-      "action": "scikitAlgorithms_buildClassifier", 
+      "static_image": "", 
+      "action": "scikit_algorithms_apply_multilabel_classifier", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
       "post_interact_action": "", 
@@ -21,53 +21,53 @@
       "interactive": false, 
       "windows_queue": false, 
       "order": 1, 
-      "name": "Build Classifier"
+      "name": "Apply MultiLabel Classifier"
     }
   }, 
   {
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
-      "name": "Instances", 
+      "widget": "5dd6a184-0281-4da2-a5c5-404f6ffe8d23", 
+      "name": "ScikitDataset", 
       "short_name": "dts", 
       "default": "", 
-      "description": "to be used by the provided learner to create a classifier.", 
+      "description": "", 
       "required": false, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "instances", 
+      "variable": "data", 
       "parameter": false, 
       "order": 2, 
-      "uid": "436e18dc-5bab-4a74-8cce-0b31b81b2bbd"
+      "uid": "72f8fb7c-a749-4e18-aedf-2023415744d1"
     }
   }, 
   {
     "model": "workflows.abstractinput", 
     "fields": {
-      "widget": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
-      "name": "Learner", 
-      "short_name": "lea", 
+      "widget": "5dd6a184-0281-4da2-a5c5-404f6ffe8d23", 
+      "name": "Classifier", 
+      "short_name": "cls", 
       "default": "", 
-      "description": "used to build the classifier.", 
-      "required": false, 
+      "description": "", 
+      "required": true, 
       "multi": false, 
       "parameter_type": null, 
-      "variable": "learner", 
+      "variable": "classifier", 
       "parameter": false, 
       "order": 1, 
-      "uid": "97bdb348-947c-4564-88b3-07f0f6134307"
+      "uid": "f9cfc962-4834-4044-8ec1-bcc67f1a4771"
     }
   }, 
   {
     "model": "workflows.abstractoutput", 
     "fields": {
-      "widget": "23203f72-4f76-4ac9-a3d0-5608fe2cd04c", 
-      "name": "Classifier", 
-      "short_name": "cls", 
-      "description": "based on the provided data and learner.", 
-      "variable": "classifier", 
+      "widget": "5dd6a184-0281-4da2-a5c5-404f6ffe8d23", 
+      "name": "Result", 
+      "short_name": "res", 
+      "description": "A ranked list of possible labels for each instance of the data", 
+      "variable": "result", 
       "order": 1, 
-      "uid": "21f0bf7d-7415-4c4e-b68f-053155c015c2"
+      "uid": "49837b8e-075a-4a92-ab94-a00fa06166f1"
     }
   }
 ]
