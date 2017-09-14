@@ -10,7 +10,7 @@ def perfeval_classification_statistics(input_dict):
     from sklearn import metrics
     labels = input_dict['true_and_predicted_labels']
     pos_label = input_dict.get('pos_label', None)
-
+    print(labels)
     # Check if we have true and predicted labels for each fold
     if labels and type(labels[0][0]) == list:
         try:
@@ -49,7 +49,7 @@ def perfeval_classification_statistics(input_dict):
 
     # AUC is defined only for binary classes
     if len(classes) == 2:
-        auc = metrics.auc_score(y_true, y_pred)
+        auc = metrics.roc_auc_score(y_true, y_pred)
     else:
         auc = 'undefined for multiple classes'
     return {'accuracy': accuracy, 'precision': precision, 'recall': recall, 
