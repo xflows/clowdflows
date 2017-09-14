@@ -10,7 +10,6 @@ def perfeval_classification_statistics(input_dict):
     from sklearn import metrics
     labels = input_dict['true_and_predicted_labels']
     pos_label = input_dict.get('pos_label', None)
-    print(labels)
     # Check if we have true and predicted labels for each fold
     if labels and type(labels[0][0]) == list:
         try:
