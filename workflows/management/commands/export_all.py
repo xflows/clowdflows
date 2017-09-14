@@ -24,3 +24,7 @@ class Command(BaseCommand):
             package_name = package.split('workflows.')[1]
             self.stdout.write("Exporting package "+package_name+"\n")
             export_package(package_name,self.stdout)
+
+        #temporary fix
+        self.stdout.write("Exporting cf_nlp package \n")
+        export_package('nlp',self.stdout, dest_folder='C:\\work\\software\\cf_nlp\\nlp')

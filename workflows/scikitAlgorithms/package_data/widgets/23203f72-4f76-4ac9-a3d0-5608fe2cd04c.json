@@ -38,7 +38,7 @@
       "variable": "instances", 
       "parameter": false, 
       "order": 2, 
-      "uid": "436e18dc-5bab-4a74-8cce-0b31b81b2bbd"
+      "uid": "136e18dc-5bab-4a74-8cce-0b31b81b2bbd"
     }
   }, 
   {
@@ -55,7 +55,7 @@
       "variable": "learner", 
       "parameter": false, 
       "order": 1, 
-      "uid": "97bdb348-947c-4564-88b3-07f0f6134307"
+      "uid": "17bdb348-947c-4564-88b3-07f0f6134307"
     }
   }, 
   {
@@ -67,7 +67,7 @@
       "description": "based on the provided data and learner.", 
       "variable": "classifier", 
       "order": 1, 
-      "uid": "21f0bf7d-7415-4c4e-b68f-053155c015c2"
+      "uid": "11f0bf7d-7415-4c4e-b68f-053155c015c2"
     }
   }
 ]
