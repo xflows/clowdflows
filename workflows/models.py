@@ -1275,9 +1275,10 @@ class Output(models.Model):
         # Include abstract input and output ids for importing to cf2.0
         abstract_output_uid = None
         if self.widget.abstract_widget:
-            abstract_output = AbstractOutput.objects.filter(widget=self.widget.abstract_widget, variable=self.variable)[
-                0]
-            abstract_output_uid = abstract_output.uid
+            qs = AbstractOutput.objects.filter(widget=self.widget.abstract_widget, variable=self.variable)
+            if qs.exists():
+                abstract_output = qs[0]
+                abstract_output_uid = abstract_output.uid
         d['abstract_output_uid'] = abstract_output_uid
 
         return d
