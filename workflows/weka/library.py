@@ -59,8 +59,8 @@ def weka_get_attr_list(input_dict):
 
 
 def weka_lda(input_dict):
-    arff_file_train = StringIO(input_dict['train'])
-    arff_file_test = StringIO(input_dict['test'])
+    arff_file_train = StringIO(str(input_dict['train']))
+    arff_file_test = StringIO(str(input_dict['test']))
     data_train, meta_train = scipy_arff.loadarff(arff_file_train)
     data_test, meta_test = scipy_arff.loadarff(arff_file_test)
     n_topics = int(input_dict['n_topics'])
