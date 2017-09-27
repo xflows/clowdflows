@@ -1,0 +1,170 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "0ae049f7-6040-4992-bb03-f9134b8e63c7", 
+      "treeview_image": "", 
+      "uid": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "is_streaming": false, 
+      "package": "weka", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Input: arff file\r\nOutput: arff file\r\n\r\nTopic reduction with Latent Dirichlet Allocation", 
+      "static_image": "WEKA_arff.png", 
+      "action": "weka_lda", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "windows_queue": false, 
+      "order": 1, 
+      "name": "Latent Dirichlet Allocation"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "train", 
+      "short_name": "tra", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "train", 
+      "parameter": false, 
+      "order": 4, 
+      "uid": "00ca592d-cf1a-4824-adcd-2fd7d54858f6"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "Keep original dimensions", 
+      "short_name": "kod", 
+      "default": "False", 
+      "description": "Concatenate new dimensions with original", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "checkbox", 
+      "variable": "keep_original", 
+      "parameter": true, 
+      "order": 7, 
+      "uid": "2ea8ad31-e9e1-428d-a1b4-2f83074df85d"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "N-topics", 
+      "short_name": "str", 
+      "default": "10", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "n_topics", 
+      "parameter": true, 
+      "order": 2, 
+      "uid": "8353cdff-6faf-448a-b842-c394847f1f7f"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "Database relation name", 
+      "short_name": "str", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "relation_name", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "87648bbe-f233-43a3-ab8d-c0b0a127be66"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "Random state", 
+      "short_name": "str", 
+      "default": "0", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "random_state", 
+      "parameter": true, 
+      "order": 5, 
+      "uid": "b0b3bdcf-a129-4a70-9425-bc2c154dd262"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "N-iterations", 
+      "short_name": "str", 
+      "default": "10", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "n_iter", 
+      "parameter": true, 
+      "order": 3, 
+      "uid": "cd28ab50-0710-462b-946e-5e48a863ae89"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "test", 
+      "short_name": "tes", 
+      "default": "", 
+      "description": "", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": null, 
+      "variable": "test", 
+      "parameter": false, 
+      "order": 6, 
+      "uid": "cf4db26a-bdf8-4c6d-a240-d047c4cef9e3"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "train", 
+      "short_name": "tra", 
+      "description": "", 
+      "variable": "train", 
+      "order": 1, 
+      "uid": "028ae236-f48f-4943-9bb9-beebf4ce141b"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "f9e254f8-8abf-4ac1-b956-a3261530c9c8", 
+      "name": "test", 
+      "short_name": "tes", 
+      "description": "", 
+      "variable": "test", 
+      "order": 1, 
+      "uid": "2406ddba-5318-49a8-9c57-ee3c4b15486c"
+    }
+  }
+]
