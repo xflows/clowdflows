@@ -21,6 +21,8 @@ from workflows.tasks import executeWidgetFunction, executeWidgetProgressBar, exe
 
 from workflows.engine import WidgetRunner, WorkflowRunner
 
+import streams
+
 class WidgetException(Exception):
     pass
 
@@ -1320,6 +1322,10 @@ def copy_workflow(old, user, parent_widget_conversion={},parent_input_conversion
     widget_conversion = {}
     input_conversion = {}
     output_conversion = {}
+    if old.stream:
+        old_stream = old.stream
+        new_stream = streams.models.Stream(workflow=w,user=user,active=False)
+        new_stream.save()
     for widget in old.widgets.all():
         new_widget = Widget()
         new_widget.workflow = w
@@ -1335,6 +1341,31 @@ def copy_workflow(old, user, parent_widget_conversion={},parent_input_conversion
         new_widget.progress = widget.progress
         new_widget.save()
         widget_conversion[widget.id]=new_widget.id
+        if widget.abstract_widget.is_streaming:
+            try:
+                sws = streams.models.StreamWidgetState.objects.get(stream=old_stream,widget=widget)
+                data = sws.state
+                new_sws = streams.models.StreamWidgetState()
+                new_sws.stream = new_stream
+                new_sws.widget = new_widget
+                new_data = data
+                new_sws.state = new_data
+                new_sws.save()
+            except:
+                pass
+            try:
+                swds = streams.models.StreamWidgetData.objects.filter(stream=old_stream,widget=widget)
+                for swd in swds:
+                    data = swd.value
+                    new_swd = streams.models.StreamWidgetData()
+                    new_swd.stream = new_stream
+                    new_swd.widget = new_widget
+                    new_data = data
+                    new_swd.value = new_data
+                    new_swd.save()
+            except:
+                pass
+
         for input in widget.inputs.all():
             new_input = Input()
             new_input.name = input.name

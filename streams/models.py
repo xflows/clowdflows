@@ -1,9 +1,9 @@
 from django.db import models
-from workflows.models import Workflow, Widget
 from django.contrib.auth.models import User
 import workflows.library
 
 from picklefield.fields import PickledObjectField
+import workflows
 
 class HaltStream(Exception):
     pass
@@ -12,7 +12,7 @@ class HaltStream(Exception):
 
 class Stream(models.Model):
     user = models.ForeignKey(User,related_name="streams")
-    workflow = models.OneToOneField(Workflow, related_name="stream")
+    workflow = models.OneToOneField(workflows.models.Workflow, related_name="stream")
     last_executed = models.DateTimeField(auto_now_add=True)
     period = models.IntegerField(default=60)
     active = models.BooleanField(default=False)
@@ -162,12 +162,12 @@ class Stream(models.Model):
 
 class StreamWidgetData(models.Model):
     stream = models.ForeignKey(Stream, related_name="widget_data")
-    widget = models.ForeignKey(Widget, related_name="stream_data")
+    widget = models.ForeignKey(workflows.models.Widget, related_name="stream_data")
     value = PickledObjectField(null=True)
 
 class StreamWidgetState(models.Model):
     stream = models.ForeignKey(Stream, related_name="widget_state")
-    widget = models.ForeignKey(Widget, related_name="stream_state")
+    widget = models.ForeignKey(workflows.models.Widget, related_name="stream_state")
     state = PickledObjectField(null=True)
 
 

@@ -1,12 +1,12 @@
 from django.core.management.base import NoArgsCommand
-from streams.models import *
-from workflows import library
 
 class Command(NoArgsCommand):
     help = 'check for streams that need to be executed and execute them'
     option_list = NoArgsCommand.option_list
     def handle_noargs(self, **options):
         import time
+        from streams.models import Stream
+        from workflows import library
         self.stdout.write("Working on streams...")
         self.stdout.flush()
 
@@ -50,10 +50,10 @@ class Command(NoArgsCommand):
                                     if not i.value==None:
                                         input_dict[i.variable].append(i.value)
                             
-                            function_to_call = getattr(workflows.library,w.abstract_widget.action)
+                            function_to_call = getattr(library,w.abstract_widget.action)
                             function_to_call(input_dict,w,stream)                         
-                        except:
-                            print('something went wrong')
+                        except Exception as e:
+                            print('something went wrong: ', e)
                             continue    
                     self.stdout.write("done!\n")
                     self.stdout.flush()
