@@ -67,7 +67,7 @@ def new_workflow(request):
     w.save()
     request.user.userprofile.active_workflow = w
     request.user.userprofile.save()
-    return redirect('editor')
+    return redirect('the index')
 
 @login_required
 def open_workflow(request,workflow_id):
