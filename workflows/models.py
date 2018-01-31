@@ -1341,7 +1341,7 @@ def copy_workflow(old, user, parent_widget_conversion={},parent_input_conversion
         new_widget.progress = widget.progress
         new_widget.save()
         widget_conversion[widget.id]=new_widget.id
-        if widget.abstract_widget.is_streaming:
+        if widget.abstract_widget and widget.abstract_widget.is_streaming:
             try:
                 sws = streams.models.StreamWidgetState.objects.get(stream=old_stream,widget=widget)
                 data = sws.state
