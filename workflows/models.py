@@ -1322,7 +1322,7 @@ def copy_workflow(old, user, parent_widget_conversion={},parent_input_conversion
     widget_conversion = {}
     input_conversion = {}
     output_conversion = {}
-    if old.stream:
+    if old.can_be_streaming():
         old_stream = old.stream
         new_stream = streams.models.Stream(workflow=w,user=user,active=False)
         new_stream.save()
