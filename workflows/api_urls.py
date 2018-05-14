@@ -12,8 +12,7 @@ router.register(r'outputs', api_views.OutputViewSet)
 
 
 urlpatterns = patterns('',
-                       url(r'^register_user[/]?$', views_integration.RegisterUserAndCreateWorkflowAPIView.as_view(), name='register_user'),
-                       url(r'^modify_widget[/]?$', views_integration.ModifyWidgetRESTView.as_view(), name='modify_widget'),
+                       url(r'^create_workflow[/]?$', views_integration.CreateWorkflowAPIView.as_view(), name='create_workflow'),
 
                        url(r'^', include(router.urls)),
                        url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
