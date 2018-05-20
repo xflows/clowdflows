@@ -11,7 +11,7 @@
       "has_progress_bar": false, 
       "image": "", 
       "description": "Imports data from the central database of the PD_Manager project.", 
-      "static_image": "construction_work .png", 
+      "static_image": "project_logo.png", 
       "action": "pdmanager_import_dataset", 
       "visualization_view": "", 
       "streaming_visualization_view": "", 
@@ -22,6 +22,23 @@
       "is_streaming": false, 
       "order": 1, 
       "name": "Import PD_Manager data"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6ca99fb5-e8c4-4649-80e1-7e1872e2b819", 
+      "name": "dataset_id", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "The ID of the dataset to be imported", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "ds_id", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "91c0e707-5a95-4a5b-b061-4133d55f95fb"
     }
   }, 
   {

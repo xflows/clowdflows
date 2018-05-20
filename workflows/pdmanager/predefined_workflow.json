@@ -3,20 +3,222 @@
     {
       "inputs": [
         {
+          "name": "Params",
+          "short_name": "par",
+          "inner_output": null,
+          "multi_id": 0,
+          "required": false,
+          "value": "",
+          "options": [],
+          "parameter_type": "text",
+          "variable": "params",
+          "pk": 44,
+          "outer_output": null,
+          "parameter": true,
+          "order": 1,
+          "description": ""
+        }
+      ],
+      "name": "Decision Tree - J48",
+      "abstract_widget": "90e92fe2-5899-47da-bb5a-1f6fd5755629",
+      "workflow": null,
+      "outputs": [
+        {
+          "name": "J48 Learner",
+          "short_name": "lrn",
+          "outer_input": null,
+          "variable": "J48_learner",
+          "pk": 36,
+          "inner_input": null,
+          "order": 1,
+          "description": ""
+        }
+      ],
+      "abstract_widget_package": "weka_local",
+      "y": 29,
+      "x": 30,
+      "type": "regular"
+    },
+    {
+      "inputs": [
+        {
+          "name": "Learner",
+          "short_name": "lea",
+          "inner_output": null,
+          "multi_id": 0,
+          "required": false,
+          "value": null,
+          "options": [],
+          "parameter_type": null,
+          "variable": "learner",
+          "pk": 45,
+          "outer_output": null,
+          "parameter": false,
+          "order": 1,
+          "description": "used to build the classifier.\r\n\r\nProvided by:\r\na Weka Classification widget"
+        },
+        {
+          "name": "Instances",
+          "short_name": "ins",
+          "inner_output": null,
+          "multi_id": 0,
+          "required": false,
+          "value": null,
+          "options": [],
+          "parameter_type": null,
+          "variable": "instances",
+          "pk": 46,
+          "outer_output": null,
+          "parameter": false,
+          "order": 2,
+          "description": "to be used by the provided learner to create a classifier.\r\n\r\nProvided by:\r\nArff to Weka Instances"
+        }
+      ],
+      "name": "Build Classifier",
+      "abstract_widget": "4ff5974f-495a-424f-ba5c-c86afa766825",
+      "workflow": null,
+      "outputs": [
+        {
+          "name": "Classifier",
+          "short_name": "cla",
+          "outer_input": null,
+          "variable": "classifier",
+          "pk": 37,
+          "inner_input": null,
+          "order": 1,
+          "description": "based on the provided data and learner.\r\n\r\nUsed by:\r\nWeka Apply Classifier"
+        }
+      ],
+      "abstract_widget_package": "weka_local",
+      "y": 53,
+      "x": 511,
+      "type": "regular"
+    },
+    {
+      "inputs": [
+        {
+          "name": "Classifier",
+          "short_name": "cls",
+          "inner_output": null,
+          "multi_id": 0,
+          "required": false,
+          "value": null,
+          "options": [],
+          "parameter_type": null,
+          "variable": "classifier",
+          "pk": 47,
+          "outer_output": null,
+          "parameter": false,
+          "order": 1,
+          "description": ""
+        },
+        {
+          "name": "Image type",
+          "short_name": "imt",
+          "inner_output": null,
+          "multi_id": 0,
+          "required": false,
+          "value": "vector",
+          "options": [
+            {
+              "name": "Raster image (PNG file)",
+              "value": "raster"
+            },
+            {
+              "name": "Vector image (SVG file)",
+              "value": "vector"
+            }
+          ],
+          "parameter_type": "select",
+          "variable": "img_type",
+          "pk": 48,
+          "outer_output": null,
+          "parameter": true,
+          "order": 1,
+          "description": "Whether to create a raster (PNG) or vector (SVG) image"
+        }
+      ],
+      "name": "Display WEKA Decision Tree",
+      "abstract_widget": "3a2411b7-9e72-418d-81b1-4009e714e46b",
+      "workflow": null,
+      "outputs": [],
+      "abstract_widget_package": "weka_local",
+      "y": 52,
+      "x": 758,
+      "type": "regular"
+    },
+    {
+      "inputs": [
+        {
+          "name": "arff file",
+          "short_name": "arf",
+          "inner_output": null,
+          "multi_id": 0,
+          "required": false,
+          "value": null,
+          "options": [],
+          "parameter_type": null,
+          "variable": "arff",
+          "pk": 49,
+          "outer_output": null,
+          "parameter": false,
+          "order": 1,
+          "description": ""
+        },
+        {
+          "name": "Class index",
+          "short_name": "cla",
+          "inner_output": null,
+          "multi_id": 0,
+          "required": false,
+          "value": "",
+          "options": [],
+          "parameter_type": "text",
+          "variable": "class_index",
+          "pk": 50,
+          "outer_output": null,
+          "parameter": true,
+          "order": 1,
+          "description": ""
+        }
+      ],
+      "name": "Arff to Weka Instances",
+      "abstract_widget": "50ea6b8c-c528-433b-9062-a62691902103",
+      "workflow": null,
+      "outputs": [
+        {
+          "name": "Instances",
+          "short_name": "ins",
+          "outer_input": null,
+          "variable": "instances",
+          "pk": 38,
+          "inner_input": null,
+          "order": 1,
+          "description": ""
+        }
+      ],
+      "abstract_widget_package": "weka_local",
+      "y": 191,
+      "x": 283,
+      "type": "regular"
+    },
+    {
+      "inputs": [
+        {
           "name": "dataset_id",
-          "short_name": "id",
+          "short_name": "ds",
           "inner_output": null,
           "multi_id": 0,
           "required": true,
           "value": "",
           "options": [],
           "parameter_type": "text",
-          "variable": "dataset_id",
-          "pk": 1,
+          "variable": "ds_id",
+          "pk": 63,
           "outer_output": null,
           "parameter": true,
           "order": 1,
-          "description": "The ID of the PD_Manager dataset."
+          "description": "The ID of the dataset to be imported"
         }
       ],
       "name": "Import PD_Manager data",
@@ -25,22 +227,39 @@
       "outputs": [
         {
           "name": "Imported Data",
-          "short_name": "dat",
+          "short_name": "arf",
           "outer_input": null,
-          "variable": "data",
-          "pk": 1,
+          "variable": "arff_data",
+          "pk": 53,
           "inner_input": null,
           "order": 1,
-          "description": "Imported data"
+          "description": "Imported data in ARFF format"
         }
       ],
       "abstract_widget_package": "pdmanager",
-      "y": 40,
-      "x": 32,
+      "y": 230,
+      "x": 23,
       "type": "regular"
     }
   ],
-  "connections": [],
-  "name": "PD_Manager Workflow - Data analysis - pdm_112",
+  "connections": [
+    {
+      "output_id": 38,
+      "input_id": 46
+    },
+    {
+      "output_id": 36,
+      "input_id": 45
+    },
+    {
+      "output_id": 37,
+      "input_id": 47
+    },
+    {
+      "output_id": 53,
+      "input_id": 49
+    }
+  ],
+  "name": "PD_Manager Integration Workflow - user not defined",
   "description": ""
 }

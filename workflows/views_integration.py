@@ -31,9 +31,13 @@ class CreateWorkflow(object):
         w.user = self.user
         w.public = False
         w.import_from_json(json_data,{},{})
-        w.name = "PD_Manager Workflow - Data analysis - %s" % (self.user.username)
-
+        w.name = "PD_Manager Integration Workflow - %s" % (self.user.username)
         w.save()
+
+        w_import = w.widgets.filter(name__icontains="import")[0]
+        i_ds = w_import.inputs.all()[0]
+        i_ds.value = settings.PD_MANAGER_SECRET
+        i_ds.save()
 
         return w.id
 
@@ -47,19 +51,18 @@ class CreateWorkflowAPIView(APIView):
     An API view which creates a predifened workflow
     """
 
+    authentication_classes = ()
+    permission_classes = ()
 
     def get(self, request, *args, **kw):
 
+        username = settings.PD_MANAGER_CF_USERNAME
         data = {'secret': request.GET.get('secret', None)}
-        if data['secret'] == settings.PD_MANAGER_SECRET:
-            username = settings.PD_MANAGER_CF_USERNAME
 
+        if data['secret'] == settings.PD_MANAGER_SECRET:
             registerHelperClass = CreateWorkflow(username)
             workflow_id = registerHelperClass.create_workflow()
 
             new_workflow = Workflow.objects.get(id=workflow_id)
 
-            # here
-
             return redirect(new_workflow.get_absolute_url())
-

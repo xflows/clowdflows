@@ -63,6 +63,8 @@ def download_dataset(ds_id, h):
 
     response_1 = requests.get(url_1, headers=h)
     print str(response_1)
+    if response_1.status_code != 200:
+        raise Exception("Error downloading data from central Db")
 
     j = json.loads(response_1.text)
 
@@ -119,7 +121,7 @@ def pdmanager_import_dataset(input_dict):
     """Import dataset from the main database"""
 
     # --- dataset id, target variable and predictor variables ---------------
-    d_id = settings.PD_MANAGER_DATASET_ID
+    d_id = input_dict['ds_id']
     target, target_val_prefix = ('gait_var_00', 'Gait')
 
     # non_motor
