@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
+          crossorigin="anonymous">
+
+    <title>ClowdFlows GDPR</title>
+    <style>body {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    h3 {
+        margin-top: 2rem;
+    }
+
+    .row {
+        margin-bottom: 1rem;
+    }
+
+    .row .row {
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+
+    hr {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    li {
+        margin-bottom: 1rem;
+    }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="text-center">ClowdFlows Personal data</h1>
+
+    <div class="card bg-light">
+        <div class="card-body text-justify">
+            Hey man! We're super mindful of your personal data so here's us telling you how and why we use it and if you
+            agree with it, kindly let us know so we can continue doing what we do and you can continue doing what you do
+            best - being awesome!
+        </div>
+    </div>
+
+    <h3>Your personal data</h3>
+    <br>
+
+    <div class="card mb-3">
+        <div class="card-header">Your email</div>
+        <div class="card-body text-dark">
+            At some point in time you registered to clowdflows.org with your <strong>email</strong>. We use it for the
+            following reasons:
+            <br><br>
+            <ul>
+                <li class="card-text">Whenever you forget your password we send you an email to reset it.
+                </li>
+                <li>(Optionally) we inform you about cool new stuff that's going on at clowdflows.org</li>
+            </ul>
+        </div>
+    </div>
+    <a name="upload"></a>
+{% if not posted or posted and error %}
+    <div class="card border-dark mb-3">
+        <div class="card-header">Your explicit consent</div>
+        <div class="card-body text-dark">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.
+                    </small>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" name="privacy" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">I agree with your terms of use and privacy policy</label>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" name="correspondence" id="exampleCheck2">
+                    <label class="form-check-label" for="exampleCheck2">I allow you to send me an occasional email about ClowdFlows</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert" style="margin-top:1rem;">
+                        {{ error }}
+                    </div>
+                {% endif %}
+            </form>
+            <div id="messages-container">
+
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="alert alert-success" role="alert" style="margin-top:1rem;">
+        The data was saved and for this we thank you from the bottom of our hearts.
+    </div>
+{% endif %}
+
+</div> <!-- /container -->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+        integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+</script>
+</body>
+</html>

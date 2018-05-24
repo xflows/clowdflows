@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^', include('signuplogin.urls')),
     url(r'^', include('website.urls')),
+    url(r'^', include('gdpr.urls')),
     #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^workflows/', include('workflows.urls')),
     url(r'^streams/', include('streams.urls')),
