@@ -21,5 +21,6 @@ def gdpr_form(request):
             gdpr_profile.save()
     return render(request, "gdpr.html", {
         'posted': posted,
-        'error': error
+        'error': error,
+        'email': request.GET.get('email', '')
     })
