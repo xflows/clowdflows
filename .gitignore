@@ -31,3 +31,4 @@ celerybeat-schedule
 .coverage
 htmlcov
 nlp
+rdm

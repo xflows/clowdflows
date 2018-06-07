@@ -1,4 +1,3 @@
-Django==1.4.1
 Pillow==2.2.1
 PySimpleSOAP==1.05a
 South==0.7.6
@@ -8,7 +7,7 @@ django-orderable-inlines==0.0.6
 django-picklefield==0.2.1
 httplib2==0.7.5
 wsgiref==0.1.2
-mysql-connector-python==1.0.12
+mysql-connector-python==8.0.6
 numpy==1.7.1
 pydot==1.0.28
 pyparsing==1.5.7
