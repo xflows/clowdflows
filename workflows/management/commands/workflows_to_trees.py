@@ -110,48 +110,51 @@ def workflows_to_trees():
     all_trees = []
     workflows = Workflow.objects.all()
     for workflow in workflows:
-        print(workflow.name)
-        tree = Tree()
-        previous_widgets = []
-        all_widgets = []
-        inps = Input.objects.filter(widget__workflow=workflow).defer('value').prefetch_related('options')
-        outs = Output.objects.filter(widget__workflow=workflow).defer('value')
-        widgets = workflow.widgets.all().select_related('abstract_widget')
-        workflow_links = Workflow.objects.filter(widget__in=widgets)
-        inps_by_id = {}
-        outs_by_id = {}
-        for i in inps:
-            if not i.parameter:
-                l = inps_by_id.get(i.widget_id,[])
-                l.append([i.id, i.short_name])
-                inps_by_id[i.widget_id] = l
-        for o in outs:
-            l = outs_by_id.get(o.widget_id,[])
-            l.append([o.id, o.short_name])
-            outs_by_id[o.widget_id] = l
-        for w in widgets:
-            for workflow in workflow_links:
-                if workflow.widget_id == w.id:
-                    w.workflow_link_data = workflow
-                    w.workflow_link_exists = True
-                    break
-            else:
-                w.workflow_link_exists = False
-            w.inputs_all = inps_by_id.get(w.id,[])
-            w.outputs_all = outs_by_id.get(w.id,[])
-            previous_ids = [] 
-            for c in workflow.connections.all():
-                for i in w.inputs_all:
-                    if c.input.id == i[0]:
-                        previous_ids.append(c.output.widget.id)
-                        
-            #print(w.abstract_widget.name, previous_id, w.inputs_all)
+        try:
+            print(workflow.name)
+            tree = Tree()
+            previous_widgets = []
+            all_widgets = []
+            inps = Input.objects.filter(widget__workflow=workflow).defer('value').prefetch_related('options')
+            outs = Output.objects.filter(widget__workflow=workflow).defer('value')
+            widgets = workflow.widgets.all().select_related('abstract_widget')
+            workflow_links = Workflow.objects.filter(widget__in=widgets)
+            inps_by_id = {}
+            outs_by_id = {}
+            for i in inps:
+                if not i.parameter:
+                    l = inps_by_id.get(i.widget_id,[])
+                    l.append([i.id, i.short_name])
+                    inps_by_id[i.widget_id] = l
+            for o in outs:
+                l = outs_by_id.get(o.widget_id,[])
+                l.append([o.id, o.short_name])
+                outs_by_id[o.widget_id] = l
+            for w in widgets:
+                for workflow in workflow_links:
+                    if workflow.widget_id == w.id:
+                        w.workflow_link_data = workflow
+                        w.workflow_link_exists = True
+                        break
+                else:
+                    w.workflow_link_exists = False
+                w.inputs_all = inps_by_id.get(w.id,[])
+                w.outputs_all = outs_by_id.get(w.id,[])
+                previous_ids = [] 
+                for c in workflow.connections.all():
+                    for i in w.inputs_all:
+                        if c.input.id == i[0]:
+                            previous_ids.append(c.output.widget.id)
+                            
+                #print(w.abstract_widget.name, previous_id, w.inputs_all)
 
-            widget_info = {'widget_id': w.id, 'abstract_id':w.abstract_widget.id, 'name':w.abstract_widget.name, 'inputs':w.inputs_all, 
-                           'outputs':w.outputs_all, 'category':w.abstract_widget.category, 'previous_ids':previous_ids}
-            node = Node(w.id, w.abstract_widget.id, w.abstract_widget.name, w.abstract_widget.category, w.inputs_all, w.outputs_all, previous_ids, [])
-            tree.add_node(node)
-        all_trees.append(tree)
+                widget_info = {'widget_id': w.id, 'abstract_id':w.abstract_widget.id, 'name':w.abstract_widget.name, 'inputs':w.inputs_all, 
+                               'outputs':w.outputs_all, 'category':w.abstract_widget.category, 'previous_ids':previous_ids}
+                node = Node(w.id, w.abstract_widget.id, w.abstract_widget.name, w.abstract_widget.category, w.inputs_all, w.outputs_all, previous_ids, [])
+                tree.add_node(node)
+            all_trees.append(tree)
+        except:
+            print(workflow, ' :This workflow is weird, leave it alob')
         #tree.print_tree()
     with open(settings.WORKFLOW_TREES_PATH, "wb") as f:
         pickle.dump(all_trees, f)
