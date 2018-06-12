@@ -18,11 +18,12 @@ class Command(BaseCommand):
 
 class Tree:
 
-    def __init__(self):
+    def __init__(self, name):
         self.first_widgets = []
         self.all_connected_widgets = []
         self.all_unconnected_widgets = []
         self.last_widgets = [] 
+        self.name = name
 
 
     def add_node(self, node):
@@ -112,7 +113,7 @@ def workflows_to_trees():
     for workflow in workflows:
         try:
             print(workflow.name)
-            tree = Tree()
+            tree = Tree(workflow.name)
             previous_widgets = []
             all_widgets = []
             inps = Input.objects.filter(widget__workflow=workflow).defer('value').prefetch_related('options')
@@ -154,7 +155,7 @@ def workflows_to_trees():
                 tree.add_node(node)
             all_trees.append(tree)
         except:
-            print(workflow, ' :This workflow is weird, leave it alob')
+            print(workflow, ' :This workflow is weird, leave it alone')
         #tree.print_tree()
     with open(settings.WORKFLOW_TREES_PATH, "wb") as f:
         pickle.dump(all_trees, f)
