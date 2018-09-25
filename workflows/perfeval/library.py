@@ -41,9 +41,15 @@ def perfeval_classification_statistics(input_dict):
     y_pred = [class_to_int[lbl] for lbl in y_pred]
 
     accuracy = metrics.accuracy_score(y_true, y_pred)
-    precision = metrics.precision_score(y_true, y_pred)
-    recall = metrics.recall_score(y_true, y_pred)
-    f1 = metrics.f1_score(y_true, y_pred)
+    if len(classes) == 2:
+        precision = metrics.precision_score(y_true, y_pred)
+        recall = metrics.recall_score(y_true, y_pred)
+        f1 = metrics.f1_score(y_true, y_pred)
+    else:
+        precision = metrics.precision_score(y_true, y_pred, average='weighted')
+        recall = metrics.recall_score(y_true, y_pred, average='weighted')
+        f1 = metrics.f1_score(y_true, y_pred, average='weighted')
+
     confusion_matrix = metrics.confusion_matrix(y_true, y_pred)
 
     # AUC is defined only for binary classes
