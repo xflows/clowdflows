@@ -26,5 +26,5 @@ class Command(BaseCommand):
             export_package(package_name,self.stdout)
 
         #temporary fix
-        self.stdout.write("Exporting cf_nlp package \n")
-        export_package('nlp',self.stdout, dest_folder='C:\\work\\software\\cf_nlp\\nlp')
+        #self.stdout.write("Exporting cf_nlp package \n")
+        #export_package('nlp',self.stdout, dest_folder='/home/matej/platforms/clowdflows-env/cf_nlp/nlp')

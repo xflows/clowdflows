@@ -3,7 +3,7 @@
 <div id="widget-eval-to-table-{{widget.pk}}" style=" margin: 0 auto">
 <table class="datasetTable">
     <tr>
-        <th class="tablecellcenter"> Algorithm </th>
+        <th class="tablecellcenter"> Name </th>
         <th class="tablecellcenter"> Recall </th>
         <th class="tablecellcenter"> Precision </th>
         <th class="tablecellcenter"> 
@@ -22,11 +22,11 @@
     <tr class="tablerow{{widget.pk}}">
         <td class="tablecellcenter"> {{item.name}} </td>
         <td class="tablecellright"> 
-		{{ item.recall|floatformat:"2" }}{% if 'std_re' in item %}&nbsp;&plusmn;&nbsp;{{item.std_re|floatformat:"2"}}{% endif %} </td>
+		{{ item.recall|floatformat:"4" }}{% if 'std_re' in item %}&nbsp;&plusmn;&nbsp;{{item.std_re|floatformat:"4"}}{% endif %} </td>
         <td class="tablecellright"> 
-		{{ item.precision|floatformat:"2" }}{% if 'std_pr' in item %}&nbsp;&plusmn;&nbsp;{{item.std_pr|floatformat:"2"}}{% endif %} </td>
+		{{ item.precision|floatformat:"4" }}{% if 'std_pr' in item %}&nbsp;&plusmn;&nbsp;{{item.std_pr|floatformat:"4"}}{% endif %} </td>
         <td class="tablecellright"> 
-		{{ item.fscore|floatformat:"2" }}{% if 'std_fs' in item %}&nbsp;&plusmn;&nbsp;{{item.std_fs|floatformat:"2"}}{% endif %} </td>
+		{{ item.fscore|floatformat:"4" }}{% if 'std_fs' in item %}&nbsp;&plusmn;&nbsp;{{item.std_fs|floatformat:"4"}}{% endif %} </td>
         {% if 'accuracy' in input_dict.eval_results.0 %}
         <td class="tablecellright">{{ item.accuracy|floatformat:"2" }}%</td>
         {% endif %}
