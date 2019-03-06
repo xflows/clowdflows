@@ -5,7 +5,7 @@
       "category": "317018eb-3bc8-4862-bce8-273451a01de4", 
       "treeview_image": "", 
       "uid": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
-      "is_streaming": false, 
+      "windows_queue": false, 
       "package": "scikitAlgorithms", 
       "interaction_view": "", 
       "has_progress_bar": false, 
@@ -19,9 +19,26 @@
       "wsdl_method": "", 
       "wsdl": "", 
       "interactive": false, 
-      "windows_queue": false, 
+      "is_streaming": false, 
       "order": 1, 
       "name": "Logistic Regression"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "acd016b6-fd34-42d2-aa2c-25a812af2cf6", 
+      "name": "Class weight", 
+      "short_name": "wei", 
+      "default": "", 
+      "description": "Weights associated with classes in the form \"class_label: weight\". If not given, all classes are supposed to have weight one.", 
+      "required": false, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "weight", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "4dc45d6c-c2a3-4444-8fe7-8ddf3e6f1725"
     }
   }, 
   {
