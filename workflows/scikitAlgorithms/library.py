@@ -249,18 +249,20 @@ def scikitAlgorithms_crossValidation(input_dict):
         pass
     
     scorer = input_dict['scorer']
-    if scorer != 'accuracy':
-        target_value_set = list(set(n_feature))
-        if len(target_value_set) > 2:
+    
+    target_value_set = list(set(n_feature))
+    if len(target_value_set) > 2:
+        if scorer != 'accuracy':
             scorer = scorer + '_micro'
+        n_feature = [target_value_set.index(x) for x in n_feature]
+    else:
+        #always take minority class
+        count_first = n_feature.count(target_value_set[0])
+        count_second = n_feature.count(target_value_set[1])
+        if count_first > count_second:
+            n_feature = [1 if x == target_value_set[1] else 0 for x in n_feature]
         else:
-            #always take minority class
-            count_first = n_feature.count(target_value_set[0])
-            count_second = n_feature.count(target_value_set[1])
-            if count_first > count_second:
-                n_feature = [1 if x == target_value_set[1] else 0 for x in n_feature]
-            else:
-                n_feature = [1 if x == target_value_set[0] else 0 for x in n_feature]
+            n_feature = [1 if x == target_value_set[0] else 0 for x in n_feature]
 
 
     kfold = model_selection.KFold(n_splits=folds, random_state=seed, shuffle=True)
