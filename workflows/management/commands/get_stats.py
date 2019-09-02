@@ -17,7 +17,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
     	cut_date = args[0]
-        users = User.objects.filter(is_superuser=True)
+        users = User.objects.all()
         monthly_stats_joined = defaultdict(int)
         daily_stats_joined = defaultdict(int)
         monthly_stats_active = defaultdict(int)
