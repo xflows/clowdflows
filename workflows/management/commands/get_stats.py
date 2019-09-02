@@ -13,6 +13,7 @@ class Command(BaseCommand):
     	year2 = int(d2.split('_')[0])
     	month1 = int(d1.split('_')[1])
     	month2 = int(d2.split('_')[1])
+    	print(month1, month2, year1, year2)
         return (year1 - year2) * 12 + month1 - month2
 
     def handle(self, *args, **options):
@@ -23,7 +24,7 @@ class Command(BaseCommand):
         monthly_stats_active = defaultdict(int)
         daily_stats_active = defaultdict(int)
         counter = 0
-        today = str(datetime.today().year) + '_' + str(datetime.today().month) + str(datetime.today().day)
+        today = str(datetime.today().year) + '_' + str(datetime.today().month) + '_' + str(datetime.today().day)
         all_months = self.diff_month(today, cut_date)
 
 
@@ -48,7 +49,7 @@ class Command(BaseCommand):
         for month, num in sorted(monthly_stats_joined.items(), key=lambda x:x[0]):
         	print month + ': ' + str(num)
         
-
+        print(all_months)
 
         	
 
