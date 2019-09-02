@@ -29,10 +29,38 @@ class Command(BaseCommand):
 
 
         for user in users:
-        	ts_joined_d = str(user.date_joined.year) + '_' + str(user.date_joined.month) + '_' + str(user.date_joined.day)
-        	ts_active_d = str(user.last_login.year) + '_' + str(user.last_login.month) + '_' + str(user.last_login.day)
-        	ts_joined_m = str(user.date_joined.year) + '_' + str(user.date_joined.month)
-        	ts_active_m = str(user.last_login.year) + '_' + str(user.last_login.month)
+        	
+        	joined_month = user.date_joined.month
+        	if joined_month < 10:
+        		joined_month = str(0) + str(joined_month)
+        	else:
+        		joined_month = str(joined_month)
+
+        	login_month = user.last_login.month
+        	if login_month < 10:
+        		login_month = str(0) + str(login_month)
+        	else:
+        		login_month = str(login_month)
+
+
+        	joined_day = user.date_joined.day
+        	if joined_day < 10:
+        		joined_day = str(0) + str(joined_day)
+        	else:
+        		joined_day = str(joined_day)
+
+        	login_day = user.last_login.day
+        	if login_day < 10:
+        		login_day = str(0) + str(login_day)
+        	else:
+        		login_day = str(login_day)
+
+
+
+        	ts_joined_d = str(user.date_joined.year) + '_' + joined_month + '_' + joined_day
+        	ts_active_d = str(user.last_login.year) + '_' + login_month + '_' + login_day
+        	ts_joined_m = str(user.date_joined.year) + '_' + joined_month
+        	ts_active_m = str(user.last_login.year) + '_' + login_day
 
 
 
@@ -49,10 +77,7 @@ class Command(BaseCommand):
         for month, num in sorted(monthly_stats_joined.items(), key=lambda x:x[0]):
         	print month + ': ' + str(num)
         
-        print(all_months)
-
-        	
-
+        
         print 'New users since ', cut_date, ': ', counter
         print 'Average new users per month: ', counter/float(all_months)
 
