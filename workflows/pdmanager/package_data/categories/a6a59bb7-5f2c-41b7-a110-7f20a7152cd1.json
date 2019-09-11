@@ -1,0 +1,9 @@
+{
+  "model": "workflows.category", 
+  "fields": {
+    "name": "PD_Manager", 
+    "parent": null, 
+    "order": 1, 
+    "uid": "a6a59bb7-5f2c-41b7-a110-7f20a7152cd1"
+  }
+}

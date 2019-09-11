@@ -1,0 +1,56 @@
+[
+  {
+    "model": "workflows.abstractwidget", 
+    "fields": {
+      "category": "a6a59bb7-5f2c-41b7-a110-7f20a7152cd1", 
+      "treeview_image": "", 
+      "uid": "6ca99fb5-e8c4-4649-80e1-7e1872e2b819", 
+      "windows_queue": false, 
+      "package": "pdmanager", 
+      "interaction_view": "", 
+      "has_progress_bar": false, 
+      "image": "", 
+      "description": "Imports data from the central database of the PD_Manager project.", 
+      "static_image": "project_logo.png", 
+      "action": "pdmanager_import_dataset", 
+      "visualization_view": "", 
+      "streaming_visualization_view": "", 
+      "post_interact_action": "", 
+      "wsdl_method": "", 
+      "wsdl": "", 
+      "interactive": false, 
+      "is_streaming": false, 
+      "order": 1, 
+      "name": "Import PD_Manager data"
+    }
+  }, 
+  {
+    "model": "workflows.abstractinput", 
+    "fields": {
+      "widget": "6ca99fb5-e8c4-4649-80e1-7e1872e2b819", 
+      "name": "dataset_id", 
+      "short_name": "ds", 
+      "default": "", 
+      "description": "The ID of the dataset to be imported", 
+      "required": true, 
+      "multi": false, 
+      "parameter_type": "text", 
+      "variable": "ds_id", 
+      "parameter": true, 
+      "order": 1, 
+      "uid": "91c0e707-5a95-4a5b-b061-4133d55f95fb"
+    }
+  }, 
+  {
+    "model": "workflows.abstractoutput", 
+    "fields": {
+      "widget": "6ca99fb5-e8c4-4649-80e1-7e1872e2b819", 
+      "name": "Imported Data", 
+      "short_name": "arf", 
+      "description": "Imported data in ARFF format", 
+      "variable": "arff_data", 
+      "order": 1, 
+      "uid": "4670b2b1-7bf5-4516-8a20-759df02966ea"
+    }
+  }
+]
