@@ -1,4 +1,4 @@
-Pillow==2.2.1
+Pillow==6.2.0
 PySimpleSOAP==1.05a
 South==0.7.6
 Werkzeug==0.8.3
