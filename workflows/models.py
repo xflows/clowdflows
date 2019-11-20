@@ -78,6 +78,8 @@ class Workflow(models.Model):
     description = models.TextField(blank=True,default='') # a field
     widget = models.OneToOneField('Widget',related_name="workflow_link",blank=True,null=True)
     template_parent = models.ForeignKey('Workflow',blank=True,null=True,default=None,on_delete=models.SET_NULL)
+    # URL of an identical workflow in on new clowdflows site, if an analogue exists (entered manually)
+    new_url = models.URLField(blank=True);
 
     def import_from_json(self,json_data,input_conversion,output_conversion):
         self.name = json_data['name']

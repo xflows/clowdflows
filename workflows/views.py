@@ -72,7 +72,10 @@ def new_workflow(request):
 @login_required
 def open_workflow(request,workflow_id):
     w = get_object_or_404(Workflow, pk=workflow_id)
-    if w.user == request.user:
+    # If a version of this workflows exists on the new site, redirect there
+    if w.new_url:
+        return redirect(w.new_url)
+    elif w.user == request.user:
         request.user.userprofile.active_workflow = w
         request.user.userprofile.save()
     else:
