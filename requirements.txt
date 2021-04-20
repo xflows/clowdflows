@@ -2,7 +2,7 @@ Django==1.4.15
 Pillow==4.3.0
 PySimpleSOAP==1.05a
 South==0.7.6
-Werkzeug==0.8.3
+Werkzeug==0.15.3
 django-extensions==0.9
 django-orderable-inlines==0.0.6
 django-picklefield==0.2.1
