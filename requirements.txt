@@ -1,5 +1,5 @@
 Django==1.4.15
-Pillow==4.3.0
+Pillow==8.3.2
 PySimpleSOAP==1.05a
 South==0.7.6
 Werkzeug==0.8.3
