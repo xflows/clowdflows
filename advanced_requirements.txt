@@ -16,7 +16,7 @@ scipy==0.13.0
 feedparser==5.1.2
 networkx==1.8.1
 unidecode==0.04.13
-nltk==3.2.1
+nltk==3.6.3
 psycopg2==2.6.1
 python-rdm>=0.1.7
 pandas==0.20.1
